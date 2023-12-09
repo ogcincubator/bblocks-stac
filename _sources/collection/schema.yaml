@@ -1,0 +1,11 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+description: 'STAC Collection'
+allOf:
+  - $ref: bblocks://ogc.geo.common.data_types.geojson
+  - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
+  - type: object
+    properties:
+      links:
+        type: array
+        items:
+          $ref: bblocks://ogc.ogc-utils.json-link
