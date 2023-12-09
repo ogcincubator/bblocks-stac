@@ -1,0 +1,39 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.item",
+  "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
+  "name": "STAC Item",
+  "abstract": "A SpatioTemporal Asset Catalogs (STAC) item",
+  "status": "under-development",
+  "dateTimeAddition": "2023-12-08T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2023-12-09",
+  "sources": [
+    {
+      "title": "STAC Specification",
+      "link": "https://stacspec.org/en/about/stac-spec/"
+    }
+  ],
+  "scope": "contrib",
+  "tags": [
+    "stac",
+    "item"
+  ],
+  "shaclRules": {},
+  "dependsOn": [
+    "ogc.geo.common.data_types.geojson"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/item/",
+  "validationPassed": true,
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/item"
+}

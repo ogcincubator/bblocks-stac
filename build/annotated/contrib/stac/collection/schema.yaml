@@ -1,0 +1,32 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: STAC Collection
+allOf:
+- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml
+- $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
+- type: object
+  properties:
+    links:
+      type: array
+      items:
+        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+      x-jsonld-id: rdfs:seeAlso
+x-jsonld-extra-terms:
+  stac_version: urn:stac:vocab#version
+  stac_extensions: urn:stac:vocab#extensions
+  description: http://purl.org/dc/terms/description
+  license: http://purl.org/dc/terms/license
+  keywords: http://purl.org/dc/terms/subject
+  extent: http://purl.org/dc/terms/extent
+  assets:
+    x-jsonld-id: urn:stac:vocab#hasAsset
+    x-jsonld-container: '@id'
+    x-jsonld-context:
+      href:
+        '@id': http://www.w3.org/ns/dcat#downloadURL
+        '@type': '@id'
+      title: http://purl.org/dc/terms/title
+      type: http://purl.org/dc/terms/format
+x-jsonld-prefixes:
+  stac: urn:stac:vocab#
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
