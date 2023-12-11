@@ -1064,9 +1064,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <grib:> .
 @prefix ns2: <proj:> .
-@prefix ns3: <processing:> .
-@prefix ns4: <forecast:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns3: <forecast:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <processing:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
 @prefix raster: <urn:stac:extensions/raster#> .
@@ -1077,17 +1077,17 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/1660262400-gefs.chem.t00z.a2d_0p25.f000> a geojson:Feature ;
-    ns4:horizon "PT0H" ;
-    ns4:reference_datetime "2022-08-12T00:00:00Z" ;
+    ns3:horizon "PT0H" ;
+    ns3:reference_datetime "2022-08-12T00:00:00Z" ;
     ns1:discipline "meteorological" ;
     rdfs:seeAlso [ rdfs:label "NOAA Global Ensemble Forecast System (GEFS)" ;
             dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
     geojson:bbox ( -1.80125e+02 9.0125e+01 1.79875e+02 -9.0125e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( "[[-180.125, -90.125], [179.875, -90.125], [179.875, 90.125], [-180.125, 90.125], [-180.125, -90.125]]" ) ] ;
-    ns3:facility "US-NCEP" ;
+    ns5:facility "US-NCEP" ;
     ns2:projjson [ a <https://example.com/stac/raster/example-1/GeographicCRS> ] ;
     ns2:shape 721,
         1440 ;
@@ -1108,105 +1108,105 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
     dcterms:title "GRIB2 file" ;
     dcat:downloadURL <https://example.com/stac/raster/tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2> ;
     raster:bands [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ;
-            qudt:unit "kg/(m^2)" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/colmd> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ;
-            qudt:unit "kg/(m^2)" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/colmd> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ;
-            qudt:unit "kg/(m^2)" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/colmd> ],
-        [ ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (fine)" ;
-            qudt:unit "10^-6g/m^3" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/pmtf> ],
-        [ ns1:short_name "0-EATM" ;
             dcterms:description "Scattering Aerosol Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/sctaotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/sctaotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/sctaotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Column-Integrated Mass Density" ;
             qudt:unit "kg/(m^2)" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/colmd> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Asymmetry Factor" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/asysfk> ],
-        [ ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (fine)" ;
-            qudt:unit "10^-6g/m^3" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/pmtf> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/colmd> ],
         [ ns1:short_name "0-SFC" ;
             dcterms:description "Particulate matter (coarse)" ;
             qudt:unit "10^-6g/m^3" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/pmtc> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/pmtc> ],
         [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
+            dcterms:description "Scattering Aerosol Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/sctaotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Column-Integrated Mass Density" ;
+            qudt:unit "kg/(m^2)" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/colmd> ],
         [ ns1:short_name "0-SFC" ;
             dcterms:description "Particulate matter (fine)" ;
             qudt:unit "10^-6g/m^3" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/pmtf> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/pmtf> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Asymmetry Factor" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/asysfk> ],
+        [ ns1:short_name "0-SFC" ;
+            dcterms:description "Particulate matter (fine)" ;
+            qudt:unit "10^-6g/m^3" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/pmtf> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Scattering Aerosol Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/sctaotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/sctaotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ;
-            qudt:unit "kg/(m^2)" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/colmd> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Single Scattering Albedo" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/ssalbk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/sctaotk> ],
-        [ ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/sctaotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/ssalbk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Column-Integrated Mass Density" ;
             qudt:unit "kg/(m^2)" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/colmd> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/colmd> ],
+        [ ns1:short_name "0-SFC" ;
+            dcterms:description "Particulate matter (fine)" ;
+            qudt:unit "10^-6g/m^3" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/pmtf> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/aotk> ],
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Column-Integrated Mass Density" ;
+            qudt:unit "kg/(m^2)" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/colmd> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
         [ ns1:short_name "0-EATM" ;
             dcterms:description "Scattering Aerosol Optical Thickness" ;
-            sosa:observedProperty <https://example.com/stac/raster/example-1/sctaotk> ] .
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/sctaotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Column-Integrated Mass Density" ;
+            qudt:unit "kg/(m^2)" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/colmd> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Scattering Aerosol Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/sctaotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Scattering Aerosol Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/sctaotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/aotk> ],
+        [ ns1:short_name "0-EATM" ;
+            dcterms:description "Column-Integrated Mass Density" ;
+            qudt:unit "kg/(m^2)" ;
+            sosa:observedProperty <http://w3id.org/ogc/dev/stac-examples/bands/colmd> ] .
 
 <https://example.com/stac/raster/example-1/index> dcterms:description "Contains information on each message within the GRIB2 file." ;
     dcterms:format "text/plain" ;
@@ -1242,6 +1242,8 @@ x-jsonld-extra-terms:
       grib:element:
         '@id': http://www.w3.org/ns/sosa/observedProperty
         '@type': '@id'
+        '@context':
+          '@base': http://w3id.org/ogc/dev/stac-examples/bands/
       unit: http://qudt.org/1.1/schema/qudt#unit
 x-jsonld-prefixes:
   raster: urn:stac:extensions/raster#
@@ -1264,35 +1266,6 @@ Links to the schema:
 ```json--ldContext
 {
   "@context": {
-    "type": "@type",
-    "id": "@id",
-    "properties": "@nest",
-    "geometry": {
-      "@context": {
-        "coordinates": {
-          "@container": "@list",
-          "@id": "geojson:coordinates"
-        }
-      },
-      "@id": "geojson:geometry"
-    },
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
-    },
-    "Feature": "geojson:Feature",
-    "FeatureCollection": "geojson:FeatureCollection",
-    "GeometryCollection": "geojson:GeometryCollection",
-    "LineString": "geojson:LineString",
-    "MultiLineString": "geojson:MultiLineString",
-    "MultiPoint": "geojson:MultiPoint",
-    "MultiPolygon": "geojson:MultiPolygon",
-    "Point": "geojson:Point",
-    "Polygon": "geojson:Polygon",
-    "features": {
-      "@container": "@set",
-      "@id": "geojson:features"
-    },
     "links": {
       "@context": {
         "href": {
@@ -1331,18 +1304,49 @@ Links to the schema:
         "type": "dct:format"
       }
     },
+    "type": "@type",
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": {
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
+      "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
+    },
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {
         "aotk": "http://vocab.nerc.ac.uk/standard_name/atmosphere_optical_thickness_due_to_ambient_aerosol_particles/",
         "grib:element": {
           "@id": "sosa:observedProperty",
-          "@type": "@id"
+          "@type": "@id",
+          "@context": {
+            "@base": "http://w3id.org/ogc/dev/stac-examples/bands/"
+          }
         },
         "unit": "qudt:unit"
       }
     },
-    "geojson": "https://purl.org/geojson/vocab#",
     "stac": "urn:stac:vocab#",
     "dct": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -1351,6 +1355,7 @@ Links to the schema:
     "raster": "urn:stac:extensions/raster#",
     "sosa": "http://www.w3.org/ns/sosa/",
     "qudt": "http://qudt.org/1.1/schema/qudt#",
+    "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
   }
 }

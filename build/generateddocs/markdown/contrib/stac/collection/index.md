@@ -5,7 +5,7 @@
 
 A SpatioTemporal Asset Catalogs (STAC) collection
 
-[*Status*](http://www.opengis.net/def/status): Invalid
+[*Status*](http://www.opengis.net/def/status): Under development
 
 ## Examples
 
@@ -495,8 +495,11 @@ A SpatioTemporal Asset Catalogs (STAC) collection
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <urn:stac:vocab#> .
 
-<https://example.com/stac/example1/sentinel-2> a <https://example.com/stac/example1/Collection> ;
-    dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
+<https://example.com/stac/example1/metadata_iso_19139> dcterms:format "application/vnd.iso.19139+xml" ;
+    dcterms:title "ISO 19139 metadata" ;
+    dcat:downloadURL <https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> .
+
+[] dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
 imaging mission supporting Copernicus Land Monitoring studies,
 including the monitoring of vegetation, soil and water cover,
 as well as observation of inland waterways and coastal areas.
@@ -526,13 +529,13 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "msi",
         "radiance",
         "sentinel" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -543,10 +546,6 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
     stac:hasAsset <https://example.com/stac/example1/metadata_iso_19139> ;
     stac:version "1.0.0" .
 
-<https://example.com/stac/example1/metadata_iso_19139> dcterms:format "application/vnd.iso.19139+xml" ;
-    dcterms:title "ISO 19139 metadata" ;
-    dcat:downloadURL <https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> .
-
 
 ```
 
@@ -556,7 +555,6 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
 $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
-- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
 - type: object
   properties:
@@ -599,35 +597,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "type": "@type",
-    "id": "@id",
-    "properties": "@nest",
-    "geometry": {
-      "@context": {
-        "coordinates": {
-          "@container": "@list",
-          "@id": "geojson:coordinates"
-        }
-      },
-      "@id": "geojson:geometry"
-    },
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
-    },
-    "Feature": "geojson:Feature",
-    "FeatureCollection": "geojson:FeatureCollection",
-    "GeometryCollection": "geojson:GeometryCollection",
-    "LineString": "geojson:LineString",
-    "MultiLineString": "geojson:MultiLineString",
-    "MultiPoint": "geojson:MultiPoint",
-    "MultiPolygon": "geojson:MultiPolygon",
-    "Point": "geojson:Point",
-    "Polygon": "geojson:Polygon",
-    "features": {
-      "@container": "@set",
-      "@id": "geojson:features"
-    },
     "links": {
       "@context": {
         "href": {
@@ -666,7 +635,6 @@ Links to the schema:
         "type": "dct:format"
       }
     },
-    "geojson": "https://purl.org/geojson/vocab#",
     "stac": "urn:stac:vocab#",
     "dct": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
