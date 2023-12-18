@@ -1,15 +1,15 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <urn:stac:vocab#> .
 
-<https://example.com/stac/example1/metadata_iso_19139> dcterms:format "application/vnd.iso.19139+xml" ;
-    dcterms:title "ISO 19139 metadata" ;
+<file:///github/workspace/metadata_iso_19139> dct:format "application/vnd.iso.19139+xml" ;
+    dct:title "ISO 19139 metadata" ;
     dcat:downloadURL <https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> .
 
-[] dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
+[] dct:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
 imaging mission supporting Copernicus Land Monitoring studies,
 including the monitoring of vegetation, soil and water cover,
 as well as observation of inland waterways and coastal areas.
@@ -31,28 +31,28 @@ indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Mili
 
 For more details on Sentinel-2 radiometric resoltuon, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
 """ ;
-    dcterms:extent [ ] ;
-    dcterms:license "proprietary" ;
-    dcterms:subject "copernicus",
+    dct:extent [ ] ;
+    dct:license "proprietary" ;
+    dct:subject "copernicus",
         "esa",
         "eu",
         "msi",
         "radiance",
         "sentinel" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
+            dct:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <file:///github/catalog.json> ],
+        [ rdfs:label "Example Catalog" ;
+            dct:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
+            oa:hasTarget <file:///github/catalog.json> ] ;
     stac:extensions "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
-    stac:hasAsset <https://example.com/stac/example1/metadata_iso_19139> ;
+    stac:hasAsset <file:///github/workspace/metadata_iso_19139> ;
     stac:version "1.0.0" .
 
