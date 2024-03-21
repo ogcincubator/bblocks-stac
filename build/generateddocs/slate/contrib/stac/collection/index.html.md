@@ -29,8 +29,8 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/" target="_blank">failed</a></strong>
 </aside>
 
 # Examples
@@ -573,13 +573,13 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "msi",
         "radiance",
         "sentinel" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -607,6 +607,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml
 - type: object
   properties:
     links:

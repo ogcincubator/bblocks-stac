@@ -15,12 +15,12 @@
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/extensions/raster/" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster" ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/raster/index.json" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2024-03-21"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/forecast> ;
@@ -45,20 +45,21 @@
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data." ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection" ],
-        [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/collection/" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection/index.json" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection/index.md" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2024-03-21"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     dcat:keyword "collection",
         "stac" ;
-    bblocks:dependsOn <https://ogcincubator.github.io/ogc.ogc-utils.json-link> ;
+    bblocks:dependsOn <https://ogcincubator.github.io/ogc.api.records.core>,
+        <https://ogcincubator.github.io/ogc.ogc-utils.json-link> ;
     bblocks:hasJsonLdContext <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld> ;
     bblocks:hasSchema <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json>,
         <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml> ;
@@ -72,14 +73,14 @@
     rdfs:label "STAC Item" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) item" ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item/index.json" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/item/" ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/item/" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item/index.json" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2024-03-21"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
@@ -110,17 +111,18 @@ Provides a framework for documentation and testing of additional extensions.
 """ ;
     skos:prefLabel "Building Blocks - OGC Building Blocks for STAC" ;
     bblocks:hasValidationReport <https://ogcincubator.github.io/bblocks-stac/build/tests/report.html> ;
-    bblocks:imports <https://opengeospatial.github.io/bblocks/register.json> .
+    bblocks:imports <https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json>,
+        <https://opengeospatial.github.io/bblocks/register.json> .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2024-03-21T06:51:18.029011"^^xsd:dateTime ;
-    prov:startedAtTime "2024-03-21T06:51:17.968768"^^xsd:dateTime ;
+    prov:endedAtTime "2024-03-21T07:47:40.866950"^^xsd:dateTime ;
+    prov:startedAtTime "2024-03-21T07:47:40.808433"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/yaml" ;
             rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
         [ a prov:Entity ;
             dct:format "application/json" ;
-            dct:hasVersion "git:65fde05ec95a7eddcf005761b5752cab8759c624" ;
+            dct:hasVersion "git:327f6b9154c64259f08460e239ca18ca442b6f90" ;
             rdfs:seeAlso <https://ogcincubator.github.io/bblocks-stac/build/register.json> ] ;
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;

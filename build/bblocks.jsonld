@@ -106,7 +106,7 @@
   "name": "Building Blocks - OGC Building Blocks for STAC",
   "abstract": "These Building Blocks provide a validation and documentation wrapper over STAC and extension schemas, and aid in transparent re-use of STAC elements",
   "description": "Allows for validation and testing of STAC examples.\n\nSupports definition and testing of transformations to/from STAC from other formats.\n\nImplementers can fork this repository and add additional examples in the `tests/` directory of each Building Block and run validation processes locally.\n\nProvides a framework for documentation and testing of additional extensions.\n",
-  "modified": "2024-03-21T06:51:08.411394",
+  "modified": "2024-03-21T07:47:21.844641",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"3ab474f97c60e5422b1204350317b546bf781d3d",
@@ -120,7 +120,8 @@
   "viewerURL": "https://ogcincubator.github.io/bblocks-stac/",
   "validationReport": "https://ogcincubator.github.io/bblocks-stac/build/tests/report.html",
   "imports": [
-    "https://opengeospatial.github.io/bblocks/register.json"
+    "https://opengeospatial.github.io/bblocks/register.json",
+    "https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json"
   ],
   "@type": [
     "skos:ConceptScheme",
@@ -214,6 +215,7 @@
       ],
       "shaclRules": {},
       "dependsOn": [
+        "ogc.api.records.core",
         "ogc.ogc-utils.json-link"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld",
@@ -224,7 +226,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/context.jsonld",
       "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/schema.yaml",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/",
-      "validationPassed": true,
+      "validationPassed": false,
       "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/",
       "documentation": {
         "json-full": {
@@ -276,8 +278,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.contrib.stac.collection",
-        "ogc.contrib.stac.item"
+        "ogc.contrib.stac.item",
+        "ogc.contrib.stac.collection"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml",

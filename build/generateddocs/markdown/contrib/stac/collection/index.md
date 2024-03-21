@@ -529,13 +529,13 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "msi",
         "radiance",
         "sentinel" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -556,6 +556,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml
 - type: object
   properties:
     links:
