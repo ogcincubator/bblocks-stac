@@ -2,13 +2,13 @@ x-defs:
   ogc.contrib.stac.collection:
     description: STAC Collection
     allOf:
-    - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json
     - type: object
       properties:
         links:
           type: array
           items:
-            $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.json-link
           x-jsonld-id: rdfs:seeAlso
     x-jsonld-extra-terms:
       stac_version: urn:stac:vocab#version
@@ -32,5 +32,1381 @@ x-defs:
       dcat: http://www.w3.org/ns/dcat#
     x-schema-version: https://json-schema.org/draft/2020-12/schema
     x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml
+  github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json:
+    title: STAC Collection Specification
+    description: This object represents Collections in a SpatioTemporal Asset Catalog.
+    allOf:
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection
+    definitions:
+      collection:
+        title: STAC Collection
+        description: These are the fields specific to a STAC Collection. All other
+          fields are inherited from STAC Catalog.
+        type: object
+        required:
+        - stac_version
+        - type
+        - id
+        - description
+        - license
+        - extent
+        - links
+        properties:
+          stac_version:
+            title: STAC version
+            type: string
+            const: 1.0.0
+          stac_extensions:
+            title: STAC extensions
+            type: array
+            uniqueItems: true
+            items:
+              title: Reference to a JSON Schema
+              type: string
+              format: iri
+          type:
+            title: Type of STAC entity
+            const: Collection
+          id:
+            title: Identifier
+            type: string
+            minLength: 1
+          title:
+            title: Title
+            type: string
+          description:
+            title: Description
+            type: string
+            minLength: 1
+          keywords:
+            title: Keywords
+            type: array
+            items:
+              type: string
+          license:
+            title: Collection License Name
+            type: string
+            pattern: ^[\w\-\.\+]+$
+          providers:
+            type: array
+            items:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  title: Organization name
+                  type: string
+                description:
+                  title: Organization description
+                  type: string
+                roles:
+                  title: Organization roles
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - producer
+                    - licensor
+                    - processor
+                    - host
+                url:
+                  title: Organization homepage
+                  type: string
+                  format: iri
+          extent:
+            title: Extents
+            type: object
+            required:
+            - spatial
+            - temporal
+            properties:
+              spatial:
+                title: Spatial extent object
+                type: object
+                required:
+                - bbox
+                properties:
+                  bbox:
+                    title: Spatial extents
+                    type: array
+                    minItems: 1
+                    items:
+                      title: Spatial extent
+                      type: array
+                      oneOf:
+                      - minItems: 4
+                        maxItems: 4
+                      - minItems: 6
+                        maxItems: 6
+                      items:
+                        type: number
+              temporal:
+                title: Temporal extent object
+                type: object
+                required:
+                - interval
+                properties:
+                  interval:
+                    title: Temporal extents
+                    type: array
+                    minItems: 1
+                    items:
+                      title: Temporal extent
+                      type: array
+                      minItems: 2
+                      maxItems: 2
+                      items:
+                        type: string
+                        format: date-time
+                        pattern: (\+00:00|Z)$
+                        nullable: true
+          assets:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+          links:
+            title: Links
+            type: array
+            items:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link
+          summaries:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries
+      link:
+        type: object
+        required:
+        - rel
+        - href
+        properties:
+          href:
+            title: Link reference
+            type: string
+            format: iri-reference
+            minLength: 1
+          rel:
+            title: Link relation type
+            type: string
+            minLength: 1
+          type:
+            title: Link type
+            type: string
+          title:
+            title: Link title
+            type: string
+      summaries:
+        type: object
+        additionalProperties:
+          anyOf:
+          - title: JSON Schema
+            type: object
+            minProperties: 1
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
+          - title: Range
+            type: object
+            required:
+            - minimum
+            - maximum
+            properties:
+              minimum:
+                title: Minimum value
+                type:
+                - number
+                - string
+                anyOf:
+                  anyOf:
+                  - type: number
+                  - type: string
+              maximum:
+                title: Maximum value
+                type:
+                - number
+                - string
+                anyOf:
+                  anyOf:
+                  - type: number
+                  - type: string
+          - title: Set of values
+            type: array
+            minItems: 1
+            items:
+              description: For each field only the original data type of the property
+                can occur (except for arrays), but we can't validate that in JSON
+                Schema yet. See the sumamry description in the STAC specification
+                for details.
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json#
+  ogc.ogc-utils.json-link:
+    description: JSON Link
+    type: object
+    required:
+    - href
+    - rel
+    properties:
+      href:
+        type: string
+        format: uri-reference
+        x-jsonld-type: '@id'
+        x-jsonld-id: http://www.w3.org/ns/oa#hasTarget
+      rel:
+        type: string
+        x-jsonld-id: http://www.iana.org/assignments/relation
+        x-jsonld-type: '@id'
+        x-jsonld-base: http://www.iana.org/assignments/relation/
+      anchor:
+        type: string
+      type:
+        type: string
+        x-jsonld-id: http://purl.org/dc/terms/type
+      hreflang:
+        type: string
+        x-jsonld-id: http://purl.org/dc/terms/language
+      title:
+        type: string
+        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
+      length:
+        type: integer
+        x-jsonld-id: http://purl.org/dc/terms/extent
+    x-jsonld-prefixes:
+      oa: http://www.w3.org/ns/oa#
+      rdfs: http://www.w3.org/2000/01/rdf-schema#
+      dct: http://purl.org/dc/terms/
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+    x-schema-source: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+  schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json:
+    title: STAC Collection Specification
+    description: This object represents Collections in a SpatioTemporal Asset Catalog.
+    allOf:
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection
+    definitions:
+      collection:
+        title: STAC Collection
+        description: These are the fields specific to a STAC Collection. All other
+          fields are inherited from STAC Catalog.
+        type: object
+        required:
+        - stac_version
+        - type
+        - id
+        - description
+        - license
+        - extent
+        - links
+        properties:
+          stac_version:
+            title: STAC version
+            type: string
+            const: 1.0.0
+          stac_extensions:
+            title: STAC extensions
+            type: array
+            uniqueItems: true
+            items:
+              title: Reference to a JSON Schema
+              type: string
+              format: iri
+          type:
+            title: Type of STAC entity
+            const: Collection
+          id:
+            title: Identifier
+            type: string
+            minLength: 1
+          title:
+            title: Title
+            type: string
+          description:
+            title: Description
+            type: string
+            minLength: 1
+          keywords:
+            title: Keywords
+            type: array
+            items:
+              type: string
+          license:
+            title: Collection License Name
+            type: string
+            pattern: ^[\w\-\.\+]+$
+          providers:
+            type: array
+            items:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  title: Organization name
+                  type: string
+                description:
+                  title: Organization description
+                  type: string
+                roles:
+                  title: Organization roles
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - producer
+                    - licensor
+                    - processor
+                    - host
+                url:
+                  title: Organization homepage
+                  type: string
+                  format: iri
+          extent:
+            title: Extents
+            type: object
+            required:
+            - spatial
+            - temporal
+            properties:
+              spatial:
+                title: Spatial extent object
+                type: object
+                required:
+                - bbox
+                properties:
+                  bbox:
+                    title: Spatial extents
+                    type: array
+                    minItems: 1
+                    items:
+                      title: Spatial extent
+                      type: array
+                      oneOf:
+                      - minItems: 4
+                        maxItems: 4
+                      - minItems: 6
+                        maxItems: 6
+                      items:
+                        type: number
+              temporal:
+                title: Temporal extent object
+                type: object
+                required:
+                - interval
+                properties:
+                  interval:
+                    title: Temporal extents
+                    type: array
+                    minItems: 1
+                    items:
+                      title: Temporal extent
+                      type: array
+                      minItems: 2
+                      maxItems: 2
+                      items:
+                        type: string
+                        format: date-time
+                        pattern: (\+00:00|Z)$
+                        nullable: true
+          assets:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+          links:
+            title: Links
+            type: array
+            items:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link
+          summaries:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries
+      link:
+        type: object
+        required:
+        - rel
+        - href
+        properties:
+          href:
+            title: Link reference
+            type: string
+            format: iri-reference
+            minLength: 1
+          rel:
+            title: Link relation type
+            type: string
+            minLength: 1
+          type:
+            title: Link type
+            type: string
+          title:
+            title: Link title
+            type: string
+      summaries:
+        type: object
+        additionalProperties:
+          anyOf:
+          - title: JSON Schema
+            type: object
+            minProperties: 1
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
+          - title: Range
+            type: object
+            required:
+            - minimum
+            - maximum
+            properties:
+              minimum:
+                title: Minimum value
+                type:
+                - number
+                - string
+                anyOf:
+                  anyOf:
+                  - type: number
+                  - type: string
+              maximum:
+                title: Maximum value
+                type:
+                - number
+                - string
+                anyOf:
+                  anyOf:
+                  - type: number
+                  - type: string
+          - title: Set of values
+            type: array
+            minItems: 1
+            items:
+              description: For each field only the original data type of the property
+                can occur (except for arrays), but we can't validate that in JSON
+                Schema yet. See the sumamry description in the STAC specification
+                for details.
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json#
+  schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json:
+    title: STAC Item
+    type: object
+    description: This object represents the metadata for an item in a SpatioTemporal
+      Asset Catalog.
+    allOf:
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
+    definitions:
+      common_metadata:
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
+      core:
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson
+        - oneOf:
+          - type: object
+            required:
+            - geometry
+            - bbox
+            properties:
+              geometry:
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
+              bbox:
+                type: array
+                oneOf:
+                - minItems: 4
+                  maxItems: 4
+                - minItems: 6
+                  maxItems: 6
+                items:
+                  type: number
+          - type: object
+            required:
+            - geometry
+            properties:
+              geometry:
+                nullable: true
+              bbox:
+                not: {}
+        - type: object
+          required:
+          - stac_version
+          - id
+          - links
+          - assets
+          - properties
+          properties:
+            stac_version:
+              title: STAC version
+              type: string
+              const: 1.0.0
+            stac_extensions:
+              title: STAC extensions
+              type: array
+              uniqueItems: true
+              items:
+                title: Reference to a JSON Schema
+                type: string
+                format: iri
+            id:
+              title: Provider ID
+              description: Provider item ID
+              type: string
+              minLength: 1
+            links:
+              title: Item links
+              description: Links to item relations
+              type: array
+              items:
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
+            assets:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+            properties:
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+              - anyOf:
+                - required:
+                  - datetime
+                  properties:
+                    datetime:
+                      not:
+                        nullable: true
+                - required:
+                  - datetime
+                  - start_datetime
+                  - end_datetime
+          if:
+            properties:
+              links:
+                contains:
+                  required:
+                  - rel
+                  properties:
+                    rel:
+                      const: collection
+          then:
+            required:
+            - collection
+            properties:
+              collection:
+                title: Collection ID
+                description: The ID of the STAC Collection this Item references to.
+                type: string
+                minLength: 1
+          else:
+            properties:
+              collection:
+                not: {}
+      link:
+        type: object
+        required:
+        - rel
+        - href
+        properties:
+          href:
+            title: Link reference
+            type: string
+            format: iri-reference
+            minLength: 1
+          rel:
+            title: Link relation type
+            type: string
+            minLength: 1
+          type:
+            title: Link type
+            type: string
+          title:
+            title: Link title
+            type: string
+      assets:
+        title: Asset links
+        description: Links to assets
+        type: object
+        additionalProperties:
+          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
+      asset:
+        allOf:
+        - type: object
+          required:
+          - href
+          properties:
+            href:
+              title: Asset reference
+              type: string
+              format: iri-reference
+              minLength: 1
+            title:
+              title: Asset title
+              type: string
+            description:
+              title: Asset description
+              type: string
+            type:
+              title: Asset type
+              type: string
+            roles:
+              title: Asset roles
+              type: array
+              items:
+                type: string
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#
+  json-schema.org_draft-07_schema:
+    title: Core schema meta-schema
+    definitions:
+      schemaArray:
+        type: array
+        minItems: 1
+        items:
+          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
+      nonNegativeInteger:
+        type: integer
+        minimum: 0
+      nonNegativeIntegerDefault0:
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema/definitions/nonNegativeInteger
+        - default: 0
+      simpleTypes:
+        enum:
+        - array
+        - boolean
+        - integer
+        - 'null'
+        - number
+        - object
+        - string
+      stringArray:
+        type: array
+        items:
+          type: string
+        uniqueItems: true
+        default: []
+    type:
+    - object
+    - boolean
+    properties:
+      $ref:
+        type: string
+        format: uri-reference
+      $comment:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      default: true
+      readOnly:
+        type: boolean
+        default: false
+      writeOnly:
+        type: boolean
+        default: false
+      examples:
+        type: array
+        items: true
+      multipleOf:
+        type: number
+        exclusiveMinimum: 0
+      maximum:
+        type: number
+      exclusiveMaximum:
+        type: number
+      minimum:
+        type: number
+      exclusiveMinimum:
+        type: number
+      maxLength:
+        $ref: '#/definitions/nonNegativeInteger'
+      minLength:
+        $ref: '#/definitions/nonNegativeIntegerDefault0'
+      pattern:
+        type: string
+        format: regex
+      additionalItems:
+        $ref: '#'
+      items:
+        anyOf:
+        - $ref: '#'
+        - $ref: '#/definitions/schemaArray'
+        default: true
+      maxItems:
+        $ref: '#/definitions/nonNegativeInteger'
+      minItems:
+        $ref: '#/definitions/nonNegativeIntegerDefault0'
+      uniqueItems:
+        type: boolean
+        default: false
+      contains:
+        $ref: '#'
+      maxProperties:
+        $ref: '#/definitions/nonNegativeInteger'
+      minProperties:
+        $ref: '#/definitions/nonNegativeIntegerDefault0'
+      required:
+        $ref: '#/definitions/stringArray'
+      additionalProperties:
+        $ref: '#'
+      definitions:
+        type: object
+        additionalProperties:
+          $ref: '#'
+        default: {}
+      properties:
+        type: object
+        additionalProperties:
+          $ref: '#'
+        default: {}
+      patternProperties:
+        type: object
+        additionalProperties:
+          $ref: '#'
+        propertyNames:
+          format: regex
+        default: {}
+      dependencies:
+        type: object
+        additionalProperties:
+          anyOf:
+          - $ref: '#'
+          - $ref: '#/definitions/stringArray'
+      propertyNames:
+        $ref: '#'
+      const: true
+      enum:
+        type: array
+        items: true
+        minItems: 1
+        uniqueItems: true
+      type:
+        anyOf:
+        - $ref: '#/definitions/simpleTypes'
+        - type: array
+          items:
+            $ref: '#/definitions/simpleTypes'
+          minItems: 1
+          uniqueItems: true
+      format:
+        type: string
+      contentMediaType:
+        type: string
+      contentEncoding:
+        type: string
+      if:
+        $ref: '#'
+      then:
+        $ref: '#'
+      else:
+        $ref: '#'
+      allOf:
+        $ref: '#/definitions/schemaArray'
+      anyOf:
+        $ref: '#/definitions/schemaArray'
+      oneOf:
+        $ref: '#/definitions/schemaArray'
+      not:
+        $ref: '#'
+    default: true
+    anyOf:
+      anyOf:
+      - type: object
+      - type: boolean
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: http://json-schema.org/draft-07/schema#
+  schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json:
+    title: Basic Descriptive Fields
+    type: object
+    properties:
+      title:
+        title: Item Title
+        description: A human-readable title describing the Item.
+        type: string
+      description:
+        title: Item Description
+        description: Detailed multi-line description to fully explain the Item.
+        type: string
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/basics.json#
+  schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json:
+    title: Date and Time Fields
+    type: object
+    dependencies:
+      start_datetime:
+        required:
+        - end_datetime
+      end_datetime:
+        required:
+        - start_datetime
+    properties:
+      datetime:
+        title: Date and Time
+        description: 'The searchable date/time of the assets, in UTC (Formatted in
+          RFC 3339) '
+        type: string
+        format: date-time
+        pattern: (\+00:00|Z)$
+        nullable: true
+      start_datetime:
+        title: Start Date and Time
+        description: 'The searchable start date/time of the assets, in UTC (Formatted
+          in RFC 3339) '
+        type: string
+        format: date-time
+        pattern: (\+00:00|Z)$
+      end_datetime:
+        title: End Date and Time
+        description: 'The searchable end date/time of the assets, in UTC (Formatted
+          in RFC 3339) '
+        type: string
+        format: date-time
+        pattern: (\+00:00|Z)$
+      created:
+        title: Creation Time
+        type: string
+        format: date-time
+        pattern: (\+00:00|Z)$
+      updated:
+        title: Last Update Time
+        type: string
+        format: date-time
+        pattern: (\+00:00|Z)$
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/datetime.json#
+  schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json:
+    title: Instrument Fields
+    type: object
+    properties:
+      platform:
+        title: Platform
+        type: string
+      instruments:
+        title: Instruments
+        type: array
+        items:
+          type: string
+      constellation:
+        title: Constellation
+        type: string
+      mission:
+        title: Mission
+        type: string
+      gsd:
+        title: Ground Sample Distance
+        type: number
+        exclusiveMinimum: 0
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/instrument.json#
+  schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json:
+    title: Licensing Fields
+    type: object
+    properties:
+      license:
+        type: string
+        pattern: ^[\w\-\.\+]+$
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/licensing.json#
+  schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json:
+    title: Provider Fields
+    type: object
+    properties:
+      providers:
+        title: Providers
+        type: array
+        items:
+          type: object
+          required:
+          - name
+          properties:
+            name:
+              title: Organization name
+              type: string
+              minLength: 1
+            description:
+              title: Organization description
+              type: string
+            roles:
+              title: Organization roles
+              type: array
+              items:
+                type: string
+                enum:
+                - producer
+                - licensor
+                - processor
+                - host
+            url:
+              title: Organization homepage
+              type: string
+              format: iri
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/provider.json#
+  ogc.geo.common.data_types.geojson:
+    title: GeoJSON Feature
+    type: object
+    required:
+    - type
+    - properties
+    - geometry
+    properties:
+      type:
+        type: string
+        enum:
+        - Feature
+      id:
+        oneOf:
+        - type: number
+        - type: string
+      properties:
+        oneOf:
+        - type: object
+        nullable: true
+      geometry:
+        oneOf:
+        - title: GeoJSON Point
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - Point
+            coordinates:
+              type: array
+              minItems: 2
+              items:
+                type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        - title: GeoJSON LineString
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - LineString
+            coordinates:
+              type: array
+              minItems: 2
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        - title: GeoJSON Polygon
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - Polygon
+            coordinates:
+              type: array
+              items:
+                type: array
+                minItems: 4
+                items:
+                  type: array
+                  minItems: 2
+                  items:
+                    type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        - title: GeoJSON MultiPoint
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - MultiPoint
+            coordinates:
+              type: array
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        - title: GeoJSON MultiLineString
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - MultiLineString
+            coordinates:
+              type: array
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: array
+                  minItems: 2
+                  items:
+                    type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        - title: GeoJSON MultiPolygon
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - MultiPolygon
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  type: array
+                  minItems: 4
+                  items:
+                    type: array
+                    minItems: 2
+                    items:
+                      type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        - title: GeoJSON GeometryCollection
+          type: object
+          required:
+          - type
+          - geometries
+          properties:
+            type:
+              type: string
+              enum:
+              - GeometryCollection
+            geometries:
+              type: array
+              items:
+                oneOf:
+                - title: GeoJSON Point
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - Point
+                    coordinates:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON LineString
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - LineString
+                    coordinates:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON Polygon
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - Polygon
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiPoint
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiPoint
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiLineString
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiLineString
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+                - title: GeoJSON MultiPolygon
+                  type: object
+                  required:
+                  - type
+                  - coordinates
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - MultiPolygon
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                        items:
+                          type: array
+                          minItems: 4
+                          items:
+                            type: array
+                            minItems: 2
+                            items:
+                              type: number
+                    bbox:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: number
+            bbox:
+              type: array
+              minItems: 4
+              items:
+                type: number
+        nullable: true
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://geojson.org/schema/Feature.json
+  geojson.org_schema_Geometry.json:
+    title: GeoJSON Geometry
+    oneOf:
+    - title: GeoJSON Point
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    - title: GeoJSON LineString
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - LineString
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    - title: GeoJSON Polygon
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Polygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 4
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    - title: GeoJSON MultiPoint
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPoint
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    - title: GeoJSON MultiLineString
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiLineString
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    - title: GeoJSON MultiPolygon
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - MultiPolygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              minItems: 4
+              items:
+                type: array
+                minItems: 2
+                items:
+                  type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
+    x-schema-version: http://json-schema.org/draft-07/schema#
+    x-schema-source: https://geojson.org/schema/Geometry.json
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.yaml#/x-defs/ogc.contrib.stac.collection

@@ -1,4 +1,5 @@
 @prefix bblocks: <https://www.opengis.net/def/bblocks/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -6,7 +7,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-bblocks:ogc.contrib.stac.extensions.raster a skos:Concept,
+<https://ogcincubator.github.io/ogc.contrib.stac.extensions.raster> a skos:Concept,
+        dcat:Dataset,
         bblocks:Schema ;
     rdfs:label "STAC Forecast Extension" ;
     dct:abstract "This extension defines some high-level fields to get a basic understanding of weather forecast data. Some fields may also be applicable for climate forecast data, but it hasn't been written specifically for that domain." ;
@@ -16,13 +18,18 @@ bblocks:ogc.contrib.stac.extensions.raster a skos:Concept,
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/raster/index.json" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2023-12-09"^^xsd:date ;
+    dct:modified "2024-03-21"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/forecast> ;
-    skos:inScheme <https://www.opengis.net/def/bblocks> ;
-    bblocks:dependsOn bblocks:ogc.contrib.stac.collection,
-        bblocks:ogc.contrib.stac.item ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
+    dcat:keyword "forecast",
+        "stac",
+        "stac-extension" ;
+    bblocks:dependsOn <https://ogcincubator.github.io/ogc.contrib.stac.collection>,
+        <https://ogcincubator.github.io/ogc.contrib.stac.item> ;
     bblocks:hasJsonLdContext <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/context.jsonld> ;
     bblocks:hasSchema <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.json>,
         <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml> ;
@@ -31,67 +38,93 @@ bblocks:ogc.contrib.stac.extensions.raster a skos:Concept,
 
 <https://github.com/stac-extensions/forecast> rdfs:label "GitHub Repository" .
 
-bblocks:ogc.contrib.stac.collection a skos:Concept,
+<https://ogcincubator.github.io/ogc.contrib.stac.collection> a skos:Concept,
+        dcat:Dataset,
         bblocks:Schema ;
     rdfs:label "STAC Collection" ;
-    dct:abstract "A SpatioTemporal Asset Catalogs (STAC) collection" ;
+    dct:abstract "A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data." ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection" ],
+        [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/collection/" ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection/index.json" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection/index.md" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection/index.json" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2023-12-09"^^xsd:date ;
+    dct:modified "2024-03-21"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
-    skos:inScheme <https://www.opengis.net/def/bblocks> ;
-    bblocks:dependsOn bblocks:ogc.ogc-utils.json-link ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
+    dcat:keyword "collection",
+        "stac" ;
+    bblocks:dependsOn <https://ogcincubator.github.io/ogc.ogc-utils.json-link> ;
     bblocks:hasJsonLdContext <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld> ;
     bblocks:hasSchema <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json>,
         <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/collection/context.jsonld> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> .
 
-bblocks:ogc.contrib.stac.item a skos:Concept,
+<https://ogcincubator.github.io/ogc.contrib.stac.item> a skos:Concept,
+        dcat:Dataset,
         bblocks:Schema ;
     rdfs:label "STAC Item" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) item" ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item/index.json" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/item/" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/item/" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2023-12-09"^^xsd:date ;
+    dct:modified "2024-03-21"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
-    skos:inScheme <https://www.opengis.net/def/bblocks> ;
-    bblocks:dependsOn bblocks:ogc.geo.common.data_types.geojson ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
+    dcat:keyword "item",
+        "stac" ;
+    bblocks:dependsOn <https://ogcincubator.github.io/ogc.geo.common.data_types.geojson> ;
     bblocks:hasJsonLdContext <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld> ;
     bblocks:hasSchema <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json>,
         <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/item/context.jsonld> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> .
 
 <https://stacspec.org/en/about/stac-spec/> rdfs:label "STAC Specification" .
 
-<https://www.opengis.net/def/bblocks> a skos:ConceptScheme ;
-    skos:prefLabel "OGC Building Blocks Register" .
+<https://ogcincubator.github.io/bblocks-stac/> a skos:ConceptScheme,
+        dcat:Catalog ;
+    rdfs:label "Building Blocks - OGC Building Blocks for STAC" ;
+    dct:abstract "These Building Blocks provide a validation and documentation wrapper over STAC and extension schemas, and aid in transparent re-use of STAC elements" ;
+    dct:description """Allows for validation and testing of STAC examples.
+
+Supports definition and testing of transformations to/from STAC from other formats.
+
+Implementers can fork this repository and add additional examples in the `tests/` directory of each Building Block and run validation processes locally.
+
+Provides a framework for documentation and testing of additional extensions.
+""" ;
+    skos:prefLabel "Building Blocks - OGC Building Blocks for STAC" ;
+    bblocks:hasValidationReport <https://ogcincubator.github.io/bblocks-stac/build/tests/report.html> ;
+    bblocks:imports <https://opengeospatial.github.io/bblocks/register.json> .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2023-12-18T10:25:14.015235"^^xsd:dateTime ;
-    prov:startedAtTime "2023-12-18T10:25:13.951146"^^xsd:dateTime ;
+    prov:endedAtTime "2024-03-21T06:51:18.029011"^^xsd:dateTime ;
+    prov:startedAtTime "2024-03-21T06:51:17.968768"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
-            dct:format "application/json" ;
-            rdfs:seeAlso <https://ogcincubator.github.io/bblocks-stac/build/register.json> ],
-        [ a prov:Entity ;
             dct:format "application/yaml" ;
-            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
+        [ a prov:Entity ;
+            dct:format "application/json" ;
+            dct:hasVersion "git:65fde05ec95a7eddcf005761b5752cab8759c624" ;
+            rdfs:seeAlso <https://ogcincubator.github.io/bblocks-stac/build/register.json> ] ;
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
-            dct:hasVersion "0.3.31" ;
+            dct:hasVersion "0.3.38" ;
             rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
 

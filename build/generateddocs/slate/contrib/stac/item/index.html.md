@@ -1,6 +1,11 @@
 ---
 title: STAC Item (Schema)
 
+language_tabs:
+  - json: JSON
+  - jsonld: JSON-LD
+  - turtle: RDF/Turtle
+
 toc_footers:
   - Version 0.1
   - <a href='#'>STAC Item</a>
@@ -25,8 +30,224 @@ A SpatioTemporal Asset Catalogs (STAC) item
 </p>
 
 <aside class="success">
-This building block is <strong>valid</strong>
+This building block is <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/" target="_blank">valid</a></strong>
 </aside>
+
+# Examples
+
+## STAC simple item
+
+
+
+```json
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [],
+  "type": "Feature",
+  "id": "20201211_223832_CS2",
+  "bbox": [
+    172.91173669923782,
+    1.3438851951615003,
+    172.95469614953714,
+    1.3690476620161975
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          172.91173669923782,
+          1.3438851951615003
+        ],
+        [
+          172.95469614953714,
+          1.3438851951615003
+        ],
+        [
+          172.95469614953714,
+          1.3690476620161975
+        ],
+        [
+          172.91173669923782,
+          1.3690476620161975
+        ],
+        [
+          172.91173669923782,
+          1.3438851951615003
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2020-12-11T22:38:32.125000Z"
+  },
+  "collection": "simple-collection",
+  "links": [
+    {
+      "rel": "collection",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "parent",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ],
+  "assets": {
+    "visual": {
+      "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "3-Band Visual",
+      "roles": [
+        "visual"
+      ]
+    },
+    "thumbnail": {
+      "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg",
+      "title": "Thumbnail",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  }
+}
+
+```
+
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item/example_1_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblocks-stac%2Fbuild%2Ftests%2Fcontrib%2Fstac%2Fitem%2Fexample_1_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
+```jsonld
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [],
+  "type": "Feature",
+  "id": "20201211_223832_CS2",
+  "bbox": [
+    172.91173669923782,
+    1.3438851951615003,
+    172.95469614953714,
+    1.3690476620161975
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          172.91173669923782,
+          1.3438851951615003
+        ],
+        [
+          172.95469614953714,
+          1.3438851951615003
+        ],
+        [
+          172.95469614953714,
+          1.3690476620161975
+        ],
+        [
+          172.91173669923782,
+          1.3690476620161975
+        ],
+        [
+          172.91173669923782,
+          1.3438851951615003
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2020-12-11T22:38:32.125000Z"
+  },
+  "collection": "simple-collection",
+  "links": [
+    {
+      "rel": "collection",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "parent",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ],
+  "assets": {
+    "visual": {
+      "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "3-Band Visual",
+      "roles": [
+        "visual"
+      ]
+    },
+    "thumbnail": {
+      "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg",
+      "title": "Thumbnail",
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  },
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld"
+}
+```
+
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item/example_1_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblocks-stac%2Fbuild%2Ftests%2Fcontrib%2Fstac%2Fitem%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
+    geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] .
+
+
+```
+
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item/example_1_1.ttl">Open in new window</a>
+</blockquote>
+
+
+This is the simple item example from the STAC specification.  
+
 
 
 # JSON Schema
