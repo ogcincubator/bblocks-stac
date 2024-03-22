@@ -1019,11 +1019,11 @@ This extension defines some high-level fields to get a basic understanding of we
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <grib:> .
-@prefix ns2: <raster:> .
-@prefix ns3: <proj:> .
-@prefix ns4: <forecast:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <processing:> .
+@prefix ns2: <proj:> .
+@prefix ns3: <raster:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <processing:> .
+@prefix ns6: <forecast:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1031,21 +1031,21 @@ This extension defines some high-level fields to get a basic understanding of we
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/1660262400-gefs.chem.t00z.a2d_0p25.f000> a geojson:Feature ;
-    ns4:horizon "PT0H" ;
-    ns4:reference_datetime "2022-08-12T00:00:00Z" ;
+    ns6:horizon "PT0H" ;
+    ns6:reference_datetime "2022-08-12T00:00:00Z" ;
     ns1:discipline "meteorological" ;
     rdfs:seeAlso [ rdfs:label "NOAA Global Ensemble Forecast System (GEFS)" ;
             dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
     geojson:bbox ( -1.80125e+02 9.0125e+01 1.79875e+02 -9.0125e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -1.80125e+02 -9.0125e+01 ) ( 1.79875e+02 -9.0125e+01 ) ( 1.79875e+02 9.0125e+01 ) ( -1.80125e+02 9.0125e+01 ) ( -1.80125e+02 -9.0125e+01 ) ) ) ] ;
-    ns6:facility "US-NCEP" ;
-    ns3:projjson [ a <https://example.com/stac/raster/example-1/GeographicCRS> ] ;
-    ns3:shape 721,
+    ns5:facility "US-NCEP" ;
+    ns2:projjson [ a <https://example.com/stac/raster/example-1/GeographicCRS> ] ;
+    ns2:shape 721,
         1440 ;
-    ns3:transform -1.80125e+02,
+    ns2:transform -1.80125e+02,
         -2.5e-01,
         0,
         2.5e-01,
@@ -1061,39 +1061,48 @@ This extension defines some high-level fields to get a basic understanding of we
     dcterms:format "application/wmo-GRIB2" ;
     dcterms:title "GRIB2 file" ;
     dcat:downloadURL <https://example.com/stac/raster/tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2> ;
-    ns2:bands [ ns1:element "sctaotk" ;
+    ns3:bands [ ns1:element "aotk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ],
+        [ ns1:element "sctaotk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Scattering Aerosol Optical Thickness" ],
+        [ ns1:element "aotk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ],
+        [ ns1:element "aotk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ],
         [ ns1:element "pmtf" ;
             ns1:short_name "0-SFC" ;
             dcterms:description "Particulate matter (fine)" ],
-        [ ns1:element "colmd" ;
+        [ ns1:element "sctaotk" ;
             ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
+            dcterms:description "Scattering Aerosol Optical Thickness" ],
+        [ ns1:element "ssalbk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Single Scattering Albedo" ],
+        [ ns1:element "pmtc" ;
+            ns1:short_name "0-SFC" ;
+            dcterms:description "Particulate matter (coarse)" ],
+        [ ns1:element "sctaotk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Scattering Aerosol Optical Thickness" ],
+        [ ns1:element "aotk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ],
+        [ ns1:element "aotk" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Atmosphere Optical Thickness" ],
         [ ns1:element "asysfk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Asymmetry Factor" ],
         [ ns1:element "aotk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "ssalbk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Single Scattering Albedo" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "pmtc" ;
+        [ ns1:element "pmtf" ;
             ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (coarse)" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
+            dcterms:description "Particulate matter (fine)" ],
         [ ns1:element "aotk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ],
@@ -1112,24 +1121,21 @@ This extension defines some high-level fields to get a basic understanding of we
         [ ns1:element "colmd" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "pmtf" ;
-            ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (fine)" ],
-        [ ns1:element "aotk" ;
+        [ ns1:element "sctaotk" ;
             ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
+            dcterms:description "Scattering Aerosol Optical Thickness" ],
         [ ns1:element "sctaotk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Scattering Aerosol Optical Thickness" ],
         [ ns1:element "aotk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
+        [ ns1:element "colmd" ;
             ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
+            dcterms:description "Column-Integrated Mass Density" ],
+        [ ns1:element "colmd" ;
+            ns1:short_name "0-EATM" ;
+            dcterms:description "Column-Integrated Mass Density" ],
         [ ns1:element "sctaotk" ;
             ns1:short_name "0-EATM" ;
             dcterms:description "Scattering Aerosol Optical Thickness" ],
@@ -1144,13 +1150,7 @@ This extension defines some high-level fields to get a basic understanding of we
             dcterms:description "Atmosphere Optical Thickness" ],
         [ ns1:element "aotk" ;
             ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ] .
+            dcterms:description "Atmosphere Optical Thickness" ] .
 
 <https://example.com/stac/raster/example-1/index> dcterms:description "Contains information on each message within the GRIB2 file." ;
     dcterms:format "text/plain" ;
