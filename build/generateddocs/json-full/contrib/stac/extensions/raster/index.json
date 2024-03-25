@@ -3,31 +3,31 @@
 {
   "itemIdentifier": "ogc.contrib.stac.extensions.raster",
   "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
-  "name": "STAC Forecast Extension",
-  "abstract": "This extension defines some high-level fields to get a basic understanding of weather forecast data. Some fields may also be applicable for climate forecast data, but it hasn't been written specifically for that domain.",
+  "name": "STAC Raster Extension",
+  "abstract": "An item can describe assets that are rasters of one or multiple bands with some information common to them all (raster size, projection) and also specific to each of them (data type, unit, number of bits used, nodata). A raster is often strongly linked with the georeferencing transform and coordinate system definition of all bands (using the projection extension). In many applications, it is interesting to have some metadata about the rasters in the asset (values statistics, value interpretation, transforms).",
   "status": "under-development",
   "dateTimeAddition": "2023-12-08T00:00:00Z",
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
   "dateOfLastChange": "2024-03-25",
-  "link": "https://github.com/stac-extensions/forecast",
+  "link": "https://github.com/stac-extensions/raster",
   "sources": [
     {
       "title": "GitHub Repository",
-      "link": "https://github.com/stac-extensions/forecast"
+      "link": "https://github.com/stac-extensions/raster"
     }
   ],
   "scope": "contrib",
   "tags": [
     "stac",
     "stac-extension",
-    "forecast"
+    "raster"
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.contrib.stac.collection",
-    "ogc.contrib.stac.item"
+    "ogc.contrib.stac.item",
+    "ogc.contrib.stac.collection"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml",
@@ -55,7 +55,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <sentinel:> .\n@prefix ns2: <virtual:> .\n@prefix ns3: <eo:> .\n@prefix ns4: <proj:> .\n@prefix ns5: <view:> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;\n    ns3:cloud_cover 2.122e+01 ;\n    geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;\n    ns4:epsg 32633 ;\n    ns1:data_coverage 100 ;\n    ns1:grid_square \"VB\" ;\n    ns1:latitude_band \"S\" ;\n    ns1:product_id \"S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149\" ;\n    ns1:sequence \"0\" ;\n    ns1:utm_zone 33 ;\n    ns1:valid_cloud_cover true ;\n    ns5:off_nadir 0 ;\n    ns2:assets [ ] .\n\n",
+          "code": "@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <proj:> .\n@prefix ns2: <sentinel:> .\n@prefix ns3: <virtual:> .\n@prefix ns4: <view:> .\n@prefix ns5: <eo:> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;\n    ns5:cloud_cover 2.122e+01 ;\n    geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;\n    ns1:epsg 32633 ;\n    ns2:data_coverage 100 ;\n    ns2:grid_square \"VB\" ;\n    ns2:latitude_band \"S\" ;\n    ns2:product_id \"S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149\" ;\n    ns2:sequence \"0\" ;\n    ns2:utm_zone 33 ;\n    ns2:valid_cloud_cover true ;\n    ns4:off_nadir 0 ;\n    ns3:assets [ ] .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/raster/example_1_1.ttl"
         }
       ]

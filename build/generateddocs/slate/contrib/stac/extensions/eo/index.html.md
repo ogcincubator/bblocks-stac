@@ -1,5 +1,5 @@
 ---
-title: STAC Forecast Extension (Schema)
+title: STAC Electro-Optical Extension (Schema)
 
 language_tabs:
   - json: JSON
@@ -8,7 +8,7 @@ language_tabs:
 
 toc_footers:
   - Version 0.1
-  - <a href='#'>STAC Forecast Extension</a>
+  - <a href='#'>STAC Electro-Optical Extension</a>
   - <a href='https://blocks.ogc.org/register.html'>Building Blocks register</a>
 
 search: true
@@ -16,13 +16,15 @@ search: true
 code_clipboard: true
 
 meta:
-  - name: STAC Forecast Extension (Schema)
+  - name: STAC Electro-Optical Extension (Schema)
 ---
 
 
-# STAC Forecast Extension `ogc.contrib.stac.extensions.eo`
+# STAC Electro-Optical Extension `ogc.contrib.stac.extensions.eo`
 
-This extension defines some high-level fields to get a basic understanding of weather forecast data. Some fields may also be applicable for climate forecast data, but it hasn't been written specifically for that domain.
+Electro-Optical (EO) Extension to the SpatioTemporal Asset Catalog (STAC) specification.
+
+EO data is considered to be data that represents a snapshot of the Earth for a single date and time. It could consist of multiple spectral bands in any part of the electromagnetic spectrum. Examples of EO data include sensors with visible, short-wave and mid-wave IR bands (e.g., the OLI instrument on Landsat-8), long-wave IR bands (e.g. TIRS aboard Landsat-8).
 
 <p class="status">
     <span data-rainbow-uri="http://www.opengis.net/def/status">Status</span>:
@@ -760,7 +762,7 @@ You can find the full JSON-LD context here:
 
 # References
 
-* [GitHub Repository](https://github.com/stac-extensions/forecast)
+* [GitHub Repository](https://github.com/stac-extensions/eo)
 
 # For developers
 
