@@ -29,8 +29,8 @@ A SpatioTemporal Asset Catalogs (STAC) item
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/" target="_blank">failed</a></strong>
 </aside>
 
 # Examples
@@ -559,7 +559,7 @@ This is the complete "core" item example from the STAC specification.
 $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
-- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json
 
 ```

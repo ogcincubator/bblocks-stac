@@ -482,7 +482,7 @@ This is the complete "core" item example from the STAC specification.
 $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
-- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json
 
 ```

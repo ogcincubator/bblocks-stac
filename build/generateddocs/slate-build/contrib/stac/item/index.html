@@ -357,8 +357,8 @@
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/" target="_blank">failed</a></strong>
 </aside>
 <h1 id='examples'>Examples</h1><h2 id='stac-spec-simple-item'>STAC spec simple item</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"stac_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
@@ -837,7 +837,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 <h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
 <span class="na">description</span><span class="pi">:</span> <span class="s">STAC Collection</span>
 <span class="na">allOf</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml</span>
+<span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml</span>
 <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json</span>
 
 </code></pre></div>

@@ -29,8 +29,8 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/" target="_blank">failed</a></strong>
 </aside>
 
 # Examples
@@ -555,6 +555,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml
 - type: object
   properties:
     links:
