@@ -1,10 +1,31 @@
 {
   "x-defs": {
-    "ogc.contrib.stac.collection": {
+    "ogc.contrib.stac.extensions.eo": {
+      "title": "Forecast Extension",
+      "description": "STAC Forecast Extension for STAC Items and STAC Collections.",
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_collection_schema.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.json"
+            }
+          ]
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json"
+        }
+      ],
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json"
+    },
+    "ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_collection_schema.json": {
       "description": "STAC Collection",
       "allOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json"
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json"
         },
         {
           "type": "object",
@@ -12,21 +33,268 @@
             "links": {
               "type": "array",
               "items": {
-                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/ogc.ogc-utils.json-link"
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogc.ogc-utils.json-link"
               }
             }
           }
         }
       ],
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
-      "x-schema-source": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json"
+      "x-schema-source": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
+    },
+    "ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.json": {
+      "description": "STAC Collection",
+      "allOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogc.geo.common.data_types.geojson"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json"
+        }
+      ],
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
+    },
+    "stac-extensions.github.io_raster_v1.1.0_schema.json": {
+      "title": "raster Extension",
+      "description": "STAC Raster Extension for STAC Items.",
+      "oneOf": [
+        {
+          "$comment": "This is the schema for STAC extension raster in Items.",
+          "allOf": [
+            {
+              "type": "object",
+              "required": [
+                "type",
+                "assets"
+              ],
+              "properties": {
+                "type": {
+                  "const": "Feature"
+                },
+                "assets": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields"
+                  }
+                }
+              }
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/stac_extensions"
+            }
+          ]
+        },
+        {
+          "$comment": "This is the schema for STAC Collections.",
+          "allOf": [
+            {
+              "type": "object",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "const": "Collection"
+                },
+                "assets": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields"
+                  }
+                },
+                "item_assets": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "definitions": {
+        "stac_extensions": {
+          "type": "object",
+          "required": [
+            "stac_extensions"
+          ],
+          "properties": {
+            "stac_extensions": {
+              "type": "array",
+              "contains": {
+                "const": "https://stac-extensions.github.io/raster/v1.1.0/schema.json"
+              }
+            }
+          }
+        },
+        "assetfields": {
+          "type": "object",
+          "properties": {
+            "raster:bands": {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/bands"
+            }
+          },
+          "patternProperties": {
+            "^(?!raster:)": {
+              "$comment": "Above, change `template` to the prefix of this extension"
+            }
+          },
+          "additionalProperties": false
+        },
+        "bands": {
+          "title": "Bands",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "title": "Band",
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": true,
+            "properties": {
+              "data_type": {
+                "title": "Data type of the band",
+                "type": "string",
+                "enum": [
+                  "int8",
+                  "int16",
+                  "int32",
+                  "int64",
+                  "uint8",
+                  "uint16",
+                  "uint32",
+                  "uint64",
+                  "float16",
+                  "float32",
+                  "float64",
+                  "cint16",
+                  "cint32",
+                  "cfloat32",
+                  "cfloat64",
+                  "other"
+                ]
+              },
+              "unit": {
+                "title": "Unit denomination of the pixel value",
+                "type": "string"
+              },
+              "bits_per_sample": {
+                "title": "The actual number of bits used for this band",
+                "type": "integer"
+              },
+              "sampling": {
+                "title": "Pixel sampling in the band",
+                "type": "string",
+                "enum": [
+                  "area",
+                  "point"
+                ]
+              },
+              "nodata": {
+                "title": "No data pixel value",
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "nan",
+                      "inf",
+                      "-inf"
+                    ]
+                  }
+                ]
+              },
+              "scale": {
+                "title": "multiplicator factor of the pixel value to transform into the value",
+                "type": "number"
+              },
+              "offset": {
+                "title": "number to be added to the pixel value to transform into the value",
+                "type": "number"
+              },
+              "spatial_resolution": {
+                "title": "Average spatial resolution (in meters) of the pixels in the band",
+                "type": "number"
+              },
+              "statistics": {
+                "title": "Statistics",
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": false,
+                "properties": {
+                  "mean": {
+                    "title": "Mean value of all the pixels in the band",
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "title": "Minimum value of all the pixels in the band",
+                    "type": "number"
+                  },
+                  "maximum": {
+                    "title": "Maximum value of all the pixels in the band",
+                    "type": "number"
+                  },
+                  "stddev": {
+                    "title": "Standard deviation value of all the pixels in the band",
+                    "type": "number"
+                  },
+                  "valid_percent": {
+                    "title": "Percentage of valid (not nodata) pixel",
+                    "type": "number"
+                  }
+                }
+              },
+              "histogram": {
+                "title": "Histogram",
+                "type": "object",
+                "additionalItems": false,
+                "required": [
+                  "count",
+                  "min",
+                  "max",
+                  "buckets"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "title": "number of buckets",
+                    "type": "number"
+                  },
+                  "min": {
+                    "title": "Minimum value of the buckets",
+                    "type": "number"
+                  },
+                  "max": {
+                    "title": "Maximum value of the buckets",
+                    "type": "number"
+                  },
+                  "buckets": {
+                    "title": "distribution buckets",
+                    "type": "array",
+                    "minItems": 3,
+                    "items": {
+                      "title": "number of pixels in the bucket",
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://stac-extensions.github.io/raster/v1.1.0/schema.json#"
     },
     "github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json": {
       "title": "STAC Collection Specification",
       "description": "This object represents Collections in a SpatioTemporal Asset Catalog.",
       "allOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection"
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection"
         }
       ],
       "definitions": {
@@ -194,17 +462,17 @@
               }
             },
             "assets": {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
             },
             "links": {
               "title": "Links",
               "type": "array",
               "items": {
-                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link"
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link"
               }
             },
             "summaries": {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries"
             }
           }
         },
@@ -246,7 +514,7 @@
                 "minProperties": 1,
                 "allOf": [
                   {
-                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema"
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema"
                   }
                 ]
               },
@@ -355,14 +623,874 @@
         "dct": "http://purl.org/dc/terms/"
       },
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
-      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
+      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml"
+    },
+    "ogc.geo.common.data_types.geojson": {
+      "title": "GeoJSON Feature",
+      "type": "object",
+      "required": [
+        "type",
+        "properties",
+        "geometry"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Feature"
+          ],
+          "x-jsonld-id": "@type"
+        },
+        "id": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "x-jsonld-id": "@id"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object"
+            }
+          ],
+          "x-jsonld-id": "@nest",
+          "nullable": true
+        },
+        "geometry": {
+          "oneOf": [
+            {
+              "title": "GeoJSON Point",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Point"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            },
+            {
+              "title": "GeoJSON LineString",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "LineString"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            },
+            {
+              "title": "GeoJSON Polygon",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Polygon"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 4,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            },
+            {
+              "title": "GeoJSON MultiPoint",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "MultiPoint"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            },
+            {
+              "title": "GeoJSON MultiLineString",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "MultiLineString"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            },
+            {
+              "title": "GeoJSON MultiPolygon",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "MultiPolygon"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "minItems": 4,
+                      "items": {
+                        "type": "array",
+                        "minItems": 2,
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            },
+            {
+              "title": "GeoJSON GeometryCollection",
+              "type": "object",
+              "required": [
+                "type",
+                "geometries"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "GeometryCollection"
+                  ],
+                  "x-jsonld-id": "@type"
+                },
+                "geometries": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "title": "GeoJSON Point",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "Point"
+                            ],
+                            "x-jsonld-id": "@type"
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "minItems": 2,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON LineString",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "LineString"
+                            ],
+                            "x-jsonld-id": "@type"
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "minItems": 2,
+                            "items": {
+                              "type": "array",
+                              "minItems": 2,
+                              "items": {
+                                "type": "number"
+                              }
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON Polygon",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "Polygon"
+                            ],
+                            "x-jsonld-id": "@type"
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 4,
+                              "items": {
+                                "type": "array",
+                                "minItems": 2,
+                                "items": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON MultiPoint",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "MultiPoint"
+                            ],
+                            "x-jsonld-id": "@type"
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 2,
+                              "items": {
+                                "type": "number"
+                              }
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON MultiLineString",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "MultiLineString"
+                            ],
+                            "x-jsonld-id": "@type"
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 2,
+                              "items": {
+                                "type": "array",
+                                "minItems": 2,
+                                "items": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON MultiPolygon",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "MultiPolygon"
+                            ],
+                            "x-jsonld-id": "@type"
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "array",
+                                "minItems": 4,
+                                "items": {
+                                  "type": "array",
+                                  "minItems": 2,
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#coordinates"
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            },
+                            "x-jsonld-container": "@list",
+                            "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  },
+                  "x-jsonld-container": "@list",
+                  "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+                }
+              }
+            }
+          ],
+          "x-jsonld-id": "https://purl.org/geojson/vocab#geometry",
+          "nullable": true
+        },
+        "bbox": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "number"
+          },
+          "x-jsonld-container": "@list",
+          "x-jsonld-id": "https://purl.org/geojson/vocab#bbox"
+        }
+      },
+      "x-jsonld-extra-terms": {
+        "Feature": "https://purl.org/geojson/vocab#Feature",
+        "FeatureCollection": "https://purl.org/geojson/vocab#FeatureCollection",
+        "GeometryCollection": "https://purl.org/geojson/vocab#GeometryCollection",
+        "LineString": "https://purl.org/geojson/vocab#LineString",
+        "MultiLineString": "https://purl.org/geojson/vocab#MultiLineString",
+        "MultiPoint": "https://purl.org/geojson/vocab#MultiPoint",
+        "MultiPolygon": "https://purl.org/geojson/vocab#MultiPolygon",
+        "Point": "https://purl.org/geojson/vocab#Point",
+        "Polygon": "https://purl.org/geojson/vocab#Polygon",
+        "features": {
+          "x-jsonld-container": "@set",
+          "x-jsonld-id": "https://purl.org/geojson/vocab#features"
+        }
+      },
+      "x-jsonld-prefixes": {
+        "geojson": "https://purl.org/geojson/vocab#"
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://geojson.org/schema/Feature.json"
+    },
+    "github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json": {
+      "title": "STAC Item",
+      "type": "object",
+      "description": "This object represents the metadata for an item in a SpatioTemporal Asset Catalog.",
+      "allOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core"
+        }
+      ],
+      "definitions": {
+        "common_metadata": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json"
+            }
+          ]
+        },
+        "core": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogc.geo.common.data_types.geojson_"
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "geometry",
+                    "bbox"
+                  ],
+                  "properties": {
+                    "geometry": {
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/geojson.org_schema_Geometry.json"
+                    },
+                    "bbox": {
+                      "type": "array",
+                      "oneOf": [
+                        {
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        {
+                          "minItems": 6,
+                          "maxItems": 6
+                        }
+                      ],
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "geometry"
+                  ],
+                  "properties": {
+                    "geometry": {
+                      "nullable": true
+                    },
+                    "bbox": {
+                      "not": {}
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "required": [
+                "stac_version",
+                "id",
+                "links",
+                "assets",
+                "properties"
+              ],
+              "properties": {
+                "stac_version": {
+                  "title": "STAC version",
+                  "type": "string",
+                  "const": "1.0.0"
+                },
+                "stac_extensions": {
+                  "title": "STAC extensions",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "title": "Reference to a JSON Schema",
+                    "type": "string",
+                    "format": "iri"
+                  }
+                },
+                "id": {
+                  "title": "Provider ID",
+                  "description": "Provider item ID",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "links": {
+                  "title": "Item links",
+                  "description": "Links to item relations",
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link"
+                  }
+                },
+                "assets": {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
+                },
+                "properties": {
+                  "allOf": [
+                    {
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "datetime"
+                          ],
+                          "properties": {
+                            "datetime": {
+                              "not": {
+                                "nullable": true
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "required": [
+                            "datetime",
+                            "start_datetime",
+                            "end_datetime"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "if": {
+                "properties": {
+                  "links": {
+                    "contains": {
+                      "required": [
+                        "rel"
+                      ],
+                      "properties": {
+                        "rel": {
+                          "const": "collection"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "collection"
+                ],
+                "properties": {
+                  "collection": {
+                    "title": "Collection ID",
+                    "description": "The ID of the STAC Collection this Item references to.",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "collection": {
+                    "not": {}
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "link": {
+          "type": "object",
+          "required": [
+            "rel",
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "title": "Link reference",
+              "type": "string",
+              "format": "iri-reference",
+              "minLength": 1
+            },
+            "rel": {
+              "title": "Link relation type",
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Link type",
+              "type": "string"
+            },
+            "title": {
+              "title": "Link title",
+              "type": "string"
+            }
+          }
+        },
+        "assets": {
+          "title": "Asset links",
+          "description": "Links to assets",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset"
+          }
+        },
+        "asset": {
+          "allOf": [
+            {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "title": "Asset reference",
+                  "type": "string",
+                  "format": "iri-reference",
+                  "minLength": 1
+                },
+                "title": {
+                  "title": "Asset title",
+                  "type": "string"
+                },
+                "description": {
+                  "title": "Asset description",
+                  "type": "string"
+                },
+                "type": {
+                  "title": "Asset type",
+                  "type": "string"
+                },
+                "roles": {
+                  "title": "Asset roles",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+            }
+          ]
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#"
     },
     "schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json": {
       "title": "STAC Collection Specification",
       "description": "This object represents Collections in a SpatioTemporal Asset Catalog.",
       "allOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection"
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection"
         }
       ],
       "definitions": {
@@ -530,17 +1658,17 @@
               }
             },
             "assets": {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
             },
             "links": {
               "title": "Links",
               "type": "array",
               "items": {
-                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link"
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link"
               }
             },
             "summaries": {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries"
             }
           }
         },
@@ -582,7 +1710,7 @@
                 "minProperties": 1,
                 "allOf": [
                   {
-                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema"
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema"
                   }
                 ]
               },
@@ -651,33 +1779,33 @@
       "description": "This object represents the metadata for an item in a SpatioTemporal Asset Catalog.",
       "allOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core"
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core"
         }
       ],
       "definitions": {
         "common_metadata": {
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json"
             }
           ]
         },
         "core": {
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/ogc.geo.common.data_types.geojson"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogc.geo.common.data_types.geojson_"
             },
             {
               "oneOf": [
@@ -689,7 +1817,7 @@
                   ],
                   "properties": {
                     "geometry": {
-                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/geojson.org_schema_Geometry.json"
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/geojson.org_schema_Geometry.json"
                     },
                     "bbox": {
                       "type": "array",
@@ -761,16 +1889,16 @@
                   "description": "Links to item relations",
                   "type": "array",
                   "items": {
-                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link"
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link"
                   }
                 },
                 "assets": {
-                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
                 },
                 "properties": {
                   "allOf": [
                     {
-                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
                     },
                     {
                       "anyOf": [
@@ -870,7 +1998,7 @@
           "description": "Links to assets",
           "type": "object",
           "additionalProperties": {
-            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset"
+            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset"
           }
         },
         "asset": {
@@ -909,7 +2037,7 @@
               }
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
             }
           ]
         }
@@ -924,7 +2052,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema"
+            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema"
           }
         },
         "nonNegativeInteger": {
@@ -934,7 +2062,7 @@
         "nonNegativeIntegerDefault0": {
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema/definitions/nonNegativeInteger"
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/json-schema.org_draft-07_schema/definitions/nonNegativeInteger"
             },
             {
               "default": 0
@@ -1327,7 +2455,7 @@
       "x-schema-version": "http://json-schema.org/draft-07/schema#",
       "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/provider.json#"
     },
-    "ogc.geo.common.data_types.geojson": {
+    "ogc.geo.common.data_types.geojson_": {
       "title": "GeoJSON Feature",
       "type": "object",
       "required": [
@@ -2049,7 +3177,7 @@
   },
   "allOf": [
     {
-      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema-oas3.0.json#/x-defs/ogc.contrib.stac.collection"
+      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.json#/x-defs/ogc.contrib.stac.extensions.eo"
     }
   ]
 }

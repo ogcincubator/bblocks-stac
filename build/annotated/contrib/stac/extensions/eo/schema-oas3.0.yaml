@@ -1,31 +1,31 @@
 x-defs:
-  ogc.contrib.stac.extensions.raster:
+  ogc.contrib.stac.extensions.eo:
     title: Forecast Extension
     description: STAC Forecast Extension for STAC Items and STAC Collections.
     allOf:
     - anyOf:
-      - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_collection_schema.yaml
-      - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.yaml
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json
+      - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_collection_schema.yaml
+      - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.yaml
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-    x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml
+    x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml
   ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_collection_schema.yaml:
     description: STAC Collection
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/github.com_radiantearth_stac-spec_raw_master_collection-spec_json-schema_collection.json
     - type: object
       properties:
         links:
           type: array
           items:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.json-link
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.json-link
     x-schema-version: https://json-schema.org/draft/2020-12/schema
     x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.yaml:
     description: STAC Collection
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json
     x-schema-version: https://json-schema.org/draft/2020-12/schema
     x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
   stac-extensions.github.io_raster_v1.1.0_schema.json:
@@ -44,8 +44,8 @@ x-defs:
           assets:
             type: object
             additionalProperties:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields
-      - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/stac_extensions
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields
+      - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/stac_extensions
     - $comment: This is the schema for STAC Collections.
       allOf:
       - type: object
@@ -57,11 +57,11 @@ x-defs:
           assets:
             type: object
             additionalProperties:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields
           item_assets:
             type: object
             additionalProperties:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/assetfields
     definitions:
       stac_extensions:
         type: object
@@ -76,7 +76,7 @@ x-defs:
         type: object
         properties:
           raster:bands:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/bands
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/stac-extensions.github.io_raster_v1.1.0_schema.json/definitions/bands
         patternProperties:
           ^(?!raster:):
             $comment: Above, change `template` to the prefix of this extension
@@ -196,7 +196,7 @@ x-defs:
     title: STAC Collection Specification
     description: This object represents Collections in a SpatioTemporal Asset Catalog.
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection
     definitions:
       collection:
         title: STAC Collection
@@ -322,14 +322,14 @@ x-defs:
                         pattern: (\+00:00|Z)$
                         nullable: true
           assets:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
           links:
             title: Links
             type: array
             items:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link
           summaries:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries
       link:
         type: object
         required:
@@ -359,7 +359,7 @@ x-defs:
             type: object
             minProperties: 1
             allOf:
-            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
           - title: Range
             type: object
             required:
@@ -854,18 +854,18 @@ x-defs:
     description: This object represents the metadata for an item in a SpatioTemporal
       Asset Catalog.
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
     definitions:
       common_metadata:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
       core:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_
         - oneOf:
           - type: object
             required:
@@ -873,7 +873,7 @@ x-defs:
             - bbox
             properties:
               geometry:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
               bbox:
                 type: array
                 oneOf:
@@ -921,12 +921,12 @@ x-defs:
               description: Links to item relations
               type: array
               items:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
             assets:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
             properties:
               allOf:
-              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
               - anyOf:
                 - required:
                   - datetime
@@ -986,7 +986,7 @@ x-defs:
         description: Links to assets
         type: object
         additionalProperties:
-          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
+          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
       asset:
         allOf:
         - type: object
@@ -1012,14 +1012,14 @@ x-defs:
               type: array
               items:
                 type: string
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
     x-schema-version: http://json-schema.org/draft-07/schema#
     x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#
   schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json:
     title: STAC Collection Specification
     description: This object represents Collections in a SpatioTemporal Asset Catalog.
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/collection
     definitions:
       collection:
         title: STAC Collection
@@ -1145,14 +1145,14 @@ x-defs:
                         pattern: (\+00:00|Z)$
                         nullable: true
           assets:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
           links:
             title: Links
             type: array
             items:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/link
           summaries:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_collection-spec_json-schema_collection.json/definitions/summaries
       link:
         type: object
         required:
@@ -1182,7 +1182,7 @@ x-defs:
             type: object
             minProperties: 1
             allOf:
-            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
           - title: Range
             type: object
             required:
@@ -1223,18 +1223,18 @@ x-defs:
     description: This object represents the metadata for an item in a SpatioTemporal
       Asset Catalog.
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
     definitions:
       common_metadata:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
       core:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_
         - oneOf:
           - type: object
             required:
@@ -1242,7 +1242,7 @@ x-defs:
             - bbox
             properties:
               geometry:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
               bbox:
                 type: array
                 oneOf:
@@ -1290,12 +1290,12 @@ x-defs:
               description: Links to item relations
               type: array
               items:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
             assets:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
             properties:
               allOf:
-              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
               - anyOf:
                 - required:
                   - datetime
@@ -1355,7 +1355,7 @@ x-defs:
         description: Links to assets
         type: object
         additionalProperties:
-          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
+          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
       asset:
         allOf:
         - type: object
@@ -1381,7 +1381,7 @@ x-defs:
               type: array
               items:
                 type: string
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
     x-schema-version: http://json-schema.org/draft-07/schema#
     x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#
   json-schema.org_draft-07_schema:
@@ -1391,13 +1391,13 @@ x-defs:
         type: array
         minItems: 1
         items:
-          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
+          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema
       nonNegativeInteger:
         type: integer
         minimum: 0
       nonNegativeIntegerDefault0:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema/definitions/nonNegativeInteger
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/json-schema.org_draft-07_schema/definitions/nonNegativeInteger
         - default: 0
       simpleTypes:
         enum:
@@ -2153,4 +2153,4 @@ x-defs:
     x-schema-version: http://json-schema.org/draft-07/schema#
     x-schema-source: https://geojson.org/schema/Geometry.json
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.contrib.stac.extensions.raster
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema-oas3.0.yaml#/x-defs/ogc.contrib.stac.extensions.eo

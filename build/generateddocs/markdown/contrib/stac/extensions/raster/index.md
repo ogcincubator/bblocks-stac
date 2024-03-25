@@ -9,505 +9,753 @@ This extension defines some high-level fields to get a basic understanding of we
 
 ## Examples
 
-### Example of Raster feature with Forecast extension
+### Example of Raster item - Sentinel2
 #### json
 ```json
 {
   "type": "Feature",
   "stac_version": "1.0.0",
-  "id": "1660262400-gefs.chem.t00z.a2d_0p25.f000",
-  "properties": {
-    "expires": "2022-08-12T00:00:00Z",
-    "grib:discipline": "meteorological",
-    "forecast:reference_datetime": "2022-08-12T00:00:00Z",
-    "forecast:horizon": "PT0H",
-    "processing:facility": "US-NCEP",
-    "proj:epsg": null,
-    "proj:projjson": {
-      "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
-      "type": "GeographicCRS",
-      "name": "Coordinate System imported from GRIB file",
-      "datum": {
-        "type": "GeodeticReferenceFrame",
-        "name": "unnamed",
-        "ellipsoid": {
-          "name": "Sphere",
-          "radius": 6371229
-        }
-      },
-      "coordinate_system": {
-        "subtype": "ellipsoidal",
-        "axis": [
-          {
-            "name": "Latitude",
-            "abbreviation": "lat",
-            "direction": "north",
-            "unit": "degree"
-          },
-          {
-            "name": "Longitude",
-            "abbreviation": "lon",
-            "direction": "east",
-            "unit": "degree"
-          }
-        ]
-      }
-    },
-    "proj:shape": [
-      1440,
-      721
-    ],
-    "proj:transform": [
-      0.25,
-      0,
-      -180.125,
-      0,
-      -0.25,
-      90.125
-    ],
-    "datetime": "2022-08-12T00:00:00Z"
-  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v1.1.0/schema.json"
+  ],
+  "id": "S2B_33SVB_20210221_0_L2A",
+  "bbox": [
+    13.86148243891681,
+    36.95257399124932,
+    15.111074610520053,
+    37.94752813015372
+  ],
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          -180.125,
-          -90.125
+          13.876381589019879,
+          36.95257399124932
         ],
         [
-          179.875,
-          -90.125
+          13.86148243891681,
+          37.942072015005024
         ],
         [
-          179.875,
-          90.125
+          15.111074610520053,
+          37.94752813015372
         ],
         [
-          -180.125,
-          90.125
+          15.109620666835209,
+          36.95783951241028
         ],
         [
-          -180.125,
-          -90.125
+          13.876381589019879,
+          36.95257399124932
         ]
       ]
     ]
   },
-  "links": [
-    {
-      "rel": "collection",
-      "href": "collection.json",
-      "type": "application/json",
-      "title": "NOAA Global Ensemble Forecast System (GEFS)"
-    }
-  ],
+  "properties": {
+    "datetime": "2021-02-21T10:00:17Z",
+    "platform": "sentinel-2b",
+    "constellation": "sentinel-2",
+    "instruments": [
+      "msi"
+    ],
+    "gsd": 10,
+    "view:off_nadir": 0,
+    "proj:epsg": 32633,
+    "sentinel:utm_zone": 33,
+    "sentinel:latitude_band": "S",
+    "sentinel:grid_square": "VB",
+    "sentinel:sequence": "0",
+    "sentinel:product_id": "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149",
+    "sentinel:data_coverage": 100,
+    "eo:cloud_cover": 21.22,
+    "sentinel:valid_cloud_cover": true
+  },
+  "collection": "sentinel-s2-l2a-cogs",
   "assets": {
-    "grib2": {
-      "href": "../tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2",
-      "type": "application/wmo-GRIB2",
-      "title": "GRIB2 file",
-      "description": "The forecast data. Subsets of the data can be loaded using information from the associated index file.",
-      "raster:bands": [
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg"
+    },
+    "overview": {
+      "title": "True color image",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "overview"
+      ],
+      "gsd": 10,
+      "eo:bands": [
         {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0061231516301632,
-            "maximum": 29.00252532959,
-            "mean": 0.16919819447534,
-            "stddev": 0.3764434353083
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.6645,
+          "full_width_half_max": 0.038
         },
         {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.64043462276459,
-            "maximum": 0.84214621782303,
-            "mean": 0.76601473219048,
-            "stddev": 0.036238526175545
-          },
-          "description": "Asymmetry Factor",
-          "grib:element": "asysfk",
-          "grib:short_name": "0-EATM"
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
         },
         {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.74945330619812,
-            "maximum": 0.99926424026489,
-            "mean": 0.94882971866408,
-            "stddev": 0.03411827900738
-          },
-          "description": "Single Scattering Albedo",
-          "grib:element": "ssalbk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0043960274197161,
-            "maximum": 20.069881439209,
-            "mean": 0.14160790555694,
-            "stddev": 0.28359911907921
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0027195760048926,
-            "maximum": 12.060523986816,
-            "mean": 0.11106313425042,
-            "stddev": 0.19478975993829
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0023061106912792,
-            "maximum": 10.419253349304,
-            "mean": 0.10488103820814,
-            "stddev": 0.17622332473456
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0000031616805244994,
-            "maximum": 3.1155025959015,
-            "mean": 0.008855822054689,
-            "stddev": 0.053499185481957
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0000030212595447665,
-            "maximum": 2.8461494445801,
-            "mean": 0.0081680120525493,
-            "stddev": 0.049103679640117
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0000013180878113417,
-            "maximum": 1.0072281360626,
-            "mean": 0.04030248834866,
-            "stddev": 0.056431185533878
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0000013180878113417,
-            "maximum": 1.0072281360626,
-            "mean": 0.04030248834866,
-            "stddev": 0.056431185533878
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00060580234276131,
-            "maximum": 4.025007724762,
-            "mean": 0.020819146128007,
-            "stddev": 0.055893246719568
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00060580234276131,
-            "maximum": 4.025007724762,
-            "mean": 0.020819146128007,
-            "stddev": 0.055893246719568
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00052909186342731,
-            "maximum": 10.38880443573,
-            "mean": 0.034657705831735,
-            "stddev": 0.12668759764327
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00051318010082468,
-            "maximum": 10.030592918396,
-            "mean": 0.034007718824436,
-            "stddev": 0.12402715920299
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00014269040548243,
-            "maximum": 1.6327264308929,
-            "mean": 0.006424343336384,
-            "stddev": 0.023662662901252
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.000034597389458213,
-            "maximum": 0.34983298182487,
-            "mean": 0.0015795669489139,
-            "stddev": 0.0054900974371096
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0020731242839247,
-            "maximum": 9.0323190689087,
-            "mean": 0.097953657308747,
-            "stddev": 0.16041500636699
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0011907988227904,
-            "maximum": 4.9453902244568,
-            "mean": 0.078425688122925,
-            "stddev": 0.11565155095503
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00030365923885256,
-            "maximum": 2.2889845371246,
-            "mean": 0.05313892097441,
-            "stddev": 0.071845546939689
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00007992128666956,
-            "maximum": 0.78618425130844,
-            "mean": 0.016158330569383,
-            "stddev": 0.023989501072855
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 1.3996381831305e-8,
-            "maximum": 309.77227783203,
-            "mean": 0.41038999470455,
-            "stddev": 4.0030611393966
-          },
-          "description": "Particulate matter (fine)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtf",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 4.6261600772368e-8,
-            "maximum": 57.208011627197,
-            "mean": 3.1927213114378,
-            "stddev": 4.2616933493912
-          },
-          "description": "Particulate matter (fine)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtf",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00021699354692828,
-            "maximum": 13193.625,
-            "mean": 22.910594069461,
-            "stddev": 41.772567854659
-          },
-          "description": "Particulate matter (coarse)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtc",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00017043380648829,
-            "maximum": 13191.577148438,
-            "mean": 5.7616627017781,
-            "stddev": 27.126657158214
-          },
-          "description": "Particulate matter (fine)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtf",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 5.4072143029771e-7,
-            "maximum": 0.0025077844038606,
-            "mean": 0.000021760580395887,
-            "stddev": 0.000048162056013382
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 3.7170894984229e-7,
-            "maximum": 0.001863478217274,
-            "mean": 0.0000093149012037263,
-            "stddev": 0.000020545495128855
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 7.861409301313e-10,
-            "maximum": 0.00054902862757444,
-            "mean": 0.000001712380465595,
-            "stddev": 0.0000098742292093661
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 2.2129525989456e-10,
-            "maximum": 0.000041638519178377,
-            "mean": 0.0000023144710131757,
-            "stddev": 0.0000026636810432403
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 6.5196523735267e-9,
-            "maximum": 0.0000842632871354,
-            "mean": 3.0601876239339e-7,
-            "stddev": 0.0000011748606985804
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 6.0665072965094e-8,
-            "maximum": 0.0017742430791259,
-            "mean": 0.0000031750432594164,
-            "stddev": 0.000014052866691345
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.4966,
+          "full_width_half_max": 0.098
         }
       ],
-      "roles": [
-        "data",
-        "source"
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif",
+      "proj:shape": [
+        343,
+        343
+      ],
+      "proj:transform": [
+        320,
+        0,
+        399960,
+        0,
+        -320,
+        4200000,
+        0,
+        0,
+        1
       ]
     },
-    "index": {
-      "href": "../tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2.idx",
-      "type": "text/plain",
-      "title": "Index file",
-      "description": "Contains information on each message within the GRIB2 file.",
+    "info": {
+      "title": "Original JSON metadata",
+      "type": "application/json",
       "roles": [
-        "metadata",
-        "index"
+        "metadata"
+      ],
+      "href": "https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json"
+    },
+    "metadata": {
+      "title": "Original XML metadata",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ],
+      "href": "https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml"
+    },
+    "visual": {
+      "title": "True color image",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "overview"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.6645,
+          "full_width_half_max": 0.038
+        },
+        {
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
+        },
+        {
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.4966,
+          "full_width_half_max": 0.098
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B01": {
+      "title": "Band 1 (coastal) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 60,
+      "eo:bands": [
+        {
+          "name": "B01",
+          "common_name": "coastal",
+          "center_wavelength": 0.4439,
+          "full_width_half_max": 0.027
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif",
+      "proj:shape": [
+        1830,
+        1830
+      ],
+      "proj:transform": [
+        60,
+        0,
+        399960,
+        0,
+        -60,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 60,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 20567,
+            "mean": 2339.4759595597,
+            "stddev": 3026.6973619954,
+            "valid_percent": 99.83
+          }
+        }
+      ]
+    },
+    "B02": {
+      "title": "Band 2 (blue) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.4966,
+          "full_width_half_max": 0.098
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 10,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 19264,
+            "mean": 2348.069117847,
+            "stddev": 2916.5446249911,
+            "valid_percent": 99.99
+          }
+        }
+      ]
+    },
+    "B03": {
+      "title": "Band 3 (green) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 10,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 18064,
+            "mean": 2384.4680007438,
+            "stddev": 2675.410513295,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B04": {
+      "title": "Band 4 (red) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.6645,
+          "full_width_half_max": 0.038
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 10,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 17200,
+            "mean": 2273.9667970732,
+            "stddev": 2618.272802792,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B05": {
+      "title": "Band 5 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B05",
+          "center_wavelength": 0.7039,
+          "full_width_half_max": 0.019
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 20,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 16842,
+            "mean": 2634.1490243416,
+            "stddev": 2634.1490243416,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B06": {
+      "title": "Band 6 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B06",
+          "center_wavelength": 0.7402,
+          "full_width_half_max": 0.018
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 20,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 16502,
+            "mean": 3329.8844628619,
+            "stddev": 2303.0096294469,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B07": {
+      "title": "Band 7 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B07",
+          "center_wavelength": 0.7825,
+          "full_width_half_max": 0.028
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B07.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B08": {
+      "title": "Band 8 (nir) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B08",
+          "common_name": "nir",
+          "center_wavelength": 0.8351,
+          "full_width_half_max": 0.145
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B08.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B8A": {
+      "title": "Band 8A BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B8A",
+          "center_wavelength": 0.8648,
+          "full_width_half_max": 0.033
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B8A.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B09": {
+      "title": "Band 9 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 60,
+      "eo:bands": [
+        {
+          "name": "B09",
+          "center_wavelength": 0.945,
+          "full_width_half_max": 0.026
+        }
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 60,
+          "bits_per_sample": 15,
+          "nodata": "nan"
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B09.tif",
+      "proj:shape": [
+        1830,
+        1830
+      ],
+      "proj:transform": [
+        60,
+        0,
+        399960,
+        0,
+        -60,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B11": {
+      "title": "Band 11 (swir16) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B11",
+          "common_name": "swir16",
+          "center_wavelength": 1.6137,
+          "full_width_half_max": 0.143
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B11.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B12": {
+      "title": "Band 12 (swir22) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B12",
+          "common_name": "swir22",
+          "center_wavelength": 2.22024,
+          "full_width_half_max": 0.242
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B12.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "AOT": {
+      "title": "Aerosol Optical Thickness (AOT)",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/AOT.tif",
+      "proj:shape": [
+        1830,
+        1830
+      ],
+      "proj:transform": [
+        60,
+        0,
+        399960,
+        0,
+        -60,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "WVP": {
+      "title": "Water Vapour (WVP)",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/WVP.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "SCL": {
+      "title": "Scene Classification Map (SCL)",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
       ]
     }
   },
-  "bbox": [
-    -180.125,
-    90.125,
-    179.875,
-    -90.125
-  ],
-  "stac_extensions": [
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/timestamps/v1.0.0/schema.json"
-  ],
-  "collection": "noaa-gefs"
+  "virtual:assets": {
+    "SIR": {
+      "title": "Shortwave Infra-red",
+      "raster:range": [
+        0,
+        10000
+      ],
+      "href": [
+        "#B12",
+        "#B8A",
+        "#B04"
+      ]
+    }
+  },
+  "links": [
+    {
+      "type": "application/json",
+      "rel": "collection",
+      "href": "sentinel-s2-l2a-cogs.json"
+    }
+  ]
 }
 ```
 
@@ -516,646 +764,777 @@ This extension defines some high-level fields to get a basic understanding of we
 {
   "type": "Feature",
   "stac_version": "1.0.0",
-  "id": "1660262400-gefs.chem.t00z.a2d_0p25.f000",
-  "properties": {
-    "expires": "2022-08-12T00:00:00Z",
-    "grib:discipline": "meteorological",
-    "forecast:reference_datetime": "2022-08-12T00:00:00Z",
-    "forecast:horizon": "PT0H",
-    "processing:facility": "US-NCEP",
-    "proj:epsg": null,
-    "proj:projjson": {
-      "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
-      "type": "GeographicCRS",
-      "name": "Coordinate System imported from GRIB file",
-      "datum": {
-        "type": "GeodeticReferenceFrame",
-        "name": "unnamed",
-        "ellipsoid": {
-          "name": "Sphere",
-          "radius": 6371229
-        }
-      },
-      "coordinate_system": {
-        "subtype": "ellipsoidal",
-        "axis": [
-          {
-            "name": "Latitude",
-            "abbreviation": "lat",
-            "direction": "north",
-            "unit": "degree"
-          },
-          {
-            "name": "Longitude",
-            "abbreviation": "lon",
-            "direction": "east",
-            "unit": "degree"
-          }
-        ]
-      }
-    },
-    "proj:shape": [
-      1440,
-      721
-    ],
-    "proj:transform": [
-      0.25,
-      0,
-      -180.125,
-      0,
-      -0.25,
-      90.125
-    ],
-    "datetime": "2022-08-12T00:00:00Z"
-  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v1.1.0/schema.json"
+  ],
+  "id": "S2B_33SVB_20210221_0_L2A",
+  "bbox": [
+    13.86148243891681,
+    36.95257399124932,
+    15.111074610520053,
+    37.94752813015372
+  ],
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          -180.125,
-          -90.125
+          13.876381589019879,
+          36.95257399124932
         ],
         [
-          179.875,
-          -90.125
+          13.86148243891681,
+          37.942072015005024
         ],
         [
-          179.875,
-          90.125
+          15.111074610520053,
+          37.94752813015372
         ],
         [
-          -180.125,
-          90.125
+          15.109620666835209,
+          36.95783951241028
         ],
         [
-          -180.125,
-          -90.125
+          13.876381589019879,
+          36.95257399124932
         ]
       ]
     ]
   },
-  "links": [
-    {
-      "rel": "collection",
-      "href": "collection.json",
-      "type": "application/json",
-      "title": "NOAA Global Ensemble Forecast System (GEFS)"
-    }
-  ],
+  "properties": {
+    "datetime": "2021-02-21T10:00:17Z",
+    "platform": "sentinel-2b",
+    "constellation": "sentinel-2",
+    "instruments": [
+      "msi"
+    ],
+    "gsd": 10,
+    "view:off_nadir": 0,
+    "proj:epsg": 32633,
+    "sentinel:utm_zone": 33,
+    "sentinel:latitude_band": "S",
+    "sentinel:grid_square": "VB",
+    "sentinel:sequence": "0",
+    "sentinel:product_id": "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149",
+    "sentinel:data_coverage": 100,
+    "eo:cloud_cover": 21.22,
+    "sentinel:valid_cloud_cover": true
+  },
+  "collection": "sentinel-s2-l2a-cogs",
   "assets": {
-    "grib2": {
-      "href": "../tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2",
-      "type": "application/wmo-GRIB2",
-      "title": "GRIB2 file",
-      "description": "The forecast data. Subsets of the data can be loaded using information from the associated index file.",
-      "raster:bands": [
+    "thumbnail": {
+      "title": "Thumbnail",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "href": "https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg"
+    },
+    "overview": {
+      "title": "True color image",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "overview"
+      ],
+      "gsd": 10,
+      "eo:bands": [
         {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0061231516301632,
-            "maximum": 29.00252532959,
-            "mean": 0.16919819447534,
-            "stddev": 0.3764434353083
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.6645,
+          "full_width_half_max": 0.038
         },
         {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.64043462276459,
-            "maximum": 0.84214621782303,
-            "mean": 0.76601473219048,
-            "stddev": 0.036238526175545
-          },
-          "description": "Asymmetry Factor",
-          "grib:element": "asysfk",
-          "grib:short_name": "0-EATM"
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
         },
         {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.74945330619812,
-            "maximum": 0.99926424026489,
-            "mean": 0.94882971866408,
-            "stddev": 0.03411827900738
-          },
-          "description": "Single Scattering Albedo",
-          "grib:element": "ssalbk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0043960274197161,
-            "maximum": 20.069881439209,
-            "mean": 0.14160790555694,
-            "stddev": 0.28359911907921
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0027195760048926,
-            "maximum": 12.060523986816,
-            "mean": 0.11106313425042,
-            "stddev": 0.19478975993829
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0023061106912792,
-            "maximum": 10.419253349304,
-            "mean": 0.10488103820814,
-            "stddev": 0.17622332473456
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 3.1616805244994e-06,
-            "maximum": 3.1155025959015,
-            "mean": 0.008855822054689,
-            "stddev": 0.053499185481957
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 3.0212595447665e-06,
-            "maximum": 2.8461494445801,
-            "mean": 0.0081680120525493,
-            "stddev": 0.049103679640117
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 1.3180878113417e-06,
-            "maximum": 1.0072281360626,
-            "mean": 0.04030248834866,
-            "stddev": 0.056431185533878
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 1.3180878113417e-06,
-            "maximum": 1.0072281360626,
-            "mean": 0.04030248834866,
-            "stddev": 0.056431185533878
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00060580234276131,
-            "maximum": 4.025007724762,
-            "mean": 0.020819146128007,
-            "stddev": 0.055893246719568
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00060580234276131,
-            "maximum": 4.025007724762,
-            "mean": 0.020819146128007,
-            "stddev": 0.055893246719568
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00052909186342731,
-            "maximum": 10.38880443573,
-            "mean": 0.034657705831735,
-            "stddev": 0.12668759764327
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00051318010082468,
-            "maximum": 10.030592918396,
-            "mean": 0.034007718824436,
-            "stddev": 0.12402715920299
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00014269040548243,
-            "maximum": 1.6327264308929,
-            "mean": 0.006424343336384,
-            "stddev": 0.023662662901252
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 3.4597389458213e-05,
-            "maximum": 0.34983298182487,
-            "mean": 0.0015795669489139,
-            "stddev": 0.0054900974371096
-          },
-          "description": "Scattering Aerosol Optical Thickness",
-          "grib:element": "sctaotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0020731242839247,
-            "maximum": 9.0323190689087,
-            "mean": 0.097953657308747,
-            "stddev": 0.16041500636699
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.0011907988227904,
-            "maximum": 4.9453902244568,
-            "mean": 0.078425688122925,
-            "stddev": 0.11565155095503
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00030365923885256,
-            "maximum": 2.2889845371246,
-            "mean": 0.05313892097441,
-            "stddev": 0.071845546939689
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 7.992128666956e-05,
-            "maximum": 0.78618425130844,
-            "mean": 0.016158330569383,
-            "stddev": 0.023989501072855
-          },
-          "description": "Atmosphere Optical Thickness",
-          "grib:element": "aotk",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 1.3996381831305e-08,
-            "maximum": 309.77227783203,
-            "mean": 0.41038999470455,
-            "stddev": 4.0030611393966
-          },
-          "description": "Particulate matter (fine)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtf",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 4.6261600772368e-08,
-            "maximum": 57.208011627197,
-            "mean": 3.1927213114378,
-            "stddev": 4.2616933493912
-          },
-          "description": "Particulate matter (fine)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtf",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00021699354692828,
-            "maximum": 13193.625,
-            "mean": 22.910594069461,
-            "stddev": 41.772567854659
-          },
-          "description": "Particulate matter (coarse)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtc",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 0.00017043380648829,
-            "maximum": 13191.577148438,
-            "mean": 5.7616627017781,
-            "stddev": 27.126657158214
-          },
-          "description": "Particulate matter (fine)",
-          "unit": "10^-6g/m^3",
-          "grib:element": "pmtf",
-          "grib:short_name": "0-SFC"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 5.4072143029771e-07,
-            "maximum": 0.0025077844038606,
-            "mean": 2.1760580395887e-05,
-            "stddev": 4.8162056013382e-05
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 3.7170894984229e-07,
-            "maximum": 0.001863478217274,
-            "mean": 9.3149012037263e-06,
-            "stddev": 2.0545495128855e-05
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 7.861409301313e-10,
-            "maximum": 0.00054902862757444,
-            "mean": 1.712380465595e-06,
-            "stddev": 9.8742292093661e-06
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 2.2129525989456e-10,
-            "maximum": 4.1638519178377e-05,
-            "mean": 2.3144710131757e-06,
-            "stddev": 2.6636810432403e-06
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 6.5196523735267e-09,
-            "maximum": 8.42632871354e-05,
-            "mean": 3.0601876239339e-07,
-            "stddev": 1.1748606985804e-06
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
-        },
-        {
-          "data_type": "float64",
-          "statistics": {
-            "minimum": 6.0665072965094e-08,
-            "maximum": 0.0017742430791259,
-            "mean": 3.1750432594164e-06,
-            "stddev": 1.4052866691345e-05
-          },
-          "description": "Column-Integrated Mass Density",
-          "unit": "kg/(m^2)",
-          "grib:element": "colmd",
-          "grib:short_name": "0-EATM"
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.4966,
+          "full_width_half_max": 0.098
         }
       ],
-      "roles": [
-        "data",
-        "source"
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif",
+      "proj:shape": [
+        343,
+        343
+      ],
+      "proj:transform": [
+        320,
+        0,
+        399960,
+        0,
+        -320,
+        4200000,
+        0,
+        0,
+        1
       ]
     },
-    "index": {
-      "href": "../tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2.idx",
-      "type": "text/plain",
-      "title": "Index file",
-      "description": "Contains information on each message within the GRIB2 file.",
+    "info": {
+      "title": "Original JSON metadata",
+      "type": "application/json",
       "roles": [
-        "metadata",
-        "index"
+        "metadata"
+      ],
+      "href": "https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json"
+    },
+    "metadata": {
+      "title": "Original XML metadata",
+      "type": "application/xml",
+      "roles": [
+        "metadata"
+      ],
+      "href": "https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml"
+    },
+    "visual": {
+      "title": "True color image",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "overview"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.6645,
+          "full_width_half_max": 0.038
+        },
+        {
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
+        },
+        {
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.4966,
+          "full_width_half_max": 0.098
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B01": {
+      "title": "Band 1 (coastal) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 60,
+      "eo:bands": [
+        {
+          "name": "B01",
+          "common_name": "coastal",
+          "center_wavelength": 0.4439,
+          "full_width_half_max": 0.027
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif",
+      "proj:shape": [
+        1830,
+        1830
+      ],
+      "proj:transform": [
+        60,
+        0,
+        399960,
+        0,
+        -60,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 60,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 20567,
+            "mean": 2339.4759595597,
+            "stddev": 3026.6973619954,
+            "valid_percent": 99.83
+          }
+        }
+      ]
+    },
+    "B02": {
+      "title": "Band 2 (blue) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B02",
+          "common_name": "blue",
+          "center_wavelength": 0.4966,
+          "full_width_half_max": 0.098
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 10,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 19264,
+            "mean": 2348.069117847,
+            "stddev": 2916.5446249911,
+            "valid_percent": 99.99
+          }
+        }
+      ]
+    },
+    "B03": {
+      "title": "Band 3 (green) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B03",
+          "common_name": "green",
+          "center_wavelength": 0.56,
+          "full_width_half_max": 0.045
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 10,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 18064,
+            "mean": 2384.4680007438,
+            "stddev": 2675.410513295,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B04": {
+      "title": "Band 4 (red) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B04",
+          "common_name": "red",
+          "center_wavelength": 0.6645,
+          "full_width_half_max": 0.038
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 10,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 17200,
+            "mean": 2273.9667970732,
+            "stddev": 2618.272802792,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B05": {
+      "title": "Band 5 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B05",
+          "center_wavelength": 0.7039,
+          "full_width_half_max": 0.019
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 20,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 16842,
+            "mean": 2634.1490243416,
+            "stddev": 2634.1490243416,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B06": {
+      "title": "Band 6 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B06",
+          "center_wavelength": 0.7402,
+          "full_width_half_max": 0.018
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 20,
+          "bits_per_sample": 15,
+          "nodata": 0,
+          "statistics": {
+            "minimum": 1,
+            "maximum": 16502,
+            "mean": 3329.8844628619,
+            "stddev": 2303.0096294469,
+            "valid_percent": 99.999
+          }
+        }
+      ]
+    },
+    "B07": {
+      "title": "Band 7 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B07",
+          "center_wavelength": 0.7825,
+          "full_width_half_max": 0.028
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B07.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B08": {
+      "title": "Band 8 (nir) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 10,
+      "eo:bands": [
+        {
+          "name": "B08",
+          "common_name": "nir",
+          "center_wavelength": 0.8351,
+          "full_width_half_max": 0.145
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B08.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B8A": {
+      "title": "Band 8A BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B8A",
+          "center_wavelength": 0.8648,
+          "full_width_half_max": 0.033
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B8A.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B09": {
+      "title": "Band 9 BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 60,
+      "eo:bands": [
+        {
+          "name": "B09",
+          "center_wavelength": 0.945,
+          "full_width_half_max": 0.026
+        }
+      ],
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 60,
+          "bits_per_sample": 15,
+          "nodata": "nan"
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B09.tif",
+      "proj:shape": [
+        1830,
+        1830
+      ],
+      "proj:transform": [
+        60,
+        0,
+        399960,
+        0,
+        -60,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B11": {
+      "title": "Band 11 (swir16) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B11",
+          "common_name": "swir16",
+          "center_wavelength": 1.6137,
+          "full_width_half_max": 0.143
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B11.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "B12": {
+      "title": "Band 12 (swir22) BOA reflectance",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "gsd": 20,
+      "eo:bands": [
+        {
+          "name": "B12",
+          "common_name": "swir22",
+          "center_wavelength": 2.22024,
+          "full_width_half_max": 0.242
+        }
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B12.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "AOT": {
+      "title": "Aerosol Optical Thickness (AOT)",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/AOT.tif",
+      "proj:shape": [
+        1830,
+        1830
+      ],
+      "proj:transform": [
+        60,
+        0,
+        399960,
+        0,
+        -60,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "WVP": {
+      "title": "Water Vapour (WVP)",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/WVP.tif",
+      "proj:shape": [
+        10980,
+        10980
+      ],
+      "proj:transform": [
+        10,
+        0,
+        399960,
+        0,
+        -10,
+        4200000,
+        0,
+        0,
+        1
+      ]
+    },
+    "SCL": {
+      "title": "Scene Classification Map (SCL)",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif",
+      "proj:shape": [
+        5490,
+        5490
+      ],
+      "proj:transform": [
+        20,
+        0,
+        399960,
+        0,
+        -20,
+        4200000,
+        0,
+        0,
+        1
       ]
     }
   },
-  "bbox": [
-    -180.125,
-    90.125,
-    179.875,
-    -90.125
+  "virtual:assets": {
+    "SIR": {
+      "title": "Shortwave Infra-red",
+      "raster:range": [
+        0,
+        10000
+      ],
+      "href": [
+        "#B12",
+        "#B8A",
+        "#B04"
+      ]
+    }
+  },
+  "links": [
+    {
+      "type": "application/json",
+      "rel": "collection",
+      "href": "sentinel-s2-l2a-cogs.json"
+    }
   ],
-  "stac_extensions": [
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/timestamps/v1.0.0/schema.json"
-  ],
-  "collection": "noaa-gefs",
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/context.jsonld"
 }
 ```
 
 #### ttl
 ```ttl
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <grib:> .
-@prefix ns2: <raster:> .
-@prefix ns3: <proj:> .
-@prefix ns4: <forecast:> .
-@prefix ns5: <processing:> .
-@prefix ns6: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix ns1: <sentinel:> .
+@prefix ns2: <virtual:> .
+@prefix ns3: <eo:> .
+@prefix ns4: <proj:> .
+@prefix ns5: <view:> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <urn:stac:vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/raster/example-1/1660262400-gefs.chem.t00z.a2d_0p25.f000> a geojson:Feature ;
-    ns4:horizon "PT0H" ;
-    ns4:reference_datetime "2022-08-12T00:00:00Z" ;
-    ns1:discipline "meteorological" ;
-    rdfs:seeAlso [ rdfs:label "NOAA Global Ensemble Forecast System (GEFS)" ;
-            dcterms:type "application/json" ;
-            ns6:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
-    geojson:bbox ( -1.80125e+02 9.0125e+01 1.79875e+02 -9.0125e+01 ) ;
+<file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
+    ns3:cloud_cover 2.122e+01 ;
+    geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( -1.80125e+02 -9.0125e+01 ) ( 1.79875e+02 -9.0125e+01 ) ( 1.79875e+02 9.0125e+01 ) ( -1.80125e+02 9.0125e+01 ) ( -1.80125e+02 -9.0125e+01 ) ) ) ] ;
-    ns5:facility "US-NCEP" ;
-    ns3:projjson [ a <https://example.com/stac/raster/example-1/GeographicCRS> ] ;
-    ns3:shape 721,
-        1440 ;
-    ns3:transform -1.80125e+02,
-        -2.5e-01,
-        0,
-        2.5e-01,
-        9.0125e+01 ;
-    stac:extensions "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-        "https://stac-extensions.github.io/timestamps/v1.0.0/schema.json" ;
-    stac:hasAsset <https://example.com/stac/raster/example-1/grib2>,
-        <https://example.com/stac/raster/example-1/index> ;
-    stac:version "1.0.0" .
-
-<https://example.com/stac/raster/example-1/grib2> dcterms:description "The forecast data. Subsets of the data can be loaded using information from the associated index file." ;
-    dcterms:format "application/wmo-GRIB2" ;
-    dcterms:title "GRIB2 file" ;
-    dcat:downloadURL <https://example.com/stac/raster/tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2> ;
-    ns2:bands [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "pmtc" ;
-            ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (coarse)" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "pmtf" ;
-            ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (fine)" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "pmtf" ;
-            ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (fine)" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "sctaotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Scattering Aerosol Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "pmtf" ;
-            ns1:short_name "0-SFC" ;
-            dcterms:description "Particulate matter (fine)" ],
-        [ ns1:element "colmd" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Column-Integrated Mass Density" ],
-        [ ns1:element "ssalbk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Single Scattering Albedo" ],
-        [ ns1:element "asysfk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Asymmetry Factor" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ],
-        [ ns1:element "aotk" ;
-            ns1:short_name "0-EATM" ;
-            dcterms:description "Atmosphere Optical Thickness" ] .
-
-<https://example.com/stac/raster/example-1/index> dcterms:description "Contains information on each message within the GRIB2 file." ;
-    dcterms:format "text/plain" ;
-    dcterms:title "Index file" ;
-    dcat:downloadURL <https://example.com/stac/raster/tests/data-files/ncep/chem/gefs.chem.t00z.a2d_0p25.f000.grib2.idx> .
+            geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
+    ns4:epsg 32633 ;
+    ns1:data_coverage 100 ;
+    ns1:grid_square "VB" ;
+    ns1:latitude_band "S" ;
+    ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns1:sequence "0" ;
+    ns1:utm_zone 33 ;
+    ns1:valid_cloud_cover true ;
+    ns5:off_nadir 0 ;
+    ns2:assets [ ] .
 
 
 ```
@@ -1185,45 +1564,21 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "links": {
-      "@context": {
-        "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "rdfs:seeAlso"
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
-    "stac_version": "stac:version",
-    "stac_extensions": "stac:extensions",
-    "description": "dct:description",
-    "license": "dct:license",
-    "keywords": "dct:subject",
-    "extent": "dct:extent",
-    "assets": {
-      "@id": "stac:hasAsset",
-      "@container": "@id",
+    "rel": {
       "@context": {
-        "href": {
-          "@id": "dcat:downloadURL",
-          "@type": "@id"
-        },
-        "title": "dct:title",
-        "type": "dct:format"
-      }
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
     },
     "type": "@type",
+    "hreflang": "dct:language",
+    "title": "rdfs:label",
+    "length": "dct:extent",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
@@ -1252,11 +1607,9 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "stac": "urn:stac:vocab#",
-    "dct": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
     "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
   }

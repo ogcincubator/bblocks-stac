@@ -1,0 +1,23 @@
+Validation report for ogc.contrib.stac.extensions.eo - STAC Forecast Extension
+Generated 2024-03-25T06:26:02.746721+00:00
+=== Files ===
+Using example_1_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: None of ['https://stac-extensions.github.io/eo/v1.0.0/schema.json', 'https://stac-extensions.github.io/projection/v1.0.0/schema.json'] are valid under the given schema
+
+Failed validating 'contains' in schema[0]['allOf'][1]['properties']['stac_extensions']:
+    {'contains': {'const': 'https://stac-extensions.github.io/raster/v1.1.0/schema.json'},
+     'type': 'array'}
+
+On instance['stac_extensions']:
+    ['https://stac-extensions.github.io/eo/v1.0.0/schema.json',
+     'https://stac-extensions.github.io/projection/v1.0.0/schema.json']
+=== End JSON Schema ===
+
