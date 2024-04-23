@@ -2,12 +2,12 @@
   "name": "OGC Building Blocks for STAC",
   "abstract": "These Building Blocks provide a validation and documentation wrapper over STAC and extension schemas, and aid in transparent re-use of STAC elements",
   "description": "Allows for validation and testing of STAC examples.\n\nSupports definition and testing of transformations to/from STAC from other formats.\n\nImplementers can fork this repository and add additional examples in the `tests/` directory of each Building Block and run validation processes locally.\n\nProvides a framework for documentation and testing of additional extensions.\n",
-  "modified": "2024-03-25T06:49:43.720986",
+  "modified": "2024-04-23T07:52:41.865449",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"c150183b2ddb43ea6bcf71feddabe22a4025f524",
-      "shortCommitId": "\"c15018",
-      "date": "2024-03-22T10:03:03+00:00\""
+      "commitId": "\"e4a611ba98dc47cf5ffb659b73d79151289b1133",
+      "shortCommitId": "\"e4a611",
+      "date": "2024-04-15T14:36:27+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
@@ -31,7 +31,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2024-03-25",
+      "dateOfLastChange": "2024-04-23",
       "sources": [
         {
           "title": "STAC Specification",
@@ -46,14 +46,14 @@
       "shaclRules": {},
       "dependsOn": [
         "ogc.ogc-utils.json-link",
-        "ogc.api.records.core"
+        "ogc.api.records.v1.schemas.recordGeoJSON"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml",
         "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
       },
-      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld",
       "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/",
       "validationPassed": false,
       "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/",
@@ -87,7 +87,7 @@
       "itemClass": "schema",
       "register": "ogc-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2024-03-25",
+      "dateOfLastChange": "2024-04-23",
       "sources": [
         {
           "title": "STAC Specification",
@@ -101,14 +101,14 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.api.records.core"
+        "ogc.api.records.v1.schemas.recordGeoJSON"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml",
         "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
       },
-      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
       "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/item/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/item/",
       "validationPassed": false,
       "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/",
@@ -141,7 +141,7 @@
       "itemClass": "schema",
       "register": "bblocks-stac",
       "version": "0.1",
-      "dateOfLastChange": "2024-03-25",
+      "dateOfLastChange": "2024-04-23",
       "link": "https://github.com/stac-extensions/eo",
       "sources": [
         {
@@ -165,8 +165,8 @@
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.yaml",
         "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.json"
       },
-      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld",
       "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/eo/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/eo/",
       "validationPassed": false,
       "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/eo/",
@@ -199,7 +199,7 @@
       "itemClass": "schema",
       "register": "ogc-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2024-03-25",
+      "dateOfLastChange": "2024-04-23",
       "link": "https://github.com/stac-extensions/raster",
       "sources": [
         {
@@ -222,8 +222,8 @@
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml",
         "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.json"
       },
-      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/context.jsonld",
       "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster/",
       "validationPassed": false,
       "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/raster/",

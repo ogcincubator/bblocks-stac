@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2024-03-25",
+  "dateOfLastChange": "2024-04-23",
   "sources": [
     {
       "title": "STAC Specification",
@@ -25,14 +25,14 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.api.records.core"
+    "ogc.api.records.v1.schemas.recordGeoJSON"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
   },
-  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
   "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/item/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/item/",
   "validationPassed": false,
   "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item/",
@@ -84,7 +84,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/core/schema.yaml\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/item"
 }

@@ -1,5 +1,5 @@
 Validation report for ogc.contrib.stac.collection - STAC Collection
-Generated 2024-03-25T06:49:51.926085+00:00
+Generated 2024-04-23T07:52:51.178599+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -10,9 +10,9 @@ Output Turtle example_1_1.ttl created
 === JSON Schema ===
 
 ** Validation error **
-ValidationError: 'time' is a required property
+ValidationError: 'geometry' is a required property
 
-Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
+Failed validating 'required' in schema['allOf'][1]:
     {'properties': {'conformsTo': {'items': {'type': 'string'},
                                    'type': 'array'},
                     'geometry': {'oneOf': [{'enum': [None]},
@@ -21,7 +21,7 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                           'catalog record.',
                            'format': 'uri',
                            'type': 'string'},
-                    'linkTemplates': {'items': {'$ref': 'linkTemplate.yaml'},
+                    'linkTemplates': {'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/linkTemplate/schema.yaml'},
                                       'type': 'array'},
                     'links': {'items': {'$ref': 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/link.yaml'},
                               'type': 'array'},
@@ -45,7 +45,7 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                                               'by '
                                                                               'the '
                                                                               'record.',
-                                                               'items': {'$ref': 'contact.yaml'},
+                                                               'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/contact/schema.yaml'},
                                                                'type': 'array'},
                                                   'created': {'description': 'Date '
                                                                              'of '
@@ -93,7 +93,7 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                                                                                      'external '
                                                                                                                      'identifier '
                                                                                                                      'was '
-                                                                                                                     'obtained.  '
+                                                                                                                     'obtained. '
                                                                                                                      'It '
                                                                                                                      'is '
                                                                                                                      'recommended '
@@ -144,7 +144,7 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                                               'codes.',
                                                                'items': {'type': 'string'},
                                                                'type': 'array'},
-                                                  'language': {'$ref': 'language.yaml',
+                                                  'language': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/language/schema.yaml',
                                                                'description': 'The '
                                                                               'language '
                                                                               'used '
@@ -165,9 +165,9 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                                                'record '
                                                                                'is '
                                                                                'available.',
-                                                                'items': {'$ref': 'language.yaml'},
+                                                                'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/language/schema.yaml'},
                                                                 'type': 'array'},
-                                                  'license': {'$ref': 'license.yaml'},
+                                                  'license': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/license/schema.yaml'},
                                                   'resourceLanguages': {'description': 'The '
                                                                                        'list '
                                                                                        'of '
@@ -182,7 +182,7 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                                                        'record '
                                                                                        'is '
                                                                                        'available.',
-                                                                        'items': {'$ref': 'language.yaml'},
+                                                                        'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/language/schema.yaml'},
                                                                         'type': 'array'},
                                                   'rights': {'description': 'A '
                                                                             'statement '
@@ -210,7 +210,7 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                                             'classify '
                                                                             'the '
                                                                             'resource.',
-                                                             'items': {'$ref': 'theme.yaml'},
+                                                             'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/theme/schema.yaml'},
                                                              'minItems': 1,
                                                              'type': 'array'},
                                                   'title': {'description': 'A '
@@ -274,9 +274,10 @@ Failed validating 'required' in schema['allOf'][1]['allOf'][0]:
                                                               'type': 'string'}},
                                    'required': ['type', 'title'],
                                    'type': 'object'},
-                    'time': {'$ref': 'time.yaml'},
+                    'time': {'oneOf': [{'enum': [None]},
+                                       {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/time/schema.yaml'}]},
                     'type': {'enum': ['Feature'], 'type': 'string'}},
-     'required': ['id', 'type', 'time', 'geometry', 'properties', 'links'],
+     'required': ['id', 'type', 'geometry', 'properties', 'links'],
      'type': 'object'}
 
 On instance:

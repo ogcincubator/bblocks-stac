@@ -1512,29 +1512,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
 #### ttl
 ```ttl
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sentinel:> .
-@prefix ns2: <virtual:> .
+@prefix ns1: <eo:> .
+@prefix ns2: <sentinel:> .
 @prefix ns3: <proj:> .
 @prefix ns4: <view:> .
-@prefix ns5: <eo:> .
+@prefix ns5: <virtual:> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns5:cloud_cover 2.122e+01 ;
+    ns1:cloud_cover 2.122e+01 ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
     ns3:epsg 32633 ;
-    ns1:data_coverage 100 ;
-    ns1:grid_square "VB" ;
-    ns1:latitude_band "S" ;
-    ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns1:sequence "0" ;
-    ns1:utm_zone 33 ;
-    ns1:valid_cloud_cover true ;
+    ns2:data_coverage 100 ;
+    ns2:grid_square "VB" ;
+    ns2:latitude_band "S" ;
+    ns2:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns2:sequence "0" ;
+    ns2:utm_zone 33 ;
+    ns2:valid_cloud_cover true ;
     ns4:off_nadir 0 ;
-    ns2:assets [ ] .
+    ns5:assets [ ] .
 
 
 ```
