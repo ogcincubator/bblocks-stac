@@ -1511,30 +1511,37 @@ An item can describe assets that are rasters of one or multiple bands with some 
 
 #### ttl
 ```ttl
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <eo:> .
-@prefix ns2: <sentinel:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <view:> .
 @prefix ns3: <proj:> .
-@prefix ns4: <view:> .
-@prefix ns5: <virtual:> .
+@prefix ns4: <sentinel:> .
+@prefix ns5: <eo:> .
+@prefix ns6: <virtual:> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns1:cloud_cover 2.122e+01 ;
+    ns5:cloud_cover 2.122e+01 ;
+    rdfs:seeAlso [ dct:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <file:///github/workspace/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
     ns3:epsg 32633 ;
-    ns2:data_coverage 100 ;
-    ns2:grid_square "VB" ;
-    ns2:latitude_band "S" ;
-    ns2:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns2:sequence "0" ;
-    ns2:utm_zone 33 ;
-    ns2:valid_cloud_cover true ;
-    ns4:off_nadir 0 ;
-    ns5:assets [ ] .
+    ns4:data_coverage 100 ;
+    ns4:grid_square "VB" ;
+    ns4:latitude_band "S" ;
+    ns4:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns4:sequence "0" ;
+    ns4:utm_zone 33 ;
+    ns4:valid_cloud_cover true ;
+    ns2:off_nadir 0 ;
+    ns6:assets [ ] .
 
 
 ```
@@ -1564,6 +1571,15 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "type": "@type",
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -1575,24 +1591,14 @@ Links to the schema:
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
-    "type": "@type",
     "hreflang": "dct:language",
     "title": "rdfs:label",
     "length": "dct:extent",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
-      "@context": {
-        "coordinates": {
-          "@container": "@list",
-          "@id": "geojson:coordinates"
-        }
-      },
+      "@context": {},
       "@id": "geojson:geometry"
-    },
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
     },
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -1607,10 +1613,16 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
+    "links": {
+      "@context": {
+        "type": "dct:type"
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "geojson": "https://purl.org/geojson/vocab#",
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
-    "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
   }
 }

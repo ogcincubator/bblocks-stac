@@ -1,5 +1,5 @@
 Validation report for ogc.contrib.stac.collection - STAC Collection
-Generated 2024-04-23T07:52:51.178599+00:00
+Generated 2024-04-26T04:15:54.743242+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -10,275 +10,293 @@ Output Turtle example_1_1.ttl created
 === JSON Schema ===
 
 ** Validation error **
-ValidationError: 'geometry' is a required property
+ValidationError: 'properties' is a required property
 
-Failed validating 'required' in schema['allOf'][1]:
-    {'properties': {'conformsTo': {'items': {'type': 'string'},
-                                   'type': 'array'},
-                    'geometry': {'oneOf': [{'enum': [None]},
-                                           {'$ref': 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml'}]},
-                    'id': {'description': 'A unique identifier of the '
-                                          'catalog record.',
-                           'format': 'uri',
-                           'type': 'string'},
-                    'linkTemplates': {'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/linkTemplate/schema.yaml'},
-                                      'type': 'array'},
-                    'links': {'items': {'$ref': 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/link.yaml'},
-                              'type': 'array'},
-                    'properties': {'properties': {'contacts': {'description': 'A '
-                                                                              'list '
-                                                                              'of '
-                                                                              'contacts '
-                                                                              'qualified '
-                                                                              'by '
-                                                                              'their '
-                                                                              'role(s) '
-                                                                              'in '
-                                                                              'association '
-                                                                              'to '
-                                                                              'the '
-                                                                              'record '
-                                                                              'or '
-                                                                              'the '
-                                                                              'resource '
-                                                                              'described '
-                                                                              'by '
-                                                                              'the '
-                                                                              'record.',
-                                                               'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/contact/schema.yaml'},
-                                                               'type': 'array'},
-                                                  'created': {'description': 'Date '
-                                                                             'of '
-                                                                             'creation '
-                                                                             'of '
-                                                                             'this '
-                                                                             'record.',
-                                                              'format': 'date-time',
-                                                              'type': 'string'},
-                                                  'description': {'description': 'A '
-                                                                                 'free-text '
-                                                                                 'account '
-                                                                                 'of '
-                                                                                 'the '
-                                                                                 'resource.',
-                                                                  'type': 'string'},
-                                                  'externalIds': {'description': 'An '
-                                                                                 'identifier '
-                                                                                 'for '
-                                                                                 'the '
-                                                                                 'resource '
-                                                                                 'assigned '
-                                                                                 'by '
-                                                                                 'an '
-                                                                                 'external '
-                                                                                 '(to '
-                                                                                 'the '
-                                                                                 'catalog) '
-                                                                                 'entity.',
-                                                                  'items': {'properties': {'scheme': {'description': 'A '
-                                                                                                                     'reference '
-                                                                                                                     'to '
-                                                                                                                     'an '
-                                                                                                                     'authority '
-                                                                                                                     'or '
-                                                                                                                     'identifier '
-                                                                                                                     'for '
-                                                                                                                     'a '
-                                                                                                                     'knowledge '
-                                                                                                                     'organization '
-                                                                                                                     'system '
-                                                                                                                     'from '
-                                                                                                                     'which '
-                                                                                                                     'the '
-                                                                                                                     'external '
-                                                                                                                     'identifier '
-                                                                                                                     'was '
-                                                                                                                     'obtained. '
-                                                                                                                     'It '
-                                                                                                                     'is '
-                                                                                                                     'recommended '
-                                                                                                                     'that '
-                                                                                                                     'the '
-                                                                                                                     'identifier '
-                                                                                                                     'be '
-                                                                                                                     'a '
-                                                                                                                     'resolvable '
-                                                                                                                     'URI.',
-                                                                                                      'type': 'string'},
-                                                                                           'value': {'description': 'The '
-                                                                                                                    'value '
-                                                                                                                    'of '
-                                                                                                                    'the '
-                                                                                                                    'identifier.',
-                                                                                                     'type': 'string'}},
-                                                                            'required': ['value'],
-                                                                            'type': 'object'},
-                                                                  'type': 'array'},
-                                                  'formats': {'description': 'A '
-                                                                             'list '
-                                                                             'of '
-                                                                             'available '
-                                                                             'distributions '
-                                                                             'of '
-                                                                             'the '
-                                                                             'resource.',
-                                                              'items': {'type': 'string'},
-                                                              'type': 'array'},
-                                                  'keywords': {'description': 'The '
-                                                                              'topic '
-                                                                              'or '
-                                                                              'topics '
-                                                                              'of '
-                                                                              'the '
-                                                                              'resource. '
-                                                                              'Typically '
-                                                                              'represented '
-                                                                              'using '
-                                                                              'free-form '
-                                                                              'keywords, '
-                                                                              'tags, '
-                                                                              'key '
-                                                                              'phrases, '
-                                                                              'or '
-                                                                              'classification '
-                                                                              'codes.',
-                                                               'items': {'type': 'string'},
-                                                               'type': 'array'},
-                                                  'language': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/language/schema.yaml',
-                                                               'description': 'The '
-                                                                              'language '
-                                                                              'used '
-                                                                              'for '
-                                                                              'textual '
-                                                                              'values '
-                                                                              'in '
-                                                                              'this '
-                                                                              'record '
-                                                                              'representation.'},
-                                                  'languages': {'description': 'This '
-                                                                               'list '
-                                                                               'of '
-                                                                               'languages '
-                                                                               'in '
-                                                                               'which '
-                                                                               'this '
-                                                                               'record '
-                                                                               'is '
-                                                                               'available.',
-                                                                'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/language/schema.yaml'},
-                                                                'type': 'array'},
-                                                  'license': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/license/schema.yaml'},
-                                                  'resourceLanguages': {'description': 'The '
-                                                                                       'list '
-                                                                                       'of '
-                                                                                       'languages '
-                                                                                       'in '
-                                                                                       'which '
-                                                                                       'the '
-                                                                                       'resource '
-                                                                                       'described '
-                                                                                       'by '
-                                                                                       'this '
-                                                                                       'record '
-                                                                                       'is '
-                                                                                       'available.',
-                                                                        'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/language/schema.yaml'},
-                                                                        'type': 'array'},
-                                                  'rights': {'description': 'A '
-                                                                            'statement '
-                                                                            'that '
-                                                                            'concerns '
-                                                                            'all '
-                                                                            'rights '
-                                                                            'not '
-                                                                            'addressed '
-                                                                            'by '
-                                                                            'the '
-                                                                            'license '
-                                                                            'such '
-                                                                            'as '
-                                                                            'a '
-                                                                            'copyright '
-                                                                            'statement.',
-                                                             'type': 'string'},
-                                                  'themes': {'description': 'A '
-                                                                            'knowledge '
-                                                                            'organization '
-                                                                            'system '
-                                                                            'used '
-                                                                            'to '
-                                                                            'classify '
-                                                                            'the '
-                                                                            'resource.',
-                                                             'items': {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/theme/schema.yaml'},
-                                                             'minItems': 1,
-                                                             'type': 'array'},
-                                                  'title': {'description': 'A '
-                                                                           'human-readable '
-                                                                           'name '
-                                                                           'given '
-                                                                           'to '
-                                                                           'the '
-                                                                           'resource.',
-                                                            'type': 'string'},
-                                                  'type': {'description': 'The '
-                                                                          'nature '
-                                                                          'or '
-                                                                          'genre '
-                                                                          'of '
-                                                                          'the '
-                                                                          'resource. '
-                                                                          'The '
-                                                                          'value '
-                                                                          'should '
-                                                                          'be '
-                                                                          'a '
-                                                                          'code, '
-                                                                          'convenient '
-                                                                          'for '
-                                                                          'filtering '
-                                                                          'records. '
-                                                                          'Where '
-                                                                          'available, '
-                                                                          'a '
-                                                                          'link '
-                                                                          'to '
-                                                                          'the '
-                                                                          'canonical '
-                                                                          'URI '
-                                                                          'of '
-                                                                          'the '
-                                                                          'record '
-                                                                          'type '
-                                                                          'resource '
-                                                                          'will '
-                                                                          'be '
-                                                                          'added '
-                                                                          'to '
-                                                                          'the '
-                                                                          "'links' "
-                                                                          'property.',
-                                                           'maxLength': 64,
-                                                           'type': 'string'},
-                                                  'updated': {'description': 'The '
-                                                                             'most '
-                                                                             'recent '
-                                                                             'date '
-                                                                             'on '
-                                                                             'which '
-                                                                             'the '
-                                                                             'record '
-                                                                             'was '
-                                                                             'changed.',
-                                                              'format': 'date-time',
-                                                              'type': 'string'}},
-                                   'required': ['type', 'title'],
-                                   'type': 'object'},
-                    'time': {'oneOf': [{'enum': [None]},
-                                       {'$ref': 'https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/time/schema.yaml'}]},
-                    'type': {'enum': ['Feature'], 'type': 'string'}},
-     'required': ['id', 'type', 'geometry', 'properties', 'links'],
-     'type': 'object'}
+Failed validating 'required' in schema['allOf'][1]['allOf'][0]['allOf'][0]:
+    {'$id': 'https://geojson.org/schema/Feature.json',
+     '$schema': 'http://json-schema.org/draft-07/schema#',
+     'properties': {'bbox': {'items': {'type': 'number'},
+                             'minItems': 4,
+                             'type': 'array',
+                             'x-jsonld-container': '@list',
+                             'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                    'geometry': {'oneOf': [{'type': 'null'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'coordinates': {'items': {'type': 'number'},
+                                                                           'minItems': 2,
+                                                                           'type': 'array',
+                                                                           'x-jsonld-container': '@list',
+                                                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                           'type': {'enum': ['Point'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'coordinates'],
+                                            'title': 'GeoJSON Point',
+                                            'type': 'object'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'coordinates': {'items': {'items': {'type': 'number'},
+                                                                                     'minItems': 2,
+                                                                                     'type': 'array'},
+                                                                           'minItems': 2,
+                                                                           'type': 'array',
+                                                                           'x-jsonld-container': '@list',
+                                                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                           'type': {'enum': ['LineString'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'coordinates'],
+                                            'title': 'GeoJSON LineString',
+                                            'type': 'object'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'coordinates': {'items': {'items': {'items': {'type': 'number'},
+                                                                                               'minItems': 2,
+                                                                                               'type': 'array'},
+                                                                                     'minItems': 4,
+                                                                                     'type': 'array'},
+                                                                           'type': 'array',
+                                                                           'x-jsonld-container': '@list',
+                                                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                           'type': {'enum': ['Polygon'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'coordinates'],
+                                            'title': 'GeoJSON Polygon',
+                                            'type': 'object'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'coordinates': {'items': {'items': {'type': 'number'},
+                                                                                     'minItems': 2,
+                                                                                     'type': 'array'},
+                                                                           'type': 'array',
+                                                                           'x-jsonld-container': '@list',
+                                                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                           'type': {'enum': ['MultiPoint'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'coordinates'],
+                                            'title': 'GeoJSON MultiPoint',
+                                            'type': 'object'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'coordinates': {'items': {'items': {'items': {'type': 'number'},
+                                                                                               'minItems': 2,
+                                                                                               'type': 'array'},
+                                                                                     'minItems': 2,
+                                                                                     'type': 'array'},
+                                                                           'type': 'array',
+                                                                           'x-jsonld-container': '@list',
+                                                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                           'type': {'enum': ['MultiLineString'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'coordinates'],
+                                            'title': 'GeoJSON '
+                                                     'MultiLineString',
+                                            'type': 'object'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'coordinates': {'items': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                         'minItems': 2,
+                                                                                                         'type': 'array'},
+                                                                                               'minItems': 4,
+                                                                                               'type': 'array'},
+                                                                                     'type': 'array'},
+                                                                           'type': 'array',
+                                                                           'x-jsonld-container': '@list',
+                                                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                           'type': {'enum': ['MultiPolygon'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'coordinates'],
+                                            'title': 'GeoJSON MultiPolygon',
+                                            'type': 'object'},
+                                           {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                    'minItems': 4,
+                                                                    'type': 'array',
+                                                                    'x-jsonld-container': '@list',
+                                                                    'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                           'geometries': {'items': {'oneOf': [{'properties': {'bbox': {'items': {'type': 'number'},
+                                                                                                                       'minItems': 4,
+                                                                                                                       'type': 'array',
+                                                                                                                       'x-jsonld-container': '@list',
+                                                                                                                       'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                                                                              'coordinates': {'items': {'type': 'number'},
+                                                                                                                              'minItems': 2,
+                                                                                                                              'type': 'array',
+                                                                                                                              'x-jsonld-container': '@list',
+                                                                                                                              'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                                                                              'type': {'enum': ['Point'],
+                                                                                                                       'type': 'string',
+                                                                                                                       'x-jsonld-id': '@type'}},
+                                                                                               'required': ['type',
+                                                                                                            'coordinates'],
+                                                                                               'title': 'GeoJSON '
+                                                                                                        'Point',
+                                                                                               'type': 'object'},
+                                                                                              {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                                                                       'minItems': 4,
+                                                                                                                       'type': 'array',
+                                                                                                                       'x-jsonld-container': '@list',
+                                                                                                                       'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                                                                              'coordinates': {'items': {'items': {'type': 'number'},
+                                                                                                                                        'minItems': 2,
+                                                                                                                                        'type': 'array'},
+                                                                                                                              'minItems': 2,
+                                                                                                                              'type': 'array',
+                                                                                                                              'x-jsonld-container': '@list',
+                                                                                                                              'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                                                                              'type': {'enum': ['LineString'],
+                                                                                                                       'type': 'string',
+                                                                                                                       'x-jsonld-id': '@type'}},
+                                                                                               'required': ['type',
+                                                                                                            'coordinates'],
+                                                                                               'title': 'GeoJSON '
+                                                                                                        'LineString',
+                                                                                               'type': 'object'},
+                                                                                              {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                                                                       'minItems': 4,
+                                                                                                                       'type': 'array',
+                                                                                                                       'x-jsonld-container': '@list',
+                                                                                                                       'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                                                                              'coordinates': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                                                                  'minItems': 2,
+                                                                                                                                                  'type': 'array'},
+                                                                                                                                        'minItems': 4,
+                                                                                                                                        'type': 'array'},
+                                                                                                                              'type': 'array',
+                                                                                                                              'x-jsonld-container': '@list',
+                                                                                                                              'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                                                                              'type': {'enum': ['Polygon'],
+                                                                                                                       'type': 'string',
+                                                                                                                       'x-jsonld-id': '@type'}},
+                                                                                               'required': ['type',
+                                                                                                            'coordinates'],
+                                                                                               'title': 'GeoJSON '
+                                                                                                        'Polygon',
+                                                                                               'type': 'object'},
+                                                                                              {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                                                                       'minItems': 4,
+                                                                                                                       'type': 'array',
+                                                                                                                       'x-jsonld-container': '@list',
+                                                                                                                       'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                                                                              'coordinates': {'items': {'items': {'type': 'number'},
+                                                                                                                                        'minItems': 2,
+                                                                                                                                        'type': 'array'},
+                                                                                                                              'type': 'array',
+                                                                                                                              'x-jsonld-container': '@list',
+                                                                                                                              'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                                                                              'type': {'enum': ['MultiPoint'],
+                                                                                                                       'type': 'string',
+                                                                                                                       'x-jsonld-id': '@type'}},
+                                                                                               'required': ['type',
+                                                                                                            'coordinates'],
+                                                                                               'title': 'GeoJSON '
+                                                                                                        'MultiPoint',
+                                                                                               'type': 'object'},
+                                                                                              {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                                                                       'minItems': 4,
+                                                                                                                       'type': 'array',
+                                                                                                                       'x-jsonld-container': '@list',
+                                                                                                                       'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                                                                              'coordinates': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                                                                  'minItems': 2,
+                                                                                                                                                  'type': 'array'},
+                                                                                                                                        'minItems': 2,
+                                                                                                                                        'type': 'array'},
+                                                                                                                              'type': 'array',
+                                                                                                                              'x-jsonld-container': '@list',
+                                                                                                                              'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                                                                              'type': {'enum': ['MultiLineString'],
+                                                                                                                       'type': 'string',
+                                                                                                                       'x-jsonld-id': '@type'}},
+                                                                                               'required': ['type',
+                                                                                                            'coordinates'],
+                                                                                               'title': 'GeoJSON '
+                                                                                                        'MultiLineString',
+                                                                                               'type': 'object'},
+                                                                                              {'properties': {'bbox': {'items': {'type': 'number'},
+                                                                                                                       'minItems': 4,
+                                                                                                                       'type': 'array',
+                                                                                                                       'x-jsonld-container': '@list',
+                                                                                                                       'x-jsonld-id': 'https://purl.org/geojson/vocab#bbox'},
+                                                                                                              'coordinates': {'items': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                                                                            'minItems': 2,
+                                                                                                                                                            'type': 'array'},
+                                                                                                                                                  'minItems': 4,
+                                                                                                                                                  'type': 'array'},
+                                                                                                                                        'type': 'array'},
+                                                                                                                              'type': 'array',
+                                                                                                                              'x-jsonld-container': '@list',
+                                                                                                                              'x-jsonld-id': 'https://purl.org/geojson/vocab#coordinates'},
+                                                                                                              'type': {'enum': ['MultiPolygon'],
+                                                                                                                       'type': 'string',
+                                                                                                                       'x-jsonld-id': '@type'}},
+                                                                                               'required': ['type',
+                                                                                                            'coordinates'],
+                                                                                               'title': 'GeoJSON '
+                                                                                                        'MultiPolygon',
+                                                                                               'type': 'object'}]},
+                                                                          'type': 'array'},
+                                                           'type': {'enum': ['GeometryCollection'],
+                                                                    'type': 'string',
+                                                                    'x-jsonld-id': '@type'}},
+                                            'required': ['type',
+                                                         'geometries'],
+                                            'title': 'GeoJSON '
+                                                     'GeometryCollection',
+                                            'type': 'object'}],
+                                 'x-jsonld-id': 'https://purl.org/geojson/vocab#geometry'},
+                    'id': {'oneOf': [{'type': 'number'},
+                                     {'type': 'string'}],
+                           'x-jsonld-id': '@id'},
+                    'properties': {'oneOf': [{'type': 'null'},
+                                             {'type': 'object'}],
+                                   'x-jsonld-id': '@nest'},
+                    'type': {'enum': ['Feature'],
+                             'type': 'string',
+                             'x-jsonld-id': '@type'}},
+     'required': ['type', 'properties', 'geometry'],
+     'title': 'GeoJSON Feature',
+     'type': 'object',
+     'x-jsonld-extra-terms': {'Feature': 'https://purl.org/geojson/vocab#Feature',
+                              'FeatureCollection': 'https://purl.org/geojson/vocab#FeatureCollection',
+                              'GeometryCollection': 'https://purl.org/geojson/vocab#GeometryCollection',
+                              'LineString': 'https://purl.org/geojson/vocab#LineString',
+                              'MultiLineString': 'https://purl.org/geojson/vocab#MultiLineString',
+                              'MultiPoint': 'https://purl.org/geojson/vocab#MultiPoint',
+                              'MultiPolygon': 'https://purl.org/geojson/vocab#MultiPolygon',
+                              'Point': 'https://purl.org/geojson/vocab#Point',
+                              'Polygon': 'https://purl.org/geojson/vocab#Polygon',
+                              'features': {'x-jsonld-container': '@set',
+                                           'x-jsonld-id': 'https://purl.org/geojson/vocab#features'}},
+     'x-jsonld-prefixes': {'geojson': 'https://purl.org/geojson/vocab#'}}
 
 On instance:
     {'assets': {'metadata_iso_19139': {'href': 'https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml',
