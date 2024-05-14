@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-incubator-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2024-04-26",
+  "dateOfLastChange": "2024-05-14",
   "sources": [
     {
       "title": "STAC Specification",
@@ -25,8 +25,8 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.ogc-utils.json-link",
-    "ogc.api.records.v1.schemas.recordGeoJSON"
+    "ogc.api.features.v1.schemas.collection",
+    "ogc.ogc-utils.json-link"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml",
@@ -35,7 +35,7 @@
   "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/schema.yaml",
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/collection/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/collection/",
   "examples": [
     {
@@ -55,13 +55,13 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://example.com/stac/example1/sentinel-2> rdfs:label \"Sentinel-2 MSI: MultiSpectral Instrument, Level-1C\" ;\n    dcterms:type \"Collection\" ;\n    rdfs:seeAlso [ rdfs:label \"Example Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"Example Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"Legal notice on the use of Copernicus Sentinel Data and Service Information\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/license> ;\n            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] .\n\n",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n[] rdfs:label \"Sentinel-2 MSI: MultiSpectral Instrument, Level-1C\" ;\n    dcterms:type \"Collection\" .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/collection/example_1_1.ttl"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml\n- type: object\n  properties:\n    links:\n      type: array\n      items:\n        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json\n- $ref: https://rob-metalinkage.github.io/bblocks-ogcapi-features/build/annotated/api/features/v1/schemas/collection/schema.yaml\n- type: object\n  properties:\n    links:\n      type: array\n      items:\n        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/collection"
 }

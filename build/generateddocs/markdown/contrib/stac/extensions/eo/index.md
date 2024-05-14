@@ -604,17 +604,17 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/proj-example> a geojson:Feature ;
-    rdfs:seeAlso [ rdfs:label "Collection of Extension Items" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/raster/collection.json> ],
-        [ rdfs:label "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Collection of Extension Items" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/raster/collection.json> ],
+        [ rdfs:label "Collection of Extension Items" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/collection.json> ] ;
     geojson:bbox ( 1.481393e+02 5.951584e+01 1.525276e+02 6.063437e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -625,8 +625,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         3951000 ;
     ns1:centroid [ ] ;
     ns1:epsg 32614 ;
-    ns1:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( 169200 3712800 ) ( 403200 3712800 ) ( 403200 3951000 ) ( 169200 3951000 ) ( 169200 3712800 ) ) ) ] ;
+    ns1:geometry [ a geojson:Polygon ] ;
     ns1:projjson [ a <https://example.com/stac/raster/example-1/ProjectedCRS> ;
             geojson:bbox ( [ ] ) ] ;
     ns1:shape 8311,
@@ -667,15 +666,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "type": "@type",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
-    },
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
-    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -687,14 +677,24 @@ Links to the schema:
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
+    "type": "@type",
     "hreflang": "dct:language",
     "title": "rdfs:label",
     "length": "dct:extent",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
-      "@context": {},
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
       "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
     },
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -715,10 +715,10 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "geojson": "https://purl.org/geojson/vocab#",
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
+    "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
   }
 }

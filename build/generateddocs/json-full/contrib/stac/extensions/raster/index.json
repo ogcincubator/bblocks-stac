@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2024-04-26",
+  "dateOfLastChange": "2024-05-14",
   "link": "https://github.com/stac-extensions/raster",
   "sources": [
     {
@@ -26,8 +26,8 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.contrib.stac.item",
-    "ogc.contrib.stac.collection"
+    "ogc.contrib.stac.collection",
+    "ogc.contrib.stac.item"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml",
@@ -36,7 +36,7 @@
   "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster/schema.yaml",
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/context.jsonld",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/raster/",
   "examples": [
     {
@@ -55,7 +55,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <virtual:> .\n@prefix ns2: <sentinel:> .\n@prefix ns3: <view:> .\n@prefix ns4: <eo:> .\n@prefix ns5: <http://www.iana.org/assignments/> .\n@prefix ns6: <proj:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;\n    ns4:cloud_cover 2.122e+01 ;\n    rdfs:seeAlso [ dct:type \"application/json\" ;\n            ns5:relation <http://www.iana.org/assignments/relation/collection> ;\n            oa:hasTarget <file:///github/workspace/sentinel-s2-l2a-cogs.json> ] ;\n    geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;\n    ns6:epsg 32633 ;\n    ns2:data_coverage 100 ;\n    ns2:grid_square \"VB\" ;\n    ns2:latitude_band \"S\" ;\n    ns2:product_id \"S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149\" ;\n    ns2:sequence \"0\" ;\n    ns2:utm_zone 33 ;\n    ns2:valid_cloud_cover true ;\n    ns3:off_nadir 0 ;\n    ns1:assets [ ] .\n\n",
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <sentinel:> .\n@prefix ns2: <eo:> .\n@prefix ns3: <virtual:> .\n@prefix ns4: <view:> .\n@prefix ns5: <http://www.iana.org/assignments/> .\n@prefix ns6: <proj:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;\n    ns2:cloud_cover 2.122e+01 ;\n    rdfs:seeAlso [ dct:type \"application/json\" ;\n            ns5:relation <http://www.iana.org/assignments/relation/collection> ;\n            oa:hasTarget <file:///github/workspace/sentinel-s2-l2a-cogs.json> ] ;\n    geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;\n    ns6:epsg 32633 ;\n    ns1:data_coverage 100 ;\n    ns1:grid_square \"VB\" ;\n    ns1:latitude_band \"S\" ;\n    ns1:product_id \"S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149\" ;\n    ns1:sequence \"0\" ;\n    ns1:utm_zone 33 ;\n    ns1:valid_cloud_cover true ;\n    ns4:off_nadir 0 ;\n    ns3:assets [ ] .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/raster/example_1_1.ttl"
         }
       ]
