@@ -4,7 +4,7 @@ This expresses the implementation of the STAC specification in the form of OGC B
 
 The generated documentation of each Building Block can be accessed [here](https://ogcincubator.github.io/bblocks-stac/).
 
-STAC extends [OGC API Records](https://ogcincubator.github.io/bblocks-ogcapi-records)
+STAC extends [OGC API features](https://ogcincubator.github.io/bblocks-ogcapi-features)
 
 These building blocks provide additional annotation and testing of:
 
@@ -16,7 +16,7 @@ These building blocks provide additional annotation and testing of:
 
 _Building Blocks do not change the underlying specification but provide an extra layer of coherence to support the FAIR principles for interoperability specifications._
 
-[GeoDCAT](https://ogcincubator.github.io/geodcat-ogcapi-records/) uses STAC to  inform requirements and implements a binding of various STAC profiles to relevant descriptive ontologies as well as the GeoDCAT model.
+[GeoDCAT](https://ogcincubator.github.io/geodcat-ogcapi-features/) uses STAC to  inform requirements and implements a binding of various STAC profiles to relevant descriptive ontologies as well as the GeoDCAT model.
 
 # Design 
 
