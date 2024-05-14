@@ -606,7 +606,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 <https://example.com/stac/raster/example-1/proj-example> a geojson:Feature ;
     rdfs:seeAlso [ rdfs:label "Collection of Extension Items" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/collection.json> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
@@ -614,7 +614,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Collection of Extension Items" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/raster/collection.json> ] ;
     geojson:bbox ( 1.481393e+02 5.951584e+01 1.525276e+02 6.063437e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;

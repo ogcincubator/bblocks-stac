@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-incubator-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2024-04-23",
+  "dateOfLastChange": "2024-04-26",
   "sources": [
     {
       "title": "STAC Specification",
@@ -25,8 +25,8 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.api.records.v1.schemas.recordGeoJSON",
-    "ogc.ogc-utils.json-link"
+    "ogc.ogc-utils.json-link",
+    "ogc.api.records.v1.schemas.recordGeoJSON"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml",
@@ -55,7 +55,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://example.com/stac/example1/sentinel-2> rdfs:label \"Sentinel-2 MSI: MultiSpectral Instrument, Level-1C\" ;\n    dcterms:type \"Collection\" ;\n    rdfs:seeAlso [ rdfs:label \"Legal notice on the use of Copernicus Sentinel Data and Service Information\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/license> ;\n            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],\n        [ rdfs:label \"Example Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"Example Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ] .\n\n",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://example.com/stac/example1/sentinel-2> rdfs:label \"Sentinel-2 MSI: MultiSpectral Instrument, Level-1C\" ;\n    dcterms:type \"Collection\" ;\n    rdfs:seeAlso [ rdfs:label \"Example Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"Example Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"Legal notice on the use of Copernicus Sentinel Data and Service Information\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/license> ;\n            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/collection/example_1_1.ttl"
         }
       ]

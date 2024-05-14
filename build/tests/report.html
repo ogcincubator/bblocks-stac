@@ -22,12 +22,36 @@
             *[data-bs-toggle].collapsed .caret {
                 transform: rotate(0deg);
             }
+            .highlighted {
+                animation: highlight-border 3500ms ease-out;
+            }
+            .highlighted h2 button {
+                animation: highlight 3500ms ease-out;
+            }
+            @keyframes highlight {
+                0% {
+                    background: #ffff90;
+                }
+                100% {
+                    background: var(--bs-accordion-active-bg);
+                }
+            }
+            @keyframes highlight-border {
+                0% {
+                    border-color: red;
+                    border-width: 2px;
+                }
+                100% {
+                    border-color: var(--bs-accordion-border-color);
+                    border-width: var(--bs-accordion-border-width);
+                }
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2024-04-26T04:15:59.132541+00:00</small>
+            <small class="datetime">Generated at 2024-05-14T01:27:09.997893+00:00</small>
                 <p class="summary fw-semibold text-danger">
                     Number of passing building blocks: 0 / 4 (0%)
                 </p>
@@ -36,9 +60,11 @@
                 <a href="#" class="collapse-all">Collapse all</a>
             </div>
                 <div class="accordion mt-2" id="bblock-reports">
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.collection" id="bblock-0">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.collection" id="bblock-ogc.contrib.stac.collection">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-0">
+                                <button class="accordion-button " type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.contrib\.stac\.collection">
                                     <div class="flex-fill">
                                         STAC Collection
                                         <small class="ms-2 bblock-id">ogc.contrib.stac.collection</small>
@@ -50,7 +76,7 @@
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-0">
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.contrib.stac.collection">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-danger">
                                             Test passed: 0 / 1
@@ -544,9 +570,11 @@ On instance:
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.item" id="bblock-1">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.item" id="bblock-ogc.contrib.stac.item">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-1">
+                                <button class="accordion-button " type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.contrib\.stac\.item">
                                     <div class="flex-fill">
                                         STAC Item
                                         <small class="ms-2 bblock-id">ogc.contrib.stac.item</small>
@@ -558,7 +586,7 @@ On instance:
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-1">
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.contrib.stac.item">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-danger">
                                             Test passed: 0 / 2
@@ -888,9 +916,11 @@ On instance[&#x27;properties&#x27;]:
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.extensions.eo" id="bblock-2">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.extensions.eo" id="bblock-ogc.contrib.stac.extensions.eo">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-2">
+                                <button class="accordion-button " type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.contrib\.stac\.extensions\.eo">
                                     <div class="flex-fill">
                                         STAC Electro-Optical Extension
                                         <small class="ms-2 bblock-id">ogc.contrib.stac.extensions.eo</small>
@@ -902,7 +932,7 @@ On instance[&#x27;properties&#x27;]:
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-2">
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.contrib.stac.extensions.eo">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-danger">
                                             Test passed: 0 / 1
@@ -1103,9 +1133,11 @@ On instance:
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.extensions.raster" id="bblock-3">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.extensions.raster" id="bblock-ogc.contrib.stac.extensions.raster">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-3">
+                                <button class="accordion-button " type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.contrib\.stac\.extensions\.raster">
                                     <div class="flex-fill">
                                         STAC Raster Extension
                                         <small class="ms-2 bblock-id">ogc.contrib.stac.extensions.raster</small>
@@ -1117,7 +1149,7 @@ On instance:
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-3">
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.contrib.stac.extensions.raster">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-danger">
                                             Test passed: 0 / 1
@@ -1620,6 +1652,13 @@ On instance:
                         accordionEntries.forEach(e => e.classList.remove('show'));
                     }
                 });
+                if (location.hash.startsWith('#bblock-')) {
+                    const highlight = document.querySelector(location.hash.replaceAll('.', '\\.'));
+                    if (highlight) {
+                        highlight.querySelector('.accordion-collapse').classList.add('show');
+                        highlight.classList.add('highlighted');
+                    }
+                }
             });
         </script>
     </body>
