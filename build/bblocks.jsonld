@@ -106,7 +106,7 @@
   "name": "Building Blocks - OGC Building Blocks for STAC",
   "abstract": "These Building Blocks provide a validation and documentation wrapper over STAC and extension schemas, and aid in transparent re-use of STAC elements",
   "description": "Allows for validation and testing of STAC examples.\n\nSupports definition and testing of transformations to/from STAC from other formats.\n\nImplementers can fork this repository and add additional examples in the `tests/` directory of each Building Block and run validation processes locally.\n\nProvides a framework for documentation and testing of additional extensions.\n",
-  "modified": "2024-05-14T05:04:35.929799",
+  "modified": "2024-05-15T07:12:49.106262",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"18fbb122a3d7cc4de8b9271905f60ee3e86205a6",
@@ -140,7 +140,7 @@
       "itemClass": "schema",
       "register": "ogc-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2024-05-14",
+      "dateOfLastChange": "2024-05-15",
       "sources": [
         {
           "title": "STAC Specification",
@@ -200,7 +200,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2024-05-14",
+      "dateOfLastChange": "2024-05-15",
       "sources": [
         {
           "title": "STAC Specification",
@@ -260,7 +260,7 @@
       "itemClass": "schema",
       "register": "bblocks-stac",
       "version": "0.1",
-      "dateOfLastChange": "2024-05-14",
+      "dateOfLastChange": "2024-05-15",
       "link": "https://github.com/stac-extensions/eo",
       "sources": [
         {
@@ -277,8 +277,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.contrib.stac.collection",
-        "ogc.contrib.stac.item"
+        "ogc.contrib.stac.item",
+        "ogc.contrib.stac.collection"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.yaml",
@@ -287,7 +287,7 @@
       "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/eo/schema.yaml",
       "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/eo/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/eo/",
       "documentation": {
         "json-full": {
@@ -323,7 +323,7 @@
       "itemClass": "schema",
       "register": "ogc-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2024-05-14",
+      "dateOfLastChange": "2024-05-15",
       "link": "https://github.com/stac-extensions/raster",
       "sources": [
         {
@@ -339,8 +339,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.contrib.stac.collection",
-        "ogc.contrib.stac.item"
+        "ogc.contrib.stac.item",
+        "ogc.contrib.stac.collection"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml",
