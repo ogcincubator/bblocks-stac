@@ -1,0 +1,2783 @@
+{
+  "x-defs": {
+    "_github_workspace_build_annotated_contrib_stac_item-prov_schema.json": {
+      "description": "STAC Collection",
+      "allOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stac_extensions": {
+              "type": "array",
+              "contains": {
+                "const": "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
+              }
+            }
+          }
+        }
+      ],
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json"
+    },
+    "ogc.ogc-utils.prov": {
+      "description": "Provenance Chain using PROV-O core model supporting both an ID based object graph and nesting",
+      "$defs": {
+        "objectref": {},
+        "oneOrMoreObjectref": {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/MultipleOrObject"
+        },
+        "oneOrMoreActivitiesOrRefIds": {
+          "oneOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  },
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "oneOrMoreEntitiesOrRefIds": {
+          "oneOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  },
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "oneOrMoreAgentsOrRefIds": {
+          "oneOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/externalLink"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  },
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "externalLink": {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.json-link"
+        },
+        "influenced": {
+          "type": "object",
+          "properties": {
+            "wasInfluencedBy": {
+              "anyOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasInfluencedBy",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedInfluence": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Influence"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Influence"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInfluence",
+              "x-jsonld-type": "@id"
+            }
+          }
+        },
+        "Entity": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "featureType": {},
+            "entityType": {},
+            "has_provenance": {},
+            "wasGeneratedBy": {},
+            "wasAttributedTo": {},
+            "wasDerivedFrom": {},
+            "alternateOf": {},
+            "hadPrimarySource": {},
+            "specializationOf": {},
+            "wasInvalidatedBy": {},
+            "wasQuotedFrom": {},
+            "wasRevisionOf": {},
+            "mentionOf": {},
+            "atLocation": {},
+            "links": {
+              "type": "array",
+              "items": {
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/externalLink"
+              },
+              "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+            },
+            "qualifiedGeneration": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedGeneration",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedInvalidation": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Invalidation"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Invalidation"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInvalidation",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedDerivation": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Derivation"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Derivation"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedDerivation",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedAttribution": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Attribution"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Attribution"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedAttribution",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "anyOf": [
+            {
+              "properties": {
+                "provType": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Entity",
+                        "Bundle",
+                        "Plan"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "contains": {
+                        "type": "string",
+                        "enum": [
+                          "Entity",
+                          "Bundle",
+                          "Plan"
+                        ]
+                      }
+                    }
+                  ],
+                  "x-jsonld-id": "@type"
+                }
+              },
+              "required": [
+                "provType"
+              ]
+            },
+            {
+              "required": [
+                "featureType"
+              ]
+            },
+            {
+              "required": [
+                "entityType"
+              ]
+            },
+            {
+              "required": [
+                "wasGeneratedBy"
+              ]
+            },
+            {
+              "required": [
+                "wasAttributedTo"
+              ]
+            },
+            {
+              "required": [
+                "wasDerivedFrom"
+              ]
+            },
+            {
+              "required": [
+                "has_provenance"
+              ]
+            },
+            {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "Collection"
+                },
+                "hadMember": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                  },
+                  "x-jsonld-id": "http://www.w3.org/ns/prov#hadMember",
+                  "x-jsonld-type": "@id"
+                }
+              },
+              "required": [
+                "hadMember",
+                "type"
+              ]
+            },
+            {
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "EmptyCollection"
+                },
+                "hadMember": {
+                  "type": "array",
+                  "maxItems": 0,
+                  "x-jsonld-id": "http://www.w3.org/ns/prov#hadMember",
+                  "x-jsonld-type": "@id"
+                }
+              },
+              "required": [
+                "hadMember",
+                "type"
+              ]
+            }
+          ],
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/influenced"
+            }
+          ]
+        },
+        "dateTime": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
+        },
+        "Activity": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "activityType": {},
+            "endedAtTime": {},
+            "wasAssociatedWith": {},
+            "wasInformedBy": {},
+            "used": {},
+            "wasStartedBy": {},
+            "wasEndedBy": {},
+            "invalidated": {},
+            "generated": {},
+            "atLocation": {},
+            "qualifiedUsage": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Usage"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Usage"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedUsage",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedCommunication": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Communication"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedCommunication",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedStart": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Start"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedStart",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedEnd": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/End"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedEnd",
+              "x-jsonld-type": "@id"
+            },
+            "qualifiedAssociation": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Association"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Association"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedAssociation",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "anyOf": [
+            {
+              "required": [
+                "activityType"
+              ]
+            },
+            {
+              "required": [
+                "used"
+              ]
+            },
+            {
+              "required": [
+                "wasInformedBy"
+              ]
+            },
+            {
+              "required": [
+                "endedAtTime"
+              ]
+            },
+            {
+              "required": [
+                "startedAtTime"
+              ]
+            },
+            {
+              "required": [
+                "wasAssociatedWith"
+              ]
+            }
+          ],
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/influenced"
+            }
+          ]
+        },
+        "Agent": {
+          "type": "object",
+          "properties": {
+            "agentType": {},
+            "name": {
+              "type": "string",
+              "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
+            },
+            "id": {},
+            "actedOnBehalfOf": {},
+            "atLocation": {},
+            "qualifiedDelegation": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Delegation"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                      },
+                      {
+                        "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Delegation"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedDelegation",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "anyOf": [
+            {
+              "properties": {
+                "provType": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "Agent",
+                        "Organization",
+                        "Person",
+                        "SoftwareAgent",
+                        "SoftwareDescription",
+                        "DirectQueryService"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "contains": {
+                        "type": "string",
+                        "enum": [
+                          "Agent",
+                          "Organization",
+                          "Person",
+                          "SoftwareAgent",
+                          "SoftwareDescription",
+                          "DirectQueryService"
+                        ]
+                      },
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "x-jsonld-id": "@type"
+                }
+              },
+              "required": [
+                "provType"
+              ]
+            },
+            {
+              "required": [
+                "agentType"
+              ]
+            },
+            {
+              "required": [
+                "actedOnBehalfOf"
+              ]
+            }
+          ],
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/influenced"
+            }
+          ]
+        },
+        "Usage": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Usage"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Usage"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "atTime": {},
+            "entity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "required": [
+            "atTime",
+            "entity"
+          ]
+        },
+        "Generation": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Generation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Generation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "atTime": {}
+          },
+          "required": [
+            "atTime"
+          ]
+        },
+        "Invalidation": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Invalidation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Invalidation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "atTime": {}
+          },
+          "required": [
+            "atTime"
+          ]
+        },
+        "Communication": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Communication"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Communication"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "activity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                }
+              ]
+            }
+          },
+          "required": [
+            "activity"
+          ]
+        },
+        "StartOrEnd": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "atTime": {},
+            "entity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
+              "x-jsonld-type": "@id"
+            },
+            "hadActivity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "required": [
+            "atTime"
+          ]
+        },
+        "Start": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/StartOrEnd"
+            },
+            {
+              "properties": {
+                "type": {
+                  "anyOf": [
+                    {
+                      "const": "Start"
+                    },
+                    {
+                      "contains": {
+                        "const": "Start"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "End": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/StartOrEnd"
+            },
+            {
+              "properties": {
+                "type": {
+                  "anyOf": [
+                    {
+                      "const": "End"
+                    },
+                    {
+                      "contains": {
+                        "const": "End"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "Derivation": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Derivation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Derivation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "hadGeneration": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadGeneration",
+              "x-jsonld-type": "@id"
+            },
+            "hadActivity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
+              "x-jsonld-type": "@id"
+            },
+            "hadUsage": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Usage"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadUsage",
+              "x-jsonld-type": "@id"
+            },
+            "entity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "required": [
+            "atTime",
+            "entity"
+          ]
+        },
+        "Delegation": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Delegation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Delegation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "agent": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+              "x-jsonld-type": "@id"
+            },
+            "hadActivity": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
+              "x-jsonld-type": "@id"
+            }
+          }
+        },
+        "Attribution": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Attribution"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Attribution"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "agent": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+              "x-jsonld-type": "@id"
+            }
+          }
+        },
+        "Association": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Association"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Association"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "agent": {
+              "oneOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+              "x-jsonld-type": "@id"
+            },
+            "hadRole": {},
+            "hadPlan": {}
+          }
+        },
+        "Influence": {
+          "type": "object",
+          "properties": {
+            "id": {},
+            "influencer": {
+              "anyOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds"
+                },
+                {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds"
+                }
+              ],
+              "x-jsonld-id": "http://www.w3.org/ns/prov#influencer",
+              "x-jsonld-type": "@id"
+            },
+            "entity": {},
+            "activity": {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds"
+            },
+            "agent": {}
+          },
+          "anyOf": [
+            {
+              "required": [
+                "influencer"
+              ]
+            },
+            {
+              "required": [
+                "entity"
+              ]
+            },
+            {
+              "required": [
+                "activity"
+              ]
+            },
+            {
+              "required": [
+                "agent"
+              ]
+            }
+          ]
+        },
+        "Prov": {
+          "description": "An list of provenance objects linked together to form a provenance chain for the current object. Objects may have nested objects as well, with or without referencable ids",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+              },
+              {
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+              },
+              {
+                "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+              }
+            ]
+          }
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Prov"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+        }
+      ],
+      "x-jsonld-extra-terms": {
+        "Activity": "http://www.w3.org/ns/prov#Activity",
+        "ActivityInfluence": "http://www.w3.org/ns/prov#ActivityInfluence",
+        "Agent": "http://www.w3.org/ns/prov#Agent",
+        "AgentInfluence": "http://www.w3.org/ns/prov#AgentInfluence",
+        "Association": "http://www.w3.org/ns/prov#Association",
+        "Attribution": "http://www.w3.org/ns/prov#Attribution",
+        "Bundle": "http://www.w3.org/ns/prov#Bundle",
+        "Collection": "http://www.w3.org/ns/prov#Collection",
+        "Communication": "http://www.w3.org/ns/prov#Communication",
+        "Delegation": "http://www.w3.org/ns/prov#Delegation",
+        "Derivation": "http://www.w3.org/ns/prov#Derivation",
+        "EmptyCollection": "http://www.w3.org/ns/prov#EmptyCollection",
+        "End": "http://www.w3.org/ns/prov#End",
+        "Entity": "http://www.w3.org/ns/prov#Entity",
+        "EntityInfluence": "http://www.w3.org/ns/prov#EntityInfluence",
+        "Generation": "http://www.w3.org/ns/prov#Generation",
+        "Influence": "http://www.w3.org/ns/prov#Influence",
+        "InstantaneousEvent": "http://www.w3.org/ns/prov#InstantaneousEvent",
+        "Invalidation": "http://www.w3.org/ns/prov#Invalidation",
+        "Location": "http://www.w3.org/ns/prov#Location",
+        "Organization": "http://www.w3.org/ns/prov#Organization",
+        "Person": "http://www.w3.org/ns/prov#Person",
+        "Plan": "http://www.w3.org/ns/prov#Plan",
+        "PrimarySource": "http://www.w3.org/ns/prov#PrimarySource",
+        "Quotation": "http://www.w3.org/ns/prov#Quotation",
+        "Revision": "http://www.w3.org/ns/prov#Revision",
+        "Role": "http://www.w3.org/ns/prov#Role",
+        "SoftwareAgent": "http://www.w3.org/ns/prov#SoftwareAgent",
+        "Start": "http://www.w3.org/ns/prov#Start",
+        "Usage": "http://www.w3.org/ns/prov#Usage",
+        "ServiceDescription": "http://www.w3.org/ns/prov#ServiceDescription",
+        "DirectQueryService": "http://www.w3.org/ns/prov#DirectQueryService",
+        "Accept": "http://www.w3.org/ns/prov#Accept",
+        "Contribute": "http://www.w3.org/ns/prov#Contribute",
+        "Contributor": "http://www.w3.org/ns/prov#Contributor",
+        "Copyright": "http://www.w3.org/ns/prov#Copyright",
+        "Create": "http://www.w3.org/ns/prov#Create",
+        "Creator": "http://www.w3.org/ns/prov#Creator",
+        "Modify": "http://www.w3.org/ns/prov#Modify",
+        "Publish": "http://www.w3.org/ns/prov#Publish",
+        "Publisher": "http://www.w3.org/ns/prov#Publisher",
+        "Replace": "http://www.w3.org/ns/prov#Replace",
+        "RightsAssignment": "http://www.w3.org/ns/prov#RightsAssignment",
+        "RightsHolder": "http://www.w3.org/ns/prov#RightsHolder",
+        "Submit": "http://www.w3.org/ns/prov#Submit",
+        "Dictionary": "http://www.w3.org/ns/prov#Dictionary",
+        "EmptyDictionary": "http://www.w3.org/ns/prov#EmptyDictionary",
+        "KeyEntityPair": "http://www.w3.org/ns/prov#KeyEntityPair",
+        "Insertion": "http://www.w3.org/ns/prov#Insertion",
+        "Removal": "http://www.w3.org/ns/prov#Removal",
+        "generatedAtTime": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#generatedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "invalidatedAtTime": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "startedAtTime": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#startedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "value": "http://www.w3.org/ns/prov#value",
+        "provenanceUriTemplate": "http://www.w3.org/ns/prov#provenanceUriTemplate",
+        "pairKey": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#pairKey",
+          "x-jsonld-type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        },
+        "removedKey": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#removedKey",
+          "x-jsonld-type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        },
+        "influenced": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#influenced",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedPrimarySource": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedPrimarySource",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedQuotation": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedQuotation",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedRevision": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRevision",
+          "x-jsonld-type": "@id"
+        },
+        "has_anchor": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#has_anchor",
+          "x-jsonld-type": "@id"
+        },
+        "has_query_service": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#has_query_service",
+          "x-jsonld-type": "@id"
+        },
+        "describesService": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#describesService",
+          "x-jsonld-type": "@id"
+        },
+        "pingback": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#pingback",
+          "x-jsonld-type": "@id"
+        },
+        "dictionary": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#dictionary",
+          "x-jsonld-type": "@id"
+        },
+        "derivedByInsertionFrom": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#derivedByInsertionFrom",
+          "x-jsonld-type": "@id"
+        },
+        "derivedByRemovalFrom": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#derivedByRemovalFrom",
+          "x-jsonld-type": "@id"
+        },
+        "insertedKeyEntityPair": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#insertedKeyEntityPair",
+          "x-jsonld-type": "@id"
+        },
+        "hadDictionaryMember": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadDictionaryMember",
+          "x-jsonld-type": "@id"
+        },
+        "pairEntity": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#pairEntity",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedInsertion": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInsertion",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedRemoval": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRemoval",
+          "x-jsonld-type": "@id"
+        },
+        "asInBundle": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#asInBundle",
+          "x-jsonld-type": "@id"
+        }
+      },
+      "x-jsonld-prefixes": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "dct": "http://purl.org/dc/terms/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      },
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"
+    },
+    "github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json": {
+      "title": "STAC Item",
+      "type": "object",
+      "description": "This object represents the metadata for an item in a SpatioTemporal Asset Catalog.",
+      "allOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core"
+        }
+      ],
+      "definitions": {
+        "common_metadata": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json"
+            }
+          ]
+        },
+        "core": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.geo.common.data_types.geojson"
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "geometry",
+                    "bbox"
+                  ],
+                  "properties": {
+                    "geometry": {
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/geojson.org_schema_Geometry.json"
+                    },
+                    "bbox": {
+                      "type": "array",
+                      "oneOf": [
+                        {
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        {
+                          "minItems": 6,
+                          "maxItems": 6
+                        }
+                      ],
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "geometry"
+                  ],
+                  "properties": {
+                    "geometry": {
+                      "nullable": true
+                    },
+                    "bbox": {
+                      "not": {}
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "required": [
+                "stac_version",
+                "id",
+                "links",
+                "assets",
+                "properties"
+              ],
+              "properties": {
+                "stac_version": {
+                  "title": "STAC version",
+                  "type": "string",
+                  "const": "1.0.0"
+                },
+                "stac_extensions": {
+                  "title": "STAC extensions",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "title": "Reference to a JSON Schema",
+                    "type": "string",
+                    "format": "iri"
+                  }
+                },
+                "id": {
+                  "title": "Provider ID",
+                  "description": "Provider item ID",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "links": {
+                  "title": "Item links",
+                  "description": "Links to item relations",
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link"
+                  }
+                },
+                "assets": {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
+                },
+                "properties": {
+                  "allOf": [
+                    {
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "datetime"
+                          ],
+                          "properties": {
+                            "datetime": {
+                              "not": {
+                                "nullable": true
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "required": [
+                            "datetime",
+                            "start_datetime",
+                            "end_datetime"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "if": {
+                "properties": {
+                  "links": {
+                    "contains": {
+                      "required": [
+                        "rel"
+                      ],
+                      "properties": {
+                        "rel": {
+                          "const": "collection"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "collection"
+                ],
+                "properties": {
+                  "collection": {
+                    "title": "Collection ID",
+                    "description": "The ID of the STAC Collection this Item references to.",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "collection": {
+                    "not": {}
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "link": {
+          "type": "object",
+          "required": [
+            "rel",
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "title": "Link reference",
+              "type": "string",
+              "format": "iri-reference",
+              "minLength": 1
+            },
+            "rel": {
+              "title": "Link relation type",
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Link type",
+              "type": "string"
+            },
+            "title": {
+              "title": "Link title",
+              "type": "string"
+            }
+          }
+        },
+        "assets": {
+          "title": "Asset links",
+          "description": "Links to assets",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset"
+          }
+        },
+        "asset": {
+          "allOf": [
+            {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "title": "Asset reference",
+                  "type": "string",
+                  "format": "iri-reference",
+                  "minLength": 1
+                },
+                "title": {
+                  "title": "Asset title",
+                  "type": "string"
+                },
+                "description": {
+                  "title": "Asset description",
+                  "type": "string"
+                },
+                "type": {
+                  "title": "Asset type",
+                  "type": "string"
+                },
+                "roles": {
+                  "title": "Asset roles",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+            }
+          ]
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#"
+    },
+    "ogc.ogc-utils.iri-or-curie": {
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+    },
+    "ogc.ogc-utils.json-link": {
+      "description": "JSON Link",
+      "type": "object",
+      "required": [
+        "href",
+        "rel"
+      ],
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-jsonld-type": "@id",
+          "x-jsonld-id": "http://www.w3.org/ns/oa#hasTarget"
+        },
+        "rel": {
+          "type": "string",
+          "x-jsonld-id": "http://www.iana.org/assignments/relation",
+          "x-jsonld-type": "@id",
+          "x-jsonld-base": "http://www.iana.org/assignments/relation/"
+        },
+        "anchor": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "x-jsonld-id": "http://purl.org/dc/terms/type"
+        },
+        "hreflang": {
+          "type": "string",
+          "x-jsonld-id": "http://purl.org/dc/terms/language"
+        },
+        "title": {
+          "type": "string",
+          "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
+        },
+        "length": {
+          "type": "integer",
+          "x-jsonld-id": "http://purl.org/dc/terms/extent"
+        }
+      },
+      "x-jsonld-prefixes": {
+        "oa": "http://www.w3.org/ns/oa#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "dct": "http://purl.org/dc/terms/"
+      },
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
+    },
+    "schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json": {
+      "title": "STAC Item",
+      "type": "object",
+      "description": "This object represents the metadata for an item in a SpatioTemporal Asset Catalog.",
+      "allOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core"
+        }
+      ],
+      "definitions": {
+        "common_metadata": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json"
+            }
+          ]
+        },
+        "core": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/ogc.geo.common.data_types.geojson"
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "geometry",
+                    "bbox"
+                  ],
+                  "properties": {
+                    "geometry": {
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/geojson.org_schema_Geometry.json"
+                    },
+                    "bbox": {
+                      "type": "array",
+                      "oneOf": [
+                        {
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        {
+                          "minItems": 6,
+                          "maxItems": 6
+                        }
+                      ],
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "geometry"
+                  ],
+                  "properties": {
+                    "geometry": {
+                      "nullable": true
+                    },
+                    "bbox": {
+                      "not": {}
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "required": [
+                "stac_version",
+                "id",
+                "links",
+                "assets",
+                "properties"
+              ],
+              "properties": {
+                "stac_version": {
+                  "title": "STAC version",
+                  "type": "string",
+                  "const": "1.0.0"
+                },
+                "stac_extensions": {
+                  "title": "STAC extensions",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "title": "Reference to a JSON Schema",
+                    "type": "string",
+                    "format": "iri"
+                  }
+                },
+                "id": {
+                  "title": "Provider ID",
+                  "description": "Provider item ID",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "links": {
+                  "title": "Item links",
+                  "description": "Links to item relations",
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link"
+                  }
+                },
+                "assets": {
+                  "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets"
+                },
+                "properties": {
+                  "allOf": [
+                    {
+                      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+                    },
+                    {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "datetime"
+                          ],
+                          "properties": {
+                            "datetime": {
+                              "not": {
+                                "nullable": true
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "required": [
+                            "datetime",
+                            "start_datetime",
+                            "end_datetime"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "if": {
+                "properties": {
+                  "links": {
+                    "contains": {
+                      "required": [
+                        "rel"
+                      ],
+                      "properties": {
+                        "rel": {
+                          "const": "collection"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "collection"
+                ],
+                "properties": {
+                  "collection": {
+                    "title": "Collection ID",
+                    "description": "The ID of the STAC Collection this Item references to.",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "collection": {
+                    "not": {}
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "link": {
+          "type": "object",
+          "required": [
+            "rel",
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "title": "Link reference",
+              "type": "string",
+              "format": "iri-reference",
+              "minLength": 1
+            },
+            "rel": {
+              "title": "Link relation type",
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "title": "Link type",
+              "type": "string"
+            },
+            "title": {
+              "title": "Link title",
+              "type": "string"
+            }
+          }
+        },
+        "assets": {
+          "title": "Asset links",
+          "description": "Links to assets",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset"
+          }
+        },
+        "asset": {
+          "allOf": [
+            {
+              "type": "object",
+              "required": [
+                "href"
+              ],
+              "properties": {
+                "href": {
+                  "title": "Asset reference",
+                  "type": "string",
+                  "format": "iri-reference",
+                  "minLength": 1
+                },
+                "title": {
+                  "title": "Asset title",
+                  "type": "string"
+                },
+                "description": {
+                  "title": "Asset description",
+                  "type": "string"
+                },
+                "type": {
+                  "title": "Asset type",
+                  "type": "string"
+                },
+                "roles": {
+                  "title": "Asset roles",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata"
+            }
+          ]
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#"
+    },
+    "schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json": {
+      "title": "Basic Descriptive Fields",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Item Title",
+          "description": "A human-readable title describing the Item.",
+          "type": "string"
+        },
+        "description": {
+          "title": "Item Description",
+          "description": "Detailed multi-line description to fully explain the Item.",
+          "type": "string"
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/basics.json#"
+    },
+    "schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json": {
+      "title": "Date and Time Fields",
+      "type": "object",
+      "dependencies": {
+        "start_datetime": {
+          "required": [
+            "end_datetime"
+          ]
+        },
+        "end_datetime": {
+          "required": [
+            "start_datetime"
+          ]
+        }
+      },
+      "properties": {
+        "datetime": {
+          "title": "Date and Time",
+          "description": "The searchable date/time of the assets, in UTC (Formatted in RFC 3339) ",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$",
+          "nullable": true
+        },
+        "start_datetime": {
+          "title": "Start Date and Time",
+          "description": "The searchable start date/time of the assets, in UTC (Formatted in RFC 3339) ",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$"
+        },
+        "end_datetime": {
+          "title": "End Date and Time",
+          "description": "The searchable end date/time of the assets, in UTC (Formatted in RFC 3339) ",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$"
+        },
+        "created": {
+          "title": "Creation Time",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$"
+        },
+        "updated": {
+          "title": "Last Update Time",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$"
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/datetime.json#"
+    },
+    "schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json": {
+      "title": "Instrument Fields",
+      "type": "object",
+      "properties": {
+        "platform": {
+          "title": "Platform",
+          "type": "string"
+        },
+        "instruments": {
+          "title": "Instruments",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constellation": {
+          "title": "Constellation",
+          "type": "string"
+        },
+        "mission": {
+          "title": "Mission",
+          "type": "string"
+        },
+        "gsd": {
+          "title": "Ground Sample Distance",
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/instrument.json#"
+    },
+    "schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json": {
+      "title": "Licensing Fields",
+      "type": "object",
+      "properties": {
+        "license": {
+          "type": "string",
+          "pattern": "^[\\w\\-\\.\\+]+$"
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/licensing.json#"
+    },
+    "schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json": {
+      "title": "Provider Fields",
+      "type": "object",
+      "properties": {
+        "providers": {
+          "title": "Providers",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "title": "Organization name",
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "title": "Organization description",
+                "type": "string"
+              },
+              "roles": {
+                "title": "Organization roles",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "producer",
+                    "licensor",
+                    "processor",
+                    "host"
+                  ]
+                }
+              },
+              "url": {
+                "title": "Organization homepage",
+                "type": "string",
+                "format": "iri"
+              }
+            }
+          }
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/provider.json#"
+    },
+    "ogc.geo.common.data_types.geojson": {
+      "title": "GeoJSON Feature",
+      "type": "object",
+      "required": [
+        "type",
+        "properties",
+        "geometry"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Feature"
+          ]
+        },
+        "id": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object"
+            }
+          ],
+          "nullable": true
+        },
+        "geometry": {
+          "oneOf": [
+            {
+              "title": "GeoJSON Point",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Point"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "title": "GeoJSON LineString",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "LineString"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "title": "GeoJSON Polygon",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Polygon"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 4,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "title": "GeoJSON MultiPoint",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "MultiPoint"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "title": "GeoJSON MultiLineString",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "MultiLineString"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "title": "GeoJSON MultiPolygon",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "MultiPolygon"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "minItems": 4,
+                      "items": {
+                        "type": "array",
+                        "minItems": 2,
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "title": "GeoJSON GeometryCollection",
+              "type": "object",
+              "required": [
+                "type",
+                "geometries"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "GeometryCollection"
+                  ]
+                },
+                "geometries": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "title": "GeoJSON Point",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "Point"
+                            ]
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "minItems": 2,
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON LineString",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "LineString"
+                            ]
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "minItems": 2,
+                            "items": {
+                              "type": "array",
+                              "minItems": 2,
+                              "items": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON Polygon",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "Polygon"
+                            ]
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 4,
+                              "items": {
+                                "type": "array",
+                                "minItems": 2,
+                                "items": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON MultiPoint",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "MultiPoint"
+                            ]
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 2,
+                              "items": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON MultiLineString",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "MultiLineString"
+                            ]
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "minItems": 2,
+                              "items": {
+                                "type": "array",
+                                "minItems": 2,
+                                "items": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "title": "GeoJSON MultiPolygon",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "coordinates"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "MultiPolygon"
+                            ]
+                          },
+                          "coordinates": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "array",
+                                "minItems": 4,
+                                "items": {
+                                  "type": "array",
+                                  "minItems": 2,
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "nullable": true
+        },
+        "bbox": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://geojson.org/schema/Feature.json"
+    },
+    "geojson.org_schema_Geometry.json": {
+      "title": "GeoJSON Geometry",
+      "oneOf": [
+        {
+          "title": "GeoJSON Point",
+          "type": "object",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "number"
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "title": "GeoJSON LineString",
+          "type": "object",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "LineString"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "title": "GeoJSON Polygon",
+          "type": "object",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Polygon"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "minItems": 4,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "title": "GeoJSON MultiPoint",
+          "type": "object",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "MultiPoint"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "title": "GeoJSON MultiLineString",
+          "type": "object",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "MultiLineString"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "title": "GeoJSON MultiPolygon",
+          "type": "object",
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "MultiPolygon"
+              ]
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      ],
+      "x-schema-version": "http://json-schema.org/draft-07/schema#",
+      "x-schema-source": "https://geojson.org/schema/Geometry.json"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.json#/x-defs/_github_workspace_build_annotated_contrib_stac_item-prov_schema.json"
+    }
+  ]
+}
