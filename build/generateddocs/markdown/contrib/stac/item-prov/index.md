@@ -128,48 +128,6 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 
 #### json
 ```json
-
-{
-    "stac_version": "1.0.0",
-    "stac_extensions": ["https://stac-extensions.github.io/prov/v1.0.0/schema.json"],
-    "type": "Feature",
-    "id": "20201211_223832_CS2",
-    "bbox": [
-      172.91173669923782,
-      1.3438851951615003,
-      172.95469614953714,
-      1.3690476620161975
-    ],
-    "wasGeneratedBy":  "http://mysystem.io/prov?object=20201211_223832_CS2" ,
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        
-          
-            172.91173669923782,
-            1.3438851951615003
-          
-      ]
-    },
-    "properties": {
-      "datetime": "2020-12-11T22:38:32.125000Z"
-    },
-    "collection": "simple-collection",
-    "links": [
-      {
-        "rel": "collection",
-        "href": "./collection.json",
-        "type": "application/json",
-        "title": "Simple Example Collection"
-      }
-    ],
-    "assets": {
-    }
-  }
-```
-
-#### jsonld
-```jsonld
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
@@ -183,7 +141,34 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
     172.95469614953714,
     1.3690476620161975
   ],
-  "wasGeneratedBy": "http://mysystem.io/prov?object=20201211_223832_CS2",
+  {     
+    "properties": {
+      "stac_extensions": {
+        "type": "array",
+        "contains": {
+          "const": "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
+        }
+      }
+    }
+  }
+  "wasGeneratedBy": {
+    "provType": "Activity",
+    "id": "surveys:DP-1-S1",
+    "activityType": "InitialSurvey",
+    "endedAtTime": "2023-10-05T05:03:15+01:00",
+    "wasAssociatedWith": "staff:jd234",
+    "used": {
+      "id": "regulations:Act3",
+      "entityType": "Legislation",
+      "wasAttributedTo": "agents:someGovernment",
+      "links": [
+        {
+          "href": "https://some.gov/linktoact/",
+          "rel": "related"
+        }
+      ]
+    }
+  },
   "geometry": {
     "type": "Point",
     "coordinates": [
@@ -203,33 +188,8 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
       "title": "Simple Example Collection"
     }
   ],
-  "assets": {},
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld"
+  "assets": {}
 }
-```
-
-#### ttl
-```ttl
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
-    prov:wasGeneratedBy <http://mysystem.io/prov?object=20201211_223832_CS2> ;
-    geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
-    geojson:geometry [ a geojson:Point ;
-            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] .
-
-
 ```
 
 
