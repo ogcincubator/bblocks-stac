@@ -30,7 +30,8 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.ogc-utils.prov"
+    "ogc.ogc-utils.prov",
+    "ogc.contrib.stac.item"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.yaml",
@@ -112,7 +113,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Entity\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json\n- type: object\n  properties:\n    stac_extensions:\n      type: array\n      contains:\n        const: https://stac-extensions.github.io/prov/v1.0.0/schema.json\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Entity\n- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n- type: object\n  properties:\n    stac_extensions:\n      type: array\n      contains:\n        const: https://stac-extensions.github.io/prov/v1.0.0/schema.json\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/item-prov"
 }

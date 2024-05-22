@@ -106,7 +106,7 @@
   "name": "Building Blocks - OGC Building Blocks for STAC",
   "abstract": "These Building Blocks provide a validation and documentation wrapper over STAC and extension schemas, and aid in transparent re-use of STAC elements",
   "description": "Allows for validation and testing of STAC examples.\n\nSupports definition and testing of transformations to/from STAC from other formats.\n\nImplementers can fork this repository and add additional examples in the `tests/` directory of each Building Block and run validation processes locally.\n\nProvides a framework for documentation and testing of additional extensions.\n",
-  "modified": "2024-05-22T03:22:58.642984",
+  "modified": "2024-05-22T03:34:52.348512",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"18fbb122a3d7cc4de8b9271905f60ee3e86205a6",
@@ -132,71 +132,6 @@
   "skos:prefLabel": "Building Blocks - OGC Building Blocks for STAC",
   "hasConcepts": [
     {
-      "itemIdentifier": "ogc.contrib.stac.item-prov",
-      "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
-      "name": "STAC Item with Provenance",
-      "highlighted": true,
-      "abstract": "A SpatioTemporal Asset Catalogs (STAC) item with a provenance trace supporting the PROV-O model and DAG (directed acyclic graph) through both object nesting and references",
-      "status": "under-development",
-      "dateTimeAddition": "2023-12-08T00:00:00Z",
-      "itemClass": "schema",
-      "register": "ogcincubator",
-      "version": "0.1",
-      "dateOfLastChange": "2024-05-22",
-      "sources": [
-        {
-          "title": "STAC Specification",
-          "link": "https://stacspec.org/en/about/stac-spec/"
-        },
-        {
-          "title": "PROV-O Specification",
-          "link": "https://www.w3.org/TR/prov-o/"
-        }
-      ],
-      "scope": "contrib",
-      "tags": [
-        "stac",
-        "item",
-        "provenance"
-      ],
-      "shaclRules": {},
-      "dependsOn": [
-        "ogc.ogc-utils.prov"
-      ],
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/item-prov/schema.yaml",
-      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/item-prov/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item-prov/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item-prov/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item-prov/index.json"
-        },
-        "slate": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/item-prov/"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-prov"
-        }
-      },
-      "@type": [
-        "bblocks:Schema",
-        "skos:Concept",
-        "dcat:Dataset"
-      ]
-    },
-    {
       "itemIdentifier": "ogc.contrib.stac.collection",
       "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
       "name": "STAC Collection",
@@ -221,8 +156,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.api.features.v1.schemas.collection",
-        "ogc.ogc-utils.json-link"
+        "ogc.ogc-utils.json-link",
+        "ogc.api.features.v1.schemas.collection"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml",
@@ -345,8 +280,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.contrib.stac.item",
-        "ogc.contrib.stac.collection"
+        "ogc.contrib.stac.collection",
+        "ogc.contrib.stac.item"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.yaml",
@@ -407,8 +342,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.contrib.stac.item",
-        "ogc.contrib.stac.collection"
+        "ogc.contrib.stac.collection",
+        "ogc.contrib.stac.item"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml",
@@ -435,6 +370,72 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster"
+        }
+      },
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ]
+    },
+    {
+      "itemIdentifier": "ogc.contrib.stac.item-prov",
+      "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
+      "name": "STAC Item with Provenance",
+      "highlighted": true,
+      "abstract": "A SpatioTemporal Asset Catalogs (STAC) item with a provenance trace supporting the PROV-O model and DAG (directed acyclic graph) through both object nesting and references",
+      "status": "under-development",
+      "dateTimeAddition": "2023-12-08T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogcincubator",
+      "version": "0.1",
+      "dateOfLastChange": "2024-05-22",
+      "sources": [
+        {
+          "title": "STAC Specification",
+          "link": "https://stacspec.org/en/about/stac-spec/"
+        },
+        {
+          "title": "PROV-O Specification",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "scope": "contrib",
+      "tags": [
+        "stac",
+        "item",
+        "provenance"
+      ],
+      "shaclRules": {},
+      "dependsOn": [
+        "ogc.ogc-utils.prov",
+        "ogc.contrib.stac.item"
+      ],
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/item-prov/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/item-prov/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item-prov/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item-prov/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item-prov/index.json"
+        },
+        "slate": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/slate-build/contrib/stac/item-prov/"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-prov"
         }
       },
       "@type": [
