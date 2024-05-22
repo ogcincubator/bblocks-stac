@@ -29,8 +29,8 @@ A SpatioTemporal Asset Catalogs (STAC) item with a provenance trace supporting t
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="warning">
-Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item-prov/" target="_blank">failed</a></strong>
+<aside class="success">
+This building block is <strong><a href="https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/item-prov/" target="_blank">valid</a></strong>
 </aside>
 
 # Examples
@@ -190,16 +190,6 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
     172.95469614953714,
     1.3690476620161975
   ],
-  {     
-    "properties": {
-      "stac_extensions": {
-        "type": "array",
-        "contains": {
-          "const": "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
-        }
-      }
-    }
-  }
   "wasGeneratedBy": {
     "provType": "Activity",
     "id": "surveys:DP-1-S1",
@@ -245,6 +235,113 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
   <p class="example-links">
     <a target="_blank" href="https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item-prov/example_2_1.json">Open in new window</a>
     <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblocks-stac%2Fbuild%2Ftests%2Fcontrib%2Fstac%2Fitem-prov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
+```jsonld
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
+  ],
+  "type": "Feature",
+  "id": "20201211_223832_CS2",
+  "bbox": [
+    172.91173669923782,
+    1.3438851951615003,
+    172.95469614953714,
+    1.3690476620161975
+  ],
+  "wasGeneratedBy": {
+    "provType": "Activity",
+    "id": "surveys:DP-1-S1",
+    "activityType": "InitialSurvey",
+    "endedAtTime": "2023-10-05T05:03:15+01:00",
+    "wasAssociatedWith": "staff:jd234",
+    "used": {
+      "id": "regulations:Act3",
+      "entityType": "Legislation",
+      "wasAttributedTo": "agents:someGovernment",
+      "links": [
+        {
+          "href": "https://some.gov/linktoact/",
+          "rel": "related"
+        }
+      ]
+    }
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      172.91173669923782,
+      1.3438851951615003
+    ]
+  },
+  "properties": {
+    "datetime": "2020-12-11T22:38:32.125000Z"
+  },
+  "collection": "simple-collection",
+  "links": [
+    {
+      "rel": "collection",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ],
+  "assets": {},
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld"
+}
+```
+
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item-prov/example_2_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblocks-stac%2Fbuild%2Ftests%2Fcontrib%2Fstac%2Fitem-prov%2Fexample_2_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
+    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
+    prov:wasGeneratedBy <surveys:DP-1-S1> ;
+    geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
+    geojson:geometry [ a geojson:Point ;
+            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] .
+
+<regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:wasAttributedTo <agents:someGovernment> .
+
+<surveys:DP-1-S1> a prov:Activity,
+        <https://example.com/stac/example1/InitialSurvey> ;
+    prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
+    prov:used <regulations:Act3> ;
+    prov:wasAssociatedWith <staff:jd234> .
+
+
+```
+
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item-prov/example_2_1.ttl">Open in new window</a>
 </blockquote>
 
 

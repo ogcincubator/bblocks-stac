@@ -2,8 +2,8 @@
   "title": "Validation report for ogc.contrib.stac.item-prov - STAC Item with Provenance",
   "bblockName": "STAC Item with Provenance",
   "bblockId": "ogc.contrib.stac.item-prov",
-  "generated": "2024-05-22T03:07:37.814192+00:00",
-  "result": false,
+  "generated": "2024-05-22T03:23:14.509582+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -95,7 +95,7 @@
         "snippetIndex": 1,
         "language": "json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "GENERAL",
@@ -105,18 +105,41 @@
         {
           "name": "FILES",
           "title": "Files",
-          "entries": []
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_2_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 33,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
         },
         {
           "name": "JSON_SCHEMA",
           "title": "JSON Schema",
           "entries": [
             {
-              "exception": "JSONDecodeError",
-              "line": 14,
-              "col": 3,
-              "isError": true,
-              "message": "Error parsing JSON example: Expecting property name enclosed in double quotes: line 14 column 3 (char 287) on or near line 14 column 3"
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -226,7 +249,7 @@
   "globalErrors": {},
   "counts": {
     "total": 3,
-    "passed": 2,
-    "failed": 1
+    "passed": 3,
+    "failed": 0
   }
 }
