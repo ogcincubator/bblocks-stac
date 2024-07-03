@@ -1,22 +1,12 @@
 x-defs:
-  _github_workspace_build_annotated_contrib_stac_item-prov_schema.yaml:
-    description: STAC Collection
-    allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Entity
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.yaml
-    - type: object
-      properties:
-        stac_extensions:
-          type: array
-          contains:
-            const: https://stac-extensions.github.io/prov/v1.0.0/schema.json
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-    x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml
   ogc.ogc-utils.prov:
     description: Provenance Chain using PROV-O core model supporting both an ID based
       object graph and nesting
     $defs:
-      objectref: {}
+      objectref:
+        $anchor: objectref
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie
       oneOrMoreObjectref:
         $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/MultipleOrObject
       oneOrMoreActivitiesOrRefIds:
@@ -70,24 +60,91 @@ x-defs:
                 - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Influence
             x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
             x-jsonld-type: '@id'
+      EntityType:
+        type: string
+        enum:
+        - Entity
+        - Bundle
+        - Plan
+        - prov:Entity
+        - prov:Bundle
+        - prov:Plan
+      EntityTypes:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/EntityType
+        - type: array
+          contains:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/EntityType
       Entity:
         type: object
         properties:
-          id: {}
-          featureType: {}
-          entityType: {}
-          has_provenance: {}
-          wasGeneratedBy: {}
-          wasAttributedTo: {}
-          wasDerivedFrom: {}
-          alternateOf: {}
-          hadPrimarySource: {}
-          specializationOf: {}
-          wasInvalidatedBy: {}
-          wasQuotedFrom: {}
-          wasRevisionOf: {}
-          mentionOf: {}
-          atLocation: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
+          featureType:
+            x-jsonld-id: '@type'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
+          entityType:
+            x-jsonld-id: '@type'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
+          has_provenance:
+            x-jsonld-id: http://purl.org/dc/terms/provenance
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Prov
+          wasGeneratedBy:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
+          wasAttributedTo:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds
+          wasDerivedFrom:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          alternateOf:
+            x-jsonld-id: http://www.w3.org/ns/prov#alternateOf
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          hadPrimarySource:
+            x-jsonld-id: http://www.w3.org/ns/prov#hadPrimarySource
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          specializationOf:
+            x-jsonld-id: http://www.w3.org/ns/prov#specializationOf
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          wasInvalidatedBy:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasInvalidatedBy
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
+          wasQuotedFrom:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasQuotedFrom
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          wasRevisionOf:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasRevisionOf
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          atLocation:
+            x-jsonld-id: http://www.w3.org/ns/prov#atLocation
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           links:
             type: array
             items:
@@ -142,22 +199,21 @@ x-defs:
         anyOf:
         - properties:
             provType:
-              oneOf:
-              - type: string
-                enum:
-                - Entity
-                - Bundle
-                - Plan
-              - type: array
-                contains:
-                  type: string
-                  enum:
-                  - Entity
-                  - Bundle
-                  - Plan
               x-jsonld-id: '@type'
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/EntityTypes
           required:
           - provType
+        - properties:
+            prov:type:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/EntityTypes
+          required:
+          - prov:type
+        - properties:
+            type:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/EntityTypes
+          required:
+          - type
         - required:
           - featureType
         - required:
@@ -173,7 +229,8 @@ x-defs:
         - properties:
             type:
               type: string
-              const: Collection
+              enum:
+              - Collection
             hadMember:
               type: array
               items:
@@ -186,7 +243,8 @@ x-defs:
         - properties:
             type:
               type: string
-              const: EmptyCollection
+              enum:
+              - EmptyCollection
             hadMember:
               type: array
               maxItems: 0
@@ -201,20 +259,80 @@ x-defs:
         type: string
         format: date-time
         pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?$
+      ActivityTypes:
+        oneOf:
+        - type: string
+          enum:
+          - Activity
+          - prov:Activity
+        - type: array
+          contains:
+            type: string
+            enum:
+            - Activity
+            - prov:Activity
+          items:
+            type: string
       Activity:
         type: object
         properties:
-          id: {}
-          activityType: {}
-          endedAtTime: {}
-          wasAssociatedWith: {}
-          wasInformedBy: {}
-          used: {}
-          wasStartedBy: {}
-          wasEndedBy: {}
-          invalidated: {}
-          generated: {}
-          atLocation: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
+          type:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/ActivityTypes
+          activityType:
+            x-jsonld-id: '@type'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
+          prov:type:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/ActivityTypes
+          endedAtTime:
+            x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
+            x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/dateTime
+          wasAssociatedWith:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasAssociatedWith
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds
+          wasInformedBy:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasInformedBy
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
+          used:
+            x-jsonld-id: http://www.w3.org/ns/prov#used
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          wasStartedBy:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasStartedBy
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          wasEndedBy:
+            x-jsonld-id: http://www.w3.org/ns/prov#wasEndedBy
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          invalidated:
+            x-jsonld-id: http://www.w3.org/ns/prov#invalidated
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          generated:
+            x-jsonld-id: http://www.w3.org/ns/prov#generated
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
+          atLocation:
+            x-jsonld-id: http://www.w3.org/ns/prov#atLocation
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           qualifiedUsage:
             oneOf:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
@@ -264,6 +382,10 @@ x-defs:
         - required:
           - activityType
         - required:
+          - prov:type
+        - required:
+          - type
+        - required:
           - used
         - required:
           - wasInformedBy
@@ -275,16 +397,52 @@ x-defs:
           - wasAssociatedWith
         allOf:
         - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/influenced
+      AgentTypes:
+        type: string
+        enum:
+        - Agent
+        - Organization
+        - Person
+        - SoftwareAgent
+        - SoftwareDescription
+        - DirectQueryService
+        - prov:Agent
+        - prov:Organization
+        - prov:Person
+        - prov:SoftwareAgent
+        - prov:SoftwareDescription
+        - prov:DirectQueryService
+      AgentType:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/AgentTypes
+        - type: array
+          items:
+            contains:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/AgentTypes
       Agent:
         type: object
         properties:
-          agentType: {}
+          agentType:
+            x-jsonld-id: '@type'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
           name:
             type: string
             x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
-          id: {}
-          actedOnBehalfOf: {}
-          atLocation: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
+          actedOnBehalfOf:
+            x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds
+          atLocation:
+            x-jsonld-id: http://www.w3.org/ns/prov#atLocation
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           qualifiedDelegation:
             oneOf:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
@@ -301,32 +459,21 @@ x-defs:
         anyOf:
         - properties:
             provType:
-              oneOf:
-              - type: string
-                enum:
-                - Agent
-                - Organization
-                - Person
-                - SoftwareAgent
-                - SoftwareDescription
-                - DirectQueryService
-              - type: array
-                contains:
-                  type: string
-                  enum:
-                  - Agent
-                  - Organization
-                  - Person
-                  - SoftwareAgent
-                  - SoftwareDescription
-                  - DirectQueryService
-                items:
-                  type: string
               x-jsonld-id: '@type'
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/AgentType
           required:
           - provType
-        - required:
-          - agentType
+        - properties:
+            type:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/AgentType
+          required:
+          - type
+        - properties:
+            prov:type:
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/AgentType
+          required:
+          - prov:type
         - required:
           - actedOnBehalfOf
         allOf:
@@ -334,92 +481,143 @@ x-defs:
       Usage:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           type:
             oneOf:
             - type: string
-              const: Usage
+              enum:
+              - prov:Usage
+              - Usage
             - type: array
               contains:
                 type: string
-                const: Usage
+                enum:
+                - prov:Usage
+                - Usage
               items:
                 type: string
-          atTime: {}
+          atTime:
+            x-jsonld-id: http://www.w3.org/ns/prov#atTime
+            x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/dateTime
           entity:
-            oneOf:
-            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
-            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Entity
             x-jsonld-id: http://www.w3.org/ns/prov#entity
             x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
         required:
-        - atTime
         - entity
-      Generation:
+      ActivityInfluence:
         type: object
         properties:
-          id: {}
-          type:
-            oneOf:
-            - type: string
-              const: Generation
-            - type: array
-              contains:
-                type: string
-                const: Generation
-              items:
-                type: string
-          atTime: {}
-        required:
-        - atTime
-      Invalidation:
-        type: object
-        properties:
-          id: {}
-          type:
-            oneOf:
-            - type: string
-              const: Invalidation
-            - type: array
-              contains:
-                type: string
-                const: Invalidation
-              items:
-                type: string
-          atTime: {}
-        required:
-        - atTime
-      Communication:
-        type: object
-        properties:
-          id: {}
-          type:
-            oneOf:
-            - type: string
-              const: Communication
-            - type: array
-              contains:
-                type: string
-                const: Communication
-              items:
-                type: string
-          activity:
-            oneOf:
+          id:
+            x-jsonld-id: '@id'
+            allOf:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
-            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Activity
-        required:
-        - activity
+          atTime:
+            x-jsonld-id: http://www.w3.org/ns/prov#atTime
+            x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/dateTime
+          hadRole:
+            x-jsonld-id: http://www.w3.org/ns/prov#hadRole
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
+          influencer:
+            x-jsonld-id: http://www.w3.org/ns/prov#influencer
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
+          hadActivity:
+            x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
+          activity:
+            x-jsonld-id: http://www.w3.org/ns/prov#activity
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
+      Generation:
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/ActivityInfluence
+        - type: object
+          properties:
+            type:
+              oneOf:
+              - type: string
+                enum:
+                - Generation
+              - type: array
+                contains:
+                  type: string
+                  enum:
+                  - Generation
+                items:
+                  type: string
+          required:
+          - type
+      Invalidation:
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/ActivityInfluence
+        - type: object
+          properties:
+            type:
+              oneOf:
+              - type: string
+                enum:
+                - Invalidation
+              - type: array
+                contains:
+                  type: string
+                  enum:
+                  - Invalidation
+                items:
+                  type: string
+          required:
+          - type
+      Communication:
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/ActivityInfluence
+        - type: object
+          properties:
+            type:
+              oneOf:
+              - type: string
+                enum:
+                - Communication
+              - type: array
+                contains:
+                  type: string
+                  enum:
+                  - Communication
+                items:
+                  type: string
+          required:
+          - type
       StartOrEnd:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           type:
             oneOf:
             - type: string
             - type: array
               items:
                 type: string
-          atTime: {}
+          atTime:
+            x-jsonld-id: http://www.w3.org/ns/prov#atTime
+            x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/dateTime
           entity:
             oneOf:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
@@ -440,30 +638,39 @@ x-defs:
         - properties:
             type:
               anyOf:
-              - const: Start
+              - enum:
+                - Start
               - contains:
-                  const: Start
+                  enum:
+                  - Start
       End:
         allOf:
         - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/StartOrEnd
         - properties:
             type:
               anyOf:
-              - const: End
+              - enum:
+                - End
               - contains:
-                  const: End
+                  enum:
+                  - End
       Derivation:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           type:
             oneOf:
             - type: string
-              const: Derivation
+              enum:
+              - Derivation
             - type: array
               contains:
                 type: string
-                const: Derivation
+                enum:
+                - Derivation
               items:
                 type: string
           hadGeneration:
@@ -496,15 +703,20 @@ x-defs:
       Delegation:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           type:
             oneOf:
             - type: string
-              const: Delegation
+              enum:
+              - Delegation
             - type: array
               contains:
                 type: string
-                const: Delegation
+                enum:
+                - Delegation
               items:
                 type: string
           agent:
@@ -522,15 +734,20 @@ x-defs:
       Attribution:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           type:
             oneOf:
             - type: string
-              const: Attribution
+              enum:
+              - Attribution
             - type: array
               contains:
                 type: string
-                const: Attribution
+                enum:
+                - Attribution
               items:
                 type: string
           agent:
@@ -542,15 +759,20 @@ x-defs:
       Association:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           type:
             oneOf:
             - type: string
-              const: Association
+              enum:
+              - Association
             - type: array
               contains:
                 type: string
-                const: Association
+                enum:
+                - Association
               items:
                 type: string
           agent:
@@ -559,12 +781,23 @@ x-defs:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Agent
             x-jsonld-id: http://www.w3.org/ns/prov#agent
             x-jsonld-type: '@id'
-          hadRole: {}
-          hadPlan: {}
+          hadRole:
+            x-jsonld-id: http://www.w3.org/ns/prov#hadRole
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
+          hadPlan:
+            x-jsonld-id: http://www.w3.org/ns/prov#hadPlan
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreObjectref
       Influence:
         type: object
         properties:
-          id: {}
+          id:
+            x-jsonld-id: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/objectref
           influencer:
             anyOf:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
@@ -572,10 +805,21 @@ x-defs:
             - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds
             x-jsonld-id: http://www.w3.org/ns/prov#influencer
             x-jsonld-type: '@id'
-          entity: {}
+          entity:
+            x-jsonld-id: http://www.w3.org/ns/prov#entity
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds
           activity:
-            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
-          agent: {}
+            x-jsonld-id: http://www.w3.org/ns/prov#activity
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds
+          agent:
+            x-jsonld-id: http://www.w3.org/ns/prov#agent
+            x-jsonld-type: '@id'
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds
         anyOf:
         - required:
           - influencer
@@ -718,25 +962,60 @@ x-defs:
       asInBundle:
         x-jsonld-id: http://www.w3.org/ns/prov#asInBundle
         x-jsonld-type: '@id'
+      mentionOf:
+        x-jsonld-id: http://www.w3.org/ns/prov#mentionOf
+        x-jsonld-type: '@id'
     x-jsonld-prefixes:
       prov: http://www.w3.org/ns/prov#
       xsd: http://www.w3.org/2001/XMLSchema#
       rdfs: http://www.w3.org/2000/01/rdf-schema#
       dct: http://purl.org/dc/terms/
       rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
     x-schema-source: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml
-  ogcincubator.github.io_bblocks-stac_build_annotated_contrib_stac_item_schema.yaml:
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogc.contrib.stac.item:
     description: STAC Collection
     allOf:
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.geo.features.feature
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.recordGeoJSON
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item
     x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-  ogc.ogc-utils.iri-or-curie:
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogc.ogc-utils.iri-or-curie:
+    description: IRI or CURIE
+    $defs:
+      IRI:
+        type: string
+        pattern: ^\w+:/*([^:<>{}|\\^`"\s/]+[^<>{}|\\^`"\s]*(:[^:<>{}|\\^`"\s]+)?)?$
+      CURIE:
+        type: string
+        pattern: ^[A-Za-z_][^\s:/]*:[^:<>{}|\\^`"\s]*(\?[^<>{}|\\^`" ]*)?(#[^<>{}|\\^`"\s]*)?$
+      LocalPart:
+        type: string
+        pattern: ^[^:<>{}|\\^`"\s]*(\?[^<>{}|\\^`"\s]*)?(#[^<>{}|\\^`"\s]*)?$
+      Single:
+        anyOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/IRI
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/CURIE
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/LocalPart
+      Multiple:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/Single
+        - type: array
+          items:
+            $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/Single
+      MultipleOrObject:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/Multiple
+        - type: object
+      MultipleOrObjectOrNull:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/MultipleOrObject
+        nullable: true
     x-schema-source: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+    allOf:
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/Single
   ogc.ogc-utils.json-link:
     description: JSON Link
     type: object
@@ -772,8 +1051,8 @@ x-defs:
       oa: http://www.w3.org/ns/oa#
       rdfs: http://www.w3.org/2000/01/rdf-schema#
       dct: http://purl.org/dc/terms/
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
     x-schema-source: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogc.geo.features.feature:
     allOf:
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson
@@ -787,7 +1066,8 @@ x-defs:
             $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.json-link
           x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
         type:
-          const: Feature
+          enum:
+          - Feature
       required:
       - type
       - geometry
@@ -860,7 +1140,10 @@ x-defs:
               using free-form keywords, tags, key phrases, or classification codes.
             items:
               type: string
-          language: {}
+          language:
+            description: The language used for textual values in this record representation.
+            allOf:
+            - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.language
           languages:
             type: array
             description: This list of languages in which this record is available.
@@ -920,26 +1203,26 @@ x-defs:
         type: array
         items:
           $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.linkTemplate
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml
-  github.com_radiantearth_stac-spec_raw_master_item-spec_json-schema_item.json:
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  item:
     title: STAC Item
     type: object
     description: This object represents the metadata for an item in a SpatioTemporal
       Asset Catalog.
     allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
+    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item/definitions/core
     definitions:
       common_metadata:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/basics
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/datetime
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/instrument
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/licensing
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/provider
       core:
         allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_1
         - oneOf:
           - type: object
             required:
@@ -947,7 +1230,7 @@ x-defs:
             - bbox
             properties:
               geometry:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/Geometry
               bbox:
                 type: array
                 oneOf:
@@ -976,7 +1259,8 @@ x-defs:
             stac_version:
               title: STAC version
               type: string
-              const: 1.0.0
+              enum:
+              - 1.0.0
             stac_extensions:
               title: STAC extensions
               type: array
@@ -995,12 +1279,12 @@ x-defs:
               description: Links to item relations
               type: array
               items:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
+                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item/definitions/link
             assets:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
+              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item/definitions/assets
             properties:
               allOf:
-              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item/definitions/common_metadata
               - anyOf:
                 - required:
                   - datetime
@@ -1020,7 +1304,8 @@ x-defs:
                   - rel
                   properties:
                     rel:
-                      const: collection
+                      enum:
+                      - collection
           then:
             required:
             - collection
@@ -1060,7 +1345,7 @@ x-defs:
         description: Links to assets
         type: object
         additionalProperties:
-          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
+          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item/definitions/asset
       asset:
         allOf:
         - type: object
@@ -1086,9 +1371,10 @@ x-defs:
               type: array
               items:
                 type: string
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/item/definitions/common_metadata
+    x-schema-source: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json
+    x-schema-id: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#
   ogc.geo.common.data_types.geojson:
     title: GeoJSON Feature
     type: object
@@ -1504,8 +1790,9 @@ x-defs:
         x-jsonld-id: https://purl.org/geojson/vocab#features
     x-jsonld-prefixes:
       geojson: https://purl.org/geojson/vocab#
+    x-schema-source: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.yaml
+    x-schema-id: https://geojson.org/schema/Feature.json
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://geojson.org/schema/Feature.json
   ogc.geo.common.data_types.bounding_box:
     type: array
     oneOf:
@@ -1621,7 +1908,6 @@ x-defs:
           the queryable's schema definition.
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/theme/schema.yaml
   ogc.api.records.v1.schemas.contact:
-    $comment: Adapted from https://raw.githubusercontent.com/opengeospatial/ogcapi-records/master/core/openapi/schemas/contact.yaml
     type: object
     description: 'Identification of, and means of communication with, person responsible
 
@@ -1671,7 +1957,10 @@ x-defs:
               description: The value is the phone number itself.
               pattern: ^\+[1-9]{1}[0-9]{3,14}$
               example: '+14165550142'
-            roles: {}
+            roles:
+              description: The type of phone number (e.g. home, work, fax, etc.).
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.roles
       emails:
         type: array
         description: Email addresses at which contact can be made.
@@ -1684,7 +1973,10 @@ x-defs:
               type: string
               description: The value is the email number itself.
               format: email
-            roles: {}
+            roles:
+              description: The type of email (e.g. home, work, etc.).
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.roles
       addresses:
         type: array
         description: Physical location at which contact can be made.
@@ -1708,7 +2000,10 @@ x-defs:
             country:
               type: string
               description: Country of the physical address.  ISO 3166-1 is recommended.
-            roles: {}
+            roles:
+              description: The type of address (e.g. office, home, etc.).
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.roles
       links:
         type: array
         description: On-line information about the contact.
@@ -1727,7 +2022,11 @@ x-defs:
         description: 'Supplemental instructions on how or when to contact the
 
           responsible party.'
-      roles: {}
+      roles:
+        description: The set of named duties, job functions and/or permissions associated
+          with this contact. (e.g. developer, administrator, etc.).
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.roles
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/contact/schema.yaml
   ogc.api.records.v1.schemas.license:
     type: string
@@ -1744,7 +2043,6 @@ x-defs:
       first place since there is no point in making such a resource discoverable.
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/license/schema.yaml
   ogc.api.records.v1.schemas.linkBase:
-    $comment: Adapted from https://github.com/opengeospatial/ogcapi-records/raw/master/core/openapi/schemas/linkBase.yaml
     type: object
     properties:
       rel:
@@ -1797,7 +2095,6 @@ x-defs:
       xsd: http://www.w3.org/2001/XMLSchema#
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/linkBase/schema.yaml
   ogc.api.records.v1.schemas.linkTemplate:
-    $comment: Adapted from https://raw.githubusercontent.com/opengeospatial/ogcapi-records/master/core/openapi/schemas/linkTemplate.yaml
     allOf:
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.linkBase
     - type: object
@@ -1825,174 +2122,7 @@ x-defs:
     x-jsonld-prefixes:
       oa: http://www.w3.org/ns/oa#
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/linkTemplate/schema.yaml
-  schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json:
-    title: STAC Item
-    type: object
-    description: This object represents the metadata for an item in a SpatioTemporal
-      Asset Catalog.
-    allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/core
-    definitions:
-      common_metadata:
-        allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json
-      core:
-        allOf:
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.geo.common.data_types.geojson_
-        - oneOf:
-          - type: object
-            required:
-            - geometry
-            - bbox
-            properties:
-              geometry:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/geojson.org_schema_Geometry.json
-              bbox:
-                type: array
-                oneOf:
-                - minItems: 4
-                  maxItems: 4
-                - minItems: 6
-                  maxItems: 6
-                items:
-                  type: number
-          - type: object
-            required:
-            - geometry
-            properties:
-              geometry:
-                nullable: true
-              bbox:
-                not: {}
-        - type: object
-          required:
-          - stac_version
-          - id
-          - links
-          - assets
-          - properties
-          properties:
-            stac_version:
-              title: STAC version
-              type: string
-              const: 1.0.0
-            stac_extensions:
-              title: STAC extensions
-              type: array
-              uniqueItems: true
-              items:
-                title: Reference to a JSON Schema
-                type: string
-                format: iri
-            id:
-              title: Provider ID
-              description: Provider item ID
-              type: string
-              minLength: 1
-            links:
-              title: Item links
-              description: Links to item relations
-              type: array
-              items:
-                $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/link
-            assets:
-              $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/assets
-            properties:
-              allOf:
-              - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
-              - anyOf:
-                - required:
-                  - datetime
-                  properties:
-                    datetime:
-                      not:
-                        nullable: true
-                - required:
-                  - datetime
-                  - start_datetime
-                  - end_datetime
-          if:
-            properties:
-              links:
-                contains:
-                  required:
-                  - rel
-                  properties:
-                    rel:
-                      const: collection
-          then:
-            required:
-            - collection
-            properties:
-              collection:
-                title: Collection ID
-                description: The ID of the STAC Collection this Item references to.
-                type: string
-                minLength: 1
-          else:
-            properties:
-              collection:
-                not: {}
-      link:
-        type: object
-        required:
-        - rel
-        - href
-        properties:
-          href:
-            title: Link reference
-            type: string
-            format: iri-reference
-            minLength: 1
-          rel:
-            title: Link relation type
-            type: string
-            minLength: 1
-          type:
-            title: Link type
-            type: string
-          title:
-            title: Link title
-            type: string
-      assets:
-        title: Asset links
-        description: Links to assets
-        type: object
-        additionalProperties:
-          $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/asset
-      asset:
-        allOf:
-        - type: object
-          required:
-          - href
-          properties:
-            href:
-              title: Asset reference
-              type: string
-              format: iri-reference
-              minLength: 1
-            title:
-              title: Asset title
-              type: string
-            description:
-              title: Asset description
-              type: string
-            type:
-              title: Asset type
-              type: string
-            roles:
-              title: Asset roles
-              type: array
-              items:
-                type: string
-        - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/schemas.stacspec.org_v1.0.0_item-spec_json-schema_item.json/definitions/common_metadata
-    x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#
-  schemas.stacspec.org_v1.0.0_item-spec_json-schema_basics.json:
+  basics:
     title: Basic Descriptive Fields
     type: object
     properties:
@@ -2004,9 +2134,10 @@ x-defs:
         title: Item Description
         description: Detailed multi-line description to fully explain the Item.
         type: string
+    x-schema-source: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/basics.json
+    x-schema-id: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/basics.json#
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/basics.json#
-  schemas.stacspec.org_v1.0.0_item-spec_json-schema_datetime.json:
+  datetime:
     title: Date and Time Fields
     type: object
     dependencies:
@@ -2049,9 +2180,10 @@ x-defs:
         type: string
         format: date-time
         pattern: (\+00:00|Z)$
+    x-schema-source: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/datetime.json
+    x-schema-id: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/datetime.json#
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/datetime.json#
-  schemas.stacspec.org_v1.0.0_item-spec_json-schema_instrument.json:
+  instrument:
     title: Instrument Fields
     type: object
     properties:
@@ -2073,18 +2205,20 @@ x-defs:
         title: Ground Sample Distance
         type: number
         exclusiveMinimum: 0
+    x-schema-source: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/instrument.json
+    x-schema-id: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/instrument.json#
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/instrument.json#
-  schemas.stacspec.org_v1.0.0_item-spec_json-schema_licensing.json:
+  licensing:
     title: Licensing Fields
     type: object
     properties:
       license:
         type: string
         pattern: ^[\w\-\.\+]+$
+    x-schema-source: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/licensing.json
+    x-schema-id: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/licensing.json#
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/licensing.json#
-  schemas.stacspec.org_v1.0.0_item-spec_json-schema_provider.json:
+  provider:
     title: Provider Fields
     type: object
     properties:
@@ -2117,9 +2251,10 @@ x-defs:
               title: Organization homepage
               type: string
               format: iri
+    x-schema-source: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/provider.json
+    x-schema-id: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/provider.json#
     x-schema-version: http://json-schema.org/draft-07/schema#
-    x-schema-source: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/provider.json#
-  ogc.geo.common.data_types.geojson_:
+  ogc.geo.common.data_types.geojson_1:
     title: GeoJSON Feature
     type: object
     required:
@@ -2450,9 +2585,10 @@ x-defs:
         minItems: 4
         items:
           type: number
-    x-schema-version: http://json-schema.org/draft-07/schema#
     x-schema-source: https://geojson.org/schema/Feature.json
-  geojson.org_schema_Geometry.json:
+    x-schema-id: https://geojson.org/schema/Feature.json
+    x-schema-version: http://json-schema.org/draft-07/schema#
+  Geometry:
     title: GeoJSON Geometry
     oneOf:
     - title: GeoJSON Point
@@ -2597,8 +2733,9 @@ x-defs:
           minItems: 4
           items:
             type: number
-    x-schema-version: http://json-schema.org/draft-07/schema#
     x-schema-source: https://geojson.org/schema/Geometry.json
+    x-schema-id: https://geojson.org/schema/Geometry.json
+    x-schema-version: http://json-schema.org/draft-07/schema#
   ogc.api.records.v1.schemas.roles:
     description: The list of duties, job functions or permissions assigned by the
       system and associated with the context of this member.
@@ -2607,5 +2744,15 @@ x-defs:
     items:
       type: string
     x-schema-source: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/roles/schema.yaml
+description: STAC Collection
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_contrib_stac_item-prov_schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.ogc-utils.prov/$defs/Entity
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema-oas3.0.yaml#/x-defs/ogc.contrib.stac.item
+- type: object
+  properties:
+    stac_extensions:
+      type: array
+      contains:
+        enum:
+        - https://stac-extensions.github.io/prov/v1.0.0/schema.json
+x-schema-version: https://json-schema.org/draft/2020-12/schema

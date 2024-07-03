@@ -485,7 +485,7 @@ Links to the schema:
         "activityType": "@type",
         "endedAtTime": {
           "@id": "prov:endedAtTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          "@type": "xsd:dateTime"
         },
         "wasAssociatedWith": {
           "@context": {
@@ -522,7 +522,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -536,7 +536,23 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "influencer": {
+              "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
+              "@type": "@id"
             }
           },
           "@id": "prov:qualifiedCommunication",
@@ -546,7 +562,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -564,7 +580,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -628,7 +644,7 @@ Links to the schema:
         "activityType": "@type",
         "endedAtTime": {
           "@id": "prov:endedAtTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          "@type": "xsd:dateTime"
         },
         "wasAssociatedWith": {
           "@context": {
@@ -685,7 +701,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -699,7 +715,23 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "influencer": {
+              "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
+              "@type": "@id"
             }
           },
           "@id": "prov:qualifiedCommunication",
@@ -709,7 +741,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -727,7 +759,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -804,7 +836,7 @@ Links to the schema:
                 "activityType": "@type",
                 "endedAtTime": {
                   "@id": "prov:endedAtTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                  "@type": "xsd:dateTime"
                 },
                 "wasAssociatedWith": {
                   "@id": "prov:wasAssociatedWith",
@@ -838,7 +870,7 @@ Links to the schema:
                   "@context": {
                     "atTime": {
                       "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                      "@type": "xsd:dateTime"
                     },
                     "entity": {
                       "@id": "prov:entity",
@@ -852,7 +884,19 @@ Links to the schema:
                   "@context": {
                     "atTime": {
                       "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                      "@type": "xsd:dateTime"
+                    },
+                    "hadRole": {
+                      "@id": "prov:hadRole",
+                      "@type": "@id"
+                    },
+                    "influencer": {
+                      "@id": "prov:influencer",
+                      "@type": "@id"
+                    },
+                    "activity": {
+                      "@id": "prov:activity",
+                      "@type": "@id"
                     }
                   },
                   "@id": "prov:qualifiedCommunication",
@@ -862,7 +906,7 @@ Links to the schema:
                   "@context": {
                     "atTime": {
                       "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                      "@type": "xsd:dateTime"
                     },
                     "entity": {
                       "@id": "prov:entity",
@@ -876,7 +920,7 @@ Links to the schema:
                   "@context": {
                     "atTime": {
                       "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                      "@type": "xsd:dateTime"
                     },
                     "entity": {
                       "@id": "prov:entity",
@@ -930,126 +974,175 @@ Links to the schema:
     },
     "wasInvalidatedBy": {
       "@context": {
-        "type": "dct:type",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
+        "activityType": "@type",
+        "endedAtTime": {
+          "@id": "prov:endedAtTime",
+          "@type": "xsd:dateTime"
         },
-        "qualifiedDelegation": {
+        "wasAssociatedWith": {
           "@context": {
-            "agent": {
-              "@id": "prov:agent",
+            "type": "dct:type",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
               "@type": "@id"
             },
-            "hadActivity": {
+            "qualifiedDelegation": {
               "@context": {
-                "activityType": "@type",
-                "endedAtTime": {
-                  "@id": "prov:endedAtTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                },
-                "wasAssociatedWith": {
-                  "@id": "prov:wasAssociatedWith",
+                "agent": {
+                  "@id": "prov:agent",
                   "@type": "@id"
                 },
-                "wasInformedBy": {
-                  "@id": "prov:wasInformedBy",
-                  "@type": "@id"
-                },
-                "used": {
-                  "@id": "prov:used",
-                  "@type": "@id"
-                },
-                "wasStartedBy": {
-                  "@id": "prov:wasStartedBy",
-                  "@type": "@id"
-                },
-                "wasEndedBy": {
-                  "@id": "prov:wasEndedBy",
-                  "@type": "@id"
-                },
-                "invalidated": {
-                  "@id": "prov:invalidated",
-                  "@type": "@id"
-                },
-                "generated": {
-                  "@id": "prov:generated",
-                  "@type": "@id"
-                },
-                "qualifiedUsage": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedUsage",
-                  "@type": "@id"
-                },
-                "qualifiedCommunication": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    }
-                  },
-                  "@id": "prov:qualifiedCommunication",
-                  "@type": "@id"
-                },
-                "qualifiedStart": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedStart",
-                  "@type": "@id"
-                },
-                "qualifiedEnd": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedEnd",
-                  "@type": "@id"
-                },
-                "qualifiedAssociation": {
-                  "@context": {
-                    "hadRole": {
-                      "@id": "prov:hadRole",
-                      "@type": "@id"
-                    },
-                    "hadPlan": {
-                      "@id": "prov:hadPlan",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedAssociation",
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
                   "@type": "@id"
                 }
               },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        },
+        "wasInformedBy": {
+          "@id": "prov:wasInformedBy",
+          "@type": "@id"
+        },
+        "used": {
+          "@id": "prov:used",
+          "@type": "@id"
+        },
+        "wasStartedBy": {
+          "@id": "prov:wasStartedBy",
+          "@type": "@id"
+        },
+        "wasEndedBy": {
+          "@id": "prov:wasEndedBy",
+          "@type": "@id"
+        },
+        "invalidated": {
+          "@id": "prov:invalidated",
+          "@type": "@id"
+        },
+        "generated": {
+          "@id": "prov:generated",
+          "@type": "@id"
+        },
+        "qualifiedUsage": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "xsd:dateTime"
+            },
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedUsage",
+          "@type": "@id"
+        },
+        "qualifiedCommunication": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "xsd:dateTime"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "influencer": {
+              "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedCommunication",
+          "@type": "@id"
+        },
+        "qualifiedStart": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "xsd:dateTime"
+            },
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
               "@id": "prov:hadActivity",
               "@type": "@id"
             }
           },
-          "@id": "prov:qualifiedDelegation",
+          "@id": "prov:qualifiedStart",
+          "@type": "@id"
+        },
+        "qualifiedEnd": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "xsd:dateTime"
+            },
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedEnd",
+          "@type": "@id"
+        },
+        "qualifiedAssociation": {
+          "@context": {
+            "agent": {
+              "@context": {
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@context": {
+                    "type": "dct:type"
+                  },
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "hadActivity": {
+                      "@id": "prov:hadActivity",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadPlan": {
+              "@id": "prov:hadPlan",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedAssociation",
           "@type": "@id"
         }
       },
@@ -1057,387 +1150,11 @@ Links to the schema:
       "@type": "@id"
     },
     "wasQuotedFrom": {
-      "@context": {
-        "type": "dct:type",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@context": {
-                "activityType": "@type",
-                "endedAtTime": {
-                  "@id": "prov:endedAtTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                },
-                "wasAssociatedWith": {
-                  "@id": "prov:wasAssociatedWith",
-                  "@type": "@id"
-                },
-                "wasInformedBy": {
-                  "@id": "prov:wasInformedBy",
-                  "@type": "@id"
-                },
-                "used": {
-                  "@id": "prov:used",
-                  "@type": "@id"
-                },
-                "wasStartedBy": {
-                  "@id": "prov:wasStartedBy",
-                  "@type": "@id"
-                },
-                "wasEndedBy": {
-                  "@id": "prov:wasEndedBy",
-                  "@type": "@id"
-                },
-                "invalidated": {
-                  "@id": "prov:invalidated",
-                  "@type": "@id"
-                },
-                "generated": {
-                  "@id": "prov:generated",
-                  "@type": "@id"
-                },
-                "qualifiedUsage": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedUsage",
-                  "@type": "@id"
-                },
-                "qualifiedCommunication": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    }
-                  },
-                  "@id": "prov:qualifiedCommunication",
-                  "@type": "@id"
-                },
-                "qualifiedStart": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedStart",
-                  "@type": "@id"
-                },
-                "qualifiedEnd": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedEnd",
-                  "@type": "@id"
-                },
-                "qualifiedAssociation": {
-                  "@context": {
-                    "hadRole": {
-                      "@id": "prov:hadRole",
-                      "@type": "@id"
-                    },
-                    "hadPlan": {
-                      "@id": "prov:hadPlan",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedAssociation",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:wasQuotedFrom",
       "@type": "@id"
     },
     "wasRevisionOf": {
-      "@context": {
-        "type": "dct:type",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@context": {
-                "activityType": "@type",
-                "endedAtTime": {
-                  "@id": "prov:endedAtTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                },
-                "wasAssociatedWith": {
-                  "@id": "prov:wasAssociatedWith",
-                  "@type": "@id"
-                },
-                "wasInformedBy": {
-                  "@id": "prov:wasInformedBy",
-                  "@type": "@id"
-                },
-                "used": {
-                  "@id": "prov:used",
-                  "@type": "@id"
-                },
-                "wasStartedBy": {
-                  "@id": "prov:wasStartedBy",
-                  "@type": "@id"
-                },
-                "wasEndedBy": {
-                  "@id": "prov:wasEndedBy",
-                  "@type": "@id"
-                },
-                "invalidated": {
-                  "@id": "prov:invalidated",
-                  "@type": "@id"
-                },
-                "generated": {
-                  "@id": "prov:generated",
-                  "@type": "@id"
-                },
-                "qualifiedUsage": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedUsage",
-                  "@type": "@id"
-                },
-                "qualifiedCommunication": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    }
-                  },
-                  "@id": "prov:qualifiedCommunication",
-                  "@type": "@id"
-                },
-                "qualifiedStart": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedStart",
-                  "@type": "@id"
-                },
-                "qualifiedEnd": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedEnd",
-                  "@type": "@id"
-                },
-                "qualifiedAssociation": {
-                  "@context": {
-                    "hadRole": {
-                      "@id": "prov:hadRole",
-                      "@type": "@id"
-                    },
-                    "hadPlan": {
-                      "@id": "prov:hadPlan",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedAssociation",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:wasRevisionOf",
-      "@type": "@id"
-    },
-    "mentionOf": {
-      "@context": {
-        "type": "dct:type",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@context": {
-                "activityType": "@type",
-                "endedAtTime": {
-                  "@id": "prov:endedAtTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                },
-                "wasAssociatedWith": {
-                  "@id": "prov:wasAssociatedWith",
-                  "@type": "@id"
-                },
-                "wasInformedBy": {
-                  "@id": "prov:wasInformedBy",
-                  "@type": "@id"
-                },
-                "used": {
-                  "@id": "prov:used",
-                  "@type": "@id"
-                },
-                "wasStartedBy": {
-                  "@id": "prov:wasStartedBy",
-                  "@type": "@id"
-                },
-                "wasEndedBy": {
-                  "@id": "prov:wasEndedBy",
-                  "@type": "@id"
-                },
-                "invalidated": {
-                  "@id": "prov:invalidated",
-                  "@type": "@id"
-                },
-                "generated": {
-                  "@id": "prov:generated",
-                  "@type": "@id"
-                },
-                "qualifiedUsage": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedUsage",
-                  "@type": "@id"
-                },
-                "qualifiedCommunication": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    }
-                  },
-                  "@id": "prov:qualifiedCommunication",
-                  "@type": "@id"
-                },
-                "qualifiedStart": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedStart",
-                  "@type": "@id"
-                },
-                "qualifiedEnd": {
-                  "@context": {
-                    "atTime": {
-                      "@id": "prov:atTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-                    },
-                    "entity": {
-                      "@id": "prov:entity",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedEnd",
-                  "@type": "@id"
-                },
-                "qualifiedAssociation": {
-                  "@context": {
-                    "hadRole": {
-                      "@id": "prov:hadRole",
-                      "@type": "@id"
-                    },
-                    "hadPlan": {
-                      "@id": "prov:hadPlan",
-                      "@type": "@id"
-                    }
-                  },
-                  "@id": "prov:qualifiedAssociation",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:mentionOf",
       "@type": "@id"
     },
     "atLocation": {
@@ -1454,7 +1171,257 @@ Links to the schema:
       "@context": {
         "atTime": {
           "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          "@type": "xsd:dateTime"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "agent": {
+                      "@id": "prov:agent",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "agent": {
+                  "@context": {
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@context": {
+                        "type": "dct:type"
+                      },
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "agent": {
+                      "@id": "prov:agent",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "agent": {
+                  "@context": {
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@context": {
+                        "type": "dct:type"
+                      },
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedGeneration",
@@ -1464,7 +1431,257 @@ Links to the schema:
       "@context": {
         "atTime": {
           "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          "@type": "xsd:dateTime"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "agent": {
+                      "@id": "prov:agent",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "agent": {
+                  "@context": {
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@context": {
+                        "type": "dct:type"
+                      },
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "agent": {
+                      "@id": "prov:agent",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "entity": {
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "agent": {
+                  "@context": {
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@context": {
+                        "type": "dct:type"
+                      },
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInvalidation",
@@ -1476,7 +1693,118 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "influencer": {
+              "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "activity": {
+              "@context": {
+                "activityType": "@type",
+                "endedAtTime": {
+                  "@id": "prov:endedAtTime",
+                  "@type": "xsd:dateTime"
+                },
+                "wasAssociatedWith": {
+                  "@context": {
+                    "type": "dct:type",
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@context": {
+                        "agent": {
+                          "@id": "prov:agent",
+                          "@type": "@id"
+                        }
+                      },
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:wasAssociatedWith",
+                  "@type": "@id"
+                },
+                "wasInformedBy": {
+                  "@id": "prov:wasInformedBy",
+                  "@type": "@id"
+                },
+                "used": {
+                  "@id": "prov:used",
+                  "@type": "@id"
+                },
+                "wasStartedBy": {
+                  "@id": "prov:wasStartedBy",
+                  "@type": "@id"
+                },
+                "wasEndedBy": {
+                  "@id": "prov:wasEndedBy",
+                  "@type": "@id"
+                },
+                "invalidated": {
+                  "@id": "prov:invalidated",
+                  "@type": "@id"
+                },
+                "generated": {
+                  "@id": "prov:generated",
+                  "@type": "@id"
+                },
+                "qualifiedUsage": {
+                  "@id": "prov:qualifiedUsage",
+                  "@type": "@id"
+                },
+                "qualifiedCommunication": {
+                  "@id": "prov:qualifiedCommunication",
+                  "@type": "@id"
+                },
+                "qualifiedStart": {
+                  "@id": "prov:qualifiedStart",
+                  "@type": "@id"
+                },
+                "qualifiedEnd": {
+                  "@id": "prov:qualifiedEnd",
+                  "@type": "@id"
+                },
+                "qualifiedAssociation": {
+                  "@context": {
+                    "agent": {
+                      "@context": {
+                        "agentType": "@type",
+                        "name": "rdfs:label",
+                        "actedOnBehalfOf": {
+                          "@context": {
+                            "type": "dct:type"
+                          },
+                          "@id": "prov:actedOnBehalfOf",
+                          "@type": "@id"
+                        },
+                        "qualifiedDelegation": {
+                          "@id": "prov:qualifiedDelegation",
+                          "@type": "@id"
+                        }
+                      },
+                      "@id": "prov:agent",
+                      "@type": "@id"
+                    },
+                    "hadPlan": {
+                      "@id": "prov:hadPlan",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedAssociation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:activity",
+              "@type": "@id"
             }
           },
           "@id": "prov:hadGeneration",
@@ -1487,7 +1815,7 @@ Links to the schema:
             "activityType": "@type",
             "endedAtTime": {
               "@id": "prov:endedAtTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "wasAssociatedWith": {
               "@context": {
@@ -1540,7 +1868,7 @@ Links to the schema:
               "@context": {
                 "atTime": {
                   "@id": "prov:atTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                  "@type": "xsd:dateTime"
                 }
               },
               "@id": "prov:qualifiedUsage",
@@ -1550,7 +1878,19 @@ Links to the schema:
               "@context": {
                 "atTime": {
                   "@id": "prov:atTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                  "@type": "xsd:dateTime"
+                },
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "influencer": {
+                  "@id": "prov:influencer",
+                  "@type": "@id"
+                },
+                "activity": {
+                  "@id": "prov:activity",
+                  "@type": "@id"
                 }
               },
               "@id": "prov:qualifiedCommunication",
@@ -1560,7 +1900,7 @@ Links to the schema:
               "@context": {
                 "atTime": {
                   "@id": "prov:atTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                  "@type": "xsd:dateTime"
                 }
               },
               "@id": "prov:qualifiedStart",
@@ -1570,7 +1910,7 @@ Links to the schema:
               "@context": {
                 "atTime": {
                   "@id": "prov:atTime",
-                  "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                  "@type": "xsd:dateTime"
                 }
               },
               "@id": "prov:qualifiedEnd",
@@ -1617,7 +1957,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             }
           },
           "@id": "prov:hadUsage",
@@ -1651,7 +1991,7 @@ Links to the schema:
                     "activityType": "@type",
                     "endedAtTime": {
                       "@id": "prov:endedAtTime",
-                      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                      "@type": "xsd:dateTime"
                     },
                     "wasAssociatedWith": {
                       "@context": {
@@ -1688,7 +2028,7 @@ Links to the schema:
                       "@context": {
                         "atTime": {
                           "@id": "prov:atTime",
-                          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                          "@type": "xsd:dateTime"
                         },
                         "entity": {
                           "@id": "prov:entity",
@@ -1702,7 +2042,19 @@ Links to the schema:
                       "@context": {
                         "atTime": {
                           "@id": "prov:atTime",
-                          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                          "@type": "xsd:dateTime"
+                        },
+                        "hadRole": {
+                          "@id": "prov:hadRole",
+                          "@type": "@id"
+                        },
+                        "influencer": {
+                          "@id": "prov:influencer",
+                          "@type": "@id"
+                        },
+                        "activity": {
+                          "@id": "prov:activity",
+                          "@type": "@id"
                         }
                       },
                       "@id": "prov:qualifiedCommunication",
@@ -1712,7 +2064,7 @@ Links to the schema:
                       "@context": {
                         "atTime": {
                           "@id": "prov:atTime",
-                          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                          "@type": "xsd:dateTime"
                         },
                         "entity": {
                           "@id": "prov:entity",
@@ -1726,7 +2078,7 @@ Links to the schema:
                       "@context": {
                         "atTime": {
                           "@id": "prov:atTime",
-                          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+                          "@type": "xsd:dateTime"
                         },
                         "entity": {
                           "@id": "prov:entity",
@@ -1771,7 +2123,7 @@ Links to the schema:
         "activityType": "@type",
         "endedAtTime": {
           "@id": "prov:endedAtTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          "@type": "xsd:dateTime"
         },
         "wasAssociatedWith": {
           "@id": "prov:wasAssociatedWith",
@@ -1805,7 +2157,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -1819,7 +2171,23 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "influencer": {
+              "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
+              "@type": "@id"
             }
           },
           "@id": "prov:qualifiedCommunication",
@@ -1829,7 +2197,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -1847,7 +2215,7 @@ Links to the schema:
           "@context": {
             "atTime": {
               "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+              "@type": "xsd:dateTime"
             },
             "entity": {
               "@id": "prov:entity",
@@ -1908,6 +2276,109 @@ Links to the schema:
       "@context": {
         "influencer": {
           "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                }
+              },
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                },
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            },
             "type": "dct:type",
             "agentType": "@type",
             "name": "rdfs:label",
@@ -1933,116 +2404,19 @@ Links to the schema:
           "@id": "prov:entity",
           "@type": "@id"
         },
-        "activityType": "@type",
-        "endedAtTime": {
-          "@id": "prov:endedAtTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "wasAssociatedWith": {
+        "activity": {
           "@context": {
-            "type": "dct:type",
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
             },
-            "qualifiedDelegation": {
+            "wasAssociatedWith": {
               "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:wasAssociatedWith",
-          "@type": "@id"
-        },
-        "wasInformedBy": {
-          "@id": "prov:wasInformedBy",
-          "@type": "@id"
-        },
-        "used": {
-          "@id": "prov:used",
-          "@type": "@id"
-        },
-        "wasStartedBy": {
-          "@id": "prov:wasStartedBy",
-          "@type": "@id"
-        },
-        "wasEndedBy": {
-          "@id": "prov:wasEndedBy",
-          "@type": "@id"
-        },
-        "invalidated": {
-          "@id": "prov:invalidated",
-          "@type": "@id"
-        },
-        "generated": {
-          "@id": "prov:generated",
-          "@type": "@id"
-        },
-        "qualifiedUsage": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          },
-          "@id": "prov:qualifiedUsage",
-          "@type": "@id"
-        },
-        "qualifiedCommunication": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          },
-          "@id": "prov:qualifiedCommunication",
-          "@type": "@id"
-        },
-        "qualifiedStart": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedStart",
-          "@type": "@id"
-        },
-        "qualifiedEnd": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedEnd",
-          "@type": "@id"
-        },
-        "qualifiedAssociation": {
-          "@context": {
-            "agent": {
-              "@context": {
+                "type": "dct:type",
                 "agentType": "@type",
                 "name": "rdfs:label",
                 "actedOnBehalfOf": {
-                  "@context": {
-                    "type": "dct:type"
-                  },
                   "@id": "prov:actedOnBehalfOf",
                   "@type": "@id"
                 },
@@ -2057,19 +2431,130 @@ Links to the schema:
                   "@type": "@id"
                 }
               },
-              "@id": "prov:agent",
+              "@id": "prov:wasAssociatedWith",
               "@type": "@id"
             },
-            "hadRole": {
-              "@id": "prov:hadRole",
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
               "@type": "@id"
             },
-            "hadPlan": {
-              "@id": "prov:hadPlan",
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                }
+              },
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                },
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "atTime": {
+                  "@id": "prov:atTime",
+                  "@type": "xsd:dateTime"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "agent": {
+                  "@context": {
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@context": {
+                        "type": "dct:type"
+                      },
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@context": {
+                        "hadActivity": {
+                          "@id": "prov:hadActivity",
+                          "@type": "@id"
+                        }
+                      },
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
               "@type": "@id"
             }
           },
-          "@id": "prov:qualifiedAssociation",
+          "@id": "prov:activity",
           "@type": "@id"
         },
         "agent": {
@@ -2084,6 +2569,99 @@ Links to the schema:
             "qualifiedDelegation": {
               "@context": {
                 "hadActivity": {
+                  "@context": {
+                    "activityType": "@type",
+                    "endedAtTime": {
+                      "@id": "prov:endedAtTime",
+                      "@type": "xsd:dateTime"
+                    },
+                    "wasAssociatedWith": {
+                      "@id": "prov:wasAssociatedWith",
+                      "@type": "@id"
+                    },
+                    "wasInformedBy": {
+                      "@id": "prov:wasInformedBy",
+                      "@type": "@id"
+                    },
+                    "used": {
+                      "@id": "prov:used",
+                      "@type": "@id"
+                    },
+                    "wasStartedBy": {
+                      "@id": "prov:wasStartedBy",
+                      "@type": "@id"
+                    },
+                    "wasEndedBy": {
+                      "@id": "prov:wasEndedBy",
+                      "@type": "@id"
+                    },
+                    "invalidated": {
+                      "@id": "prov:invalidated",
+                      "@type": "@id"
+                    },
+                    "generated": {
+                      "@id": "prov:generated",
+                      "@type": "@id"
+                    },
+                    "qualifiedUsage": {
+                      "@context": {
+                        "atTime": {
+                          "@id": "prov:atTime",
+                          "@type": "xsd:dateTime"
+                        }
+                      },
+                      "@id": "prov:qualifiedUsage",
+                      "@type": "@id"
+                    },
+                    "qualifiedCommunication": {
+                      "@context": {
+                        "atTime": {
+                          "@id": "prov:atTime",
+                          "@type": "xsd:dateTime"
+                        },
+                        "hadRole": {
+                          "@id": "prov:hadRole",
+                          "@type": "@id"
+                        }
+                      },
+                      "@id": "prov:qualifiedCommunication",
+                      "@type": "@id"
+                    },
+                    "qualifiedStart": {
+                      "@context": {
+                        "atTime": {
+                          "@id": "prov:atTime",
+                          "@type": "xsd:dateTime"
+                        }
+                      },
+                      "@id": "prov:qualifiedStart",
+                      "@type": "@id"
+                    },
+                    "qualifiedEnd": {
+                      "@context": {
+                        "atTime": {
+                          "@id": "prov:atTime",
+                          "@type": "xsd:dateTime"
+                        }
+                      },
+                      "@id": "prov:qualifiedEnd",
+                      "@type": "@id"
+                    },
+                    "qualifiedAssociation": {
+                      "@context": {
+                        "hadRole": {
+                          "@id": "prov:hadRole",
+                          "@type": "@id"
+                        },
+                        "hadPlan": {
+                          "@id": "prov:hadPlan",
+                          "@type": "@id"
+                        }
+                      },
+                      "@id": "prov:qualifiedAssociation",
+                      "@type": "@id"
+                    }
+                  },
                   "@id": "prov:hadActivity",
                   "@type": "@id"
                 }
@@ -2204,25 +2782,25 @@ Links to the schema:
     "Removal": "prov:Removal",
     "generatedAtTime": {
       "@id": "prov:generatedAtTime",
-      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      "@type": "xsd:dateTime"
     },
     "invalidatedAtTime": {
       "@id": "prov:invalidatedAtTime",
-      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      "@type": "xsd:dateTime"
     },
     "startedAtTime": {
       "@id": "prov:startedAtTime",
-      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      "@type": "xsd:dateTime"
     },
     "value": "prov:value",
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
-      "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      "@type": "rdfs:Literal"
     },
     "removedKey": {
       "@id": "prov:removedKey",
-      "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      "@type": "rdfs:Literal"
     },
     "influenced": {
       "@id": "prov:influenced",
@@ -2290,6 +2868,10 @@ Links to the schema:
     },
     "asInBundle": {
       "@id": "prov:asInBundle",
+      "@type": "@id"
+    },
+    "mentionOf": {
+      "@id": "prov:mentionOf",
       "@type": "@id"
     },
     "prov": "http://www.w3.org/ns/prov#",
