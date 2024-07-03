@@ -1,0 +1,8 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+title: "Forecast Extension"
+description: "STAC Forecast Extension for STAC Items and STAC Collections."
+allOf:
+  - anyOf:
+    - $ref: bblocks://ogc.contrib.stac.collection
+    - $ref: bblocks://ogc.contrib.stac.item
+  - $ref: https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json
