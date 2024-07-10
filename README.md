@@ -1,6 +1,6 @@
 # STAC Building Blocks 
 
-This expresses the implementation of the STAC specification in the form of OGC BuildingBlocks. 
+This expresses the implementation of the STAC specification in the form of [Building Blocks](https://ogcincubator.github.io/bblocks-docs/). 
 
 The generated documentation of each Building Block can be accessed [here](https://ogcincubator.github.io/bblocks-stac/).
 
@@ -20,6 +20,6 @@ _Building Blocks do not change the underlying specification but provide an extra
 
 # Design 
 
-[More information on design and usage](https://github.com/opengeospatial/bblock-template/blob/master/USAGE.md)
+[More information on design and usage](https://ogcincubator.github.io/bblocks-docs/)
 
 
