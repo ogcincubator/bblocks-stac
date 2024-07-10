@@ -61,34 +61,34 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "minimum": 0,
       "maximum": 50
     },
-    "eo:bands": [
+    "bands": [
       {
         "name": "band1",
-        "common_name": "blue",
-        "center_wavelength": 0.47,
-        "full_width_half_max": 0.07,
-        "solar_illumination": 1959.66
+        "eo:common_name": "blue",
+        "eo:center_wavelength": 0.47,
+        "eo:full_width_half_max": 0.07,
+        "eo:solar_illumination": 1959.66
       },
       {
         "name": "band2",
-        "common_name": "green",
-        "center_wavelength": 0.56,
-        "full_width_half_max": 0.08,
-        "solar_illumination": 1823.24
+        "eo:common_name": "green",
+        "eo:center_wavelength": 0.56,
+        "eo:full_width_half_max": 0.08,
+        "eo:solar_illumination": 1823.24
       },
       {
         "name": "band3",
-        "common_name": "red",
-        "center_wavelength": 0.645,
-        "full_width_half_max": 0.09,
-        "solar_illumination": 1512.06
+        "eo:common_name": "red",
+        "eo:center_wavelength": 0.645,
+        "eo:full_width_half_max": 0.09,
+        "eo:solar_illumination": 1512.06
       },
       {
         "name": "band4",
-        "common_name": "nir",
-        "center_wavelength": 0.8,
-        "full_width_half_max": 0.152,
-        "solar_illumination": 1041.63
+        "eo:common_name": "nir",
+        "eo:center_wavelength": 0.8,
+        "eo:full_width_half_max": 0.152,
+        "eo:solar_illumination": 1041.63
       }
     ]
   },
@@ -113,34 +113,34 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "data"
       ],
-      "eo:bands": [
+      "bands": [
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.7,
-          "solar_illumination": 1959.66
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.7,
+          "eo:solar_illumination": 1959.66
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08,
-          "solar_illumination": 1823.24
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08,
+          "eo:solar_illumination": 1823.24
         },
         {
           "name": "band3",
           "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.9,
-          "solar_illumination": 1512.06
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.9,
+          "eo:solar_illumination": 1512.06
         },
         {
           "name": "band4",
-          "common_name": "nir",
-          "center_wavelength": 0.8,
-          "full_width_half_max": 0.152,
-          "solar_illumination": 1041.63
+          "eo:common_name": "nir",
+          "eo:center_wavelength": 0.8,
+          "eo:full_width_half_max": 0.152,
+          "eo:solar_illumination": 1041.63
         }
       ]
     },
@@ -157,24 +157,24 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "visual"
       ],
-      "eo:bands": [
+      "bands": [
         {
           "name": "band3",
-          "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.09
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.09
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08
         },
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.07
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.07
         }
       ]
     }
@@ -232,34 +232,34 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "minimum": 0,
       "maximum": 50
     },
-    "eo:bands": [
+    "bands": [
       {
         "name": "band1",
-        "common_name": "blue",
-        "center_wavelength": 0.47,
-        "full_width_half_max": 0.07,
-        "solar_illumination": 1959.66
+        "eo:common_name": "blue",
+        "eo:center_wavelength": 0.47,
+        "eo:full_width_half_max": 0.07,
+        "eo:solar_illumination": 1959.66
       },
       {
         "name": "band2",
-        "common_name": "green",
-        "center_wavelength": 0.56,
-        "full_width_half_max": 0.08,
-        "solar_illumination": 1823.24
+        "eo:common_name": "green",
+        "eo:center_wavelength": 0.56,
+        "eo:full_width_half_max": 0.08,
+        "eo:solar_illumination": 1823.24
       },
       {
         "name": "band3",
-        "common_name": "red",
-        "center_wavelength": 0.645,
-        "full_width_half_max": 0.09,
-        "solar_illumination": 1512.06
+        "eo:common_name": "red",
+        "eo:center_wavelength": 0.645,
+        "eo:full_width_half_max": 0.09,
+        "eo:solar_illumination": 1512.06
       },
       {
         "name": "band4",
-        "common_name": "nir",
-        "center_wavelength": 0.8,
-        "full_width_half_max": 0.152,
-        "solar_illumination": 1041.63
+        "eo:common_name": "nir",
+        "eo:center_wavelength": 0.8,
+        "eo:full_width_half_max": 0.152,
+        "eo:solar_illumination": 1041.63
       }
     ]
   },
@@ -284,34 +284,34 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "data"
       ],
-      "eo:bands": [
+      "bands": [
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.7,
-          "solar_illumination": 1959.66
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.7,
+          "eo:solar_illumination": 1959.66
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08,
-          "solar_illumination": 1823.24
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08,
+          "eo:solar_illumination": 1823.24
         },
         {
           "name": "band3",
           "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.9,
-          "solar_illumination": 1512.06
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.9,
+          "eo:solar_illumination": 1512.06
         },
         {
           "name": "band4",
-          "common_name": "nir",
-          "center_wavelength": 0.8,
-          "full_width_half_max": 0.152,
-          "solar_illumination": 1041.63
+          "eo:common_name": "nir",
+          "eo:center_wavelength": 0.8,
+          "eo:full_width_half_max": 0.152,
+          "eo:solar_illumination": 1041.63
         }
       ]
     },
@@ -328,24 +328,24 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "visual"
       ],
-      "eo:bands": [
+      "bands": [
         {
           "name": "band3",
-          "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.09
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.09
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08
         },
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.07
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.07
         }
       ]
     }
@@ -363,14 +363,14 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 
 <https://example.com/stac/raster/example-1/eo-collection> a <https://example.com/stac/raster/example-1/Collection> ;
     rdfs:label "Simple EO Collection" ;
-    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
-        [ rdfs:label "20201211_223832_CS2" ;
+    rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/item.json> ] .
+            oa:hasTarget <https://example.com/stac/raster/example-1/item.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] .
 
 
 ```
@@ -460,34 +460,35 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "data"
       ],
-      "eo:bands": [
+      "eo:cloud_cover": 1.2,
+      "bands": [
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.07,
-          "solar_illumination": 1959.66
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.07,
+          "eo:solar_illumination": 1959.66
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08,
-          "solar_illumination": 1823.24
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08,
+          "eo:solar_illumination": 1823.24
         },
         {
           "name": "band3",
-          "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.09,
-          "solar_illumination": 1512.06
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.09,
+          "eo:solar_illumination": 1512.06
         },
         {
           "name": "band4",
-          "common_name": "nir",
-          "center_wavelength": 0.8,
-          "full_width_half_max": 0.152,
-          "solar_illumination": 1041.63
+          "eo:common_name": "nir",
+          "eo:center_wavelength": 0.8,
+          "eo:full_width_half_max": 0.152,
+          "eo:solar_illumination": 1041.63
         }
       ]
     },
@@ -506,30 +507,29 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "visual"
       ],
-      "eo:bands": [
+      "bands": [
         {
           "name": "band3",
-          "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.09
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.09
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08
         },
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.07
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.07
         }
       ]
     }
   }
 }
-
 ```
 
 #### jsonld
@@ -615,34 +615,35 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "data"
       ],
-      "eo:bands": [
+      "eo:cloud_cover": 1.2,
+      "bands": [
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.07,
-          "solar_illumination": 1959.66
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.07,
+          "eo:solar_illumination": 1959.66
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08,
-          "solar_illumination": 1823.24
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08,
+          "eo:solar_illumination": 1823.24
         },
         {
           "name": "band3",
-          "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.09,
-          "solar_illumination": 1512.06
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.09,
+          "eo:solar_illumination": 1512.06
         },
         {
           "name": "band4",
-          "common_name": "nir",
-          "center_wavelength": 0.8,
-          "full_width_half_max": 0.152,
-          "solar_illumination": 1041.63
+          "eo:common_name": "nir",
+          "eo:center_wavelength": 0.8,
+          "eo:full_width_half_max": 0.152,
+          "eo:solar_illumination": 1041.63
         }
       ]
     },
@@ -661,24 +662,24 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "roles": [
         "visual"
       ],
-      "eo:bands": [
+      "bands": [
         {
           "name": "band3",
-          "common_name": "red",
-          "center_wavelength": 0.645,
-          "full_width_half_max": 0.09
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.645,
+          "eo:full_width_half_max": 0.09
         },
         {
           "name": "band2",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.08
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.08
         },
         {
           "name": "band1",
-          "common_name": "blue",
-          "center_wavelength": 0.47,
-          "full_width_half_max": 0.07
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.47,
+          "eo:full_width_half_max": 0.07
         }
       ]
     }
@@ -705,15 +706,15 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
