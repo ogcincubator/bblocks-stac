@@ -2730,6 +2730,10 @@ Links to the schema:
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -2881,6 +2885,7 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "geojson": "https://purl.org/geojson/vocab#",
+    "stac": "urn:stac:vocab#",
     "@version": 1.1
   }
 }

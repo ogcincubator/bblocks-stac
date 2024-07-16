@@ -765,6 +765,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <urn:stac:vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/20201211_223832_CS2> a geojson:Feature ;
@@ -774,19 +775,33 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] .
+            geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
+    stac:assets <https://example.com/stac/raster/example-1/analytic>,
+        <https://example.com/stac/raster/example-1/thumbnail>,
+        <https://example.com/stac/raster/example-1/visual> .
+
+<https://example.com/stac/raster/example-1/analytic> rdfs:label "4-Band Analytic" ;
+    ns2:cloud_cover 1.2e+00 ;
+    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> .
+
+<https://example.com/stac/raster/example-1/thumbnail> a <https://example.com/stac/raster/example-1/image/png> ;
+    rdfs:label "Thumbnail" ;
+    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> .
+
+<https://example.com/stac/raster/example-1/visual> rdfs:label "3-Band Visual" ;
+    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> .
 
 
 ```
@@ -879,10 +894,15 @@ Links to the schema:
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "geojson": "https://purl.org/geojson/vocab#",
+    "stac": "urn:stac:vocab#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

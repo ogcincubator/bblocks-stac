@@ -18,6 +18,12 @@ x-defs:
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.geo.features.feature
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.api.records.v1.schemas.recordGeoJSON
     - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/item
+    x-jsonld-extra-terms:
+      assets:
+        x-jsonld-id: urn:stac:vocab#assets
+        x-jsonld-container: '@id'
+    x-jsonld-prefixes:
+      stac: urn:stac:vocab#
     x-schema-source: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   raster_v1.1.0_schema:
@@ -2439,4 +2445,14 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.contrib.stac.collection
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/ogc.contrib.stac.item
 - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema-oas3.0.yaml#/x-defs/raster_v1.1.0_schema
+x-jsonld-extra-terms:
+  raster:bands:
+    x-jsonld-id: urn:stac:extensions/raster#bands
+    x-jsonld-context:
+      '@vocab': rasterrasterrasterraster
+  raster:range:
+    x-jsonld-id: urn:stac:extensions/raster#range
+    x-jsonld-container: '@list'
+x-jsonld-prefixes:
+  raster: urn:stac:extensions/raster#
 x-schema-version: https://json-schema.org/draft/2020-12/schema
