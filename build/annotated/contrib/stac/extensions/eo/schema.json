@@ -16,5 +16,20 @@
     {
       "$ref": "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
     }
-  ]
+  ],
+  "x-jsonld-extra-terms": {
+    "raster:bands": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/bands",
+      "x-jsonld-context": {
+        "@vocab": "rasterrasterrasterraster"
+      }
+    },
+    "raster:range": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/range",
+      "x-jsonld-container": "@list"
+    }
+  },
+  "x-jsonld-prefixes": {
+    "raster": "https://w3id.org/ogc/stac/raster/"
+  }
 }

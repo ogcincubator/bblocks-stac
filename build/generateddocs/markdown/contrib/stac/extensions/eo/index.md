@@ -692,8 +692,8 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <eo:> .
+@prefix ns1: <eo:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -701,21 +701,21 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/20201211_223832_CS2> a geojson:Feature ;
-    ns2:cloud_cover 1.2e+00 ;
-    ns2:snow_cover 0 ;
+    ns1:cloud_cover 1.2e+00 ;
+    ns1:snow_cover 0 ;
     dcterms:created "2020-12-12T01:48:13.725Z" ;
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -725,7 +725,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         <https://example.com/stac/raster/example-1/visual> .
 
 <https://example.com/stac/raster/example-1/analytic> rdfs:label "4-Band Analytic" ;
-    ns2:cloud_cover 1.2e+00 ;
+    ns1:cloud_cover 1.2e+00 ;
     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> .
 
 <https://example.com/stac/raster/example-1/thumbnail> a <https://example.com/stac/raster/example-1/image/png> ;
@@ -749,6 +749,16 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/eo/v1.1.0/schema.json
+x-jsonld-extra-terms:
+  raster:bands:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+    x-jsonld-context:
+      '@vocab': rasterrasterrasterraster
+  raster:range:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
+    x-jsonld-container: '@list'
+x-jsonld-prefixes:
+  raster: https://w3id.org/ogc/stac/raster/
 
 ```
 
@@ -821,9 +831,20 @@ Links to the schema:
       "@id": "stac:assets",
       "@container": "@id"
     },
+    "raster:bands": {
+      "@id": "raster:bands",
+      "@context": {
+        "@vocab": "rasterrasterrasterraster"
+      }
+    },
+    "raster:range": {
+      "@id": "raster:range",
+      "@container": "@list"
+    },
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
+    "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "urn:stac:vocab#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
