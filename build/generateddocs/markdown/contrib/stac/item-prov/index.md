@@ -2885,7 +2885,7 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "urn:stac:vocab#",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "@version": 1.1
   }
 }

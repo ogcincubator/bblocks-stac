@@ -39,12 +39,12 @@
       ],
       "x-jsonld-extra-terms": {
         "assets": {
-          "x-jsonld-id": "urn:stac:vocab#assets",
+          "x-jsonld-id": "https://w3id.org/ogc/stac/core/assets",
           "x-jsonld-container": "@id"
         }
       },
       "x-jsonld-prefixes": {
-        "stac": "urn:stac:vocab#"
+        "stac": "https://w3id.org/ogc/stac/core/"
       },
       "x-schema-source": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -3385,19 +3385,15 @@
     }
   ],
   "x-jsonld-extra-terms": {
-    "raster:bands": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/bands",
+    "eo:bands": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/eo/bands",
       "x-jsonld-context": {
-        "@vocab": "rasterrasterrasterraster"
+        "@vocab": "https://w3id.org/ogc/stac/eo/"
       }
-    },
-    "raster:range": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/range",
-      "x-jsonld-container": "@list"
     }
   },
   "x-jsonld-prefixes": {
-    "raster": "https://w3id.org/ogc/stac/raster/"
+    "eo": "https://w3id.org/ogc/stac/eo/"
   },
   "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
 }

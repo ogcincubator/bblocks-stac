@@ -405,16 +405,16 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://example.com/stac/raster/example-1/eo-collection> a <https://example.com/stac/raster/example-1/Collection> ;
+<https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;
     rdfs:label "Simple EO Collection" ;
     rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/item.json> ],
+            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] .
+            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] .
 
 
 ```
@@ -759,48 +759,48 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 
 ```turtle
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix eo: <https://w3id.org/ogc/stac/eo/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <eo:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <urn:stac:vocab#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/raster/example-1/20201211_223832_CS2> a geojson:Feature ;
-    ns1:cloud_cover 1.2e+00 ;
-    ns1:snow_cover 0 ;
+<https://example.com/stac/eo/example-2/20201211_223832_CS2> a geojson:Feature ;
     dcterms:created "2020-12-12T01:48:13.725Z" ;
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/raster/example-1/collection.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:assets <https://example.com/stac/raster/example-1/analytic>,
-        <https://example.com/stac/raster/example-1/thumbnail>,
-        <https://example.com/stac/raster/example-1/visual> .
+    stac:assets <https://example.com/stac/eo/example-2/analytic>,
+        <https://example.com/stac/eo/example-2/thumbnail>,
+        <https://example.com/stac/eo/example-2/visual> ;
+    eo:cloud_cover 1.2e+00 ;
+    eo:snow_cover 0 .
 
-<https://example.com/stac/raster/example-1/analytic> rdfs:label "4-Band Analytic" ;
-    ns1:cloud_cover 1.2e+00 ;
-    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> .
+<https://example.com/stac/eo/example-2/analytic> rdfs:label "4-Band Analytic" ;
+    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
+    eo:cloud_cover 1.2e+00 .
 
-<https://example.com/stac/raster/example-1/thumbnail> a <https://example.com/stac/raster/example-1/image/png> ;
+<https://example.com/stac/eo/example-2/thumbnail> a <https://example.com/stac/eo/example-2/image/png> ;
     rdfs:label "Thumbnail" ;
     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> .
 
-<https://example.com/stac/raster/example-1/visual> rdfs:label "3-Band Visual" ;
+<https://example.com/stac/eo/example-2/visual> rdfs:label "3-Band Visual" ;
     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> .
 
 
@@ -825,15 +825,12 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/eo/v1.1.0/schema.json
 x-jsonld-extra-terms:
-  raster:bands:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+  eo:bands:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/bands
     x-jsonld-context:
-      '@vocab': rasterrasterrasterraster
-  raster:range:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
-    x-jsonld-container: '@list'
+      '@vocab': https://w3id.org/ogc/stac/eo/
 x-jsonld-prefixes:
-  raster: https://w3id.org/ogc/stac/raster/
+  eo: https://w3id.org/ogc/stac/eo/
 
 ```
 
@@ -908,22 +905,18 @@ Links to the schema:
       "@id": "stac:assets",
       "@container": "@id"
     },
-    "raster:bands": {
-      "@id": "raster:bands",
+    "eo:bands": {
+      "@id": "eo:bands",
       "@context": {
-        "@vocab": "rasterrasterrasterraster"
+        "@vocab": "https://w3id.org/ogc/stac/eo/"
       }
-    },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
     },
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
-    "raster": "https://w3id.org/ogc/stac/raster/",
+    "eo": "https://w3id.org/ogc/stac/eo/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "urn:stac:vocab#",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

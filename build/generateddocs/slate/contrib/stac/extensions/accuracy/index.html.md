@@ -195,7 +195,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <urn:stac:vocab#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/item> a geojson:Feature ;
@@ -314,7 +314,7 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "urn:stac:vocab#",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }
