@@ -1,10 +1,11 @@
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
   ],
   "type": "Feature",
   "id": "20201211_223832_CS2",
+  "collection": "eo-collection",
   "bbox": [
     172.91173669923782,
     1.3438851951615003,
@@ -50,27 +51,6 @@
     "eo:cloud_cover": 1.2,
     "eo:snow_cover": 0
   },
-  "collection": "eo-collection",
-  "links": [
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "parent",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "collection",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    }
-  ],
   "assets": {
     "analytic": {
       "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif",
@@ -148,5 +128,25 @@
       ]
     }
   },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "parent",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "collection",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ],
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld"
 }

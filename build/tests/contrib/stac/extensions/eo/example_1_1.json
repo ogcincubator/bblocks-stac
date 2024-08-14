@@ -3,9 +3,9 @@
   "type": "Collection",
   "stac_extensions": [
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
   ],
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "description": "A simple Collection demonstrating EO extension fields in a Collection.",
   "title": "Simple EO Collection",
   "extent": {
@@ -76,20 +76,6 @@
       }
     ]
   },
-  "links": [
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "item",
-      "href": "./item.json",
-      "type": "application/geo+json",
-      "title": "20201211_223832_CS2"
-    }
-  ],
   "item_assets": {
     "analytic": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -162,5 +148,19 @@
         }
       ]
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "item",
+      "href": "./item.json",
+      "type": "application/geo+json",
+      "title": "20201211_223832_CS2"
+    }
+  ]
 }

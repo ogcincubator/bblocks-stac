@@ -14,12 +14,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```json
 {
   "type": "Feature",
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v2.0.0-beta.1/schema.json"
   ],
   "id": "S2B_33SVB_20210221_0_L2A",
   "bbox": [
@@ -64,15 +64,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
     ],
     "gsd": 10,
     "view:off_nadir": 0,
-    "proj:epsg": 32633,
+    "proj:code": "EPSG:32633",
     "sentinel:utm_zone": 33,
     "sentinel:latitude_band": "S",
     "sentinel:grid_square": "VB",
     "sentinel:sequence": "0",
     "sentinel:product_id": "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149",
     "sentinel:data_coverage": 100,
-    "eo:cloud_cover": 21.22,
-    "sentinel:valid_cloud_cover": true
+    "eo:cloud_cover": 21.22
   },
   "collection": "sentinel-s2-l2a-cogs",
   "assets": {
@@ -91,24 +90,25 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "overview"
       ],
       "gsd": 10,
-      "eo:bands": [
+      "raster:spatial_resolution": 10,
+      "bands": [
         {
           "name": "B04",
-          "common_name": "red",
-          "center_wavelength": 0.6645,
-          "full_width_half_max": 0.038
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.6645,
+          "eo:full_width_half_max": 0.038
         },
         {
           "name": "B03",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.045
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.045
         },
         {
           "name": "B02",
-          "common_name": "blue",
-          "center_wavelength": 0.4966,
-          "full_width_half_max": 0.098
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.4966,
+          "eo:full_width_half_max": 0.098
         }
       ],
       "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif",
@@ -151,24 +151,24 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "overview"
       ],
       "gsd": 10,
-      "eo:bands": [
+      "bands": [
         {
           "name": "B04",
-          "common_name": "red",
-          "center_wavelength": 0.6645,
-          "full_width_half_max": 0.038
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.6645,
+          "eo:full_width_half_max": 0.038
         },
         {
           "name": "B03",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.045
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.045
         },
         {
           "name": "B02",
-          "common_name": "blue",
-          "center_wavelength": 0.4966,
-          "full_width_half_max": 0.098
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.4966,
+          "eo:full_width_half_max": 0.098
         }
       ],
       "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif",
@@ -189,21 +189,22 @@ An item can describe assets that are rasters of one or multiple bands with some 
       ]
     },
     "B01": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif",
       "title": "Band 1 (coastal) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 60,
-      "eo:bands": [
-        {
-          "name": "B01",
-          "common_name": "coastal",
-          "center_wavelength": 0.4439,
-          "full_width_half_max": 0.027
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 20567,
+        "mean": 2339.4759595597,
+        "stddev": 3026.6973619954,
+        "valid_percent": 99.83
+      },
       "proj:shape": [
         1830,
         1830
@@ -219,38 +220,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 60,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 20567,
-            "mean": 2339.4759595597,
-            "stddev": 3026.6973619954,
-            "valid_percent": 99.83
-          }
-        }
-      ]
+      "eo:common_name": "coastal",
+      "eo:center_wavelength": 0.4439,
+      "eo:full_width_half_max": 0.027,
+      "raster:spatial_resolution": 60,
+      "raster:bits_per_sample": 15
     },
     "B02": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif",
       "title": "Band 2 (blue) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B02",
-          "common_name": "blue",
-          "center_wavelength": 0.4966,
-          "full_width_half_max": 0.098
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 19264,
+        "mean": 2348.069117847,
+        "stddev": 2916.5446249911,
+        "valid_percent": 99.99
+      },
       "proj:shape": [
         10980,
         10980
@@ -266,38 +258,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 10,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 19264,
-            "mean": 2348.069117847,
-            "stddev": 2916.5446249911,
-            "valid_percent": 99.99
-          }
-        }
-      ]
+      "eo:common_name": "blue",
+      "eo:center_wavelength": 0.4966,
+      "eo:full_width_half_max": 0.098,
+      "raster:spatial_resolution": 10,
+      "raster:bits_per_sample": 15
     },
     "B03": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif",
       "title": "Band 3 (green) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B03",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.045
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 18064,
+        "mean": 2384.4680007438,
+        "stddev": 2675.410513295,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         10980,
         10980
@@ -313,38 +296,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 10,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 18064,
-            "mean": 2384.4680007438,
-            "stddev": 2675.410513295,
-            "valid_percent": 99.999
-          }
-        }
-      ]
+      "eo:common_name": "green",
+      "eo:center_wavelength": 0.56,
+      "eo:full_width_half_max": 0.045,
+      "raster:spatial_resolution": 10,
+      "raster:bits_per_sample": 15
     },
     "B04": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif",
       "title": "Band 4 (red) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B04",
-          "common_name": "red",
-          "center_wavelength": 0.6645,
-          "full_width_half_max": 0.038
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 17200,
+        "mean": 2273.9667970732,
+        "stddev": 2618.272802792,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         10980,
         10980
@@ -360,37 +334,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 10,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 17200,
-            "mean": 2273.9667970732,
-            "stddev": 2618.272802792,
-            "valid_percent": 99.999
-          }
-        }
-      ]
+      "eo:common_name": "red",
+      "eo:center_wavelength": 0.6645,
+      "eo:full_width_half_max": 0.038,
+      "raster:spatial_resolution": 10,
+      "raster:bits_per_sample": 15
     },
     "B05": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif",
       "title": "Band 5 BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B05",
-          "center_wavelength": 0.7039,
-          "full_width_half_max": 0.019
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 16842,
+        "mean": 2634.1490243416,
+        "stddev": 2634.1490243416,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         5490,
         5490
@@ -406,37 +372,28 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 20,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 16842,
-            "mean": 2634.1490243416,
-            "stddev": 2634.1490243416,
-            "valid_percent": 99.999
-          }
-        }
-      ]
+      "eo:center_wavelength": 0.7039,
+      "eo:full_width_half_max": 0.019,
+      "raster:spatial_resolution": 20,
+      "raster:bits_per_sample": 15
     },
     "B06": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif",
       "title": "Band 6 BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B06",
-          "center_wavelength": 0.7402,
-          "full_width_half_max": 0.018
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 16502,
+        "mean": 3329.8844628619,
+        "stddev": 2303.0096294469,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         5490,
         5490
@@ -452,264 +409,10 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 20,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 16502,
-            "mean": 3329.8844628619,
-            "stddev": 2303.0096294469,
-            "valid_percent": 99.999
-          }
-        }
-      ]
-    },
-    "B07": {
-      "title": "Band 7 BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B07",
-          "center_wavelength": 0.7825,
-          "full_width_half_max": 0.028
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B07.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B08": {
-      "title": "Band 8 (nir) BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B08",
-          "common_name": "nir",
-          "center_wavelength": 0.8351,
-          "full_width_half_max": 0.145
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B08.tif",
-      "proj:shape": [
-        10980,
-        10980
-      ],
-      "proj:transform": [
-        10,
-        0,
-        399960,
-        0,
-        -10,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B8A": {
-      "title": "Band 8A BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B8A",
-          "center_wavelength": 0.8648,
-          "full_width_half_max": 0.033
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B8A.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B09": {
-      "title": "Band 9 BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 60,
-      "eo:bands": [
-        {
-          "name": "B09",
-          "center_wavelength": 0.945,
-          "full_width_half_max": 0.026
-        }
-      ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 60,
-          "bits_per_sample": 15,
-          "nodata": "nan"
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B09.tif",
-      "proj:shape": [
-        1830,
-        1830
-      ],
-      "proj:transform": [
-        60,
-        0,
-        399960,
-        0,
-        -60,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B11": {
-      "title": "Band 11 (swir16) BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B11",
-          "common_name": "swir16",
-          "center_wavelength": 1.6137,
-          "full_width_half_max": 0.143
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B11.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B12": {
-      "title": "Band 12 (swir22) BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B12",
-          "common_name": "swir22",
-          "center_wavelength": 2.22024,
-          "full_width_half_max": 0.242
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B12.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "AOT": {
-      "title": "Aerosol Optical Thickness (AOT)",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/AOT.tif",
-      "proj:shape": [
-        1830,
-        1830
-      ],
-      "proj:transform": [
-        60,
-        0,
-        399960,
-        0,
-        -60,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "WVP": {
-      "title": "Water Vapour (WVP)",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/WVP.tif",
-      "proj:shape": [
-        10980,
-        10980
-      ],
-      "proj:transform": [
-        10,
-        0,
-        399960,
-        0,
-        -10,
-        4200000,
-        0,
-        0,
-        1
-      ]
+      "eo:center_wavelength": 0.7402,
+      "eo:full_width_half_max": 0.018,
+      "raster:spatial_resolution": 20,
+      "raster:bits_per_sample": 15
     },
     "SCL": {
       "title": "Scene Classification Map (SCL)",
@@ -732,21 +435,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         0,
         1
-      ]
-    }
-  },
-  "virtual:assets": {
-    "SIR": {
-      "title": "Shortwave Infra-red",
-      "raster:range": [
-        0,
-        10000
       ],
-      "href": [
-        "#B12",
-        "#B8A",
-        "#B04"
-      ]
+      "raster:spatial_resolution": 20
     }
   },
   "links": [
@@ -763,12 +453,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```jsonld
 {
   "type": "Feature",
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v2.0.0-beta.1/schema.json"
   ],
   "id": "S2B_33SVB_20210221_0_L2A",
   "bbox": [
@@ -813,15 +503,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
     ],
     "gsd": 10,
     "view:off_nadir": 0,
-    "proj:epsg": 32633,
+    "proj:code": "EPSG:32633",
     "sentinel:utm_zone": 33,
     "sentinel:latitude_band": "S",
     "sentinel:grid_square": "VB",
     "sentinel:sequence": "0",
     "sentinel:product_id": "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149",
     "sentinel:data_coverage": 100,
-    "eo:cloud_cover": 21.22,
-    "sentinel:valid_cloud_cover": true
+    "eo:cloud_cover": 21.22
   },
   "collection": "sentinel-s2-l2a-cogs",
   "assets": {
@@ -840,24 +529,25 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "overview"
       ],
       "gsd": 10,
-      "eo:bands": [
+      "raster:spatial_resolution": 10,
+      "bands": [
         {
           "name": "B04",
-          "common_name": "red",
-          "center_wavelength": 0.6645,
-          "full_width_half_max": 0.038
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.6645,
+          "eo:full_width_half_max": 0.038
         },
         {
           "name": "B03",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.045
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.045
         },
         {
           "name": "B02",
-          "common_name": "blue",
-          "center_wavelength": 0.4966,
-          "full_width_half_max": 0.098
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.4966,
+          "eo:full_width_half_max": 0.098
         }
       ],
       "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif",
@@ -900,24 +590,24 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "overview"
       ],
       "gsd": 10,
-      "eo:bands": [
+      "bands": [
         {
           "name": "B04",
-          "common_name": "red",
-          "center_wavelength": 0.6645,
-          "full_width_half_max": 0.038
+          "eo:common_name": "red",
+          "eo:center_wavelength": 0.6645,
+          "eo:full_width_half_max": 0.038
         },
         {
           "name": "B03",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.045
+          "eo:common_name": "green",
+          "eo:center_wavelength": 0.56,
+          "eo:full_width_half_max": 0.045
         },
         {
           "name": "B02",
-          "common_name": "blue",
-          "center_wavelength": 0.4966,
-          "full_width_half_max": 0.098
+          "eo:common_name": "blue",
+          "eo:center_wavelength": 0.4966,
+          "eo:full_width_half_max": 0.098
         }
       ],
       "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif",
@@ -938,21 +628,22 @@ An item can describe assets that are rasters of one or multiple bands with some 
       ]
     },
     "B01": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif",
       "title": "Band 1 (coastal) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 60,
-      "eo:bands": [
-        {
-          "name": "B01",
-          "common_name": "coastal",
-          "center_wavelength": 0.4439,
-          "full_width_half_max": 0.027
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 20567,
+        "mean": 2339.4759595597,
+        "stddev": 3026.6973619954,
+        "valid_percent": 99.83
+      },
       "proj:shape": [
         1830,
         1830
@@ -968,38 +659,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 60,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 20567,
-            "mean": 2339.4759595597,
-            "stddev": 3026.6973619954,
-            "valid_percent": 99.83
-          }
-        }
-      ]
+      "eo:common_name": "coastal",
+      "eo:center_wavelength": 0.4439,
+      "eo:full_width_half_max": 0.027,
+      "raster:spatial_resolution": 60,
+      "raster:bits_per_sample": 15
     },
     "B02": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif",
       "title": "Band 2 (blue) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B02",
-          "common_name": "blue",
-          "center_wavelength": 0.4966,
-          "full_width_half_max": 0.098
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 19264,
+        "mean": 2348.069117847,
+        "stddev": 2916.5446249911,
+        "valid_percent": 99.99
+      },
       "proj:shape": [
         10980,
         10980
@@ -1015,38 +697,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 10,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 19264,
-            "mean": 2348.069117847,
-            "stddev": 2916.5446249911,
-            "valid_percent": 99.99
-          }
-        }
-      ]
+      "eo:common_name": "blue",
+      "eo:center_wavelength": 0.4966,
+      "eo:full_width_half_max": 0.098,
+      "raster:spatial_resolution": 10,
+      "raster:bits_per_sample": 15
     },
     "B03": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif",
       "title": "Band 3 (green) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B03",
-          "common_name": "green",
-          "center_wavelength": 0.56,
-          "full_width_half_max": 0.045
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 18064,
+        "mean": 2384.4680007438,
+        "stddev": 2675.410513295,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         10980,
         10980
@@ -1062,38 +735,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 10,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 18064,
-            "mean": 2384.4680007438,
-            "stddev": 2675.410513295,
-            "valid_percent": 99.999
-          }
-        }
-      ]
+      "eo:common_name": "green",
+      "eo:center_wavelength": 0.56,
+      "eo:full_width_half_max": 0.045,
+      "raster:spatial_resolution": 10,
+      "raster:bits_per_sample": 15
     },
     "B04": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif",
       "title": "Band 4 (red) BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B04",
-          "common_name": "red",
-          "center_wavelength": 0.6645,
-          "full_width_half_max": 0.038
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 17200,
+        "mean": 2273.9667970732,
+        "stddev": 2618.272802792,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         10980,
         10980
@@ -1109,37 +773,29 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 10,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 17200,
-            "mean": 2273.9667970732,
-            "stddev": 2618.272802792,
-            "valid_percent": 99.999
-          }
-        }
-      ]
+      "eo:common_name": "red",
+      "eo:center_wavelength": 0.6645,
+      "eo:full_width_half_max": 0.038,
+      "raster:spatial_resolution": 10,
+      "raster:bits_per_sample": 15
     },
     "B05": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif",
       "title": "Band 5 BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B05",
-          "center_wavelength": 0.7039,
-          "full_width_half_max": 0.019
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 16842,
+        "mean": 2634.1490243416,
+        "stddev": 2634.1490243416,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         5490,
         5490
@@ -1155,37 +811,28 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 20,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 16842,
-            "mean": 2634.1490243416,
-            "stddev": 2634.1490243416,
-            "valid_percent": 99.999
-          }
-        }
-      ]
+      "eo:center_wavelength": 0.7039,
+      "eo:full_width_half_max": 0.019,
+      "raster:spatial_resolution": 20,
+      "raster:bits_per_sample": 15
     },
     "B06": {
+      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif",
       "title": "Band 6 BOA reflectance",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "roles": [
         "data"
       ],
       "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B06",
-          "center_wavelength": 0.7402,
-          "full_width_half_max": 0.018
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif",
+      "data_type": "uint16",
+      "nodata": 0,
+      "statistics": {
+        "minimum": 1,
+        "maximum": 16502,
+        "mean": 3329.8844628619,
+        "stddev": 2303.0096294469,
+        "valid_percent": 99.999
+      },
       "proj:shape": [
         5490,
         5490
@@ -1201,264 +848,10 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         1
       ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 20,
-          "bits_per_sample": 15,
-          "nodata": 0,
-          "statistics": {
-            "minimum": 1,
-            "maximum": 16502,
-            "mean": 3329.8844628619,
-            "stddev": 2303.0096294469,
-            "valid_percent": 99.999
-          }
-        }
-      ]
-    },
-    "B07": {
-      "title": "Band 7 BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B07",
-          "center_wavelength": 0.7825,
-          "full_width_half_max": 0.028
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B07.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B08": {
-      "title": "Band 8 (nir) BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 10,
-      "eo:bands": [
-        {
-          "name": "B08",
-          "common_name": "nir",
-          "center_wavelength": 0.8351,
-          "full_width_half_max": 0.145
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B08.tif",
-      "proj:shape": [
-        10980,
-        10980
-      ],
-      "proj:transform": [
-        10,
-        0,
-        399960,
-        0,
-        -10,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B8A": {
-      "title": "Band 8A BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B8A",
-          "center_wavelength": 0.8648,
-          "full_width_half_max": 0.033
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B8A.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B09": {
-      "title": "Band 9 BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 60,
-      "eo:bands": [
-        {
-          "name": "B09",
-          "center_wavelength": 0.945,
-          "full_width_half_max": 0.026
-        }
-      ],
-      "raster:bands": [
-        {
-          "data_type": "uint16",
-          "spatial_resolution": 60,
-          "bits_per_sample": 15,
-          "nodata": "nan"
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B09.tif",
-      "proj:shape": [
-        1830,
-        1830
-      ],
-      "proj:transform": [
-        60,
-        0,
-        399960,
-        0,
-        -60,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B11": {
-      "title": "Band 11 (swir16) BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B11",
-          "common_name": "swir16",
-          "center_wavelength": 1.6137,
-          "full_width_half_max": 0.143
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B11.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "B12": {
-      "title": "Band 12 (swir22) BOA reflectance",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "gsd": 20,
-      "eo:bands": [
-        {
-          "name": "B12",
-          "common_name": "swir22",
-          "center_wavelength": 2.22024,
-          "full_width_half_max": 0.242
-        }
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B12.tif",
-      "proj:shape": [
-        5490,
-        5490
-      ],
-      "proj:transform": [
-        20,
-        0,
-        399960,
-        0,
-        -20,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "AOT": {
-      "title": "Aerosol Optical Thickness (AOT)",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/AOT.tif",
-      "proj:shape": [
-        1830,
-        1830
-      ],
-      "proj:transform": [
-        60,
-        0,
-        399960,
-        0,
-        -60,
-        4200000,
-        0,
-        0,
-        1
-      ]
-    },
-    "WVP": {
-      "title": "Water Vapour (WVP)",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "roles": [
-        "data"
-      ],
-      "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/WVP.tif",
-      "proj:shape": [
-        10980,
-        10980
-      ],
-      "proj:transform": [
-        10,
-        0,
-        399960,
-        0,
-        -10,
-        4200000,
-        0,
-        0,
-        1
-      ]
+      "eo:center_wavelength": 0.7402,
+      "eo:full_width_half_max": 0.018,
+      "raster:spatial_resolution": 20,
+      "raster:bits_per_sample": 15
     },
     "SCL": {
       "title": "Scene Classification Map (SCL)",
@@ -1481,21 +874,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
         0,
         0,
         1
-      ]
-    }
-  },
-  "virtual:assets": {
-    "SIR": {
-      "title": "Shortwave Infra-red",
-      "raster:range": [
-        0,
-        10000
       ],
-      "href": [
-        "#B12",
-        "#B8A",
-        "#B04"
-      ]
+      "raster:spatial_resolution": 20
     }
   },
   "links": [
@@ -1513,12 +893,11 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sentinel:> .
-@prefix ns2: <proj:> .
-@prefix ns3: <eo:> .
-@prefix ns4: <view:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <virtual:> .
+@prefix ns1: <proj:> .
+@prefix ns2: <eo:> .
+@prefix ns3: <sentinel:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -1527,68 +906,43 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns3:cloud_cover 2.122e+01 ;
+    ns2:cloud_cover 2.122e+01 ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/raster/example-1/AOT>,
-        <https://example.com/stac/raster/example-1/B01>,
+    stac:assets <https://example.com/stac/raster/example-1/B01>,
         <https://example.com/stac/raster/example-1/B02>,
         <https://example.com/stac/raster/example-1/B03>,
         <https://example.com/stac/raster/example-1/B04>,
         <https://example.com/stac/raster/example-1/B05>,
         <https://example.com/stac/raster/example-1/B06>,
-        <https://example.com/stac/raster/example-1/B07>,
-        <https://example.com/stac/raster/example-1/B08>,
-        <https://example.com/stac/raster/example-1/B09>,
-        <https://example.com/stac/raster/example-1/B11>,
-        <https://example.com/stac/raster/example-1/B12>,
-        <https://example.com/stac/raster/example-1/B8A>,
         <https://example.com/stac/raster/example-1/SCL>,
-        <https://example.com/stac/raster/example-1/WVP>,
         <https://example.com/stac/raster/example-1/info>,
         <https://example.com/stac/raster/example-1/metadata>,
         <https://example.com/stac/raster/example-1/overview>,
         <https://example.com/stac/raster/example-1/thumbnail>,
         <https://example.com/stac/raster/example-1/visual> ;
-    ns2:epsg 32633 ;
-    ns1:data_coverage 100 ;
-    ns1:grid_square "VB" ;
-    ns1:latitude_band "S" ;
-    ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns1:sequence "0" ;
-    ns1:utm_zone 33 ;
-    ns1:valid_cloud_cover true ;
-    ns4:off_nadir 0 ;
-    ns6:assets [ ] .
-
-<https://example.com/stac/raster/example-1/AOT> rdfs:label "Aerosol Optical Thickness (AOT)" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/AOT.tif> ;
-    ns2:shape 1830 ;
-    ns2:transform -60,
-        0,
-        1,
-        60,
-        399960,
-        4200000 .
+    ns1:code "EPSG:32633" ;
+    ns3:data_coverage 100 ;
+    ns3:grid_square "VB" ;
+    ns3:latitude_band "S" ;
+    ns3:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns3:sequence "0" ;
+    ns3:utm_zone 33 ;
+    ns5:off_nadir 0 .
 
 <https://example.com/stac/raster/example-1/B01> rdfs:label "Band 1 (coastal) BOA reflectance" ;
-    ns3:bands [ ] ;
+    ns2:center_wavelength 4.439e-01 ;
+    ns2:common_name "coastal" ;
+    ns2:full_width_half_max 2.7e-02 ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata 0 ;
-            raster:spatial_resolution 60 ;
-            raster:statistics [ raster:maximum 20567 ;
-                    raster:mean 2.339476e+03 ;
-                    raster:minimum 1 ;
-                    raster:stddev 3.026697e+03 ;
-                    raster:valid_percent 9.983e+01 ] ] ;
-    ns2:shape 1830 ;
-    ns2:transform -60,
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 60 ;
+    ns1:shape 1830 ;
+    ns1:transform -60,
         0,
         1,
         60,
@@ -1596,19 +950,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
         4200000 .
 
 <https://example.com/stac/raster/example-1/B02> rdfs:label "Band 2 (blue) BOA reflectance" ;
-    ns3:bands [ ] ;
+    ns2:center_wavelength 4.966e-01 ;
+    ns2:common_name "blue" ;
+    ns2:full_width_half_max 9.8e-02 ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata 0 ;
-            raster:spatial_resolution 10 ;
-            raster:statistics [ raster:maximum 19264 ;
-                    raster:mean 2.348069e+03 ;
-                    raster:minimum 1 ;
-                    raster:stddev 2.916545e+03 ;
-                    raster:valid_percent 9.999e+01 ] ] ;
-    ns2:shape 10980 ;
-    ns2:transform -10,
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 10 ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -1616,19 +965,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
         4200000 .
 
 <https://example.com/stac/raster/example-1/B03> rdfs:label "Band 3 (green) BOA reflectance" ;
-    ns3:bands [ ] ;
+    ns2:center_wavelength 5.6e-01 ;
+    ns2:common_name "green" ;
+    ns2:full_width_half_max 4.5e-02 ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata 0 ;
-            raster:spatial_resolution 10 ;
-            raster:statistics [ raster:maximum 18064 ;
-                    raster:mean 2.384468e+03 ;
-                    raster:minimum 1 ;
-                    raster:stddev 2.675411e+03 ;
-                    raster:valid_percent 9.9999e+01 ] ] ;
-    ns2:shape 10980 ;
-    ns2:transform -10,
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 10 ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -1636,19 +980,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
         4200000 .
 
 <https://example.com/stac/raster/example-1/B04> rdfs:label "Band 4 (red) BOA reflectance" ;
-    ns3:bands [ ] ;
+    ns2:center_wavelength 6.645e-01 ;
+    ns2:common_name "red" ;
+    ns2:full_width_half_max 3.8e-02 ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata 0 ;
-            raster:spatial_resolution 10 ;
-            raster:statistics [ raster:maximum 17200 ;
-                    raster:mean 2.273967e+03 ;
-                    raster:minimum 1 ;
-                    raster:stddev 2.618273e+03 ;
-                    raster:valid_percent 9.9999e+01 ] ] ;
-    ns2:shape 10980 ;
-    ns2:transform -10,
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 10 ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -1656,19 +995,13 @@ An item can describe assets that are rasters of one or multiple bands with some 
         4200000 .
 
 <https://example.com/stac/raster/example-1/B05> rdfs:label "Band 5 BOA reflectance" ;
-    ns3:bands [ ] ;
+    ns2:center_wavelength 7.039e-01 ;
+    ns2:full_width_half_max 1.9e-02 ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata 0 ;
-            raster:spatial_resolution 20 ;
-            raster:statistics [ raster:maximum 16842 ;
-                    raster:mean 2.634149e+03 ;
-                    raster:minimum 1 ;
-                    raster:stddev 2.634149e+03 ;
-                    raster:valid_percent 9.9999e+01 ] ] ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 20 ;
+    ns1:shape 5490 ;
+    ns1:transform -20,
         0,
         1,
         20,
@@ -1676,89 +1009,13 @@ An item can describe assets that are rasters of one or multiple bands with some 
         4200000 .
 
 <https://example.com/stac/raster/example-1/B06> rdfs:label "Band 6 BOA reflectance" ;
-    ns3:bands [ ] ;
+    ns2:center_wavelength 7.402e-01 ;
+    ns2:full_width_half_max 1.8e-02 ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata 0 ;
-            raster:spatial_resolution 20 ;
-            raster:statistics [ raster:maximum 16502 ;
-                    raster:mean 3.329884e+03 ;
-                    raster:minimum 1 ;
-                    raster:stddev 2.30301e+03 ;
-                    raster:valid_percent 9.9999e+01 ] ] ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B07> rdfs:label "Band 7 BOA reflectance" ;
-    ns3:bands [ ] ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B07.tif> ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B08> rdfs:label "Band 8 (nir) BOA reflectance" ;
-    ns3:bands [ ] ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B08.tif> ;
-    ns2:shape 10980 ;
-    ns2:transform -10,
-        0,
-        1,
-        10,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B09> rdfs:label "Band 9 BOA reflectance" ;
-    ns3:bands [ ] ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B09.tif> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:nodata "nan" ;
-            raster:spatial_resolution 60 ] ;
-    ns2:shape 1830 ;
-    ns2:transform -60,
-        0,
-        1,
-        60,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B11> rdfs:label "Band 11 (swir16) BOA reflectance" ;
-    ns3:bands [ ] ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B11.tif> ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B12> rdfs:label "Band 12 (swir22) BOA reflectance" ;
-    ns3:bands [ ] ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B12.tif> ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B8A> rdfs:label "Band 8A BOA reflectance" ;
-    ns3:bands [ ] ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B8A.tif> ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 20 ;
+    ns1:shape 5490 ;
+    ns1:transform -20,
         0,
         1,
         20,
@@ -1767,21 +1024,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
 
 <https://example.com/stac/raster/example-1/SCL> rdfs:label "Scene Classification Map (SCL)" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> ;
-    ns2:shape 5490 ;
-    ns2:transform -20,
+    raster:spatial_resolution 20 ;
+    ns1:shape 5490 ;
+    ns1:transform -20,
         0,
         1,
         20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/WVP> rdfs:label "Water Vapour (WVP)" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/WVP.tif> ;
-    ns2:shape 10980 ;
-    ns2:transform -10,
-        0,
-        1,
-        10,
         399960,
         4200000 .
 
@@ -1794,12 +1042,10 @@ An item can describe assets that are rasters of one or multiple bands with some 
     oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml> .
 
 <https://example.com/stac/raster/example-1/overview> rdfs:label "True color image" ;
-    ns3:bands [ ],
-        [ ],
-        [ ] ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
-    ns2:shape 343 ;
-    ns2:transform -320,
+    raster:spatial_resolution 10 ;
+    ns1:shape 343 ;
+    ns1:transform -320,
         0,
         1,
         320,
@@ -1811,12 +1057,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
     oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg> .
 
 <https://example.com/stac/raster/example-1/visual> rdfs:label "True color image" ;
-    ns3:bands [ ],
-        [ ],
-        [ ] ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ;
-    ns2:shape 10980 ;
-    ns2:transform -10,
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -1836,7 +1079,9 @@ allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-- $ref: https://stac-extensions.github.io/raster/v1.1.0/schema.json
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
+- $ref: https://stac-extensions.github.io/raster/v2.0.0-beta.1/schema.json
 x-jsonld-extra-terms:
   raster:bands:
     x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
@@ -1878,10 +1123,7 @@ Links to the schema:
     "length": "dct:extent",
     "id": "@id",
     "properties": "@nest",
-    "geometry": {
-      "@context": {},
-      "@id": "geojson:geometry"
-    },
+    "geometry": "geojson:geometry",
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"

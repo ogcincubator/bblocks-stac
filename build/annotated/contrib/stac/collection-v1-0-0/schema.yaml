@@ -1,0 +1,11 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: STAC Collection V1.0.0
+allOf:
+- $ref: https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-features/build/annotated/api/features/v1/schemas/collection/schema.yaml
+- type: object
+  properties:
+    links:
+      type: array
+      items:
+        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml

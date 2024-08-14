@@ -19,9 +19,9 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
   "type": "Collection",
   "stac_extensions": [
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
   ],
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "description": "A simple Collection demonstrating EO extension fields in a Collection.",
   "title": "Simple EO Collection",
   "extent": {
@@ -92,20 +92,6 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       }
     ]
   },
-  "links": [
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "item",
-      "href": "./item.json",
-      "type": "application/geo+json",
-      "title": "20201211_223832_CS2"
-    }
-  ],
   "item_assets": {
     "analytic": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -178,7 +164,21 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         }
       ]
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "item",
+      "href": "./item.json",
+      "type": "application/geo+json",
+      "title": "20201211_223832_CS2"
+    }
+  ]
 }
 
 ```
@@ -190,9 +190,9 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
   "type": "Collection",
   "stac_extensions": [
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
   ],
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "description": "A simple Collection demonstrating EO extension fields in a Collection.",
   "title": "Simple EO Collection",
   "extent": {
@@ -263,20 +263,6 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       }
     ]
   },
-  "links": [
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "item",
-      "href": "./item.json",
-      "type": "application/geo+json",
-      "title": "20201211_223832_CS2"
-    }
-  ],
   "item_assets": {
     "analytic": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
@@ -350,6 +336,20 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       ]
     }
   },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "item",
+      "href": "./item.json",
+      "type": "application/geo+json",
+      "title": "20201211_223832_CS2"
+    }
+  ],
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld"
 }
 ```
@@ -363,14 +363,14 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 
 <https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;
     rdfs:label "Simple EO Collection" ;
-    rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
-            dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ],
-        [ rdfs:label "Simple Example Collection" ;
+    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] .
+            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ],
+        [ rdfs:label "20201211_223832_CS2" ;
+            dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ] .
 
 
 ```
@@ -380,12 +380,13 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 #### json
 ```json
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
   ],
   "type": "Feature",
   "id": "20201211_223832_CS2",
+  "collection": "eo-collection",
   "bbox": [
     172.91173669923782,
     1.3438851951615003,
@@ -431,27 +432,6 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     "eo:cloud_cover": 1.2,
     "eo:snow_cover": 0
   },
-  "collection": "eo-collection",
-  "links": [
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "parent",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "collection",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    }
-  ],
   "assets": {
     "analytic": {
       "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif",
@@ -528,19 +508,40 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         }
       ]
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "parent",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "collection",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ]
 }
 ```
 
 #### jsonld
 ```jsonld
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0-beta.1",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
   ],
   "type": "Feature",
   "id": "20201211_223832_CS2",
+  "collection": "eo-collection",
   "bbox": [
     172.91173669923782,
     1.3438851951615003,
@@ -586,27 +587,6 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     "eo:cloud_cover": 1.2,
     "eo:snow_cover": 0
   },
-  "collection": "eo-collection",
-  "links": [
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "parent",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "collection",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    }
-  ],
   "assets": {
     "analytic": {
       "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif",
@@ -684,6 +664,26 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       ]
     }
   },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "parent",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    },
+    {
+      "rel": "collection",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ],
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld"
 }
 ```
@@ -748,7 +748,9 @@ allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-- $ref: https://stac-extensions.github.io/eo/v1.1.0/schema.json
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
+- $ref: https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json
 x-jsonld-extra-terms:
   eo:bands:
     x-jsonld-id: https://w3id.org/ogc/stac/eo/bands
@@ -787,10 +789,7 @@ Links to the schema:
     "length": "dct:extent",
     "id": "@id",
     "properties": "@nest",
-    "geometry": {
-      "@context": {},
-      "@id": "geojson:geometry"
-    },
+    "geometry": "geojson:geometry",
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
