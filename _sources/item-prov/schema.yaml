@@ -2,7 +2,9 @@
 description: 'STAC Collection'
 allOf:
   - $ref: bblocks://ogc.ogc-utils.prov#/$defs/Entity
-  - $ref: bblocks://ogc.contrib.stac.item
+  - anyOf:
+    - $ref: bblocks://ogc.contrib.stac.item
+    - $ref: bblocks://ogc.contrib.stac.item-v1-0-0
   - type: object
     properties:
       stac_extensions:
