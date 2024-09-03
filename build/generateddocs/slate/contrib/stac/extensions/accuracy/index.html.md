@@ -229,8 +229,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblocks-
 
 ```yaml--schema
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Forecast Extension
-description: STAC Forecast Extension for STAC Items and STAC Collections.
+title: Accuracy Extension
+description: STAC Accuracy Extension for STAC Items and STAC Collections.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
