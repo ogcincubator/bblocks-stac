@@ -79,6 +79,7 @@ TBD
 #### jsonld
 ```jsonld
 {
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/context.jsonld",
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json"
@@ -138,8 +139,7 @@ TBD
     "data": {
       "href": "https://example.com/examples/file.xyz"
     }
-  },
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/context.jsonld"
+  }
 }
 ```
 

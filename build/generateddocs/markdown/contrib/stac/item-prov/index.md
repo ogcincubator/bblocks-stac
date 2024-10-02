@@ -18,7 +18,7 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 ```json
 
 {
-    "stac_version": "1.1.0-beta.1",
+    "stac_version": "1.1.0",
     "stac_extensions": ["https://stac-extensions.github.io/prov/v1.0.0/schema.json"],
     "type": "Feature",
     "id": "20201211_223832_CS2",
@@ -59,7 +59,8 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 #### jsonld
 ```jsonld
 {
-  "stac_version": "1.1.0-beta.1",
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
   ],
@@ -91,8 +92,7 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
       "title": "Simple Example Collection"
     }
   ],
-  "assets": {},
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld"
+  "assets": {}
 }
 ```
 
@@ -129,7 +129,7 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 #### json
 ```json
 {
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
   ],
@@ -185,7 +185,8 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 #### jsonld
 ```jsonld
 {
-  "stac_version": "1.1.0-beta.1",
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
   ],
@@ -234,8 +235,7 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
       "title": "Simple Example Collection"
     }
   ],
-  "assets": {},
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld"
+  "assets": {}
 }
 ```
 
@@ -274,7 +274,7 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 #### json
 ```json
 {
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
   ],
@@ -338,7 +338,8 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 #### jsonld
 ```jsonld
 {
-  "stac_version": "1.1.0-beta.1",
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/prov/v1.0.0/schema.json"
   ],
@@ -395,8 +396,7 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
       "title": "Simple Example Collection"
     }
   ],
-  "assets": {},
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld"
+  "assets": {}
 }
 ```
 

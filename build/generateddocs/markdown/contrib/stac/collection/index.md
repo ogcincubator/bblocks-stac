@@ -14,9 +14,9 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 ```json
 {
   "type": "Collection",
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json",
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
     "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json"
   ],
@@ -250,10 +250,11 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 #### jsonld
 ```jsonld
 {
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld",
   "type": "Collection",
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json",
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
     "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
     "https://stac-extensions.github.io/view/v1.0.0/schema.json"
   ],
@@ -480,8 +481,7 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
       "href": "https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf",
       "title": "Legal notice on the use of Copernicus Sentinel Data and Service Information"
     }
-  ],
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld"
+  ]
 }
 ```
 

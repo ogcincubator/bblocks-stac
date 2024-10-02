@@ -18,10 +18,9 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
   "id": "eo-collection",
   "type": "Collection",
   "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json"
   ],
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "description": "A simple Collection demonstrating EO extension fields in a Collection.",
   "title": "Simple EO Collection",
   "extent": {
@@ -186,13 +185,13 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 #### jsonld
 ```jsonld
 {
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld",
   "id": "eo-collection",
   "type": "Collection",
   "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json"
   ],
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "description": "A simple Collection demonstrating EO extension fields in a Collection.",
   "title": "Simple EO Collection",
   "extent": {
@@ -349,8 +348,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "type": "application/geo+json",
       "title": "20201211_223832_CS2"
     }
-  ],
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld"
+  ]
 }
 ```
 
@@ -363,14 +361,14 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 
 <https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;
     rdfs:label "Simple EO Collection" ;
-    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ],
-        [ rdfs:label "20201211_223832_CS2" ;
+    rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ] .
+            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] .
 
 
 ```
@@ -380,9 +378,9 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 #### json
 ```json
 {
-  "stac_version": "1.1.0-beta.1",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json"
   ],
   "type": "Feature",
   "id": "20201211_223832_CS2",
@@ -535,9 +533,10 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 #### jsonld
 ```jsonld
 {
-  "stac_version": "1.1.0-beta.1",
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json"
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json"
   ],
   "type": "Feature",
   "id": "20201211_223832_CS2",
@@ -683,8 +682,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
       "type": "application/json",
       "title": "Simple Example Collection"
     }
-  ],
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld"
+  ]
 }
 ```
 
@@ -709,11 +707,11 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -742,15 +740,15 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Forecast Extension
-description: STAC Forecast Extension for STAC Items and STAC Collections.
+title: Electro-Optical Extension
+description: STAC Electro-Optical Extension for STAC Items and STAC Collections.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
-- $ref: https://stac-extensions.github.io/eo/v2.0.0-beta.1/schema.json
+- $ref: https://stac-extensions.github.io/eo/v2.0.0/schema.json
 x-jsonld-extra-terms:
   eo:bands:
     x-jsonld-id: https://w3id.org/ogc/stac/eo/bands
