@@ -22,4 +22,8 @@ _Building Blocks do not change the underlying specification but provide an extra
 
 [More information on design and usage](https://ogcincubator.github.io/bblocks-docs/)
 
+## Acknowledgements
 
+The work has been co-funded by the European Union, Switzerland and the United Kingdom under the Horizon Europe:
+* [Iliad project](https://www.ogc.org/initiatives/iliad/) (GA 101037643)
+* [AD4GD project](https://www.ogc.org/initiatives/ad4gd/)(GA 101061001)
