@@ -1,0 +1,25 @@
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://example.com/stac/mlm/example-1/ml-model-examples> a <https://example.com/stac/mlm/example-1/Collection> ;
+    rdfs:label "Machine Learning Model examples" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_multi_io.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ] .
+

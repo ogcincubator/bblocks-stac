@@ -1,7 +1,7 @@
 
-# STAC Collection (Schema)
+# STAC Collection (v1.0.0) (Schema)
 
-`ogc.contrib.stac.collection-v1-0-0` *v0.1*
+`ogc.contrib.stac.collection-v1-0-0` *v1.0.0*
 
 A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.
 
