@@ -51,9 +51,9 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-08-16T02:59:51.978107+00:00</small>
-                <p class="summary fw-semibold text-danger">
-                    Number of passing building blocks: 9 / 11 (81.82%)
+            <small class="datetime">Generated at 2025-08-18T09:46:04.777963+00:00</small>
+                <p class="summary fw-semibold text-success">
+                    Number of passing building blocks: 11 / 11 (100%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
@@ -458,7 +458,7 @@
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.extensions.processing" id="bblock-ogc.contrib.stac.extensions.processing">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button"
+                                <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.contrib\.stac\.extensions\.processing">
                                     <div class="flex-fill">
@@ -466,16 +466,16 @@
                                         <small class="ms-2 bblock-id">ogc.contrib.stac.extensions.processing</small>
                                     </div>
 
-                                    <span class="badge text-bg-danger me-2">
-                                            Tests Failed
-                                            (0% passed)
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.contrib.stac.extensions.processing">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.contrib.stac.extensions.processing">
                                 <div class="accordion-body">
-                                        <p class="summary fw-semibold text-danger">
-                                            Test passed: 0 / 2
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
                                         </p>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
@@ -487,10 +487,10 @@
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://github.com/stac-extensions/classification/raw/refs/heads/main/examples/collection-item-assets.json" target="_blank">example_1_1.json</a>
+                                                    <a href="https://raw.githubusercontent.com/stac-extensions/processing/refs/heads/main/examples/collection.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-9">
@@ -501,13 +501,7 @@
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: &#x27;Feature&#x27; was expected
-
-Failed validating &#x27;const&#x27; in schema[0][&#x27;properties&#x27;][&#x27;type&#x27;]:
-    {&#x27;const&#x27;: &#x27;Feature&#x27;}
-
-On instance[&#x27;type&#x27;]:
-    &#x27;Collection&#x27;</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -522,10 +516,10 @@ On instance[&#x27;type&#x27;]:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://raw.githubusercontent.com/stac-extensions/classification/refs/heads/main/examples/item-model-classes.json" target="_blank">example_2_1.json</a>
+                                                    <a href="https://raw.githubusercontent.com/stac-extensions/processing/refs/heads/main/examples/item.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-10">
@@ -536,296 +530,7 @@ On instance[&#x27;type&#x27;]:
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;description&#x27;: &#x27;Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO&#x27;, &#x27;datetime&#x27;: None, &#x27;start_datetime&#x27;: &#x27;1900-01-01T00:00:00Z&#x27;, &#x27;end_datetime&#x27;: &#x27;9999-12-31T23:59:59Z&#x27;, &#x27;mlm:name&#x27;: &#x27;Resnet-18 Sentinel-2 ALL MOCO&#x27;, &#x27;mlm:tasks&#x27;: [&#x27;classification&#x27;], &#x27;mlm:architecture&#x27;: &#x27;ResNet&#x27;, &#x27;mlm:framework&#x27;: &#x27;pytorch&#x27;, &#x27;mlm:framework_version&#x27;: &#x27;2.1.2+cu121&#x27;, &#x27;file:size&#x27;: 43000000, &#x27;mlm:memory_size&#x27;: 1, &#x27;mlm:total_parameters&#x27;: 11700000, &#x27;mlm:pretrained_source&#x27;: &#x27;EuroSat Sentinel-2&#x27;, &#x27;mlm:accelerator&#x27;: &#x27;cuda&#x27;, &#x27;mlm:accelerator_constrained&#x27;: False, &#x27;mlm:accelerator_summary&#x27;: &#x27;Unknown&#x27;, &#x27;mlm:batch_size_suggestion&#x27;: 256, &#x27;mlm:input&#x27;: [{&#x27;name&#x27;: &#x27;13 Band Sentinel-2 Batch&#x27;, &#x27;bands&#x27;: [&#x27;B01&#x27;, &#x27;B02&#x27;, &#x27;B03&#x27;, &#x27;B04&#x27;, &#x27;B05&#x27;, &#x27;B06&#x27;, &#x27;B07&#x27;, &#x27;B08&#x27;, &#x27;B8A&#x27;, &#x27;B09&#x27;, &#x27;B10&#x27;, &#x27;B11&#x27;, &#x27;B12&#x27;], &#x27;input&#x27;: {&#x27;shape&#x27;: [-1, 13, 64, 64], &#x27;dim_order&#x27;: [&#x27;batch&#x27;, &#x27;channel&#x27;, &#x27;height&#x27;, &#x27;width&#x27;], &#x27;data_type&#x27;: &#x27;float32&#x27;}, &#x27;norm_type&#x27;: None, &#x27;resize_type&#x27;: None, &#x27;pre_processing_function&#x27;: {&#x27;format&#x27;: &#x27;python&#x27;, &#x27;expression&#x27;: &#x27;torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn&#x27;}}], &#x27;mlm:output&#x27;: [{&#x27;name&#x27;: &#x27;classification&#x27;, &#x27;tasks&#x27;: [&#x27;classification&#x27;], &#x27;result&#x27;: {&#x27;shape&#x27;: [-1, 10], &#x27;dim_order&#x27;: [&#x27;batch&#x27;, &#x27;class&#x27;], &#x27;data_type&#x27;: &#x27;float32&#x27;}, &#x27;classification:classes&#x27;: [{&#x27;value&#x27;: 0, &#x27;name&#x27;: &#x27;AnnualCrop&#x27;, &#x27;color_hint&#x27;: &#x27;FFFF00&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Annual Crop&#x27;, &#x27;description&#x27;: &#x27;Represents areas of annual crops with a bright yellow color.&#x27;}, {&#x27;value&#x27;: 1, &#x27;name&#x27;: &#x27;Forest&#x27;, &#x27;color_hint&#x27;: &#x27;008000&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Forest&#x27;, &#x27;description&#x27;: &#x27;Depicts forested areas with a deep green color.&#x27;}, {&#x27;value&#x27;: 2, &#x27;name&#x27;: &#x27;HerbaceousVegetation&#x27;, &#x27;color_hint&#x27;: &#x27;ADFF2F&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Herbaceous Vegetation&#x27;, &#x27;description&#x27;: &#x27;Indicates areas of herbaceous vegetation with a green-yellow hue.&#x27;}, {&#x27;value&#x27;: 3, &#x27;name&#x27;: &#x27;Highway&#x27;, &#x27;color_hint&#x27;: &#x27;808080&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Gray&#x27;, &#x27;description&#x27;: &#x27;Denotes highways and roads with a neutral gray color.&#x27;}, {&#x27;value&#x27;: 4, &#x27;name&#x27;: &#x27;Industrial&#x27;, &#x27;color_hint&#x27;: &#x27;800080&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Industrial Buildings&#x27;, &#x27;description&#x27;: &#x27;Highlights industrial buildings with a vibrant purple color.&#x27;}, {&#x27;value&#x27;: 5, &#x27;name&#x27;: &#x27;Pasture&#x27;, &#x27;color_hint&#x27;: &#x27;7CFC00&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Pasture&#x27;, &#x27;description&#x27;: &#x27;Illustrates pasture areas with a fresh lawn green color.&#x27;}, {&#x27;value&#x27;: 6, &#x27;name&#x27;: &#x27;PermanentCrop&#x27;, &#x27;color_hint&#x27;: &#x27;006400&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Permanent Crop&#x27;, &#x27;description&#x27;: &#x27;Represents permanent crop areas with a dark green color.&#x27;}, {&#x27;value&#x27;: 7, &#x27;name&#x27;: &#x27;Residential&#x27;, &#x27;color_hint&#x27;: &#x27;FF0000&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Residential Buildings&#x27;, &#x27;description&#x27;: &#x27;Marks residential buildings with a bold red color.&#x27;}, {&#x27;value&#x27;: 8, &#x27;name&#x27;: &#x27;River&#x27;, &#x27;color_hint&#x27;: &#x27;00FFFF&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;River&#x27;, &#x27;description&#x27;: &#x27;Depicts rivers and water bodies with a vivid cyan color.&#x27;}, {&#x27;value&#x27;: 9, &#x27;name&#x27;: &#x27;SeaLake&#x27;, &#x27;color_hint&#x27;: &#x27;0000FF&#x27;, &#x27;nodata&#x27;: False, &#x27;title&#x27;: &#x27;Sea and Lake&#x27;, &#x27;description&#x27;: &#x27;Indicates seas and lakes with a serene blue color.&#x27;}], &#x27;post_processing_function&#x27;: None}], &#x27;raster:bands&#x27;: [{&#x27;name&#x27;: &#x27;B01&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 60, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B02&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 10, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B03&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 10, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B04&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 10, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B05&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 20, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B06&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 20, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B07&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 20, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B08&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 10, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B8A&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 20, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B09&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 60, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B10&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 60, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B11&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 20, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}, {&#x27;name&#x27;: &#x27;B12&#x27;, &#x27;nodata&#x27;: 0, &#x27;data_type&#x27;: &#x27;uint16&#x27;, &#x27;bits_per_sample&#x27;: 15, &#x27;spatial_resolution&#x27;: 20, &#x27;scale&#x27;: 0.0001, &#x27;offset&#x27;: 0, &#x27;unit&#x27;: &#x27;m&#x27;}]} is not valid under any of the given schemas
-
-Failed validating &#x27;anyOf&#x27; in schema[0][&#x27;properties&#x27;][&#x27;properties&#x27;][&#x27;allOf&#x27;][0]:
-    {&#x27;anyOf&#x27;: [{&#x27;required&#x27;: [&#x27;processing:expression&#x27;], &#x27;type&#x27;: &#x27;object&#x27;},
-               {&#x27;required&#x27;: [&#x27;processing:lineage&#x27;], &#x27;type&#x27;: &#x27;object&#x27;},
-               {&#x27;required&#x27;: [&#x27;processing:level&#x27;], &#x27;type&#x27;: &#x27;object&#x27;},
-               {&#x27;required&#x27;: [&#x27;processing:facility&#x27;], &#x27;type&#x27;: &#x27;object&#x27;},
-               {&#x27;required&#x27;: [&#x27;processing:software&#x27;], &#x27;type&#x27;: &#x27;object&#x27;},
-               {&#x27;required&#x27;: [&#x27;processing:version&#x27;], &#x27;type&#x27;: &#x27;object&#x27;},
-               {&#x27;required&#x27;: [&#x27;processing:datetime&#x27;], &#x27;type&#x27;: &#x27;object&#x27;}]}
-
-On instance[&#x27;properties&#x27;]:
-    {&#x27;datetime&#x27;: None,
-     &#x27;description&#x27;: &#x27;Sourced from torchgeo python library, identifier is &#x27;
-                    &#x27;ResNet18_Weights.SENTINEL2_ALL_MOCO&#x27;,
-     &#x27;end_datetime&#x27;: &#x27;9999-12-31T23:59:59Z&#x27;,
-     &#x27;file:size&#x27;: 43000000,
-     &#x27;mlm:accelerator&#x27;: &#x27;cuda&#x27;,
-     &#x27;mlm:accelerator_constrained&#x27;: False,
-     &#x27;mlm:accelerator_summary&#x27;: &#x27;Unknown&#x27;,
-     &#x27;mlm:architecture&#x27;: &#x27;ResNet&#x27;,
-     &#x27;mlm:batch_size_suggestion&#x27;: 256,
-     &#x27;mlm:framework&#x27;: &#x27;pytorch&#x27;,
-     &#x27;mlm:framework_version&#x27;: &#x27;2.1.2+cu121&#x27;,
-     &#x27;mlm:input&#x27;: [{&#x27;bands&#x27;: [&#x27;B01&#x27;,
-                              &#x27;B02&#x27;,
-                              &#x27;B03&#x27;,
-                              &#x27;B04&#x27;,
-                              &#x27;B05&#x27;,
-                              &#x27;B06&#x27;,
-                              &#x27;B07&#x27;,
-                              &#x27;B08&#x27;,
-                              &#x27;B8A&#x27;,
-                              &#x27;B09&#x27;,
-                              &#x27;B10&#x27;,
-                              &#x27;B11&#x27;,
-                              &#x27;B12&#x27;],
-                    &#x27;input&#x27;: {&#x27;data_type&#x27;: &#x27;float32&#x27;,
-                              &#x27;dim_order&#x27;: [&#x27;batch&#x27;,
-                                            &#x27;channel&#x27;,
-                                            &#x27;height&#x27;,
-                                            &#x27;width&#x27;],
-                              &#x27;shape&#x27;: [-1, 13, 64, 64]},
-                    &#x27;name&#x27;: &#x27;13 Band Sentinel-2 Batch&#x27;,
-                    &#x27;norm_type&#x27;: None,
-                    &#x27;pre_processing_function&#x27;: {&#x27;expression&#x27;: &#x27;torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn&#x27;,
-                                                &#x27;format&#x27;: &#x27;python&#x27;},
-                    &#x27;resize_type&#x27;: None}],
-     &#x27;mlm:memory_size&#x27;: 1,
-     &#x27;mlm:name&#x27;: &#x27;Resnet-18 Sentinel-2 ALL MOCO&#x27;,
-     &#x27;mlm:output&#x27;: [{&#x27;classification:classes&#x27;: [{&#x27;color_hint&#x27;: &#x27;FFFF00&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Represents &#x27;
-                                                                &#x27;areas of &#x27;
-                                                                &#x27;annual &#x27;
-                                                                &#x27;crops &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;bright &#x27;
-                                                                &#x27;yellow &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;AnnualCrop&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Annual Crop&#x27;,
-                                                 &#x27;value&#x27;: 0},
-                                                {&#x27;color_hint&#x27;: &#x27;008000&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Depicts &#x27;
-                                                                &#x27;forested &#x27;
-                                                                &#x27;areas &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;deep &#x27;
-                                                                &#x27;green &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;Forest&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Forest&#x27;,
-                                                 &#x27;value&#x27;: 1},
-                                                {&#x27;color_hint&#x27;: &#x27;ADFF2F&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Indicates &#x27;
-                                                                &#x27;areas of &#x27;
-                                                                &#x27;herbaceous &#x27;
-                                                                &#x27;vegetation &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;green-yellow &#x27;
-                                                                &#x27;hue.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;HerbaceousVegetation&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Herbaceous &#x27;
-                                                          &#x27;Vegetation&#x27;,
-                                                 &#x27;value&#x27;: 2},
-                                                {&#x27;color_hint&#x27;: &#x27;808080&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Denotes &#x27;
-                                                                &#x27;highways &#x27;
-                                                                &#x27;and roads &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;neutral &#x27;
-                                                                &#x27;gray &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;Highway&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Gray&#x27;,
-                                                 &#x27;value&#x27;: 3},
-                                                {&#x27;color_hint&#x27;: &#x27;800080&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Highlights &#x27;
-                                                                &#x27;industrial &#x27;
-                                                                &#x27;buildings &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;vibrant &#x27;
-                                                                &#x27;purple &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;Industrial&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Industrial &#x27;
-                                                          &#x27;Buildings&#x27;,
-                                                 &#x27;value&#x27;: 4},
-                                                {&#x27;color_hint&#x27;: &#x27;7CFC00&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Illustrates &#x27;
-                                                                &#x27;pasture &#x27;
-                                                                &#x27;areas &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;fresh &#x27;
-                                                                &#x27;lawn &#x27;
-                                                                &#x27;green &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;Pasture&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Pasture&#x27;,
-                                                 &#x27;value&#x27;: 5},
-                                                {&#x27;color_hint&#x27;: &#x27;006400&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Represents &#x27;
-                                                                &#x27;permanent &#x27;
-                                                                &#x27;crop &#x27;
-                                                                &#x27;areas &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;dark &#x27;
-                                                                &#x27;green &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;PermanentCrop&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Permanent Crop&#x27;,
-                                                 &#x27;value&#x27;: 6},
-                                                {&#x27;color_hint&#x27;: &#x27;FF0000&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Marks &#x27;
-                                                                &#x27;residential &#x27;
-                                                                &#x27;buildings &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;bold red &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;Residential&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Residential &#x27;
-                                                          &#x27;Buildings&#x27;,
-                                                 &#x27;value&#x27;: 7},
-                                                {&#x27;color_hint&#x27;: &#x27;00FFFF&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Depicts &#x27;
-                                                                &#x27;rivers &#x27;
-                                                                &#x27;and water &#x27;
-                                                                &#x27;bodies &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;vivid &#x27;
-                                                                &#x27;cyan &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;River&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;River&#x27;,
-                                                 &#x27;value&#x27;: 8},
-                                                {&#x27;color_hint&#x27;: &#x27;0000FF&#x27;,
-                                                 &#x27;description&#x27;: &#x27;Indicates &#x27;
-                                                                &#x27;seas and &#x27;
-                                                                &#x27;lakes &#x27;
-                                                                &#x27;with a &#x27;
-                                                                &#x27;serene &#x27;
-                                                                &#x27;blue &#x27;
-                                                                &#x27;color.&#x27;,
-                                                 &#x27;name&#x27;: &#x27;SeaLake&#x27;,
-                                                 &#x27;nodata&#x27;: False,
-                                                 &#x27;title&#x27;: &#x27;Sea and Lake&#x27;,
-                                                 &#x27;value&#x27;: 9}],
-                     &#x27;name&#x27;: &#x27;classification&#x27;,
-                     &#x27;post_processing_function&#x27;: None,
-                     &#x27;result&#x27;: {&#x27;data_type&#x27;: &#x27;float32&#x27;,
-                                &#x27;dim_order&#x27;: [&#x27;batch&#x27;, &#x27;class&#x27;],
-                                &#x27;shape&#x27;: [-1, 10]},
-                     &#x27;tasks&#x27;: [&#x27;classification&#x27;]}],
-     &#x27;mlm:pretrained_source&#x27;: &#x27;EuroSat Sentinel-2&#x27;,
-     &#x27;mlm:tasks&#x27;: [&#x27;classification&#x27;],
-     &#x27;mlm:total_parameters&#x27;: 11700000,
-     &#x27;raster:bands&#x27;: [{&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B01&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 60,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B02&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 10,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B03&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 10,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B04&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 10,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B05&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 20,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B06&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 20,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B07&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 20,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B08&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 10,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B8A&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 20,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B09&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 60,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B10&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 60,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B11&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 20,
-                       &#x27;unit&#x27;: &#x27;m&#x27;},
-                      {&#x27;bits_per_sample&#x27;: 15,
-                       &#x27;data_type&#x27;: &#x27;uint16&#x27;,
-                       &#x27;name&#x27;: &#x27;B12&#x27;,
-                       &#x27;nodata&#x27;: 0,
-                       &#x27;offset&#x27;: 0,
-                       &#x27;scale&#x27;: 0.0001,
-                       &#x27;spatial_resolution&#x27;: 20,
-                       &#x27;unit&#x27;: &#x27;m&#x27;}],
-     &#x27;start_datetime&#x27;: &#x27;1900-01-01T00:00:00Z&#x27;}</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -999,7 +704,7 @@ On instance[&#x27;properties&#x27;]:
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.contrib.stac.extensions.mlm" id="bblock-ogc.contrib.stac.extensions.mlm">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button"
+                                <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.contrib\.stac\.extensions\.mlm">
                                     <div class="flex-fill">
@@ -1007,16 +712,16 @@ On instance[&#x27;properties&#x27;]:
                                         <small class="ms-2 bblock-id">ogc.contrib.stac.extensions.mlm</small>
                                     </div>
 
-                                    <span class="badge text-bg-danger me-2">
-                                            Tests Failed
-                                            (50% passed)
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.contrib.stac.extensions.mlm">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.contrib.stac.extensions.mlm">
                                 <div class="accordion-body">
-                                        <p class="summary fw-semibold text-danger">
-                                            Test passed: 1 / 2
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
                                         </p>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
@@ -1028,10 +733,10 @@ On instance[&#x27;properties&#x27;]:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/collection.json" target="_blank">example_1_1.json</a>
+                                                    <a href="https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-15">
@@ -1042,14 +747,7 @@ On instance[&#x27;properties&#x27;]:
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: None of [&#x27;https://stac-extensions.github.io/item-assets/v1.0.0/schema.json&#x27;] are valid under the given schema
-
-Failed validating &#x27;contains&#x27; in schema[&#x27;allOf&#x27;][1][&#x27;allOf&#x27;][1][&#x27;then&#x27;][&#x27;allOf&#x27;][1][&#x27;properties&#x27;][&#x27;stac_extensions&#x27;]:
-    {&#x27;contains&#x27;: {&#x27;const&#x27;: &#x27;https://stac-extensions.github.io/mlm/v1.4.0/schema.json&#x27;},
-     &#x27;type&#x27;: &#x27;array&#x27;}
-
-On instance[&#x27;stac_extensions&#x27;]:
-    [&#x27;https://stac-extensions.github.io/item-assets/v1.0.0/schema.json&#x27;]</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>

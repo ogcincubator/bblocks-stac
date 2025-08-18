@@ -1,122 +1,107 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/context.jsonld",
-  "type": "Collection",
-  "id": "103001005D31F500",
   "stac_version": "1.0.0",
-  "description": "103001005D31F500 ARD Tiles",
-  "links": [
+  "stac_extensions": [
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+  ],
+  "type": "Collection",
+  "id": "Sentinel2-L2A",
+  "title": "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A",
+  "description": "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission.",
+  "license": "proprietary",
+  "providers": [
     {
-      "rel": "root",
-      "href": "../order_collections/5867496013686833273_root_collection.json",
-      "type": "application/json"
+      "name": "European Union/ESA/Copernicus",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi",
+      "processing:lineage": "Generation of Level-1C User Product",
+      "processing:level": "L1",
+      "processing:facility": "Copernicus S2 Processing and Archiving Facility",
+      "processing:version": "02.06"
     },
     {
-      "rel": "parent",
-      "href": "../order_collections/5867496013686833273_root_collection.json",
-      "type": "application/json"
+      "name": "Processing Corp.",
+      "roles": [
+        "processor"
+      ],
+      "processing:lineage": "Generation of Level-2A User Product",
+      "processing:level": "L2A",
+      "processing:software": {
+        "Sentinel-2 Toolbox": "8.0.0"
+      }
     },
     {
-      "rel": "item",
-      "href": "../10/120020223032/2016-10-08/103001005D31F500.json",
-      "type": "application/json"
+      "name": "Storage Provider, Inc.",
+      "roles": [
+        "host"
+      ]
     }
   ],
   "extent": {
     "spatial": {
       "bbox": [
         [
-          -122.43409303549794,
-          37.76425505192271,
-          -122.37337588954041,
-          37.812440528660765
+          -180,
+          -56,
+          180,
+          83
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2016-10-08 19:25:32Z",
-          "2016-10-08 19:25:32Z"
+          "2015-06-23T00:00:00Z",
+          null
         ]
       ]
     }
   },
-  "item_assets": {
-    "cloud-mask-raster": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "Cloud/Cloud Shadow Coverage Raster",
-      "description": "thematic raster, 0 -> no data, 1 -> clear, 2 -> cloud, 3 -> cloud shadow",
-      "proj:shape": [
-        2176,
-        2176
-      ],
-      "eo:bands": [
-        {
-          "name": "BAND_CM",
-          "description": "Clouds/Cloud Shadows Mask"
-        }
-      ],
-      "raster:bands": [
-        {
-          "classification:classes": [
-            {
-              "value": 0,
-              "name": "nodata",
-              "description": "NoData",
-              "nodata": true
-            },
-            {
-              "value": 1,
-              "name": "clear",
-              "description": "Clear of clouds or shadows"
-            },
-            {
-              "value": 2,
-              "name": "cloud",
-              "description": "Clouds",
-              "color_hint": "B8D0EC"
-            },
-            {
-              "value": 3,
-              "name": "cloud_shadow",
-              "description": "Cloud shadows",
-              "color_hint": "9C9EA0"
-            }
-          ]
-        }
-      ]
+  "summaries": {
+    "datetime": {
+      "minimum": "2015-06-23T00:00:00Z",
+      "maximum": "2019-07-10T13:44:56Z"
     },
-    "visual": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "Visual (RGB) Image",
-      "proj:shape": [
-        17408,
-        17408
-      ],
-      "eo:bands": [
-        {
-          "name": "BAND_R",
-          "common_name": "red",
-          "description": "Red"
-        },
-        {
-          "name": "BAND_G",
-          "common_name": "green",
-          "description": "Green"
-        },
-        {
-          "name": "BAND_B",
-          "common_name": "blue",
-          "description": "Blue"
-        }
-      ]
-    }
+    "platform": [
+      "sentinel-2a",
+      "sentinel-2b"
+    ],
+    "constellation": [
+      "sentinel-2"
+    ],
+    "instruments": [
+      "msi"
+    ],
+    "gsd": [
+      10,
+      30,
+      60
+    ],
+    "processing:level": [
+      "L1",
+      "L2"
+    ]
   },
-  "license": "proprietary",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/classification/v2.0.0/schema.json"
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://processing-corp.com/catalog/COPERNICUS_S2.json"
+    },
+    {
+      "rel": "parent",
+      "href": "https://processing-corp.com/catalog/catalog.json"
+    },
+    {
+      "rel": "root",
+      "href": "https://processing-corp.com/catalog/catalog.json"
+    },
+    {
+      "rel": "license",
+      "href": "https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf",
+      "title": "Legal notice on the use of Copernicus Sentinel Data and Service Information"
+    }
   ]
 }

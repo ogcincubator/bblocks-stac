@@ -1,7 +1,7 @@
 
 # STAC Processing Extension (Schema)
 
-`ogc.contrib.stac.extensions.processing` *v0.1*
+`ogc.contrib.stac.extensions.processing` *v1.2.0*
 
 STAC Processing Extension for STAC Items and STAC Collections.
 
@@ -13,271 +13,242 @@ STAC Processing Extension for STAC Items and STAC Collections.
 #### json
 ```json
 {
-  "type": "Collection",
-  "id": "103001005D31F500",
   "stac_version": "1.0.0",
-  "description": "103001005D31F500 ARD Tiles",
-  "links": [
+  "stac_extensions": [
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+  ],
+  "type": "Collection",
+  "id": "Sentinel2-L2A",
+  "title": "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A",
+  "description": "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission.",
+  "license": "proprietary",
+  "providers": [
     {
-      "rel": "root",
-      "href": "../order_collections/5867496013686833273_root_collection.json",
-      "type": "application/json"
+      "name": "European Union/ESA/Copernicus",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi",
+      "processing:lineage": "Generation of Level-1C User Product",
+      "processing:level": "L1",
+      "processing:facility": "Copernicus S2 Processing and Archiving Facility",
+      "processing:version": "02.06"
     },
     {
-      "rel": "parent",
-      "href": "../order_collections/5867496013686833273_root_collection.json",
-      "type": "application/json"
+      "name": "Processing Corp.",
+      "roles": [
+        "processor"
+      ],
+      "processing:lineage": "Generation of Level-2A User Product",
+      "processing:level": "L2A",
+      "processing:software": {
+        "Sentinel-2 Toolbox": "8.0.0"
+      }
     },
     {
-      "rel": "item",
-      "href": "../10/120020223032/2016-10-08/103001005D31F500.json",
-      "type": "application/json"
+      "name": "Storage Provider, Inc.",
+      "roles": [
+        "host"
+      ]
     }
   ],
   "extent": {
     "spatial": {
       "bbox": [
         [
-          -122.43409303549794,
-          37.76425505192271,
-          -122.37337588954041,
-          37.812440528660765
+          -180,
+          -56,
+          180,
+          83
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2016-10-08 19:25:32Z",
-          "2016-10-08 19:25:32Z"
+          "2015-06-23T00:00:00Z",
+          null
         ]
       ]
     }
   },
-  "item_assets": {
-    "cloud-mask-raster": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "Cloud/Cloud Shadow Coverage Raster",
-      "description": "thematic raster, 0 -> no data, 1 -> clear, 2 -> cloud, 3 -> cloud shadow",
-      "proj:shape": [
-        2176,
-        2176
-      ],
-      "eo:bands": [
-        {
-          "name": "BAND_CM",
-          "description": "Clouds/Cloud Shadows Mask"
-        }
-      ],
-      "raster:bands": [
-        {
-          "classification:classes": [
-            {
-              "value": 0,
-              "name": "nodata",
-              "description": "NoData",
-              "nodata": true
-            },
-            {
-              "value": 1,
-              "name": "clear",
-              "description": "Clear of clouds or shadows"
-            },
-            {
-              "value": 2,
-              "name": "cloud",
-              "description": "Clouds",
-              "color_hint": "B8D0EC"
-            },
-            {
-              "value": 3,
-              "name": "cloud_shadow",
-              "description": "Cloud shadows",
-              "color_hint": "9C9EA0"
-            }
-          ]
-        }
-      ]
+  "summaries": {
+    "datetime": {
+      "minimum": "2015-06-23T00:00:00Z",
+      "maximum": "2019-07-10T13:44:56Z"
     },
-    "visual": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "Visual (RGB) Image",
-      "proj:shape": [
-        17408,
-        17408
-      ],
-      "eo:bands": [
-        {
-          "name": "BAND_R",
-          "common_name": "red",
-          "description": "Red"
-        },
-        {
-          "name": "BAND_G",
-          "common_name": "green",
-          "description": "Green"
-        },
-        {
-          "name": "BAND_B",
-          "common_name": "blue",
-          "description": "Blue"
-        }
-      ]
-    }
+    "platform": [
+      "sentinel-2a",
+      "sentinel-2b"
+    ],
+    "constellation": [
+      "sentinel-2"
+    ],
+    "instruments": [
+      "msi"
+    ],
+    "gsd": [
+      10,
+      30,
+      60
+    ],
+    "processing:level": [
+      "L1",
+      "L2"
+    ]
   },
-  "license": "proprietary",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/classification/v2.0.0/schema.json"
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://processing-corp.com/catalog/COPERNICUS_S2.json"
+    },
+    {
+      "rel": "parent",
+      "href": "https://processing-corp.com/catalog/catalog.json"
+    },
+    {
+      "rel": "root",
+      "href": "https://processing-corp.com/catalog/catalog.json"
+    },
+    {
+      "rel": "license",
+      "href": "https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf",
+      "title": "Legal notice on the use of Copernicus Sentinel Data and Service Information"
+    }
   ]
 }
+
 ```
 
 #### jsonld
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/context.jsonld",
-  "type": "Collection",
-  "id": "103001005D31F500",
   "stac_version": "1.0.0",
-  "description": "103001005D31F500 ARD Tiles",
-  "links": [
+  "stac_extensions": [
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+  ],
+  "type": "Collection",
+  "id": "Sentinel2-L2A",
+  "title": "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A",
+  "description": "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission.",
+  "license": "proprietary",
+  "providers": [
     {
-      "rel": "root",
-      "href": "../order_collections/5867496013686833273_root_collection.json",
-      "type": "application/json"
+      "name": "European Union/ESA/Copernicus",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi",
+      "processing:lineage": "Generation of Level-1C User Product",
+      "processing:level": "L1",
+      "processing:facility": "Copernicus S2 Processing and Archiving Facility",
+      "processing:version": "02.06"
     },
     {
-      "rel": "parent",
-      "href": "../order_collections/5867496013686833273_root_collection.json",
-      "type": "application/json"
+      "name": "Processing Corp.",
+      "roles": [
+        "processor"
+      ],
+      "processing:lineage": "Generation of Level-2A User Product",
+      "processing:level": "L2A",
+      "processing:software": {
+        "Sentinel-2 Toolbox": "8.0.0"
+      }
     },
     {
-      "rel": "item",
-      "href": "../10/120020223032/2016-10-08/103001005D31F500.json",
-      "type": "application/json"
+      "name": "Storage Provider, Inc.",
+      "roles": [
+        "host"
+      ]
     }
   ],
   "extent": {
     "spatial": {
       "bbox": [
         [
-          -122.43409303549794,
-          37.76425505192271,
-          -122.37337588954041,
-          37.812440528660765
+          -180,
+          -56,
+          180,
+          83
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2016-10-08 19:25:32Z",
-          "2016-10-08 19:25:32Z"
+          "2015-06-23T00:00:00Z",
+          null
         ]
       ]
     }
   },
-  "item_assets": {
-    "cloud-mask-raster": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "Cloud/Cloud Shadow Coverage Raster",
-      "description": "thematic raster, 0 -> no data, 1 -> clear, 2 -> cloud, 3 -> cloud shadow",
-      "proj:shape": [
-        2176,
-        2176
-      ],
-      "eo:bands": [
-        {
-          "name": "BAND_CM",
-          "description": "Clouds/Cloud Shadows Mask"
-        }
-      ],
-      "raster:bands": [
-        {
-          "classification:classes": [
-            {
-              "value": 0,
-              "name": "nodata",
-              "description": "NoData",
-              "nodata": true
-            },
-            {
-              "value": 1,
-              "name": "clear",
-              "description": "Clear of clouds or shadows"
-            },
-            {
-              "value": 2,
-              "name": "cloud",
-              "description": "Clouds",
-              "color_hint": "B8D0EC"
-            },
-            {
-              "value": 3,
-              "name": "cloud_shadow",
-              "description": "Cloud shadows",
-              "color_hint": "9C9EA0"
-            }
-          ]
-        }
-      ]
+  "summaries": {
+    "datetime": {
+      "minimum": "2015-06-23T00:00:00Z",
+      "maximum": "2019-07-10T13:44:56Z"
     },
-    "visual": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "Visual (RGB) Image",
-      "proj:shape": [
-        17408,
-        17408
-      ],
-      "eo:bands": [
-        {
-          "name": "BAND_R",
-          "common_name": "red",
-          "description": "Red"
-        },
-        {
-          "name": "BAND_G",
-          "common_name": "green",
-          "description": "Green"
-        },
-        {
-          "name": "BAND_B",
-          "common_name": "blue",
-          "description": "Blue"
-        }
-      ]
-    }
+    "platform": [
+      "sentinel-2a",
+      "sentinel-2b"
+    ],
+    "constellation": [
+      "sentinel-2"
+    ],
+    "instruments": [
+      "msi"
+    ],
+    "gsd": [
+      10,
+      30,
+      60
+    ],
+    "processing:level": [
+      "L1",
+      "L2"
+    ]
   },
-  "license": "proprietary",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/classification/v2.0.0/schema.json"
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://processing-corp.com/catalog/COPERNICUS_S2.json"
+    },
+    {
+      "rel": "parent",
+      "href": "https://processing-corp.com/catalog/catalog.json"
+    },
+    {
+      "rel": "root",
+      "href": "https://processing-corp.com/catalog/catalog.json"
+    },
+    {
+      "rel": "license",
+      "href": "https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf",
+      "title": "Legal notice on the use of Copernicus Sentinel Data and Service Information"
+    }
   ]
 }
 ```
 
 #### ttl
 ```ttl
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://example.com/stac/classification/example-1/103001005D31F500> a <https://example.com/stac/classification/example-1/Collection> ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ] .
+<https://example.com/stac/processing/example-1/Sentinel2-L2A> a <https://example.com/stac/processing/example-1/Collection> ;
+    rdfs:label "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] .
 
 
 ```
@@ -289,378 +260,166 @@ STAC Processing Extension for STAC Items and STAC Collections.
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://crim-ca.github.io/mlm-extension/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/file/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-    "https://stac-extensions.github.io/classification/v2.0.0/schema.json"
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
   ],
+  "id": "S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF",
+  "properties": {
+    "datetime": "2016-08-22T18:28:23.368922Z",
+    "start_datetime": "2016-08-22T18:28:23.368922Z",
+    "end_datetime": "2016-08-22T18:28:48.368201Z",
+    "created": "2016-08-23T00:38:22Z",
+    "platform": "sentinel-1a",
+    "constellation": "sentinel-1",
+    "mission": "sentinel-1",
+    "instruments": [
+      "c-sar"
+    ],
+    "sat:absolute_orbit": 12717,
+    "sat:orbit_state": "ascending",
+    "sat:relative_orbit": 45,
+    "sat:anx_datetime": "2016-08-22T18:24:52.513706Z",
+    "sar:instrument_mode": "IW",
+    "sar:frequency_band": "C",
+    "sar:polarizations": [
+      "VV",
+      "VH"
+    ],
+    "sar:product_type": "GRD",
+    "processing:lineage": "GRD Post Processing",
+    "processing:level": "L1",
+    "processing:facility": "Copernicus S1 Core Ground Segment - DPA",
+    "processing:software": {
+      "Sentinel-1 IPF": "002.71"
+    },
+    "processing:datetime": "2016-08-23T00:30:33Z"
+  },
+  "links": [
+    {
+      "title": "GRD Post Processing (90AF)",
+      "rel": "processing-execution",
+      "href": "https://api.example.com/processing/s1-grd-l1c/jobs/90AF",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "manifest": {
+      "type": "text/xml",
+      "roles": [
+        "metadata"
+      ],
+      "title": "SAFE Manifest",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe",
+      "created": "2016-08-23T00:30:33Z"
+    },
+    "quick-look": {
+      "type": "image/png",
+      "roles": [
+        "overview"
+      ],
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png"
+    },
+    "annotation-vv-iw": {
+      "type": "text/xml",
+      "roles": [
+        "metadata"
+      ],
+      "title": "Annotation VV IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml",
+      "sar:polarizations": [
+        "VV"
+      ]
+    },
+    "amplitude-vv-iw": {
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data"
+      ],
+      "title": "IW VV Amplitude pixel values",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff",
+      "sar:polarizations": [
+        "VV"
+      ]
+    },
+    "annotation-vh-iw": {
+      "type": "text/xml",
+      "roles": [
+        "metadata"
+      ],
+      "title": "Annotation VH IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml",
+      "sar:polarizations": [
+        "VH"
+      ]
+    },
+    "amplitude-vh-iw": {
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data"
+      ],
+      "title": "IW VH Amplitude pixel values",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff",
+      "sar:polarizations": [
+        "VH"
+      ]
+    },
+    "calibration-vv-iw": {
+      "type": "text/xml",
+      "roles": [
+        "data"
+      ],
+      "title": "Calibration VV IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml",
+      "sar:polarizations": [
+        "VV"
+      ]
+    },
+    "calibration-vh-iw": {
+      "type": "text/xml",
+      "roles": [
+        "data"
+      ],
+      "title": "Calibration VH IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml",
+      "sar:polarizations": [
+        "VH"
+      ]
+    }
+  },
   "type": "Feature",
-  "id": "resnet-18_sentinel-2_all_moco_classification",
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          -7.882190080512502,
-          37.13739173208318
+          -5.730959,
+          14.953436
         ],
         [
-          -7.882190080512502,
-          58.21798141355221
+          -3.431006,
+          15.388663
         ],
         [
-          27.911651652899923,
-          58.21798141355221
+          -3.136116,
+          13.880572
         ],
         [
-          27.911651652899923,
-          37.13739173208318
+          -5.419919,
+          13.441674
         ],
         [
-          -7.882190080512502,
-          37.13739173208318
+          -5.730959,
+          14.953436
         ]
       ]
     ]
   },
   "bbox": [
-    -7.882190080512502,
-    37.13739173208318,
-    27.911651652899923,
-    58.21798141355221
-  ],
-  "properties": {
-    "description": "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO",
-    "datetime": null,
-    "start_datetime": "1900-01-01T00:00:00Z",
-    "end_datetime": "9999-12-31T23:59:59Z",
-    "mlm:name": "Resnet-18 Sentinel-2 ALL MOCO",
-    "mlm:tasks": [
-      "classification"
-    ],
-    "mlm:architecture": "ResNet",
-    "mlm:framework": "pytorch",
-    "mlm:framework_version": "2.1.2+cu121",
-    "file:size": 43000000,
-    "mlm:memory_size": 1,
-    "mlm:total_parameters": 11700000,
-    "mlm:pretrained_source": "EuroSat Sentinel-2",
-    "mlm:accelerator": "cuda",
-    "mlm:accelerator_constrained": false,
-    "mlm:accelerator_summary": "Unknown",
-    "mlm:batch_size_suggestion": 256,
-    "mlm:input": [
-      {
-        "name": "13 Band Sentinel-2 Batch",
-        "bands": [
-          "B01",
-          "B02",
-          "B03",
-          "B04",
-          "B05",
-          "B06",
-          "B07",
-          "B08",
-          "B8A",
-          "B09",
-          "B10",
-          "B11",
-          "B12"
-        ],
-        "input": {
-          "shape": [
-            -1,
-            13,
-            64,
-            64
-          ],
-          "dim_order": [
-            "batch",
-            "channel",
-            "height",
-            "width"
-          ],
-          "data_type": "float32"
-        },
-        "norm_type": null,
-        "resize_type": null,
-        "pre_processing_function": {
-          "format": "python",
-          "expression": "torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn"
-        }
-      }
-    ],
-    "mlm:output": [
-      {
-        "name": "classification",
-        "tasks": [
-          "classification"
-        ],
-        "result": {
-          "shape": [
-            -1,
-            10
-          ],
-          "dim_order": [
-            "batch",
-            "class"
-          ],
-          "data_type": "float32"
-        },
-        "classification:classes": [
-          {
-            "value": 0,
-            "name": "AnnualCrop",
-            "color_hint": "FFFF00",
-            "nodata": false,
-            "title": "Annual Crop",
-            "description": "Represents areas of annual crops with a bright yellow color."
-          },
-          {
-            "value": 1,
-            "name": "Forest",
-            "color_hint": "008000",
-            "nodata": false,
-            "title": "Forest",
-            "description": "Depicts forested areas with a deep green color."
-          },
-          {
-            "value": 2,
-            "name": "HerbaceousVegetation",
-            "color_hint": "ADFF2F",
-            "nodata": false,
-            "title": "Herbaceous Vegetation",
-            "description": "Indicates areas of herbaceous vegetation with a green-yellow hue."
-          },
-          {
-            "value": 3,
-            "name": "Highway",
-            "color_hint": "808080",
-            "nodata": false,
-            "title": "Gray",
-            "description": "Denotes highways and roads with a neutral gray color."
-          },
-          {
-            "value": 4,
-            "name": "Industrial",
-            "color_hint": "800080",
-            "nodata": false,
-            "title": "Industrial Buildings",
-            "description": "Highlights industrial buildings with a vibrant purple color."
-          },
-          {
-            "value": 5,
-            "name": "Pasture",
-            "color_hint": "7CFC00",
-            "nodata": false,
-            "title": "Pasture",
-            "description": "Illustrates pasture areas with a fresh lawn green color."
-          },
-          {
-            "value": 6,
-            "name": "PermanentCrop",
-            "color_hint": "006400",
-            "nodata": false,
-            "title": "Permanent Crop",
-            "description": "Represents permanent crop areas with a dark green color."
-          },
-          {
-            "value": 7,
-            "name": "Residential",
-            "color_hint": "FF0000",
-            "nodata": false,
-            "title": "Residential Buildings",
-            "description": "Marks residential buildings with a bold red color."
-          },
-          {
-            "value": 8,
-            "name": "River",
-            "color_hint": "00FFFF",
-            "nodata": false,
-            "title": "River",
-            "description": "Depicts rivers and water bodies with a vivid cyan color."
-          },
-          {
-            "value": 9,
-            "name": "SeaLake",
-            "color_hint": "0000FF",
-            "nodata": false,
-            "title": "Sea and Lake",
-            "description": "Indicates seas and lakes with a serene blue color."
-          }
-        ],
-        "post_processing_function": null
-      }
-    ],
-    "raster:bands": [
-      {
-        "name": "B01",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 60,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B02",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B03",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B04",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B05",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B06",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B07",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B08",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B8A",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B09",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 60,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B10",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 60,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B11",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B12",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      }
-    ]
-  },
-  "assets": {
-    "weights": {
-      "href": "https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth",
-      "title": "Pytorch weights checkpoint",
-      "description": "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo",
-      "type": "application/octet-stream; application=pytorch",
-      "roles": [
-        "mlm:model",
-        "mlm:weights"
-      ]
-    },
-    "source_code": {
-      "href": "https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207",
-      "title": "Model implementation.",
-      "description": "Source code to run the model.",
-      "type": "text/x-python",
-      "roles": [
-        "mlm:model",
-        "code",
-        "metadata"
-      ]
-    }
-  },
-  "links": [
-    {
-      "rel": "self",
-      "href": "resnet-18_sentinel-2_all_moco_classification.json",
-      "type": "application/geo+json"
-    },
-    {
-      "rel": "derived_from",
-      "href": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a",
-      "type": "application/json",
-      "ml-aoi:split": "train"
-    }
+    -5.730959,
+    13.441674,
+    -3.136116,
+    15.388663
   ]
 }
 
@@ -672,378 +431,166 @@ STAC Processing Extension for STAC Items and STAC Collections.
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/context.jsonld",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://crim-ca.github.io/mlm-extension/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/file/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-    "https://stac-extensions.github.io/classification/v2.0.0/schema.json"
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
   ],
+  "id": "S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF",
+  "properties": {
+    "datetime": "2016-08-22T18:28:23.368922Z",
+    "start_datetime": "2016-08-22T18:28:23.368922Z",
+    "end_datetime": "2016-08-22T18:28:48.368201Z",
+    "created": "2016-08-23T00:38:22Z",
+    "platform": "sentinel-1a",
+    "constellation": "sentinel-1",
+    "mission": "sentinel-1",
+    "instruments": [
+      "c-sar"
+    ],
+    "sat:absolute_orbit": 12717,
+    "sat:orbit_state": "ascending",
+    "sat:relative_orbit": 45,
+    "sat:anx_datetime": "2016-08-22T18:24:52.513706Z",
+    "sar:instrument_mode": "IW",
+    "sar:frequency_band": "C",
+    "sar:polarizations": [
+      "VV",
+      "VH"
+    ],
+    "sar:product_type": "GRD",
+    "processing:lineage": "GRD Post Processing",
+    "processing:level": "L1",
+    "processing:facility": "Copernicus S1 Core Ground Segment - DPA",
+    "processing:software": {
+      "Sentinel-1 IPF": "002.71"
+    },
+    "processing:datetime": "2016-08-23T00:30:33Z"
+  },
+  "links": [
+    {
+      "title": "GRD Post Processing (90AF)",
+      "rel": "processing-execution",
+      "href": "https://api.example.com/processing/s1-grd-l1c/jobs/90AF",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "manifest": {
+      "type": "text/xml",
+      "roles": [
+        "metadata"
+      ],
+      "title": "SAFE Manifest",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe",
+      "created": "2016-08-23T00:30:33Z"
+    },
+    "quick-look": {
+      "type": "image/png",
+      "roles": [
+        "overview"
+      ],
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png"
+    },
+    "annotation-vv-iw": {
+      "type": "text/xml",
+      "roles": [
+        "metadata"
+      ],
+      "title": "Annotation VV IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml",
+      "sar:polarizations": [
+        "VV"
+      ]
+    },
+    "amplitude-vv-iw": {
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data"
+      ],
+      "title": "IW VV Amplitude pixel values",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff",
+      "sar:polarizations": [
+        "VV"
+      ]
+    },
+    "annotation-vh-iw": {
+      "type": "text/xml",
+      "roles": [
+        "metadata"
+      ],
+      "title": "Annotation VH IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml",
+      "sar:polarizations": [
+        "VH"
+      ]
+    },
+    "amplitude-vh-iw": {
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data"
+      ],
+      "title": "IW VH Amplitude pixel values",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff",
+      "sar:polarizations": [
+        "VH"
+      ]
+    },
+    "calibration-vv-iw": {
+      "type": "text/xml",
+      "roles": [
+        "data"
+      ],
+      "title": "Calibration VV IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml",
+      "sar:polarizations": [
+        "VV"
+      ]
+    },
+    "calibration-vh-iw": {
+      "type": "text/xml",
+      "roles": [
+        "data"
+      ],
+      "title": "Calibration VH IW",
+      "href": "data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml",
+      "sar:polarizations": [
+        "VH"
+      ]
+    }
+  },
   "type": "Feature",
-  "id": "resnet-18_sentinel-2_all_moco_classification",
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          -7.882190080512502,
-          37.13739173208318
+          -5.730959,
+          14.953436
         ],
         [
-          -7.882190080512502,
-          58.21798141355221
+          -3.431006,
+          15.388663
         ],
         [
-          27.911651652899923,
-          58.21798141355221
+          -3.136116,
+          13.880572
         ],
         [
-          27.911651652899923,
-          37.13739173208318
+          -5.419919,
+          13.441674
         ],
         [
-          -7.882190080512502,
-          37.13739173208318
+          -5.730959,
+          14.953436
         ]
       ]
     ]
   },
   "bbox": [
-    -7.882190080512502,
-    37.13739173208318,
-    27.911651652899923,
-    58.21798141355221
-  ],
-  "properties": {
-    "description": "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO",
-    "datetime": null,
-    "start_datetime": "1900-01-01T00:00:00Z",
-    "end_datetime": "9999-12-31T23:59:59Z",
-    "mlm:name": "Resnet-18 Sentinel-2 ALL MOCO",
-    "mlm:tasks": [
-      "classification"
-    ],
-    "mlm:architecture": "ResNet",
-    "mlm:framework": "pytorch",
-    "mlm:framework_version": "2.1.2+cu121",
-    "file:size": 43000000,
-    "mlm:memory_size": 1,
-    "mlm:total_parameters": 11700000,
-    "mlm:pretrained_source": "EuroSat Sentinel-2",
-    "mlm:accelerator": "cuda",
-    "mlm:accelerator_constrained": false,
-    "mlm:accelerator_summary": "Unknown",
-    "mlm:batch_size_suggestion": 256,
-    "mlm:input": [
-      {
-        "name": "13 Band Sentinel-2 Batch",
-        "bands": [
-          "B01",
-          "B02",
-          "B03",
-          "B04",
-          "B05",
-          "B06",
-          "B07",
-          "B08",
-          "B8A",
-          "B09",
-          "B10",
-          "B11",
-          "B12"
-        ],
-        "input": {
-          "shape": [
-            -1,
-            13,
-            64,
-            64
-          ],
-          "dim_order": [
-            "batch",
-            "channel",
-            "height",
-            "width"
-          ],
-          "data_type": "float32"
-        },
-        "norm_type": null,
-        "resize_type": null,
-        "pre_processing_function": {
-          "format": "python",
-          "expression": "torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn"
-        }
-      }
-    ],
-    "mlm:output": [
-      {
-        "name": "classification",
-        "tasks": [
-          "classification"
-        ],
-        "result": {
-          "shape": [
-            -1,
-            10
-          ],
-          "dim_order": [
-            "batch",
-            "class"
-          ],
-          "data_type": "float32"
-        },
-        "classification:classes": [
-          {
-            "value": 0,
-            "name": "AnnualCrop",
-            "color_hint": "FFFF00",
-            "nodata": false,
-            "title": "Annual Crop",
-            "description": "Represents areas of annual crops with a bright yellow color."
-          },
-          {
-            "value": 1,
-            "name": "Forest",
-            "color_hint": "008000",
-            "nodata": false,
-            "title": "Forest",
-            "description": "Depicts forested areas with a deep green color."
-          },
-          {
-            "value": 2,
-            "name": "HerbaceousVegetation",
-            "color_hint": "ADFF2F",
-            "nodata": false,
-            "title": "Herbaceous Vegetation",
-            "description": "Indicates areas of herbaceous vegetation with a green-yellow hue."
-          },
-          {
-            "value": 3,
-            "name": "Highway",
-            "color_hint": "808080",
-            "nodata": false,
-            "title": "Gray",
-            "description": "Denotes highways and roads with a neutral gray color."
-          },
-          {
-            "value": 4,
-            "name": "Industrial",
-            "color_hint": "800080",
-            "nodata": false,
-            "title": "Industrial Buildings",
-            "description": "Highlights industrial buildings with a vibrant purple color."
-          },
-          {
-            "value": 5,
-            "name": "Pasture",
-            "color_hint": "7CFC00",
-            "nodata": false,
-            "title": "Pasture",
-            "description": "Illustrates pasture areas with a fresh lawn green color."
-          },
-          {
-            "value": 6,
-            "name": "PermanentCrop",
-            "color_hint": "006400",
-            "nodata": false,
-            "title": "Permanent Crop",
-            "description": "Represents permanent crop areas with a dark green color."
-          },
-          {
-            "value": 7,
-            "name": "Residential",
-            "color_hint": "FF0000",
-            "nodata": false,
-            "title": "Residential Buildings",
-            "description": "Marks residential buildings with a bold red color."
-          },
-          {
-            "value": 8,
-            "name": "River",
-            "color_hint": "00FFFF",
-            "nodata": false,
-            "title": "River",
-            "description": "Depicts rivers and water bodies with a vivid cyan color."
-          },
-          {
-            "value": 9,
-            "name": "SeaLake",
-            "color_hint": "0000FF",
-            "nodata": false,
-            "title": "Sea and Lake",
-            "description": "Indicates seas and lakes with a serene blue color."
-          }
-        ],
-        "post_processing_function": null
-      }
-    ],
-    "raster:bands": [
-      {
-        "name": "B01",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 60,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B02",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B03",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B04",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B05",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B06",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B07",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B08",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 10,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B8A",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B09",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 60,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B10",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 60,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B11",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      },
-      {
-        "name": "B12",
-        "nodata": 0,
-        "data_type": "uint16",
-        "bits_per_sample": 15,
-        "spatial_resolution": 20,
-        "scale": 0.0001,
-        "offset": 0,
-        "unit": "m"
-      }
-    ]
-  },
-  "assets": {
-    "weights": {
-      "href": "https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth",
-      "title": "Pytorch weights checkpoint",
-      "description": "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo",
-      "type": "application/octet-stream; application=pytorch",
-      "roles": [
-        "mlm:model",
-        "mlm:weights"
-      ]
-    },
-    "source_code": {
-      "href": "https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207",
-      "title": "Model implementation.",
-      "description": "Source code to run the model.",
-      "type": "text/x-python",
-      "roles": [
-        "mlm:model",
-        "code",
-        "metadata"
-      ]
-    }
-  },
-  "links": [
-    {
-      "rel": "self",
-      "href": "resnet-18_sentinel-2_all_moco_classification.json",
-      "type": "application/geo+json"
-    },
-    {
-      "rel": "derived_from",
-      "href": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a",
-      "type": "application/json",
-      "ml-aoi:split": "train"
-    }
+    -5.730959,
+    13.441674,
+    -3.136116,
+    15.388663
   ]
 }
 ```
@@ -1052,166 +599,83 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <classification:> .
-@prefix ns2: <file:> .
-@prefix ns3: <mlm:> .
+@prefix ns1: <sar:> .
+@prefix ns2: <processing:> .
+@prefix ns3: <sat:> .
 @prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns2:size 43000000 ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns5:split "train" ],
-        [ dcterms:type "application/geo+json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ] ;
-    geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
+<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF> a geojson:Feature ;
+    dcterms:created "2016-08-23T00:38:22Z" ;
+    rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
+            dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
+    geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/classification/example-1/source_code>,
-        <https://example.com/stac/classification/example-1/weights> ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B08" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B01" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B04" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B06" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B10" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B05" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B03" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B02" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B09" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B8A" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B07" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B11" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B12" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ] ;
-    ns3:accelerator "cuda" ;
-    ns3:accelerator_constrained false ;
-    ns3:accelerator_summary "Unknown" ;
-    ns3:architecture "ResNet" ;
-    ns3:batch_size_suggestion 256 ;
-    ns3:framework "pytorch" ;
-    ns3:framework_version "2.1.2+cu121" ;
-    ns3:input [ ] ;
-    ns3:memory_size 1 ;
-    ns3:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns3:output [ ns1:classes [ rdfs:label "Forest" ],
-                [ rdfs:label "Residential Buildings" ],
-                [ rdfs:label "Industrial Buildings" ],
-                [ rdfs:label "Permanent Crop" ],
-                [ rdfs:label "Pasture" ],
-                [ rdfs:label "Sea and Lake" ],
-                [ rdfs:label "Herbaceous Vegetation" ],
-                [ rdfs:label "River" ],
-                [ rdfs:label "Gray" ],
-                [ rdfs:label "Annual Crop" ] ] ;
-    ns3:pretrained_source "EuroSat Sentinel-2" ;
-    ns3:tasks "classification" ;
-    ns3:total_parameters 11700000 .
+            geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
+    stac:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
+        <https://example.com/stac/processing/example-2/amplitude-vv-iw>,
+        <https://example.com/stac/processing/example-2/annotation-vh-iw>,
+        <https://example.com/stac/processing/example-2/annotation-vv-iw>,
+        <https://example.com/stac/processing/example-2/calibration-vh-iw>,
+        <https://example.com/stac/processing/example-2/calibration-vv-iw>,
+        <https://example.com/stac/processing/example-2/manifest>,
+        <https://example.com/stac/processing/example-2/quick-look> ;
+    ns2:datetime "2016-08-23T00:30:33Z" ;
+    ns2:facility "Copernicus S1 Core Ground Segment - DPA" ;
+    ns2:level "L1" ;
+    ns2:lineage "GRD Post Processing" ;
+    ns2:software [ ] ;
+    ns1:frequency_band "C" ;
+    ns1:instrument_mode "IW" ;
+    ns1:polarizations "VH",
+        "VV" ;
+    ns1:product_type "GRD" ;
+    ns3:absolute_orbit 12717 ;
+    ns3:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns3:orbit_state "ascending" ;
+    ns3:relative_orbit 45 .
 
-<https://example.com/stac/classification/example-1/source_code> a <https://example.com/stac/classification/example-1/text/x-python> ;
-    rdfs:label "Model implementation." ;
-    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> .
+<https://example.com/stac/processing/example-2/amplitude-vh-iw> rdfs:label "IW VH Amplitude pixel values" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
+    ns1:polarizations "VH" .
 
-<https://example.com/stac/classification/example-1/weights> rdfs:label "Pytorch weights checkpoint" ;
-    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> .
+<https://example.com/stac/processing/example-2/amplitude-vv-iw> rdfs:label "IW VV Amplitude pixel values" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
+    ns1:polarizations "VV" .
+
+<https://example.com/stac/processing/example-2/annotation-vh-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
+    rdfs:label "Annotation VH IW" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
+    ns1:polarizations "VH" .
+
+<https://example.com/stac/processing/example-2/annotation-vv-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
+    rdfs:label "Annotation VV IW" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
+    ns1:polarizations "VV" .
+
+<https://example.com/stac/processing/example-2/calibration-vh-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
+    rdfs:label "Calibration VH IW" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
+    ns1:polarizations "VH" .
+
+<https://example.com/stac/processing/example-2/calibration-vv-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
+    rdfs:label "Calibration VV IW" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
+    ns1:polarizations "VV" .
+
+<https://example.com/stac/processing/example-2/manifest> a <https://example.com/stac/processing/example-2/text/xml> ;
+    rdfs:label "SAFE Manifest" ;
+    dcterms:created "2016-08-23T00:30:33Z" ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> .
+
+<https://example.com/stac/processing/example-2/quick-look> a <https://example.com/stac/processing/example-2/image/png> ;
+    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> .
 
 
 ```
@@ -1220,8 +684,9 @@ STAC Processing Extension for STAC Items and STAC Collections.
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: MLM extension
-description: STAC MLM for STAC Items and STAC Collections.
+title: Processing extension
+description: Indicates from which processing chain data originates and how the data
+  itself has been produced.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
