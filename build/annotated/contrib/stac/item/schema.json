@@ -13,12 +13,41 @@
     }
   ],
   "x-jsonld-extra-terms": {
+    "id": "http://stacspec.org/ontology/core#id",
+    "description": "http://stacspec.org/ontology/core#description",
+    "license": "http://stacspec.org/ontology/core#license",
+    "extent": "http://stacspec.org/ontology/core#extent",
+    "datetime": {
+      "x-jsonld-id": "http://stacspec.org/ontology/core#datetime",
+      "x-jsonld-type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "x-jsonld-id": "http://stacspec.org/ontology/core#start_datetime",
+      "x-jsonld-type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "x-jsonld-id": "http://stacspec.org/ontology/core#end_datetime",
+      "x-jsonld-type": "xsd:dateTime"
+    },
     "assets": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/core/assets",
-      "x-jsonld-container": "@id"
-    }
+      "x-jsonld-id": "http://stacspec.org/ontology/core#hasAsset",
+      "x-jsonld-container": "@set"
+    },
+    "media_type": "http://stacspec.org/ontology/core#mediaType",
+    "links": {
+      "x-jsonld-id": "http://stacspec.org/ontology/core#links",
+      "x-jsonld-container": "@set"
+    },
+    "href": {
+      "x-jsonld-id": "http://stacspec.org/ontology/core#href",
+      "x-jsonld-type": "@id"
+    },
+    "rel": "http://stacspec.org/ontology/core#rel"
   },
   "x-jsonld-prefixes": {
-    "stac": "https://w3id.org/ogc/stac/core/"
+    "stac": "http://stacspec.org/ontology/core#",
+    "dct": "http://purl.org/dc/terms/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "prov": "http://www.w3.org/ns/prov#"
   }
 }

@@ -2,9 +2,13 @@
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
 
 <https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;
     rdfs:label "Simple EO Collection" ;
+    stac:description "A simple Collection demonstrating EO extension fields in a Collection." ;
+    stac:extent [ ] ;
+    stac:license "CC-BY-4.0" ;
     rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;

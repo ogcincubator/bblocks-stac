@@ -302,35 +302,40 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <mlm:> .
+@prefix ns3: <https://w3id.org/ogc/stac/core/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
+    stac:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
+    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/mlm/example-1/model> ;
-    ns1:architecture "ResNet" ;
-    ns1:input [ ] ;
-    ns1:name "example-model" ;
-    ns1:output [ ] ;
-    ns1:tasks "classification" .
+    ns3:assets <https://example.com/stac/mlm/example-1/model> ;
+    ns2:architecture "ResNet" ;
+    ns2:input [ ] ;
+    ns2:name "example-model" ;
+    ns2:output [ ] ;
+    ns2:tasks "classification" .
 
 <https://example.com/stac/mlm/example-1/model> a <https://example.com/stac/mlm/example-1/text/html> ;
     rdfs:label "Pytorch weights checkpoint" ;
+    stac:description "Example model." ;
     oa:hasTarget <https://huggingface.co/example/model-card> ;
-    ns1:artifact_type "torch.save" .
+    ns2:artifact_type "torch.save" .
 
 
 ```
@@ -631,23 +636,27 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <mlm:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <https://w3id.org/ogc/stac/core/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
+    stac:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
+    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
             ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/mlm/example-1/model> ;
+    ns3:assets <https://example.com/stac/mlm/example-1/model> ;
     ns1:architecture "ResNet" ;
     ns1:input [ ] ;
     ns1:name "example-model" ;
@@ -656,6 +665,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-1/model> a <https://example.com/stac/mlm/example-1/text/html> ;
     rdfs:label "Pytorch weights checkpoint" ;
+    stac:description "Example model." ;
     oa:hasTarget <https://huggingface.co/example/model-card> ;
     ns1:artifact_type "torch.save" .
 
@@ -750,10 +760,26 @@ Links to the schema:
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
+    "description": "stac:description",
+    "license": "stac:license",
+    "extent": "stac:extent",
+    "datetime": {
+      "@id": "stac:datetime",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "assets": {
-      "@id": "stac:assets",
+      "@id": "https://w3id.org/ogc/stac/core/assets",
       "@container": "@id"
     },
+    "media_type": "stac:mediaType",
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {
@@ -769,7 +795,9 @@ Links to the schema:
     "dct": "http://purl.org/dc/terms/",
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
+    "stac": "http://stacspec.org/ontology/core#",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

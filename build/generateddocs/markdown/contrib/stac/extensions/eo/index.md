@@ -358,9 +358,13 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
 
 <https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;
     rdfs:label "Simple EO Collection" ;
+    stac:description "A simple Collection demonstrating EO extension fields in a Collection." ;
+    stac:extent [ ] ;
+    stac:license "CC-BY-4.0" ;
     rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
@@ -691,32 +695,34 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix eo: <https://w3id.org/ogc/stac/eo/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <https://w3id.org/ogc/stac/core/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/eo/example-2/20201211_223832_CS2> a geojson:Feature ;
     dcterms:created "2020-12-12T01:48:13.725Z" ;
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
+    stac:datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:assets <https://example.com/stac/eo/example-2/analytic>,
+    ns1:assets <https://example.com/stac/eo/example-2/analytic>,
         <https://example.com/stac/eo/example-2/thumbnail>,
         <https://example.com/stac/eo/example-2/visual> ;
     eo:cloud_cover 1.2e+00 ;
@@ -821,10 +827,26 @@ Links to the schema:
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
+    "description": "stac:description",
+    "license": "stac:license",
+    "extent": "stac:extent",
+    "datetime": {
+      "@id": "stac:datetime",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "assets": {
-      "@id": "stac:assets",
+      "@id": "https://w3id.org/ogc/stac/core/assets",
       "@container": "@id"
     },
+    "media_type": "stac:mediaType",
     "eo:bands": {
       "@id": "eo:bands",
       "@context": {
@@ -836,7 +858,9 @@ Links to the schema:
     "dct": "http://purl.org/dc/terms/",
     "eo": "https://w3id.org/ogc/stac/eo/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
+    "stac": "http://stacspec.org/ontology/core#",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

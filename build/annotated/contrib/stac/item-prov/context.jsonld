@@ -565,10 +565,26 @@
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
+    "description": "stac:description",
+    "license": "stac:license",
+    "extent": "stac:extent",
+    "datetime": {
+      "@id": "stac:datetime",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "assets": {
-      "@id": "stac:assets",
+      "@id": "https://w3id.org/ogc/stac/core/assets",
       "@container": "@id"
     },
+    "media_type": "stac:mediaType",
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -720,7 +736,8 @@
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
+    "stac": "http://stacspec.org/ontology/core#",
+    "geo": "http://www.opengis.net/ont/geosparql#",
     "@version": 1.1
   }
 }
