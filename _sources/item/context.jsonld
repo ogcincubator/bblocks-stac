@@ -1,9 +1,39 @@
+
 {
   "@context": {
-    "stac": "https://w3id.org/ogc/stac/core/",
+    "stac": "http://stacspec.org/ontology/core#",
+    "dct": "http://purl.org/dc/terms/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "id": "stac:id",
+    "description": "stac:description",
+    "license": "stac:license",
+    "extent": "stac:extent",
+    "datetime": {
+      "@id": "stac:datetime",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "assets": {
-      "@id": "stac:assets",
-      "@container": "@id"
-    }
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "media_type": "stac:mediaType",
+    "links": {
+      "@id": "stac:links",
+      "@container": "@set"
+    },
+    "href": {
+      "@id": "stac:href",
+      "@type": "@id"
+    },
+    "rel": "stac:rel"
   }
 }
