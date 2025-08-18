@@ -1,25 +1,19 @@
 # STAC Building Blocks 
 
-This expresses the implementation of the STAC specification in the form of [Building Blocks](https://ogcincubator.github.io/bblocks-docs/). 
+This expresses the implementation of the STAC specification and selected extensions as [Building Blocks](https://ogcincubator.github.io/bblocks-docs/). 
 
-The generated documentation of each Building Block can be accessed [here](https://ogcincubator.github.io/bblocks-stac/).
-
-STAC extends [OGC API features](https://ogcincubator.github.io/bblocks-ogcapi-features)
-
-These building blocks provide additional annotation and testing of:
-
-1. examples
-2. Mappings to related semantic models (JSON-LD contexts)
-3. Alignments (tested using transformations to related standards)
-4. Profile options (formalised machine readable hierarchies)
-5. Linked Data view of available resources
 
 _Building Blocks do not change the underlying specification but provide an extra layer of coherence to support the FAIR principles for interoperability specifications._
 
-[GeoDCAT](https://ogcincubator.github.io/geodcat-ogcapi-features/) uses STAC to  inform requirements and implements a binding of various STAC profiles to relevant descriptive ontologies as well as the GeoDCAT model.
+This has the following advantages:
 
-# Design 
+1. Allows declaration of dependencies between STAC extensions
+2. Provides a register of STAC extensions in a form that can be integrated into the wider OGC knowledge base
+3. Allows for additional testing of correctness of examples and compatibility of extensions
+4. Provides a framework for defining profiles of STAC extensions, either through choice of options or through integration with other STAC extensions.
 
-[More information on design and usage](https://ogcincubator.github.io/bblocks-docs/)
+The generated documentation of each Building Block can be accessed [here](https://ogcincubator.github.io/bblocks-stac/).
+
+NB It is a design constraint on [OGC API Records](https://ogcincubator.github.io/bblocks-ogcapi-records) that it is compatible with STAC extends [OGC API features] and this is 
 
 
