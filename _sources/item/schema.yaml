@@ -1,6 +1,8 @@
 "$schema": https://json-schema.org/draft/2020-12/schema
 description: 'STAC Collection'
+# this schema enforces all compatible expectations are validated. It is not the canonical schema itself.
 allOf:
   - $ref: bblocks://ogc.geo.features.feature
   - $ref: bblocks://ogc.api.records.v1.schemas.recordGeoJSON
+  - $ref: bblocks://ogc.contrib.stac.item-v1-0-0
   - $ref: https://github.com/radiantearth/stac-spec/raw/master/item-spec/json-schema/item.json
