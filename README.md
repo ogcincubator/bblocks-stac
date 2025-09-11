@@ -16,4 +16,8 @@ The generated documentation of each Building Block can be accessed [here](https:
 
 NB It is a design constraint on [OGC API Records](https://ogcincubator.github.io/bblocks-ogcapi-records) that it is compatible with STAC extends [OGC API features] and this is 
 
+## Acknowledgements
 
+The work has been co-funded by the European Union, Switzerland and the United Kingdom under the Horizon Europe:
+* [Iliad project](https://www.ogc.org/initiatives/iliad/) (GA 101037643)
+* [AD4GD project](https://www.ogc.org/initiatives/ad4gd/)(GA 101061001)
