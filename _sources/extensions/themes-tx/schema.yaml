@@ -1,0 +1,10 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+title: "Themes Extension"
+description: "STAC Themes for STAC Items and STAC Collections."
+allOf:
+  - anyOf:
+    - $ref: bblocks://ogc.contrib.stac.collection
+    - $ref: bblocks://ogc.contrib.stac.item
+    - $ref: bblocks://ogc.contrib.stac.collection-v1-0-0
+    - $ref: bblocks://ogc.contrib.stac.item-v1-0-0
+  - $ref: https://stac-extensions.github.io/themes/v1.0.0/schema.json

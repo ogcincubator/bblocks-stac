@@ -1,0 +1,59 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <urn:example:shacl#> .
+
+:themeSchemeIdName
+  a sh:NodeShape ;
+  sh:targetSubjectsOf <https://w3id.org/ogc/stac/themes/schemes> ;
+  sh:rule [
+		a sh:SPARQLRule ;
+		sh:construct """
+			CONSTRUCT {
+				$this <http://www.w3.org/ns/dcat#theme> ?uriConcept .
+			}
+			WHERE {
+				$this <https://w3id.org/ogc/stac/themes/schemes> ?b .
+				?b <https://w3id.org/ogc/stac/themes/concepts> ?concept; <https://w3id.org/ogc/stac/themes/scheme> ?scheme .
+				?concept <https://w3id.org/ogc/stac/themes/id> ?conceptId; <https://w3id.org/ogc/stac/themes/name> ?conceptName .
+				BIND(IRI(CONCAT(?scheme, REPLACE(?conceptId, '.*?::', '/'))) as ?uriConcept)
+			}
+			""" ;
+	] ;
+.
+
+:themeSchemeIRI
+  a sh:NodeShape ;
+  sh:targetSubjectsOf <https://w3id.org/ogc/stac/themes/schemes> ;
+  sh:rule [
+		a sh:SPARQLRule ;
+		sh:construct """
+			CONSTRUCT {
+				$this <http://www.w3.org/ns/dcat#theme> ?uriConcept .
+			}
+			WHERE {
+				$this <https://w3id.org/ogc/stac/themes/schemes> ?b .
+				?b <https://w3id.org/ogc/stac/themes/concepts> ?concept; <https://w3id.org/ogc/stac/themes/scheme> ?scheme .
+				FILTER(ISIRI(?concept) && !REGEX(str(?concept), "^https?://") && CONTAINS(str(?concept), "::"))
+				BIND(IRI(CONCAT(?scheme, REPLACE(STR(?concept), '.*?::', '/'))) as ?uriConcept)
+			}
+			""" ;
+	] ;
+.
+
+:themeConceptIsIRI
+  a sh:NodeShape ;
+  sh:targetSubjectsOf <https://w3id.org/ogc/stac/themes/schemes> ;
+  sh:rule [
+		a sh:SPARQLRule ;
+		sh:construct """
+			CONSTRUCT {
+				$this <http://www.w3.org/ns/dcat#theme> ?concept .
+			}
+			WHERE {
+				$this <https://w3id.org/ogc/stac/themes/schemes> ?b .
+				?b <https://w3id.org/ogc/stac/themes/concepts> ?concept .
+				FILTER(ISIRI(?concept) && REGEX(str(?concept), "^https?://"))
+			}
+			""" ;
+	] ;
+.
