@@ -27,10 +27,10 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.contrib.stac.collection",
-    "ogc.contrib.stac.item",
     "ogc.contrib.stac.item-v1-0-0",
-    "ogc.contrib.stac.collection-v1-0-0"
+    "ogc.contrib.stac.item",
+    "ogc.contrib.stac.collection-v1-0-0",
+    "ogc.contrib.stac.collection"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld",
   "schema": {
@@ -61,7 +61,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <http://stacspec.org/ontology/core#> .\n\n<https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;\n    rdfs:label \"Simple EO Collection\" ;\n    stac:description \"A simple Collection demonstrating EO extension fields in a Collection.\" ;\n    stac:extent [ ] ;\n    stac:license \"CC-BY-4.0\" ;\n    rdfs:seeAlso [ rdfs:label \"20201211_223832_CS2\" ;\n            dcterms:type \"application/geo+json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ],\n        [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] .\n\n",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <http://stacspec.org/ontology/core#> .\n\n<https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;\n    rdfs:label \"Simple EO Collection\" ;\n    stac:description \"A simple Collection demonstrating EO extension fields in a Collection.\" ;\n    stac:extent [ ] ;\n    stac:license \"CC-BY-4.0\" ;\n    rdfs:seeAlso [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ],\n        [ rdfs:label \"20201211_223832_CS2\" ;\n            dcterms:type \"application/geo+json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ] .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/eo/example_1_1.ttl"
         }
       ]
