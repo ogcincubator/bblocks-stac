@@ -233,6 +233,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -244,10 +245,23 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:description "A description" ;
     stac:extent [ ] ;
     stac:license "Apache-2.0" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
+    dcat:theme <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_microtops>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_pion>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
     thns:schemes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
                 <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
                 <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
@@ -498,9 +512,10 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/core/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -510,24 +525,29 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 <https://example.com/stac/themes/example-2/example> a geojson:Feature ;
     stac:datetime "2022-06-16T10:36:31.024000+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
+    dcat:theme <https://en.wikipedia.org/Summer>,
+        <https://en.wikipedia.org/Syncline>,
+        <https://www.geonames.org/11071625>,
+        <https://www.geonames.org/2976077>,
+        <https://www.geonames.org/3017382> ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
-    ns1:assets <https://example.com/stac/themes/example-2/data> ;
-    thns:schemes [ thns:concepts [ thns:id "wiki::Summer" ;
+    ns2:assets <https://example.com/stac/themes/example-2/data> ;
+    thns:schemes [ thns:concepts [ thns:id "geonames::11071625" ;
+                    thns:name "Auvergne-Rhône-Alpes" ],
+                [ thns:id "geonames::2976077" ;
+                    thns:name "Forêt de Saou" ],
+                [ thns:id "geonames::3017382" ;
+                    thns:name "France" ] ;
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Summer" ;
                     thns:name "Summer" ],
                 [ thns:id "wiki::Syncline" ;
                     thns:name "Syncline" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::2976077" ;
-                    thns:name "Forêt de Saou" ],
-                [ thns:id "geonames::3017382" ;
-                    thns:name "France" ],
-                [ thns:id "geonames::11071625" ;
-                    thns:name "Auvergne-Rhône-Alpes" ] ;
-            thns:scheme "https://www.geonames.org" ] .
+            thns:scheme "https://en.wikipedia.org" ] .
 
 <https://example.com/stac/themes/example-2/data> a <https://example.com/stac/themes/example-2/text/plain> ;
     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> .

@@ -459,13 +459,13 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
         [ ],
         [ ] ;
     stac:datetime "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
