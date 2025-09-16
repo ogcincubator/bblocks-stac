@@ -365,14 +365,14 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     stac:description "A simple Collection demonstrating EO extension fields in a Collection." ;
     stac:extent [ ] ;
     stac:license "CC-BY-4.0" ;
-    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ],
-        [ rdfs:label "20201211_223832_CS2" ;
+    rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ] .
+            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] .
 
 
 ```
@@ -709,11 +709,11 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     stac:datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
