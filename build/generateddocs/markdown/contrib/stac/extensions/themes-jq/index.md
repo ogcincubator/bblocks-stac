@@ -1,7 +1,7 @@
 
-# STAC Themes Extension with Transform (Schema)
+# STAC Themes Extension with JQ pre-uplift step (Schema)
 
-`ogc.contrib.stac.extensions.themes-tx` *v0.1*
+`ogc.contrib.stac.extensions.themes-jq` *v0.1*
 
 Themes Extension to the SpatioTemporal Asset Catalog (STAC) specification.
 A knowledge organization system used to classify the resource (controlled vocabularies / keywords)
@@ -124,7 +124,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-tx/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/context.jsonld",
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
@@ -227,12 +227,54 @@ A knowledge organization system used to classify the resource (controlled vocabu
       "href": "https://example.com/examples/item.json",
       "rel": "item"
     }
+  ],
+  "http://www.w3.org/ns/dcat#theme": [
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_pion"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_microtops"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz"
+    },
+    {
+      "@id": "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter"
+    },
+    {
+      "@id": "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition"
+    },
+    {
+      "@id": "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution"
+    },
+    {
+      "@id": "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform"
+    },
+    {
+      "@id": "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding"
+    }
   ]
 }
 ```
 
 #### ttl
 ```ttl
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -248,6 +290,19 @@ A knowledge organization system used to classify the resource (controlled vocabu
             oa:hasTarget <https://example.com/examples/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
+    dcat:theme <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_microtops>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_pion>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
+        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
     thns:schemes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
@@ -398,7 +453,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-tx/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/context.jsonld",
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
@@ -479,6 +534,23 @@ A knowledge organization system used to classify the resource (controlled vocabu
         ],
         "scheme": "https://en.wikipedia.org"
       }
+    ],
+    "http://www.w3.org/ns/dcat#theme": [
+      {
+        "@id": "https://www.geonames.org/2976077"
+      },
+      {
+        "@id": "https://www.geonames.org/11071625"
+      },
+      {
+        "@id": "https://www.geonames.org/3017382"
+      },
+      {
+        "@id": "https://en.wikipedia.org/Summer"
+      },
+      {
+        "@id": "https://en.wikipedia.org/Syncline"
+      }
     ]
   },
   "links": [
@@ -498,9 +570,10 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/core/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -510,12 +583,17 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 <https://example.com/stac/themes/example-2/example> a geojson:Feature ;
     stac:datetime "2022-06-16T10:36:31.024000+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
+    dcat:theme <https://en.wikipedia.org/Summer>,
+        <https://en.wikipedia.org/Syncline>,
+        <https://www.geonames.org/11071625>,
+        <https://www.geonames.org/2976077>,
+        <https://www.geonames.org/3017382> ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
-    ns1:assets <https://example.com/stac/themes/example-2/data> ;
+    ns2:assets <https://example.com/stac/themes/example-2/data> ;
     thns:schemes [ thns:concepts [ thns:id "wiki::Summer" ;
                     thns:name "Summer" ],
                 [ thns:id "wiki::Syncline" ;
@@ -567,8 +645,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-tx/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-tx/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/schema.yaml)
 
 
 # JSON-LD Context
@@ -676,7 +754,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-tx/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/context.jsonld)
 
 ## Sources
 
@@ -687,5 +765,5 @@ You can find the full JSON-LD context here:
 The source code for this Building Block can be found in the following repository:
 
 * URL: [https://github.com/ogcincubator/bblocks-stac](https://github.com/ogcincubator/bblocks-stac)
-* Path: `_sources/extensions/themes-tx`
+* Path: `_sources/extensions/themes-jq`
 

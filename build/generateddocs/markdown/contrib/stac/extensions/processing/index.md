@@ -244,15 +244,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
     stac:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     stac:extent [ ] ;
     stac:license "proprietary" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ] .
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] .
 
 
 ```
@@ -604,8 +604,8 @@ STAC Processing Extension for STAC Items and STAC Collections.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <sar:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <https://w3id.org/ogc/stac/core/> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix ns4: <processing:> .
 @prefix ns5: <sat:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -621,12 +621,12 @@ STAC Processing Extension for STAC Items and STAC Collections.
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            ns3:relation <http://www.iana.org/assignments/relation/processing-execution> ;
             oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
-    ns3:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
+    ns2:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
         <https://example.com/stac/processing/example-2/amplitude-vv-iw>,
         <https://example.com/stac/processing/example-2/annotation-vh-iw>,
         <https://example.com/stac/processing/example-2/annotation-vv-iw>,

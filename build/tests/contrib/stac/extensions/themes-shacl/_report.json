@@ -1,16 +1,16 @@
 {
-  "title": "Validation report for ogc.contrib.stac.extensions.themes-tx - STAC Themes Extension with Transform",
-  "bblockName": "STAC Themes Extension with Transform",
-  "bblockId": "ogc.contrib.stac.extensions.themes-tx",
-  "generated": "2025-09-16T13:38:47.226653+00:00",
+  "title": "Validation report for ogc.contrib.stac.extensions.themes-shacl - STAC Themes Extension with SHACL semantic uplift step",
+  "bblockName": "STAC Themes Extension with SHACL semantic uplift step",
+  "bblockId": "ogc.contrib.stac.extensions.themes-shacl",
+  "generated": "2025-09-16T14:34:47.316613+00:00",
   "result": true,
   "items": [
     {
       "source": {
         "type": "EXAMPLE",
         "requireFail": false,
-        "filename": "build/tests/contrib/stac/extensions/themes-tx/example_1_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/themes-tx/example_1_1.json",
+        "filename": "build/tests/contrib/stac/extensions/themes-shacl/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/themes-shacl/example_1_1.json",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "application/json",
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 41,
+              "size": 54,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -58,6 +58,16 @@
               "message": "Validation passed"
             }
           ]
+        },
+        {
+          "name": "SEMANTIC_UPLIFT",
+          "title": "Semantic Uplift",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Running post-uplift shacl transform step from semantic-uplift.ttl"
+            }
+          ]
         }
       ]
     },
@@ -65,8 +75,8 @@
       "source": {
         "type": "EXAMPLE",
         "requireFail": false,
-        "filename": "build/tests/contrib/stac/extensions/themes-tx/example_2_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/themes-tx/example_2_1.json",
+        "filename": "build/tests/contrib/stac/extensions/themes-shacl/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/themes-shacl/example_2_1.json",
         "exampleIndex": 2,
         "snippetIndex": 1,
         "language": "application/json",
@@ -97,7 +107,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 83,
+              "size": 88,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -112,6 +122,16 @@
               "result": true,
               "isError": false,
               "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SEMANTIC_UPLIFT",
+          "title": "Semantic Uplift",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Running post-uplift shacl transform step from semantic-uplift.ttl"
             }
           ]
         }

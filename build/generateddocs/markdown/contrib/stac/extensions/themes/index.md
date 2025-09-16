@@ -233,7 +233,6 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -249,25 +248,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
             oa:hasTarget <https://example.com/examples/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
-    dcat:theme <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_microtops>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_pion>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-    thns:schemes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
-        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    thns:schemes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -276,7 +257,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
+        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -512,7 +498,6 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix ns2: <https://w3id.org/ogc/stac/core/> .
@@ -527,21 +512,16 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:datetime "2022-06-16T10:36:31.024000+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
-    dcat:theme <https://en.wikipedia.org/Summer>,
-        <https://en.wikipedia.org/Syncline>,
-        <https://www.geonames.org/11071625>,
-        <https://www.geonames.org/2976077>,
-        <https://www.geonames.org/3017382> ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
     ns2:assets <https://example.com/stac/themes/example-2/data> ;
-    thns:schemes [ thns:concepts [ thns:id "geonames::11071625" ;
+    thns:schemes [ thns:concepts [ thns:id "geonames::3017382" ;
+                    thns:name "France" ],
+                [ thns:id "geonames::11071625" ;
                     thns:name "Auvergne-Rhône-Alpes" ],
                 [ thns:id "geonames::2976077" ;
-                    thns:name "Forêt de Saou" ],
-                [ thns:id "geonames::3017382" ;
-                    thns:name "France" ] ;
+                    thns:name "Forêt de Saou" ] ;
             thns:scheme "https://www.geonames.org" ],
         [ thns:concepts [ thns:id "wiki::Summer" ;
                     thns:name "Summer" ],
