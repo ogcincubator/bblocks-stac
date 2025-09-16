@@ -244,14 +244,14 @@ STAC Processing Extension for STAC Items and STAC Collections.
     stac:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     stac:extent [ ] ;
     stac:license "proprietary" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] .
 
 
@@ -603,11 +603,11 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sar:> .
-@prefix ns2: <sat:> .
-@prefix ns3: <https://w3id.org/ogc/stac/core/> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <processing:> .
+@prefix ns1: <sat:> .
+@prefix ns2: <sar:> .
+@prefix ns3: <processing:> .
+@prefix ns4: <https://w3id.org/ogc/stac/core/> .
+@prefix ns5: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -621,12 +621,12 @@ STAC Processing Extension for STAC Items and STAC Collections.
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
             dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            ns5:relation <http://www.iana.org/assignments/relation/processing-execution> ;
             oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
-    ns3:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
+    ns4:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
         <https://example.com/stac/processing/example-2/amplitude-vv-iw>,
         <https://example.com/stac/processing/example-2/annotation-vh-iw>,
         <https://example.com/stac/processing/example-2/annotation-vv-iw>,
@@ -634,48 +634,48 @@ STAC Processing Extension for STAC Items and STAC Collections.
         <https://example.com/stac/processing/example-2/calibration-vv-iw>,
         <https://example.com/stac/processing/example-2/manifest>,
         <https://example.com/stac/processing/example-2/quick-look> ;
-    ns5:datetime "2016-08-23T00:30:33Z" ;
-    ns5:facility "Copernicus S1 Core Ground Segment - DPA" ;
-    ns5:level "L1" ;
-    ns5:lineage "GRD Post Processing" ;
-    ns5:software [ ] ;
-    ns1:frequency_band "C" ;
-    ns1:instrument_mode "IW" ;
-    ns1:polarizations "VH",
+    ns3:datetime "2016-08-23T00:30:33Z" ;
+    ns3:facility "Copernicus S1 Core Ground Segment - DPA" ;
+    ns3:level "L1" ;
+    ns3:lineage "GRD Post Processing" ;
+    ns3:software [ ] ;
+    ns2:frequency_band "C" ;
+    ns2:instrument_mode "IW" ;
+    ns2:polarizations "VH",
         "VV" ;
-    ns1:product_type "GRD" ;
-    ns2:absolute_orbit 12717 ;
-    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns2:orbit_state "ascending" ;
-    ns2:relative_orbit 45 .
+    ns2:product_type "GRD" ;
+    ns1:absolute_orbit 12717 ;
+    ns1:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns1:orbit_state "ascending" ;
+    ns1:relative_orbit 45 .
 
 <https://example.com/stac/processing/example-2/amplitude-vh-iw> rdfs:label "IW VH Amplitude pixel values" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
-    ns1:polarizations "VH" .
+    ns2:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/amplitude-vv-iw> rdfs:label "IW VV Amplitude pixel values" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
-    ns1:polarizations "VV" .
+    ns2:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/annotation-vh-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
     rdfs:label "Annotation VH IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-    ns1:polarizations "VH" .
+    ns2:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/annotation-vv-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
     rdfs:label "Annotation VV IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-    ns1:polarizations "VV" .
+    ns2:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/calibration-vh-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
     rdfs:label "Calibration VH IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-    ns1:polarizations "VH" .
+    ns2:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/calibration-vv-iw> a <https://example.com/stac/processing/example-2/text/xml> ;
     rdfs:label "Calibration VV IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-    ns1:polarizations "VV" .
+    ns2:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/manifest> a <https://example.com/stac/processing/example-2/text/xml> ;
     rdfs:label "SAFE Manifest" ;
