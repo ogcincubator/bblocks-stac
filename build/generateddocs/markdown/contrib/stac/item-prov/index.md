@@ -519,10 +519,6 @@ Links to the schema:
         },
         "qualifiedUsage": {
           "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            },
             "entity": {
               "@id": "prov:entity",
               "@type": "@id"
@@ -533,24 +529,12 @@ Links to the schema:
         },
         "qualifiedCommunication": {
           "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            },
             "hadRole": {
               "@id": "prov:hadRole",
               "@type": "@id"
             },
-            "influencer": {
-              "@id": "prov:influencer",
-              "@type": "@id"
-            },
             "hadActivity": {
               "@id": "prov:hadActivity",
-              "@type": "@id"
-            },
-            "activity": {
-              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -559,10 +543,6 @@ Links to the schema:
         },
         "qualifiedStart": {
           "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            },
             "entity": {
               "@id": "prov:entity",
               "@type": "@id"
@@ -577,10 +557,6 @@ Links to the schema:
         },
         "qualifiedEnd": {
           "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            },
             "entity": {
               "@id": "prov:entity",
               "@type": "@id"
@@ -706,24 +682,12 @@ Links to the schema:
     },
     "qualifiedGeneration": {
       "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
         "hadRole": {
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -732,24 +696,12 @@ Links to the schema:
     },
     "qualifiedInvalidation": {
       "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
         "hadRole": {
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -760,20 +712,8 @@ Links to the schema:
       "@context": {
         "hadGeneration": {
           "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            },
             "hadRole": {
               "@id": "prov:hadRole",
-              "@type": "@id"
-            },
-            "influencer": {
-              "@id": "prov:influencer",
-              "@type": "@id"
-            },
-            "activity": {
-              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -835,31 +775,13 @@ Links to the schema:
               "@type": "@id"
             },
             "qualifiedUsage": {
-              "@context": {
-                "atTime": {
-                  "@id": "prov:atTime",
-                  "@type": "xsd:dateTime"
-                }
-              },
               "@id": "prov:qualifiedUsage",
               "@type": "@id"
             },
             "qualifiedCommunication": {
               "@context": {
-                "atTime": {
-                  "@id": "prov:atTime",
-                  "@type": "xsd:dateTime"
-                },
                 "hadRole": {
                   "@id": "prov:hadRole",
-                  "@type": "@id"
-                },
-                "influencer": {
-                  "@id": "prov:influencer",
-                  "@type": "@id"
-                },
-                "activity": {
-                  "@id": "prov:activity",
                   "@type": "@id"
                 }
               },
@@ -867,22 +789,10 @@ Links to the schema:
               "@type": "@id"
             },
             "qualifiedStart": {
-              "@context": {
-                "atTime": {
-                  "@id": "prov:atTime",
-                  "@type": "xsd:dateTime"
-                }
-              },
               "@id": "prov:qualifiedStart",
               "@type": "@id"
             },
             "qualifiedEnd": {
-              "@context": {
-                "atTime": {
-                  "@id": "prov:atTime",
-                  "@type": "xsd:dateTime"
-                }
-              },
               "@id": "prov:qualifiedEnd",
               "@type": "@id"
             },
@@ -921,12 +831,6 @@ Links to the schema:
           "@type": "@id"
         },
         "hadUsage": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            }
-          },
           "@id": "prov:hadUsage",
           "@type": "@id"
         },
@@ -972,16 +876,8 @@ Links to the schema:
     },
     "qualifiedInfluence": {
       "@context": {
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "entity": {
           "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         },
         "agent": {
@@ -1111,6 +1007,10 @@ Links to the schema:
     "KeyEntityPair": "prov:KeyEntityPair",
     "Insertion": "prov:Insertion",
     "Removal": "prov:Removal",
+    "atTime": {
+      "@id": "prov:atTime",
+      "@type": "xsd:dateTime"
+    },
     "generatedAtTime": {
       "@id": "prov:generatedAtTime",
       "@type": "xsd:dateTime"
@@ -1133,8 +1033,16 @@ Links to the schema:
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
     "influenced": {
       "@id": "prov:influenced",
+      "@type": "@id"
+    },
+    "influencer": {
+      "@id": "prov:influencer",
       "@type": "@id"
     },
     "qualifiedPrimarySource": {

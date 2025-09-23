@@ -248,7 +248,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
             oa:hasTarget <https://example.com/examples/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
-    thns:schemes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    thns:schemes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
+        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -257,12 +262,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
-        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -516,18 +516,18 @@ A knowledge organization system used to classify the resource (controlled vocabu
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
     ns2:assets <https://example.com/stac/themes/example-2/data> ;
-    thns:schemes [ thns:concepts [ thns:id "geonames::3017382" ;
-                    thns:name "France" ],
-                [ thns:id "geonames::11071625" ;
-                    thns:name "Auvergne-Rhône-Alpes" ],
-                [ thns:id "geonames::2976077" ;
-                    thns:name "Forêt de Saou" ] ;
-            thns:scheme "https://www.geonames.org" ],
-        [ thns:concepts [ thns:id "wiki::Summer" ;
+    thns:schemes [ thns:concepts [ thns:id "wiki::Summer" ;
                     thns:name "Summer" ],
                 [ thns:id "wiki::Syncline" ;
                     thns:name "Syncline" ] ;
-            thns:scheme "https://en.wikipedia.org" ] .
+            thns:scheme "https://en.wikipedia.org" ],
+        [ thns:concepts [ thns:id "geonames::11071625" ;
+                    thns:name "Auvergne-Rhône-Alpes" ],
+                [ thns:id "geonames::2976077" ;
+                    thns:name "Forêt de Saou" ],
+                [ thns:id "geonames::3017382" ;
+                    thns:name "France" ] ;
+            thns:scheme "https://www.geonames.org" ] .
 
 <https://example.com/stac/themes/example-2/data> a <https://example.com/stac/themes/example-2/text/plain> ;
     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> .
