@@ -1,10 +1,11 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <http://stacspec.org/ontology/core#> .
 
-<https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;
-    rdfs:label "Collection with an Item" ;
+<https://example.com/stac/cf/example-1/collection> rdfs:label "Collection with an Item" ;
+    dcterms:format "Collection" ;
     stac:description "A description" ;
     stac:extent [ ] ;
     stac:license "Apache-2.0" ;

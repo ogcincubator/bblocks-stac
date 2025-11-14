@@ -195,7 +195,7 @@ This is the simple item example from the STAC specification.
 @prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
+<https://example.com/stac/example1/20201211_223832_CS2> dcterms:format "Feature" ;
     stac:datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     stac:hasAsset [ ] ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
@@ -492,9 +492,9 @@ This is the complete "core" item example from the STAC specification.
 @prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    rdfs:label "Core Item" ;
+<https://example.com/stac/example1/20201211_223832_CS2> rdfs:label "Core Item" ;
     dcterms:created "2020-12-12T01:48:13.725Z" ;
+    dcterms:format "Feature" ;
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     stac:description "A sample STAC Item that includes examples of all common metadata" ;
     stac:end_datetime "2020-12-11T22:38:32.327000+00:00"^^xsd:dateTime ;
@@ -576,14 +576,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "type": "@type",
-    "id": "@id",
-    "properties": "@nest",
-    "geometry": "geojson:geometry",
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
-    },
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -596,6 +588,19 @@ Links to the schema:
     "features": {
       "@container": "@set",
       "@id": "geojson:features"
+    },
+    "type": "dct:format",
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": {
+      "@context": {
+        "type": "@type"
+      },
+      "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
     },
     "links": {
       "@context": {

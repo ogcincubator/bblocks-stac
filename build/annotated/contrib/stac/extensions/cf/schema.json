@@ -23,22 +23,16 @@
     }
   ],
   "x-jsonld-extra-terms": {
-    "themes": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/themes/schemes",
-      "x-jsonld-container": "@set"
-    },
-    "concepts": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/themes/concepts",
-      "x-jsonld-container": "@set",
+    "name": "https://w3id.org/ogc/stac/cf/name",
+    "unit": {
+      "x-jsonld-id": "http://qudt.org/schema/qudt/hasUnit",
       "x-jsonld-context": {
-        "name": "https://w3id.org/ogc/stac/themes/name",
-        "id": "https://w3id.org/ogc/stac/themes/id",
-        "url": "@id"
+        "@base": "http://qudt.org/vocab/unit/"
       }
-    },
-    "scheme": "https://w3id.org/ogc/stac/themes/scheme"
+    }
   },
   "x-jsonld-prefixes": {
-    "thns": "https://w3id.org/ogc/stac/themes/"
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/"
   }
 }

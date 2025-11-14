@@ -11,17 +11,10 @@
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
-    "type": "@type",
+    "type": "dct:format",
     "hreflang": "dct:language",
     "title": "rdfs:label",
     "length": "dct:extent",
-    "id": "@id",
-    "properties": "@nest",
-    "geometry": "geojson:geometry",
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
-    },
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -34,6 +27,18 @@
     "features": {
       "@container": "@set",
       "@id": "geojson:features"
+    },
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": {
+      "@context": {
+        "type": "@type"
+      },
+      "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
     },
     "links": {
       "@context": {
@@ -71,24 +76,18 @@
       "@container": "@id"
     },
     "media_type": "stac:mediaType",
-    "themes": {
-      "@id": "thns:schemes",
-      "@container": "@set"
-    },
-    "concepts": {
-      "@id": "thns:concepts",
-      "@container": "@set",
+    "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
       "@context": {
-        "name": "thns:name",
-        "id": "thns:id",
-        "url": "@id"
+        "@base": "http://qudt.org/vocab/unit/"
       }
     },
-    "scheme": "thns:scheme",
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
-    "thns": "https://w3id.org/ogc/stac/themes/",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "http://stacspec.org/ontology/core#",
     "geo": "http://www.opengis.net/ont/geosparql#",

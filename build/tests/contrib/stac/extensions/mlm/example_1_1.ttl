@@ -9,7 +9,7 @@
 @prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
+<https://example.com/stac/mlm/example-1/example-model> dcterms:format "Feature" ;
     stac:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
@@ -29,8 +29,8 @@
     ns1:output [ ] ;
     ns1:tasks "classification" .
 
-<https://example.com/stac/mlm/example-1/model> a <https://example.com/stac/mlm/example-1/text/html> ;
-    rdfs:label "Pytorch weights checkpoint" ;
+<https://example.com/stac/mlm/example-1/model> rdfs:label "Pytorch weights checkpoint" ;
+    dcterms:format "text/html" ;
     stac:description "Example model." ;
     oa:hasTarget <https://huggingface.co/example/model-card> ;
     ns1:artifact_type "torch.save" .
