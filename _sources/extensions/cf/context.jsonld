@@ -1,21 +1,13 @@
 {
   "@context": {
-    "thns": "https://w3id.org/ogc/stac/themes/",
-    "themes": {
-      "@id": "thns:schemes",
-      "@container": "@set"
-    },
-    "concepts": {
-      "@id": "thns:concepts",
-      "@container": "@set",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
       "@context": {
-        "name": "thns:name",
-        "id": "thns:id",
-        "url": "@id"
+        "@base": "http://qudt.org/vocab/unit/"
       }
-    },
-    "scheme": {
-      "@id": "thns:scheme"
     }
   }
 }
