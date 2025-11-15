@@ -203,13 +203,12 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <http://stacspec.org/ontology/core#> .
 
 <https://example.com/stac/cf/example-1/collection> rdfs:label "Collection with an Item" ;
+    dcterms:description "A description" ;
+    dcterms:extent [ ] ;
     dcterms:format "Collection" ;
-    stac:description "A description" ;
-    stac:extent [ ] ;
-    stac:license "Apache-2.0" ;
+    dcterms:license "Apache-2.0" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
@@ -454,28 +453,27 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/cf/example-2/item> dcterms:format "Feature" ;
-    stac:datetime "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+<https://example.com/stac/cf/example-2/item> dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/item.json> ] ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
     cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ],
+            cf:name "sea_ice_surface_temperature" ],
         [ qudt:hasUnit "m" ;
             cf:name "depth" ],
         [ qudt:hasUnit "K" ;
-            cf:name "sea_ice_surface_temperature" ] ;
+            cf:name "sea_surface_temperature" ] ;
     ns2:assets <https://example.com/stac/cf/example-2/sea_ice_surface_temperature>,
         <https://example.com/stac/cf/example-2/sea_surface_temperature> .
 
@@ -488,10 +486,10 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 <https://example.com/stac/cf/example-2/sea_surface_temperature> dcterms:format "application/netcdf" ;
     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-    cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ],
-        [ qudt:hasUnit "m" ;
-            cf:name "depth" ] .
+    cf:parameter [ qudt:hasUnit "m" ;
+            cf:name "depth" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ] .
 
 
 ```
@@ -587,11 +585,11 @@ Links to the schema:
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
-    "description": "stac:description",
-    "license": "stac:license",
-    "extent": "stac:extent",
+    "description": "dct:description",
+    "license": "dct:license",
+    "extent": "dct:extent",
     "datetime": {
-      "@id": "stac:datetime",
+      "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
     "start_datetime": {
@@ -604,9 +602,20 @@ Links to the schema:
     },
     "assets": {
       "@id": "https://w3id.org/ogc/stac/core/assets",
-      "@container": "@id"
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "title": "dct:title",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
     },
-    "media_type": "stac:mediaType",
+    "media_type": "dct:format",
     "name": "cf:name",
     "unit": {
       "@id": "qudt:hasUnit",
@@ -621,8 +630,6 @@ Links to the schema:
     "qudt": "http://qudt.org/schema/qudt/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "http://stacspec.org/ontology/core#",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

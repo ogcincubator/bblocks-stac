@@ -893,12 +893,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <sentinel:> .
+@prefix ns1: <eo:> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
 @prefix ns3: <proj:> .
-@prefix ns4: <https://w3id.org/ogc/stac/core/> .
-@prefix ns5: <eo:> .
-@prefix ns6: <view:> .
+@prefix ns4: <sentinel:> .
+@prefix ns5: <view:> .
+@prefix ns6: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -906,16 +906,16 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> ns5:cloud_cover 2.122e+01 ;
+<https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> ns1:cloud_cover 2.122e+01 ;
+    dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     dcterms:format "Feature" ;
-    stac:datetime "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns6:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
-    ns4:assets <https://example.com/stac/raster/example-1/B01>,
+    ns2:assets <https://example.com/stac/raster/example-1/B01>,
         <https://example.com/stac/raster/example-1/B02>,
         <https://example.com/stac/raster/example-1/B03>,
         <https://example.com/stac/raster/example-1/B04>,
@@ -928,19 +928,20 @@ An item can describe assets that are rasters of one or multiple bands with some 
         <https://example.com/stac/raster/example-1/thumbnail>,
         <https://example.com/stac/raster/example-1/visual> ;
     ns3:code "EPSG:32633" ;
-    ns2:data_coverage 100 ;
-    ns2:grid_square "VB" ;
-    ns2:latitude_band "S" ;
-    ns2:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns2:sequence "0" ;
-    ns2:utm_zone 33 ;
-    ns6:off_nadir 0 .
+    ns4:data_coverage 100 ;
+    ns4:grid_square "VB" ;
+    ns4:latitude_band "S" ;
+    ns4:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns4:sequence "0" ;
+    ns4:utm_zone 33 ;
+    ns5:off_nadir 0 .
 
-<https://example.com/stac/raster/example-1/B01> rdfs:label "Band 1 (coastal) BOA reflectance" ;
-    ns5:center_wavelength 4.439e-01 ;
-    ns5:common_name "coastal" ;
-    ns5:full_width_half_max 2.7e-02 ;
+<https://example.com/stac/raster/example-1/B01> ns1:center_wavelength 4.439e-01 ;
+    ns1:common_name "coastal" ;
+    ns1:full_width_half_max 2.7e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 1 (coastal) BOA reflectance" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 60 ;
@@ -952,11 +953,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B02> rdfs:label "Band 2 (blue) BOA reflectance" ;
-    ns5:center_wavelength 4.966e-01 ;
-    ns5:common_name "blue" ;
-    ns5:full_width_half_max 9.8e-02 ;
+<https://example.com/stac/raster/example-1/B02> ns1:center_wavelength 4.966e-01 ;
+    ns1:common_name "blue" ;
+    ns1:full_width_half_max 9.8e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 2 (blue) BOA reflectance" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 10 ;
@@ -968,11 +970,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B03> rdfs:label "Band 3 (green) BOA reflectance" ;
-    ns5:center_wavelength 5.6e-01 ;
-    ns5:common_name "green" ;
-    ns5:full_width_half_max 4.5e-02 ;
+<https://example.com/stac/raster/example-1/B03> ns1:center_wavelength 5.6e-01 ;
+    ns1:common_name "green" ;
+    ns1:full_width_half_max 4.5e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 3 (green) BOA reflectance" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 10 ;
@@ -984,11 +987,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B04> rdfs:label "Band 4 (red) BOA reflectance" ;
-    ns5:center_wavelength 6.645e-01 ;
-    ns5:common_name "red" ;
-    ns5:full_width_half_max 3.8e-02 ;
+<https://example.com/stac/raster/example-1/B04> ns1:center_wavelength 6.645e-01 ;
+    ns1:common_name "red" ;
+    ns1:full_width_half_max 3.8e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 4 (red) BOA reflectance" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 10 ;
@@ -1000,10 +1004,11 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B05> rdfs:label "Band 5 BOA reflectance" ;
-    ns5:center_wavelength 7.039e-01 ;
-    ns5:full_width_half_max 1.9e-02 ;
+<https://example.com/stac/raster/example-1/B05> ns1:center_wavelength 7.039e-01 ;
+    ns1:full_width_half_max 1.9e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 5 BOA reflectance" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 20 ;
@@ -1015,10 +1020,11 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B06> rdfs:label "Band 6 BOA reflectance" ;
-    ns5:center_wavelength 7.402e-01 ;
-    ns5:full_width_half_max 1.8e-02 ;
+<https://example.com/stac/raster/example-1/B06> ns1:center_wavelength 7.402e-01 ;
+    ns1:full_width_half_max 1.8e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 6 BOA reflectance" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 20 ;
@@ -1030,8 +1036,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/SCL> rdfs:label "Scene Classification Map (SCL)" ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+<https://example.com/stac/raster/example-1/SCL> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Scene Classification Map (SCL)" ;
+    stac:roles "data" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> ;
     raster:spatial_resolution 20 ;
     ns3:shape 5490 ;
@@ -1042,16 +1049,19 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/info> rdfs:label "Original JSON metadata" ;
-    dcterms:format "application/json" ;
+<https://example.com/stac/raster/example-1/info> dcterms:format "application/json" ;
+    dcterms:title "Original JSON metadata" ;
+    stac:roles "metadata" ;
     oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json> .
 
-<https://example.com/stac/raster/example-1/metadata> rdfs:label "Original XML metadata" ;
-    dcterms:format "application/xml" ;
+<https://example.com/stac/raster/example-1/metadata> dcterms:format "application/xml" ;
+    dcterms:title "Original XML metadata" ;
+    stac:roles "metadata" ;
     oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml> .
 
-<https://example.com/stac/raster/example-1/overview> rdfs:label "True color image" ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+<https://example.com/stac/raster/example-1/overview> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "True color image" ;
+    stac:roles "overview" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
     raster:spatial_resolution 10 ;
     ns3:shape 343 ;
@@ -1062,12 +1072,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/thumbnail> rdfs:label "Thumbnail" ;
-    dcterms:format "image/png" ;
+<https://example.com/stac/raster/example-1/thumbnail> dcterms:format "image/png" ;
+    dcterms:title "Thumbnail" ;
+    stac:roles "thumbnail" ;
     oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg> .
 
-<https://example.com/stac/raster/example-1/visual> rdfs:label "True color image" ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+<https://example.com/stac/raster/example-1/visual> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "True color image" ;
+    stac:roles "overview" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ;
     ns3:shape 10980 ;
     ns3:transform -10,
@@ -1173,11 +1185,11 @@ Links to the schema:
       "@type": "xsd:string",
       "@id": "oa:hasTarget"
     },
-    "description": "stac:description",
-    "license": "stac:license",
-    "extent": "stac:extent",
+    "description": "dct:description",
+    "license": "dct:license",
+    "extent": "dct:extent",
     "datetime": {
-      "@id": "stac:datetime",
+      "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
     "start_datetime": {
@@ -1190,9 +1202,20 @@ Links to the schema:
     },
     "assets": {
       "@id": "https://w3id.org/ogc/stac/core/assets",
-      "@container": "@id"
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "title": "dct:title",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
     },
-    "media_type": "stac:mediaType",
+    "media_type": "dct:format",
     "concepts": {
       "@id": "raster:bands",
       "@context": {
@@ -1209,8 +1232,6 @@ Links to the schema:
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "http://stacspec.org/ontology/core#",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

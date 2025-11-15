@@ -10,16 +10,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/eo/example-2/20201211_223832_CS2> dcterms:created "2020-12-12T01:48:13.725Z" ;
+    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     dcterms:format "Feature" ;
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
-    stac:datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
@@ -34,16 +34,19 @@
     eo:cloud_cover 1.2e+00 ;
     eo:snow_cover 0 .
 
-<https://example.com/stac/eo/example-2/analytic> rdfs:label "4-Band Analytic" ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+<https://example.com/stac/eo/example-2/analytic> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "4-Band Analytic" ;
+    stac:roles "data" ;
     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
     eo:cloud_cover 1.2e+00 .
 
-<https://example.com/stac/eo/example-2/thumbnail> rdfs:label "Thumbnail" ;
-    dcterms:format "image/png" ;
+<https://example.com/stac/eo/example-2/thumbnail> dcterms:format "image/png" ;
+    dcterms:title "Thumbnail" ;
+    stac:roles "thumbnail" ;
     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> .
 
-<https://example.com/stac/eo/example-2/visual> rdfs:label "3-Band Visual" ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+<https://example.com/stac/eo/example-2/visual> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "3-Band Visual" ;
+    stac:roles "visual" ;
     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> .
 
