@@ -1,0 +1,18 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: CF Extension
+allOf:
+- anyOf:
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
+- $ref: https://stac-extensions.github.io/cf/v0.2.0/schema.json
+x-jsonld-extra-terms:
+  name: https://w3id.org/ogc/stac/cf/name
+  unit:
+    x-jsonld-id: http://qudt.org/schema/qudt/hasUnit
+    x-jsonld-context:
+      '@base': http://qudt.org/vocab/unit/
+x-jsonld-prefixes:
+  cf: https://w3id.org/ogc/stac/cf/
+  qudt: http://qudt.org/schema/qudt/

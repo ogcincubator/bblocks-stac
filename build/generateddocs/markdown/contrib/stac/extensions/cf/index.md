@@ -209,10 +209,10 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
     dcterms:extent [ ] ;
     dcterms:format "Collection" ;
     dcterms:license "Apache-2.0" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ] .
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ] .
 
 
 ```
@@ -448,48 +448,48 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <https://w3id.org/ogc/stac/core/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/cf/example-2/item> dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
     dcterms:format "Feature" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/item.json> ] ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
     cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_ice_surface_temperature" ],
-        [ qudt:hasUnit "K" ;
             cf:name "sea_surface_temperature" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_ice_surface_temperature" ],
         [ qudt:hasUnit "m" ;
             cf:name "depth" ] ;
-    ns2:assets <https://example.com/stac/cf/example-2/sea_ice_surface_temperature>,
+    stac:assets <https://example.com/stac/cf/example-2/sea_ice_surface_temperature>,
         <https://example.com/stac/cf/example-2/sea_surface_temperature> .
 
 <https://example.com/stac/cf/example-2/sea_ice_surface_temperature> dcterms:format "application/netcdf" ;
     oa:hasTarget <https://example.com/examples/sea_ice_surface_temperature.nc> ;
-    cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_ice_surface_temperature" ],
-        [ qudt:hasUnit "m" ;
-            cf:name "depth" ] .
+    cf:parameter [ qudt:hasUnit "m" ;
+            cf:name "depth" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_ice_surface_temperature" ] .
 
 <https://example.com/stac/cf/example-2/sea_surface_temperature> dcterms:format "application/netcdf" ;
     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-    cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ],
-        [ qudt:hasUnit "m" ;
-            cf:name "depth" ] .
+    cf:parameter [ qudt:hasUnit "m" ;
+            cf:name "depth" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ] .
 
 
 ```
@@ -601,7 +601,7 @@ Links to the schema:
       "@type": "xsd:dateTime"
     },
     "assets": {
-      "@id": "https://w3id.org/ogc/stac/core/assets",
+      "@id": "stac:assets",
       "@container": "@id",
       "@context": {
         "thumbnail": "stac:thumbnail",
@@ -629,7 +629,7 @@ Links to the schema:
     "cf": "https://w3id.org/ogc/stac/cf/",
     "qudt": "http://qudt.org/schema/qudt/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "http://stacspec.org/ontology/core#",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "@version": 1.1
   }

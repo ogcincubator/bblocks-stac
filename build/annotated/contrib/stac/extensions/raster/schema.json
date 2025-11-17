@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Forecast Extension",
+  "description": "STAC Forecast Extension for STAC Items and STAC Collections.",
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.json"
+        }
+      ]
+    },
+    {
+      "$ref": "https://stac-extensions.github.io/raster/v2.0.0/schema.json"
+    }
+  ],
+  "x-jsonld-extra-terms": {
+    "concepts": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/bands",
+      "x-jsonld-context": {
+        "@vocab": "https://w3id.org/ogc/stac/raster/"
+      }
+    },
+    "raster:range": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/range",
+      "x-jsonld-container": "@list"
+    }
+  },
+  "x-jsonld-prefixes": {
+    "raster": "https://w3id.org/ogc/stac/raster/"
+  }
+}

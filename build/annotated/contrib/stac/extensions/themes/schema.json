@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Themes Extension",
+  "description": "STAC Themes for STAC Items and STAC Collections.",
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.json"
+        }
+      ]
+    },
+    {
+      "$ref": "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
+    }
+  ],
+  "x-jsonld-extra-terms": {
+    "themes": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/themes/schemes",
+      "x-jsonld-container": "@set"
+    },
+    "concepts": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/themes/concepts",
+      "x-jsonld-container": "@set",
+      "x-jsonld-context": {
+        "name": "https://w3id.org/ogc/stac/themes/name",
+        "id": "https://w3id.org/ogc/stac/themes/id",
+        "url": "@id"
+      }
+    },
+    "scheme": "https://w3id.org/ogc/stac/themes/scheme"
+  },
+  "x-jsonld-prefixes": {
+    "thns": "https://w3id.org/ogc/stac/themes/"
+  }
+}

@@ -1,0 +1,12 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: STAC Collection
+allOf:
+- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml
+- $ref: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json
+x-jsonld-extra-terms:
+  assets:
+    x-jsonld-id: https://w3id.org/ogc/stac/core/assets
+    x-jsonld-container: '@id'
+x-jsonld-prefixes:
+  stac: https://w3id.org/ogc/stac/core/
