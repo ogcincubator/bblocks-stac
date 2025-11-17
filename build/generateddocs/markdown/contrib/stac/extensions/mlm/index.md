@@ -315,12 +315,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     dcterms:format "Feature" ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
-        [ dcterms:type "application/json" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -635,9 +635,9 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <mlm:> .
-@prefix ns3: <https://w3id.org/ogc/stac/core/> .
+@prefix ns1: <mlm:> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -649,27 +649,27 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    ns3:assets <https://example.com/stac/mlm/example-1/model> ;
-    ns2:architecture "ResNet" ;
-    ns2:input [ ] ;
-    ns2:name "example-model" ;
-    ns2:output [ ] ;
-    ns2:tasks "classification" .
+    ns2:assets <https://example.com/stac/mlm/example-1/model> ;
+    ns1:architecture "ResNet" ;
+    ns1:input [ ] ;
+    ns1:name "example-model" ;
+    ns1:output [ ] ;
+    ns1:tasks "classification" .
 
 <https://example.com/stac/mlm/example-1/model> dcterms:description "Example model." ;
     dcterms:format "text/html" ;
     dcterms:title "Pytorch weights checkpoint" ;
     stac:roles "mlm:model" ;
     oa:hasTarget <https://huggingface.co/example/model-card> ;
-    ns2:artifact_type "torch.save" .
+    ns1:artifact_type "torch.save" .
 
 
 ```

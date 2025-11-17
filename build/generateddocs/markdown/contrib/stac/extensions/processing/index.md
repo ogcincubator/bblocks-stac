@@ -244,15 +244,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:extent [ ] ;
     dcterms:format "Collection" ;
     dcterms:license "proprietary" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ] .
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] .
 
 
 ```
@@ -603,11 +603,11 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <processing:> .
-@prefix ns2: <sat:> .
+@prefix ns1: <sar:> .
+@prefix ns2: <processing:> .
 @prefix ns3: <https://w3id.org/ogc/stac/core/> .
 @prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <sar:> .
+@prefix ns5: <sat:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -634,56 +634,56 @@ STAC Processing Extension for STAC Items and STAC Collections.
         <https://example.com/stac/processing/example-2/calibration-vv-iw>,
         <https://example.com/stac/processing/example-2/manifest>,
         <https://example.com/stac/processing/example-2/quick-look> ;
-    ns1:datetime "2016-08-23T00:30:33Z" ;
-    ns1:facility "Copernicus S1 Core Ground Segment - DPA" ;
-    ns1:level "L1" ;
-    ns1:lineage "GRD Post Processing" ;
-    ns1:software [ ] ;
-    ns5:frequency_band "C" ;
-    ns5:instrument_mode "IW" ;
-    ns5:polarizations "VH",
+    ns2:datetime "2016-08-23T00:30:33Z" ;
+    ns2:facility "Copernicus S1 Core Ground Segment - DPA" ;
+    ns2:level "L1" ;
+    ns2:lineage "GRD Post Processing" ;
+    ns2:software [ ] ;
+    ns1:frequency_band "C" ;
+    ns1:instrument_mode "IW" ;
+    ns1:polarizations "VH",
         "VV" ;
-    ns5:product_type "GRD" ;
-    ns2:absolute_orbit 12717 ;
-    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns2:orbit_state "ascending" ;
-    ns2:relative_orbit 45 .
+    ns1:product_type "GRD" ;
+    ns5:absolute_orbit 12717 ;
+    ns5:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns5:orbit_state "ascending" ;
+    ns5:relative_orbit 45 .
 
 <https://example.com/stac/processing/example-2/amplitude-vh-iw> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VH Amplitude pixel values" ;
     stac:roles "data" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
-    ns5:polarizations "VH" .
+    ns1:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/amplitude-vv-iw> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VV Amplitude pixel values" ;
     stac:roles "data" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
-    ns5:polarizations "VV" .
+    ns1:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/annotation-vh-iw> dcterms:format "text/xml" ;
     dcterms:title "Annotation VH IW" ;
     stac:roles "metadata" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-    ns5:polarizations "VH" .
+    ns1:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/annotation-vv-iw> dcterms:format "text/xml" ;
     dcterms:title "Annotation VV IW" ;
     stac:roles "metadata" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-    ns5:polarizations "VV" .
+    ns1:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/calibration-vh-iw> dcterms:format "text/xml" ;
     dcterms:title "Calibration VH IW" ;
     stac:roles "data" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-    ns5:polarizations "VH" .
+    ns1:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/calibration-vv-iw> dcterms:format "text/xml" ;
     dcterms:title "Calibration VV IW" ;
     stac:roles "data" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-    ns5:polarizations "VV" .
+    ns1:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/manifest> dcterms:created "2016-08-23T00:30:33Z" ;
     dcterms:format "text/xml" ;
