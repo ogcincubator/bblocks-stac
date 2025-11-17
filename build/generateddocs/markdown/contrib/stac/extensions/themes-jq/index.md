@@ -594,18 +594,18 @@ A knowledge organization system used to classify the resource (controlled vocabu
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
     ns1:assets <https://example.com/stac/themes/example-2/data> ;
-    thns:schemes [ thns:concepts [ thns:id "wiki::Syncline" ;
+    thns:schemes [ thns:concepts [ thns:id "geonames::3017382" ;
+                    thns:name "France" ],
+                [ thns:id "geonames::11071625" ;
+                    thns:name "Auvergne-Rhône-Alpes" ],
+                [ thns:id "geonames::2976077" ;
+                    thns:name "Forêt de Saou" ] ;
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Syncline" ;
                     thns:name "Syncline" ],
                 [ thns:id "wiki::Summer" ;
                     thns:name "Summer" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::11071625" ;
-                    thns:name "Auvergne-Rhône-Alpes" ],
-                [ thns:id "geonames::2976077" ;
-                    thns:name "Forêt de Saou" ],
-                [ thns:id "geonames::3017382" ;
-                    thns:name "France" ] ;
-            thns:scheme "https://www.geonames.org" ] .
+            thns:scheme "https://en.wikipedia.org" ] .
 
 <https://example.com/stac/themes/example-2/data> dcterms:format "text/plain" ;
     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> .

@@ -1,10 +1,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <sar:> .
-@prefix ns2: <processing:> .
-@prefix ns3: <https://w3id.org/ogc/stac/core/> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <sat:> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
+@prefix ns3: <sat:> .
+@prefix ns4: <processing:> .
+@prefix ns5: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -18,12 +18,12 @@
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
             dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            ns5:relation <http://www.iana.org/assignments/relation/processing-execution> ;
             oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
-    ns3:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
+    ns2:assets <https://example.com/stac/processing/example-2/amplitude-vh-iw>,
         <https://example.com/stac/processing/example-2/amplitude-vv-iw>,
         <https://example.com/stac/processing/example-2/annotation-vh-iw>,
         <https://example.com/stac/processing/example-2/annotation-vv-iw>,
@@ -31,20 +31,20 @@
         <https://example.com/stac/processing/example-2/calibration-vv-iw>,
         <https://example.com/stac/processing/example-2/manifest>,
         <https://example.com/stac/processing/example-2/quick-look> ;
-    ns2:datetime "2016-08-23T00:30:33Z" ;
-    ns2:facility "Copernicus S1 Core Ground Segment - DPA" ;
-    ns2:level "L1" ;
-    ns2:lineage "GRD Post Processing" ;
-    ns2:software [ ] ;
+    ns4:datetime "2016-08-23T00:30:33Z" ;
+    ns4:facility "Copernicus S1 Core Ground Segment - DPA" ;
+    ns4:level "L1" ;
+    ns4:lineage "GRD Post Processing" ;
+    ns4:software [ ] ;
     ns1:frequency_band "C" ;
     ns1:instrument_mode "IW" ;
     ns1:polarizations "VH",
         "VV" ;
     ns1:product_type "GRD" ;
-    ns5:absolute_orbit 12717 ;
-    ns5:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns5:orbit_state "ascending" ;
-    ns5:relative_orbit 45 .
+    ns3:absolute_orbit 12717 ;
+    ns3:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns3:orbit_state "ascending" ;
+    ns3:relative_orbit 45 .
 
 <https://example.com/stac/processing/example-2/amplitude-vh-iw> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VH Amplitude pixel values" ;
