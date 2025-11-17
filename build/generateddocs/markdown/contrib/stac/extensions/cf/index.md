@@ -447,8 +447,8 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix cf: <https://w3id.org/ogc/stac/cf/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/core/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/core/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -457,24 +457,24 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 <https://example.com/stac/cf/example-2/item> dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
     dcterms:format "Feature" ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    cf:parameter [ qudt:hasUnit "m" ;
-            cf:name "depth" ],
-        [ qudt:hasUnit "K" ;
+    cf:parameter [ qudt:hasUnit "K" ;
             cf:name "sea_ice_surface_temperature" ],
         [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ] ;
-    ns1:assets <https://example.com/stac/cf/example-2/sea_ice_surface_temperature>,
+            cf:name "sea_surface_temperature" ],
+        [ qudt:hasUnit "m" ;
+            cf:name "depth" ] ;
+    ns2:assets <https://example.com/stac/cf/example-2/sea_ice_surface_temperature>,
         <https://example.com/stac/cf/example-2/sea_surface_temperature> .
 
 <https://example.com/stac/cf/example-2/sea_ice_surface_temperature> dcterms:format "application/netcdf" ;
@@ -486,10 +486,10 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 <https://example.com/stac/cf/example-2/sea_surface_temperature> dcterms:format "application/netcdf" ;
     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-    cf:parameter [ qudt:hasUnit "m" ;
-            cf:name "depth" ],
-        [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ] .
+    cf:parameter [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ],
+        [ qudt:hasUnit "m" ;
+            cf:name "depth" ] .
 
 
 ```
