@@ -26,6 +26,9 @@ allOf:
       type: array
       items:
         $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+      x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
+x-jsonld-prefixes:
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
 
 ```
 
@@ -55,8 +58,9 @@ Links to the schema:
     "hreflang": "dct:language",
     "title": "rdfs:label",
     "length": "dct:extent",
-    "oa": "http://www.w3.org/ns/oa#",
+    "links": "rdfs:seeAlso",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }

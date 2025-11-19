@@ -894,8 +894,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <proj:> .
-@prefix ns2: <eo:> .
-@prefix ns3: <sentinel:> .
+@prefix ns2: <sentinel:> .
+@prefix ns3: <eo:> .
 @prefix ns4: <view:> .
 @prefix ns5: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -906,7 +906,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns2:cloud_cover 2.122e+01 ;
+    ns3:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:format "application/json" ;
             ns5:relation <http://www.iana.org/assignments/relation/collection> ;
@@ -927,17 +927,17 @@ An item can describe assets that are rasters of one or multiple bands with some 
         <https://example.com/stac/raster/example-1/thumbnail>,
         <https://example.com/stac/raster/example-1/visual> ;
     ns1:code "EPSG:32633" ;
-    ns3:data_coverage 100 ;
-    ns3:grid_square "VB" ;
-    ns3:latitude_band "S" ;
-    ns3:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns3:sequence "0" ;
-    ns3:utm_zone 33 ;
+    ns2:data_coverage 100 ;
+    ns2:grid_square "VB" ;
+    ns2:latitude_band "S" ;
+    ns2:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns2:sequence "0" ;
+    ns2:utm_zone 33 ;
     ns4:off_nadir 0 .
 
-<https://example.com/stac/raster/example-1/B01> ns2:center_wavelength 4.439e-01 ;
-    ns2:common_name "coastal" ;
-    ns2:full_width_half_max 2.7e-02 ;
+<https://example.com/stac/raster/example-1/B01> ns3:center_wavelength 4.439e-01 ;
+    ns3:common_name "coastal" ;
+    ns3:full_width_half_max 2.7e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Band 1 (coastal) BOA reflectance" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ;
@@ -952,9 +952,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B02> ns2:center_wavelength 4.966e-01 ;
-    ns2:common_name "blue" ;
-    ns2:full_width_half_max 9.8e-02 ;
+<https://example.com/stac/raster/example-1/B02> ns3:center_wavelength 4.966e-01 ;
+    ns3:common_name "blue" ;
+    ns3:full_width_half_max 9.8e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Band 2 (blue) BOA reflectance" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ;
@@ -969,9 +969,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B03> ns2:center_wavelength 5.6e-01 ;
-    ns2:common_name "green" ;
-    ns2:full_width_half_max 4.5e-02 ;
+<https://example.com/stac/raster/example-1/B03> ns3:center_wavelength 5.6e-01 ;
+    ns3:common_name "green" ;
+    ns3:full_width_half_max 4.5e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Band 3 (green) BOA reflectance" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ;
@@ -986,9 +986,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B04> ns2:center_wavelength 6.645e-01 ;
-    ns2:common_name "red" ;
-    ns2:full_width_half_max 3.8e-02 ;
+<https://example.com/stac/raster/example-1/B04> ns3:center_wavelength 6.645e-01 ;
+    ns3:common_name "red" ;
+    ns3:full_width_half_max 3.8e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Band 4 (red) BOA reflectance" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ;
@@ -1003,8 +1003,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B05> ns2:center_wavelength 7.039e-01 ;
-    ns2:full_width_half_max 1.9e-02 ;
+<https://example.com/stac/raster/example-1/B05> ns3:center_wavelength 7.039e-01 ;
+    ns3:full_width_half_max 1.9e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Band 5 BOA reflectance" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ;
@@ -1019,8 +1019,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
         399960,
         4200000 .
 
-<https://example.com/stac/raster/example-1/B06> ns2:center_wavelength 7.402e-01 ;
-    ns2:full_width_half_max 1.8e-02 ;
+<https://example.com/stac/raster/example-1/B06> ns3:center_wavelength 7.402e-01 ;
+    ns3:full_width_half_max 1.8e-02 ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Band 6 BOA reflectance" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ;
@@ -1128,24 +1128,13 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
+    "links": {
       "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
+        "type": "dct:format",
+        "title": "rdfs:label"
       },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
+      "@id": "rdfs:seeAlso"
     },
-    "type": "@type",
-    "hreflang": "dct:language",
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "length": "dct:extent",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -1159,19 +1148,13 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
+    "type": "@type",
     "id": "@id",
     "properties": "@nest",
     "geometry": "geojson:geometry",
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
-    },
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
     },
     "conformsTo": {
       "@container": "@set",
@@ -1185,6 +1168,10 @@ Links to the schema:
     },
     "created": "dct:created",
     "updated": "dct:modified",
+    "title": {
+      "@container": "@set",
+      "@id": "dct:title"
+    },
     "description": {
       "@container": "@set",
       "@id": "dct:description"
@@ -1277,6 +1264,19 @@ Links to the schema:
       }
     },
     "media_type": "dct:format",
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "rel": {
+      "@context": {
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
+    },
+    "hreflang": "dct:language",
+    "length": "dct:extent",
     "concepts": {
       "@id": "raster:bands",
       "@context": {
@@ -1287,8 +1287,8 @@ Links to the schema:
       "@id": "raster:range",
       "@container": "@list"
     },
-    "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",

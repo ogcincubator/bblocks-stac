@@ -146,8 +146,8 @@ TBD
 #### ttl
 ```ttl
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <accuracy:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <accuracy:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -155,14 +155,14 @@ TBD
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/item> a geojson:Feature ;
-    ns1:geometric_rmse 1 ;
-    ns1:geometric_x_bias 0 ;
-    ns1:geometric_x_stddev 5e-01 ;
-    ns1:geometric_y_bias 0 ;
-    ns1:geometric_y_stddev 5e-01 ;
-    ns1:measurement_absolute 2e-02 ;
-    ns1:measurement_relative 1e-02 ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    ns2:geometric_rmse 1 ;
+    ns2:geometric_x_bias 0 ;
+    ns2:geometric_x_stddev 5e-01 ;
+    ns2:geometric_y_bias 0 ;
+    ns2:geometric_y_stddev 5e-01 ;
+    ns2:measurement_absolute 2e-02 ;
+    ns2:measurement_relative 1e-02 ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -217,6 +217,13 @@ Links to the schema:
       "@container": "@set"
     },
     "length": "dct:extent",
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -236,13 +243,6 @@ Links to the schema:
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
-    },
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
     },
     "conformsTo": {
       "@container": "@set",
@@ -323,8 +323,8 @@ Links to the schema:
       "@id": "stac:assets",
       "@container": "@id"
     },
-    "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "https://w3id.org/ogc/stac/core/",
