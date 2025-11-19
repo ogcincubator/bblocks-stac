@@ -321,8 +321,8 @@ STAC Extension for the ESA Open Science Catalog
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
@@ -333,39 +333,39 @@ STAC Extension for the ESA Open Science Catalog
     dcterms:format "Collection" ;
     dcterms:license "proprietary" ;
     dcterms:modified "2024-09-12T20:32:23.030110Z" ;
-    rdfs:seeAlso [ rdfs:label "Website" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+    rdfs:seeAlso [ rdfs:label "Theme: Solid Earth" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/themes/solid-earth/catalog.json> ],
+        [ rdfs:label "EO4Society Link" ;
+            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://eo4society.esa.int/projects/stse-3d-earth/> ],
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/projects/3d-earth/collection.json> ],
+        [ rdfs:label "Geothermal Heat Flow Database and Map_Greenland_GOCE_SWARM" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/products/geothermal-heat-flow-greenland-3d-earth/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Global Model of Crust and Upper Mantle_WINTERC-G_GOCE" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/products/crust-and-upper-mantle-model-3d-earth/collection.json> ],
+        [ rdfs:label "Website" ;
+            ns2:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <http://www.3dearth.uni-kiel.de/en> ],
         [ rdfs:label "Projects" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/projects/3d-earth/collection.json> ],
-        [ rdfs:label "Theme: Solid Earth" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/themes/solid-earth/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "EO4Society Link" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://eo4society.esa.int/projects/stse-3d-earth/> ],
-        [ rdfs:label "Geothermal Heat Flow Database and Map_Greenland_GOCE_SWARM" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/stac/products/geothermal-heat-flow-greenland-3d-earth/collection.json> ],
-        [ rdfs:label "Global Model of Crust and Upper Mantle_WINTERC-G_GOCE" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/stac/products/crust-and-upper-mantle-model-3d-earth/collection.json> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/osc/catalog.json> ] ;
     thns:schemes [ thns:concepts [ thns:id "solid-earth" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:status "completed" ;
-    ns2:type "project" .
+    ns1:status "completed" ;
+    ns1:type "project" .
 
 
 ```
@@ -640,14 +640,14 @@ STAC Extension for the ESA Open Science Catalog
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <cf:> .
+@prefix ns2: <cf:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
 <https://example.com/stac/osc/example-1/absolute-sea-level-heights-baltics-sar-hsu> rdfs:label "SL-ABS: Absolute Sea Level Heights_Baltics_Multimission" ;
-    ns3:parameter [ ] ;
+    ns2:parameter [ ] ;
     dcterms:created "2021-07-07T00:00:00Z" ;
     dcterms:description "Time series of absolute sea level heights of tide gauge stations involved in the project BALTIC+ Geodetic SAR for Baltic Height System Unification (SAR-HSU). Product details available at: https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SAR-HSU-TN-0019_Dataset_User_Manual.pdf" ;
     dcterms:extent [ ] ;
@@ -655,43 +655,43 @@ STAC Extension for the ESA Open Science Catalog
     dcterms:license "proprietary" ;
     dcterms:modified "2024-09-12T20:32:06.209108Z" ;
     rdfs:seeAlso [ rdfs:label "Access" ;
-            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            ns3:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SL-ABS.zip> ],
-        [ rdfs:label "Variable: Sea Surface Height Anomaly (SSHA)" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/variables/sea-surface-height-anomaly-ssha/catalog.json> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/themes/oceans/catalog.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
-        [ rdfs:label "EO Mission: GLONASS" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/glonass/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json> ],
-        [ rdfs:label "EO Mission: Sentinel-1" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/sentinel-1/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "EO Mission: GOCE" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/goce/catalog.json> ],
         [ rdfs:label "Project: SAR-HSU" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json> ] ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json> ],
+        [ rdfs:label "EO Mission: Sentinel-1" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/eo-missions/sentinel-1/catalog.json> ],
+        [ rdfs:label "EO Mission: GOCE" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/eo-missions/goce/catalog.json> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/themes/oceans/catalog.json> ],
+        [ rdfs:label "EO Mission: GLONASS" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/eo-missions/glonass/catalog.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Variable: Sea Surface Height Anomaly (SSHA)" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/variables/sea-surface-height-anomaly-ssha/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json> ] ;
     thns:schemes [ thns:concepts [ thns:id "oceans" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns1:missions "glonass",
@@ -850,8 +850,8 @@ STAC Extension for the ESA Open Science Catalog
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -862,25 +862,25 @@ STAC Extension for the ESA Open Science Catalog
     dcterms:format "Feature" ;
     rdfs:seeAlso [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
         [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
         [ rdfs:label "SWARM VIP" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/osc/catalog.json> ] ;
     stac:assets <https://example.com/stac/osc/example-2/model> ;
     thns:schemes [ thns:concepts [ rdfs:label "Magnetosphere Ionosphere" ;
                     thns:id "magnetosphere-ionosphere" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:missions "SWARM" ;
-    ns2:project "4DIONOSPHERE (SWARM VIP)" ;
-    ns2:status "completed" ;
-    ns2:type "product" ;
-    ns2:variables "Ionospheric plasma density" .
+    ns1:missions "SWARM" ;
+    ns1:project "4DIONOSPHERE (SWARM VIP)" ;
+    ns1:status "completed" ;
+    ns1:type "product" ;
+    ns1:variables "Ionospheric plasma density" .
 
 <https://example.com/stac/osc/example-2/model> dcterms:format "application/octet-stream" ;
     oa:hasTarget <https://osc.example/model.xyz> .

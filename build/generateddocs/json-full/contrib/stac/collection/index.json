@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-incubator-building-block-register",
   "version": "1.1.0",
-  "dateOfLastChange": "2025-11-17",
+  "dateOfLastChange": "2025-11-19",
   "sources": [
     {
       "title": "STAC Specification",
@@ -25,7 +25,6 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.api.features.v1.schemas.collection",
     "ogc.ogc-utils.json-link"
   ],
   "schema": {
@@ -62,7 +61,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-features/build/annotated/api/features/v1/schemas/collection/schema.yaml\n- type: object\n  properties:\n    links:\n      type: array\n      items:\n        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json\n- type: object\n  properties:\n    links:\n      type: array\n      items:\n        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/collection"
 }

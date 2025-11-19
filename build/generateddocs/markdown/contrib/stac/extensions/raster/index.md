@@ -893,9 +893,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sentinel:> .
+@prefix ns1: <proj:> .
 @prefix ns2: <eo:> .
-@prefix ns3: <proj:> .
+@prefix ns3: <sentinel:> .
 @prefix ns4: <view:> .
 @prefix ns5: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -926,13 +926,13 @@ An item can describe assets that are rasters of one or multiple bands with some 
         <https://example.com/stac/raster/example-1/overview>,
         <https://example.com/stac/raster/example-1/thumbnail>,
         <https://example.com/stac/raster/example-1/visual> ;
-    ns3:code "EPSG:32633" ;
-    ns1:data_coverage 100 ;
-    ns1:grid_square "VB" ;
-    ns1:latitude_band "S" ;
-    ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns1:sequence "0" ;
-    ns1:utm_zone 33 ;
+    ns1:code "EPSG:32633" ;
+    ns3:data_coverage 100 ;
+    ns3:grid_square "VB" ;
+    ns3:latitude_band "S" ;
+    ns3:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns3:sequence "0" ;
+    ns3:utm_zone 33 ;
     ns4:off_nadir 0 .
 
 <https://example.com/stac/raster/example-1/B01> ns2:center_wavelength 4.439e-01 ;
@@ -944,8 +944,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     stac:roles "data" ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 60 ;
-    ns3:shape 1830 ;
-    ns3:transform -60,
+    ns1:shape 1830 ;
+    ns1:transform -60,
         0,
         1,
         60,
@@ -961,8 +961,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     stac:roles "data" ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 10 ;
-    ns3:shape 10980 ;
-    ns3:transform -10,
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -978,8 +978,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     stac:roles "data" ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 10 ;
-    ns3:shape 10980 ;
-    ns3:transform -10,
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -995,8 +995,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     stac:roles "data" ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 10 ;
-    ns3:shape 10980 ;
-    ns3:transform -10,
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,
@@ -1011,8 +1011,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     stac:roles "data" ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 20 ;
-    ns3:shape 5490 ;
-    ns3:transform -20,
+    ns1:shape 5490 ;
+    ns1:transform -20,
         0,
         1,
         20,
@@ -1027,8 +1027,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     stac:roles "data" ;
     raster:bits_per_sample 15 ;
     raster:spatial_resolution 20 ;
-    ns3:shape 5490 ;
-    ns3:transform -20,
+    ns1:shape 5490 ;
+    ns1:transform -20,
         0,
         1,
         20,
@@ -1040,8 +1040,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> ;
     stac:roles "data" ;
     raster:spatial_resolution 20 ;
-    ns3:shape 5490 ;
-    ns3:transform -20,
+    ns1:shape 5490 ;
+    ns1:transform -20,
         0,
         1,
         20,
@@ -1063,8 +1063,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
     stac:roles "overview" ;
     raster:spatial_resolution 10 ;
-    ns3:shape 343 ;
-    ns3:transform -320,
+    ns1:shape 343 ;
+    ns1:transform -320,
         0,
         1,
         320,
@@ -1080,8 +1080,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
     dcterms:title "True color image" ;
     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ;
     stac:roles "overview" ;
-    ns3:shape 10980 ;
-    ns3:transform -10,
+    ns1:shape 10980 ;
+    ns1:transform -10,
         0,
         1,
         10,

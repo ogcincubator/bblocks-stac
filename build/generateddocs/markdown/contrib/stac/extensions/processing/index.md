@@ -244,15 +244,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:extent [ ] ;
     dcterms:format "Collection" ;
     dcterms:license "proprietary" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] .
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] .
 
 
 ```
@@ -604,8 +604,8 @@ STAC Processing Extension for STAC Items and STAC Collections.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <sar:> .
-@prefix ns2: <sat:> .
-@prefix ns3: <processing:> .
+@prefix ns2: <processing:> .
+@prefix ns3: <sat:> .
 @prefix ns4: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -633,20 +633,20 @@ STAC Processing Extension for STAC Items and STAC Collections.
         <https://example.com/stac/processing/example-2/quick-look> ;
     stac:end_datetime "2016-08-22T18:28:48.368201+00:00"^^xsd:dateTime ;
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
-    ns3:datetime "2016-08-23T00:30:33Z" ;
-    ns3:facility "Copernicus S1 Core Ground Segment - DPA" ;
-    ns3:level "L1" ;
-    ns3:lineage "GRD Post Processing" ;
-    ns3:software [ ] ;
+    ns2:datetime "2016-08-23T00:30:33Z" ;
+    ns2:facility "Copernicus S1 Core Ground Segment - DPA" ;
+    ns2:level "L1" ;
+    ns2:lineage "GRD Post Processing" ;
+    ns2:software [ ] ;
     ns1:frequency_band "C" ;
     ns1:instrument_mode "IW" ;
     ns1:polarizations "VH",
         "VV" ;
     ns1:product_type "GRD" ;
-    ns2:absolute_orbit 12717 ;
-    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns2:orbit_state "ascending" ;
-    ns2:relative_orbit 45 .
+    ns3:absolute_orbit 12717 ;
+    ns3:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns3:orbit_state "ascending" ;
+    ns3:relative_orbit 45 .
 
 <https://example.com/stac/processing/example-2/amplitude-vh-iw> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VH Amplitude pixel values" ;

@@ -503,7 +503,6 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
 - $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
-- $ref: https://ogcincubator.github.io/bblocks-ogcapi-features/build/annotated/api/features/v1/schemas/collection/schema.yaml
 - type: object
   properties:
     links:
