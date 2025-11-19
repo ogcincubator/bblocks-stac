@@ -1,5 +1,23 @@
 {
   "@context": {
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "type": "@type",
+    "id": "@id",
+    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "title": "dct:title",
+    "description": "dct:description",
     "links": {
       "@context": {
         "href": {
@@ -20,15 +38,8 @@
       },
       "@id": "rdfs:seeAlso"
     },
-    "stac_version": "stac:version",
-    "stac_extensions": "stac:hasExtension",
-    "id": "@id",
-    "type": "@type",
-    "title": "dct:title",
-    "description": "dct:description",
     "keywords": "dct:subject",
     "license": "dct:license",
-    "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -40,21 +51,6 @@
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:hasAsset",
-      "@container": "@set",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",

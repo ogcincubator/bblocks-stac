@@ -651,11 +651,22 @@ Links to the schema:
     },
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "extent": "dct:extent",
     "start_datetime": {
       "@id": "stac:start_datetime",
       "@type": "xsd:dateTime"
@@ -663,21 +674,6 @@ Links to the schema:
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",
@@ -1002,7 +998,6 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -1011,6 +1006,7 @@ Links to the schema:
     "dctype": "http://purl.org/dc/dcmitype/",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "@version": 1.1
   }
 }

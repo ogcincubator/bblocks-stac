@@ -365,14 +365,14 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcterms:description "A simple Collection demonstrating EO extension fields in a Collection." ;
     dcterms:extent [ ] ;
     dcterms:title "Simple EO Collection" ;
-    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ],
-        [ rdfs:label "20201211_223832_CS2" ;
+    rdfs:seeAlso [ rdfs:label "20201211_223832_CS2" ;
             dcterms:format "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ] ;
+            oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] ;
     dcat:license "CC-BY-4.0" ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json" ;
     stac:version "1.1.0" .
@@ -711,15 +711,15 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -785,17 +785,26 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "id": "@id",
     "type": "@type",
+    "id": "@id",
+    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        },
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata"
+      },
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "title": {
       "@id": "dct:title",
       "@container": "@set"
@@ -804,12 +813,18 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
     "license": "dcat:license",
-    "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -821,21 +836,6 @@ Links to the schema:
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",

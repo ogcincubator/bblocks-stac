@@ -27,8 +27,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.contrib.stac.item-v1-0-0",
-    "ogc.contrib.stac.collection-v1-0-0"
+    "ogc.contrib.stac.collection-v1-0-0",
+    "ogc.contrib.stac.item-v1-0-0"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/schema.yaml",
@@ -57,7 +57,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <accuracy:> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/item> a geojson:Feature ;\n    ns1:geometric_rmse 1 ;\n    ns1:geometric_x_bias 0 ;\n    ns1:geometric_x_stddev 5e-01 ;\n    ns1:geometric_y_bias 0 ;\n    ns1:geometric_y_stddev 5e-01 ;\n    ns1:measurement_absolute 2e-02 ;\n    ns1:measurement_relative 1e-02 ;\n    dct:date \"2020-12-11T22:38:32+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;\n    stac:assets <file:///github/workspace/data> ;\n    stac:hasExtension \"https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json\" ;\n    stac:version \"1.0.0\" .\n\n<file:///github/workspace/data> oa:hasTarget <https://example.com/examples/file.xyz> .\n\n",
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix ns2: <accuracy:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/item> a geojson:Feature ;\n    ns2:geometric_rmse 1 ;\n    ns2:geometric_x_bias 0 ;\n    ns2:geometric_x_stddev 5e-01 ;\n    ns2:geometric_y_bias 0 ;\n    ns2:geometric_y_stddev 5e-01 ;\n    ns2:measurement_absolute 2e-02 ;\n    ns2:measurement_relative 1e-02 ;\n    dct:date \"2020-12-11T22:38:32+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;\n    stac:assets <file:///github/workspace/data> ;\n    stac:hasExtension \"https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json\" ;\n    stac:version \"1.0.0\" .\n\n<file:///github/workspace/data> oa:hasTarget <https://example.com/examples/file.xyz> .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/accuracy/example_1_1.ttl"
         }
       ]

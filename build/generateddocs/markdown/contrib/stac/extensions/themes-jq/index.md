@@ -601,18 +601,18 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:assets <https://example.com/stac/themes/example-2/data> ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "geonames::2976077" ;
+    rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ;
+                    thns:name "Syncline" ],
+                [ thns:id "wiki::Summer" ;
+                    thns:name "Summer" ] ;
+            thns:scheme "https://en.wikipedia.org" ],
+        [ thns:concepts [ thns:id "geonames::2976077" ;
                     thns:name "Forêt de Saou" ],
-                [ thns:id "geonames::3017382" ;
-                    thns:name "France" ],
                 [ thns:id "geonames::11071625" ;
-                    thns:name "Auvergne-Rhône-Alpes" ] ;
-            thns:scheme "https://www.geonames.org" ],
-        [ thns:concepts [ thns:id "wiki::Summer" ;
-                    thns:name "Summer" ],
-                [ thns:id "wiki::Syncline" ;
-                    thns:name "Syncline" ] ;
-            thns:scheme "https://en.wikipedia.org" ] .
+                    thns:name "Auvergne-Rhône-Alpes" ],
+                [ thns:id "geonames::3017382" ;
+                    thns:name "France" ] ;
+            thns:scheme "https://www.geonames.org" ] .
 
 <https://example.com/stac/themes/example-2/data> dcterms:format "text/plain" ;
     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> .
@@ -661,17 +661,26 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "id": "@id",
     "type": "@type",
+    "id": "@id",
+    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        },
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata"
+      },
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "title": {
       "@id": "dct:title",
       "@container": "@set"
@@ -680,12 +689,18 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
     "license": "dcat:license",
-    "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -697,21 +712,6 @@ Links to the schema:
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",

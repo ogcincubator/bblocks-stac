@@ -527,14 +527,14 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
     rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
@@ -550,26 +550,176 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-description: STAC Collection
+title: STAC Collection Specification
+description: This object represents Collections in a SpatioTemporal Asset Catalog
+  (adapted from official specs)
 allOf:
-- $ref: https://github.com/radiantearth/stac-spec/raw/master/collection-spec/json-schema/collection.json
-- type: object
-  properties:
-    links:
-      type: array
-      items:
-        $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
-      x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
+- $ref: '#/definitions/collection'
+- $ref: https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
+definitions:
+  collection:
+    title: STAC Collection
+    description: These are the fields specific to a STAC Collection.
+    type: object
+    $comment: title, description, keywords, providers and license is validated through
+      the common metadata.
+    required:
+    - stac_version
+    - type
+    - id
+    - description
+    - license
+    - extent
+    - links
+    properties:
+      stac_version:
+        title: STAC version
+        type: string
+        const: 1.1.0
+        x-jsonld-id: https://w3id.org/ogc/stac/core/version
+      stac_extensions:
+        title: STAC extensions
+        type: array
+        uniqueItems: true
+        items:
+          title: Reference to a JSON Schema
+          type: string
+          format: iri
+        x-jsonld-id: https://w3id.org/ogc/stac/core/hasExtension
+      type:
+        title: Type of STAC entity
+        const: Collection
+        x-jsonld-id: '@type'
+      id:
+        title: Identifier
+        type: string
+        minLength: 1
+        x-jsonld-id: '@id'
+      extent:
+        title: Extents
+        type: object
+        required:
+        - spatial
+        - temporal
+        properties:
+          spatial:
+            title: Spatial extent object
+            type: object
+            required:
+            - bbox
+            properties:
+              bbox:
+                title: Spatial extents
+                type: array
+                oneOf:
+                - minItems: 1
+                  maxItems: 1
+                - minItems: 3
+                items:
+                  title: Spatial extent
+                  type: array
+                  oneOf:
+                  - minItems: 4
+                    maxItems: 4
+                  - minItems: 6
+                    maxItems: 6
+                  items:
+                    type: number
+          temporal:
+            title: Temporal extent object
+            type: object
+            required:
+            - interval
+            properties:
+              interval:
+                title: Temporal extents
+                type: array
+                minItems: 1
+                items:
+                  title: Temporal extent
+                  type: array
+                  minItems: 2
+                  maxItems: 2
+                  items:
+                    type:
+                    - string
+                    - 'null'
+                    format: date-time
+                    pattern: (\+00:00|Z)$
+        x-jsonld-id: http://purl.org/dc/terms/extent
+      assets:
+        $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml#/definitions/assets
+        x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset
+        x-jsonld-container: '@set'
+      item_assets:
+        additionalProperties:
+          allOf:
+          - type: object
+            minProperties: 2
+            properties:
+              href:
+                title: Disallow href
+                not: {}
+              title:
+                title: Asset title
+                type: string
+                x-jsonld-id: http://purl.org/dc/terms/title
+              description:
+                title: Asset description
+                type: string
+                x-jsonld-id: http://purl.org/dc/terms/description
+              type:
+                title: Asset type
+                type: string
+                x-jsonld-id: '@type'
+              roles:
+                title: Asset roles
+                type: array
+                items:
+                  type: string
+          - $ref: https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
+      links:
+        type: array
+        items:
+          $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
+      summaries:
+        $ref: '#/definitions/summaries'
+  summaries:
+    type: object
+    additionalProperties:
+      anyOf:
+      - title: JSON Schema
+        type: object
+        minProperties: 1
+        allOf:
+        - $ref: http://json-schema.org/draft-07/schema
+      - title: Range
+        type: object
+        required:
+        - minimum
+        - maximum
+        properties:
+          minimum:
+            title: Minimum value
+            type:
+            - number
+            - string
+          maximum:
+            title: Maximum value
+            type:
+            - number
+            - string
+      - title: Set of values
+        type: array
+        minItems: 1
+        items:
+          description: For each field only the original data type of the property
+            can occur (except for arrays), but we can't validate that in JSON Schema
+            yet. See the sumamry description in the STAC specification for details.
 x-jsonld-extra-terms:
-  stac_version: https://w3id.org/ogc/stac/core/version
-  stac_extensions: https://w3id.org/ogc/stac/core/hasExtension
-  id: '@id'
-  type: '@type'
-  title: http://purl.org/dc/terms/title
-  description: http://purl.org/dc/terms/description
   keywords: http://purl.org/dc/terms/subject
   license: http://purl.org/dc/terms/license
-  extent: http://purl.org/dc/terms/extent
   datetime:
     x-jsonld-id: http://purl.org/dc/terms/date
     x-jsonld-type: xsd:dateTime
@@ -579,20 +729,6 @@ x-jsonld-extra-terms:
   end_datetime:
     x-jsonld-id: https://w3id.org/ogc/stac/core/end_datetime
     x-jsonld-type: xsd:dateTime
-  assets:
-    x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset
-    x-jsonld-container: '@set'
-    x-jsonld-context:
-      thumbnail:
-        '@id': https://w3id.org/ogc/stac/core/thumbnail
-      overview: https://w3id.org/ogc/stac/core/overview
-      data: https://w3id.org/ogc/stac/core/data
-      metadata: https://w3id.org/ogc/stac/core/metadata
-      type: http://purl.org/dc/terms/format
-      title: http://purl.org/dc/terms/title
-      roles:
-        '@id': https://w3id.org/ogc/stac/core/roles
-        '@container': '@set'
   providers: https://w3id.org/ogc/stac/core/hasProvider
   media_type: http://purl.org/dc/terms/format
 x-jsonld-prefixes:
@@ -613,6 +749,24 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "type": "@type",
+    "id": "@id",
+    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "title": "dct:title",
+    "description": "dct:description",
     "links": {
       "@context": {
         "href": {
@@ -633,15 +787,8 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "stac_version": "stac:version",
-    "stac_extensions": "stac:hasExtension",
-    "id": "@id",
-    "type": "@type",
-    "title": "dct:title",
-    "description": "dct:description",
     "keywords": "dct:subject",
     "license": "dct:license",
-    "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -653,21 +800,6 @@ Links to the schema:
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:hasAsset",
-      "@container": "@set",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",

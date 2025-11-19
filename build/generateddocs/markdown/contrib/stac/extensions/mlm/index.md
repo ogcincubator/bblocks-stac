@@ -636,8 +636,8 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <mlm:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -647,10 +647,10 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 <https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
     dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
     rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
         [ dcterms:format "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -660,18 +660,18 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:architecture "ResNet" ;
-    ns1:input [ ] ;
-    ns1:name "example-model" ;
-    ns1:output [ ] ;
-    ns1:tasks "classification" .
+    ns2:architecture "ResNet" ;
+    ns2:input [ ] ;
+    ns2:name "example-model" ;
+    ns2:output [ ] ;
+    ns2:tasks "classification" .
 
 <https://example.com/stac/mlm/example-1/model> dcterms:description "Example model." ;
     dcterms:format "text/html" ;
     dcterms:title "Pytorch weights checkpoint" ;
     oa:hasTarget <https://huggingface.co/example/model-card> ;
     stac:roles "mlm:model" ;
-    ns1:artifact_type "torch.save" .
+    ns2:artifact_type "torch.save" .
 
 
 ```
@@ -713,17 +713,26 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "id": "@id",
     "type": "@type",
+    "id": "@id",
+    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        },
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata"
+      },
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "title": {
       "@id": "dct:title",
       "@container": "@set"
@@ -732,12 +741,18 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
     "license": "dcat:license",
-    "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -749,21 +764,6 @@ Links to the schema:
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",

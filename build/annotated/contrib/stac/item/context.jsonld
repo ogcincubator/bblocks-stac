@@ -13,30 +13,20 @@
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
+    "type": "dct:type",
     "id": "@id",
     "properties": "@nest",
-    "geometry": "geojson:geometry",
+    "geometry": {
+      "@context": {
+        "type": "@type"
+      },
+      "@id": "geojson:geometry"
+    },
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
     },
-    "links": {
-      "@context": {
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:format",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "rdfs:seeAlso"
-    },
+    "links": "rdfs:seeAlso",
     "conformsTo": {
       "@container": "@set",
       "@id": "dct:conformsTo",
@@ -51,7 +41,7 @@
     "updated": "dct:modified",
     "title": {
       "@container": "@set",
-      "@id": "dct:title"
+      "@id": "rdfs:label"
     },
     "description": {
       "@container": "@set",
@@ -88,19 +78,6 @@
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
@@ -109,17 +86,7 @@
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
         "type": "dct:format",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -136,11 +103,36 @@
     },
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "extent": "dct:extent",
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "rel": {
+      "@context": {
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
+    },
+    "hreflang": "dct:language",
+    "length": "dct:extent",
+    "assets": {
+      "@context": {
+        "title": "dct:title",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "extent": "dct:extent",
     "start_datetime": {
       "@id": "stac:start_datetime",
       "@type": "xsd:dateTime"
@@ -149,32 +141,12 @@
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "assets": {
-      "@id": "stac:hasAsset",
-      "@container": "@set",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
     "providers": "stac:hasProvider",
     "media_type": "dct:format",
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
     "geojson": "https://purl.org/geojson/vocab#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -186,6 +158,7 @@
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "@version": 1.1
   }
 }
