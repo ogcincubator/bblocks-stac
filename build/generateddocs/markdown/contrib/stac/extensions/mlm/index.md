@@ -310,14 +310,14 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/mlm/example-1/example-model> dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    dcterms:format "Feature" ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
+<https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
+    dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
+    rdfs:seeAlso [ dcterms:format "application/geo+json" ;
             ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
+        [ dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -642,12 +642,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/mlm/example-1/example-model> dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    dcterms:format "Feature" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+<https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
+    dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
+    rdfs:seeAlso [ dcterms:format "application/geo+json" ;
             ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
-        [ dcterms:type "application/json" ;
+        [ dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
@@ -720,9 +720,12 @@ Links to the schema:
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
-    "type": "dct:format",
+    "type": "@type",
     "hreflang": "dct:language",
-    "title": "rdfs:label",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
     "length": "dct:extent",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -739,34 +742,93 @@ Links to the schema:
     },
     "id": "@id",
     "properties": "@nest",
-    "geometry": {
-      "@context": {
-        "type": "@type"
-      },
-      "@id": "geojson:geometry"
-    },
+    "geometry": "geojson:geometry",
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
     },
     "links": {
       "@context": {
-        "type": "dct:type"
+        "type": "dct:format",
+        "title": "rdfs:label"
       },
       "@id": "rdfs:seeAlso"
     },
+    "conformsTo": {
+      "@container": "@set",
+      "@id": "dct:conformsTo",
+      "@type": "@id"
+    },
+    "time": "dct:temporal",
     "coordinates": {
       "@container": "@list",
       "@id": "geojson:coordinates"
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "uriTemplate": {
-      "@type": "xsd:string",
-      "@id": "oa:hasTarget"
+    "description": {
+      "@container": "@set",
+      "@id": "dct:description"
     },
-    "description": "dct:description",
-    "license": "dct:license",
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
+    "language": "rec:language",
+    "languages": {
+      "@container": "@set",
+      "@id": "rec:languages"
+    },
+    "resourceLanguages": {
+      "@container": "@set",
+      "@id": "rec:resourceLanguages"
+    },
+    "externalIds": {
+      "@context": {
+        "scheme": "rec:scheme",
+        "value": "rec:id"
+      },
+      "@container": "@set",
+      "@id": "rec:scopedIdentifier"
+    },
+    "themes": {
+      "@container": "@set",
+      "@id": "rec:themes"
+    },
+    "formats": {
+      "@container": "@set",
+      "@id": "rec:format",
+      "@type": "@id"
+    },
+    "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
+      "@container": "@set",
+      "@id": "dcat:contactPoint",
+      "@type": "@id"
+    },
+    "license": "dcat:license",
+    "rights": "dcat:rights",
+    "linkTemplates": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier",
+          "@type": "@json"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
     "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
@@ -788,7 +850,7 @@ Links to the schema:
         "overview": "stac:overview",
         "data": "stac:data",
         "metadata": "stac:metadata",
-        "title": "dct:title",
+        "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
@@ -812,7 +874,17 @@ Links to the schema:
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "https://w3id.org/ogc/stac/core/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "w3ctime": "http://www.w3.org/2006/time#",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
     "@version": 1.1
   }
 }

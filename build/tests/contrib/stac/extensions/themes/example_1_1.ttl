@@ -1,19 +1,21 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
-<https://example.com/stac/themes/example-1/collection> rdfs:label "A title" ;
+<https://example.com/stac/themes/example-1/collection> a <https://example.com/stac/themes/example-1/Collection> ;
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
-    dcterms:format "Collection" ;
-    dcterms:license "Apache-2.0" ;
+    dcterms:title "A title" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/examples/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/collection.json> ] ;
-    thns:schemes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    dcat:license "Apache-2.0" ;
+    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,

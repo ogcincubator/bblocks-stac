@@ -9,30 +9,30 @@
 
 <https://ogcincubator.github.io/bblocks-stac/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N43f404e4406e41d8822823e047f3be57 ;
+    prov:wasAttributedTo _:Nf56136d424f141998ae2e9b2a599e9d4 ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2025-11-19T09:31:23.358269"^^xsd:dateTime ;
-            prov:startedAtTime "2025-11-19T09:31:23.269559"^^xsd:dateTime ;
+            prov:endedAtTime "2025-11-19T11:20:52.819634"^^xsd:dateTime ;
+            prov:startedAtTime "2025-11-19T11:20:52.728152"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
-                    dct:format "application/json" ;
-                    dct:hasVersion "git:8e60ef6cc84347d29c8457c2aea42d44103f7f6e" ;
-                    rdfs:seeAlso <https://ogcincubator.github.io/bblocks-stac/build/register.json> ],
-                [ a prov:Entity ;
                     dct:format "application/yaml" ;
-                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
-            prov:wasAssociatedWith _:N43f404e4406e41d8822823e047f3be57 ] .
+                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
+                [ a prov:Entity ;
+                    dct:format "application/json" ;
+                    dct:hasVersion "git:9f7850c635ea4cfb59ae95d6aa6ce52d49492241" ;
+                    rdfs:seeAlso <https://ogcincubator.github.io/bblocks-stac/build/register.json> ] ;
+            prov:wasAssociatedWith _:Nf56136d424f141998ae2e9b2a599e9d4 ] .
 
 <https://ogcincubator.github.io/ogc.contrib.stac.core-ontology> a skos:Concept,
         dcat:Dataset,
         bblocks:Model ;
     rdfs:label "STAC Core Ontology" ;
     dct:created "2025-06-12T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/core-ontology/index.md" ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/core-ontology/index.json" ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.core-ontology" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/core-ontology/index.md" ],
         "Describes STAC objects"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-11-19"^^xsd:date ;
@@ -74,12 +74,12 @@
     rdfs:label "STAC CF Extension" ;
     dct:abstract "CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to provide the Standard Name Table based on the CF metadata convention."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.cf" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/cf/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/cf/index.json" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/cf/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.cf" ] ;
     dct:hasVersion "0.2.0" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/cf> ;
@@ -104,12 +104,12 @@
     rdfs:label "STAC Machine Learning Model" ;
     dct:abstract "STAC Machine Learning Model (MLM) Extension to describe ML models, their training details, and inference runtime requirements."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/mlm/index.md" ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/mlm/index.json" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.mlm" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/mlm/index.md" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.mlm" ] ;
     dct:hasVersion "1.4.0" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/mlm> ;
@@ -140,10 +140,10 @@
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/osc/index.md" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.osc" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/osc/index.json" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/osc/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.osc" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/osc> ;
@@ -172,10 +172,10 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.themes" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/themes/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes/index.json" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes/index.json" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/themes/index.md" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/themes> ;
@@ -339,12 +339,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 EO data is considered to be data that represents a snapshot of the Earth for a single date and time. It could consist of multiple spectral bands in any part of the electromagnetic spectrum. Examples of EO data include sensors with visible, short-wave and mid-wave IR bands (e.g., the OLI instrument on Landsat-8), long-wave IR bands (e.g. TIRS aboard Landsat-8)."""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.eo" ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/eo/index.json" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/eo/index.md" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.eo" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/eo/index.md" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/eo> ;
@@ -370,12 +370,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     rdfs:label "STAC Processing Extension" ;
     dct:abstract "STAC Processing Extension for STAC Items and STAC Collections."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/processing/index.json" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/processing/index.md" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.processing" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.processing" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/processing/index.json" ] ;
     dct:hasVersion "1.2.0" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/processing> ;
@@ -400,12 +400,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     rdfs:label "STAC Raster Extension" ;
     dct:abstract "An item can describe assets that are rasters of one or multiple bands with some information common to them all (raster size, projection) and also specific to each of them (data type, unit, number of bits used, nodata). A raster is often strongly linked with the georeferencing transform and coordinate system definition of all bands (using the projection extension). In many applications, it is interesting to have some metadata about the rasters in the asset (values statistics, value interpretation, transforms)."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster" ],
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md" ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/raster/index.json" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md" ] ;
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/raster> ;
@@ -436,10 +436,10 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     rdfs:label "STAC Collection" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection/index.md" ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection/index.json" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection/index.md" ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection" ] ;
     dct:hasVersion "1.1.0" ;
@@ -463,10 +463,10 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection-v1-0-0/index.md" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection-v1-0-0" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection-v1-0-0/index.json" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection-v1-0-0/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection-v1-0-0" ] ;
     dct:hasVersion "1.0.0" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
@@ -487,12 +487,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     rdfs:label "STAC Item" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) item"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md" ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item/index.json" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-11-19"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
@@ -556,7 +556,7 @@ Provides a framework for documentation and testing of additional extensions.
         <https://ogcincubator.github.io/geodcat-ogcapi-records/build/register.json>,
         <https://opengeospatial.github.io/bblocks/register.json> .
 
-_:N43f404e4406e41d8822823e047f3be57 a prov:Agent,
+_:Nf56136d424f141998ae2e9b2a599e9d4 a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.4.9" ;

@@ -107,10 +107,10 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
-    dcterms:format "Feature" ;
+<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
+    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     prov:wasGeneratedBy <http://mysystem.io/prov?object=20201211_223832_CS2> ;
@@ -251,10 +251,10 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
-    dcterms:format "Feature" ;
+<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
+    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     prov:wasGeneratedBy <surveys:DP-1-S1> ;
@@ -422,12 +422,12 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
-    dcterms:format "Feature" ;
+<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
+    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     dcterms:provenance <https://example.com/stac/example1/DP-2223>,
         <surveys:DP-1-S1> ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
@@ -484,7 +484,8 @@ Links to the schema:
   "@context": {
     "wasInfluencedBy": {
       "@context": {
-        "type": "dct:type"
+        "type": "dct:type",
+        "title": "rdfs:label"
       },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
@@ -493,21 +494,24 @@ Links to the schema:
       "@context": {
         "influencer": {
           "@context": {
-            "type": "dct:type"
+            "type": "dct:type",
+            "title": "rdfs:label"
           },
           "@id": "prov:influencer",
           "@type": "@id"
         },
         "activity": {
           "@context": {
-            "type": "dct:type"
+            "type": "dct:type",
+            "title": "rdfs:label"
           },
           "@id": "prov:activity",
           "@type": "@id"
         },
         "agent": {
           "@context": {
-            "type": "dct:type"
+            "type": "dct:type",
+            "title": "rdfs:label"
           },
           "@id": "prov:agent",
           "@type": "@id"
@@ -527,9 +531,12 @@ Links to the schema:
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
-    "type": "dct:format",
+    "type": "@type",
     "hreflang": "dct:language",
-    "title": "rdfs:label",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
     "length": "dct:extent",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -546,34 +553,93 @@ Links to the schema:
     },
     "id": "@id",
     "properties": "@nest",
-    "geometry": {
-      "@context": {
-        "type": "@type"
-      },
-      "@id": "geojson:geometry"
-    },
+    "geometry": "geojson:geometry",
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
     },
     "links": {
       "@context": {
-        "type": "dct:type"
+        "type": "dct:format",
+        "title": "rdfs:label"
       },
       "@id": "rdfs:seeAlso"
     },
+    "conformsTo": {
+      "@container": "@set",
+      "@id": "dct:conformsTo",
+      "@type": "@id"
+    },
+    "time": "dct:temporal",
     "coordinates": {
       "@container": "@list",
       "@id": "geojson:coordinates"
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "uriTemplate": {
-      "@type": "xsd:string",
-      "@id": "oa:hasTarget"
+    "description": {
+      "@container": "@set",
+      "@id": "dct:description"
     },
-    "description": "dct:description",
-    "license": "dct:license",
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
+    "language": "rec:language",
+    "languages": {
+      "@container": "@set",
+      "@id": "rec:languages"
+    },
+    "resourceLanguages": {
+      "@container": "@set",
+      "@id": "rec:resourceLanguages"
+    },
+    "externalIds": {
+      "@context": {
+        "scheme": "rec:scheme",
+        "value": "rec:id"
+      },
+      "@container": "@set",
+      "@id": "rec:scopedIdentifier"
+    },
+    "themes": {
+      "@container": "@set",
+      "@id": "rec:themes"
+    },
+    "formats": {
+      "@container": "@set",
+      "@id": "rec:format",
+      "@type": "@id"
+    },
+    "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
+      "@container": "@set",
+      "@id": "dcat:contactPoint",
+      "@type": "@id"
+    },
+    "license": "dcat:license",
+    "rights": "dcat:rights",
+    "linkTemplates": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier",
+          "@type": "@json"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
     "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
@@ -595,7 +661,7 @@ Links to the schema:
         "overview": "stac:overview",
         "data": "stac:data",
         "metadata": "stac:metadata",
-        "title": "dct:title",
+        "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
@@ -925,6 +991,14 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "https://w3id.org/ogc/stac/core/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "w3ctime": "http://www.w3.org/2006/time#",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
     "@version": 1.1
   }
 }
