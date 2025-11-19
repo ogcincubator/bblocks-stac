@@ -896,8 +896,8 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix ns1: <proj:> .
 @prefix ns2: <sentinel:> .
 @prefix ns3: <eo:> .
-@prefix ns4: <view:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -909,7 +909,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
     ns3:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -926,6 +926,11 @@ An item can describe assets that are rasters of one or multiple bands with some 
         <https://example.com/stac/raster/example-1/overview>,
         <https://example.com/stac/raster/example-1/thumbnail>,
         <https://example.com/stac/raster/example-1/visual> ;
+    stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
+    stac:version "1.1.0" ;
     ns1:code "EPSG:32633" ;
     ns2:data_coverage 100 ;
     ns2:grid_square "VB" ;
@@ -933,7 +938,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
     ns2:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
     ns2:sequence "0" ;
     ns2:utm_zone 33 ;
-    ns4:off_nadir 0 .
+    ns5:off_nadir 0 .
 
 <https://example.com/stac/raster/example-1/B01> ns3:center_wavelength 4.439e-01 ;
     ns3:common_name "coastal" ;
@@ -1135,6 +1140,53 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "id": "@id",
+    "type": "@type",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "extent": "dct:extent",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
+    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -1148,8 +1200,6 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
-    "id": "@id",
     "properties": "@nest",
     "geometry": "geojson:geometry",
     "bbox": {
@@ -1168,18 +1218,6 @@ Links to the schema:
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "title": {
-      "@container": "@set",
-      "@id": "dct:title"
-    },
-    "description": {
-      "@container": "@set",
-      "@id": "dct:description"
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -1215,7 +1253,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
@@ -1235,35 +1272,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "extent": "dct:extent",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
-    "media_type": "dct:format",
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -1287,12 +1295,12 @@ Links to the schema:
       "@id": "raster:range",
       "@container": "@list"
     },
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "dct": "http://purl.org/dc/terms/",
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

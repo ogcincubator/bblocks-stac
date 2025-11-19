@@ -327,6 +327,7 @@ STAC Extension for the ESA Open Science Catalog
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
 <https://example.com/stac/osc/example-1/3d-earth> a <https://example.com/stac/osc/example-1/Collection> ;
@@ -334,35 +335,35 @@ STAC Extension for the ESA Open Science Catalog
     dcterms:extent [ ] ;
     dcterms:modified "2024-09-12T20:32:23.030110Z" ;
     dcterms:title "3D-EARTH" ;
-    rdfs:seeAlso [ rdfs:label "Global Model of Crust and Upper Mantle_WINTERC-G_GOCE" ;
+    rdfs:seeAlso [ rdfs:label "EO4Society Link" ;
+            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://eo4society.esa.int/projects/stse-3d-earth/> ],
+        [ rdfs:label "Global Model of Crust and Upper Mantle_WINTERC-G_GOCE" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://example.com/stac/products/crust-and-upper-mantle-model-3d-earth/collection.json> ],
-        [ rdfs:label "Theme: Solid Earth" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/themes/solid-earth/catalog.json> ],
         [ rdfs:label "Projects" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
-        [ rdfs:label "Geothermal Heat Flow Database and Map_Greenland_GOCE_SWARM" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/stac/products/geothermal-heat-flow-greenland-3d-earth/collection.json> ],
         [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/projects/3d-earth/collection.json> ],
-        [ rdfs:label "EO4Society Link" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://eo4society.esa.int/projects/stse-3d-earth/> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Theme: Solid Earth" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/themes/solid-earth/catalog.json> ],
         [ rdfs:label "Website" ;
             ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <http://www.3dearth.uni-kiel.de/en> ] ;
+            oa:hasTarget <http://www.3dearth.uni-kiel.de/en> ],
+        [ rdfs:label "Geothermal Heat Flow Database and Map_Greenland_GOCE_SWARM" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/products/geothermal-heat-flow-greenland-3d-earth/collection.json> ] ;
     dcat:contactPoint [ ],
         [ ],
         [ ],
@@ -372,6 +373,10 @@ STAC Extension for the ESA Open Science Catalog
         [ ],
         [ ] ;
     dcat:license "proprietary" ;
+    stac:hasExtension "https://stac-extensions.github.io/contacts/v0.1.1/schema.json",
+        "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ thns:id "solid-earth" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:status "completed" ;
@@ -656,6 +661,7 @@ STAC Extension for the ESA Open Science Catalog
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
 <https://example.com/stac/osc/example-1/absolute-sea-level-heights-baltics-sar-hsu> a <https://example.com/stac/osc/example-1/Collection> ;
@@ -665,29 +671,10 @@ STAC Extension for the ESA Open Science Catalog
     dcterms:extent [ ] ;
     dcterms:modified "2024-09-12T20:32:06.209108Z" ;
     dcterms:title "SL-ABS: Absolute Sea Level Heights_Baltics_Multimission" ;
-    rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
-        [ rdfs:label "EO Mission: GOCE" ;
+    rdfs:seeAlso [ rdfs:label "Variable: Sea Surface Height Anomaly (SSHA)" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/goce/catalog.json> ],
-        [ rdfs:label "EO Mission: GLONASS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/glonass/catalog.json> ],
-        [ rdfs:label "Project: SAR-HSU" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json> ],
+            oa:hasTarget <https://example.com/stac/variables/sea-surface-height-anomaly-ssha/catalog.json> ],
         [ rdfs:label "EO Mission: Sentinel-1" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -696,17 +683,40 @@ STAC Extension for the ESA Open Science Catalog
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/stac/themes/oceans/catalog.json> ],
-        [ rdfs:label "Variable: Sea Surface Height Anomaly (SSHA)" ;
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "EO Mission: GOCE" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/variables/sea-surface-height-anomaly-ssha/catalog.json> ],
+            oa:hasTarget <https://example.com/stac/eo-missions/goce/catalog.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
         [ rdfs:label "Access" ;
             ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SL-ABS.zip> ] ;
+            oa:hasTarget <https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SL-ABS.zip> ],
+        [ rdfs:label "Project: SAR-HSU" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json> ],
+        [ rdfs:label "EO Mission: GLONASS" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/eo-missions/glonass/catalog.json> ] ;
     dcat:keyword "Sea Surface Height",
         "Sea Surface Height Anomaly (SSHA)",
         "Sea Surface Topography" ;
     dcat:license "proprietary" ;
+    stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json",
+        "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ thns:id "oceans" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:missions "glonass",
@@ -882,18 +892,21 @@ STAC Extension for the ESA Open Science Catalog
             dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
-        [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
         [ rdfs:label "SWARM VIP" ;
             dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/osc/catalog.json> ] ;
+            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
+        [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ] ;
     dcat:keyword "region:None",
         "theme:Magnetosphere_Ionosphere",
         "variable:Ionospheric plasma density" ;
     stac:assets <https://example.com/stac/osc/example-2/model> ;
+    stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ dcterms:title "Magnetosphere Ionosphere" ;
                     thns:id "magnetosphere-ionosphere" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
@@ -956,6 +969,53 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "id": "@id",
+    "type": "@type",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "extent": "dct:extent",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
+    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -969,8 +1029,6 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
-    "id": "@id",
     "properties": "@nest",
     "geometry": "geojson:geometry",
     "bbox": {
@@ -989,18 +1047,6 @@ Links to the schema:
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "title": {
-      "@container": "@set",
-      "@id": "dct:title"
-    },
-    "description": {
-      "@container": "@set",
-      "@id": "dct:description"
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -1036,7 +1082,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
@@ -1056,35 +1101,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "extent": "dct:extent",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
-    "media_type": "dct:format",
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -1108,12 +1124,12 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "dct": "http://purl.org/dc/terms/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

@@ -105,6 +105,7 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
@@ -116,7 +117,9 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
     prov:wasGeneratedBy <http://mysystem.io/prov?object=20201211_223832_CS2> ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Point ;
-            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] .
+            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] ;
+    stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
+    stac:version "1.1.0" .
 
 
 ```
@@ -249,6 +252,7 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
@@ -260,7 +264,9 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
     prov:wasGeneratedBy <surveys:DP-1-S1> ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Point ;
-            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] .
+            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] ;
+    stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
+    stac:version "1.1.0" .
 
 <regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -420,6 +426,7 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
@@ -432,7 +439,9 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Point ;
-            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] .
+            geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] ;
+    stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
+    stac:version "1.1.0" .
 
 <https://example.com/stac/example1/DP-2223> a <ftc:SomeKindOfSurvey>,
         prov:Entity ;
@@ -640,6 +649,8 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
     "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
@@ -668,6 +679,7 @@ Links to the schema:
         }
       }
     },
+    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "activityType": "@type",
     "agentType": "@type",

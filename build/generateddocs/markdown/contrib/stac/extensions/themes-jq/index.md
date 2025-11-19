@@ -280,16 +280,17 @@ A knowledge organization system used to classify the resource (controlled vocabu
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
 <https://example.com/stac/themes/example-1/collection> a <https://example.com/stac/themes/example-1/Collection> ;
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ] ;
     dcat:license "Apache-2.0" ;
     dcat:theme <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
         <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
@@ -304,12 +305,9 @@ A knowledge organization system used to classify the resource (controlled vocabu
         <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
         <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
         <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-    rec:themes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
-        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
+    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -318,7 +316,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
+        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -596,18 +599,20 @@ A knowledge organization system used to classify the resource (controlled vocabu
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
     stac:assets <https://example.com/stac/themes/example-2/data> ;
-    rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ;
-                    thns:name "Syncline" ],
-                [ thns:id "wiki::Summer" ;
-                    thns:name "Summer" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::11071625" ;
-                    thns:name "Auvergne-Rhône-Alpes" ],
+    stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
+    rec:themes [ thns:concepts [ thns:id "geonames::2976077" ;
+                    thns:name "Forêt de Saou" ],
                 [ thns:id "geonames::3017382" ;
                     thns:name "France" ],
-                [ thns:id "geonames::2976077" ;
-                    thns:name "Forêt de Saou" ] ;
-            thns:scheme "https://www.geonames.org" ] .
+                [ thns:id "geonames::11071625" ;
+                    thns:name "Auvergne-Rhône-Alpes" ] ;
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Summer" ;
+                    thns:name "Summer" ],
+                [ thns:id "wiki::Syncline" ;
+                    thns:name "Syncline" ] ;
+            thns:scheme "https://en.wikipedia.org" ] .
 
 <https://example.com/stac/themes/example-2/data> dcterms:format "text/plain" ;
     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> .
@@ -663,6 +668,53 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "id": "@id",
+    "type": "@type",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "extent": "dct:extent",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
+    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -676,8 +728,6 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
-    "id": "@id",
     "properties": "@nest",
     "geometry": "geojson:geometry",
     "bbox": {
@@ -696,18 +746,6 @@ Links to the schema:
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "title": {
-      "@container": "@set",
-      "@id": "dct:title"
-    },
-    "description": {
-      "@container": "@set",
-      "@id": "dct:description"
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -743,7 +781,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
@@ -763,35 +800,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "extent": "dct:extent",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
-    "media_type": "dct:format",
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -815,12 +823,12 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "dct": "http://purl.org/dc/terms/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

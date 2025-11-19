@@ -3,6 +3,7 @@
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/eo/example-1/eo-collection> a <https://example.com/stac/eo/example-1/Collection> ;
     dcterms:description "A simple Collection demonstrating EO extension fields in a Collection." ;
@@ -16,5 +17,7 @@
             dcterms:format "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/eo/example-1/item.json> ] ;
-    dcat:license "CC-BY-4.0" .
+    dcat:license "CC-BY-4.0" ;
+    stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json" ;
+    stac:version "1.1.0" .
 

@@ -268,20 +268,26 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/classification/example-1/103001005D31F500> a <https://example.com/stac/classification/example-1/Collection> ;
     dcterms:description "103001005D31F500 ARD Tiles" ;
     dcterms:extent [ ] ;
     rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
         [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
         [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ] ;
-    dcat:license "proprietary" .
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ] ;
+    dcat:license "proprietary" ;
+    stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.0.0/schema.json" ;
+    stac:version "1.0.0" .
 
 
 ```
@@ -1058,9 +1064,9 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <classification:> .
 @prefix ns2: <mlm:> .
-@prefix ns3: <file:> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <ml-aoi:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <ml-aoi:> .
+@prefix ns5: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -1069,79 +1075,29 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns3:size 43000000 ;
+    ns5:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:format "application/geo+json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ],
-        [ dcterms:format "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
+    rdfs:seeAlso [ dcterms:format "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns5:split "train" ] ;
+            ns4:split "train" ],
+        [ dcterms:format "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:assets <https://example.com/stac/classification/example-1/source_code>,
         <https://example.com/stac/classification/example-1/weights> ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasExtension "https://crim-ca.github.io/mlm-extension/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    stac:version "1.0.0" ;
     raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B04" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B07" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B8A" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B12" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B02" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B09" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B01" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
             raster:name "B05" ;
             raster:nodata 0 ;
@@ -1151,7 +1107,7 @@ STAC Classification Extension for STAC Items and STAC Collections.
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B06" ;
+            raster:name "B07" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
@@ -1167,7 +1123,55 @@ STAC Classification Extension for STAC Items and STAC Collections.
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
+            raster:name "B12" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B01" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 60 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B02" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 10 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
             raster:name "B08" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 10 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B06" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B8A" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B03" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
@@ -1183,11 +1187,19 @@ STAC Classification Extension for STAC Items and STAC Collections.
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B03" ;
+            raster:name "B04" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
             raster:spatial_resolution 10 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B09" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 60 ;
             raster:unit "m" ] ;
     ns2:accelerator "cuda" ;
     ns2:accelerator_constrained false ;
@@ -1199,26 +1211,26 @@ STAC Classification Extension for STAC Items and STAC Collections.
     ns2:input [ ] ;
     ns2:memory_size 1 ;
     ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns2:output [ ns1:classes [ dcterms:description "Illustrates pasture areas with a fresh lawn green color." ;
-                    dcterms:title "Pasture" ],
-                [ dcterms:description "Depicts forested areas with a deep green color." ;
+    ns2:output [ ns1:classes [ dcterms:description "Depicts forested areas with a deep green color." ;
                     dcterms:title "Forest" ],
-                [ dcterms:description "Indicates seas and lakes with a serene blue color." ;
-                    dcterms:title "Sea and Lake" ],
-                [ dcterms:description "Represents areas of annual crops with a bright yellow color." ;
-                    dcterms:title "Annual Crop" ],
-                [ dcterms:description "Indicates areas of herbaceous vegetation with a green-yellow hue." ;
-                    dcterms:title "Herbaceous Vegetation" ],
-                [ dcterms:description "Marks residential buildings with a bold red color." ;
-                    dcterms:title "Residential Buildings" ],
-                [ dcterms:description "Represents permanent crop areas with a dark green color." ;
-                    dcterms:title "Permanent Crop" ],
-                [ dcterms:description "Highlights industrial buildings with a vibrant purple color." ;
-                    dcterms:title "Industrial Buildings" ],
+                [ dcterms:description "Illustrates pasture areas with a fresh lawn green color." ;
+                    dcterms:title "Pasture" ],
                 [ dcterms:description "Denotes highways and roads with a neutral gray color." ;
                     dcterms:title "Gray" ],
+                [ dcterms:description "Represents permanent crop areas with a dark green color." ;
+                    dcterms:title "Permanent Crop" ],
+                [ dcterms:description "Indicates seas and lakes with a serene blue color." ;
+                    dcterms:title "Sea and Lake" ],
+                [ dcterms:description "Marks residential buildings with a bold red color." ;
+                    dcterms:title "Residential Buildings" ],
+                [ dcterms:description "Indicates areas of herbaceous vegetation with a green-yellow hue." ;
+                    dcterms:title "Herbaceous Vegetation" ],
                 [ dcterms:description "Depicts rivers and water bodies with a vivid cyan color." ;
-                    dcterms:title "River" ] ] ;
+                    dcterms:title "River" ],
+                [ dcterms:description "Represents areas of annual crops with a bright yellow color." ;
+                    dcterms:title "Annual Crop" ],
+                [ dcterms:description "Highlights industrial buildings with a vibrant purple color." ;
+                    dcterms:title "Industrial Buildings" ] ] ;
     ns2:pretrained_source "EuroSat Sentinel-2" ;
     ns2:tasks "classification" ;
     ns2:total_parameters 11700000 .
@@ -1285,6 +1297,53 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "id": "@id",
+    "type": "@type",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "extent": "dct:extent",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
+    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -1298,8 +1357,6 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
-    "id": "@id",
     "properties": "@nest",
     "geometry": "geojson:geometry",
     "bbox": {
@@ -1318,18 +1375,6 @@ Links to the schema:
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "title": {
-      "@container": "@set",
-      "@id": "dct:title"
-    },
-    "description": {
-      "@container": "@set",
-      "@id": "dct:description"
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -1365,7 +1410,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
@@ -1385,35 +1429,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "extent": "dct:extent",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
-    "media_type": "dct:format",
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -1437,12 +1452,12 @@ Links to the schema:
       "@id": "raster:range",
       "@container": "@list"
     },
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "dct": "http://purl.org/dc/terms/",
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

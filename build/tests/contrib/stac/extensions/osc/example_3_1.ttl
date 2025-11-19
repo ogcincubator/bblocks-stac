@@ -16,18 +16,21 @@
             dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
-        [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
         [ rdfs:label "SWARM VIP" ;
             dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/osc/catalog.json> ] ;
+            oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
+        [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ] ;
     dcat:keyword "region:None",
         "theme:Magnetosphere_Ionosphere",
         "variable:Ionospheric plasma density" ;
     stac:assets <https://example.com/stac/osc/example-2/model> ;
+    stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ dcterms:title "Magnetosphere Ionosphere" ;
                     thns:id "magnetosphere-ionosphere" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;

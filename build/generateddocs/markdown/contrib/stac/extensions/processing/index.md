@@ -236,24 +236,36 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <processing:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/processing/example-1/Sentinel2-L2A> a <https://example.com/stac/processing/example-1/Collection> ;
     dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns2:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] ;
-    dcat:license "proprietary" .
+    dcat:license "proprietary" ;
+    stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
+    stac:hasProvider [ ns1:level "L2A" ;
+            ns1:lineage "Generation of Level-2A User Product" ;
+            ns1:software [ ] ],
+        [ ],
+        [ ns1:facility "Copernicus S2 Processing and Archiving Facility" ;
+            ns1:level "L1" ;
+            ns1:lineage "Generation of Level-1C User Product" ;
+            ns1:version "02.06" ] ;
+    stac:version "1.0.0" .
 
 
 ```
@@ -633,7 +645,11 @@ STAC Processing Extension for STAC Items and STAC Collections.
         <https://example.com/stac/processing/example-2/manifest>,
         <https://example.com/stac/processing/example-2/quick-look> ;
     stac:end_datetime "2016-08-22T18:28:48.368201+00:00"^^xsd:dateTime ;
+    stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/sat/v1.0.0/schema.json" ;
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
+    stac:version "1.0.0" ;
     ns1:datetime "2016-08-23T00:30:33Z" ;
     ns1:facility "Copernicus S1 Core Ground Segment - DPA" ;
     ns1:level "L1" ;
@@ -743,6 +759,53 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "id": "@id",
+    "type": "@type",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "extent": "dct:extent",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "assets": {
+      "@id": "stac:assets",
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
+    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -756,8 +819,6 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
-    "id": "@id",
     "properties": "@nest",
     "geometry": "geojson:geometry",
     "bbox": {
@@ -776,18 +837,6 @@ Links to the schema:
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "title": {
-      "@container": "@set",
-      "@id": "dct:title"
-    },
-    "description": {
-      "@container": "@set",
-      "@id": "dct:description"
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -823,7 +872,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
@@ -843,35 +891,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "extent": "dct:extent",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:assets",
-      "@container": "@id",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
-    "media_type": "dct:format",
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -895,12 +914,12 @@ Links to the schema:
       "@id": "raster:range",
       "@container": "@list"
     },
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "dct": "http://purl.org/dc/terms/",
     "raster": "https://w3id.org/ogc/stac/raster/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

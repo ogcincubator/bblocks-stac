@@ -13,7 +13,13 @@
     }
   ],
   "x-jsonld-extra-terms": {
+    "stac_version": "https://w3id.org/ogc/stac/core/version",
+    "stac_extensions": "https://w3id.org/ogc/stac/core/hasExtension",
+    "id": "@id",
+    "type": "@type",
+    "title": "http://purl.org/dc/terms/title",
     "description": "http://purl.org/dc/terms/description",
+    "keywords": "http://purl.org/dc/terms/subject",
     "license": "http://purl.org/dc/terms/license",
     "extent": "http://purl.org/dc/terms/extent",
     "datetime": {
@@ -46,10 +52,12 @@
         }
       }
     },
+    "providers": "https://w3id.org/ogc/stac/core/hasProvider",
     "media_type": "http://purl.org/dc/terms/format"
   },
   "x-jsonld-prefixes": {
+    "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
-    "stac": "https://w3id.org/ogc/stac/core/"
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
   }
 }

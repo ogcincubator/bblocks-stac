@@ -3,6 +3,7 @@
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;
     dcterms:description "A description" ;
@@ -12,5 +13,7 @@
             oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/collection.json> ] ;
-    dcat:license "Apache-2.0" .
+    dcat:license "Apache-2.0" ;
+    stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
+    stac:version "1.0.0" .
 
