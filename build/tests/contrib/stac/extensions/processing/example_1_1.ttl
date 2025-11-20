@@ -10,24 +10,24 @@
     dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns2:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns2:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ] ;
     dcat:license "proprietary" ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
-    stac:hasProvider [ ns1:facility "Copernicus S2 Processing and Archiving Facility" ;
-            ns1:level "L1" ;
-            ns1:lineage "Generation of Level-1C User Product" ;
-            ns1:version "02.06" ],
-        [ ],
+    stac:hasProvider [ ],
         [ ns1:level "L2A" ;
             ns1:lineage "Generation of Level-2A User Product" ;
-            ns1:software [ ] ] ;
+            ns1:software [ ] ],
+        [ ns1:facility "Copernicus S2 Processing and Archiving Facility" ;
+            ns1:level "L1" ;
+            ns1:lineage "Generation of Level-1C User Product" ;
+            ns1:version "02.06" ] ;
     stac:version "1.0.0" .
 

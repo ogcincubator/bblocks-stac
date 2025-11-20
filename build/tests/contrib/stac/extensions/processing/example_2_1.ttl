@@ -1,7 +1,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sar:> .
-@prefix ns2: <processing:> .
+@prefix ns1: <processing:> .
+@prefix ns2: <sar:> .
 @prefix ns3: <sat:> .
 @prefix ns4: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -34,16 +34,16 @@
         "https://stac-extensions.github.io/sat/v1.0.0/schema.json" ;
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:datetime "2016-08-23T00:30:33Z" ;
-    ns2:facility "Copernicus S1 Core Ground Segment - DPA" ;
-    ns2:level "L1" ;
-    ns2:lineage "GRD Post Processing" ;
-    ns2:software [ ] ;
-    ns1:frequency_band "C" ;
-    ns1:instrument_mode "IW" ;
-    ns1:polarizations "VH",
+    ns1:datetime "2016-08-23T00:30:33Z" ;
+    ns1:facility "Copernicus S1 Core Ground Segment - DPA" ;
+    ns1:level "L1" ;
+    ns1:lineage "GRD Post Processing" ;
+    ns1:software [ ] ;
+    ns2:frequency_band "C" ;
+    ns2:instrument_mode "IW" ;
+    ns2:polarizations "VH",
         "VV" ;
-    ns1:product_type "GRD" ;
+    ns2:product_type "GRD" ;
     ns3:absolute_orbit 12717 ;
     ns3:anx_datetime "2016-08-22T18:24:52.513706Z" ;
     ns3:orbit_state "ascending" ;
@@ -53,37 +53,37 @@
     dcterms:title "IW VH Amplitude pixel values" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
     stac:roles "data" ;
-    ns1:polarizations "VH" .
+    ns2:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/amplitude-vv-iw> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VV Amplitude pixel values" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
     stac:roles "data" ;
-    ns1:polarizations "VV" .
+    ns2:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/annotation-vh-iw> dcterms:format "text/xml" ;
     dcterms:title "Annotation VH IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
     stac:roles "metadata" ;
-    ns1:polarizations "VH" .
+    ns2:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/annotation-vv-iw> dcterms:format "text/xml" ;
     dcterms:title "Annotation VV IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
     stac:roles "metadata" ;
-    ns1:polarizations "VV" .
+    ns2:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/calibration-vh-iw> dcterms:format "text/xml" ;
     dcterms:title "Calibration VH IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
     stac:roles "data" ;
-    ns1:polarizations "VH" .
+    ns2:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/calibration-vv-iw> dcterms:format "text/xml" ;
     dcterms:title "Calibration VV IW" ;
     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
     stac:roles "data" ;
-    ns1:polarizations "VV" .
+    ns2:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/manifest> dcterms:created "2016-08-23T00:30:33Z" ;
     dcterms:format "text/xml" ;
