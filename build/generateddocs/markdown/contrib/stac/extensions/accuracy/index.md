@@ -203,34 +203,30 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "type": "@type",
-    "hreflang": "dct:language",
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "length": "dct:extent",
     "links": {
       "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
         "type": "dct:format",
-        "title": "rdfs:label"
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "id": "@id",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "type": "@type",
     "description": {
       "@id": "dct:description",
       "@container": "@set"
@@ -333,8 +329,17 @@ Links to the schema:
     },
     "contacts": {
       "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
         "type": "dct:type",
-        "title": "rdfs:label"
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
@@ -343,8 +348,17 @@ Links to the schema:
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
         "type": "dct:format",
+        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "length": "dct:extent",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -358,6 +372,10 @@ Links to the schema:
         }
       },
       "@id": "rec:hasLinkTemplate"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

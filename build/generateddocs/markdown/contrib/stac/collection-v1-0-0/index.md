@@ -19,7 +19,6 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection V1.0.0
 allOf:
 - $ref: https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json
-- $ref: https://ogcincubator.github.io/bblocks-ogcapi-features/build/annotated/api/features/v1/schemas/collection/schema.yaml
 - type: object
   properties:
     links:
@@ -80,25 +79,31 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
+    "links": {
       "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
+      "@id": "rdfs:seeAlso"
     },
-    "type": "dct:type",
-    "hreflang": "dct:language",
-    "title": "rdfs:label",
-    "length": "dct:extent",
-    "links": "rdfs:seeAlso",
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "id": "@id",
+    "title": "dct:title",
+    "type": "@type",
     "description": "dct:description",
     "keywords": "dct:subject",
     "license": "dct:license",
@@ -124,7 +129,6 @@ Links to the schema:
         "data": "stac:data",
         "metadata": "stac:metadata",
         "type": "dct:format",
-        "title": "dct:title",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
