@@ -509,14 +509,6 @@ Links to the schema:
           "@id": "prov:influencer",
           "@type": "@id"
         },
-        "activity": {
-          "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
-          },
-          "@id": "prov:activity",
-          "@type": "@id"
-        },
         "agent": {
           "@context": {
             "type": "dct:type",
@@ -562,7 +554,15 @@ Links to the schema:
     },
     "id": "@id",
     "properties": "@nest",
-    "geometry": "geojson:geometry",
+    "geometry": {
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
+      "@id": "geojson:geometry"
+    },
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
@@ -580,10 +580,6 @@ Links to the schema:
       "@type": "@id"
     },
     "time": "dct:temporal",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
-    },
     "created": "dct:created",
     "updated": "dct:modified",
     "description": {

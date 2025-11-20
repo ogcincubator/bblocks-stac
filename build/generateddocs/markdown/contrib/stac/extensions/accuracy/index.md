@@ -147,8 +147,8 @@ TBD
 ```ttl
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <accuracy:> .
+@prefix ns1: <accuracy:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -156,15 +156,15 @@ TBD
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/item> a geojson:Feature ;
-    ns2:geometric_rmse 1 ;
-    ns2:geometric_x_bias 0 ;
-    ns2:geometric_x_stddev 5e-01 ;
-    ns2:geometric_y_bias 0 ;
-    ns2:geometric_y_stddev 5e-01 ;
-    ns2:measurement_absolute 2e-02 ;
-    ns2:measurement_relative 1e-02 ;
+    ns1:geometric_rmse 1 ;
+    ns1:geometric_x_bias 0 ;
+    ns1:geometric_x_stddev 5e-01 ;
+    ns1:geometric_y_bias 0 ;
+    ns1:geometric_y_stddev 5e-01 ;
+    ns1:measurement_absolute 2e-02 ;
+    ns1:measurement_relative 1e-02 ;
     dct:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -284,7 +284,15 @@ Links to the schema:
       "@id": "geojson:features"
     },
     "properties": "@nest",
-    "geometry": "geojson:geometry",
+    "geometry": {
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
+      "@id": "geojson:geometry"
+    },
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
@@ -295,10 +303,6 @@ Links to the schema:
       "@type": "@id"
     },
     "time": "dct:temporal",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
-    },
     "created": "dct:created",
     "updated": "dct:modified",
     "language": "rec:language",

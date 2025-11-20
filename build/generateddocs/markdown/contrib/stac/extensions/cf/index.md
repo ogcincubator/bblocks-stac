@@ -461,21 +461,21 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 <https://example.com/stac/cf/example-2/item> a geojson:Feature ;
     dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_ice_surface_temperature" ],
-        [ qudt:hasUnit "m" ;
+    cf:parameter [ qudt:hasUnit "m" ;
             cf:name "depth" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_ice_surface_temperature" ],
         [ qudt:hasUnit "K" ;
             cf:name "sea_surface_temperature" ] ;
     stac:assets <https://example.com/stac/cf/example-2/sea_ice_surface_temperature>,
@@ -492,10 +492,10 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 <https://example.com/stac/cf/example-2/sea_surface_temperature> dcterms:format "application/netcdf" ;
     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-    cf:parameter [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ],
-        [ qudt:hasUnit "m" ;
-            cf:name "depth" ] .
+    cf:parameter [ qudt:hasUnit "m" ;
+            cf:name "depth" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ] .
 
 
 ```
@@ -603,7 +603,15 @@ Links to the schema:
       "@id": "geojson:features"
     },
     "properties": "@nest",
-    "geometry": "geojson:geometry",
+    "geometry": {
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
+      "@id": "geojson:geometry"
+    },
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
@@ -614,10 +622,6 @@ Links to the schema:
       "@type": "@id"
     },
     "time": "dct:temporal",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
-    },
     "created": "dct:created",
     "updated": "dct:modified",
     "language": "rec:language",

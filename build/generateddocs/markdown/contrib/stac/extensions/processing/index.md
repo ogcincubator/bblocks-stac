@@ -236,8 +236,8 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <processing:> .
+@prefix ns1: <processing:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -246,25 +246,25 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ] ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns2:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
     dcat:license "proprietary" ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
-    stac:hasProvider [ ns2:level "L2A" ;
-            ns2:lineage "Generation of Level-2A User Product" ;
-            ns2:software [ ] ],
-        [ ns2:facility "Copernicus S2 Processing and Archiving Facility" ;
-            ns2:level "L1" ;
-            ns2:lineage "Generation of Level-1C User Product" ;
-            ns2:version "02.06" ],
-        [ ] ;
+    stac:hasProvider [ ns1:facility "Copernicus S2 Processing and Archiving Facility" ;
+            ns1:level "L1" ;
+            ns1:lineage "Generation of Level-1C User Product" ;
+            ns1:version "02.06" ],
+        [ ],
+        [ ns1:level "L2A" ;
+            ns1:lineage "Generation of Level-2A User Product" ;
+            ns1:software [ ] ] ;
     stac:version "1.0.0" .
 
 
@@ -820,7 +820,15 @@ Links to the schema:
       "@id": "geojson:features"
     },
     "properties": "@nest",
-    "geometry": "geojson:geometry",
+    "geometry": {
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
+      "@id": "geojson:geometry"
+    },
     "bbox": {
       "@container": "@list",
       "@id": "geojson:bbox"
@@ -831,10 +839,6 @@ Links to the schema:
       "@type": "@id"
     },
     "time": "dct:temporal",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
-    },
     "created": "dct:created",
     "updated": "dct:modified",
     "language": "rec:language",
