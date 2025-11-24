@@ -5,6 +5,11 @@ allOf:
   - anyOf:
     - $ref: bblocks://ogc.contrib.stac.collection
     - $ref: bblocks://ogc.contrib.stac.item
-    - $ref: bblocks://ogc.contrib.stac.collection-v1-0-0
-    - $ref: bblocks://ogc.contrib.stac.item-v1-0-0
+  # themes schema is version agnostic
   - $ref: https://stac-extensions.github.io/themes/v1.0.0/schema.json
+  # bind the themes property to the lower level building block from Records (Common in future)
+  - properties:
+      themes:
+        type: array
+        items:
+          $ref: bblocks://ogc.api.records.v1.schemas.theme
