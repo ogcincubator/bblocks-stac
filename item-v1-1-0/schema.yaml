@@ -36,11 +36,16 @@ definitions:
             not: {}
     - type: object
       required:
+      - stac_version
       - id
       - links
       - assets
       - properties
       properties:
+        stac_version:
+          title: STAC version
+          type: string
+          const: 1.1.0
         stac_extensions:
           title: STAC extensions
           type: array
