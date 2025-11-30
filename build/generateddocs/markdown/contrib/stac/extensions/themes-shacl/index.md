@@ -246,19 +246,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
-        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -267,7 +262,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
+        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -521,24 +521,16 @@ A knowledge organization system used to classify the resource (controlled vocabu
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/themes/example-2/data> ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "wiki::Summer" ;
-                    thns:name "Summer" ],
-                [ thns:id "wiki::Syncline" ;
-                    thns:name "Syncline" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::2976077" ;
-                    thns:name "Forêt de Saou" ],
-                [ thns:id "geonames::3017382" ;
-                    thns:name "France" ],
-                [ thns:id "geonames::11071625" ;
-                    thns:name "Auvergne-Rhône-Alpes" ] ;
-            thns:scheme "https://www.geonames.org" ] .
-
-<https://example.com/stac/themes/example-2/data> dcterms:format "text/plain" ;
-    oa:hasTarget <https://example.com/stac/themes/example-2/example.file> .
+    rec:themes [ thns:concepts [ thns:id "geonames::11071625" ],
+                [ thns:id "geonames::2976077" ],
+                [ thns:id "geonames::3017382" ] ;
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Summer" ],
+                [ thns:id "wiki::Syncline" ] ;
+            thns:scheme "https://en.wikipedia.org" ] .
 
 
 ```
@@ -588,21 +580,54 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
+    "extent": {
+      "@context": {
+        "spatial": {},
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      },
+      "@id": "dct:extent"
+    },
     "assets": {
       "@context": {
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
-        },
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata"
+        }
       },
-      "@id": "stac:assets",
-      "@container": "@id"
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "item_assets": {},
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
     "title": {
       "@id": "dct:title",
@@ -612,18 +637,16 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "roles": {},
+    "bands": {
+      "@context": {
+        "name": {}
+      }
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -636,7 +659,33 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "providers": "stac:hasProvider",
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
+    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": "dcat:license",
+    "providers": {
+      "@context": {
+        "name": {},
+        "url": {}
+      }
+    },
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -657,7 +706,8 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        }
+        },
+        "geometries": {}
       },
       "@id": "geojson:geometry"
     },
@@ -670,15 +720,68 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": "dct:temporal",
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "language": "rec:language",
+    "time": {
+      "@context": {
+        "date": {},
+        "timestamp": {},
+        "interval": {},
+        "resolution": {}
+      },
+      "@id": "dct:temporal"
+    },
+    "linkTemplates": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "collection": {},
+    "language": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
+      "@id": "rec:language"
+    },
     "languages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -691,55 +794,93 @@ Links to the schema:
       "@id": "rec:scopedIdentifier"
     },
     "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": "thns:id",
+            "url": "@id"
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        }
+      },
       "@container": "@set",
       "@id": "rec:themes"
     },
     "formats": {
+      "@context": {
+        "name": "rec:name",
+        "mediaType": "rec:mediaType"
+      },
       "@container": "@set",
       "@id": "rec:format",
       "@type": "@id"
     },
     "contacts": {
       "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
+        "identifier": {},
+        "name": {},
+        "position": {},
+        "organization": {},
+        "logo": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "phones": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "emails": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "addresses": {
+          "@context": {
+            "deliveryPoint": {},
+            "city": {},
+            "administrativeArea": {},
+            "postalCode": {},
+            "country": {}
+          }
+        },
+        "links": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "hoursOfService": {},
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "linkTemplates": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label",
-        "uriTemplate": {
-          "@type": "xsd:string",
-          "@id": "rec:uriTemplate"
-        },
-        "varBase": "rec:varBase",
-        "variables": {
-          "@id": "rec:hasVariable",
-          "@container": "@index",
-          "@index": "dct:identifier",
-          "@type": "@json"
-        }
-      },
-      "@id": "rec:hasLinkTemplate"
-    },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "hreflang": "dct:language",
-    "length": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -750,6 +891,10 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

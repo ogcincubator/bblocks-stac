@@ -893,205 +893,40 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <proj:> .
-@prefix ns2: <eo:> .
-@prefix ns3: <sentinel:> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <view:> .
+@prefix ns1: <sentinel:> .
+@prefix ns2: <view:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <eo:> .
+@prefix ns5: <proj:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns2:cloud_cover 2.122e+01 ;
+    ns4:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/raster/example-1/B01>,
-        <https://example.com/stac/raster/example-1/B02>,
-        <https://example.com/stac/raster/example-1/B03>,
-        <https://example.com/stac/raster/example-1/B04>,
-        <https://example.com/stac/raster/example-1/B05>,
-        <https://example.com/stac/raster/example-1/B06>,
-        <https://example.com/stac/raster/example-1/SCL>,
-        <https://example.com/stac/raster/example-1/info>,
-        <https://example.com/stac/raster/example-1/metadata>,
-        <https://example.com/stac/raster/example-1/overview>,
-        <https://example.com/stac/raster/example-1/thumbnail>,
-        <https://example.com/stac/raster/example-1/visual> ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:version "1.1.0" ;
-    ns1:code "EPSG:32633" ;
-    ns3:data_coverage 100 ;
-    ns3:grid_square "VB" ;
-    ns3:latitude_band "S" ;
-    ns3:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns3:sequence "0" ;
-    ns3:utm_zone 33 ;
-    ns5:off_nadir 0 .
-
-<https://example.com/stac/raster/example-1/B01> ns2:center_wavelength 4.439e-01 ;
-    ns2:common_name "coastal" ;
-    ns2:full_width_half_max 2.7e-02 ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Band 1 (coastal) BOA reflectance" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ;
-    stac:roles "data" ;
-    raster:bits_per_sample 15 ;
-    raster:spatial_resolution 60 ;
-    ns1:shape 1830 ;
-    ns1:transform -60,
-        0,
-        1,
-        60,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B02> ns2:center_wavelength 4.966e-01 ;
-    ns2:common_name "blue" ;
-    ns2:full_width_half_max 9.8e-02 ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Band 2 (blue) BOA reflectance" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ;
-    stac:roles "data" ;
-    raster:bits_per_sample 15 ;
-    raster:spatial_resolution 10 ;
-    ns1:shape 10980 ;
-    ns1:transform -10,
-        0,
-        1,
-        10,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B03> ns2:center_wavelength 5.6e-01 ;
-    ns2:common_name "green" ;
-    ns2:full_width_half_max 4.5e-02 ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Band 3 (green) BOA reflectance" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ;
-    stac:roles "data" ;
-    raster:bits_per_sample 15 ;
-    raster:spatial_resolution 10 ;
-    ns1:shape 10980 ;
-    ns1:transform -10,
-        0,
-        1,
-        10,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B04> ns2:center_wavelength 6.645e-01 ;
-    ns2:common_name "red" ;
-    ns2:full_width_half_max 3.8e-02 ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Band 4 (red) BOA reflectance" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ;
-    stac:roles "data" ;
-    raster:bits_per_sample 15 ;
-    raster:spatial_resolution 10 ;
-    ns1:shape 10980 ;
-    ns1:transform -10,
-        0,
-        1,
-        10,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B05> ns2:center_wavelength 7.039e-01 ;
-    ns2:full_width_half_max 1.9e-02 ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Band 5 BOA reflectance" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ;
-    stac:roles "data" ;
-    raster:bits_per_sample 15 ;
-    raster:spatial_resolution 20 ;
-    ns1:shape 5490 ;
-    ns1:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/B06> ns2:center_wavelength 7.402e-01 ;
-    ns2:full_width_half_max 1.8e-02 ;
-    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Band 6 BOA reflectance" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ;
-    stac:roles "data" ;
-    raster:bits_per_sample 15 ;
-    raster:spatial_resolution 20 ;
-    ns1:shape 5490 ;
-    ns1:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/SCL> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "Scene Classification Map (SCL)" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> ;
-    stac:roles "data" ;
-    raster:spatial_resolution 20 ;
-    ns1:shape 5490 ;
-    ns1:transform -20,
-        0,
-        1,
-        20,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/info> dcterms:format "application/json" ;
-    dcterms:title "Original JSON metadata" ;
-    oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json> ;
-    stac:roles "metadata" .
-
-<https://example.com/stac/raster/example-1/metadata> dcterms:format "application/xml" ;
-    dcterms:title "Original XML metadata" ;
-    oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml> ;
-    stac:roles "metadata" .
-
-<https://example.com/stac/raster/example-1/overview> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "True color image" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
-    stac:roles "overview" ;
-    raster:spatial_resolution 10 ;
-    ns1:shape 343 ;
-    ns1:transform -320,
-        0,
-        1,
-        320,
-        399960,
-        4200000 .
-
-<https://example.com/stac/raster/example-1/thumbnail> dcterms:format "image/png" ;
-    dcterms:title "Thumbnail" ;
-    oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg> ;
-    stac:roles "thumbnail" .
-
-<https://example.com/stac/raster/example-1/visual> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-    dcterms:title "True color image" ;
-    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ;
-    stac:roles "overview" ;
-    ns1:shape 10980 ;
-    ns1:transform -10,
-        0,
-        1,
-        10,
-        399960,
-        4200000 .
+    ns5:code "EPSG:32633" ;
+    ns1:data_coverage 100 ;
+    ns1:grid_square "VB" ;
+    ns1:latitude_band "S" ;
+    ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns1:sequence "0" ;
+    ns1:utm_zone 33 ;
+    ns2:off_nadir 0 .
 
 
 ```
@@ -1137,21 +972,54 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
+    "extent": {
+      "@context": {
+        "spatial": {},
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      },
+      "@id": "dct:extent"
+    },
     "assets": {
       "@context": {
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
-        },
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata"
+        }
       },
-      "@id": "stac:assets",
-      "@container": "@id"
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "item_assets": {},
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
     "title": {
       "@id": "dct:title",
@@ -1161,18 +1029,16 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "roles": {},
+    "bands": {
+      "@context": {
+        "name": {}
+      }
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -1185,7 +1051,33 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "providers": "stac:hasProvider",
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
+    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": "dcat:license",
+    "providers": {
+      "@context": {
+        "name": {},
+        "url": {}
+      }
+    },
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -1206,7 +1098,8 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        }
+        },
+        "geometries": {}
       },
       "@id": "geojson:geometry"
     },
@@ -1219,15 +1112,68 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": "dct:temporal",
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "language": "rec:language",
+    "time": {
+      "@context": {
+        "date": {},
+        "timestamp": {},
+        "interval": {},
+        "resolution": {}
+      },
+      "@id": "dct:temporal"
+    },
+    "linkTemplates": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "collection": {},
+    "language": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
+      "@id": "rec:language"
+    },
     "languages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -1240,55 +1186,107 @@ Links to the schema:
       "@id": "rec:scopedIdentifier"
     },
     "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": "thns:id",
+            "url": "@id"
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        },
+        "scheme": "thns:scheme"
+      },
       "@container": "@set",
       "@id": "rec:themes"
     },
     "formats": {
+      "@context": {
+        "name": "rec:name",
+        "mediaType": "rec:mediaType"
+      },
       "@container": "@set",
       "@id": "rec:format",
       "@type": "@id"
     },
     "contacts": {
       "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
+        "identifier": {},
+        "name": {},
+        "position": {},
+        "organization": {},
+        "logo": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "phones": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "emails": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "addresses": {
+          "@context": {
+            "deliveryPoint": {},
+            "city": {},
+            "administrativeArea": {},
+            "postalCode": {},
+            "country": {}
+          }
+        },
+        "links": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "hoursOfService": {},
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "linkTemplates": {
+    "raster:bits_per_sample": {},
+    "raster:sampling": {},
+    "raster:scale": {},
+    "raster:offset": {},
+    "raster:spatial_resolution": {},
+    "raster:histogram": {
       "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label",
-        "uriTemplate": {
-          "@type": "xsd:string",
-          "@id": "rec:uriTemplate"
-        },
-        "varBase": "rec:varBase",
-        "variables": {
-          "@id": "rec:hasVariable",
-          "@container": "@index",
-          "@index": "dct:identifier",
-          "@type": "@json"
-        }
-      },
-      "@id": "rec:hasLinkTemplate"
+        "count": {},
+        "min": {},
+        "max": {},
+        "buckets": {}
+      }
     },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "hreflang": "dct:language",
-    "length": "dct:extent",
     "concepts": {
       "@id": "raster:bands",
       "@context": {
@@ -1298,6 +1296,10 @@ Links to the schema:
     "raster:range": {
       "@id": "raster:range",
       "@container": "@list"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
@@ -1316,6 +1318,7 @@ Links to the schema:
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }

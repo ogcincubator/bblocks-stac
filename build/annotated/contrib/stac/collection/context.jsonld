@@ -4,9 +4,26 @@
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
+    "extent": {
+      "@context": {
+        "spatial": {
+          "@context": {
+            "bbox": {}
+          }
+        },
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      },
+      "@id": "dct:extent"
+    },
     "assets": {
       "@context": {
+        "href": {},
+        "title": "dct:title",
+        "description": "dct:description",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -16,8 +33,13 @@
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
-    "title": "dct:title",
-    "description": "dct:description",
+    "item_assets": {
+      "@context": {
+        "href": {},
+        "title": "dct:title",
+        "description": "dct:description"
+      }
+    },
     "links": {
       "@context": {
         "href": {
@@ -31,6 +53,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -38,21 +61,51 @@
       },
       "@id": "rdfs:seeAlso"
     },
-    "keywords": "dct:subject",
-    "license": "dct:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "title": {},
+    "description": {},
+    "keywords": {},
+    "roles": {},
+    "bands": {
+      "@context": {
+        "name": {}
+      }
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
+    "datetime": {},
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": {},
+    "updated": {},
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
     },
-    "providers": "stac:hasProvider",
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": {},
+    "providers": {
+      "@context": {
+        "name": {},
+        "url": {}
+      }
+    },
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

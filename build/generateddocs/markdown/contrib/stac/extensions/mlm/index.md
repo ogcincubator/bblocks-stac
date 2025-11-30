@@ -302,8 +302,8 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <mlm:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -312,32 +312,25 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
     dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ dcterms:format "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
+    rdfs:seeAlso [ dcterms:format "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/mlm/example-1/model> ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:architecture "ResNet" ;
-    ns1:input [ ] ;
-    ns1:name "example-model" ;
-    ns1:output [ ] ;
-    ns1:tasks "classification" .
-
-<https://example.com/stac/mlm/example-1/model> dcterms:description "Example model." ;
-    dcterms:format "text/html" ;
-    dcterms:title "Pytorch weights checkpoint" ;
-    oa:hasTarget <https://huggingface.co/example/model-card> ;
-    stac:roles "mlm:model" ;
-    ns1:artifact_type "torch.save" .
+    ns2:architecture "ResNet" ;
+    ns2:input [ ] ;
+    ns2:name "example-model" ;
+    ns2:output [ ] ;
+    ns2:tasks "classification" .
 
 
 ```
@@ -655,8 +648,8 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/mlm/example-1/model> ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
@@ -665,13 +658,6 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     ns1:name "example-model" ;
     ns1:output [ ] ;
     ns1:tasks "classification" .
-
-<https://example.com/stac/mlm/example-1/model> dcterms:description "Example model." ;
-    dcterms:format "text/html" ;
-    dcterms:title "Pytorch weights checkpoint" ;
-    oa:hasTarget <https://huggingface.co/example/model-card> ;
-    stac:roles "mlm:model" ;
-    ns1:artifact_type "torch.save" .
 
 
 ```
@@ -717,7 +703,17 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
+    "extent": {
+      "@context": {
+        "spatial": {},
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      },
+      "@id": "dct:extent"
+    },
     "assets": {
       "@context": {
         "type": "dct:format",
@@ -725,13 +721,41 @@ Links to the schema:
           "@id": "stac:roles",
           "@container": "@set"
         },
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata"
+        "raster:bands": {
+          "@context": {
+            "name": {}
+          }
+        }
       },
-      "@id": "stac:assets",
-      "@container": "@id"
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "item_assets": {},
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
     "title": {
       "@id": "dct:title",
@@ -741,18 +765,16 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "roles": {},
+    "bands": {
+      "@context": {
+        "name": {}
+      }
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -765,7 +787,33 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "providers": "stac:hasProvider",
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
+    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": "dcat:license",
+    "providers": {
+      "@context": {
+        "name": {},
+        "url": {}
+      }
+    },
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -786,7 +834,8 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        }
+        },
+        "geometries": {}
       },
       "@id": "geojson:geometry"
     },
@@ -799,15 +848,68 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": "dct:temporal",
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "language": "rec:language",
+    "time": {
+      "@context": {
+        "date": {},
+        "timestamp": {},
+        "interval": {},
+        "resolution": {}
+      },
+      "@id": "dct:temporal"
+    },
+    "linkTemplates": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "collection": {},
+    "language": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
+      "@id": "rec:language"
+    },
     "languages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -820,55 +922,171 @@ Links to the schema:
       "@id": "rec:scopedIdentifier"
     },
     "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": "thns:id",
+            "url": "@id"
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        },
+        "scheme": "thns:scheme"
+      },
       "@container": "@set",
       "@id": "rec:themes"
     },
     "formats": {
+      "@context": {
+        "name": "rec:name",
+        "mediaType": "rec:mediaType"
+      },
       "@container": "@set",
       "@id": "rec:format",
       "@type": "@id"
     },
     "contacts": {
       "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
+        "identifier": {},
+        "name": {},
+        "position": {},
+        "organization": {},
+        "logo": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "phones": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "emails": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "addresses": {
+          "@context": {
+            "deliveryPoint": {},
+            "city": {},
+            "administrativeArea": {},
+            "postalCode": {},
+            "country": {}
+          }
+        },
+        "links": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "hoursOfService": {},
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "linkTemplates": {
+    "mlm:name": {},
+    "mlm:architecture": {},
+    "mlm:tasks": {},
+    "mlm:framework": {},
+    "mlm:framework_version": {},
+    "mlm:memory_size": {},
+    "mlm:total_parameters": {},
+    "mlm:pretrained": {},
+    "mlm:pretrained_source": {},
+    "mlm:batch_size_suggestion": {},
+    "mlm:accelerator": {},
+    "mlm:accelerator_constrained": {},
+    "mlm:accelerator_summary": {},
+    "mlm:accelerator_count": {},
+    "mlm:input": {
       "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label",
-        "uriTemplate": {
-          "@type": "xsd:string",
-          "@id": "rec:uriTemplate"
+        "name": {},
+        "bands": {
+          "@context": {
+            "format": {},
+            "expression": {}
+          }
         },
-        "varBase": "rec:varBase",
-        "variables": {
-          "@id": "rec:hasVariable",
-          "@container": "@index",
-          "@index": "dct:identifier",
-          "@type": "@json"
+        "input": {
+          "@context": {
+            "shape": {},
+            "dim_order": {}
+          }
+        },
+        "value_scaling": {
+          "@context": {
+            "minimum": {},
+            "maximum": {},
+            "mean": {},
+            "stddev": {},
+            "value": {},
+            "format": {},
+            "expression": {}
+          }
+        },
+        "resize_type": {},
+        "pre_processing_function": {
+          "@context": {
+            "format": {},
+            "expression": {}
+          }
         }
-      },
-      "@id": "rec:hasLinkTemplate"
+      }
     },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
+    "mlm:output": {
       "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
+        "name": {},
+        "tasks": {},
+        "result": {
+          "@context": {
+            "shape": {},
+            "dim_order": {}
+          }
+        },
+        "classification:classes": {
+          "@context": {
+            "value": {},
+            "color_hint": {}
+          }
+        },
+        "post_processing_function": {
+          "@context": {
+            "format": {},
+            "expression": {}
+          }
+        }
+      }
     },
-    "hreflang": "dct:language",
-    "length": "dct:extent",
+    "mlm:hyperparameters": {},
+    "mlm:artifact_type": {},
+    "mlm:compile_method": {},
+    "eo:bands": {},
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {
@@ -878,6 +1096,10 @@ Links to the schema:
     "raster:range": {
       "@id": "raster:range",
       "@container": "@list"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
@@ -896,6 +1118,7 @@ Links to the schema:
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }

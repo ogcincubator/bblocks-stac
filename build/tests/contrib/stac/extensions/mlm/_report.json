@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model",
   "bblockName": "STAC Machine Learning Model",
   "bblockId": "ogc.contrib.stac.extensions.mlm",
-  "generated": "2025-11-20T22:01:33.688659+00:00",
+  "generated": "2025-11-30T05:17:16.153340+00:00",
   "result": false,
   "items": [
     {
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 70,
+              "size": 64,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -58,6 +58,29 @@
               "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema",
               "isError": true,
               "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.4.0/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json']"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "focusNodes": {
+                "rec:testVarExists": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
             }
           ]
         }
@@ -99,7 +122,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 70,
+              "size": 64,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -116,6 +139,29 @@
               "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema",
               "isError": true,
               "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.4.0/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json']"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "focusNodes": {
+                "rec:testVarExists": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
             }
           ]
         }

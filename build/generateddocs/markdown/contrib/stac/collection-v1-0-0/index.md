@@ -79,11 +79,53 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "stac_version": {},
+    "stac_extensions": {},
+    "type": {},
+    "id": {},
+    "title": {},
+    "description": {},
+    "keywords": {},
+    "license": {},
+    "providers": {
+      "@context": {
+        "name": {},
+        "roles": {},
+        "url": {}
+      }
+    },
+    "extent": {
+      "@context": {
+        "spatial": {
+          "@context": {
+            "bbox": {}
+          }
+        },
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      }
+    },
+    "assets": {
+      "@context": {
+        "href": {},
+        "roles": {},
+        "created": {},
+        "updated": {},
+        "platform": {},
+        "instruments": {},
+        "constellation": {},
+        "mission": {},
+        "gsd": {}
+      }
+    },
     "links": {
       "@context": {
         "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
+          "@id": "oa:hasTarget",
+          "@type": "@id"
         },
         "rel": {
           "@context": {
@@ -93,21 +135,19 @@ Links to the schema:
           "@type": "@id"
         },
         "type": "dct:type",
-        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "anchor": {},
+        "hreflang": "dct:language",
         "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
-    "stac_version": "stac:version",
-    "stac_extensions": "stac:hasExtension",
-    "id": "@id",
-    "title": "dct:title",
-    "type": "@type",
-    "description": "dct:description",
-    "keywords": "dct:subject",
-    "license": "dct:license",
-    "extent": "dct:extent",
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -120,22 +160,6 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "assets": {
-      "@id": "stac:hasAsset",
-      "@container": "@set",
-      "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
-    },
-    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

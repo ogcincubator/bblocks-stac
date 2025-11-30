@@ -274,11 +274,11 @@ STAC Classification Extension for STAC Items and STAC Collections.
     dcterms:description "103001005D31F500 ARD Tiles" ;
     dcterms:extent [ ] ;
     rdfs:seeAlso [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ],
-        [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ],
         [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ] ;
@@ -1063,10 +1063,10 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <mlm:> .
-@prefix ns2: <ml-aoi:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <classification:> .
-@prefix ns5: <file:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <classification:> .
+@prefix ns4: <file:> .
+@prefix ns5: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -1075,21 +1075,20 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns5:size 43000000 ;
+    ns4:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:format "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ],
         [ dcterms:format "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns2:split "train" ] ;
+            ns5:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:assets <https://example.com/stac/classification/example-1/source_code>,
-        <https://example.com/stac/classification/example-1/weights> ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://crim-ca.github.io/mlm-extension/v1.0.0/schema.json",
         "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -1098,109 +1097,70 @@ STAC Classification Extension for STAC Items and STAC Collections.
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B06" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B8A" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B03" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B12" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B10" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B11" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
             raster:name "B07" ;
-            raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
+            raster:spatial_resolution 20 ],
         [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
+            raster:name "B12" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B8A" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B10" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 60 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B03" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 10 ],
+        [ raster:bits_per_sample 15 ;
             raster:name "B04" ;
-            raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
+            raster:spatial_resolution 10 ],
         [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B05" ;
-            raster:nodata 0 ;
+            raster:name "B11" ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
+            raster:spatial_resolution 20 ],
         [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B02" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B09" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
             raster:name "B01" ;
-            raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
+            raster:spatial_resolution 60 ],
         [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
             raster:name "B08" ;
-            raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ] ;
+            raster:spatial_resolution 10 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B05" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B02" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 10 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B06" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ],
+        [ raster:bits_per_sample 15 ;
+            raster:name "B09" ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 60 ] ;
     ns1:accelerator "cuda" ;
     ns1:accelerator_constrained false ;
     ns1:accelerator_summary "Unknown" ;
@@ -1211,44 +1171,29 @@ STAC Classification Extension for STAC Items and STAC Collections.
     ns1:input [ ] ;
     ns1:memory_size 1 ;
     ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ns4:classes [ dcterms:description "Depicts rivers and water bodies with a vivid cyan color." ;
-                    dcterms:title "River" ],
-                [ dcterms:description "Marks residential buildings with a bold red color." ;
-                    dcterms:title "Residential Buildings" ],
+    ns1:output [ ns3:classes [ dcterms:description "Depicts forested areas with a deep green color." ;
+                    dcterms:title "Forest" ],
+                [ dcterms:description "Illustrates pasture areas with a fresh lawn green color." ;
+                    dcterms:title "Pasture" ],
+                [ dcterms:description "Indicates areas of herbaceous vegetation with a green-yellow hue." ;
+                    dcterms:title "Herbaceous Vegetation" ],
                 [ dcterms:description "Represents areas of annual crops with a bright yellow color." ;
                     dcterms:title "Annual Crop" ],
                 [ dcterms:description "Denotes highways and roads with a neutral gray color." ;
                     dcterms:title "Gray" ],
-                [ dcterms:description "Indicates areas of herbaceous vegetation with a green-yellow hue." ;
-                    dcterms:title "Herbaceous Vegetation" ],
-                [ dcterms:description "Illustrates pasture areas with a fresh lawn green color." ;
-                    dcterms:title "Pasture" ],
-                [ dcterms:description "Depicts forested areas with a deep green color." ;
-                    dcterms:title "Forest" ],
+                [ dcterms:description "Indicates seas and lakes with a serene blue color." ;
+                    dcterms:title "Sea and Lake" ],
+                [ dcterms:description "Marks residential buildings with a bold red color." ;
+                    dcterms:title "Residential Buildings" ],
                 [ dcterms:description "Highlights industrial buildings with a vibrant purple color." ;
                     dcterms:title "Industrial Buildings" ],
+                [ dcterms:description "Depicts rivers and water bodies with a vivid cyan color." ;
+                    dcterms:title "River" ],
                 [ dcterms:description "Represents permanent crop areas with a dark green color." ;
-                    dcterms:title "Permanent Crop" ],
-                [ dcterms:description "Indicates seas and lakes with a serene blue color." ;
-                    dcterms:title "Sea and Lake" ] ] ;
+                    dcterms:title "Permanent Crop" ] ] ;
     ns1:pretrained_source "EuroSat Sentinel-2" ;
     ns1:tasks "classification" ;
     ns1:total_parameters 11700000 .
-
-<https://example.com/stac/classification/example-1/source_code> dcterms:description "Source code to run the model." ;
-    dcterms:format "text/x-python" ;
-    dcterms:title "Model implementation." ;
-    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-    stac:roles "code",
-        "metadata",
-        "mlm:model" .
-
-<https://example.com/stac/classification/example-1/weights> dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
-    dcterms:format "application/octet-stream; application=pytorch" ;
-    dcterms:title "Pytorch weights checkpoint" ;
-    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
-    stac:roles "mlm:model",
-        "mlm:weights" .
 
 
 ```
@@ -1294,21 +1239,54 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
+    "extent": {
+      "@context": {
+        "spatial": {},
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      },
+      "@id": "dct:extent"
+    },
     "assets": {
       "@context": {
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
-        },
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata"
+        }
       },
-      "@id": "stac:assets",
-      "@container": "@id"
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "item_assets": {},
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
     "title": {
       "@id": "dct:title",
@@ -1318,18 +1296,16 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "roles": {},
+    "bands": {
+      "@context": {
+        "name": {}
+      }
+    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -1342,7 +1318,33 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "providers": "stac:hasProvider",
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
+    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": "dcat:license",
+    "providers": {
+      "@context": {
+        "name": {},
+        "url": {}
+      }
+    },
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -1363,7 +1365,8 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        }
+        },
+        "geometries": {}
       },
       "@id": "geojson:geometry"
     },
@@ -1376,15 +1379,68 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": "dct:temporal",
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "language": "rec:language",
+    "time": {
+      "@context": {
+        "date": {},
+        "timestamp": {},
+        "interval": {},
+        "resolution": {}
+      },
+      "@id": "dct:temporal"
+    },
+    "linkTemplates": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "collection": {},
+    "language": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
+      "@id": "rec:language"
+    },
     "languages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
+      "@context": {
+        "code": {},
+        "name": {},
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -1397,55 +1453,119 @@ Links to the schema:
       "@id": "rec:scopedIdentifier"
     },
     "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": "thns:id",
+            "url": "@id"
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        },
+        "scheme": "thns:scheme"
+      },
       "@container": "@set",
       "@id": "rec:themes"
     },
     "formats": {
+      "@context": {
+        "name": "rec:name",
+        "mediaType": "rec:mediaType"
+      },
       "@container": "@set",
       "@id": "rec:format",
       "@type": "@id"
     },
     "contacts": {
       "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
+        "identifier": {},
+        "name": {},
+        "position": {},
+        "organization": {},
+        "logo": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "phones": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "emails": {
+          "@context": {
+            "value": {}
+          }
+        },
+        "addresses": {
+          "@context": {
+            "deliveryPoint": {},
+            "city": {},
+            "administrativeArea": {},
+            "postalCode": {},
+            "country": {}
+          }
+        },
+        "links": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "hoursOfService": {},
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "linkTemplates": {
+    "classification:bitfields": {
       "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label",
-        "uriTemplate": {
-          "@type": "xsd:string",
-          "@id": "rec:uriTemplate"
+        "offset": {},
+        "length": {},
+        "classes": {
+          "@context": {
+            "value": {},
+            "color_hint": {},
+            "percentage": {},
+            "count": {}
+          }
         },
-        "varBase": "rec:varBase",
-        "variables": {
-          "@id": "rec:hasVariable",
-          "@container": "@index",
-          "@index": "dct:identifier",
-          "@type": "@json"
-        }
-      },
-      "@id": "rec:hasLinkTemplate"
+        "name": {}
+      }
     },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
+    "classification:classes": {
       "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
+        "value": {},
+        "name": {},
+        "color_hint": {},
+        "percentage": {},
+        "count": {}
+      }
     },
-    "hreflang": "dct:language",
-    "length": "dct:extent",
+    "mlm:output": {},
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {
@@ -1455,6 +1575,10 @@ Links to the schema:
     "raster:range": {
       "@id": "raster:range",
       "@container": "@list"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
@@ -1473,6 +1597,7 @@ Links to the schema:
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }

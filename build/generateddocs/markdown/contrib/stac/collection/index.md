@@ -494,53 +494,22 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/example1/sentinel-2> a <https://example.com/stac/example1/Collection> ;
-    dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
-imaging mission supporting Copernicus Land Monitoring studies,
-including the monitoring of vegetation, soil and water cover,
-as well as observation of inland waterways and coastal areas.
-
-The Sentinel-2 data contain 13 UINT16 spectral bands representing
-TOA reflectance scaled by 10000. See the [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
-for details. In addition, three QA bands are present where one
-(QA60) is a bitmask band with cloud mask information. For more
-details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
-
-Each Sentinel-2 product (zip archive) may contain multiple
-granules. Each granule becomes a separate Earth Engine asset.
-EE asset ids for Sentinel-2 assets have the following format:
-COPERNICUS/S2/20151128T002653_20151128T102149_T56MNN. Here the
-first numeric part represents the sensing date and time, the
-second numeric part represents the product generation date and
-time, and the final 6-character string is a unique granule identifier
-indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Military_Grid_Reference_System)).
-
-For more details on Sentinel-2 radiometric resoltuon, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
-""" ;
     dcterms:extent [ ] ;
-    dcterms:license "other" ;
-    dcterms:subject "copernicus",
-        "esa",
-        "eu",
-        "msi",
-        "radiance",
-        "sentinel" ;
-    dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
     rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
-    stac:hasProvider [ ] ;
     stac:version "1.1.0" .
 
 
@@ -753,9 +722,26 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
+    "extent": {
+      "@context": {
+        "spatial": {
+          "@context": {
+            "bbox": {}
+          }
+        },
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
+      },
+      "@id": "dct:extent"
+    },
     "assets": {
       "@context": {
+        "href": {},
+        "title": "dct:title",
+        "description": "dct:description",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -765,8 +751,13 @@ Links to the schema:
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
-    "title": "dct:title",
-    "description": "dct:description",
+    "item_assets": {
+      "@context": {
+        "href": {},
+        "title": "dct:title",
+        "description": "dct:description"
+      }
+    },
     "links": {
       "@context": {
         "href": {
@@ -780,6 +771,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -787,21 +779,51 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "keywords": "dct:subject",
-    "license": "dct:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "title": {},
+    "description": {},
+    "keywords": {},
+    "roles": {},
+    "bands": {
+      "@context": {
+        "name": {}
+      }
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
+    "datetime": {},
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": {},
+    "updated": {},
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
     },
-    "providers": "stac:hasProvider",
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": {},
+    "providers": {
+      "@context": {
+        "name": {},
+        "url": {}
+      }
+    },
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
