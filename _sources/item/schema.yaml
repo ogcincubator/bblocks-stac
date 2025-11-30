@@ -5,6 +5,8 @@
 allOf:
   - $ref: bblocks://ogc.api.records.v1.schemas.recordGeoJSON
   - $ref: "#/definitions/core"
+  - $ref: bblocks://ogc.contrib.stac.components.assets
+  - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
 definitions:
   core:
     allOf:
@@ -36,16 +38,10 @@ definitions:
             not: {}
     - type: object
       required:
-      - stac_version
       - id
       - links
-      - assets
       - properties
       properties:
-        stac_version:
-          title: STAC version
-          type: string
-          const: 1.1.0
         stac_extensions:
           title: STAC extensions
           type: array
@@ -61,8 +57,6 @@ definitions:
           minLength: 1
         links:
           "$ref": "#/definitions/links"
-        assets:
-          "$ref": "#/definitions/assets"
         properties:
           allOf:
           - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
@@ -182,35 +176,5 @@ definitions:
           href:
             format: iri
     - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
-  assets:
-    title: Asset links
-    description: Links to assets
-    type: object
-    additionalProperties:
-      "$ref": "#/definitions/asset"
-  asset:
-    allOf:
-    - type: object
-      required:
-      - href
-      properties:
-        href:
-          title: Asset reference
-          type: string
-          format: iri-reference
-          minLength: 1
-        title:
-          title: Asset title
-          type: string
-        description:
-          title: Asset description
-          type: string
-        type:
-          title: Asset type
-          type: string
-        roles:
-          title: Asset roles
-          type: array
-          items:
-            type: string
-    - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
+
+

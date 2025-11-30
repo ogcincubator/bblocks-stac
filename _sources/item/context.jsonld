@@ -11,7 +11,6 @@
     "description": "dct:description",
     "keywords": "dct:subject",
     "license": "dct:license",
-    "extent": "dct:extent",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -23,24 +22,6 @@
     "end_datetime": {
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "stac:hasAsset",
-      "@container": "@set",
-      "@context": {
-        "thumbnail": {
-          "@id": "stac:thumbnail"
-        },
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "title": "dct:title",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
     },
     "providers": "stac:hasProvider",
     "media_type": "dct:format"
