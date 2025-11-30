@@ -98,6 +98,7 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
@@ -108,16 +109,17 @@ a STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     prov:wasGeneratedBy <http://mysystem.io/prov?object=20201211_223832_CS2> ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Point ;
             geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] ;
+    :collection "simple-collection" ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
@@ -246,6 +248,7 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
@@ -256,27 +259,28 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     prov:wasGeneratedBy <surveys:DP-1-S1> ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Point ;
             geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] ;
+    :collection "simple-collection" ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
 
-<regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
+<regulations:Act3> a :Legislation ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo <agents:someGovernment> .
 
 <surveys:DP-1-S1> a prov:Activity,
-        <https://example.com/stac/example1/InitialSurvey> ;
+        :InitialSurvey ;
     prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
     prov:used <regulations:Act3> ;
     prov:wasAssociatedWith <staff:jd234> .
@@ -421,6 +425,7 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
@@ -431,17 +436,18 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
     dcterms:provenance <https://example.com/stac/example1/DP-2223>,
         <surveys:DP-1-S1> ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Point ;
             geojson:coordinates ( 1.729117e+02 1.343885e+00 ) ] ;
+    :collection "simple-collection" ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
@@ -450,13 +456,13 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
         prov:Entity ;
     prov:wasGeneratedBy <surveys:DP-1-S1> .
 
-<regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
+<regulations:Act3> a :Legislation ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo <agents:someGovernment> .
 
 <surveys:DP-1-S1> a prov:Activity,
-        <https://example.com/stac/example1/InitialSurvey> ;
+        :InitialSurvey ;
     prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
     prov:used <regulations:Act3> ;
     prov:wasAssociatedWith <staff:jd234> .
@@ -473,7 +479,6 @@ allOf:
 - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Entity
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
 - type: object
   properties:
     stac_extensions:
@@ -580,7 +585,7 @@ Links to the schema:
     },
     "provType": "@type",
     "prov:type": {},
-    "type": "@type",
+    "type": "dct:format",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -716,7 +721,7 @@ Links to the schema:
           "@type": "@id"
         },
         "anchor": {},
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -1040,6 +1045,7 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -1075,7 +1081,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -1093,19 +1098,7 @@ Links to the schema:
       "@id": "rec:hasLinkTemplate"
     },
     "collection": {},
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "assets": {
-      "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
-    },
     "title": {
       "@id": "dct:title",
       "@container": "@set"
@@ -1118,7 +1111,10 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {},
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
     "bands": {},
     "datetime": {
       "@id": "dct:date",
@@ -1242,22 +1238,6 @@ Links to the schema:
             "country": {}
           }
         },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        },
         "hoursOfService": {},
         "contactInstructions": {}
       },
@@ -1266,7 +1246,12 @@ Links to the schema:
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "extent": "dct:extent",
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "href": {
       "@type": "@id",

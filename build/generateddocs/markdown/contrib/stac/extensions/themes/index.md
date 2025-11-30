@@ -233,27 +233,31 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/themes/example-1/collection> a <https://example.com/stac/themes/example-1/Collection> ;
-    dcterms:description "A description" ;
-    dcterms:extent [ ] ;
+<https://example.com/stac/themes/example-1/collection> dcterms:description "A description" ;
+    dcterms:extent [ :spatial [ geojson:bbox ( ( 1.729e+02 1.3e+00 173 1.4e+00 ) ) ] ;
+            :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
+    dcterms:format "Collection" ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    thns:schemes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -503,34 +507,40 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/themes/example-2/example> a geojson:Feature ;
-    dcterms:date "2022-06-16T10:36:31.024000+00:00"^^xsd:dateTime ;
+<https://example.com/stac/themes/example-2/example> dcterms:date "2022-06-16T10:36:31.024000+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ :data [ dcterms:format "text/plain" ;
+                    oa:hasTarget <https://example.com/stac/themes/example-2/example.file> ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "geonames::2976077" ],
-                [ thns:id "geonames::3017382" ],
-                [ thns:id "geonames::11071625" ] ;
-            thns:scheme "https://www.geonames.org" ],
-        [ thns:concepts [ thns:id "wiki::Summer" ],
-                [ thns:id "wiki::Syncline" ] ;
-            thns:scheme "https://en.wikipedia.org" ] .
+    thns:schemes [ thns:concepts [ :name "Syncline" ;
+                    thns:id "wiki::Syncline" ],
+                [ :name "Summer" ;
+                    thns:id "wiki::Summer" ] ;
+            thns:scheme "https://en.wikipedia.org" ],
+        [ thns:concepts [ :name "France" ;
+                    thns:id "geonames::3017382" ],
+                [ :name "Forêt de Saou" ;
+                    thns:id "geonames::2976077" ],
+                [ :name "Auvergne-Rhône-Alpes" ;
+                    thns:id "geonames::11071625" ] ;
+            thns:scheme "https://www.geonames.org" ] .
 
 
 ```
@@ -545,13 +555,15 @@ allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
 - $ref: https://stac-extensions.github.io/themes/v1.0.0/schema.json
+- properties:
+    themes:
+      type: array
+      items:
+        $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/theme/schema.yaml
+      x-jsonld-id: https://w3id.org/ogc/stac/themes/schemes
+      x-jsonld-container: '@set'
 x-jsonld-extra-terms:
-  themes:
-    x-jsonld-id: https://w3id.org/ogc/stac/themes/schemes
-    x-jsonld-container: '@set'
   concepts:
     x-jsonld-id: https://w3id.org/ogc/stac/themes/concepts
     x-jsonld-container: '@set'
@@ -576,9 +588,8 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "@type",
+    "type": "dct:format",
     "id": "@id",
     "extent": {
       "@context": {
@@ -591,18 +602,11 @@ Links to the schema:
       },
       "@id": "dct:extent"
     },
-    "assets": {
+    "item_assets": {
       "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+        "type": "@type"
+      }
     },
-    "item_assets": {},
     "links": {
       "@context": {
         "rel": {
@@ -613,7 +617,7 @@ Links to the schema:
           "@type": "@id"
         },
         "anchor": {},
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -641,7 +645,10 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {},
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
     "bands": {
       "@context": {
         "name": {}
@@ -651,14 +658,8 @@ Links to the schema:
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
+    "start_datetime": {},
+    "end_datetime": {},
     "created": "dct:created",
     "updated": "dct:modified",
     "data_type": {},
@@ -686,6 +687,12 @@ Links to the schema:
         "url": {}
       }
     },
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -703,6 +710,7 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -738,7 +746,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -805,7 +812,7 @@ Links to the schema:
         }
       },
       "@container": "@set",
-      "@id": "rec:themes"
+      "@id": "thns:schemes"
     },
     "formats": {
       "@context": {
@@ -855,22 +862,6 @@ Links to the schema:
             "administrativeArea": {},
             "postalCode": {},
             "country": {}
-          }
-        },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
           }
         },
         "hoursOfService": {},

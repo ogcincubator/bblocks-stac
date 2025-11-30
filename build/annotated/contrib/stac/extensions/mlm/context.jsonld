@@ -1,8 +1,7 @@
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "@type",
+    "type": "dct:format",
     "id": "@id",
     "extent": {
       "@context": {
@@ -15,23 +14,11 @@
       },
       "@id": "dct:extent"
     },
-    "assets": {
+    "item_assets": {
       "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        },
-        "raster:bands": {
-          "@context": {
-            "name": {}
-          }
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+        "type": "@type"
+      }
     },
-    "item_assets": {},
     "links": {
       "@context": {
         "rel": {
@@ -42,7 +29,7 @@
           "@type": "@id"
         },
         "anchor": {},
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -70,7 +57,10 @@
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {},
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
     "bands": {
       "@context": {
         "name": {}
@@ -80,14 +70,8 @@
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
+    "start_datetime": {},
+    "end_datetime": {},
     "created": "dct:created",
     "updated": "dct:modified",
     "data_type": {},
@@ -115,6 +99,19 @@
         "url": {}
       }
     },
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@context": {
+        "raster:bands": {
+          "@context": {
+            "name": {}
+          }
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -132,6 +129,7 @@
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -167,7 +165,6 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -285,22 +282,6 @@
             "administrativeArea": {},
             "postalCode": {},
             "country": {}
-          }
-        },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
           }
         },
         "hoursOfService": {},

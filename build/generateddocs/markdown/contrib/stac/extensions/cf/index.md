@@ -199,22 +199,46 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
+@prefix cf: <https://w3id.org/ogc/stac/cf/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;
-    dcterms:description "A description" ;
-    dcterms:extent [ ] ;
+<https://example.com/stac/cf/example-1/collection> dcterms:description "A description" ;
+    dcterms:extent [ :spatial [ geojson:bbox ( ( 1.729e+02 1.3e+00 173 1.4e+00 ) ) ] ;
+            :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
+    dcterms:format "Collection" ;
     dcterms:title "Collection with an Item" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/collection.json> ] ;
     dcat:license "Apache-2.0" ;
+    :item_assets [ :sea_ice_surface_temperature [ a <https://w3id.org/ogc/stac/assets/application/netcdf> ;
+                    cf:parameter [ :unit "K" ;
+                            cf:name "sea_ice_surface_temperature" ],
+                        [ :unit "m" ;
+                            cf:name "depth" ] ] ;
+            :sea_surface_temperature [ a <https://w3id.org/ogc/stac/assets/application/netcdf> ;
+                    cf:parameter [ :unit "K" ;
+                            cf:name "sea_surface_temperature" ],
+                        [ :unit "m" ;
+                            cf:name "depth" ] ] ] ;
+    :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
+                    :minimum "2015-06-23T00:00:00Z" ] ;
+            cf:parameter [ :unit "K" ;
+                    cf:name "sea_surface_temperature" ],
+                [ :unit "K" ;
+                    cf:name "sea_ice_surface_temperature" ],
+                [ :unit "m" ;
+                    cf:name "depth" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
 
@@ -448,6 +472,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix cf: <https://w3id.org/ogc/stac/cf/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
@@ -458,23 +483,38 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/cf/example-2/item> a geojson:Feature ;
-    dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+<https://example.com/stac/cf/example-2/item> dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    cf:parameter [ cf:name "sea_ice_surface_temperature" ],
-        [ cf:name "depth" ],
-        [ cf:name "sea_surface_temperature" ] ;
-    stac:hasAsset [ ] ;
+    :collection "collection" ;
+    cf:parameter [ :unit "K" ;
+            cf:name "sea_ice_surface_temperature" ],
+        [ :unit "K" ;
+            cf:name "sea_surface_temperature" ],
+        [ :unit "m" ;
+            cf:name "depth" ] ;
+    stac:hasAsset [ :sea_ice_surface_temperature [ dcterms:format "application/netcdf" ;
+                    oa:hasTarget <https://example.com/examples/sea_ice_surface_temperature.nc> ;
+                    cf:parameter [ :unit "K" ;
+                            cf:name "sea_ice_surface_temperature" ],
+                        [ :unit "m" ;
+                            cf:name "depth" ] ] ;
+            :sea_surface_temperature [ dcterms:format "application/netcdf" ;
+                    oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
+                    cf:parameter [ :unit "K" ;
+                            cf:name "sea_surface_temperature" ],
+                        [ :unit "m" ;
+                            cf:name "depth" ] ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
 
@@ -516,9 +556,8 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "@type",
+    "type": "dct:format",
     "id": "@id",
     "extent": {
       "@context": {
@@ -531,18 +570,11 @@ Links to the schema:
       },
       "@id": "dct:extent"
     },
-    "assets": {
+    "item_assets": {
       "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+        "type": "@type"
+      }
     },
-    "item_assets": {},
     "links": {
       "@context": {
         "rel": {
@@ -553,7 +585,7 @@ Links to the schema:
           "@type": "@id"
         },
         "anchor": {},
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -581,20 +613,17 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {},
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
     "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
+    "start_datetime": {},
+    "end_datetime": {},
     "created": "dct:created",
     "updated": "dct:modified",
     "data_type": {},
@@ -621,6 +650,12 @@ Links to the schema:
         "url": {}
       }
     },
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -638,6 +673,7 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -673,7 +709,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -787,22 +822,6 @@ Links to the schema:
             "administrativeArea": {},
             "postalCode": {},
             "country": {}
-          }
-        },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
           }
         },
         "hoursOfService": {},

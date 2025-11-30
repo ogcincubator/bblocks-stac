@@ -1,9 +1,9 @@
 
-# STAC Item v1.0.0 (Schema)
+# STAC Item (v1.0.0) (Schema)
 
 `ogc.contrib.stac.item-v1-0-0` *v0.1*
 
-A SpatioTemporal Asset Catalogs (STAC) item
+A SpatioTemporal Asset Catalogs (STAC) item. This version specific building block enforces the schema restriction on STAC version by importing the canonical STAC 1.0 schema, but also cross-validates against the STAC version agnostic schema.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -16,17 +16,11 @@ STAC no longer publishes v1.0.0 examples - to be explored.
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-description: STAC Collection
 allOf:
 - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml
 - $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json
-x-jsonld-extra-terms:
-  assets:
-    x-jsonld-id: https://w3id.org/ogc/stac/core/assets
-    x-jsonld-container: '@id'
-x-jsonld-prefixes:
-  stac: https://w3id.org/ogc/stac/core/
 
 ```
 
@@ -54,11 +48,12 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
+    "type": "dct:format",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -81,10 +76,13 @@ Links to the schema:
           "@type": "@id"
         },
         "anchor": {},
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent"
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
       },
       "@id": "rdfs:seeAlso"
     },
@@ -111,7 +109,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -244,25 +241,8 @@ Links to the schema:
             "country": {}
           }
         },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        },
         "hoursOfService": {},
-        "contactInstructions": {},
-        "roles": {}
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
@@ -271,16 +251,35 @@ Links to the schema:
     "license": "dcat:license",
     "rights": "dcat:rights",
     "collection": {},
-    "stac_version": {},
-    "stac_extensions": {},
-    "assets": {
+    "stac_extensions": "stac:hasExtension",
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
+    "bands": {
       "@context": {
-        "roles": {}
+        "name": {}
       }
     },
-    "datetime": {},
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
     "start_datetime": {},
     "end_datetime": {},
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
+    },
+    "unit": {},
     "platform": {},
     "instruments": {},
     "constellation": {},
@@ -289,10 +288,16 @@ Links to the schema:
     "providers": {
       "@context": {
         "name": {},
-        "roles": {},
         "url": {}
       }
     },
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
+    "media_type": "dct:format",
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -301,7 +306,6 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -314,6 +318,7 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "@version": 1.1
   }
 }

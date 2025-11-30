@@ -3,15 +3,15 @@
 {
   "itemIdentifier": "ogc.contrib.stac.item-v1-0-0",
   "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
-  "name": "STAC Item v1.0.0",
+  "name": "STAC Item (v1.0.0)",
   "highlighted": true,
-  "abstract": "A SpatioTemporal Asset Catalogs (STAC) item",
+  "abstract": "A SpatioTemporal Asset Catalogs (STAC) item. This version specific building block enforces the schema restriction on STAC version by importing the canonical STAC 1.0 schema, but also cross-validates against the STAC version agnostic schema.",
   "status": "under-development",
   "dateTimeAddition": "2023-12-08T00:00:00Z",
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2025-11-20",
+  "dateOfLastChange": "2025-11-30",
   "sources": [
     {
       "title": "STAC Specification",
@@ -29,16 +29,16 @@
     ]
   },
   "dependsOn": [
-    "ogc.api.records.v1.schemas.recordGeoJSON",
-    "ogc.geo.features.feature"
+    "ogc.geo.features.feature",
+    "ogc.contrib.stac.item",
+    "ogc.api.records.v1.schemas.recordGeoJSON"
   ],
-  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/context.jsonld",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.json"
   },
   "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/item-v1-0-0/schema.yaml",
-  "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/item-v1-0-0/context.jsonld",
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/context.jsonld",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/item-v1-0-0/",
   "rdfData": [],
   "validationPassed": true,
@@ -48,7 +48,7 @@
       "content": "STAC no longer publishes v1.0.0 examples - to be explored.  \n"
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Collection\nallOf:\n- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml\n- $ref: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json\nx-jsonld-extra-terms:\n  assets:\n    x-jsonld-id: https://w3id.org/ogc/stac/core/assets\n    x-jsonld-container: '@id'\nx-jsonld-prefixes:\n  stac: https://w3id.org/ogc/stac/core/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\nallOf:\n- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml\n- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n- $ref: https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/item-v1-0-0"
 }

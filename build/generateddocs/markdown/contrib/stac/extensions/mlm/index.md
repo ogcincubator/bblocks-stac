@@ -300,37 +300,67 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <mlm:> .
+@prefix ns1: <mlm:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
-    dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:format "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+<https://example.com/stac/mlm/example-1/example-model> dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
+    dcterms:format "Feature" ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    :collection "ml-model-examples" ;
+    :end_datetime "9999-12-31T23:59:59Z" ;
+    :start_datetime "1900-01-01T00:00:00Z" ;
+    stac:hasAsset [ :model [ dcterms:description "Example model." ;
+                    dcterms:format "text/html" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/example/model-card> ;
+                    stac:roles "mlm:model" ;
+                    ns1:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:architecture "ResNet" ;
-    ns2:input [ ] ;
-    ns2:name "example-model" ;
-    ns2:output [ ] ;
-    ns2:tasks "classification" .
+    ns1:architecture "ResNet" ;
+    ns1:input [ :input [ :data_type "float32" ;
+                    :dim_order "batch",
+                        "channel",
+                        "height",
+                        "width" ;
+                    :shape -1,
+                        3,
+                        64 ] ;
+            :name "Model with RGB input that does not refer to any band." ] ;
+    ns1:name "example-model" ;
+    ns1:output [ :classification_classes [ dcterms:description "Background non-city." ;
+                    :color_hint 0 ;
+                    :name "BACKGROUND" ;
+                    :value 0 ],
+                [ dcterms:description "A city is detected." ;
+                    :color_hint 0,
+                        255 ;
+                    :name "CITY" ;
+                    :value 1 ] ;
+            :name "classification" ;
+            :result [ :data_type "uint8" ;
+                    :dim_order "batch",
+                        "class" ;
+                    :shape -1,
+                        1 ] ;
+            :tasks "classification" ] ;
+    ns1:tasks "classification" .
 
 
 ```
@@ -627,6 +657,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <mlm:> .
@@ -637,26 +668,55 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
-    dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:format "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
-        [ dcterms:format "application/json" ;
+<https://example.com/stac/mlm/example-1/example-model> dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
+    dcterms:format "Feature" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    :collection "ml-model-examples" ;
+    :end_datetime "9999-12-31T23:59:59Z" ;
+    :start_datetime "1900-01-01T00:00:00Z" ;
+    stac:hasAsset [ :model [ dcterms:description "Example model." ;
+                    dcterms:format "text/html" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/example/model-card> ;
+                    stac:roles "mlm:model" ;
+                    ns1:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns1:architecture "ResNet" ;
-    ns1:input [ ] ;
+    ns1:input [ :input [ :data_type "float32" ;
+                    :dim_order "batch",
+                        "channel",
+                        "height",
+                        "width" ;
+                    :shape -1,
+                        3,
+                        64 ] ;
+            :name "Model with RGB input that does not refer to any band." ] ;
     ns1:name "example-model" ;
-    ns1:output [ ] ;
+    ns1:output [ :classification_classes [ dcterms:description "Background non-city." ;
+                    :color_hint 0 ;
+                    :name "BACKGROUND" ;
+                    :value 0 ],
+                [ dcterms:description "A city is detected." ;
+                    :color_hint 0,
+                        255 ;
+                    :name "CITY" ;
+                    :value 1 ] ;
+            :name "classification" ;
+            :result [ :data_type "uint8" ;
+                    :dim_order "batch",
+                        "class" ;
+                    :shape -1,
+                        1 ] ;
+            :tasks "classification" ] ;
     ns1:tasks "classification" .
 
 
@@ -672,8 +732,6 @@ allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml
 - $ref: https://stac-extensions.github.io/mlm/v1.4.0/schema.json
 x-jsonld-extra-terms:
   raster:bands:
@@ -699,9 +757,8 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "@type",
+    "type": "dct:format",
     "id": "@id",
     "extent": {
       "@context": {
@@ -714,23 +771,11 @@ Links to the schema:
       },
       "@id": "dct:extent"
     },
-    "assets": {
+    "item_assets": {
       "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        },
-        "raster:bands": {
-          "@context": {
-            "name": {}
-          }
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+        "type": "@type"
+      }
     },
-    "item_assets": {},
     "links": {
       "@context": {
         "rel": {
@@ -741,7 +786,7 @@ Links to the schema:
           "@type": "@id"
         },
         "anchor": {},
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -769,7 +814,10 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {},
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
     "bands": {
       "@context": {
         "name": {}
@@ -779,14 +827,8 @@ Links to the schema:
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
+    "start_datetime": {},
+    "end_datetime": {},
     "created": "dct:created",
     "updated": "dct:modified",
     "data_type": {},
@@ -814,6 +856,19 @@ Links to the schema:
         "url": {}
       }
     },
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@context": {
+        "raster:bands": {
+          "@context": {
+            "name": {}
+          }
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -831,6 +886,7 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -866,7 +922,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -984,22 +1039,6 @@ Links to the schema:
             "administrativeArea": {},
             "postalCode": {},
             "country": {}
-          }
-        },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
           }
         },
         "hoursOfService": {},

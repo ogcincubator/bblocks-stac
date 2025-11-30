@@ -8,6 +8,9 @@
     },
     {
       "$ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json"
+    },
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.json"
     }
   ],
   "definitions": {
@@ -17,7 +20,6 @@
       "type": "object",
       "$comment": "title, description, keywords, providers and license is validated through the common metadata.",
       "required": [
-        "stac_version",
         "type",
         "id",
         "description",
@@ -26,12 +28,6 @@
         "links"
       ],
       "properties": {
-        "stac_version": {
-          "title": "STAC version",
-          "type": "string",
-          "const": "1.1.0",
-          "x-jsonld-id": "https://w3id.org/ogc/stac/core/version"
-        },
         "stac_extensions": {
           "title": "STAC extensions",
           "type": "array",
@@ -131,11 +127,6 @@
             }
           },
           "x-jsonld-id": "http://purl.org/dc/terms/extent"
-        },
-        "assets": {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json#/definitions/assets",
-          "x-jsonld-id": "https://w3id.org/ogc/stac/core/hasAsset",
-          "x-jsonld-container": "@set"
         },
         "item_assets": {
           "additionalProperties": {
@@ -241,6 +232,7 @@
     }
   },
   "x-jsonld-extra-terms": {
+    "stac_version": "https://w3id.org/ogc/stac/core/version",
     "keywords": "http://purl.org/dc/terms/subject",
     "license": "http://purl.org/dc/terms/license",
     "datetime": {

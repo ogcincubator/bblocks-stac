@@ -1,8 +1,8 @@
 {
   "@context": {
-    "stac_version": {},
-    "stac_extensions": {},
-    "type": "@type",
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "type": "dct:format",
     "id": "@id",
     "title": {
       "@id": "dct:title",
@@ -20,7 +20,6 @@
     "providers": {
       "@context": {
         "name": {},
-        "roles": {},
         "url": {}
       }
     },
@@ -32,12 +31,12 @@
             "interval": {}
           }
         }
-      }
+      },
+      "@id": "dct:extent"
     },
     "assets": {
-      "@context": {
-        "roles": {}
-      }
+      "@id": "stac:hasAsset",
+      "@container": "@set"
     },
     "links": {
       "@context": {
@@ -48,33 +47,64 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
+        "type": "dct:type",
         "title": "rdfs:label",
         "anchor": {},
         "hreflang": "dct:language",
-        "length": "dct:extent"
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
       },
       "@id": "rdfs:seeAlso"
     },
     "summaries": {
       "@context": {
         "minimum": {},
-        "maximum": {},
-        "bands": {}
+        "maximum": {}
+      }
+    },
+    "item_assets": {
+      "@context": {
+        "type": "@type"
+      }
+    },
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
+    "bands": {
+      "@context": {
+        "name": {}
       }
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -92,6 +122,7 @@
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -127,7 +158,6 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -144,8 +174,6 @@
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": {
       "@context": {
         "code": {},
@@ -248,25 +276,8 @@
             "country": {}
           }
         },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        },
         "hoursOfService": {},
-        "contactInstructions": {},
-        "roles": {}
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
@@ -274,12 +285,6 @@
     },
     "rights": "dcat:rights",
     "collection": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "item_assets": {},
     "accuracy:geometric_x_bias": {},
     "accuracy:geometric_y_bias": {},
     "accuracy:geometric_x_stddev": {},

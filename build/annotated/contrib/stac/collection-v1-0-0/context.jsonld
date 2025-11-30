@@ -1,17 +1,16 @@
 {
   "@context": {
-    "stac_version": {},
-    "stac_extensions": {},
-    "type": {},
-    "id": {},
-    "title": {},
-    "description": {},
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "type": "dct:type",
+    "id": "@id",
+    "title": "rdfs:label",
+    "description": "dct:description",
     "keywords": {},
     "license": {},
     "providers": {
       "@context": {
         "name": {},
-        "roles": {},
         "url": {}
       }
     },
@@ -27,61 +26,78 @@
             "interval": {}
           }
         }
-      }
+      },
+      "@id": "dct:extent"
     },
     "assets": {
       "@context": {
-        "href": {},
-        "roles": {},
-        "created": {},
-        "updated": {},
-        "platform": {},
-        "instruments": {},
-        "constellation": {},
-        "mission": {},
-        "gsd": {}
-      }
-    },
-    "links": {
-      "@context": {
-        "href": {
-          "@id": "oa:hasTarget",
-          "@type": "@id"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "title": "rdfs:label",
-        "anchor": {},
-        "hreflang": "dct:language",
-        "length": "dct:extent"
+        "title": "dct:title",
+        "type": "dct:format"
       },
-      "@id": "rdfs:seeAlso"
+      "@id": "stac:hasAsset",
+      "@container": "@set"
     },
+    "links": "rdfs:seeAlso",
     "summaries": {
       "@context": {
         "minimum": {},
         "maximum": {}
       }
     },
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
+    "item_assets": {
+      "@context": {
+        "title": "dct:title",
+        "type": "@type"
+      }
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
+    "bands": {
+      "@context": {
+        "name": {}
+      }
     },
+    "datetime": {},
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": {},
+    "updated": {},
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
+    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "rel": {
+      "@context": {
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
+    },
+    "anchor": {},
+    "hreflang": "dct:language",
+    "length": "dct:extent",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

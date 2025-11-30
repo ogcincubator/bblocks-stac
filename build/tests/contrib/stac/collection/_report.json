@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.collection - STAC Collection",
   "bblockName": "STAC Collection",
   "bblockId": "ogc.contrib.stac.collection",
-  "generated": "2025-11-30T05:17:03.886884+00:00",
+  "generated": "2025-11-30T22:34:24.471469+00:00",
   "result": true,
   "items": [
     {
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 21,
+              "size": 171,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -58,27 +58,60 @@
               "message": "Validation passed"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/collection/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/collection/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json",
+        "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/products/polarwarp/collection.json"
+      },
+      "result": true,
+      "sections": [
         {
-          "name": "SHACL",
-          "title": "SHACL",
+          "name": "FILES",
+          "title": "Files",
           "entries": [
             {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Using example_2_1.json from examples"
             },
             {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testVarExists": {
-                  "nodes": []
-                }
-              },
+              "op": "jsonld-uplift",
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 53,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         }
@@ -87,8 +120,8 @@
   ],
   "globalErrors": {},
   "counts": {
-    "total": 1,
-    "passed": 1,
+    "total": 2,
+    "passed": 2,
     "failed": 0
   }
 }

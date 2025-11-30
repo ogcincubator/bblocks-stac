@@ -10,24 +10,26 @@
         },
         {
           "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
-        },
-        {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.json"
-        },
-        {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.json"
         }
       ]
     },
     {
       "$ref": "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
+    },
+    {
+      "properties": {
+        "themes": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/theme/schema.json"
+          },
+          "x-jsonld-id": "https://w3id.org/ogc/stac/themes/schemes",
+          "x-jsonld-container": "@set"
+        }
+      }
     }
   ],
   "x-jsonld-extra-terms": {
-    "themes": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/themes/schemes",
-      "x-jsonld-container": "@set"
-    },
     "concepts": {
       "x-jsonld-id": "https://w3id.org/ogc/stac/themes/concepts",
       "x-jsonld-container": "@set",

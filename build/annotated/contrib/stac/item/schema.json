@@ -9,6 +9,12 @@
     },
     {
       "$ref": "#/definitions/core"
+    },
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json"
     }
   ],
   "definitions": {
@@ -66,19 +72,11 @@
         {
           "type": "object",
           "required": [
-            "stac_version",
             "id",
             "links",
-            "assets",
             "properties"
           ],
           "properties": {
-            "stac_version": {
-              "title": "STAC version",
-              "type": "string",
-              "const": "1.1.0",
-              "x-jsonld-id": "https://w3id.org/ogc/stac/core/version"
-            },
             "stac_extensions": {
               "title": "STAC extensions",
               "type": "array",
@@ -99,11 +97,6 @@
             },
             "links": {
               "$ref": "#/definitions/links"
-            },
-            "assets": {
-              "$ref": "#/definitions/assets",
-              "x-jsonld-id": "https://w3id.org/ogc/stac/core/hasAsset",
-              "x-jsonld-container": "@set"
             },
             "properties": {
               "allOf": [
@@ -312,68 +305,15 @@
           "$ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json"
         }
       ]
-    },
-    "assets": {
-      "title": "Asset links",
-      "description": "Links to assets",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/definitions/asset"
-      }
-    },
-    "asset": {
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "href"
-          ],
-          "properties": {
-            "href": {
-              "title": "Asset reference",
-              "type": "string",
-              "format": "iri-reference",
-              "minLength": 1
-            },
-            "title": {
-              "title": "Asset title",
-              "type": "string",
-              "x-jsonld-id": "http://purl.org/dc/terms/title"
-            },
-            "description": {
-              "title": "Asset description",
-              "type": "string",
-              "x-jsonld-id": "http://purl.org/dc/terms/description"
-            },
-            "type": {
-              "title": "Asset type",
-              "type": "string",
-              "x-jsonld-id": "http://purl.org/dc/terms/format"
-            },
-            "roles": {
-              "title": "Asset roles",
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "x-jsonld-id": "https://w3id.org/ogc/stac/core/roles",
-              "x-jsonld-container": "@set"
-            }
-          }
-        },
-        {
-          "$ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json"
-        }
-      ]
     }
   },
   "x-jsonld-extra-terms": {
+    "stac_version": "https://w3id.org/ogc/stac/core/version",
     "type": "@type",
     "title": "http://purl.org/dc/terms/title",
     "description": "http://purl.org/dc/terms/description",
     "keywords": "http://purl.org/dc/terms/subject",
     "license": "http://purl.org/dc/terms/license",
-    "extent": "http://purl.org/dc/terms/extent",
     "start_datetime": {
       "x-jsonld-id": "https://w3id.org/ogc/stac/core/start_datetime",
       "x-jsonld-type": "xsd:dateTime"

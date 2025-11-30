@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <accuracy:> .
@@ -5,10 +6,10 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<file:///github/workspace/item> a geojson:Feature ;
-    ns1:geometric_rmse 1 ;
+<file:///github/workspace/item> ns1:geometric_rmse 1 ;
     ns1:geometric_x_bias 0 ;
     ns1:geometric_x_stddev 5e-01 ;
     ns1:geometric_y_bias 0 ;
@@ -16,9 +17,13 @@
     ns1:measurement_absolute 2e-02 ;
     ns1:measurement_relative 1e-02 ;
     dct:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
+    dct:format "Feature" ;
     rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] .
+            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
+    stac:hasAsset [ :data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    stac:hasExtension "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json" ;
+    stac:version "1.0.0" .
 

@@ -1,23 +1,63 @@
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <eo:> .
+@prefix ns3: <proj:> .
+@prefix ns4: <classification:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix raster: <https://w3id.org/ogc/stac/raster/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/classification/example-1/103001005D31F500> a <https://example.com/stac/classification/example-1/Collection> ;
-    dcterms:description "103001005D31F500 ARD Tiles" ;
-    dcterms:extent [ ] ;
-    rdfs:seeAlso [ dcterms:format "application/json" ;
+<https://example.com/stac/classification/example-1/103001005D31F500> dcterms:description "103001005D31F500 ARD Tiles" ;
+    dcterms:extent [ :spatial [ geojson:bbox ( ( -1.224341e+02 3.776426e+01 -1.223734e+02 3.781244e+01 ) ) ] ;
+            :temporal [ :interval "2016-10-08 19:25:32Z" ] ] ;
+    dcterms:format "Collection" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ],
-        [ dcterms:format "application/json" ;
+        [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ] ;
+            oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/classification/10/120020223032/2016-10-08/103001005D31F500.json> ] ;
     dcat:license "proprietary" ;
+    :item_assets [ :cloud-mask-raster [ ns2:bands [ dcterms:description "Clouds/Cloud Shadows Mask" ;
+                            :name "BAND_CM" ] ;
+                    dcterms:description "thematic raster, 0 -> no data, 1 -> clear, 2 -> cloud, 3 -> cloud shadow" ;
+                    dcterms:title "Cloud/Cloud Shadow Coverage Raster" ;
+                    raster:bands [ ns4:classes [ dcterms:description "Clouds" ;
+                                    raster:color_hint "B8D0EC" ;
+                                    raster:name "cloud" ;
+                                    raster:value 2 ],
+                                [ dcterms:description "Cloud shadows" ;
+                                    raster:color_hint "9C9EA0" ;
+                                    raster:name "cloud_shadow" ;
+                                    raster:value 3 ],
+                                [ dcterms:description "NoData" ;
+                                    :nodata true ;
+                                    raster:name "nodata" ;
+                                    raster:value 0 ],
+                                [ dcterms:description "Clear of clouds or shadows" ;
+                                    raster:name "clear" ;
+                                    raster:value 1 ] ] ;
+                    ns3:shape 2176 ] ;
+            :visual [ ns2:bands [ dcterms:description "Blue" ;
+                            :common_name "blue" ;
+                            :name "BAND_B" ],
+                        [ dcterms:description "Red" ;
+                            :common_name "red" ;
+                            :name "BAND_R" ],
+                        [ dcterms:description "Green" ;
+                            :common_name "green" ;
+                            :name "BAND_G" ] ;
+                    dcterms:title "Visual (RGB) Image" ;
+                    ns3:shape 17408 ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v1.0.0/schema.json",

@@ -1,9 +1,9 @@
 
-# STAC Item (Schema)
+# Version agnostic STAC Item (Schema)
 
 `ogc.contrib.stac.item` *v0.1*
 
-A SpatioTemporal Asset Catalogs (STAC) item
+Version-neutral SpatioTemporal Asset Catalogs (STAC) item - STAC versions are schema incompatible due to hard restrictions on version numbers. This BuildingBlock covers the interoperability that exists between versions by identifying the common elements, and is extended by version-specific restrictions and extensions.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -186,6 +186,7 @@ This is the simple item example from the STAC specification.
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
@@ -195,8 +196,8 @@ This is the simple item example from the STAC specification.
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+<https://example.com/stac/example1/20201211_223832_CS2> dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+    dcterms:format "Feature" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -212,7 +213,15 @@ This is the simple item example from the STAC specification.
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:hasAsset [ ] ;
+    :collection "simple-collection" ;
+    stac:hasAsset [ :thumbnail [ dcterms:format "image/jpeg" ;
+                    dcterms:title "Thumbnail" ;
+                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+                    stac:roles "thumbnail" ] ;
+            :visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+                    dcterms:title "3-Band Visual" ;
+                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
+                    stac:roles "visual" ] ] ;
     stac:version "1.1.0" .
 
 
@@ -484,6 +493,7 @@ This is the complete "core" item example from the STAC specification.
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
@@ -493,9 +503,9 @@ This is the complete "core" item example from the STAC specification.
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    dcterms:created "2020-12-12T01:48:13.725Z" ;
+<https://example.com/stac/example1/20201211_223832_CS2> dcterms:created "2020-12-12T01:48:13.725Z" ;
     dcterms:description "A sample STAC Item that includes examples of all common metadata" ;
+    dcterms:format "Feature" ;
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     dcterms:title "Core Item" ;
     rdfs:seeAlso [ rdfs:label "HTML version of this STAC Item" ;
@@ -517,7 +527,35 @@ This is the complete "core" item example from the STAC specification.
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:hasAsset [ ] ;
+    :collection "simple-collection" ;
+    :constellation "ion" ;
+    :end_datetime "2020-12-11T22:38:32.327Z" ;
+    :gsd 5.12e-01 ;
+    :instruments "cool_sensor_v1" ;
+    :mission "collection 5624" ;
+    :platform "cool_sat1" ;
+    :start_datetime "2020-12-11T22:38:32.125Z" ;
+    stac:hasAsset [ :analytic [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+                    dcterms:title "4-Band Analytic" ;
+                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
+                    stac:roles "data" ] ;
+            :ephemeris [ dcterms:title "Satellite Ephemeris Metadata" ;
+                    oa:hasTarget <http://cool-sat.com/catalog/20201211_223832_CS2/20201211_223832_CS2.EPH> ] ;
+            :json-metadata [ dcterms:format "application/json" ;
+                    dcterms:title "Extended Metadata" ;
+                    oa:hasTarget <http://remotedata.io/catalog/20201211_223832_CS2/extended-metadata.json> ;
+                    stac:roles "metadata" ] ;
+            :thumbnail [ dcterms:format "image/png" ;
+                    dcterms:title "Thumbnail" ;
+                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+                    stac:roles "thumbnail" ] ;
+            :udm [ dcterms:format "image/tiff; application=geotiff" ;
+                    dcterms:title "Unusable Data Mask" ;
+                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic_udm.tif> ] ;
+            :visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+                    dcterms:title "3-Band Visual" ;
+                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
+                    stac:roles "visual" ] ] ;
     stac:version "1.1.0" .
 
 
@@ -534,6 +572,8 @@ description: This object represents the metadata for an item in a SpatioTemporal
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-ogcapi-records/build/annotated/api/records/v1/schemas/recordGeoJSON/schema.yaml
 - $ref: '#/definitions/core'
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.yaml
+- $ref: https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
 definitions:
   core:
     allOf:
@@ -565,17 +605,10 @@ definitions:
             not: {}
     - type: object
       required:
-      - stac_version
       - id
       - links
-      - assets
       - properties
       properties:
-        stac_version:
-          title: STAC version
-          type: string
-          const: 1.1.0
-          x-jsonld-id: https://w3id.org/ogc/stac/core/version
         stac_extensions:
           title: STAC extensions
           type: array
@@ -593,10 +626,6 @@ definitions:
           x-jsonld-id: '@id'
         links:
           $ref: '#/definitions/links'
-        assets:
-          $ref: '#/definitions/assets'
-          x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset
-          x-jsonld-container: '@set'
         properties:
           allOf:
           - $ref: https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
@@ -720,50 +749,13 @@ definitions:
           href:
             format: iri
     - $ref: https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
-  assets:
-    title: Asset links
-    description: Links to assets
-    type: object
-    additionalProperties:
-      $ref: '#/definitions/asset'
-  asset:
-    allOf:
-    - type: object
-      required:
-      - href
-      properties:
-        href:
-          title: Asset reference
-          type: string
-          format: iri-reference
-          minLength: 1
-        title:
-          title: Asset title
-          type: string
-          x-jsonld-id: http://purl.org/dc/terms/title
-        description:
-          title: Asset description
-          type: string
-          x-jsonld-id: http://purl.org/dc/terms/description
-        type:
-          title: Asset type
-          type: string
-          x-jsonld-id: http://purl.org/dc/terms/format
-        roles:
-          title: Asset roles
-          type: array
-          items:
-            type: string
-          x-jsonld-id: https://w3id.org/ogc/stac/core/roles
-          x-jsonld-container: '@set'
-    - $ref: https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
 x-jsonld-extra-terms:
+  stac_version: https://w3id.org/ogc/stac/core/version
   type: '@type'
   title: http://purl.org/dc/terms/title
   description: http://purl.org/dc/terms/description
   keywords: http://purl.org/dc/terms/subject
   license: http://purl.org/dc/terms/license
-  extent: http://purl.org/dc/terms/extent
   start_datetime:
     x-jsonld-id: https://w3id.org/ogc/stac/core/start_datetime
     x-jsonld-type: xsd:dateTime
@@ -803,11 +795,12 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
+    "type": "dct:format",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -863,7 +856,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -881,19 +873,7 @@ Links to the schema:
       "@id": "rec:hasLinkTemplate"
     },
     "collection": {},
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "assets": {
-      "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
-    },
     "title": {
       "@id": "dct:title",
       "@container": "@set"
@@ -906,7 +886,10 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {},
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
     "bands": {
       "@context": {
         "name": {}
@@ -1055,7 +1038,12 @@ Links to the schema:
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "extent": "dct:extent",
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "href": {
       "@type": "@id",

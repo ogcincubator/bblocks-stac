@@ -145,6 +145,7 @@ TBD
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <accuracy:> .
@@ -152,10 +153,10 @@ TBD
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<file:///github/workspace/item> a geojson:Feature ;
-    ns1:geometric_rmse 1 ;
+<file:///github/workspace/item> ns1:geometric_rmse 1 ;
     ns1:geometric_x_bias 0 ;
     ns1:geometric_x_stddev 5e-01 ;
     ns1:geometric_y_bias 0 ;
@@ -163,11 +164,15 @@ TBD
     ns1:measurement_absolute 2e-02 ;
     ns1:measurement_relative 1e-02 ;
     dct:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
+    dct:format "Feature" ;
     rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] .
+            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
+    stac:hasAsset [ :data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    stac:hasExtension "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json" ;
+    stac:version "1.0.0" .
 
 
 ```
@@ -197,9 +202,9 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "stac_version": {},
-    "stac_extensions": {},
-    "type": "@type",
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "type": "dct:format",
     "id": "@id",
     "title": {
       "@id": "dct:title",
@@ -217,7 +222,6 @@ Links to the schema:
     "providers": {
       "@context": {
         "name": {},
-        "roles": {},
         "url": {}
       }
     },
@@ -229,12 +233,12 @@ Links to the schema:
             "interval": {}
           }
         }
-      }
+      },
+      "@id": "dct:extent"
     },
     "assets": {
-      "@context": {
-        "roles": {}
-      }
+      "@id": "stac:hasAsset",
+      "@container": "@set"
     },
     "links": {
       "@context": {
@@ -245,33 +249,64 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
+        "type": "dct:type",
         "title": "rdfs:label",
         "anchor": {},
         "hreflang": "dct:language",
-        "length": "dct:extent"
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
       },
       "@id": "rdfs:seeAlso"
     },
     "summaries": {
       "@context": {
         "minimum": {},
-        "maximum": {},
-        "bands": {}
+        "maximum": {}
+      }
+    },
+    "item_assets": {
+      "@context": {
+        "type": "@type"
+      }
+    },
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
+    "bands": {
+      "@context": {
+        "name": {}
       }
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -289,6 +324,7 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -324,7 +360,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -341,8 +376,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": {
       "@context": {
         "code": {},
@@ -445,25 +478,8 @@ Links to the schema:
             "country": {}
           }
         },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        },
         "hoursOfService": {},
-        "contactInstructions": {},
-        "roles": {}
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
@@ -471,12 +487,6 @@ Links to the schema:
     },
     "rights": "dcat:rights",
     "collection": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "item_assets": {},
     "accuracy:geometric_x_bias": {},
     "accuracy:geometric_y_bias": {},
     "accuracy:geometric_x_stddev": {},
