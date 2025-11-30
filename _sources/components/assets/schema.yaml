@@ -1,0 +1,40 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+"title": "STAC Asset"
+"type": "object"
+"description": "This object represents a set of assets"
+properties:
+  assets:
+    $ref: "#/definitions/assets"
+
+definitions:
+  assets:
+    title: Asset links
+    description: Links to assets
+    type: object
+    additionalProperties:
+      "$ref": "#/definitions/asset"
+  asset:
+    allOf:
+    - type: object
+      required:
+      - href
+      properties:
+        href:
+          title: Asset reference
+          type: string
+          format: iri-reference
+          minLength: 1
+        title:
+          title: Asset title
+          type: string
+        description:
+          title: Asset description
+          type: string
+        type:
+          title: Asset type
+          type: string
+        roles:
+          title: Asset roles
+          type: array
+          items:
+            type: string

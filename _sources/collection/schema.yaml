@@ -4,6 +4,7 @@ description: This object represents Collections in a SpatioTemporal Asset Catalo
 allOf:
 - "$ref": "#/definitions/collection"
 - "$ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json"
+- $ref: bblocks://ogc.contrib.stac.components.assets
 definitions:
   collection:
     title: STAC Collection
@@ -85,8 +86,6 @@ definitions:
                     - 'null'
                     format: date-time
                     pattern: "(\\+00:00|Z)$"
-      assets:
-        "$ref": "bblocks://ogc.contrib.stac.item#/definitions/assets"
       item_assets:
         additionalProperties:
           allOf:
