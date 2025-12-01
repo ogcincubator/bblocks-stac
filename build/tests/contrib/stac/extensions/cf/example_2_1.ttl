@@ -13,34 +13,34 @@
     dcterms:format "Feature" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/item.json> ] ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
     :collection "collection" ;
     cf:parameter [ :unit "K" ;
-            cf:name "sea_ice_surface_temperature" ],
-        [ :unit "K" ;
             cf:name "sea_surface_temperature" ],
+        [ :unit "K" ;
+            cf:name "sea_ice_surface_temperature" ],
         [ :unit "m" ;
             cf:name "depth" ] ;
     stac:hasAsset [ :sea_ice_surface_temperature [ dcterms:format "application/netcdf" ;
                     oa:hasTarget <https://example.com/examples/sea_ice_surface_temperature.nc> ;
-                    cf:parameter [ :unit "K" ;
-                            cf:name "sea_ice_surface_temperature" ],
-                        [ :unit "m" ;
-                            cf:name "depth" ] ] ;
+                    cf:parameter [ :unit "m" ;
+                            cf:name "depth" ],
+                        [ :unit "K" ;
+                            cf:name "sea_ice_surface_temperature" ] ] ;
             :sea_surface_temperature [ dcterms:format "application/netcdf" ;
                     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-                    cf:parameter [ :unit "K" ;
-                            cf:name "sea_surface_temperature" ],
-                        [ :unit "m" ;
-                            cf:name "depth" ] ] ] ;
+                    cf:parameter [ :unit "m" ;
+                            cf:name "depth" ],
+                        [ :unit "K" ;
+                            cf:name "sea_surface_temperature" ] ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
 
