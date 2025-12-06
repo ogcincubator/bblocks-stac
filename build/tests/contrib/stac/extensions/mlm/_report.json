@@ -2,8 +2,8 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model",
   "bblockName": "STAC Machine Learning Model",
   "bblockId": "ogc.contrib.stac.extensions.mlm",
-  "generated": "2025-12-01T22:16:52.715557+00:00",
-  "result": false,
+  "generated": "2025-12-06T05:10:38.027521+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -16,7 +16,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -53,11 +53,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.4.0/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -75,12 +73,15 @@
             {
               "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
               "focusNodes": {
-                "rec:testVarExists": {
+                "rec:testAllVarsExist": {
+                  "nodes": []
+                },
+                "rec:testAllVarsInTemplate": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsExist: *none*\n - Shape rec:testAllVarsInTemplate: *none*\n"
             }
           ]
         }
@@ -97,7 +98,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -134,11 +135,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.4.0/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -156,12 +155,15 @@
             {
               "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
               "focusNodes": {
-                "rec:testVarExists": {
+                "rec:testAllVarsExist": {
+                  "nodes": []
+                },
+                "rec:testAllVarsInTemplate": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsExist: *none*\n - Shape rec:testAllVarsInTemplate: *none*\n"
             }
           ]
         }
@@ -171,7 +173,7 @@
   "globalErrors": {},
   "counts": {
     "total": 2,
-    "passed": 0,
-    "failed": 2
+    "passed": 2,
+    "failed": 0
   }
 }

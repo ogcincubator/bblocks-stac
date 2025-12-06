@@ -15,21 +15,44 @@
     },
     {
       "$ref": "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+    },
+    {
+      "properties": {
+        "processing:software": {
+          "type": "object",
+          "x-jsonld-id": "https://w3id.org/ogc/stac/processing/software",
+          "x-jsonld-type": "@json"
+        }
+      }
     }
   ],
   "x-jsonld-extra-terms": {
-    "raster:bands": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/bands",
-      "x-jsonld-context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
-      }
+    "processing:expression": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/processing/expression",
+      "x-jsonld-type": "@json"
     },
-    "raster:range": {
-      "x-jsonld-id": "https://w3id.org/ogc/stac/raster/range",
-      "x-jsonld-container": "@list"
+    "processing:lineage": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/processing/lineage",
+      "x-jsonld-type": "xsd:string"
+    },
+    "processing:level": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/processing/level",
+      "x-jsonld-type": "xsd:string"
+    },
+    "processing:facility": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/processing/facility",
+      "x-jsonld-type": "xsd:string"
+    },
+    "processing:version": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/processing/version",
+      "x-jsonld-type": "xsd:string"
+    },
+    "processing:datetime": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/processing/datetime",
+      "x-jsonld-type": "xsd:dateTime"
     }
   },
   "x-jsonld-prefixes": {
-    "raster": "https://w3id.org/ogc/stac/raster/"
+    "processing": "https://w3id.org/ogc/stac/processing/"
   }
 }

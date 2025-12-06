@@ -303,8 +303,8 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <mlm:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -313,12 +313,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-1/example-model> dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
     dcterms:format "Feature" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -330,11 +330,11 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                     dcterms:title "Pytorch weights checkpoint" ;
                     oa:hasTarget <https://huggingface.co/example/model-card> ;
                     stac:roles "mlm:model" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+                    ns2:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:architecture "ResNet" ;
-    ns1:input [ :input [ :data_type "float32" ;
+    ns2:architecture "ResNet" ;
+    ns2:input [ :input [ :data_type "float32" ;
                     :dim_order "batch",
                         "channel",
                         "height",
@@ -343,16 +343,16 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                         3,
                         64 ] ;
             :name "Model with RGB input that does not refer to any band." ] ;
-    ns1:name "example-model" ;
-    ns1:output [ :classification_classes [ dcterms:description "Background non-city." ;
-                    :color_hint 0 ;
-                    :name "BACKGROUND" ;
-                    :value 0 ],
-                [ dcterms:description "A city is detected." ;
+    ns2:name "example-model" ;
+    ns2:output [ :classification_classes [ dcterms:description "A city is detected." ;
                     :color_hint 0,
                         255 ;
                     :name "CITY" ;
-                    :value 1 ] ;
+                    :value 1 ],
+                [ dcterms:description "Background non-city." ;
+                    :color_hint 0 ;
+                    :name "BACKGROUND" ;
+                    :value 0 ] ;
             :name "classification" ;
             :result [ :data_type "uint8" ;
                     :dim_order "batch",
@@ -360,7 +360,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                     :shape -1,
                         1 ] ;
             :tasks "classification" ] ;
-    ns1:tasks "classification" .
+    ns2:tasks "classification" .
 
 
 ```
@@ -660,8 +660,8 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <mlm:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -671,10 +671,10 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 <https://example.com/stac/mlm/example-1/example-model> dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
     dcterms:format "Feature" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -687,11 +687,11 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                     dcterms:title "Pytorch weights checkpoint" ;
                     oa:hasTarget <https://huggingface.co/example/model-card> ;
                     stac:roles "mlm:model" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+                    ns2:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:architecture "ResNet" ;
-    ns1:input [ :input [ :data_type "float32" ;
+    ns2:architecture "ResNet" ;
+    ns2:input [ :input [ :data_type "float32" ;
                     :dim_order "batch",
                         "channel",
                         "height",
@@ -700,8 +700,8 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                         3,
                         64 ] ;
             :name "Model with RGB input that does not refer to any band." ] ;
-    ns1:name "example-model" ;
-    ns1:output [ :classification_classes [ dcterms:description "Background non-city." ;
+    ns2:name "example-model" ;
+    ns2:output [ :classification_classes [ dcterms:description "Background non-city." ;
                     :color_hint 0 ;
                     :name "BACKGROUND" ;
                     :value 0 ],
@@ -717,7 +717,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                     :shape -1,
                         1 ] ;
             :tasks "classification" ] ;
-    ns1:tasks "classification" .
+    ns2:tasks "classification" .
 
 
 ```
@@ -732,7 +732,7 @@ allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-- $ref: https://stac-extensions.github.io/mlm/v1.4.0/schema.json
+- $ref: https://stac-extensions.github.io/mlm/v1.5.0/schema.json
 x-jsonld-extra-terms:
   raster:bands:
     x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
@@ -1072,6 +1072,12 @@ Links to the schema:
             "expression": {}
           }
         },
+        "variables": {
+          "@context": {
+            "format": {},
+            "expression": {}
+          }
+        },
         "input": {
           "@context": {
             "shape": {},
@@ -1108,6 +1114,18 @@ Links to the schema:
             "dim_order": {}
           }
         },
+        "bands": {
+          "@context": {
+            "format": {},
+            "expression": {}
+          }
+        },
+        "variables": {
+          "@context": {
+            "format": {},
+            "expression": {}
+          }
+        },
         "classification:classes": {
           "@context": {
             "value": {},
@@ -1125,7 +1143,9 @@ Links to the schema:
     "mlm:hyperparameters": {},
     "mlm:artifact_type": {},
     "mlm:compile_method": {},
+    "mlm:entrypoint": {},
     "eo:bands": {},
+    "cube:variables": {},
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {

@@ -490,8 +490,8 @@ Ref to STAC example from current version (1.1.0)
 ```ttl
 @prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <eo:> .
-@prefix ns2: <proj:> .
+@prefix ns1: <proj:> .
+@prefix ns2: <eo:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
 @prefix ns4: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -532,13 +532,13 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns3:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns3:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
     :keywords "copernicus",
         "esa",
         "eu",
@@ -550,39 +550,39 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
             :url "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi" ;
             stac:roles "licensor",
                 "producer" ] ;
-    :summaries [ :bands [ ns1:center_wavelength 6.645e-01 ;
-                    ns1:common_name "red" ;
-                    :name "B4" ],
-                [ ns1:center_wavelength 5.6e-01 ;
-                    ns1:common_name "green" ;
-                    :name "B3" ],
-                [ ns1:center_wavelength 4.439e-01 ;
-                    ns1:common_name "coastal" ;
-                    :name "B1" ],
-                [ ns1:center_wavelength 7.402e-01 ;
-                    :name "B6" ],
-                [ ns1:center_wavelength 4.966e-01 ;
-                    ns1:common_name "blue" ;
-                    :name "B2" ],
-                [ ns1:center_wavelength 8.351e-01 ;
-                    ns1:common_name "nir" ;
-                    :name "B8" ],
-                [ ns1:center_wavelength 1.6137e+00 ;
-                    ns1:common_name "swir16" ;
-                    :name "B11" ],
-                [ ns1:center_wavelength 2.2024e+00 ;
-                    ns1:common_name "swir22" ;
-                    :name "B12" ],
-                [ ns1:center_wavelength 1.3735e+00 ;
-                    :name "B10" ],
-                [ ns1:center_wavelength 8.648e-01 ;
-                    :name "B8A" ],
-                [ ns1:center_wavelength 7.825e-01 ;
-                    :name "B7" ],
-                [ ns1:center_wavelength 7.039e-01 ;
+    :summaries [ :bands [ ns2:center_wavelength 9.45e-01 ;
+                    :name "B9" ],
+                [ ns2:center_wavelength 7.039e-01 ;
                     :name "B5" ],
-                [ ns1:center_wavelength 9.45e-01 ;
-                    :name "B9" ] ;
+                [ ns2:center_wavelength 7.825e-01 ;
+                    :name "B7" ],
+                [ ns2:center_wavelength 2.2024e+00 ;
+                    ns2:common_name "swir22" ;
+                    :name "B12" ],
+                [ ns2:center_wavelength 6.645e-01 ;
+                    ns2:common_name "red" ;
+                    :name "B4" ],
+                [ ns2:center_wavelength 4.966e-01 ;
+                    ns2:common_name "blue" ;
+                    :name "B2" ],
+                [ ns2:center_wavelength 4.439e-01 ;
+                    ns2:common_name "coastal" ;
+                    :name "B1" ],
+                [ ns2:center_wavelength 1.6137e+00 ;
+                    ns2:common_name "swir16" ;
+                    :name "B11" ],
+                [ ns2:center_wavelength 1.3735e+00 ;
+                    :name "B10" ],
+                [ ns2:center_wavelength 8.351e-01 ;
+                    ns2:common_name "nir" ;
+                    :name "B8" ],
+                [ ns2:center_wavelength 7.402e-01 ;
+                    :name "B6" ],
+                [ ns2:center_wavelength 8.648e-01 ;
+                    :name "B8A" ],
+                [ ns2:center_wavelength 5.6e-01 ;
+                    ns2:common_name "green" ;
+                    :name "B3" ] ;
             :constellation "sentinel-2" ;
             :datetime [ :maximum "2019-07-10T13:44:56Z" ;
                     :minimum "2015-06-23T00:00:00Z" ] ;
@@ -592,7 +592,7 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
             :instruments "msi" ;
             :platform "sentinel-2a",
                 "sentinel-2b" ;
-            ns2:code "EPSG:32601",
+            ns1:code "EPSG:32601",
                 "EPSG:32602",
                 "EPSG:32603",
                 "EPSG:32604",
@@ -875,21 +875,7 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
     dcterms:format "Collection" ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
+    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
@@ -898,7 +884,21 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/catalog.json> ] ;
+            oa:hasTarget <https://example.com/catalog.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ] ;
     :created "2025-10-13T16:54:34Z" ;
     :license "various" ;
     :themes [ :concepts <https://example.com/stac/example1/cryosphere> ;
