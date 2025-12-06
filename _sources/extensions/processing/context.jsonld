@@ -1,15 +1,34 @@
 {
   "@context": {
-    "raster": "https://w3id.org/ogc/stac/raster/",
-    "raster:bands": {
-      "@id": "raster:bands",
-      "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
-      }
+    "processing": "https://w3id.org/ogc/stac/processing/",
+    "processing:software": {
+      "@id": "processing:software",
+      "@type": "@json",
+      "comment": "this is necessary since software name cannot be guaranteed to be convertible to a URI "
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "processing:expression": {
+      "@id": "processing:expression",
+      "@type": "@json"
+    },
+    "processing:lineage": {
+      "@id": "processing:lineage",
+      "@type": "xsd:string"
+    },
+    "processing:level": {
+      "@id": "processing:level",
+      "@type": "xsd:string"
+    },
+    "processing:facility": {
+      "@id": "processing:facility",
+      "@type": "xsd:string"
+    },
+    "processing:version": {
+      "@id": "processing:version",
+      "@type": "xsd:string"
+    },
+    "processing:datetime": {
+      "@id": "processing:datetime",
+      "@type": "xsd:dateTime"
     }
   }
 }
