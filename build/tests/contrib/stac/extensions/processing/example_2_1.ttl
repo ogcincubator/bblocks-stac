@@ -1,8 +1,8 @@
 @prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sat:> .
-@prefix ns2: <sar:> .
+@prefix ns1: <sar:> .
+@prefix ns2: <sat:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
@@ -31,32 +31,32 @@
                     dcterms:title "IW VH Amplitude pixel values" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VH" ] ;
+                    ns1:polarizations "VH" ] ;
             :amplitude-vv-iw [ dcterms:format "image/tiff; application=geotiff" ;
                     dcterms:title "IW VV Amplitude pixel values" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VV" ] ;
+                    ns1:polarizations "VV" ] ;
             :annotation-vh-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Annotation VH IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
                     stac:roles "metadata" ;
-                    ns2:polarizations "VH" ] ;
+                    ns1:polarizations "VH" ] ;
             :annotation-vv-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Annotation VV IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
                     stac:roles "metadata" ;
-                    ns2:polarizations "VV" ] ;
+                    ns1:polarizations "VV" ] ;
             :calibration-vh-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Calibration VH IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VH" ] ;
+                    ns1:polarizations "VH" ] ;
             :calibration-vv-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Calibration VV IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VV" ] ;
+                    ns1:polarizations "VV" ] ;
             :manifest [ dcterms:created "2016-08-23T00:30:33Z" ;
                     dcterms:format "text/xml" ;
                     dcterms:title "SAFE Manifest" ;
@@ -74,13 +74,13 @@
     processing:level "L1" ;
     processing:lineage "GRD Post Processing" ;
     processing:software "{\"Sentinel-1 IPF\":\"002.71\"}"^^rdf:JSON ;
-    ns2:frequency_band "C" ;
-    ns2:instrument_mode "IW" ;
-    ns2:polarizations "VH",
+    ns1:frequency_band "C" ;
+    ns1:instrument_mode "IW" ;
+    ns1:polarizations "VH",
         "VV" ;
-    ns2:product_type "GRD" ;
-    ns1:absolute_orbit 12717 ;
-    ns1:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns1:orbit_state "ascending" ;
-    ns1:relative_orbit 45 .
+    ns1:product_type "GRD" ;
+    ns2:absolute_orbit 12717 ;
+    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns2:orbit_state "ascending" ;
+    ns2:relative_orbit 45 .
 

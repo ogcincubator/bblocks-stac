@@ -251,31 +251,31 @@ STAC Processing Extension for STAC Items and STAC Collections.
             :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
     dcterms:format "Collection" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] ;
     dcat:license "proprietary" ;
-    :providers [ :name "Processing Corp." ;
-            stac:roles "processor" ;
-            processing:level "L2A" ;
-            processing:lineage "Generation of Level-2A User Product" ;
-            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
-        [ :name "Storage Provider, Inc." ;
-            stac:roles "host" ],
-        [ :name "European Union/ESA/Copernicus" ;
+    :providers [ :name "European Union/ESA/Copernicus" ;
             :url "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi" ;
             stac:roles "licensor",
                 "producer" ;
             processing:facility "Copernicus S2 Processing and Archiving Facility" ;
             processing:level "L1" ;
             processing:lineage "Generation of Level-1C User Product" ;
-            processing:version "02.06" ] ;
+            processing:version "02.06" ],
+        [ :name "Storage Provider, Inc." ;
+            stac:roles "host" ],
+        [ :name "Processing Corp." ;
+            stac:roles "processor" ;
+            processing:level "L2A" ;
+            processing:lineage "Generation of Level-2A User Product" ;
+            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ] ;
     :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
                     :minimum "2015-06-23T00:00:00Z" ] ;
             :constellation "sentinel-2" ;
@@ -640,8 +640,8 @@ STAC Processing Extension for STAC Items and STAC Collections.
 @prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sat:> .
-@prefix ns2: <sar:> .
+@prefix ns1: <sar:> .
+@prefix ns2: <sat:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
@@ -670,32 +670,32 @@ STAC Processing Extension for STAC Items and STAC Collections.
                     dcterms:title "IW VH Amplitude pixel values" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VH" ] ;
+                    ns1:polarizations "VH" ] ;
             :amplitude-vv-iw [ dcterms:format "image/tiff; application=geotiff" ;
                     dcterms:title "IW VV Amplitude pixel values" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VV" ] ;
+                    ns1:polarizations "VV" ] ;
             :annotation-vh-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Annotation VH IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
                     stac:roles "metadata" ;
-                    ns2:polarizations "VH" ] ;
+                    ns1:polarizations "VH" ] ;
             :annotation-vv-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Annotation VV IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
                     stac:roles "metadata" ;
-                    ns2:polarizations "VV" ] ;
+                    ns1:polarizations "VV" ] ;
             :calibration-vh-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Calibration VH IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VH" ] ;
+                    ns1:polarizations "VH" ] ;
             :calibration-vv-iw [ dcterms:format "text/xml" ;
                     dcterms:title "Calibration VV IW" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
                     stac:roles "data" ;
-                    ns2:polarizations "VV" ] ;
+                    ns1:polarizations "VV" ] ;
             :manifest [ dcterms:created "2016-08-23T00:30:33Z" ;
                     dcterms:format "text/xml" ;
                     dcterms:title "SAFE Manifest" ;
@@ -713,15 +713,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
     processing:level "L1" ;
     processing:lineage "GRD Post Processing" ;
     processing:software "{\"Sentinel-1 IPF\":\"002.71\"}"^^rdf:JSON ;
-    ns2:frequency_band "C" ;
-    ns2:instrument_mode "IW" ;
-    ns2:polarizations "VH",
+    ns1:frequency_band "C" ;
+    ns1:instrument_mode "IW" ;
+    ns1:polarizations "VH",
         "VV" ;
-    ns2:product_type "GRD" ;
-    ns1:absolute_orbit 12717 ;
-    ns1:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns1:orbit_state "ascending" ;
-    ns1:relative_orbit 45 .
+    ns1:product_type "GRD" ;
+    ns2:absolute_orbit 12717 ;
+    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns2:orbit_state "ascending" ;
+    ns2:relative_orbit 45 .
 
 
 ```
