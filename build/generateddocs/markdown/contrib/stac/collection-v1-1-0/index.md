@@ -489,9 +489,9 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 ```ttl
 @prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <proj:> .
-@prefix ns2: <view:> .
-@prefix ns3: <eo:> .
+@prefix ns1: <eo:> .
+@prefix ns2: <proj:> .
+@prefix ns3: <view:> .
 @prefix ns4: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -527,16 +527,16 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
             :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
     dcterms:format "Collection" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns4:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns4:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Example Catalog" ;
+            dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     :keywords "copernicus",
         "esa",
@@ -549,39 +549,39 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
             :url "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi" ;
             stac:roles "licensor",
                 "producer" ] ;
-    :summaries [ :bands [ ns3:center_wavelength 2.2024e+00 ;
-                    ns3:common_name "swir22" ;
-                    :name "B12" ],
-                [ ns3:center_wavelength 7.402e-01 ;
-                    :name "B6" ],
-                [ ns3:center_wavelength 7.825e-01 ;
-                    :name "B7" ],
-                [ ns3:center_wavelength 8.351e-01 ;
-                    ns3:common_name "nir" ;
-                    :name "B8" ],
-                [ ns3:center_wavelength 8.648e-01 ;
-                    :name "B8A" ],
-                [ ns3:center_wavelength 4.966e-01 ;
-                    ns3:common_name "blue" ;
-                    :name "B2" ],
-                [ ns3:center_wavelength 1.3735e+00 ;
-                    :name "B10" ],
-                [ ns3:center_wavelength 1.6137e+00 ;
-                    ns3:common_name "swir16" ;
+    :summaries [ :bands [ ns1:center_wavelength 1.6137e+00 ;
+                    ns1:common_name "swir16" ;
                     :name "B11" ],
-                [ ns3:center_wavelength 4.439e-01 ;
-                    ns3:common_name "coastal" ;
-                    :name "B1" ],
-                [ ns3:center_wavelength 7.039e-01 ;
-                    :name "B5" ],
-                [ ns3:center_wavelength 6.645e-01 ;
-                    ns3:common_name "red" ;
-                    :name "B4" ],
-                [ ns3:center_wavelength 5.6e-01 ;
-                    ns3:common_name "green" ;
+                [ ns1:center_wavelength 5.6e-01 ;
+                    ns1:common_name "green" ;
                     :name "B3" ],
-                [ ns3:center_wavelength 9.45e-01 ;
-                    :name "B9" ] ;
+                [ ns1:center_wavelength 7.825e-01 ;
+                    :name "B7" ],
+                [ ns1:center_wavelength 2.2024e+00 ;
+                    ns1:common_name "swir22" ;
+                    :name "B12" ],
+                [ ns1:center_wavelength 8.351e-01 ;
+                    ns1:common_name "nir" ;
+                    :name "B8" ],
+                [ ns1:center_wavelength 7.402e-01 ;
+                    :name "B6" ],
+                [ ns1:center_wavelength 8.648e-01 ;
+                    :name "B8A" ],
+                [ ns1:center_wavelength 4.966e-01 ;
+                    ns1:common_name "blue" ;
+                    :name "B2" ],
+                [ ns1:center_wavelength 1.3735e+00 ;
+                    :name "B10" ],
+                [ ns1:center_wavelength 9.45e-01 ;
+                    :name "B9" ],
+                [ ns1:center_wavelength 7.039e-01 ;
+                    :name "B5" ],
+                [ ns1:center_wavelength 4.439e-01 ;
+                    ns1:common_name "coastal" ;
+                    :name "B1" ],
+                [ ns1:center_wavelength 6.645e-01 ;
+                    ns1:common_name "red" ;
+                    :name "B4" ] ;
             :constellation "sentinel-2" ;
             :datetime [ :maximum "2019-07-10T13:44:56Z" ;
                     :minimum "2015-06-23T00:00:00Z" ] ;
@@ -591,7 +591,7 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
             :instruments "msi" ;
             :platform "sentinel-2a",
                 "sentinel-2b" ;
-            ns1:code "EPSG:32601",
+            ns2:code "EPSG:32601",
                 "EPSG:32602",
                 "EPSG:32603",
                 "EPSG:32604",
@@ -651,9 +651,9 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
                 "EPSG:32658",
                 "EPSG:32659",
                 "EPSG:32660" ;
-            ns2:off_nadir [ :maximum 100 ;
+            ns3:off_nadir [ :maximum 100 ;
                     :minimum 0 ] ;
-            ns2:sun_elevation [ :maximum 8.99e+01 ;
+            ns3:sun_elevation [ :maximum 8.99e+01 ;
                     :minimum 6.78e+00 ] ] ;
     stac:hasAsset [ :metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
                     dcterms:title "ISO 19139 metadata" ;

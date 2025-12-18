@@ -251,15 +251,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
             :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
     dcterms:format "Collection" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
     dcat:license "proprietary" ;
     :providers [ :name "European Union/ESA/Copernicus" ;
             :url "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi" ;
@@ -269,13 +269,13 @@ STAC Processing Extension for STAC Items and STAC Collections.
             processing:level "L1" ;
             processing:lineage "Generation of Level-1C User Product" ;
             processing:version "02.06" ],
-        [ :name "Storage Provider, Inc." ;
-            stac:roles "host" ],
         [ :name "Processing Corp." ;
             stac:roles "processor" ;
             processing:level "L2A" ;
             processing:lineage "Generation of Level-2A User Product" ;
-            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ] ;
+            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
+        [ :name "Storage Provider, Inc." ;
+            stac:roles "host" ] ;
     :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
                     :minimum "2015-06-23T00:00:00Z" ] ;
             :constellation "sentinel-2" ;

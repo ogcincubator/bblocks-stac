@@ -42,15 +42,15 @@
                         64 ] ;
             :name "Model with RGB input that does not refer to any band." ] ;
     ns1:name "example-model" ;
-    ns1:output [ :classification_classes [ dcterms:description "A city is detected." ;
+    ns1:output [ :classification_classes [ dcterms:description "Background non-city." ;
+                    :color_hint 0 ;
+                    :name "BACKGROUND" ;
+                    :value 0 ],
+                [ dcterms:description "A city is detected." ;
                     :color_hint 0,
                         255 ;
                     :name "CITY" ;
-                    :value 1 ],
-                [ dcterms:description "Background non-city." ;
-                    :color_hint 0 ;
-                    :name "BACKGROUND" ;
-                    :value 0 ] ;
+                    :value 1 ] ;
             :name "classification" ;
             :result [ :data_type "uint8" ;
                     :dim_order "batch",
