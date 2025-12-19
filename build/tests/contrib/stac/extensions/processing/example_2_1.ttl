@@ -1,9 +1,8 @@
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <sar:> .
 @prefix ns2: <sat:> .
-@prefix ns3: <sar:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,59 +10,18 @@
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF> dcterms:created "2016-08-23T00:38:22Z" ;
+<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF> a geojson:Feature ;
+    dcterms:created "2016-08-23T00:38:22Z" ;
     dcterms:date "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
-    dcterms:format "Feature" ;
     rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            ns3:relation <http://www.iana.org/assignments/relation/processing-execution> ;
             oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
-    :constellation "sentinel-1" ;
-    :instruments "c-sar" ;
-    :mission "sentinel-1" ;
-    :platform "sentinel-1a" ;
     stac:end_datetime "2016-08-22T18:28:48.368201+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ :amplitude-vh-iw [ dcterms:format "image/tiff; application=geotiff" ;
-                    dcterms:title "IW VH Amplitude pixel values" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
-                    stac:roles "data" ;
-                    ns3:polarizations "VH" ] ;
-            :amplitude-vv-iw [ dcterms:format "image/tiff; application=geotiff" ;
-                    dcterms:title "IW VV Amplitude pixel values" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
-                    stac:roles "data" ;
-                    ns3:polarizations "VV" ] ;
-            :annotation-vh-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Annotation VH IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-                    stac:roles "metadata" ;
-                    ns3:polarizations "VH" ] ;
-            :annotation-vv-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Annotation VV IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-                    stac:roles "metadata" ;
-                    ns3:polarizations "VV" ] ;
-            :calibration-vh-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Calibration VH IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-                    stac:roles "data" ;
-                    ns3:polarizations "VH" ] ;
-            :calibration-vv-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Calibration VV IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-                    stac:roles "data" ;
-                    ns3:polarizations "VV" ] ;
-            :manifest [ dcterms:created "2016-08-23T00:30:33Z" ;
-                    dcterms:format "text/xml" ;
-                    dcterms:title "SAFE Manifest" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> ;
-                    stac:roles "metadata" ] ;
-            :quick-look [ dcterms:format "image/png" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> ;
-                    stac:roles "overview" ] ] ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
         "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
         "https://stac-extensions.github.io/sat/v1.0.0/schema.json" ;
@@ -74,11 +32,11 @@
     processing:level "L1"^^xsd:string ;
     processing:lineage "GRD Post Processing"^^xsd:string ;
     processing:software "{\"Sentinel-1 IPF\":\"002.71\"}"^^rdf:JSON ;
-    ns3:frequency_band "C" ;
-    ns3:instrument_mode "IW" ;
-    ns3:polarizations "VH",
+    ns1:frequency_band "C" ;
+    ns1:instrument_mode "IW" ;
+    ns1:polarizations "VH",
         "VV" ;
-    ns3:product_type "GRD" ;
+    ns1:product_type "GRD" ;
     ns2:absolute_orbit 12717 ;
     ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
     ns2:orbit_state "ascending" ;

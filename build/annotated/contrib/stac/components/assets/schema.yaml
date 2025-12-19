@@ -7,6 +7,13 @@ properties:
     $ref: '#/definitions/assets'
     x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset
     x-jsonld-container: '@set'
+    x-jsonld-extra-terms:
+      type: http://purl.org/dc/terms/format
+      title: http://purl.org/dc/terms/title
+      description: http://purl.org/dc/terms/description
+      roles:
+        x-jsonld-id: https://w3id.org/ogc/stac/core/roles
+        x-jsonld-container: '@set'
 definitions:
   assets:
     title: Asset links
@@ -28,31 +35,18 @@ definitions:
         title:
           title: Asset title
           type: string
-          x-jsonld-id: http://purl.org/dc/terms/title
         description:
           title: Asset description
           type: string
-          x-jsonld-id: http://purl.org/dc/terms/description
         type:
           title: Asset type
           type: string
-          x-jsonld-id: http://purl.org/dc/terms/format
         roles:
           title: Asset roles
           type: array
           items:
             type: string
-          x-jsonld-id: https://w3id.org/ogc/stac/core/roles
-          x-jsonld-container: '@set'
-x-jsonld-extra-terms:
-  description: http://purl.org/dc/terms/description
-  type: http://purl.org/dc/terms/format
-  title: http://purl.org/dc/terms/title
-  roles:
-    x-jsonld-id: https://w3id.org/ogc/stac/core/roles
-    x-jsonld-container: '@set'
-x-jsonld-vocab: https://w3id.org/ogc/stac/assets/
 x-jsonld-prefixes:
-  dct: http://purl.org/dc/terms/
   stac: https://w3id.org/ogc/stac/core/
+  dct: http://purl.org/dc/terms/
   rdfs: http://www.w3.org/2000/01/rdf-schema#

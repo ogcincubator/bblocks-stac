@@ -48,12 +48,11 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "dct:format",
+    "type": "@type",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -96,6 +95,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -192,10 +192,6 @@ Links to the schema:
     "license": "dcat:license",
     "rights": "dcat:rights",
     "stac_extensions": "stac:hasExtension",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -209,8 +205,14 @@ Links to the schema:
       "@type": "xsd:dateTime"
     },
     "providers": "stac:hasProvider",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },

@@ -145,7 +145,6 @@ TBD
 
 #### ttl
 ```ttl
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <accuracy:> .
@@ -156,7 +155,8 @@ TBD
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<file:///github/workspace/item> ns1:geometric_rmse 1 ;
+<file:///github/workspace/item> a geojson:Feature ;
+    ns1:geometric_rmse 1 ;
     ns1:geometric_x_bias 0 ;
     ns1:geometric_x_stddev 5e-01 ;
     ns1:geometric_y_bias 0 ;
@@ -164,13 +164,12 @@ TBD
     ns1:measurement_absolute 2e-02 ;
     ns1:measurement_relative 1e-02 ;
     dct:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    dct:format "Feature" ;
     rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    stac:hasAsset [ :data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json" ;
     stac:version "1.0.0" .
 
@@ -203,14 +202,9 @@ Links to the schema:
 {
   "@context": {
     "stac_extensions": "stac:hasExtension",
-    "type": "dct:format",
+    "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
-    "item_assets": {
-      "@context": {
-        "type": "@type"
-      }
-    },
     "links": {
       "@context": {
         "rel": {
@@ -239,10 +233,6 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -259,8 +249,14 @@ Links to the schema:
     "updated": "dct:modified",
     "license": "dcat:license",
     "providers": "stac:hasProvider",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
@@ -282,7 +278,6 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -309,6 +304,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",

@@ -1,7 +1,5 @@
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
@@ -10,45 +8,26 @@
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/processing/example-1/Sentinel2-L2A> dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
-    dcterms:extent [ :spatial [ geojson:bbox ( ( -180 -56 180 83 ) ) ] ;
-            :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
-    dcterms:format "Collection" ;
+<https://example.com/stac/processing/example-1/Sentinel2-L2A> a <https://example.com/stac/processing/example-1/Collection> ;
+    dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
+    dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
     dcat:license "proprietary" ;
-    :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
-                    :minimum "2015-06-23T00:00:00Z" ] ;
-            :constellation "sentinel-2" ;
-            :gsd 10,
-                30,
-                60 ;
-            :instruments "msi" ;
-            :platform "sentinel-2a",
-                "sentinel-2b" ;
-            processing:level "L1"^^xsd:string,
-                "L2"^^xsd:string ] ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
-    stac:hasProvider [ :name "Storage Provider, Inc." ;
-            stac:roles "host" ],
-        [ :name "Processing Corp." ;
-            stac:roles "processor" ;
-            processing:level "L2A"^^xsd:string ;
+    stac:hasProvider [ ],
+        [ processing:level "L2A"^^xsd:string ;
             processing:lineage "Generation of Level-2A User Product"^^xsd:string ;
             processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
-        [ :name "European Union/ESA/Copernicus" ;
-            :url "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi" ;
-            stac:roles "licensor",
-                "producer" ;
-            processing:facility "Copernicus S2 Processing and Archiving Facility"^^xsd:string ;
+        [ processing:facility "Copernicus S2 Processing and Archiving Facility"^^xsd:string ;
             processing:level "L1"^^xsd:string ;
             processing:lineage "Generation of Level-1C User Product"^^xsd:string ;
             processing:version "02.06"^^xsd:string ] ;

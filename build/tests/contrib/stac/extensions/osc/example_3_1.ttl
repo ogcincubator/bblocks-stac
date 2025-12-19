@@ -1,6 +1,6 @@
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <osc:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -10,26 +10,24 @@
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/osc/example-2/example> dcterms:date "2023-03-15T16:24:03.357451+00:00"^^xsd:dateTime ;
-    dcterms:format "Feature" ;
-    rdfs:seeAlso [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
-        [ rdfs:label "SWARM VIP" ;
+<https://example.com/stac/osc/example-2/example> a geojson:Feature ;
+    dcterms:date "2023-03-15T16:24:03.357451+00:00"^^xsd:dateTime ;
+    rdfs:seeAlso [ rdfs:label "SWARM VIP" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
         [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ],
+        [ rdfs:label "Semi-empiric model of ionosphere processes_SWARM" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/osc/example-2/collection.json> ] ;
     dcat:keyword "region:None",
         "theme:Magnetosphere_Ionosphere",
         "variable:Ionospheric plasma density" ;
-    :collection "model-ionosphere-4dionosphere" ;
-    stac:hasAsset [ :model [ dcterms:format "application/octet-stream" ;
-                    oa:hasTarget <https://osc.example/model.xyz> ] ] ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;

@@ -488,45 +488,14 @@ Ref to STAC example from current version (1.1.0)
 
 #### ttl
 ```ttl
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <proj:> .
-@prefix ns2: <eo:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <view:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/sentinel-2> dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
-imaging mission supporting Copernicus Land Monitoring studies,
-including the monitoring of vegetation, soil and water cover,
-as well as observation of inland waterways and coastal areas.
-
-The Sentinel-2 data contain 13 UINT16 spectral bands representing
-TOA reflectance scaled by 10000. See the [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
-for details. In addition, three QA bands are present where one
-(QA60) is a bitmask band with cloud mask information. For more
-details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
-
-Each Sentinel-2 product (zip archive) may contain multiple
-granules. Each granule becomes a separate Earth Engine asset.
-EE asset ids for Sentinel-2 assets have the following format:
-COPERNICUS/S2/20151128T002653_20151128T102149_T56MNN. Here the
-first numeric part represents the sensing date and time, the
-second numeric part represents the product generation date and
-time, and the final 6-character string is a unique granule identifier
-indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Military_Grid_Reference_System)).
-
-For more details on Sentinel-2 radiometric resoltuon, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
-""" ;
-    dcterms:extent [ :spatial [ :bbox -180,
-                        -56,
-                        83,
-                        180 ] ;
-            :temporal [ :interval "2015-06-23T00:00:00Z" ] ] ;
-    dcterms:format "Collection" ;
+<https://example.com/stac/example1/sentinel-2> a <https://example.com/stac/example1/Collection> ;
+    dcterms:extent [ ] ;
     dcterms:license "other" ;
     dcterms:subject "copernicus",
         "esa",
@@ -534,136 +503,22 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "msi",
         "radiance",
         "sentinel" ;
-    dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns3:relation <http://www.iana.org/assignments/relation/license> ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Example Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
-    :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
-                    :minimum "2015-06-23T00:00:00Z" ] ;
-            :bands [ ns2:center_wavelength 8.648e-01 ;
-                    :name "B8A" ],
-                [ ns2:center_wavelength 2.2024e+00 ;
-                    ns2:common_name "swir22" ;
-                    :name "B12" ],
-                [ ns2:center_wavelength 9.45e-01 ;
-                    :name "B9" ],
-                [ ns2:center_wavelength 6.645e-01 ;
-                    ns2:common_name "red" ;
-                    :name "B4" ],
-                [ ns2:center_wavelength 1.6137e+00 ;
-                    ns2:common_name "swir16" ;
-                    :name "B11" ],
-                [ ns2:center_wavelength 5.6e-01 ;
-                    ns2:common_name "green" ;
-                    :name "B3" ],
-                [ ns2:center_wavelength 1.3735e+00 ;
-                    :name "B10" ],
-                [ ns2:center_wavelength 4.966e-01 ;
-                    ns2:common_name "blue" ;
-                    :name "B2" ],
-                [ ns2:center_wavelength 7.402e-01 ;
-                    :name "B6" ],
-                [ ns2:center_wavelength 7.825e-01 ;
-                    :name "B7" ],
-                [ ns2:center_wavelength 7.039e-01 ;
-                    :name "B5" ],
-                [ ns2:center_wavelength 4.439e-01 ;
-                    ns2:common_name "coastal" ;
-                    :name "B1" ],
-                [ ns2:center_wavelength 8.351e-01 ;
-                    ns2:common_name "nir" ;
-                    :name "B8" ] ;
-            :constellation "sentinel-2" ;
-            :gsd 10,
-                30,
-                60 ;
-            :instruments "msi" ;
-            :platform "sentinel-2a",
-                "sentinel-2b" ;
-            ns1:code "EPSG:32601",
-                "EPSG:32602",
-                "EPSG:32603",
-                "EPSG:32604",
-                "EPSG:32605",
-                "EPSG:32606",
-                "EPSG:32607",
-                "EPSG:32608",
-                "EPSG:32609",
-                "EPSG:32610",
-                "EPSG:32611",
-                "EPSG:32612",
-                "EPSG:32613",
-                "EPSG:32614",
-                "EPSG:32615",
-                "EPSG:32616",
-                "EPSG:32617",
-                "EPSG:32618",
-                "EPSG:32619",
-                "EPSG:32620",
-                "EPSG:32621",
-                "EPSG:32622",
-                "EPSG:32623",
-                "EPSG:32624",
-                "EPSG:32625",
-                "EPSG:32626",
-                "EPSG:32627",
-                "EPSG:32628",
-                "EPSG:32629",
-                "EPSG:32630",
-                "EPSG:32631",
-                "EPSG:32632",
-                "EPSG:32633",
-                "EPSG:32634",
-                "EPSG:32635",
-                "EPSG:32636",
-                "EPSG:32637",
-                "EPSG:32638",
-                "EPSG:32639",
-                "EPSG:32640",
-                "EPSG:32641",
-                "EPSG:32642",
-                "EPSG:32643",
-                "EPSG:32644",
-                "EPSG:32645",
-                "EPSG:32646",
-                "EPSG:32647",
-                "EPSG:32648",
-                "EPSG:32649",
-                "EPSG:32650",
-                "EPSG:32651",
-                "EPSG:32652",
-                "EPSG:32653",
-                "EPSG:32654",
-                "EPSG:32655",
-                "EPSG:32656",
-                "EPSG:32657",
-                "EPSG:32658",
-                "EPSG:32659",
-                "EPSG:32660" ;
-            ns4:off_nadir [ :maximum 100 ;
-                    :minimum 0 ] ;
-            ns4:sun_elevation [ :maximum 8.99e+01 ;
-                    :minimum 6.78e+00 ] ] ;
-    stac:hasAsset [ :metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
-                    dcterms:title "ISO 19139 metadata" ;
-                    :href "https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml" ;
-                    stac:roles "iso-19139",
-                        "metadata" ] ] ;
+    stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
-    stac:hasProvider [ :name "European Union/ESA/Copernicus" ;
-            :url "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi" ;
-            stac:roles "licensor",
-                "producer" ] ;
+    stac:hasProvider [ ] ;
     stac:version "1.1.0" .
 
 
@@ -856,53 +711,40 @@ Ref to STAC example using version (1.0.0)
 
 #### ttl
 ```ttl
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <osc:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/example1/polarwarp> dcterms:description """Polarwarp product
-
-Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
-    dcterms:extent [ :spatial [ :bbox -1.809999e-03,
-                        4.381454e-04,
-                        7.574197e-04,
-                        1.347253e-03 ] ;
-            :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
-    dcterms:format "Collection" ;
+<https://example.com/stac/example1/polarwarp> a <https://example.com/stac/example1/Collection> ;
+    dcterms:extent [ ] ;
     dcterms:license "various" ;
-    dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
-        [ rdfs:label "Products" ;
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
-    :created "2025-10-13T16:54:34Z" ;
-    :themes [ :concepts <https://example.com/stac/example1/cryosphere> ;
-            :scheme "https://github.com/stac-extensions/osc#theme" ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
@@ -1109,12 +951,13 @@ Links to the schema:
 {
   "@context": {
     "stac_extensions": "stac:hasExtension",
-    "type": "dct:format",
+    "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
     "item_assets": {
       "@context": {
-        "type": "@type"
+        "title": "dct:title",
+        "description": "dct:description"
       }
     },
     "links": {
@@ -1137,13 +980,7 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "title": "dct:title",
-    "description": "dct:description",
     "keywords": "dct:subject",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -1158,8 +995,16 @@ Links to the schema:
     },
     "license": "dct:license",
     "providers": "stac:hasProvider",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
+      "@context": {
+        "title": "dct:title",
+        "description": "dct:description",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },

@@ -81,7 +81,7 @@
       "@type": "@id"
     },
     "provType": "@type",
-    "type": "dct:format",
+    "type": "@type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -532,7 +532,6 @@
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -559,6 +558,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -586,10 +586,6 @@
     },
     "keywords": {
       "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "roles": {
-      "@id": "stac:roles",
       "@container": "@set"
     },
     "datetime": {
@@ -672,8 +668,14 @@
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },

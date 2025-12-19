@@ -63,18 +63,9 @@ This is the simple item  asset example from the STAC specification.
 
 #### ttl
 ```ttl
-@prefix : <https://w3id.org/ogc/stac/assets/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ :thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    :href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
-                    stac:roles "thumbnail" ] ;
-            :visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    :href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
-                    stac:roles "visual" ] ] .
+[] stac:hasAsset [ ] .
 
 
 ```
@@ -154,25 +145,9 @@ Includes asset types not defined by core
 
 #### ttl
 ```ttl
-@prefix : <https://w3id.org/ogc/stac/assets/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <mlm:> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ :model [ dcterms:description "Example model." ;
-                    dcterms:format "text/html" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    :href "https://huggingface.co/example/model-card" ;
-                    stac:roles "mlm:model" ;
-                    ns1:artifact_type "torch.save" ] ;
-            :thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    :href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
-                    stac:roles "thumbnail" ] ;
-            :visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    :href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
-                    stac:roles "visual" ] ] .
+[] stac:hasAsset [ ] .
 
 
 ```
@@ -189,6 +164,13 @@ properties:
     $ref: '#/definitions/assets'
     x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset
     x-jsonld-container: '@set'
+    x-jsonld-extra-terms:
+      type: http://purl.org/dc/terms/format
+      title: http://purl.org/dc/terms/title
+      description: http://purl.org/dc/terms/description
+      roles:
+        x-jsonld-id: https://w3id.org/ogc/stac/core/roles
+        x-jsonld-container: '@set'
 definitions:
   assets:
     title: Asset links
@@ -210,33 +192,20 @@ definitions:
         title:
           title: Asset title
           type: string
-          x-jsonld-id: http://purl.org/dc/terms/title
         description:
           title: Asset description
           type: string
-          x-jsonld-id: http://purl.org/dc/terms/description
         type:
           title: Asset type
           type: string
-          x-jsonld-id: http://purl.org/dc/terms/format
         roles:
           title: Asset roles
           type: array
           items:
             type: string
-          x-jsonld-id: https://w3id.org/ogc/stac/core/roles
-          x-jsonld-container: '@set'
-x-jsonld-extra-terms:
-  description: http://purl.org/dc/terms/description
-  type: http://purl.org/dc/terms/format
-  title: http://purl.org/dc/terms/title
-  roles:
-    x-jsonld-id: https://w3id.org/ogc/stac/core/roles
-    x-jsonld-container: '@set'
-x-jsonld-vocab: https://w3id.org/ogc/stac/assets/
 x-jsonld-prefixes:
-  dct: http://purl.org/dc/terms/
   stac: https://w3id.org/ogc/stac/core/
+  dct: http://purl.org/dc/terms/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
 
 ```
@@ -252,20 +221,21 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
-    "description": "dct:description",
-    "type": "dct:format",
-    "title": "dct:title",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
     "assets": {
+      "@context": {
+        "title": "dct:title",
+        "description": "dct:description",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
-    "dct": "http://purl.org/dc/terms/",
     "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "@version": 1.1
   }

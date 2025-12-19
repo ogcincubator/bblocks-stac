@@ -2,16 +2,26 @@
   "@context": {
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "dct:format",
+    "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
     "assets": {
+      "@context": {
+        "title": "dct:title",
+        "description": "dct:description",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
     "item_assets": {
       "@context": {
-        "type": "@type"
+        "title": "dct:title",
+        "description": "dct:description"
       }
     },
     "links": {
@@ -34,13 +44,7 @@
       },
       "@id": "rdfs:seeAlso"
     },
-    "title": "dct:title",
-    "description": "dct:description",
     "keywords": "dct:subject",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -55,7 +59,6 @@
     },
     "license": "dct:license",
     "providers": "stac:hasProvider",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

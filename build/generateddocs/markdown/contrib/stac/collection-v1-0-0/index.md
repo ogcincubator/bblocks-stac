@@ -195,53 +195,41 @@ Ref to STAC example using version (1.0.0)
 
 #### ttl
 ```ttl
-@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <osc:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/polarwarp> rdfs:label "Polarwarp" ;
-    dcterms:description """Polarwarp product
-
-Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
-    dcterms:extent [ :spatial [ :bbox -1.809999e-03,
-                        4.381454e-04,
-                        7.574197e-04,
-                        1.347253e-03 ] ;
-            :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
+    dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:type "Collection" ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+    rdfs:seeAlso [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/catalog.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
         [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/catalog.json> ],
         [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ] ;
-    :created "2025-10-13T16:54:34Z" ;
-    :themes [ :concepts <https://example.com/stac/example1/cryosphere> ;
-            :scheme "https://github.com/stac-extensions/osc#theme" ] ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
@@ -285,7 +273,6 @@ Links to the schema:
     "type": "dct:type",
     "id": "@id",
     "title": "rdfs:label",
-    "description": "dct:description",
     "keywords": "dct:subject",
     "license": "dct:license",
     "providers": "stac:hasProvider",
@@ -293,7 +280,12 @@ Links to the schema:
     "assets": {
       "@context": {
         "title": "dct:title",
-        "type": "dct:format"
+        "description": "dct:description",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
       },
       "@id": "stac:hasAsset",
       "@container": "@set"
@@ -302,12 +294,9 @@ Links to the schema:
     "item_assets": {
       "@context": {
         "title": "dct:title",
+        "description": "dct:description",
         "type": "@type"
       }
-    },
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
     },
     "datetime": {
       "@id": "dct:date",
@@ -321,7 +310,6 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
     "href": {
       "@type": "@id",
