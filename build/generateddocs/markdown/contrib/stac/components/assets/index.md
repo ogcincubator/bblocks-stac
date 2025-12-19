@@ -261,9 +261,6 @@ Links to the schema:
       "@container": "@set"
     },
     "assets": {
-      "@context": {
-        "href": {}
-      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },

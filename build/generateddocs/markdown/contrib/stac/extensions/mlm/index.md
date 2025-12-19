@@ -323,8 +323,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     :collection "ml-model-examples" ;
-    :end_datetime "9999-12-31T23:59:59Z" ;
-    :start_datetime "1900-01-01T00:00:00Z" ;
+    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
     stac:hasAsset [ :model [ dcterms:description "Example model." ;
                     dcterms:format "text/html" ;
                     dcterms:title "Pytorch weights checkpoint" ;
@@ -332,6 +331,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                     stac:roles "mlm:model" ;
                     ns1:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
+    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns1:architecture "ResNet" ;
     ns1:input [ :input [ :data_type "float32" ;
@@ -680,8 +680,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     :collection "ml-model-examples" ;
-    :end_datetime "9999-12-31T23:59:59Z" ;
-    :start_datetime "1900-01-01T00:00:00Z" ;
+    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
     stac:hasAsset [ :model [ dcterms:description "Example model." ;
                     dcterms:format "text/html" ;
                     dcterms:title "Pytorch weights checkpoint" ;
@@ -689,6 +688,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                     stac:roles "mlm:model" ;
                     ns1:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
+    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns1:architecture "ResNet" ;
     ns1:input [ :input [ :data_type "float32" ;
@@ -701,15 +701,15 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
                         64 ] ;
             :name "Model with RGB input that does not refer to any band." ] ;
     ns1:name "example-model" ;
-    ns1:output [ :classification_classes [ dcterms:description "A city is detected." ;
+    ns1:output [ :classification_classes [ dcterms:description "Background non-city." ;
+                    :color_hint 0 ;
+                    :name "BACKGROUND" ;
+                    :value 0 ],
+                [ dcterms:description "A city is detected." ;
                     :color_hint 0,
                         255 ;
                     :name "CITY" ;
-                    :value 1 ],
-                [ dcterms:description "Background non-city." ;
-                    :color_hint 0 ;
-                    :name "BACKGROUND" ;
-                    :value 0 ] ;
+                    :value 1 ] ;
             :name "classification" ;
             :result [ :data_type "uint8" ;
                     :dim_order "batch",
@@ -760,17 +760,7 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "dct:format",
     "id": "@id",
-    "extent": {
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      },
-      "@id": "dct:extent"
-    },
+    "extent": "dct:extent",
     "item_assets": {
       "@context": {
         "type": "@type"
@@ -785,22 +775,12 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
-    },
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
     },
     "title": {
       "@id": "dct:title",
@@ -818,53 +798,24 @@ Links to the schema:
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {
-      "@context": {
-        "name": {}
-      }
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
-    },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
     "license": "dcat:license",
-    "providers": {
-      "@context": {
-        "name": {},
-        "url": {}
-      }
-    },
+    "providers": "stac:hasProvider",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
-      "@context": {
-        "raster:bands": {
-          "@context": {
-            "name": {}
-          }
-        }
-      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
@@ -890,8 +841,7 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -904,15 +854,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -938,33 +880,12 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "collection": {},
-    "language": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
-      "@id": "rec:language"
-    },
+    "language": "rec:language",
     "languages": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -1002,10 +923,6 @@ Links to the schema:
     },
     "contacts": {
       "@context": {
-        "identifier": {},
-        "name": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -1015,137 +932,18 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "phones": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "emails": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
-          }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "mlm:name": {},
-    "mlm:architecture": {},
-    "mlm:tasks": {},
-    "mlm:framework": {},
-    "mlm:framework_version": {},
-    "mlm:memory_size": {},
-    "mlm:total_parameters": {},
-    "mlm:pretrained": {},
-    "mlm:pretrained_source": {},
-    "mlm:batch_size_suggestion": {},
-    "mlm:accelerator": {},
-    "mlm:accelerator_constrained": {},
-    "mlm:accelerator_summary": {},
-    "mlm:accelerator_count": {},
-    "mlm:input": {
-      "@context": {
-        "name": {},
-        "bands": {
-          "@context": {
-            "format": {},
-            "expression": {}
-          }
-        },
-        "variables": {
-          "@context": {
-            "format": {},
-            "expression": {}
-          }
-        },
-        "input": {
-          "@context": {
-            "shape": {},
-            "dim_order": {}
-          }
-        },
-        "value_scaling": {
-          "@context": {
-            "minimum": {},
-            "maximum": {},
-            "mean": {},
-            "stddev": {},
-            "value": {},
-            "format": {},
-            "expression": {}
-          }
-        },
-        "resize_type": {},
-        "pre_processing_function": {
-          "@context": {
-            "format": {},
-            "expression": {}
-          }
-        }
-      }
-    },
-    "mlm:output": {
-      "@context": {
-        "name": {},
-        "tasks": {},
-        "result": {
-          "@context": {
-            "shape": {},
-            "dim_order": {}
-          }
-        },
-        "bands": {
-          "@context": {
-            "format": {},
-            "expression": {}
-          }
-        },
-        "variables": {
-          "@context": {
-            "format": {},
-            "expression": {}
-          }
-        },
-        "classification:classes": {
-          "@context": {
-            "value": {},
-            "color_hint": {}
-          }
-        },
-        "post_processing_function": {
-          "@context": {
-            "format": {},
-            "expression": {}
-          }
-        }
-      }
-    },
-    "mlm:hyperparameters": {},
-    "mlm:artifact_type": {},
-    "mlm:compile_method": {},
-    "mlm:entrypoint": {},
-    "eo:bands": {},
-    "cube:variables": {},
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {

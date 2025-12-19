@@ -57,8 +57,7 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -75,14 +74,10 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -91,15 +86,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -139,32 +126,12 @@ Links to the schema:
       "@container": "@set",
       "@id": "dcat:keyword"
     },
-    "language": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
-      "@id": "rec:language"
-    },
+    "language": "rec:language",
     "languages": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -202,10 +169,6 @@ Links to the schema:
     },
     "contacts": {
       "@context": {
-        "identifier": {},
-        "name": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -215,34 +178,12 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "phones": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "emails": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
-          }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
@@ -250,47 +191,24 @@ Links to the schema:
     },
     "license": "dcat:license",
     "rights": "dcat:rights",
-    "collection": {},
     "stac_extensions": "stac:hasExtension",
     "roles": {
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {
-      "@context": {
-        "name": {}
-      }
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "providers": {
-      "@context": {
-        "name": {},
-        "url": {}
-      }
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
     },
+    "providers": "stac:hasProvider",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
       "@id": "stac:hasAsset",

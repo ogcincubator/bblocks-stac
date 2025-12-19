@@ -4,6 +4,7 @@
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -11,35 +12,35 @@
 
 <https://example.com/stac/cf/example-2/item> dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
     dcterms:format "Feature" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
     :collection "collection" ;
-    cf:parameter [ :unit "K" ;
-            cf:name "sea_surface_temperature" ],
-        [ :unit "m" ;
+    cf:parameter [ qudt:hasUnit "m" ;
             cf:name "depth" ],
-        [ :unit "K" ;
-            cf:name "sea_ice_surface_temperature" ] ;
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_ice_surface_temperature" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ] ;
     stac:hasAsset [ :sea_ice_surface_temperature [ dcterms:format "application/netcdf" ;
                     oa:hasTarget <https://example.com/examples/sea_ice_surface_temperature.nc> ;
-                    cf:parameter [ :unit "K" ;
+                    cf:parameter [ qudt:hasUnit "K" ;
                             cf:name "sea_ice_surface_temperature" ],
-                        [ :unit "m" ;
+                        [ qudt:hasUnit "m" ;
                             cf:name "depth" ] ] ;
             :sea_surface_temperature [ dcterms:format "application/netcdf" ;
                     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-                    cf:parameter [ :unit "K" ;
+                    cf:parameter [ qudt:hasUnit "K" ;
                             cf:name "sea_surface_temperature" ],
-                        [ :unit "m" ;
+                        [ qudt:hasUnit "m" ;
                             cf:name "depth" ] ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .

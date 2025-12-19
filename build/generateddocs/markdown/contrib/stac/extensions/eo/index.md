@@ -382,11 +382,11 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
             oa:hasTarget <https://example.com/stac/eo/example-1/collection.json> ] ;
     dcat:license "CC-BY-4.0" ;
     :item_assets [ :analytic [ dcterms:title "4-Band Analytic" ;
-                    :bands [ :name "band2" ;
-                            eo:center_wavelength 5.6e-01 ;
-                            eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ;
-                            eo:solar_illumination 1.82324e+03 ],
+                    :bands [ :common_name "red" ;
+                            :name "band3" ;
+                            eo:center_wavelength 6.45e-01 ;
+                            eo:full_width_half_max 9e-01 ;
+                            eo:solar_illumination 1.51206e+03 ],
                         [ :name "band4" ;
                             eo:center_wavelength 8e-01 ;
                             eo:common_name "nir" ;
@@ -397,35 +397,30 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
                             eo:common_name "blue" ;
                             eo:full_width_half_max 7e-01 ;
                             eo:solar_illumination 1.95966e+03 ],
-                        [ :common_name "red" ;
-                            :name "band3" ;
-                            eo:center_wavelength 6.45e-01 ;
-                            eo:full_width_half_max 9e-01 ;
-                            eo:solar_illumination 1.51206e+03 ] ;
+                        [ :name "band2" ;
+                            eo:center_wavelength 5.6e-01 ;
+                            eo:common_name "green" ;
+                            eo:full_width_half_max 8e-02 ;
+                            eo:solar_illumination 1.82324e+03 ] ;
                     stac:roles "data" ] ;
             :thumbnail [ a <https://w3id.org/ogc/stac/assets/image/png> ;
                     dcterms:title "Thumbnail" ;
                     stac:roles "thumbnail" ] ;
             :visual [ dcterms:title "3-Band Visual" ;
-                    :bands [ :name "band3" ;
+                    :bands [ :name "band1" ;
+                            eo:center_wavelength 4.7e-01 ;
+                            eo:common_name "blue" ;
+                            eo:full_width_half_max 7e-02 ],
+                        [ :name "band3" ;
                             eo:center_wavelength 6.45e-01 ;
                             eo:common_name "red" ;
                             eo:full_width_half_max 9e-02 ],
                         [ :name "band2" ;
                             eo:center_wavelength 5.6e-01 ;
                             eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ],
-                        [ :name "band1" ;
-                            eo:center_wavelength 4.7e-01 ;
-                            eo:common_name "blue" ;
-                            eo:full_width_half_max 7e-02 ] ;
+                            eo:full_width_half_max 8e-02 ] ;
                     stac:roles "visual" ] ] ;
-    :summaries [ :bands [ :name "band4" ;
-                    eo:center_wavelength 8e-01 ;
-                    eo:common_name "nir" ;
-                    eo:full_width_half_max 1.52e-01 ;
-                    eo:solar_illumination 1.04163e+03 ],
-                [ :name "band1" ;
+    :summaries [ :bands [ :name "band1" ;
                     eo:center_wavelength 4.7e-01 ;
                     eo:common_name "blue" ;
                     eo:full_width_half_max 7e-02 ;
@@ -439,7 +434,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
                     eo:center_wavelength 5.6e-01 ;
                     eo:common_name "green" ;
                     eo:full_width_half_max 8e-02 ;
-                    eo:solar_illumination 1.82324e+03 ] ;
+                    eo:solar_illumination 1.82324e+03 ],
+                [ :name "band4" ;
+                    eo:center_wavelength 8e-01 ;
+                    eo:common_name "nir" ;
+                    eo:full_width_half_max 1.52e-01 ;
+                    eo:solar_illumination 1.04163e+03 ] ;
             :constellation "ion" ;
             :instruments "cool_sensor_v1",
                 "cool_sensor_v2" ;
@@ -785,15 +785,15 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -805,26 +805,26 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     stac:hasAsset [ :analytic [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "4-Band Analytic" ;
                     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
-                    :bands [ :name "band4" ;
+                    :bands [ :name "band2" ;
+                            eo:center_wavelength 5.6e-01 ;
+                            eo:common_name "green" ;
+                            eo:full_width_half_max 8e-02 ;
+                            eo:solar_illumination 1.82324e+03 ],
+                        [ :name "band4" ;
                             eo:center_wavelength 8e-01 ;
                             eo:common_name "nir" ;
                             eo:full_width_half_max 1.52e-01 ;
                             eo:solar_illumination 1.04163e+03 ],
-                        [ :name "band1" ;
-                            eo:center_wavelength 4.7e-01 ;
-                            eo:common_name "blue" ;
-                            eo:full_width_half_max 7e-02 ;
-                            eo:solar_illumination 1.95966e+03 ],
                         [ :name "band3" ;
                             eo:center_wavelength 6.45e-01 ;
                             eo:common_name "red" ;
                             eo:full_width_half_max 9e-02 ;
                             eo:solar_illumination 1.51206e+03 ],
-                        [ :name "band2" ;
-                            eo:center_wavelength 5.6e-01 ;
-                            eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ;
-                            eo:solar_illumination 1.82324e+03 ] ;
+                        [ :name "band1" ;
+                            eo:center_wavelength 4.7e-01 ;
+                            eo:common_name "blue" ;
+                            eo:full_width_half_max 7e-02 ;
+                            eo:solar_illumination 1.95966e+03 ] ;
                     stac:roles "data" ;
                     eo:cloud_cover 1.2e+00 ] ;
             :thumbnail [ dcterms:format "image/png" ;
@@ -834,18 +834,18 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
             :visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "3-Band Visual" ;
                     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
-                    :bands [ :name "band3" ;
-                            eo:center_wavelength 6.45e-01 ;
-                            eo:common_name "red" ;
-                            eo:full_width_half_max 9e-02 ],
+                    :bands [ :name "band1" ;
+                            eo:center_wavelength 4.7e-01 ;
+                            eo:common_name "blue" ;
+                            eo:full_width_half_max 7e-02 ],
                         [ :name "band2" ;
                             eo:center_wavelength 5.6e-01 ;
                             eo:common_name "green" ;
                             eo:full_width_half_max 8e-02 ],
-                        [ :name "band1" ;
-                            eo:center_wavelength 4.7e-01 ;
-                            eo:common_name "blue" ;
-                            eo:full_width_half_max 7e-02 ] ;
+                        [ :name "band3" ;
+                            eo:center_wavelength 6.45e-01 ;
+                            eo:common_name "red" ;
+                            eo:full_width_half_max 9e-02 ] ;
                     stac:roles "visual" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json" ;
     stac:version "1.1.0" ;
@@ -890,17 +890,7 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "dct:format",
     "id": "@id",
-    "extent": {
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      },
-      "@id": "dct:extent"
-    },
+    "extent": "dct:extent",
     "item_assets": {
       "@context": {
         "type": "@type"
@@ -915,22 +905,12 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
-    },
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
     },
     "title": {
       "@id": "dct:title",
@@ -948,44 +928,22 @@ Links to the schema:
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {
-      "@context": {
-        "name": {}
-      }
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
-    },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
     "license": "dcat:license",
-    "providers": {
-      "@context": {
-        "name": {},
-        "url": {}
-      }
-    },
+    "providers": "stac:hasProvider",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
       "@id": "stac:hasAsset",
@@ -1013,8 +971,7 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -1027,15 +984,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -1061,33 +1010,12 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "collection": {},
-    "language": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
-      "@id": "rec:language"
-    },
+    "language": "rec:language",
     "languages": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
-      "@context": {
-        "code": {},
-        "name": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -1125,10 +1053,6 @@ Links to the schema:
     },
     "contacts": {
       "@context": {
-        "identifier": {},
-        "name": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -1138,46 +1062,18 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "phones": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "emails": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
-          }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "eo:cloud_cover": {},
-    "eo:snow_cover": {},
-    "eo:common_name": {},
-    "eo:center_wavelength": {},
-    "eo:full_width_half_max": {},
-    "eo:solar_illumination": {},
     "eo:bands": {
       "@id": "eo:bands",
       "@context": {

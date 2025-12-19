@@ -21,8 +21,7 @@
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     :collection "ml-model-examples" ;
-    :end_datetime "9999-12-31T23:59:59Z" ;
-    :start_datetime "1900-01-01T00:00:00Z" ;
+    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
     stac:hasAsset [ :model [ dcterms:description "Example model." ;
                     dcterms:format "text/html" ;
                     dcterms:title "Pytorch weights checkpoint" ;
@@ -30,6 +29,7 @@
                     stac:roles "mlm:model" ;
                     ns1:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.0/schema.json" ;
+    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns1:architecture "ResNet" ;
     ns1:input [ :input [ :data_type "float32" ;

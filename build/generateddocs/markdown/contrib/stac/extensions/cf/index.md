@@ -206,6 +206,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -222,23 +223,23 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
             oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ] ;
     dcat:license "Apache-2.0" ;
     :item_assets [ :sea_ice_surface_temperature [ a <https://w3id.org/ogc/stac/assets/application/netcdf> ;
-                    cf:parameter [ :unit "K" ;
-                            cf:name "sea_ice_surface_temperature" ],
-                        [ :unit "m" ;
-                            cf:name "depth" ] ] ;
+                    cf:parameter [ qudt:hasUnit "m" ;
+                            cf:name "depth" ],
+                        [ qudt:hasUnit "K" ;
+                            cf:name "sea_ice_surface_temperature" ] ] ;
             :sea_surface_temperature [ a <https://w3id.org/ogc/stac/assets/application/netcdf> ;
-                    cf:parameter [ :unit "K" ;
-                            cf:name "sea_surface_temperature" ],
-                        [ :unit "m" ;
-                            cf:name "depth" ] ] ] ;
+                    cf:parameter [ qudt:hasUnit "m" ;
+                            cf:name "depth" ],
+                        [ qudt:hasUnit "K" ;
+                            cf:name "sea_surface_temperature" ] ] ] ;
     :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
                     :minimum "2015-06-23T00:00:00Z" ] ;
-            cf:parameter [ :unit "K" ;
+            cf:parameter [ qudt:hasUnit "K" ;
                     cf:name "sea_ice_surface_temperature" ],
-                [ :unit "K" ;
-                    cf:name "sea_surface_temperature" ],
-                [ :unit "m" ;
-                    cf:name "depth" ] ] ;
+                [ qudt:hasUnit "m" ;
+                    cf:name "depth" ],
+                [ qudt:hasUnit "K" ;
+                    cf:name "sea_surface_temperature" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
 
@@ -478,6 +479,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -485,35 +487,35 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 <https://example.com/stac/cf/example-2/item> dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
     dcterms:format "Feature" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
     :collection "collection" ;
-    cf:parameter [ :unit "K" ;
-            cf:name "sea_surface_temperature" ],
-        [ :unit "m" ;
+    cf:parameter [ qudt:hasUnit "m" ;
             cf:name "depth" ],
-        [ :unit "K" ;
-            cf:name "sea_ice_surface_temperature" ] ;
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_ice_surface_temperature" ],
+        [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ] ;
     stac:hasAsset [ :sea_ice_surface_temperature [ dcterms:format "application/netcdf" ;
                     oa:hasTarget <https://example.com/examples/sea_ice_surface_temperature.nc> ;
-                    cf:parameter [ :unit "K" ;
+                    cf:parameter [ qudt:hasUnit "K" ;
                             cf:name "sea_ice_surface_temperature" ],
-                        [ :unit "m" ;
+                        [ qudt:hasUnit "m" ;
                             cf:name "depth" ] ] ;
             :sea_surface_temperature [ dcterms:format "application/netcdf" ;
                     oa:hasTarget <https://example.com/examples/sea_surface_temperature.nc> ;
-                    cf:parameter [ :unit "K" ;
+                    cf:parameter [ qudt:hasUnit "K" ;
                             cf:name "sea_surface_temperature" ],
-                        [ :unit "m" ;
+                        [ qudt:hasUnit "m" ;
                             cf:name "depth" ] ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
@@ -557,17 +559,7 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "type": "dct:format",
     "id": "@id",
-    "extent": {
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      },
-      "@id": "dct:extent"
-    },
+    "extent": "dct:extent",
     "item_assets": {
       "@context": {
         "type": "@type"
@@ -582,22 +574,12 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
-    },
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
     },
     "title": {
       "@id": "dct:title",
@@ -615,39 +597,28 @@ Links to the schema:
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
+    "unit": {
+      "@id": "qudt:hasUnit",
       "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
+        "@base": "http://qudt.org/vocab/unit/"
       }
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
     "license": "dcat:license",
-    "providers": {
-      "@context": {
-        "url": {}
-      }
-    },
+    "providers": "stac:hasProvider",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
       "@id": "stac:hasAsset",
@@ -675,8 +646,7 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -689,15 +659,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -723,30 +685,12 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "collection": {},
-    "language": {
-      "@context": {
-        "code": {},
-        "alternate": {},
-        "dir": {}
-      },
-      "@id": "rec:language"
-    },
+    "language": "rec:language",
     "languages": {
-      "@context": {
-        "code": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
-      "@context": {
-        "code": {},
-        "alternate": {},
-        "dir": {}
-      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -784,9 +728,6 @@ Links to the schema:
     },
     "contacts": {
       "@context": {
-        "identifier": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -796,41 +737,18 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "phones": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "emails": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
-          }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "cf:parameter": {},
     "name": "cf:name",
     "href": {
       "@type": "@id",

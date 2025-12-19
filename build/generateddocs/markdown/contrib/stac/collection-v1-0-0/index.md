@@ -213,19 +213,14 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
                         7.574197e-04,
                         1.347253e-03 ] ;
             :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
+    dcterms:license "various" ;
     dcterms:type "Collection" ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -237,9 +232,14 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ] ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ] ;
     :created "2025-10-13T16:54:34Z" ;
-    :license "various" ;
     :themes [ :concepts <https://example.com/stac/example1/cryosphere> ;
             :scheme "https://github.com/stac-extensions/osc#theme" ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
@@ -286,29 +286,10 @@ Links to the schema:
     "id": "@id",
     "title": "rdfs:label",
     "description": "dct:description",
-    "keywords": {},
-    "license": {},
-    "providers": {
-      "@context": {
-        "name": {},
-        "url": {}
-      }
-    },
-    "extent": {
-      "@context": {
-        "spatial": {
-          "@context": {
-            "bbox": {}
-          }
-        },
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      },
-      "@id": "dct:extent"
-    },
+    "keywords": "dct:subject",
+    "license": "dct:license",
+    "providers": "stac:hasProvider",
+    "extent": "dct:extent",
     "assets": {
       "@context": {
         "title": "dct:title",
@@ -318,12 +299,6 @@ Links to the schema:
       "@container": "@set"
     },
     "links": "rdfs:seeAlso",
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
-    },
     "item_assets": {
       "@context": {
         "title": "dct:title",
@@ -334,34 +309,18 @@ Links to the schema:
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {
-      "@context": {
-        "name": {}
-      }
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
     },
-    "datetime": {},
-    "start_datetime": {},
-    "end_datetime": {},
-    "created": {},
-    "updated": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
     "href": {
@@ -375,7 +334,6 @@ Links to the schema:
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
-    "anchor": {},
     "hreflang": "dct:language",
     "length": "dct:extent",
     "stac": "https://w3id.org/ogc/stac/core/",

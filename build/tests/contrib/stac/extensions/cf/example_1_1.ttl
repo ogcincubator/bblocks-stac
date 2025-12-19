@@ -5,6 +5,7 @@
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -21,23 +22,23 @@
             oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ] ;
     dcat:license "Apache-2.0" ;
     :item_assets [ :sea_ice_surface_temperature [ a <https://w3id.org/ogc/stac/assets/application/netcdf> ;
-                    cf:parameter [ :unit "K" ;
-                            cf:name "sea_ice_surface_temperature" ],
-                        [ :unit "m" ;
-                            cf:name "depth" ] ] ;
+                    cf:parameter [ qudt:hasUnit "m" ;
+                            cf:name "depth" ],
+                        [ qudt:hasUnit "K" ;
+                            cf:name "sea_ice_surface_temperature" ] ] ;
             :sea_surface_temperature [ a <https://w3id.org/ogc/stac/assets/application/netcdf> ;
-                    cf:parameter [ :unit "K" ;
-                            cf:name "sea_surface_temperature" ],
-                        [ :unit "m" ;
-                            cf:name "depth" ] ] ] ;
+                    cf:parameter [ qudt:hasUnit "m" ;
+                            cf:name "depth" ],
+                        [ qudt:hasUnit "K" ;
+                            cf:name "sea_surface_temperature" ] ] ] ;
     :summaries [ dcterms:date [ :maximum "2019-07-10T13:44:56Z" ;
                     :minimum "2015-06-23T00:00:00Z" ] ;
-            cf:parameter [ :unit "K" ;
+            cf:parameter [ qudt:hasUnit "K" ;
                     cf:name "sea_ice_surface_temperature" ],
-                [ :unit "K" ;
-                    cf:name "sea_surface_temperature" ],
-                [ :unit "m" ;
-                    cf:name "depth" ] ] ;
+                [ qudt:hasUnit "m" ;
+                    cf:name "depth" ],
+                [ qudt:hasUnit "K" ;
+                    cf:name "sea_surface_temperature" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
 

@@ -4,31 +4,13 @@
     "stac_extensions": "stac:hasExtension",
     "type": "dct:format",
     "id": "@id",
-    "extent": {
-      "@context": {
-        "spatial": {
-          "@context": {
-            "bbox": {}
-          }
-        },
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      },
-      "@id": "dct:extent"
-    },
+    "extent": "dct:extent",
     "assets": {
-      "@context": {
-        "href": {}
-      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
     "item_assets": {
       "@context": {
-        "href": {},
         "type": "@type"
       }
     },
@@ -47,66 +29,34 @@
         },
         "type": "dct:type",
         "title": "rdfs:label",
-        "method": {},
-        "headers": {},
-        "body": {},
-        "anchor": {},
         "hreflang": "dct:language",
         "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
-    },
     "title": "dct:title",
     "description": "dct:description",
-    "keywords": {},
+    "keywords": "dct:subject",
     "roles": {
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {
-      "@context": {
-        "name": {}
-      }
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
     },
-    "datetime": {},
-    "start_datetime": {},
-    "end_datetime": {},
-    "created": {},
-    "updated": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "license": {},
-    "providers": {
-      "@context": {
-        "name": {},
-        "url": {}
-      }
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
     },
+    "license": "dct:license",
+    "providers": "stac:hasProvider",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "media_type": "dct:format",
-    "stac-version": {},
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
