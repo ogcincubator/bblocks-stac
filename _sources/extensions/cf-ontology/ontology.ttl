@@ -10,7 +10,7 @@
 # Ontology Metadata
 #################################################################
 
-stac: a owl:Ontology ;
+cf: a owl:Ontology ;
     dct:title "STAC CF Extensions Ontology" ;
     dct:description "Ontology for the SpatioTemporal Asset Catalog (STAC) CF Extension specification" ;
     dct:creator "Rob Atkinson, OGC" ;
@@ -29,20 +29,14 @@ The cf:parameter list in Item Properties or Collections should be considered mer
 
 cf:Object a owl:Class; 
       rdfs:label "CF Object" ;
-      dct:description "This object should contain a variable name from the CF list and where applicable a unit from the UDUNITS-2 database"
+      dct:description "This object should contain a variable name from the CF list and where applicable a unit using qudt:unit, with a value from the UDUNITS-2 database"
 .
 
-cf:name a  a  owl:DatatypeProperty; 
+cf:name a  owl:DatatypeProperty;
       rdfs:label "Parameter name" ;
       dct:description "REQUIRED. Should be a non-empty value from the CF standard names list" ;
       rdfs:seeAlso <https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html> ;
       rdfs:range xsd:string
 .
 
-cf:unit a  a  owl:DatatypeProperty; 
-      rdfs:label "Parameter unit" ;
-      dct:description "Indicates the unit, preferably available in the database from the UDUNITS-2 package (unidata)" ;
-      rdfs:seeAlso <https://docs.unidata.ucar.edu/udunits/current/> ;
-      rdfs:range xsd:string
-.
 
