@@ -3,6 +3,7 @@
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
@@ -15,22 +16,9 @@
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/collection.json> ] ;
     dcat:license "Apache-2.0" ;
-    dcat:theme <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_microtops>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_pion>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
-        <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-        <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    thns:schemes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+    rec:themes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
                 <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
                 <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
                 <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;

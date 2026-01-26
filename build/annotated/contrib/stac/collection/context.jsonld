@@ -4,12 +4,6 @@
     "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
-    "item_assets": {
-      "@context": {
-        "title": "dct:title",
-        "description": "dct:description"
-      }
-    },
     "links": {
       "@context": {
         "href": {
@@ -30,7 +24,22 @@
       },
       "@id": "rdfs:seeAlso"
     },
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "title": "dct:title",
+        "description": "dct:description",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "keywords": "dct:subject",
+    "license": "dct:license",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -43,22 +52,7 @@
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "license": "dct:license",
     "providers": "stac:hasProvider",
-    "assets": {
-      "@context": {
-        "title": "dct:title",
-        "description": "dct:description",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
-    },
-    "stac_version": "stac:version",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

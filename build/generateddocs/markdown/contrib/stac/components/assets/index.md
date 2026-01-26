@@ -223,9 +223,9 @@ Links to the schema:
   "@context": {
     "assets": {
       "@context": {
+        "type": "dct:format",
         "title": "dct:title",
         "description": "dct:description",
-        "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"

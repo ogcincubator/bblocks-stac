@@ -495,7 +495,6 @@ Links to the schema:
   "@context": {
     "wasInfluencedBy": {
       "@context": {
-        "type": "dct:type",
         "rel": {
           "@context": {
             "@base": "http://www.iana.org/assignments/relation/"
@@ -503,6 +502,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -514,7 +514,6 @@ Links to the schema:
       "@context": {
         "influencer": {
           "@context": {
-            "type": "dct:type",
             "rel": {
               "@context": {
                 "@base": "http://www.iana.org/assignments/relation/"
@@ -522,6 +521,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -531,7 +531,6 @@ Links to the schema:
         },
         "activity": {
           "@context": {
-            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
                 "rel": {
@@ -541,6 +540,7 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
+                "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -573,18 +573,16 @@ Links to the schema:
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
-    "provType": "@type",
-    "type": "@type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
     },
     "id": "@id",
+    "provType": "@type",
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
       "@context": {
-        "type": "dct:type",
         "wasAssociatedWith": {
           "@id": "prov:wasAssociatedWith",
           "@type": "@id",
@@ -596,6 +594,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -607,7 +606,6 @@ Links to the schema:
     },
     "wasGeneratedBy": {
       "@context": {
-        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
             "rel": {
@@ -617,6 +615,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -663,7 +662,6 @@ Links to the schema:
     },
     "wasInvalidatedBy": {
       "@context": {
-        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
             "rel": {
@@ -673,6 +671,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -724,7 +723,6 @@ Links to the schema:
       "@context": {
         "hadActivity": {
           "@context": {
-            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
                 "rel": {
@@ -734,6 +732,7 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
+                "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -750,15 +749,6 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedAttribution": {
-      "@context": {
-        "agent": {
-          "@context": {
-            "type": "dct:type"
-          },
-          "@id": "prov:agent",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
@@ -1022,6 +1012,7 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
+    "type": "@type",
     "properties": "@nest",
     "geometry": {
       "@context": {
@@ -1069,6 +1060,18 @@ Links to the schema:
       "@id": "rec:hasLinkTemplate"
     },
     "stac_extensions": "stac:hasExtension",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "title": {
       "@id": "dct:title",
       "@container": "@set"
@@ -1081,10 +1084,7 @@ Links to the schema:
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
+    "license": "dcat:license",
     "start_datetime": {
       "@id": "stac:start_datetime",
       "@type": "xsd:dateTime"
@@ -1093,10 +1093,31 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "w3ctime": "http://www.w3.org/2006/time#",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "created": "dct:created",
     "updated": "dct:modified",
-    "license": "dcat:license",
-    "providers": "stac:hasProvider",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -1139,62 +1160,15 @@ Links to the schema:
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "logo": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "assets": {
-      "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
     },
-    "stac_version": "stac:version",
-    "media_type": "dct:format",
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "dct": "http://purl.org/dc/terms/",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "oa": "http://www.w3.org/ns/oa#",
-    "geojson": "https://purl.org/geojson/vocab#",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "rec": "https://www.opengis.net/def/ogc-api/records/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "w3ctime": "http://www.w3.org/2006/time#",
-    "dctype": "http://purl.org/dc/dcmitype/",
-    "vcard": "http://www.w3.org/2006/vcard/ns#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "thns": "https://w3id.org/ogc/stac/themes/",
-    "stac": "https://w3id.org/ogc/stac/core/",
     "@version": 1.1
   }
 }

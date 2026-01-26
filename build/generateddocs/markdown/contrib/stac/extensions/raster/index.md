@@ -893,11 +893,11 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sentinel:> .
-@prefix ns2: <proj:> .
-@prefix ns3: <view:> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <eo:> .
+@prefix ns1: <proj:> .
+@prefix ns2: <sentinel:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <eo:> .
+@prefix ns5: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -905,10 +905,10 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns5:cloud_cover 2.122e+01 ;
+    ns4:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -919,14 +919,14 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:version "1.1.0" ;
-    ns2:code "EPSG:32633" ;
-    ns1:data_coverage 100 ;
-    ns1:grid_square "VB" ;
-    ns1:latitude_band "S" ;
-    ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns1:sequence "0" ;
-    ns1:utm_zone 33 ;
-    ns3:off_nadir 0 .
+    ns1:code "EPSG:32633" ;
+    ns2:data_coverage 100 ;
+    ns2:grid_square "VB" ;
+    ns2:latitude_band "S" ;
+    ns2:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns2:sequence "0" ;
+    ns2:utm_zone 33 ;
+    ns5:off_nadir 0 .
 
 
 ```
@@ -986,34 +986,6 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
-    "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "license": "dcat:license",
-    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "type": "dct:format",
@@ -1026,6 +998,24 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -1086,6 +1076,48 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "concepts": {
+      "@id": "raster:bands",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/raster/"
+      }
+    },
+    "raster:range": {
+      "@id": "raster:range",
+      "@container": "@list"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "raster": "https://w3id.org/ogc/stac/raster/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "w3ctime": "http://www.w3.org/2006/time#",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
+    "created": "dct:created",
+    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -1128,60 +1160,11 @@ Links to the schema:
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "logo": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "concepts": {
-      "@id": "raster:bands",
-      "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
-      }
-    },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
-    },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "stac": "https://w3id.org/ogc/stac/core/",
-    "dct": "http://purl.org/dc/terms/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "oa": "http://www.w3.org/ns/oa#",
-    "raster": "https://w3id.org/ogc/stac/raster/",
-    "geojson": "https://purl.org/geojson/vocab#",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "rec": "https://www.opengis.net/def/ogc-api/records/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "w3ctime": "http://www.w3.org/2006/time#",
-    "dctype": "http://purl.org/dc/dcmitype/",
-    "vcard": "http://www.w3.org/2006/vcard/ns#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }

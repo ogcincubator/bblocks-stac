@@ -251,22 +251,22 @@ STAC Processing Extension for STAC Items and STAC Collections.
     rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ] ;
     dcat:license "proprietary" ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
     stac:hasProvider [ processing:level "L2A"^^xsd:string ;
             processing:lineage "Generation of Level-2A User Product"^^xsd:string ;
             processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
+        [ ],
         [ processing:facility "Copernicus S2 Processing and Archiving Facility"^^xsd:string ;
             processing:level "L1"^^xsd:string ;
             processing:lineage "Generation of Level-1C User Product"^^xsd:string ;
-            processing:version "02.06"^^xsd:string ],
-        [ ] ;
+            processing:version "02.06"^^xsd:string ] ;
     stac:version "1.0.0" .
 
 
@@ -618,8 +618,8 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sar:> .
-@prefix ns2: <sat:> .
+@prefix ns1: <sat:> .
+@prefix ns2: <sar:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
@@ -650,15 +650,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
     processing:level "L1"^^xsd:string ;
     processing:lineage "GRD Post Processing"^^xsd:string ;
     processing:software "{\"Sentinel-1 IPF\":\"002.71\"}"^^rdf:JSON ;
-    ns1:frequency_band "C" ;
-    ns1:instrument_mode "IW" ;
-    ns1:polarizations "VH",
+    ns2:frequency_band "C" ;
+    ns2:instrument_mode "IW" ;
+    ns2:polarizations "VH",
         "VV" ;
-    ns1:product_type "GRD" ;
-    ns2:absolute_orbit 12717 ;
-    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns2:orbit_state "ascending" ;
-    ns2:relative_orbit 45 .
+    ns2:product_type "GRD" ;
+    ns1:absolute_orbit 12717 ;
+    ns1:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns1:orbit_state "ascending" ;
+    ns1:relative_orbit 45 .
 
 
 ```
@@ -735,34 +735,6 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
-    "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "license": "dcat:license",
-    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "type": "dct:format",
@@ -775,6 +747,24 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -835,6 +825,66 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "processing:software": {
+      "@id": "processing:software",
+      "@type": "@json"
+    },
+    "processing:expression": {
+      "@id": "processing:expression",
+      "@type": "@json"
+    },
+    "processing:lineage": {
+      "@id": "processing:lineage",
+      "@type": "xsd:string"
+    },
+    "processing:level": {
+      "@id": "processing:level",
+      "@type": "xsd:string"
+    },
+    "processing:facility": {
+      "@id": "processing:facility",
+      "@type": "xsd:string"
+    },
+    "processing:version": {
+      "@id": "processing:version",
+      "@type": "xsd:string"
+    },
+    "processing:datetime": {
+      "@id": "processing:datetime",
+      "@type": "xsd:dateTime"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "processing": "https://w3id.org/ogc/stac/processing/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "w3ctime": "http://www.w3.org/2006/time#",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
+    "created": "dct:created",
+    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -877,78 +927,11 @@ Links to the schema:
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "logo": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "processing:expression": {
-      "@id": "processing:expression",
-      "@type": "@json"
-    },
-    "processing:lineage": {
-      "@id": "processing:lineage",
-      "@type": "xsd:string"
-    },
-    "processing:level": {
-      "@id": "processing:level",
-      "@type": "xsd:string"
-    },
-    "processing:facility": {
-      "@id": "processing:facility",
-      "@type": "xsd:string"
-    },
-    "processing:version": {
-      "@id": "processing:version",
-      "@type": "xsd:string"
-    },
-    "processing:datetime": {
-      "@id": "processing:datetime",
-      "@type": "xsd:dateTime"
-    },
-    "processing:software": {
-      "@id": "processing:software",
-      "@type": "@json"
-    },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "stac": "https://w3id.org/ogc/stac/core/",
-    "dct": "http://purl.org/dc/terms/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "oa": "http://www.w3.org/ns/oa#",
-    "processing": "https://w3id.org/ogc/stac/processing/",
-    "geojson": "https://purl.org/geojson/vocab#",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "rec": "https://www.opengis.net/def/ogc-api/records/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "w3ctime": "http://www.w3.org/2006/time#",
-    "dctype": "http://purl.org/dc/dcmitype/",
-    "vcard": "http://www.w3.org/2006/vcard/ns#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }

@@ -463,21 +463,21 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
     dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    cf:parameter [ qudt:hasUnit "m" ;
+    cf:parameter [ qudt:hasUnit "K" ;
+            cf:name "sea_surface_temperature" ],
+        [ qudt:hasUnit "m" ;
             cf:name "depth" ],
         [ qudt:hasUnit "K" ;
-            cf:name "sea_ice_surface_temperature" ],
-        [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ] ;
+            cf:name "sea_ice_surface_temperature" ] ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
     stac:version "1.0.0" .
@@ -538,40 +538,6 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
-    "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "unit": {
-      "@id": "qudt:hasUnit",
-      "@context": {
-        "@base": "http://qudt.org/vocab/unit/"
-      }
-    },
-    "license": "dcat:license",
-    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "type": "dct:format",
@@ -584,6 +550,24 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -644,6 +628,46 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      }
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "w3ctime": "http://www.w3.org/2006/time#",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
+    "created": "dct:created",
+    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -686,52 +710,11 @@ Links to the schema:
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "logo": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "name": "cf:name",
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "stac": "https://w3id.org/ogc/stac/core/",
-    "dct": "http://purl.org/dc/terms/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "oa": "http://www.w3.org/ns/oa#",
-    "cf": "https://w3id.org/ogc/stac/cf/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "geojson": "https://purl.org/geojson/vocab#",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "rec": "https://www.opengis.net/def/ogc-api/records/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "w3ctime": "http://www.w3.org/2006/time#",
-    "dctype": "http://purl.org/dc/dcmitype/",
-    "vcard": "http://www.w3.org/2006/vcard/ns#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }

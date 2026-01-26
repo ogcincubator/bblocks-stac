@@ -1,14 +1,23 @@
 Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model
-Generated 2025-12-22T03:41:42.837806+00:00
+Generated 2026-01-26T11:02:51.924485+00:00
 === Files ===
-Using example_1_1.json from examples
+Using https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json from examples
 JSON-LD context is present - uplifting
 Output JSON-LD example_1_1.jsonld created
 Output Turtle example_1_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json'] are valid under the given schema
+
+Failed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:
+    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.0/schema.json'},
+     'type': 'array'}
+
+On instance['stac_extensions']:
+    ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json']
 === End JSON Schema ===
 
 === SHACL ===
