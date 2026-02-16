@@ -4,6 +4,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -18,11 +19,11 @@
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    thns:schemes [ thns:concepts [ thns:id "wiki::Summer" ],
-                [ thns:id "wiki::Syncline" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::3017382" ],
+    rec:themes [ thns:concepts [ thns:id "geonames::2976077" ],
                 [ thns:id "geonames::11071625" ],
-                [ thns:id "geonames::2976077" ] ;
-            thns:scheme "https://www.geonames.org" ] .
+                [ thns:id "geonames::3017382" ] ;
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Summer" ],
+                [ thns:id "wiki::Syncline" ] ;
+            thns:scheme "https://en.wikipedia.org" ] .
 

@@ -21,24 +21,29 @@ stac: a owl:Ontology ;
 #################################################################
 
 stac:Catalog a owl:Class ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "STAC Catalog" ;
     rdfs:comment "A STAC Catalog is a JSON object that provides links to other STAC entities." .
 
 stac:Collection a owl:Class ;
+    rdfs:isDefinedBy stac: ;
     rdfs:subClassOf stac:Catalog ;
     rdfs:label "STAC Collection" ;
     rdfs:comment "A Collection extends Catalog with additional metadata and describes a group of related STAC Items." .
 
 stac:Item a owl:Class ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "STAC Item" ;
     rdfs:comment "A STAC Item is a GeoJSON Feature augmented with STAC metadata fields and links." ;
     rdfs:subClassOf geo:Feature .
 
 stac:Asset a owl:Class ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "STAC Asset" ;
     rdfs:comment "An Asset represents a file associated with a STAC Item, such as an image, data file, or metadata file." .
 
 stac:Link a owl:Class ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "STAC Link" ;
     rdfs:comment "A Link describes a relationship between STAC entities using rel values and hrefs." .
 
@@ -47,68 +52,80 @@ stac:Link a owl:Class ;
 #################################################################
 
 stac:id a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "id" ;
     rdfs:comment "Unique identifier for a STAC entity." ;
     rdfs:domain [ owl:unionOf (stac:Catalog stac:Collection stac:Item) ] ;
     rdfs:range xsd:string .
 
 stac:description a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "description" ;
     rdfs:domain [ owl:unionOf (stac:Catalog stac:Collection) ] ;
     rdfs:range xsd:string .
 
 stac:license a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "license" ;
     rdfs:comment "Collection-wide license applying to Items unless overridden by an Item." ;
     rdfs:domain stac:Collection ;
     rdfs:range xsd:string .
 
 stac:extent a owl:ObjectProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "extent" ;
     rdfs:comment "The spatiotemporal extent of a Collection." ;
     rdfs:domain stac:Collection .
 
 stac:datetime a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "datetime" ;
     rdfs:comment "Datetime associated with the Item (typically acquisition time)." ;
     rdfs:domain stac:Item ;
     rdfs:range xsd:dateTime .
 
 stac:start_datetime a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "start datetime" ;
     rdfs:domain stac:Item ;
     rdfs:range xsd:dateTime .
 
 stac:end_datetime a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "end datetime" ;
     rdfs:domain stac:Item ;
     rdfs:range xsd:dateTime .
 
 stac:hasAsset a owl:ObjectProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "has asset" ;
     rdfs:comment "Links an Item to one of its Assets." ;
     rdfs:domain stac:Item ;
     rdfs:range stac:Asset .
 
 stac:mediaType a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "media type" ;
     rdfs:comment "The media type of an Asset." ;
     rdfs:domain stac:Asset ;
     rdfs:range xsd:string .
 
 stac:href a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "href" ;
     rdfs:comment "The link reference (URL)." ;
     rdfs:domain stac:Link ;
     rdfs:range xsd:anyURI .
 
 stac:rel a owl:DatatypeProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "rel" ;
     rdfs:comment "The relationship type of the link." ;
     rdfs:domain stac:Link ;
     rdfs:range xsd:string .
 
 stac:links a owl:ObjectProperty ;
+    rdfs:isDefinedBy stac: ;
     rdfs:label "links" ;
     rdfs:comment "Associates a STAC entity with its links." ;
     rdfs:domain [ owl:unionOf (stac:Catalog stac:Collection stac:Item) ] ;

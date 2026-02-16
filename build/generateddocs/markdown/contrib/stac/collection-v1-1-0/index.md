@@ -504,15 +504,15 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
         "sentinel" ;
     rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ rdfs:label "Example Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
@@ -553,35 +553,15 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
-    "assets": {
-      "@context": {
-        "title": "dct:title",
-        "description": "dct:description",
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
-    },
-    "item_assets": {
-      "@context": {
-        "title": "dct:title",
-        "description": "dct:description"
-      }
-    },
     "links": {
       "@context": {
         "href": {
-          "@id": "oa:hasTarget",
-          "@type": "@id"
+          "@type": "@id",
+          "@id": "oa:hasTarget"
         },
         "rel": {
           "@context": {
@@ -591,13 +571,28 @@ Links to the schema:
           "@type": "@id"
         },
         "type": "dct:type",
-        "title": "rdfs:label",
         "hreflang": "dct:language",
+        "title": "rdfs:label",
         "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "title": "dct:title",
+        "description": "dct:description",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "keywords": "dct:subject",
+    "license": "dct:license",
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -610,7 +605,6 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "license": "dct:license",
     "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
