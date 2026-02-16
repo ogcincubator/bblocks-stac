@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-incubator-building-block-register",
   "version": "1.0.0",
-  "dateOfLastChange": "2026-01-26",
+  "dateOfLastChange": "2026-02-16",
   "sources": [
     {
       "title": "STAC Specification",
@@ -25,8 +25,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.ogc-utils.json-link",
-    "ogc.contrib.stac.collection"
+    "ogc.contrib.stac.collection",
+    "ogc.ogc-utils.json-link"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml",
@@ -57,7 +57,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix ns2: <osc:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://example.com/stac/example1/polarwarp> rdfs:label \"Polarwarp\" ;\n    dcterms:extent [ ] ;\n    dcterms:license \"various\" ;\n    dcterms:type \"Collection\" ;\n    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/stac/example1/item.json> ],\n        [ rdfs:label \"Products\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"Project: Cerulean Information Factory\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],\n        [ rdfs:label \"Experiment: Polarwarp\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],\n        [ rdfs:label \"Theme: Cryosphere\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],\n        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;\n            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],\n        [ rdfs:label \"Open Science Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/catalog.json> ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/osc/v1.0.0/schema.json\",\n        \"https://stac-extensions.github.io/themes/v1.0.0/schema.json\" ;\n    stac:version \"1.0.0\" ;\n    ns2:project \"cerulean-information-factory\" ;\n    ns2:status \"completed\" ;\n    ns2:type \"product\" .\n\n",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <osc:> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://example.com/stac/example1/polarwarp> rdfs:label \"Polarwarp\" ;\n    dcterms:extent [ ] ;\n    dcterms:license \"various\" ;\n    dcterms:type \"Collection\" ;\n    rdfs:seeAlso [ rdfs:label \"Open Science Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/catalog.json> ],\n        [ rdfs:label \"Theme: Cryosphere\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/stac/example1/item.json> ],\n        [ rdfs:label \"Experiment: Polarwarp\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],\n        [ rdfs:label \"Products\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;\n            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],\n        [ rdfs:label \"Project: Cerulean Information Factory\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/osc/v1.0.0/schema.json\",\n        \"https://stac-extensions.github.io/themes/v1.0.0/schema.json\" ;\n    stac:version \"1.0.0\" ;\n    ns1:project \"cerulean-information-factory\" ;\n    ns1:status \"completed\" ;\n    ns1:type \"product\" .\n\n",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/collection-v1-0-0/example_1_1.ttl"
         }
       ]
