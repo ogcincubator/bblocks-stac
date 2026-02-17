@@ -312,12 +312,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
     dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
-        [ dcterms:type "application/json" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -639,12 +639,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
     dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
             ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -666,13 +666,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: MLM extension
+title: MLM extension 1.5.1
 description: STAC MLM for STAC Items and STAC Collections.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-- $ref: https://stac-extensions.github.io/mlm/v1.5.0/schema.json
+- $ref: https://stac-extensions.github.io/mlm/v1.5.1/schema.json
 x-jsonld-extra-terms:
   raster:bands:
     x-jsonld-id: https://w3id.org/ogc/stac/raster/bands

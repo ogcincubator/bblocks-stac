@@ -206,30 +206,30 @@ Ref to STAC example using version (1.0.0)
     dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:type "Collection" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/catalog.json> ],
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
+        [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+        [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ] ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;

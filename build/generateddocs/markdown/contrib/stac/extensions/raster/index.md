@@ -894,10 +894,10 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <sentinel:> .
-@prefix ns2: <view:> .
+@prefix ns2: <eo:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
 @prefix ns4: <proj:> .
-@prefix ns5: <eo:> .
+@prefix ns5: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -905,7 +905,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns5:cloud_cover 2.122e+01 ;
+    ns2:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/collection> ;
@@ -926,7 +926,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
     ns1:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
     ns1:sequence "0" ;
     ns1:utm_zone 33 ;
-    ns2:off_nadir 0 .
+    ns5:off_nadir 0 .
 
 
 ```

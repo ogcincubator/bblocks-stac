@@ -2,8 +2,8 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model",
   "bblockName": "STAC Machine Learning Model",
   "bblockId": "ogc.contrib.stac.extensions.mlm",
-  "generated": "2026-02-16T10:46:55.718540+00:00",
-  "result": false,
+  "generated": "2026-02-17T07:18:57.845157+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -16,7 +16,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -53,11 +53,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.0/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -97,7 +95,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -134,11 +132,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.0/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.1/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -171,7 +167,7 @@
   "globalErrors": {},
   "counts": {
     "total": 2,
-    "passed": 0,
-    "failed": 2
+    "passed": 2,
+    "failed": 0
   }
 }

@@ -13,18 +13,13 @@
     dcterms:extent [ ] ;
     dcterms:modified "2024-09-12T20:32:23.030110Z" ;
     dcterms:title "3D-EARTH" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Website" ;
+            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <http://www.3dearth.uni-kiel.de/en> ],
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Global Model of Crust and Upper Mantle_WINTERC-G_GOCE" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/stac/products/crust-and-upper-mantle-model-3d-earth/collection.json> ],
-        [ rdfs:label "Theme: Solid Earth" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/themes/solid-earth/catalog.json> ],
         [ rdfs:label "Projects" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -32,16 +27,21 @@
         [ rdfs:label "EO4Society Link" ;
             ns1:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://eo4society.esa.int/projects/stse-3d-earth/> ],
-        [ rdfs:label "Website" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <http://www.3dearth.uni-kiel.de/en> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/projects/3d-earth/collection.json> ],
         [ rdfs:label "Geothermal Heat Flow Database and Map_Greenland_GOCE_SWARM" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://example.com/stac/products/geothermal-heat-flow-greenland-3d-earth/collection.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/projects/3d-earth/collection.json> ] ;
+        [ rdfs:label "Theme: Solid Earth" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/themes/solid-earth/catalog.json> ],
+        [ rdfs:label "Global Model of Crust and Upper Mantle_WINTERC-G_GOCE" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/products/crust-and-upper-mantle-model-3d-earth/collection.json> ] ;
     dcat:contactPoint [ ],
         [ ],
         [ ],
