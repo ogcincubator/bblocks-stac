@@ -894,9 +894,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <sentinel:> .
-@prefix ns2: <eo:> .
+@prefix ns2: <proj:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <proj:> .
+@prefix ns4: <eo:> .
 @prefix ns5: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -905,7 +905,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns2:cloud_cover 2.122e+01 ;
+    ns4:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/collection> ;
@@ -919,7 +919,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:version "1.1.0" ;
-    ns4:code "EPSG:32633" ;
+    ns2:code "EPSG:32633" ;
     ns1:data_coverage 100 ;
     ns1:grid_square "VB" ;
     ns1:latitude_band "S" ;

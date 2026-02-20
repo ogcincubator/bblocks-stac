@@ -524,8 +524,8 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "geonames::11071625" ],
-                [ thns:id "geonames::3017382" ],
+    rec:themes [ thns:concepts [ thns:id "geonames::3017382" ],
+                [ thns:id "geonames::11071625" ],
                 [ thns:id "geonames::2976077" ] ;
             thns:scheme "https://www.geonames.org" ],
         [ thns:concepts [ thns:id "wiki::Syncline" ],

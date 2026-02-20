@@ -1,0 +1,56 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <mlm:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <cube:> .
+@prefix ns4: <sci:> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
+    ns3:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
+                    dcterms:extent "1940-01-01T00:00:00Z",
+                        "2100-12-31T23:59:59Z" ] ] ;
+    ns3:variables [ ] ;
+    dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
+    rdfs:seeAlso [ dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
+        [ dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/code> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
+        [ dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ] ;
+    geojson:bbox ( 2.336e+02 5.42e+01 2.975e+02 2.26e+01 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 2.336e+02 5.42e+01 ) ( 2.975e+02 5.42e+01 ) ( 2.975e+02 2.26e+01 ) ( 2.336e+02 2.26e+01 ) ( 2.336e+02 5.42e+01 ) ) ) ] ;
+    stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ] ;
+    stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
+    stac:start_datetime "1940-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    stac:version "1.0.0" ;
+    ns1:accelerator "cuda" ;
+    ns1:accelerator_constrained false ;
+    ns1:architecture "U-Net" ;
+    ns1:framework "pytorch" ;
+    ns1:framework_version "2.1.2+cu118" ;
+    ns1:input [ ] ;
+    ns1:name "UNet ClimateDiffuse ERA5 Downscaling" ;
+    ns1:output [ ] ;
+    ns1:tasks "downscaling",
+        "regression" ;
+    ns4:publications [ ] .
+

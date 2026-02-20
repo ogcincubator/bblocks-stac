@@ -1,32 +1,35 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <mlm:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.com/stac/mlm/example-1/example-model> a geojson:Feature ;
-    dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+<https://example.com/stac/mlm/example-1/ml-model-examples> a <https://example.com/stac/mlm/example-1/Collection> ;
+    dcterms:description "Collection of items contained in the Machine Learning Model examples." ;
+    dcterms:extent [ ] ;
+    dcterms:title "Machine Learning Model examples" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_multi_io.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
-    geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
-    geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
-    stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    stac:version "1.0.0" ;
-    ns2:architecture "ResNet" ;
-    ns2:input [ ] ;
-    ns2:name "example-model" ;
-    ns2:output [ ] ;
-    ns2:tasks "classification" .
+    dcat:license "Apache-2.0" ;
+    stac:hasExtension "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json" ;
+    stac:version "1.0.0" .
 
