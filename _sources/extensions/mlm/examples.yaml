@@ -1,17 +1,81 @@
 
 
-- title: Item Basic
+- title: Collection of items contained in the Machine Learning Model examples.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/collection.json
+      base-uri: https://example.com/stac/mlm/example-1/
+
+- title: Demonstrate the basic use of MLM with no other extension cross-references.
 
   snippets:
     - language: json
       # if a local copy made preserve the source in this comment..
       ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json
-      base-uri: https://example.com/stac/mlm/example-1/
+      base-uri: https://example.com/stac/mlm/example-2/
 
-- title: Item Raster Bands
+- title: Demonstrate the use of MLM and EO for bands description, with EO bands directly in the Model Asset.
 
   snippets:
     - language: json
       # if a local copy made preserve the source in this comment..
-      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json
-      base-uri: https://example.com/stac/mlm/example-1/
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_bands_expression.json
+      base-uri: https://example.com/stac/mlm/example-3/
+
+- title: Demonstrate the use of MLM and DataCube variables description to characterize its inputs and outputs.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_datacube_variables.json
+      base-uri: https://example.com/stac/mlm/example-4/
+
+- title: Demonstrate the use of MLM with both EO and Raster extensions using complementary bands details to describe the Model Asset by band name reference.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_and_raster_bands.json
+      base-uri: https://example.com/stac/mlm/example-5/
+
+- title: Demonstrate the use of MLM and EO for bands description, with EO bands directly in the Model Asset.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_bands.json
+      base-uri: https://example.com/stac/mlm/example-6/
+
+- title: Demonstrate the use of MLM and EO for bands description, with EO bands summarized in the Item properties and referenced by name in the Model Asset.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_bands_summarized.json
+      base-uri: https://example.com/stac/mlm/example-7/
+
+- title: Demonstrate the use of MLM with a mixture of inputs, some using EO bands, others without, and some with derived properties.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_multi_io.json
+      base-uri: https://example.com/stac/mlm/example-8/
+
+- title: STAC item auto-generated using unet_mlm() in https://raw.githubusercontent.com/stac-extensions/mlm/refs/heads/main/stac_model/examples.py
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_pytorch_geo_unet.json
+      base-uri: https://example.com/stac/mlm/example-9/
+
+- title: Demonstrate the use of MLM and Raster for bands description, with Raster bands directly in the Model Asset.
+
+  snippets:
+    - language: json
+      # if a local copy made preserve the source in this comment..
+      ref: https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_raster_bands.json
+      base-uri: https://example.com/stac/mlm/example-10/
