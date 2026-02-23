@@ -58,57 +58,9 @@
     "metadata",
     "compliance"
   ],
-  "shaclShapes": {},
   "dependsOn": [
     "ogc.contrib.stac.item",
     "ogc.contrib.stac.collection",
     "ogc.ogc-utils.prov"
-  ],
-  "ldContext": "https://stac-extensions.github.io/liability-claims/v1.1.0/context.jsonld",
-  "schema": {
-    "application/yaml": "https://stac-extensions.github.io/liability-claims/v1.1.0/schema.yaml",
-    "application/json": "https://stac-extensions.github.io/liability-claims/v1.1.0/schema.json"
-  },
-  "sourceLdContext": "context.jsonld",
-  "sourceSchema": "schema.json",
-  "description": "This STAC extension provides comprehensive fields for documenting liability information and claims associated with geospatial data. It is designed to track incidents, damages, legal proceedings, insurance information, and data quality/provenance related to spatial data assets.\n\nKey features:\n- **Liability Claims Management**: Track claim status, types, jurisdictions, damages, and affected parties\n- **ISO 19115/19115-4 Quality**: Full support for completeness, accuracy, lineage, and imagery quality\n- **DGIWG Compliance**: Defence geospatial quality elements\n- **W3C PROV Provenance**: Complete PROV-JSON support for semantic web integration\n- **Legal/Insurance**: Policy numbers, providers, evidence references, resolution tracking\n- **Semantic Web**: JSON-LD context with Schema.org, FIBO, DQV, and PROV mappings",
-  "examples": [
-    {
-      "title": "Basic Environmental Liability Claim",
-      "snippets": [
-        {
-          "language": "json",
-          "ref": "examples/item-basic.json",
-          "code": "See examples/item-basic.json"
-        }
-      ]
-    },
-    {
-      "title": "Item with W3C PROV Provenance",
-      "snippets": [
-        {
-          "language": "json",
-          "ref": "examples/item-with-prov.json",
-          "code": "See examples/item-with-prov.json"
-        }
-      ]
-    },
-    {
-      "title": "Item with ISO 19115 Quality Assessment",
-      "snippets": [
-        {
-          "language": "json",
-          "ref": "examples/item-with-quality.json",
-          "code": "See examples/item-with-quality.json"
-        }
-      ]
-    }
-  ],
-  "shaclRules": {
-    "ogc.contrib.stac.extensions.liability-claims": [
-      "shacl/liability-claims-shapes.ttl"
-    ]
-  },
-  "validationPassed": true,
-  "testOutputs": "https://github.com/luciocola/stac-extension-liability-claims/tree/main/tests"
+  ]
 }
