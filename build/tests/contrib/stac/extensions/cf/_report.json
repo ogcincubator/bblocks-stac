@@ -2,8 +2,8 @@
   "title": "Validation report for ogc.contrib.stac.extensions.cf - STAC CF Extension",
   "bblockName": "STAC CF Extension",
   "bblockId": "ogc.contrib.stac.extensions.cf",
-  "generated": "2026-02-20T22:54:31.802122+00:00",
-  "result": true,
+  "generated": "2026-06-10T19:43:45.729926+00:00",
+  "result": false,
   "items": [
     {
       "source": {
@@ -16,7 +16,7 @@
         "language": "application/json",
         "sourceUrl": "https://raw.githubusercontent.com/stac-extensions/cf/refs/heads/main/examples/collection.json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 13,
+              "size": 16,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -53,9 +53,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "{'roles': ['data']} does not have enough properties",
+              "isError": true,
+              "message": "ValidationError: {'roles': ['data']} does not have enough properties\n\nFailed validating 'minProperties' in schema[0]['allOf'][0]['properties']['item_assets']['additionalProperties']['allOf'][0]:\n    {'minProperties': 2,\n     'properties': {'description': {'title': 'Asset description',\n                                    'type': 'string',\n                                    'x-jsonld-id': 'http://purl.org/dc/terms/description'},\n                    'href': {'not': {}, 'title': 'Disallow href'},\n                    'roles': {'items': {'type': 'string'},\n                              'title': 'Asset roles',\n                              'type': 'array'},\n                    'title': {'title': 'Asset title',\n                              'type': 'string',\n                              'x-jsonld-id': 'http://purl.org/dc/terms/title'},\n                    'type': {'title': 'Asset type',\n                             'type': 'string',\n                             'x-jsonld-id': '@type'}},\n     'type': 'object'}\n\nOn instance['item_assets']['data']:\n    {'roles': ['data']}"
             }
           ]
         },
@@ -63,6 +65,35 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+              "focusNodes": {
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:FeatureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
@@ -95,7 +126,7 @@
         "language": "application/json",
         "sourceUrl": "https://raw.githubusercontent.com/stac-extensions/cf/refs/heads/main/examples/item.json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -120,7 +151,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 70,
+              "size": 56,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -132,9 +163,11 @@
           "entries": [
             {
               "op": "validation",
-              "result": true,
-              "isError": false,
-              "message": "Validation passed"
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "{'stac_version': '1.0.0', 'stac_extensions': ['https://stac-extensions.github.io/cf/v0.3.0/schema.json'], 'type': 'Feature', 'id': 'item', 'bbox': [172.9, 1.3, 173, 1.4], 'geometry': {'type': 'Polygon', 'coordinates': [[[172.9, 1.3], [173, 1.3], [173, 1.4], [172.9, 1.4], [172.9, 1.3]]]}, 'properties': {'datetime': '2020-12-11T22:38:32Z', 'cube:dimensions': {'time_interval1': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-24], 'unit': 'h'}, 'vertical_dimension1': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Height above ground level', 'unit': 'm', 'values': [10]}, 'time_interval2': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-60], 'unit': 'min'}, 'vertical_dimension2': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Air pressure', 'unit': 'hPa', 'values': [500]}}, 'cube:variables': {'sea_surface_temperature': {'type': 'data', 'cf:standard_name': 'sea_surface_temperature', 'description': 'Average temperature on sea surface for preceding 24 hours', 'unit': 'K', 'cf:cell_methods': ['mean'], 'dimensions': ['time_interval1']}, 'wind_speed_at_10m': {'type': 'data', 'cf:standard_name': 'wind_speed', 'description': 'minimum wind speed in 1 hour at 10 m agl', 'unit': 'kt', 'cf:cell_methods': [None, 'minimum'], 'dimensions': ['vertical_dimension1', 'time_interval2']}, 'temp_at_500hPa': {'type': 'data', 'cf:standard_name': 'air_temperature', 'description': 'air temperature at 500 hPa', 'unit': 'degC', 'dimensions': ['vertical_dimension2']}}}, 'links': [{'href': 'https://example.com/examples/item.json', 'rel': 'self'}], 'assets': {'data': {'href': 'https://example.com/examples/file.xyz'}}} is not valid under any of the given schemas",
+              "isError": true,
+              "message": "ValidationError: {'stac_version': '1.0.0', 'stac_extensions': ['https://stac-extensions.github.io/cf/v0.3.0/schema.json'], 'type': 'Feature', 'id': 'item', 'bbox': [172.9, 1.3, 173, 1.4], 'geometry': {'type': 'Polygon', 'coordinates': [[[172.9, 1.3], [173, 1.3], [173, 1.4], [172.9, 1.4], [172.9, 1.3]]]}, 'properties': {'datetime': '2020-12-11T22:38:32Z', 'cube:dimensions': {'time_interval1': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-24], 'unit': 'h'}, 'vertical_dimension1': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Height above ground level', 'unit': 'm', 'values': [10]}, 'time_interval2': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-60], 'unit': 'min'}, 'vertical_dimension2': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Air pressure', 'unit': 'hPa', 'values': [500]}}, 'cube:variables': {'sea_surface_temperature': {'type': 'data', 'cf:standard_name': 'sea_surface_temperature', 'description': 'Average temperature on sea surface for preceding 24 hours', 'unit': 'K', 'cf:cell_methods': ['mean'], 'dimensions': ['time_interval1']}, 'wind_speed_at_10m': {'type': 'data', 'cf:standard_name': 'wind_speed', 'description': 'minimum wind speed in 1 hour at 10 m agl', 'unit': 'kt', 'cf:cell_methods': [None, 'minimum'], 'dimensions': ['vertical_dimension1', 'time_interval2']}, 'temp_at_500hPa': {'type': 'data', 'cf:standard_name': 'air_temperature', 'description': 'air temperature at 500 hPa', 'unit': 'degC', 'dimensions': ['vertical_dimension2']}}}, 'links': [{'href': 'https://example.com/examples/item.json', 'rel': 'self'}], 'assets': {'data': {'href': 'https://example.com/examples/file.xyz'}}} is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['allOf'][1]:\n    {'$id': 'https://stac-extensions.github.io/cf/v0.2.0/schema.json#',\n     '$schema': 'http://json-schema.org/draft-07/schema#',\n     'definitions': {'cf_in_assets': {'properties': {'assets': {'not': {'additionalProperties': {'not': {'allOf': [{'required': ['cf:parameter']},\n                                                                                                                   {'$ref': '#/definitions/fields'}]}}}}},\n                                      'required': ['assets']},\n                     'fields': {'additionalProperties': False,\n                                'patternProperties': {'^(?!cf:)': {'$comment': 'Above, '\n                                                                               'change '\n                                                                               '`cf` '\n                                                                               'to '\n                                                                               'the '\n                                                                               'prefix '\n                                                                               'of '\n                                                                               'this '\n                                                                               'extension'}},\n                                'properties': {'cf:parameter': {'items': {'properties': {'name': {'minLength': 1,\n                                                                                                  'type': 'string'},\n                                                                                         'unit': {'type': 'string'}},\n                                                                          'required': ['name'],\n                                                                          'type': 'object'},\n                                                                'minItems': 1,\n                                                                'type': 'array'}},\n                                'type': 'object'},\n                     'forbid_fields': {'additionalProperties': False,\n                                       'patternProperties': {'^(?!cf:)': {}}}},\n     'description': 'STAC CF Extension for STAC Items and STAC '\n                    'Collections.',\n     'oneOf': [{'$comment': 'Schema for Collections',\n                'allOf': [{'$ref': '#/definitions/fields'}],\n                'properties': {'item_assets': {'additionalProperties': {'$ref': '#/definitions/fields'},\n                                               'type': 'object'},\n                               'summaries': {'oneOf': [{'$ref': '#/definitions/fields'},\n                                                       {'$comment': 'JSON '\n                                                                    'Schema '\n                                                                    'summary',\n                                                        'additionalProperties': False,\n                                                        'patternProperties': {'^(?!cf:)': {'$comment': 'Above, '\n                                                                                                       'change '\n                                                                                                       '`cf` '\n                                                                                                       'to '\n                                                                                                       'the '\n                                                                                                       'prefix '\n                                                                                                       'of '\n                                                                                                       'this '\n                                                                                                       'extension'}},\n                                                        'properties': {'cf:parameter': {'properties': {'type': {'const': 'array'}},\n                                                                                        'type': 'object'}},\n                                                        'type': 'object'}]},\n                               'type': {'const': 'Collection'}},\n                'required': ['type'],\n                'type': 'object'},\n               {'$comment': 'Schema for Items',\n                'allOf': [{'$ref': '#/definitions/cf_in_assets'}],\n                'properties': {'properties': {'$ref': '#/definitions/fields'},\n                               'type': {'const': 'Feature'}},\n                'required': ['type'],\n                'type': 'object'}],\n     'properties': {'assets': {'additionalProperties': {'$ref': '#/definitions/fields'},\n                               'type': 'object'},\n                    'stac_extensions': {'contains': {'const': 'https://stac-extensions.github.io/cf/v0.2.0/schema.json'},\n                                        'type': 'array'}},\n     'required': ['stac_extensions'],\n     'title': 'CF Extension',\n     'type': 'object'}\n\nOn instance:\n    {'assets': {'data': {'href': 'https://example.com/examples/file.xyz'}},\n     'bbox': [172.9, 1.3, 173, 1.4],\n     'geometry': {'coordinates': [[[172.9, 1.3],\n                                   [173, 1.3],\n                                   [173, 1.4],\n                                   [172.9, 1.4],\n                                   [172.9, 1.3]]],\n                  'type': 'Polygon'},\n     'id': 'item',\n     'links': [{'href': 'https://example.com/examples/item.json',\n                'rel': 'self'}],\n     'properties': {'cube:dimensions': {'time_interval1': {'description': 'time '\n                                                                          'interval '\n                                                                          'that '\n                                                                          'cell_methods '\n                                                                          'is '\n                                                                          'applied '\n                                                                          'over',\n                                                           'type': 'temporal',\n                                                           'unit': 'h',\n                                                           'values': [-24]},\n                                        'time_interval2': {'description': 'time '\n                                                                          'interval '\n                                                                          'that '\n                                                                          'cell_methods '\n                                                                          'is '\n                                                                          'applied '\n                                                                          'over',\n                                                           'type': 'temporal',\n                                                           'unit': 'min',\n                                                           'values': [-60]},\n                                        'vertical_dimension1': {'axis': 'z',\n                                                                'cf:standard_name': 'height',\n                                                                'description': 'Height '\n                                                                               'above '\n                                                                               'ground '\n                                                                               'level',\n                                                                'type': 'spatial',\n                                                                'unit': 'm',\n                                                                'values': [10]},\n                                        'vertical_dimension2': {'axis': 'z',\n                                                                'cf:standard_name': 'height',\n                                                                'description': 'Air '\n                                                                               'pressure',\n                                                                'type': 'spatial',\n                                                                'unit': 'hPa',\n                                                                'values': [500]}},\n                    'cube:variables': {'sea_surface_temperature': {'cf:cell_methods': ['mean'],\n                                                                   'cf:standard_name': 'sea_surface_temperature',\n                                                                   'description': 'Average '\n                                                                                  'temperature '\n                                                                                  'on '\n                                                                                  'sea '\n                                                                                  'surface '\n                                                                                  'for '\n                                                                                  'preceding '\n                                                                                  '24 '\n                                                                                  'hours',\n                                                                   'dimensions': ['time_interval1'],\n                                                                   'type': 'data',\n                                                                   'unit': 'K'},\n                                       'temp_at_500hPa': {'cf:standard_name': 'air_temperature',\n                                                          'description': 'air '\n                                                                         'temperature '\n                                                                         'at '\n                                                                         '500 '\n                                                                         'hPa',\n                                                          'dimensions': ['vertical_dimension2'],\n                                                          'type': 'data',\n                                                          'unit': 'degC'},\n                                       'wind_speed_at_10m': {'cf:cell_methods': [None,\n                                                                                 'minimum'],\n                                                             'cf:standard_name': 'wind_speed',\n                                                             'description': 'minimum '\n                                                                            'wind '\n                                                                            'speed '\n                                                                            'in '\n                                                                            '1 '\n                                                                            'hour '\n                                                                            'at '\n                                                                            '10 '\n                                                                            'm '\n                                                                            'agl',\n                                                             'dimensions': ['vertical_dimension1',\n                                                                            'time_interval2'],\n                                                             'type': 'data',\n                                                             'unit': 'kt'}},\n                    'datetime': '2020-12-11T22:38:32Z'},\n     'stac_extensions': ['https://stac-extensions.github.io/cf/v0.3.0/schema.json'],\n     'stac_version': '1.0.0',\n     'type': 'Feature'}"
             }
           ]
         },
@@ -142,6 +175,37 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+              "focusNodes": {
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://example.com/stac/cf/example-2/item>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/cf/example-2/item>\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
@@ -167,7 +231,7 @@
   "globalErrors": {},
   "counts": {
     "total": 2,
-    "passed": 2,
-    "failed": 0
+    "passed": 0,
+    "failed": 2
   }
 }

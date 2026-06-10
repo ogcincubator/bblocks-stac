@@ -1,9 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <file:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns3: <mlm:> .
-@prefix ns4: <ml-aoi:> .
+@prefix ns4: <eo:> .
+@prefix ns5: <ml-aoi:> .
+@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns7: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -14,26 +17,51 @@
     ns1:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns7:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-3/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ] ;
+            ns7:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ],
+        [ dcterms:type "application/json" ;
+            ns7:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns5:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns2:weights [ ns4:bands [ dcterms:description "Green (band 3)" ;
+                            ns2:center_wavelength 5.6e-01 ;
+                            ns2:common_name "green" ;
+                            ns2:full_width_half_max 4.5e-02 ;
+                            ns2:name "B03" ],
+                        [ dcterms:description "Blue (band 2)" ;
+                            ns2:center_wavelength 4.9e-01 ;
+                            ns2:common_name "blue" ;
+                            ns2:full_width_half_max 9.8e-02 ;
+                            ns2:name "B02" ],
+                        [ dcterms:description "Red (band 4)" ;
+                            ns2:center_wavelength 6.65e-01 ;
+                            ns2:common_name "red" ;
+                            ns2:full_width_half_max 3.8e-02 ;
+                            ns2:name "B04" ],
+                        [ dcterms:description "NIR 1 (band 8)" ;
+                            ns2:center_wavelength 8.42e-01 ;
+                            ns2:common_name "nir" ;
+                            ns2:full_width_half_max 1.45e-01 ;
+                            ns2:name "B08" ] ;
+                    dcterms:description "A vegetation classification model trained on Sentinel-2 imagery and NDVI." ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://example.com/model-rgb-ndvi.pth> ;
+                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns3:accelerator "cuda" ;
     ns3:accelerator_constrained false ;

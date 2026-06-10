@@ -24,12 +24,12 @@
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection-v1-0-0/index.json> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection-v1-0-0> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection-v1-0-0/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection-v1-0-0/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection-v1-0-0> ] ;
     dct:hasVersion "1.0.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Collection (v1.0.0)" ;
@@ -61,14 +61,14 @@
     rdfs:label "STAC Collection (v1.1.0)" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection-v1-1-0/index.md> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection-v1-1-0/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.collection-v1-1-0> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection-v1-1-0/index.json> ] ;
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/collection-v1-1-0/index.md> ] ;
     dct:hasVersion "1.1.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Collection (v1.1.0)" ;
@@ -76,17 +76,17 @@
     dcat:keyword "collection",
         "stac" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-1-0/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-1-0/schema.json> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-1-0/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-1-0/schema.yaml> ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
@@ -98,15 +98,15 @@
         bblocks:Model ;
     rdfs:label "STAC Core Ontology" ;
     dct:created "2025-06-12T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/core-ontology/index.md> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.core-ontology> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/core-ontology/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/core-ontology/index.md> ],
         "Describes STAC objects"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Core Ontology" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
@@ -125,14 +125,14 @@
     rdfs:label "STAC Accuracy Extension" ;
     dct:abstract "TBD"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/accuracy/index.md> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.accuracy> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/accuracy/index.md> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/accuracy/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/accuracy> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Accuracy Extension" ;
@@ -141,10 +141,15 @@
         "dataquality",
         "stac",
         "stac-extension" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/schema.json> ;
-            prof:hasRole role:schema ],
+    prof:hasResource [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/schema.yaml> ;
@@ -154,10 +159,10 @@
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/schema.json> ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
@@ -171,14 +176,14 @@
     rdfs:label "STAC CF Extension" ;
     dct:abstract "CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to provide the Standard Name Table based on the CF metadata convention."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/cf/index.json> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/cf/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/cf/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.cf> ] ;
     dct:hasVersion "0.2.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/cf> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC CF Extension" ;
@@ -186,14 +191,11 @@
     dcat:keyword "CF",
         "stac",
         "stac-extension" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/context.jsonld> ;
-            prof:hasRole role:mapping ],
+    prof:hasResource [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
@@ -202,13 +204,21 @@
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.json> ;
             prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf/context.jsonld> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
-    bblocks:validationPassed true .
+    bblocks:validationPassed false .
 
 <bblocks://ogc.contrib.stac.extensions.cf-ontology> a skos:Concept,
         dcat:Dataset,
@@ -224,7 +234,7 @@
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/cf-ontology/index.md> ],
         "Describes STAC CF extensions - and mappings to CF convention resources"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC CF Extension Ontology" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
@@ -242,14 +252,14 @@
     rdfs:label "STAC Machine Learning Model" ;
     dct:abstract "STAC Machine Learning Model (MLM) Extension to describe ML models, their training details, and inference runtime requirements."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.mlm> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/mlm/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.mlm> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/mlm/index.json> ] ;
     dct:hasVersion "1.4.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/mlm> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Machine Learning Model" ;
@@ -257,23 +267,28 @@
     dcat:keyword "mlm",
         "stac",
         "stac-extension" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/mlm/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/mlm/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/mlm/schema.yaml> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/mlm/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
+            prof:hasRole role:validation ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.extensions.classification>,
         <bblocks://ogc.contrib.stac.extensions.eo>,
@@ -292,14 +307,14 @@
     rdfs:label "STAC Extension - ESA Open Science Catalog" ;
     dct:abstract "STAC Extension for the ESA Open Science Catalog"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/osc/index.json> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.osc> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/osc/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/osc/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/osc/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/osc> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Extension - ESA Open Science Catalog" ;
@@ -308,22 +323,27 @@
         "OSC",
         "stac",
         "stac-extension" ;
-    prof:hasResource [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml> ;
             prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
@@ -338,15 +358,15 @@
         bblocks:Model ;
     rdfs:label "STAC Open Science Extension Ontology" ;
     dct:created "2025-06-12T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.osc-ontology> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/osc-ontology/index.json> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/osc-ontology/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.osc-ontology> ],
         "Definitions for STAC Open Science Catalog extension elements"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Open Science Extension Ontology" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
@@ -363,15 +383,15 @@
         bblocks:Model ;
     rdfs:label "STAC Processes Extension Ontology" ;
     dct:created "2025-06-12T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.processes-ontology> ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/processes-ontology/index.json> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/processes-ontology/index.md> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.processes-ontology> ],
         "TDB"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Processes Extension Ontology" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
@@ -390,14 +410,14 @@
     dct:abstract """Themes Extension to the SpatioTemporal Asset Catalog (STAC) specification.
 A knowledge organization system used to classify the resource (controlled vocabularies / keywords)"""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.themes> ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/themes/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes/index.json> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.themes> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/themes> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Themes Extension" ;
@@ -409,10 +429,6 @@ A knowledge organization system used to classify the resource (controlled vocabu
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
@@ -421,7 +437,16 @@ A knowledge organization system used to classify the resource (controlled vocabu
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml> ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.api.records.v1.schemas.theme>,
         <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
@@ -438,14 +463,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dct:abstract """Themes Extension to the SpatioTemporal Asset Catalog (STAC) specification.
 A knowledge organization system used to classify the resource (controlled vocabularies / keywords)"""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.themes-jq> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes-jq/index.json> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/themes-jq/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes-jq/index.json> ] ;
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.themes-jq> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/themes> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Themes Extension with JQ pre-uplift step" ;
@@ -454,18 +479,23 @@ A knowledge organization system used to classify the resource (controlled vocabu
         "stac-extension",
         "themes" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/schema.json> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/schema.yaml> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-jq/context.jsonld> ;
@@ -485,14 +515,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dct:abstract """Themes Extension to the SpatioTemporal Asset Catalog (STAC) specification.
 A knowledge organization system used to classify the resource (controlled vocabularies / keywords)"""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/themes-shacl/index.md> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes-shacl/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.themes-shacl> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/themes-shacl/index.json> ] ;
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/themes-shacl/index.md> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/themes> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Themes Extension with SHACL semantic uplift step" ;
@@ -502,21 +532,26 @@ A knowledge organization system used to classify the resource (controlled vocabu
         "themes" ;
     prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-shacl/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-shacl/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
             prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-shacl/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-shacl/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes-shacl/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-shacl/context.jsonld> ;
@@ -531,14 +566,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
     rdfs:label "STAC Item with Provenance" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) item with a provenance trace supporting the PROV-O model and DAG (directed acyclic graph) through both object nesting and references"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-prov> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item-prov/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-prov> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item-prov/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/>,
         <https://www.w3.org/TR/prov-o/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
@@ -547,7 +582,11 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dcat:keyword "item",
         "provenance",
         "stac" ;
-    prof:hasResource [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
@@ -556,16 +595,17 @@ A knowledge organization system used to classify the resource (controlled vocabu
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/context.jsonld> ;
-            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-prov/schema.yaml> ;
             prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.item>,
-        <bblocks://ogc.ogc-utils.prov> ;
+        <bblocks://ogc.ogc-utils.prov-entity> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -577,37 +617,42 @@ A knowledge organization system used to classify the resource (controlled vocabu
     rdfs:label "STAC Item (v1.0.0)" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) item. This version specific building block enforces the schema restriction on STAC version by importing the canonical STAC 1.0 schema, but also cross-validates against the STAC version agnostic schema."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-v1-0-0> ],
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item-v1-0-0/index.md> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item-v1-0-0/index.json> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item-v1-0-0/index.md> ] ;
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-v1-0-0> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Item (v1.0.0)" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
     dcat:keyword "item",
         "stac" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
             prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.json> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
+            prof:hasRole role:validation ] ;
     bblocks:dependsOn <bblocks://ogc.api.records.v1.schemas.recordGeoJSON>,
         <bblocks://ogc.contrib.stac.item>,
         <bblocks://ogc.geo.features.feature> ;
@@ -622,37 +667,42 @@ A knowledge organization system used to classify the resource (controlled vocabu
     rdfs:label "STAC Item (v1.1.0)" ;
     dct:abstract "A SpatioTemporal Asset Catalogs (STAC) item"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item-v1-1-0/index.json> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item-v1-1-0/index.md> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-v1-1-0> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item-v1-1-0> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item-v1-1-0/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Item (v1.1.0)" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
     dcat:keyword "item",
         "stac" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-1-0/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-1-0/schema.yaml> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
-            prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-1-0/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-1-0/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
+            prof:hasRole role:validation ] ;
     bblocks:dependsOn <bblocks://ogc.api.records.v1.schemas.recordGeoJSON>,
         <bblocks://ogc.contrib.stac.item>,
         <bblocks://ogc.geo.features.feature> ;
@@ -678,18 +728,18 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 <https://ogcincubator.github.io/bblocks-stac/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:Nb06b80eb29714238a0fc6061790941b0 ;
+    prov:wasAttributedTo _:N5d42cdbae2c64783a47161ad99a3f5b5 ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2026-02-20T22:54:40.566955"^^xsd:dateTime ;
-            prov:startedAtTime "2026-02-20T22:54:40.301401"^^xsd:dateTime ;
+            prov:endedAtTime "2026-06-10T19:43:55.789957"^^xsd:dateTime ;
+            prov:startedAtTime "2026-06-10T19:43:55.646781"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:75aebbfe6e3b014eb410da2b2ca4f82a6769d2e6" ;
+                    dct:hasVersion "git:4edd4044d3ce0dccaba5da21cf6a0776aaf550ff" ;
                     rdfs:seeAlso <https://ogcincubator.github.io/bblocks-stac/build/register.json> ],
                 [ a prov:Entity ;
                     dct:format "application/yaml" ;
                     rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
-            prov:wasAssociatedWith _:Nb06b80eb29714238a0fc6061790941b0 ] .
+            prov:wasAssociatedWith _:N5d42cdbae2c64783a47161ad99a3f5b5 ] .
 
 <https://www.w3.org/TR/prov-o/> rdfs:label "PROV-O Specification" .
 
@@ -700,14 +750,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
     rdfs:label "STAC Classification Extension" ;
     dct:abstract "STAC Classification Extension for STAC Items and STAC Collections."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.classification> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/classification/index.json> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/classification/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/classification/index.json> ] ;
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.classification> ] ;
     dct:hasVersion "2.0.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/classification> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Classification Extension" ;
@@ -716,16 +766,21 @@ A knowledge organization system used to classify the resource (controlled vocabu
         "stac",
         "stac-extension" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/classification/schema.json> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/classification/schema.yaml> ;
             prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/classification/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/classification/schema.yaml> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/classification/schema.json> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
@@ -748,14 +803,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 EO data is considered to be data that represents a snapshot of the Earth for a single date and time. It could consist of multiple spectral bands in any part of the electromagnetic spectrum. Examples of EO data include sensors with visible, short-wave and mid-wave IR bands (e.g., the OLI instrument on Landsat-8), long-wave IR bands (e.g. TIRS aboard Landsat-8)."""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/eo/index.json> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/eo/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/eo/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.eo> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/eo> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Electro-Optical Extension" ;
@@ -764,22 +819,27 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         "raster",
         "stac",
         "stac-extension" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.json> ;
+    prof:hasResource [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.yaml> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld> ;
-            prof:hasRole role:mapping ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.yaml> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo/schema.json> ;
             prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
@@ -795,14 +855,14 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     rdfs:label "STAC Processing Extension" ;
     dct:abstract "STAC Processing Extension for STAC Items and STAC Collections."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/processing/index.json> ],
+        [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.processing> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/processing/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/processing/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/processing/index.md> ] ;
     dct:hasVersion "1.2.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/processing> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Processing Extension" ;
@@ -815,12 +875,17 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
@@ -843,12 +908,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.extensions.raster> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/raster/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/extensions/raster/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/extensions/raster/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://github.com/stac-extensions/raster> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Raster Extension" ;
@@ -856,23 +921,28 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcat:keyword "raster",
         "stac",
         "stac-extension" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/context.jsonld> ;
             prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
             prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.json> ;
-            prof:hasRole role:schema ] ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.collection>,
         <bblocks://ogc.contrib.stac.item> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster/context.jsonld> ;
@@ -889,12 +959,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/components/assets/index.md> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.components.assets> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/components/assets/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/components/assets/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.components.assets> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "Assets object" ;
@@ -902,16 +972,16 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcat:keyword "item",
         "stac" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.json> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.yaml> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/schema.json> ;
             prof:hasRole role:schema ] ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/components/assets/context.jsonld> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/contrib> ;
@@ -936,7 +1006,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/collection/index.json> ] ;
     dct:hasVersion "1.1.0" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "STAC Collection" ;
@@ -944,17 +1014,17 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcat:keyword "collection",
         "stac" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json> ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.components.assets>,
         <bblocks://ogc.ogc-utils.json-link> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-stac/_sources/collection/context.jsonld> ;
@@ -969,25 +1039,21 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     rdfs:label "Version agnostic STAC Item" ;
     dct:abstract "Version-neutral SpatioTemporal Asset Catalogs (STAC) item - STAC versions are schema incompatible due to hard restrictions on version numbers. This BuildingBlock covers the interoperability that exists between versions by identifying the common elements, and is extended by version-specific restrictions and extensions."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-12-08T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item/index.json> ],
+        [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/bblock/ogc.contrib.stac.item> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/json-full/contrib/stac/item/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-stac/build/generateddocs/markdown/contrib/stac/item/index.md> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-02-20"^^xsd:date ;
+    dct:modified "2026-06-10"^^xsd:date ;
     dct:source <https://stacspec.org/en/about/stac-spec/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-stac/> ;
     skos:prefLabel "Version agnostic STAC Item" ;
     skos:topConceptOf <https://ogcincubator.github.io/bblocks-stac/> ;
     dcat:keyword "item",
         "stac" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json> ;
             prof:hasRole role:schema ],
@@ -999,7 +1065,16 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
+            prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
+            prof:hasRole role:validation ] ;
     bblocks:dependsOn <bblocks://ogc.api.records.v1.schemas.recordGeoJSON>,
         <bblocks://ogc.contrib.stac.components.assets>,
         <bblocks://ogc.geo.features.feature>,
@@ -1024,7 +1099,7 @@ Implementers can fork this repository and add additional examples in the `tests/
 
 Provides a framework for documentation and testing of additional extensions.
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:modified "2026-02-20T22:54:03.254137"^^xsd:dateTime ;
+    dct:modified "2026-06-10T19:43:23.495989"^^xsd:dateTime ;
     void:sparqlEndpoint <https://defs-dev.opengis.net/fuseki/sparql> ;
     owl:imports <https://ogcincubator.github.io/bblock-prov-schema/build/register.json>,
         <https://ogcincubator.github.io/cross-domain-model/build/register.json>,
@@ -1069,9 +1144,9 @@ Provides a framework for documentation and testing of additional extensions.
     foaf:homepage <https://ogcincubator.github.io/bblocks-stac/> ;
     bblocks:hasValidationReport <https://ogcincubator.github.io/bblocks-stac/build/tests/report.html> .
 
-_:Nb06b80eb29714238a0fc6061790941b0 a prov:Agent,
+_:N5d42cdbae2c64783a47161ad99a3f5b5 a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
-    dct:hasVersion "0.5.17" ;
+    dct:hasVersion "0.5.29" ;
     rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> .
 

@@ -489,36 +489,56 @@ Ref to STAC example from current version (1.1.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/example1/sentinel-2> a <https://example.com/stac/example1/Collection> ;
+    dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
+imaging mission supporting Copernicus Land Monitoring studies,
+including the monitoring of vegetation, soil and water cover,
+as well as observation of inland waterways and coastal areas.
+
+The Sentinel-2 data contain 13 UINT16 spectral bands representing
+TOA reflectance scaled by 10000. See the [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
+for details. In addition, three QA bands are present where one
+(QA60) is a bitmask band with cloud mask information. For more
+details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
+
+Each Sentinel-2 product (zip archive) may contain multiple
+granules. Each granule becomes a separate Earth Engine asset.
+EE asset ids for Sentinel-2 assets have the following format:
+COPERNICUS/S2/20151128T002653_20151128T102149_T56MNN. Here the
+first numeric part represents the sensing date and time, the
+second numeric part represents the product generation date and
+time, and the final 6-character string is a unique granule identifier
+indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Military_Grid_Reference_System)).
+
+For more details on Sentinel-2 radiometric resoltuon, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
+""" ;
     dcterms:extent [ ] ;
-    dcterms:license "other" ;
-    dcterms:subject "copernicus",
-        "esa",
-        "eu",
-        "msi",
-        "radiance",
-        "sentinel" ;
+    dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
     rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
-    stac:hasAsset [ ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns2:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+    stac:hasAsset [ ns1:metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
+                    dcterms:title "ISO 19139 metadata" ;
+                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml" ;
+                    stac:roles "iso-19139",
+                        "metadata" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
-    stac:hasProvider [ ] ;
     stac:version "1.1.0" .
 
 
@@ -712,45 +732,48 @@ Ref to STAC example using version (1.0.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/example1/polarwarp> a <https://example.com/stac/example1/Collection> ;
+    dcterms:description """Polarwarp product
+
+Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
-    dcterms:license "various" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
+    dcterms:title "Polarwarp" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ] ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns2:project "cerulean-information-factory" ;
-    ns2:status "completed" ;
-    ns2:type "product" .
+    ns1:project "cerulean-information-factory" ;
+    ns1:status "completed" ;
+    ns1:type "product" .
 
 
 ```
@@ -974,11 +997,12 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "title": "dct:title",
+    "description": "dct:description",
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
-        "title": "dct:title",
-        "description": "dct:description",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
@@ -988,21 +1012,6 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
-    "keywords": "dct:subject",
-    "license": "dct:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

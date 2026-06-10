@@ -1,0 +1,56 @@
+Validation report for ogc.contrib.stac.extensions.cf - STAC CF Extension
+Generated 2026-06-10T19:43:45.132271+00:00
+=== Files ===
+Using https://raw.githubusercontent.com/stac-extensions/cf/refs/heads/main/examples/collection.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'roles': ['data']} does not have enough properties
+
+Failed validating 'minProperties' in schema[0]['allOf'][0]['properties']['item_assets']['additionalProperties']['allOf'][0]:
+    {'minProperties': 2,
+     'properties': {'description': {'title': 'Asset description',
+                                    'type': 'string',
+                                    'x-jsonld-id': 'http://purl.org/dc/terms/description'},
+                    'href': {'not': {}, 'title': 'Disallow href'},
+                    'roles': {'items': {'type': 'string'},
+                              'title': 'Asset roles',
+                              'type': 'array'},
+                    'title': {'title': 'Asset title',
+                              'type': 'string',
+                              'x-jsonld-id': 'http://purl.org/dc/terms/title'},
+                    'type': {'title': 'Asset type',
+                             'type': 'string',
+                             'x-jsonld-id': '@type'}},
+     'type': 'object'}
+
+On instance['item_assets']['data']:
+    {'roles': ['data']}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+
+Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+
+=== End SHACL ===
+

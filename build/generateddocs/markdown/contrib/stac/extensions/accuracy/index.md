@@ -147,8 +147,9 @@ TBD
 ```ttl
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <accuracy:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <accuracy:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -156,20 +157,20 @@ TBD
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/item> a geojson:Feature ;
-    ns1:geometric_rmse 1 ;
-    ns1:geometric_x_bias 0 ;
-    ns1:geometric_x_stddev 5e-01 ;
-    ns1:geometric_y_bias 0 ;
-    ns1:geometric_y_stddev 5e-01 ;
-    ns1:measurement_absolute 2e-02 ;
-    ns1:measurement_relative 1e-02 ;
+    ns2:geometric_rmse 1 ;
+    ns2:geometric_x_bias 0 ;
+    ns2:geometric_x_stddev 5e-01 ;
+    ns2:geometric_y_bias 0 ;
+    ns2:geometric_y_stddev 5e-01 ;
+    ns2:measurement_absolute 2e-02 ;
+    ns2:measurement_relative 1e-02 ;
     dct:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns3:data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json" ;
     stac:version "1.0.0" .
 
@@ -221,8 +222,28 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "license": "dcat:license",
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -233,24 +254,6 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
-    "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "license": "dcat:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -311,14 +314,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -340,8 +335,6 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",

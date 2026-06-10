@@ -1,6 +1,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -8,12 +9,13 @@
 <https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
-    dcterms:title "Collection with an Item" ;
+    dcterms:title "A title" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ] ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     dcat:license "Apache-2.0" ;
-    stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
+    stac:hasAsset [ ns2:example [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    stac:hasExtension "https://stac-extensions.github.io/cf/v0.3.0/schema.json" ;
     stac:version "1.0.0" .
 

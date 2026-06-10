@@ -489,35 +489,55 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/example1/sentinel-2> a <https://example.com/stac/example1/Collection> ;
+    dcterms:description """Sentinel-2 is a wide-swath, high-resolution, multi-spectral
+imaging mission supporting Copernicus Land Monitoring studies,
+including the monitoring of vegetation, soil and water cover,
+as well as observation of inland waterways and coastal areas.
+
+The Sentinel-2 data contain 13 UINT16 spectral bands representing
+TOA reflectance scaled by 10000. See the [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
+for details. In addition, three QA bands are present where one
+(QA60) is a bitmask band with cloud mask information. For more
+details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
+
+Each Sentinel-2 product (zip archive) may contain multiple
+granules. Each granule becomes a separate Earth Engine asset.
+EE asset ids for Sentinel-2 assets have the following format:
+COPERNICUS/S2/20151128T002653_20151128T102149_T56MNN. Here the
+first numeric part represents the sensing date and time, the
+second numeric part represents the product generation date and
+time, and the final 6-character string is a unique granule identifier
+indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Military_Grid_Reference_System)).
+
+For more details on Sentinel-2 radiometric resoltuon, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
+""" ;
     dcterms:extent [ ] ;
-    dcterms:license "other" ;
-    dcterms:subject "copernicus",
-        "esa",
-        "eu",
-        "msi",
-        "radiance",
-        "sentinel" ;
-    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+    dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
+    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns2:metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
+                    dcterms:title "ISO 19139 metadata" ;
+                    ns2:href "https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml" ;
+                    stac:roles "iso-19139",
+                        "metadata" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
-    stac:hasProvider [ ] ;
     stac:version "1.1.0" .
 
 
@@ -553,15 +573,28 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        },
+        "@vocab": "https://w3id.org/ogc/stac/assets/"
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
     "links": {
       "@context": {
         "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
+          "@id": "oa:hasTarget",
+          "@type": "@id"
         },
         "rel": {
           "@context": {
@@ -571,41 +604,14 @@ Links to the schema:
           "@type": "@id"
         },
         "type": "dct:type",
-        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "hreflang": "dct:language",
         "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
-    "assets": {
-      "@context": {
-        "type": "dct:format",
-        "title": "dct:title",
-        "description": "dct:description",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
-    },
-    "stac_version": "stac:version",
-    "keywords": "dct:subject",
-    "license": "dct:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
+    "title": "dct:title",
+    "description": "dct:description",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-02-20",
+  "dateOfLastChange": "2026-06-10",
   "sources": [
     {
       "title": "STAC Specification",
@@ -31,8 +31,8 @@
   },
   "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets/schema.yaml",
   "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets/",
-  "rdfData": [],
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/components/assets/",
   "examples": [
@@ -42,20 +42,20 @@
       "snippets": [
         {
           "language": "json",
-          "ref": "examples/core.json",
+          "ref": "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets/examples/core.json",
           "base-uri": "https://example.com/stac/example1/",
-          "code": "{\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    }\n  }\n}",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.json"
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.json",
+          "code": "{\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    }\n  }\n}"
         },
         {
           "language": "jsonld",
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld\",\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    }\n  }\n}",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.jsonld"
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld\",\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    }\n  }\n}"
         },
         {
           "language": "ttl",
-          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ] .\n\n",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.ttl"
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.ttl",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ns1:thumbnail [ dcterms:format \"image/jpeg\" ;\n                    dcterms:title \"Thumbnail\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\" ;\n                    stac:roles \"thumbnail\" ] ;\n            ns1:visual [ dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n                    dcterms:title \"3-Band Visual\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\" ;\n                    stac:roles \"visual\" ] ] .\n\n"
         }
       ]
     },
@@ -65,25 +65,25 @@
       "snippets": [
         {
           "language": "json",
-          "ref": "examples/coreplus.json",
+          "ref": "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets/examples/coreplus.json",
           "base-uri": "https://example.com/stac/example1/",
-          "code": "{\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    },\n    \"model\": {\n      \"href\": \"https://huggingface.co/example/model-card\",\n      \"title\": \"Pytorch weights checkpoint\",\n      \"description\": \"Example model.\",\n      \"type\": \"text/html\",\n      \"roles\": [\n        \"mlm:model\"\n      ],\n      \"mlm:artifact_type\": \"torch.save\"\n    }\n  }\n}",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.json"
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.json",
+          "code": "{\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    },\n    \"model\": {\n      \"href\": \"https://huggingface.co/example/model-card\",\n      \"title\": \"Pytorch weights checkpoint\",\n      \"description\": \"Example model.\",\n      \"type\": \"text/html\",\n      \"roles\": [\n        \"mlm:model\"\n      ],\n      \"mlm:artifact_type\": \"torch.save\"\n    }\n  }\n}"
         },
         {
           "language": "jsonld",
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld\",\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    },\n    \"model\": {\n      \"href\": \"https://huggingface.co/example/model-card\",\n      \"title\": \"Pytorch weights checkpoint\",\n      \"description\": \"Example model.\",\n      \"type\": \"text/html\",\n      \"roles\": [\n        \"mlm:model\"\n      ],\n      \"mlm:artifact_type\": \"torch.save\"\n    }\n  }\n}",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.jsonld"
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld\",\n  \"assets\": {\n    \"visual\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\",\n      \"type\": \"image/tiff; application=geotiff; profile=cloud-optimized\",\n      \"title\": \"3-Band Visual\",\n      \"roles\": [\n        \"visual\"\n      ]\n    },\n    \"thumbnail\": {\n      \"href\": \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/jpeg\",\n      \"roles\": [\n        \"thumbnail\"\n      ]\n    },\n    \"model\": {\n      \"href\": \"https://huggingface.co/example/model-card\",\n      \"title\": \"Pytorch weights checkpoint\",\n      \"description\": \"Example model.\",\n      \"type\": \"text/html\",\n      \"roles\": [\n        \"mlm:model\"\n      ],\n      \"mlm:artifact_type\": \"torch.save\"\n    }\n  }\n}"
         },
         {
           "language": "ttl",
-          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ] .\n\n",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.ttl"
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.ttl",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <mlm:> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ns1:model [ dcterms:description \"Example model.\" ;\n                    dcterms:format \"text/html\" ;\n                    dcterms:title \"Pytorch weights checkpoint\" ;\n                    ns1:href \"https://huggingface.co/example/model-card\" ;\n                    stac:roles \"mlm:model\" ;\n                    ns2:artifact_type \"torch.save\" ] ;\n            ns1:thumbnail [ dcterms:format \"image/jpeg\" ;\n                    dcterms:title \"Thumbnail\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\" ;\n                    stac:roles \"thumbnail\" ] ;\n            ns1:visual [ dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n                    dcterms:title \"3-Band Visual\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\" ;\n                    stac:roles \"visual\" ] ] .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: STAC Asset\ntype: object\ndescription: This object represents a set of assets\nproperties:\n  assets:\n    $ref: '#/definitions/assets'\n    x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset\n    x-jsonld-container: '@set'\n    x-jsonld-extra-terms:\n      type: http://purl.org/dc/terms/format\n      title: http://purl.org/dc/terms/title\n      description: http://purl.org/dc/terms/description\n      roles:\n        x-jsonld-id: https://w3id.org/ogc/stac/core/roles\n        x-jsonld-container: '@set'\ndefinitions:\n  assets:\n    title: Asset links\n    description: Links to assets\n    type: object\n    additionalProperties:\n      $ref: '#/definitions/asset'\n  asset:\n    allOf:\n    - type: object\n      required:\n      - href\n      properties:\n        href:\n          title: Asset reference\n          type: string\n          format: iri-reference\n          minLength: 1\n        title:\n          title: Asset title\n          type: string\n        description:\n          title: Asset description\n          type: string\n        type:\n          title: Asset type\n          type: string\n        roles:\n          title: Asset roles\n          type: array\n          items:\n            type: string\nx-jsonld-prefixes:\n  stac: https://w3id.org/ogc/stac/core/\n  dct: http://purl.org/dc/terms/\n  rdfs: http://www.w3.org/2000/01/rdf-schema#\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: STAC Asset\ntype: object\ndescription: This object represents a set of assets\nproperties:\n  assets:\n    $ref: '#/definitions/assets'\n    x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset\n    x-jsonld-container: '@set'\n    x-jsonld-vocab: https://w3id.org/ogc/stac/assets/\n    x-jsonld-extra-terms:\n      type: http://purl.org/dc/terms/format\n      title: http://purl.org/dc/terms/title\n      description: http://purl.org/dc/terms/description\n      roles:\n        x-jsonld-id: https://w3id.org/ogc/stac/core/roles\n        x-jsonld-container: '@set'\ndefinitions:\n  assets:\n    title: Asset links\n    description: Links to assets\n    type: object\n    additionalProperties:\n      $ref: '#/definitions/asset'\n  asset:\n    allOf:\n    - type: object\n      required:\n      - href\n      properties:\n        href:\n          title: Asset reference\n          type: string\n          format: iri-reference\n          minLength: 1\n        title:\n          title: Asset title\n          type: string\n        description:\n          title: Asset description\n          type: string\n        type:\n          title: Asset type\n          type: string\n        roles:\n          title: Asset roles\n          type: array\n          items:\n            type: string\nx-jsonld-prefixes:\n  stac: https://w3id.org/ogc/stac/core/\n  dct: http://purl.org/dc/terms/\n  rdfs: http://www.w3.org/2000/01/rdf-schema#\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/components/assets"
 }

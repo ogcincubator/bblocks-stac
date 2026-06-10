@@ -15,11 +15,11 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/cf/v0.3.0/schema.json"
   ],
   "type": "Collection",
   "id": "collection",
-  "title": "Collection with an Item",
+  "title": "A title",
   "description": "A description",
   "license": "Apache-2.0",
   "extent": {
@@ -42,31 +42,15 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
       ]
     }
   },
+  "assets": {
+    "example": {
+      "href": "https://example.com/examples/file.xyz"
+    }
+  },
   "item_assets": {
-    "sea_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
-    },
-    "sea_ice_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_ice_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
+    "data": {
+      "roles": [
+        "data"
       ]
     }
   },
@@ -75,20 +59,81 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
       "minimum": "2015-06-23T00:00:00Z",
       "maximum": "2019-07-10T13:44:56Z"
     },
-    "cf:parameter": [
-      {
-        "name": "sea_surface_temperature",
-        "unit": "K"
+    "cube:dimensions": {
+      "time_interval1": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -24
+        ],
+        "unit": "h"
       },
-      {
-        "name": "sea_ice_surface_temperature",
-        "unit": "K"
+      "vertical_dimension1": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Height above ground level",
+        "unit": "m",
+        "values": [
+          10
+        ]
       },
-      {
-        "name": "depth",
-        "unit": "m"
+      "time_interval2": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -60
+        ],
+        "unit": "min"
+      },
+      "vertical_dimension2": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Air pressure",
+        "unit": "hPa",
+        "values": [
+          500
+        ]
       }
-    ]
+    },
+    "cube:variables": {
+      "sea_surface_temperature": {
+        "type": "data",
+        "cf:standard_name": "sea_surface_temperature",
+        "description": "Average temperature on sea surface for preceding 24 hours",
+        "unit": "K",
+        "cf:cell_methods": [
+          "mean"
+        ],
+        "dimensions": [
+          "time_interval1"
+        ]
+      },
+      "wind_speed_at_10m": {
+        "type": "data",
+        "cf:standard_name": "wind_speed",
+        "description": "minimum wind speed in 1 hour at 10 m agl",
+        "unit": "kt",
+        "cf:cell_methods": [
+          null,
+          "minimum"
+        ],
+        "dimensions": [
+          "vertical_dimension1",
+          "time_interval2"
+        ]
+      },
+      "temp_at_500hPa": {
+        "type": "data",
+        "cf:standard_name": "air_temperature",
+        "description": "air temperature at 500 hPa",
+        "unit": "degC",
+        "dimensions": [
+          "vertical_dimension2"
+        ]
+      }
+    }
   },
   "links": [
     {
@@ -96,11 +141,12 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
       "rel": "self"
     },
     {
-      "href": "./item.json",
+      "href": "https://example.com/examples/item.json",
       "rel": "item"
     }
   ]
 }
+
 ```
 
 #### jsonld
@@ -109,11 +155,11 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/context.jsonld",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/cf/v0.3.0/schema.json"
   ],
   "type": "Collection",
   "id": "collection",
-  "title": "Collection with an Item",
+  "title": "A title",
   "description": "A description",
   "license": "Apache-2.0",
   "extent": {
@@ -136,31 +182,15 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
       ]
     }
   },
+  "assets": {
+    "example": {
+      "href": "https://example.com/examples/file.xyz"
+    }
+  },
   "item_assets": {
-    "sea_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
-    },
-    "sea_ice_surface_temperature": {
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_ice_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
+    "data": {
+      "roles": [
+        "data"
       ]
     }
   },
@@ -169,20 +199,81 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
       "minimum": "2015-06-23T00:00:00Z",
       "maximum": "2019-07-10T13:44:56Z"
     },
-    "cf:parameter": [
-      {
-        "name": "sea_surface_temperature",
-        "unit": "K"
+    "cube:dimensions": {
+      "time_interval1": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -24
+        ],
+        "unit": "h"
       },
-      {
-        "name": "sea_ice_surface_temperature",
-        "unit": "K"
+      "vertical_dimension1": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Height above ground level",
+        "unit": "m",
+        "values": [
+          10
+        ]
       },
-      {
-        "name": "depth",
-        "unit": "m"
+      "time_interval2": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -60
+        ],
+        "unit": "min"
+      },
+      "vertical_dimension2": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Air pressure",
+        "unit": "hPa",
+        "values": [
+          500
+        ]
       }
-    ]
+    },
+    "cube:variables": {
+      "sea_surface_temperature": {
+        "type": "data",
+        "cf:standard_name": "sea_surface_temperature",
+        "description": "Average temperature on sea surface for preceding 24 hours",
+        "unit": "K",
+        "cf:cell_methods": [
+          "mean"
+        ],
+        "dimensions": [
+          "time_interval1"
+        ]
+      },
+      "wind_speed_at_10m": {
+        "type": "data",
+        "cf:standard_name": "wind_speed",
+        "description": "minimum wind speed in 1 hour at 10 m agl",
+        "unit": "kt",
+        "cf:cell_methods": [
+          null,
+          "minimum"
+        ],
+        "dimensions": [
+          "vertical_dimension1",
+          "time_interval2"
+        ]
+      },
+      "temp_at_500hPa": {
+        "type": "data",
+        "cf:standard_name": "air_temperature",
+        "description": "air temperature at 500 hPa",
+        "unit": "degC",
+        "dimensions": [
+          "vertical_dimension2"
+        ]
+      }
+    }
   },
   "links": [
     {
@@ -190,7 +281,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
       "rel": "self"
     },
     {
-      "href": "./item.json",
+      "href": "https://example.com/examples/item.json",
       "rel": "item"
     }
   ]
@@ -202,6 +293,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -209,13 +301,14 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 <https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
-    dcterms:title "Collection with an Item" ;
+    dcterms:title "A title" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/cf/example-1/item.json> ] ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     dcat:license "Apache-2.0" ;
-    stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
+    stac:hasAsset [ ns2:example [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    stac:hasExtension "https://stac-extensions.github.io/cf/v0.3.0/schema.json" ;
     stac:version "1.0.0" .
 
 
@@ -228,7 +321,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/cf/v0.3.0/schema.json"
   ],
   "type": "Feature",
   "id": "item",
@@ -267,71 +360,95 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "cf:parameter": [
-      {
-        "name": "sea_surface_temperature",
-        "unit": "K"
+    "cube:dimensions": {
+      "time_interval1": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -24
+        ],
+        "unit": "h"
       },
-      {
-        "name": "sea_ice_surface_temperature",
-        "unit": "K"
+      "vertical_dimension1": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Height above ground level",
+        "unit": "m",
+        "values": [
+          10
+        ]
       },
-      {
-        "name": "depth",
-        "unit": "m"
+      "time_interval2": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -60
+        ],
+        "unit": "min"
+      },
+      "vertical_dimension2": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Air pressure",
+        "unit": "hPa",
+        "values": [
+          500
+        ]
       }
-    ]
+    },
+    "cube:variables": {
+      "sea_surface_temperature": {
+        "type": "data",
+        "cf:standard_name": "sea_surface_temperature",
+        "description": "Average temperature on sea surface for preceding 24 hours",
+        "unit": "K",
+        "cf:cell_methods": [
+          "mean"
+        ],
+        "dimensions": [
+          "time_interval1"
+        ]
+      },
+      "wind_speed_at_10m": {
+        "type": "data",
+        "cf:standard_name": "wind_speed",
+        "description": "minimum wind speed in 1 hour at 10 m agl",
+        "unit": "kt",
+        "cf:cell_methods": [
+          null,
+          "minimum"
+        ],
+        "dimensions": [
+          "vertical_dimension1",
+          "time_interval2"
+        ]
+      },
+      "temp_at_500hPa": {
+        "type": "data",
+        "cf:standard_name": "air_temperature",
+        "description": "air temperature at 500 hPa",
+        "unit": "degC",
+        "dimensions": [
+          "vertical_dimension2"
+        ]
+      }
+    }
   },
   "links": [
     {
       "href": "https://example.com/examples/item.json",
       "rel": "self"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "collection"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "parent"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "root"
     }
   ],
   "assets": {
-    "sea_surface_temperature": {
-      "href": "https://example.com/examples/sea_surface_temperature.nc",
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
-    },
-    "sea_ice_surface_temperature": {
-      "href": "https://example.com/examples/sea_ice_surface_temperature.nc",
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_ice_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
+    "data": {
+      "href": "https://example.com/examples/file.xyz"
     }
-  },
-  "collection": "collection"
+  }
 }
+
 ```
 
 #### jsonld
@@ -340,7 +457,7 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/context.jsonld",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/cf/v0.3.0/schema.json"
   ],
   "type": "Feature",
   "id": "item",
@@ -379,107 +496,120 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "cf:parameter": [
-      {
-        "name": "sea_surface_temperature",
-        "unit": "K"
+    "cube:dimensions": {
+      "time_interval1": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -24
+        ],
+        "unit": "h"
       },
-      {
-        "name": "sea_ice_surface_temperature",
-        "unit": "K"
+      "vertical_dimension1": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Height above ground level",
+        "unit": "m",
+        "values": [
+          10
+        ]
       },
-      {
-        "name": "depth",
-        "unit": "m"
+      "time_interval2": {
+        "type": "temporal",
+        "description": "time interval that cell_methods is applied over",
+        "values": [
+          -60
+        ],
+        "unit": "min"
+      },
+      "vertical_dimension2": {
+        "type": "spatial",
+        "axis": "z",
+        "cf:standard_name": "height",
+        "description": "Air pressure",
+        "unit": "hPa",
+        "values": [
+          500
+        ]
       }
-    ]
+    },
+    "cube:variables": {
+      "sea_surface_temperature": {
+        "type": "data",
+        "cf:standard_name": "sea_surface_temperature",
+        "description": "Average temperature on sea surface for preceding 24 hours",
+        "unit": "K",
+        "cf:cell_methods": [
+          "mean"
+        ],
+        "dimensions": [
+          "time_interval1"
+        ]
+      },
+      "wind_speed_at_10m": {
+        "type": "data",
+        "cf:standard_name": "wind_speed",
+        "description": "minimum wind speed in 1 hour at 10 m agl",
+        "unit": "kt",
+        "cf:cell_methods": [
+          null,
+          "minimum"
+        ],
+        "dimensions": [
+          "vertical_dimension1",
+          "time_interval2"
+        ]
+      },
+      "temp_at_500hPa": {
+        "type": "data",
+        "cf:standard_name": "air_temperature",
+        "description": "air temperature at 500 hPa",
+        "unit": "degC",
+        "dimensions": [
+          "vertical_dimension2"
+        ]
+      }
+    }
   },
   "links": [
     {
       "href": "https://example.com/examples/item.json",
       "rel": "self"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "collection"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "parent"
-    },
-    {
-      "href": "./collection.json",
-      "rel": "root"
     }
   ],
   "assets": {
-    "sea_surface_temperature": {
-      "href": "https://example.com/examples/sea_surface_temperature.nc",
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
-    },
-    "sea_ice_surface_temperature": {
-      "href": "https://example.com/examples/sea_ice_surface_temperature.nc",
-      "type": "application/netcdf",
-      "cf:parameter": [
-        {
-          "name": "sea_ice_surface_temperature",
-          "unit": "K"
-        },
-        {
-          "name": "depth",
-          "unit": "m"
-        }
-      ]
+    "data": {
+      "href": "https://example.com/examples/file.xyz"
     }
-  },
-  "collection": "collection"
+  }
 }
 ```
 
 #### ttl
 ```ttl
-@prefix cf: <https://w3id.org/ogc/stac/cf/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <cube:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/cf/example-2/item> a geojson:Feature ;
+    ns1:dimensions [ ] ;
+    ns1:variables [ ] ;
     dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/cf/example-2/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    cf:parameter [ qudt:hasUnit "m" ;
-            cf:name "depth" ],
-        [ qudt:hasUnit "K" ;
-            cf:name "sea_ice_surface_temperature" ],
-        [ qudt:hasUnit "K" ;
-            cf:name "sea_surface_temperature" ] ;
-    stac:hasAsset [ ] ;
-    stac:hasExtension "https://stac-extensions.github.io/cf/v0.2.0/schema.json" ;
+    stac:hasAsset [ ns3:data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    stac:hasExtension "https://stac-extensions.github.io/cf/v0.3.0/schema.json" ;
     stac:version "1.0.0" .
 
 
@@ -538,8 +668,28 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "license": "dcat:license",
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -550,24 +700,6 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
-    "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "license": "dcat:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -628,21 +760,7 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
     "name": "cf:name",
-    "unit": {
-      "@id": "qudt:hasUnit",
-      "@context": {
-        "@base": "http://qudt.org/vocab/unit/"
-      }
-    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -666,8 +784,6 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",

@@ -210,25 +210,25 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     dcterms:extent [ ] ;
     dcterms:title "Machine Learning Model examples" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_multi_io.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json" ;
     stac:version "1.0.0" .
@@ -244,7 +244,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the basic use of MLM with no other extension cross-references.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json"
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json"
   ],
   "type": "Feature",
   "id": "example-model",
@@ -390,7 +390,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the basic use of MLM with no other extension cross-references.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json"
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json"
   ],
   "type": "Feature",
   "id": "example-model",
@@ -534,6 +534,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <mlm:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -551,10 +552,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
-    stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ns3:model [ dcterms:description "Example model." ;
+                    dcterms:format "text/html" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/example/model-card> ;
+                    stac:roles "mlm:model" ;
+                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:version "1.0.0" ;
     ns1:architecture "ResNet" ;
     ns1:input [ ] ;
@@ -573,7 +577,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and EO for bands description, with EO bands directly in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -784,7 +788,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and EO for bands description, with EO bands directly in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -992,9 +996,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <file:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns3: <mlm:> .
-@prefix ns4: <ml-aoi:> .
+@prefix ns4: <eo:> .
+@prefix ns5: <ml-aoi:> .
+@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns7: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1005,26 +1012,51 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     ns1:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns7:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-3/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ] ;
+            ns7:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ],
+        [ dcterms:type "application/json" ;
+            ns7:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns5:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns2:weights [ ns4:bands [ dcterms:description "Green (band 3)" ;
+                            ns2:center_wavelength 5.6e-01 ;
+                            ns2:common_name "green" ;
+                            ns2:full_width_half_max 4.5e-02 ;
+                            ns2:name "B03" ],
+                        [ dcterms:description "Blue (band 2)" ;
+                            ns2:center_wavelength 4.9e-01 ;
+                            ns2:common_name "blue" ;
+                            ns2:full_width_half_max 9.8e-02 ;
+                            ns2:name "B02" ],
+                        [ dcterms:description "Red (band 4)" ;
+                            ns2:center_wavelength 6.65e-01 ;
+                            ns2:common_name "red" ;
+                            ns2:full_width_half_max 3.8e-02 ;
+                            ns2:name "B04" ],
+                        [ dcterms:description "NIR 1 (band 8)" ;
+                            ns2:center_wavelength 8.42e-01 ;
+                            ns2:common_name "nir" ;
+                            ns2:full_width_half_max 1.45e-01 ;
+                            ns2:name "B08" ] ;
+                    dcterms:description "A vegetation classification model trained on Sentinel-2 imagery and NDVI." ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://example.com/model-rgb-ndvi.pth> ;
+                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns3:accelerator "cuda" ;
     ns3:accelerator_constrained false ;
@@ -1052,7 +1084,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and DataCube variables description to characterize its inputs and outputs.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
     "https://stac-extensions.github.io/file/v2.1.0/schema.json",
     "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
@@ -1358,7 +1390,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and DataCube variables description to characterize its inputs and outputs.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
     "https://stac-extensions.github.io/file/v2.1.0/schema.json",
     "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
@@ -1661,9 +1693,11 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <cube:> .
-@prefix ns4: <sci:> .
+@prefix ns2: <cube:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <file:> .
+@prefix ns5: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns6: <sci:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1671,36 +1705,54 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
-    ns3:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
+    ns2:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
                     dcterms:extent "1940-01-01T00:00:00Z",
                         "2100-12-31T23:59:59Z" ] ] ;
-    ns3:variables [ ] ;
+    ns2:variables [ ] ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
     rdfs:seeAlso [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            ns3:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "text/html" ;
+            ns3:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
+        [ dcterms:type "text/html" ;
+            ns3:relation <http://www.iana.org/assignments/relation/code> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
-        [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/code> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
         [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
-        [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ] ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ] ;
     geojson:bbox ( 2.336e+02 5.42e+01 2.975e+02 2.26e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 2.336e+02 5.42e+01 ) ( 2.975e+02 5.42e+01 ) ( 2.975e+02 2.26e+01 ) ( 2.336e+02 2.26e+01 ) ( 2.336e+02 5.42e+01 ) ) ) ] ;
-    stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns5:model [ dcterms:description "Source code to define the U-Net model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Model implementation." ;
+                    oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
+                    stac:roles "code",
+                        "metadata",
+                        "mlm:source_code" ] ;
+            ns5:train-script [ dcterms:description "Script to run training of the model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Training script." ;
+                    oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
+                    stac:roles "code",
+                        "metadata",
+                        "mlm:training" ] ;
+            ns5:weights [ ns4:size 389657415 ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "U-Net Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns1:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
-    stac:start_datetime "1940-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     ns1:accelerator "cuda" ;
     ns1:accelerator_constrained false ;
@@ -1712,7 +1764,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     ns1:output [ ] ;
     ns1:tasks "downscaling",
         "regression" ;
-    ns4:publications [ ] .
+    ns6:publications [ ] .
 
 
 ```
@@ -1725,7 +1777,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM with both EO and Raster extensions using complementary bands details to describe the Model Asset by band name reference.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -2316,7 +2368,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM with both EO and Raster extensions using complementary bands details to describe the Model Asset by band name reference.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -2903,11 +2955,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <ml-aoi:> .
-@prefix ns3: <eo:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <eo:> .
+@prefix ns3: <mlm:> .
 @prefix ns4: <file:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns5: <ml-aoi:> .
+@prefix ns6: <http://www.iana.org/assignments/> .
+@prefix ns7: <https://w3id.org/ogc/stac/assets/$> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -2916,78 +2970,70 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns3:bands [ dcterms:description "NIR 3 (band 9)" ],
-        [ dcterms:description "Coastal aerosol (band 1)" ],
-        [ dcterms:description "NIR 2 (band 8A)" ],
-        [ dcterms:description "Blue (band 2)" ],
-        [ dcterms:description "Red edge 2 (band 6)" ],
-        [ dcterms:description "Red (band 4)" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ],
+    ns2:bands [ dcterms:description "SWIR 1 (band 11)" ],
         [ dcterms:description "Green (band 3)" ],
+        [ dcterms:description "Red (band 4)" ],
+        [ dcterms:description "NIR 3 (band 9)" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ],
+        [ dcterms:description "Blue (band 2)" ],
+        [ dcterms:description "SWIR - Cirrus (band 10)" ],
         [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "NIR 2 (band 8A)" ],
         [ dcterms:description "NIR 1 (band 8)" ],
-        [ dcterms:description "Red edge 1 (band 5)" ],
+        [ dcterms:description "Red edge 2 (band 6)" ],
         [ dcterms:description "Red edge 3 (band 7)" ],
-        [ dcterms:description "SWIR 1 (band 11)" ] ;
+        [ dcterms:description "Red edge 1 (band 5)" ] ;
     ns4:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-5/item_eo_bands.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns6:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-5/collection.json> ],
         [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns2:split "train" ] ;
+            ns5:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns6:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-5/item_eo_bands.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns1:source_code [ dcterms:description "Source code to run the model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Model implementation." ;
+                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+                    stac:roles "code",
+                        "metadata" ] ;
+            ns1:weights [ ns2:bands [ ns1:name "rededge1" ],
+                        [ ns1:name "nir08" ],
+                        [ ns1:name "green" ],
+                        [ ns1:name "swir16" ],
+                        [ ns1:name "swir22" ],
+                        [ ns1:name "red" ],
+                        [ ns1:name "rededge2" ],
+                        [ ns1:name "nir09" ],
+                        [ ns1:name "rededge3" ],
+                        [ ns1:name "cirrus" ],
+                        [ ns1:name "nir" ],
+                        [ ns1:name "blue" ],
+                        [ ns1:name "coastal" ] ;
+                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
+                    ns7:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     raster:bands [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B07" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B10" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
             raster:name "B8A" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B01" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B12" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
@@ -3003,7 +3049,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B03" ;
+            raster:name "B04" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
@@ -3019,6 +3065,38 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
+            raster:name "B05" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B12" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B07" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 20 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
+            raster:name "B03" ;
+            raster:nodata 0 ;
+            raster:offset 0 ;
+            raster:scale 1e-04 ;
+            raster:spatial_resolution 10 ;
+            raster:unit "m" ],
+        [ raster:bits_per_sample 15 ;
+            raster:data_type "uint16" ;
             raster:name "B02" ;
             raster:nodata 0 ;
             raster:offset 0 ;
@@ -3027,19 +3105,19 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B06" ;
+            raster:name "B01" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
+            raster:spatial_resolution 60 ;
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B05" ;
+            raster:name "B10" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
+            raster:spatial_resolution 60 ;
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
@@ -3051,26 +3129,26 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
             raster:unit "m" ],
         [ raster:bits_per_sample 15 ;
             raster:data_type "uint16" ;
-            raster:name "B04" ;
+            raster:name "B06" ;
             raster:nodata 0 ;
             raster:offset 0 ;
             raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
+            raster:spatial_resolution 20 ;
             raster:unit "m" ] ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    ns3:accelerator "cuda" ;
+    ns3:accelerator_constrained false ;
+    ns3:accelerator_summary "Unknown" ;
+    ns3:architecture "ResNet" ;
+    ns3:batch_size_suggestion 256 ;
+    ns3:framework "pytorch" ;
+    ns3:framework_version "2.1.2+cu121" ;
+    ns3:input [ ] ;
+    ns3:memory_size 1 ;
+    ns3:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns3:output [ ] ;
+    ns3:pretrained_source "EuroSat Sentinel-2" ;
+    ns3:tasks "classification" ;
+    ns3:total_parameters 11700000 .
 
 
 ```
@@ -3083,7 +3161,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and EO for bands description, with EO bands directly in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -3502,7 +3580,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and EO for bands description, with EO bands directly in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -3917,10 +3995,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <ml-aoi:> .
-@prefix ns4: <file:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <eo:> .
+@prefix ns3: <mlm:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <file:> .
+@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns7: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -3928,43 +4009,120 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns4:size 43000000 ;
+    ns5:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns7:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-6/item_eo_bands.json> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns3:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-6/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns1:source_code [ dcterms:description "Source code to run the model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Model implementation." ;
+                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+                    stac:roles "code",
+                        "metadata",
+                        "mlm:source_code" ] ;
+            ns1:weights [ ns2:bands [ dcterms:description "SWIR - Cirrus (band 10)" ;
+                            ns1:center_wavelength 1.375e+00 ;
+                            ns1:common_name "cirrus" ;
+                            ns1:full_width_half_max 2.6e-02 ;
+                            ns1:name "B10" ],
+                        [ dcterms:description "Red edge 3 (band 7)" ;
+                            ns1:center_wavelength 7.83e-01 ;
+                            ns1:common_name "rededge" ;
+                            ns1:full_width_half_max 2.8e-02 ;
+                            ns1:name "B07" ],
+                        [ dcterms:description "NIR 3 (band 9)" ;
+                            ns1:center_wavelength 9.45e-01 ;
+                            ns1:common_name "nir09" ;
+                            ns1:full_width_half_max 2.6e-02 ;
+                            ns1:name "B09" ],
+                        [ dcterms:description "SWIR 1 (band 11)" ;
+                            ns1:center_wavelength 1.61e+00 ;
+                            ns1:common_name "swir16" ;
+                            ns1:full_width_half_max 1.43e-01 ;
+                            ns1:name "B11" ],
+                        [ dcterms:description "Green (band 3)" ;
+                            ns1:center_wavelength 5.6e-01 ;
+                            ns1:common_name "green" ;
+                            ns1:full_width_half_max 4.5e-02 ;
+                            ns1:name "B03" ],
+                        [ dcterms:description "NIR 2 (band 8A)" ;
+                            ns1:center_wavelength 8.65e-01 ;
+                            ns1:common_name "nir08" ;
+                            ns1:full_width_half_max 3.3e-02 ;
+                            ns1:name "B8A" ],
+                        [ dcterms:description "Coastal aerosol (band 1)" ;
+                            ns1:center_wavelength 4.43e-01 ;
+                            ns1:common_name "coastal" ;
+                            ns1:full_width_half_max 2.7e-02 ;
+                            ns1:name "B01" ],
+                        [ dcterms:description "Red (band 4)" ;
+                            ns1:center_wavelength 6.65e-01 ;
+                            ns1:common_name "red" ;
+                            ns1:full_width_half_max 3.8e-02 ;
+                            ns1:name "B04" ],
+                        [ dcterms:description "Blue (band 2)" ;
+                            ns1:center_wavelength 4.9e-01 ;
+                            ns1:common_name "blue" ;
+                            ns1:full_width_half_max 9.8e-02 ;
+                            ns1:name "B02" ],
+                        [ dcterms:description "NIR 1 (band 8)" ;
+                            ns1:center_wavelength 8.42e-01 ;
+                            ns1:common_name "nir" ;
+                            ns1:full_width_half_max 1.45e-01 ;
+                            ns1:name "B08" ],
+                        [ dcterms:description "SWIR 2 (band 12)" ;
+                            ns1:center_wavelength 2.19e+00 ;
+                            ns1:common_name "swir22" ;
+                            ns1:full_width_half_max 2.42e-01 ;
+                            ns1:name "B12" ],
+                        [ dcterms:description "Red edge 2 (band 6)" ;
+                            ns1:center_wavelength 7.4e-01 ;
+                            ns1:common_name "rededge" ;
+                            ns1:full_width_half_max 1.8e-02 ;
+                            ns1:name "B06" ],
+                        [ dcterms:description "Red edge 1 (band 5)" ;
+                            ns1:center_wavelength 7.04e-01 ;
+                            ns1:common_name "rededge" ;
+                            ns1:full_width_half_max 1.9e-02 ;
+                            ns1:name "B05" ] ;
+                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
+                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    ns3:accelerator "cuda" ;
+    ns3:accelerator_constrained false ;
+    ns3:accelerator_summary "Unknown" ;
+    ns3:architecture "ResNet" ;
+    ns3:batch_size_suggestion 256 ;
+    ns3:framework "pytorch" ;
+    ns3:framework_version "2.1.2+cu121" ;
+    ns3:input [ ] ;
+    ns3:memory_size 1 ;
+    ns3:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns3:output [ ] ;
+    ns3:pretrained_source "EuroSat Sentinel-2" ;
+    ns3:tasks "classification" ;
+    ns3:total_parameters 11700000 .
 
 
 ```
@@ -3977,7 +4135,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and EO for bands description, with EO bands summarized in the Item properties and referenced by name in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -4435,7 +4593,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and EO for bands description, with EO bands summarized in the Item properties and referenced by name in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -4889,11 +5047,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <eo:> .
+@prefix ns1: <eo:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns3: <http://www.iana.org/assignments/> .
 @prefix ns4: <ml-aoi:> .
-@prefix ns5: <file:> .
+@prefix ns5: <mlm:> .
+@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns7: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -4901,20 +5061,20 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns2:bands [ dcterms:description "Red edge 1 (band 5)" ],
-        [ dcterms:description "SWIR 1 (band 11)" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ],
-        [ dcterms:description "Green (band 3)" ],
-        [ dcterms:description "NIR 1 (band 8)" ],
+    ns1:bands [ dcterms:description "SWIR 1 (band 11)" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ],
         [ dcterms:description "Red (band 4)" ],
         [ dcterms:description "NIR 3 (band 9)" ],
-        [ dcterms:description "NIR 2 (band 8A)" ],
+        [ dcterms:description "Red edge 1 (band 5)" ],
         [ dcterms:description "Red edge 3 (band 7)" ],
-        [ dcterms:description "Blue (band 2)" ],
-        [ dcterms:description "Coastal aerosol (band 1)" ],
+        [ dcterms:description "SWIR - Cirrus (band 10)" ],
         [ dcterms:description "Red edge 2 (band 6)" ],
-        [ dcterms:description "SWIR 2 (band 12)" ] ;
-    ns5:size 43000000 ;
+        [ dcterms:description "NIR 2 (band 8A)" ],
+        [ dcterms:description "NIR 1 (band 8)" ],
+        [ dcterms:description "Green (band 3)" ],
+        [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "Blue (band 2)" ] ;
+    ns7:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
@@ -4929,28 +5089,52 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns2:source_code [ dcterms:description "Source code to run the model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Model implementation." ;
+                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+                    stac:roles "code",
+                        "metadata" ] ;
+            ns2:weights [ ns1:bands [ ns2:name "blue" ],
+                        [ ns2:name "rededge3" ],
+                        [ ns2:name "swir16" ],
+                        [ ns2:name "green" ],
+                        [ ns2:name "nir09" ],
+                        [ ns2:name "cirrus" ],
+                        [ ns2:name "nir" ],
+                        [ ns2:name "coastal" ],
+                        [ ns2:name "rededge1" ],
+                        [ ns2:name "red" ],
+                        [ ns2:name "nir08" ],
+                        [ ns2:name "rededge2" ],
+                        [ ns2:name "swir22" ] ;
+                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
+                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns5:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    ns5:accelerator "cuda" ;
+    ns5:accelerator_constrained false ;
+    ns5:accelerator_summary "Unknown" ;
+    ns5:architecture "ResNet" ;
+    ns5:batch_size_suggestion 256 ;
+    ns5:framework "pytorch" ;
+    ns5:framework_version "2.1.2+cu121" ;
+    ns5:input [ ] ;
+    ns5:memory_size 1 ;
+    ns5:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns5:output [ ] ;
+    ns5:pretrained_source "EuroSat Sentinel-2" ;
+    ns5:tasks "classification" ;
+    ns5:total_parameters 11700000 .
 
 
 ```
@@ -4963,7 +5147,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM with a mixture of inputs, some using EO bands, others without, and some with derived properties.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -5264,7 +5448,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM with a mixture of inputs, some using EO bands, others without, and some with derived properties.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -5561,57 +5745,95 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <ml-aoi:> .
-@prefix ns4: <file:> .
+@prefix ns1: <ml-aoi:> .
+@prefix ns2: <mlm:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns5: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-8/model-multi-input> a geojson:Feature ;
-    ns4:size 43000000 ;
+    ns5:size 43000000 ;
     dcterms:description "Generic model that employs multiple input sources with different combination of bands, and some inputs without any band at all." ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns3:split "train" ],
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-8/item_multi_io.json> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ] ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns1:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns4:weights [ dcterms:description "A Resnet-50 classification model trained on Sentinel-2 RGB imagery with torchgeo." ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    raster:bands [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B02 - blue" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B03 - green" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B04 - red" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B08 - nir" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ] ;
+                    ns2:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ dcterms:description "Digital elevation model. Comes from another source than the Sentinel bands. Therefore, no 'bands' associated to it." ],
+    ns2:accelerator "cuda" ;
+    ns2:accelerator_constrained false ;
+    ns2:accelerator_summary "Unknown" ;
+    ns2:architecture "ResNet" ;
+    ns2:batch_size_suggestion 256 ;
+    ns2:framework "pytorch" ;
+    ns2:framework_version "2.1.2+cu121" ;
+    ns2:input [ ],
         [ dcterms:description "Compute NDVI from Sentinel-2 bands. The single 'NDVI' virtual band is then fed as 'bands' dimension to the model input." ],
+        [ dcterms:description "Digital elevation model. Comes from another source than the Sentinel bands. Therefore, no 'bands' associated to it." ] ;
+    ns2:memory_size 1 ;
+    ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns2:output [ ],
         [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ],
-        [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    ns2:pretrained_source "EuroSat Sentinel-2" ;
+    ns2:tasks "classification" ;
+    ns2:total_parameters 11700000 .
 
 
 ```
@@ -5625,7 +5847,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "type": "Feature",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
   ],
   "id": "pytorch_geo_unet",
@@ -5832,7 +6054,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "type": "Feature",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json"
   ],
   "id": "pytorch_geo_unet",
@@ -6034,9 +6256,11 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <classification:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <classification:> .
+@prefix ns3: <mlm:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <eo:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -6045,36 +6269,55 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-9/pytorch_geo_unet> a geojson:Feature ;
     dcterms:description "STAC item generated using unet_mlm() in stac_model/examples.py example. Specified in https://github.com/fieldsoftheworld/ftw-baselines First 4 S2 bands are for image t1 and last 4 bands are for image t2" ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-9/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-9/item_pytorch_geo_unet.json> ],
-        [ rdfs:label "Publication for the training dataset of the model" ;
+    rdfs:seeAlso [ rdfs:label "Publication for the training dataset of the model" ;
             dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://arxiv.org/abs/2409.16252> ] ;
+            ns4:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://arxiv.org/abs/2409.16252> ],
+        [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-9/item_pytorch_geo_unet.json> ],
+        [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-9/collection.json> ] ;
     geojson:bbox ( -7.88e+00 3.713e+01 2.791e+01 5.821e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88e+00 3.713e+01 ) ( -7.88e+00 5.821e+01 ) ( 2.791e+01 5.821e+01 ) ( 2.791e+01 3.713e+01 ) ( -7.88e+00 3.713e+01 ) ) ) ] ;
-    stac:end_datetime "2024-08-27T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns1:model [ ns5:bands [ ns1:name "B2" ],
+                        [ ns1:name "B4" ],
+                        [ ns1:name "B8" ],
+                        [ ns1:name "B8" ],
+                        [ ns1:name "B3" ],
+                        [ ns1:name "B2" ],
+                        [ ns1:name "B4" ],
+                        [ ns1:name "B3" ] ;
+                    dcterms:description "A U-Net segmentation model with efficientnet-b3 encoder Weights are non-commercial." ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "U-Net_efficientnet-b3" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ;
+                    stac:roles "data",
+                        "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ;
+            ns1:source_code [ dcterms:description "GitHub repo of the pytorch model" ;
+                    dcterms:format "text/html" ;
+                    dcterms:title "Source code for U-Net_efficientnet-b3" ;
+                    oa:hasTarget <https://github.com/qubvel-org/segmentation_models.pytorch> ;
+                    stac:roles "code",
+                        "mlm:source_code" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "2015-06-23T00:00:00+00:00"^^xsd:dateTime ;
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:accelerator_constrained false ;
-    ns1:architecture "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    ns1:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    ns1:framework "segmentation_models_pytorch.decoders.unet.model" ;
-    ns1:input [ ] ;
-    ns1:name "U-Net_efficientnet-b3" ;
-    ns1:output [ ns3:classes [ dcterms:description "Auto-generated class 1" ],
-                [ dcterms:description "Auto-generated class 0" ] ] ;
-    ns1:pretrained true ;
-    ns1:tasks "semantic-segmentation" ;
-    ns1:total_parameters 13160978 .
+    ns3:accelerator_constrained false ;
+    ns3:architecture "segmentation_models_pytorch.decoders.unet.model.Unet" ;
+    ns3:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet" ;
+    ns3:framework "segmentation_models_pytorch.decoders.unet.model" ;
+    ns3:input [ ] ;
+    ns3:name "U-Net_efficientnet-b3" ;
+    ns3:output [ ns2:classes [ dcterms:description "Auto-generated class 0" ],
+                [ dcterms:description "Auto-generated class 1" ] ] ;
+    ns3:pretrained true ;
+    ns3:tasks "semantic-segmentation" ;
+    ns3:total_parameters 13160978 .
 
 
 ```
@@ -6087,7 +6330,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and Raster for bands description, with Raster bands directly in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -6477,7 +6720,7 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
   "$comment": "Demonstrate the use of MLM and Raster for bands description, with Raster bands directly in the Model Asset.",
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+    "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
     "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
     "https://stac-extensions.github.io/file/v1.0.0/schema.json",
     "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json"
@@ -6863,54 +7106,171 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <file:> .
-@prefix ns4: <ml-aoi:> .
+@prefix ns1: <ml-aoi:> .
+@prefix ns2: <mlm:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <file:> .
+@prefix ns5: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns3:size 43000000 ;
+    ns4:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-10/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-10/item_raster_bands.json> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-10/collection.json> ] ;
+            ns1:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns5:source_code [ dcterms:description "Source code to run the model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Model implementation." ;
+                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+                    stac:roles "code",
+                        "metadata",
+                        "mlm:source_code" ] ;
+            ns5:weights [ dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    raster:bands [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B09" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 60 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B02" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B11" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 20 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B8A" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 20 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B10" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 60 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B01" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 60 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B07" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 20 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B08" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B12" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 20 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B06" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 20 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B04" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B03" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 10 ;
+                            raster:unit "m" ],
+                        [ raster:bits_per_sample 15 ;
+                            raster:data_type "uint16" ;
+                            raster:name "B05" ;
+                            raster:nodata 0 ;
+                            raster:offset 0 ;
+                            raster:scale 1e-04 ;
+                            raster:spatial_resolution 20 ;
+                            raster:unit "m" ] ;
+                    ns2:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    ns2:accelerator "cuda" ;
+    ns2:accelerator_constrained false ;
+    ns2:accelerator_summary "Unknown" ;
+    ns2:architecture "ResNet" ;
+    ns2:batch_size_suggestion 256 ;
+    ns2:framework "pytorch" ;
+    ns2:framework_version "2.1.2+cu121" ;
+    ns2:input [ ] ;
+    ns2:memory_size 1 ;
+    ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns2:output [ ] ;
+    ns2:pretrained_source "EuroSat Sentinel-2" ;
+    ns2:tasks "classification" ;
+    ns2:total_parameters 11700000 .
 
 
 ```
@@ -6970,8 +7330,28 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "license": "dcat:license",
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -6982,24 +7362,6 @@ Links to the schema:
       "@container": "@set"
     },
     "stac_version": "stac:version",
-    "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
-    },
-    "license": "dcat:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -7060,14 +7422,6 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "title": {
-      "@id": "dct:title",
-      "@container": "@set"
-    },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
     "raster:bands": {
       "@id": "raster:bands",
       "@context": {
@@ -7100,8 +7454,6 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",

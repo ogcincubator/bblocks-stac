@@ -1,8 +1,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <classification:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <classification:> .
+@prefix ns3: <mlm:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <eo:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -11,34 +13,53 @@
 
 <https://example.com/stac/mlm/example-9/pytorch_geo_unet> a geojson:Feature ;
     dcterms:description "STAC item generated using unet_mlm() in stac_model/examples.py example. Specified in https://github.com/fieldsoftheworld/ftw-baselines First 4 S2 bands are for image t1 and last 4 bands are for image t2" ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-9/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-9/item_pytorch_geo_unet.json> ],
-        [ rdfs:label "Publication for the training dataset of the model" ;
+    rdfs:seeAlso [ rdfs:label "Publication for the training dataset of the model" ;
             dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://arxiv.org/abs/2409.16252> ] ;
+            ns4:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://arxiv.org/abs/2409.16252> ],
+        [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-9/item_pytorch_geo_unet.json> ],
+        [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-9/collection.json> ] ;
     geojson:bbox ( -7.88e+00 3.713e+01 2.791e+01 5.821e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88e+00 3.713e+01 ) ( -7.88e+00 5.821e+01 ) ( 2.791e+01 5.821e+01 ) ( 2.791e+01 3.713e+01 ) ( -7.88e+00 3.713e+01 ) ) ) ] ;
-    stac:end_datetime "2024-08-27T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns1:model [ ns5:bands [ ns1:name "B2" ],
+                        [ ns1:name "B4" ],
+                        [ ns1:name "B8" ],
+                        [ ns1:name "B8" ],
+                        [ ns1:name "B3" ],
+                        [ ns1:name "B2" ],
+                        [ ns1:name "B4" ],
+                        [ ns1:name "B3" ] ;
+                    dcterms:description "A U-Net segmentation model with efficientnet-b3 encoder Weights are non-commercial." ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "U-Net_efficientnet-b3" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ;
+                    stac:roles "data",
+                        "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ;
+            ns1:source_code [ dcterms:description "GitHub repo of the pytorch model" ;
+                    dcterms:format "text/html" ;
+                    dcterms:title "Source code for U-Net_efficientnet-b3" ;
+                    oa:hasTarget <https://github.com/qubvel-org/segmentation_models.pytorch> ;
+                    stac:roles "code",
+                        "mlm:source_code" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "2015-06-23T00:00:00+00:00"^^xsd:dateTime ;
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:accelerator_constrained false ;
-    ns1:architecture "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    ns1:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    ns1:framework "segmentation_models_pytorch.decoders.unet.model" ;
-    ns1:input [ ] ;
-    ns1:name "U-Net_efficientnet-b3" ;
-    ns1:output [ ns3:classes [ dcterms:description "Auto-generated class 1" ],
-                [ dcterms:description "Auto-generated class 0" ] ] ;
-    ns1:pretrained true ;
-    ns1:tasks "semantic-segmentation" ;
-    ns1:total_parameters 13160978 .
+    ns3:accelerator_constrained false ;
+    ns3:architecture "segmentation_models_pytorch.decoders.unet.model.Unet" ;
+    ns3:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet" ;
+    ns3:framework "segmentation_models_pytorch.decoders.unet.model" ;
+    ns3:input [ ] ;
+    ns3:name "U-Net_efficientnet-b3" ;
+    ns3:output [ ns2:classes [ dcterms:description "Auto-generated class 0" ],
+                [ dcterms:description "Auto-generated class 1" ] ] ;
+    ns3:pretrained true ;
+    ns3:tasks "semantic-segmentation" ;
+    ns3:total_parameters 13160978 .
 

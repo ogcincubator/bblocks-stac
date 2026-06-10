@@ -470,7 +470,7 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 $schema: https://json-schema.org/draft/2020-12/schema
 description: STAC Collection
 allOf:
-- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Entity
+- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - type: object
@@ -501,6 +501,7 @@ Links to the schema:
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
+    "type": "@type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -845,7 +846,6 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
     "properties": "@nest",
     "geometry": {
       "@context": {
@@ -895,6 +895,7 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -904,29 +905,26 @@ Links to the schema:
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
-    "stac_version": "stac:version",
     "title": {
       "@id": "dct:title",
       "@container": "@set"
     },
     "description": {
-      "@id": "dct:description",
-      "@container": "@set"
+      "@container": "@set",
+      "@id": "dct:description"
     },
     "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
+      "@container": "@set",
+      "@id": "dcat:keyword"
     },
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "created": "dct:created",
+    "updated": "dct:modified",
     "license": "dcat:license",
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "href": {
       "@type": "@id",
@@ -949,8 +947,6 @@ Links to the schema:
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "stac": "https://w3id.org/ogc/stac/core/",
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -998,10 +994,6 @@ Links to the schema:
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
     "@version": 1.1
   }
 }

@@ -1,0 +1,46 @@
+Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model
+Generated 2026-06-10T19:43:55.438966+00:00
+=== Files ===
+Using https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_bands_summarized.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_7_1.jsonld created
+Output Turtle example_7_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema
+
+Failed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:
+    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},
+     'type': 'array'}
+
+On instance['stac_extensions']:
+    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',
+     'https://stac-extensions.github.io/eo/v1.1.0/schema.json',
+     'https://stac-extensions.github.io/file/v1.0.0/schema.json',
+     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>
+
+Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+
+=== End SHACL ===
+

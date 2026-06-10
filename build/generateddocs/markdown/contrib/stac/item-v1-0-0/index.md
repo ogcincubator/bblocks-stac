@@ -73,7 +73,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -115,6 +115,7 @@ Links to the schema:
     "stac_extensions": "stac:hasExtension",
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -124,29 +125,26 @@ Links to the schema:
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
-    "stac_version": "stac:version",
     "title": {
       "@id": "dct:title",
       "@container": "@set"
     },
     "description": {
-      "@id": "dct:description",
-      "@container": "@set"
+      "@container": "@set",
+      "@id": "dct:description"
     },
     "keywords": {
-      "@id": "dcat:keyword",
-      "@container": "@set"
+      "@container": "@set",
+      "@id": "dcat:keyword"
     },
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "created": "dct:created",
+    "updated": "dct:modified",
     "license": "dcat:license",
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "href": {
       "@type": "@id",
@@ -169,8 +167,6 @@ Links to the schema:
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "stac": "https://w3id.org/ogc/stac/core/",
-    "created": "dct:created",
-    "updated": "dct:modified",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -218,10 +214,6 @@ Links to the schema:
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
     "@version": 1.1
   }
 }

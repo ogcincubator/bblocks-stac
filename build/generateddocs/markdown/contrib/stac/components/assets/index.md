@@ -63,9 +63,18 @@ This is the simple item  asset example from the STAC specification.
 
 #### ttl
 ```ttl
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ ] .
+[] stac:hasAsset [ ns1:thumbnail [ dcterms:format "image/jpeg" ;
+                    dcterms:title "Thumbnail" ;
+                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
+                    stac:roles "thumbnail" ] ;
+            ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+                    dcterms:title "3-Band Visual" ;
+                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
+                    stac:roles "visual" ] ] .
 
 
 ```
@@ -145,9 +154,25 @@ Includes asset types not defined by core
 
 #### ttl
 ```ttl
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <mlm:> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ ] .
+[] stac:hasAsset [ ns1:model [ dcterms:description "Example model." ;
+                    dcterms:format "text/html" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    ns1:href "https://huggingface.co/example/model-card" ;
+                    stac:roles "mlm:model" ;
+                    ns2:artifact_type "torch.save" ] ;
+            ns1:thumbnail [ dcterms:format "image/jpeg" ;
+                    dcterms:title "Thumbnail" ;
+                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
+                    stac:roles "thumbnail" ] ;
+            ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+                    dcterms:title "3-Band Visual" ;
+                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
+                    stac:roles "visual" ] ] .
 
 
 ```
@@ -164,6 +189,7 @@ properties:
     $ref: '#/definitions/assets'
     x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset
     x-jsonld-container: '@set'
+    x-jsonld-vocab: https://w3id.org/ogc/stac/assets/
     x-jsonld-extra-terms:
       type: http://purl.org/dc/terms/format
       title: http://purl.org/dc/terms/title
@@ -223,6 +249,7 @@ Links to the schema:
   "@context": {
     "assets": {
       "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/assets/",
         "type": "dct:format",
         "title": "dct:title",
         "description": "dct:description",

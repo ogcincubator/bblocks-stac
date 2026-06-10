@@ -196,46 +196,48 @@ Ref to STAC example using version (1.0.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://example.com/stac/example1/polarwarp> rdfs:label "Polarwarp" ;
+    dcterms:description """Polarwarp product
+
+Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
-    dcterms:license "various" ;
     dcterms:type "Collection" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
+        [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/catalog.json> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/catalog.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns2:project "cerulean-information-factory" ;
-    ns2:status "completed" ;
-    ns2:type "product" .
+    ns1:project "cerulean-information-factory" ;
+    ns1:status "completed" ;
+    ns1:type "product" .
 
 
 ```
@@ -268,40 +270,27 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "type": "dct:type",
     "id": "@id",
+    "title": "rdfs:label",
+    "description": "dct:description",
     "extent": "dct:extent",
-    "links": "rdfs:seeAlso",
     "assets": {
       "@context": {
-        "type": "dct:format",
         "title": "dct:title",
-        "description": "dct:description",
+        "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
           "@container": "@set"
-        }
+        },
+        "@vocab": "https://w3id.org/ogc/stac/assets/"
       },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
-    "stac_version": "stac:version",
-    "keywords": "dct:subject",
-    "license": "dct:license",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "providers": "stac:hasProvider",
+    "links": "rdfs:seeAlso",
     "media_type": "dct:format",
     "href": {
       "@type": "@id",
@@ -315,7 +304,6 @@ Links to the schema:
       "@type": "@id"
     },
     "hreflang": "dct:language",
-    "title": "rdfs:label",
     "length": "dct:extent",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

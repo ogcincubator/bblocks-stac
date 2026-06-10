@@ -1,9 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <ml-aoi:> .
-@prefix ns4: <file:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <eo:> .
+@prefix ns3: <mlm:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <file:> .
+@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns7: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -11,41 +14,118 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns4:size 43000000 ;
+    ns5:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns7:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-6/item_eo_bands.json> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns3:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-6/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
-    stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ] ;
+    stac:hasAsset [ ns1:source_code [ dcterms:description "Source code to run the model." ;
+                    dcterms:format "text/x-python" ;
+                    dcterms:title "Model implementation." ;
+                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+                    stac:roles "code",
+                        "metadata",
+                        "mlm:source_code" ] ;
+            ns1:weights [ ns2:bands [ dcterms:description "SWIR - Cirrus (band 10)" ;
+                            ns1:center_wavelength 1.375e+00 ;
+                            ns1:common_name "cirrus" ;
+                            ns1:full_width_half_max 2.6e-02 ;
+                            ns1:name "B10" ],
+                        [ dcterms:description "Red edge 3 (band 7)" ;
+                            ns1:center_wavelength 7.83e-01 ;
+                            ns1:common_name "rededge" ;
+                            ns1:full_width_half_max 2.8e-02 ;
+                            ns1:name "B07" ],
+                        [ dcterms:description "NIR 3 (band 9)" ;
+                            ns1:center_wavelength 9.45e-01 ;
+                            ns1:common_name "nir09" ;
+                            ns1:full_width_half_max 2.6e-02 ;
+                            ns1:name "B09" ],
+                        [ dcterms:description "SWIR 1 (band 11)" ;
+                            ns1:center_wavelength 1.61e+00 ;
+                            ns1:common_name "swir16" ;
+                            ns1:full_width_half_max 1.43e-01 ;
+                            ns1:name "B11" ],
+                        [ dcterms:description "Green (band 3)" ;
+                            ns1:center_wavelength 5.6e-01 ;
+                            ns1:common_name "green" ;
+                            ns1:full_width_half_max 4.5e-02 ;
+                            ns1:name "B03" ],
+                        [ dcterms:description "NIR 2 (band 8A)" ;
+                            ns1:center_wavelength 8.65e-01 ;
+                            ns1:common_name "nir08" ;
+                            ns1:full_width_half_max 3.3e-02 ;
+                            ns1:name "B8A" ],
+                        [ dcterms:description "Coastal aerosol (band 1)" ;
+                            ns1:center_wavelength 4.43e-01 ;
+                            ns1:common_name "coastal" ;
+                            ns1:full_width_half_max 2.7e-02 ;
+                            ns1:name "B01" ],
+                        [ dcterms:description "Red (band 4)" ;
+                            ns1:center_wavelength 6.65e-01 ;
+                            ns1:common_name "red" ;
+                            ns1:full_width_half_max 3.8e-02 ;
+                            ns1:name "B04" ],
+                        [ dcterms:description "Blue (band 2)" ;
+                            ns1:center_wavelength 4.9e-01 ;
+                            ns1:common_name "blue" ;
+                            ns1:full_width_half_max 9.8e-02 ;
+                            ns1:name "B02" ],
+                        [ dcterms:description "NIR 1 (band 8)" ;
+                            ns1:center_wavelength 8.42e-01 ;
+                            ns1:common_name "nir" ;
+                            ns1:full_width_half_max 1.45e-01 ;
+                            ns1:name "B08" ],
+                        [ dcterms:description "SWIR 2 (band 12)" ;
+                            ns1:center_wavelength 2.19e+00 ;
+                            ns1:common_name "swir22" ;
+                            ns1:full_width_half_max 2.42e-01 ;
+                            ns1:name "B12" ],
+                        [ dcterms:description "Red edge 2 (band 6)" ;
+                            ns1:center_wavelength 7.4e-01 ;
+                            ns1:common_name "rededge" ;
+                            ns1:full_width_half_max 1.8e-02 ;
+                            ns1:name "B06" ],
+                        [ dcterms:description "Red edge 1 (band 5)" ;
+                            ns1:center_wavelength 7.04e-01 ;
+                            ns1:common_name "rededge" ;
+                            ns1:full_width_half_max 1.9e-02 ;
+                            ns1:name "B05" ] ;
+                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+                    dcterms:format "application/octet-stream; application=pytorch" ;
+                    dcterms:title "Pytorch weights checkpoint" ;
+                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
+                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+                    stac:roles "mlm:model",
+                        "mlm:weights" ;
+                    ns3:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/mlm/v1.5.1/schema.json" ;
-    stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
+        "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    ns3:accelerator "cuda" ;
+    ns3:accelerator_constrained false ;
+    ns3:accelerator_summary "Unknown" ;
+    ns3:architecture "ResNet" ;
+    ns3:batch_size_suggestion 256 ;
+    ns3:framework "pytorch" ;
+    ns3:framework_version "2.1.2+cu121" ;
+    ns3:input [ ] ;
+    ns3:memory_size 1 ;
+    ns3:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns3:output [ ] ;
+    ns3:pretrained_source "EuroSat Sentinel-2" ;
+    ns3:tasks "classification" ;
+    ns3:total_parameters 11700000 .
 
