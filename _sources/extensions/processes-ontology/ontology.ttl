@@ -1,7 +1,8 @@
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix processing: <https://w3id.org/ogc/stac/processing/> .
 @prefix dct:  <http://purl.org/dc/terms/> .
-@prefix geo:  <http://www.opengis.net/ont/geosparql#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
@@ -10,104 +11,62 @@
 # Ontology Metadata
 #################################################################
 
-stac: a owl:Ontology ;
-    dct:title "STAC Processes Ontology" ;
-    dct:description "Placeholder Ontology for the SpatioTemporal Asset Catalog (STAC) Processes specification" ;
+processing: a owl:Ontology ;
+    dct:title "STAC Processing Extension Ontology" ;
+    dct:description """Vocabulary for the elements defined by the STAC Processing extension: it indicates from which processing chain data originates and how the data itself has been produced.
+
+This ontology describes only the processing:* fields that the extension adds. STAC Item, Collection and Asset (and their core fields) are defined by the STAC core vocabulary and are reused — not redefined — here; the Processing schema block inherits them through its bblocks://ogc.contrib.stac.item and bblocks://ogc.contrib.stac.collection imports.""" ;
+    dct:source <https://github.com/stac-extensions/processing/tree/v1.2.0> ;
     dct:creator "Rob Atkinson, OGC" ;
-    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> .
-
-
-
-stac:Catalog a owl:Class ;
-    rdfs:label "STAC Catalog" ;
-    rdfs:comment "A STAC Catalog is a JSON object that provides links to other STAC entities." .
-
-stac:Collection a owl:Class ;
-    rdfs:subClassOf stac:Catalog ;
-    rdfs:label "STAC Collection" ;
-    rdfs:comment "A Collection extends Catalog with additional metadata and describes a group of related STAC Items." .
-
-stac:Item a owl:Class ;
-    rdfs:label "STAC Item" ;
-    rdfs:comment "A STAC Item is a GeoJSON Feature augmented with STAC metadata fields and links." ;
-    rdfs:subClassOf geo:Feature .
-
-stac:Asset a owl:Class ;
-    rdfs:label "STAC Asset" ;
-    rdfs:comment "An Asset represents a file associated with a STAC Item, such as an image, data file, or metadata file." .
-
-stac:Link a owl:Class ;
-    rdfs:label "STAC Link" ;
-    rdfs:comment "A Link describes a relationship between STAC entities using rel values and hrefs." .
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    owl:versionInfo "1.2.0" .
 
 #################################################################
-# Properties
+# Properties — the elements the Processing extension defines
 #################################################################
 
-stac:id a owl:DatatypeProperty ;
-    rdfs:label "id" ;
-    rdfs:comment "Unique identifier for a STAC entity." ;
-    rdfs:domain [ owl:unionOf (stac:Catalog stac:Collection stac:Item) ] ;
-    rdfs:range xsd:string .
+processing:expression a owl:DatatypeProperty ;
+    rdfs:label "processing expression" ;
+    dct:description "An expression or processing chain that describes how the data has been processed. Serialized as an Expression Object with a 'format' (the type of the expression) and an 'expression' value compliant with that format." ;
+    rdfs:range rdf:JSON ;
+    rdfs:comment "Carried as an opaque JSON object in the JSON-LD mapping (@json); its internal 'format'/'expression' members are not uplifted to separate triples." ;
+    rdfs:isDefinedBy processing: .
 
-stac:description a owl:DatatypeProperty ;
-    rdfs:label "description" ;
-    rdfs:domain [ owl:unionOf (stac:Catalog stac:Collection) ] ;
-    rdfs:range xsd:string .
+processing:lineage a owl:DatatypeProperty ;
+    rdfs:label "processing lineage" ;
+    dct:description "Lineage Information provided as free text information about how observations were processed or which models were used to create the resource being described." ;
+    rdfs:range xsd:string ;
+    skos:closeMatch dct:provenance ;
+    rdfs:isDefinedBy processing: .
 
-stac:license a owl:DatatypeProperty ;
-    rdfs:label "license" ;
-    rdfs:comment "Collection-wide license applying to Items unless overridden by an Item." ;
-    rdfs:domain stac:Collection ;
-    rdfs:range xsd:string .
+processing:level a owl:DatatypeProperty ;
+    rdfs:label "processing level" ;
+    dct:description "The name commonly used to refer to the processing level, to make it easier to search for product level across collections or items." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy processing: .
 
-stac:extent a owl:ObjectProperty ;
-    rdfs:label "extent" ;
-    rdfs:comment "The spatiotemporal extent of a Collection." ;
-    rdfs:domain stac:Collection .
+processing:facility a owl:DatatypeProperty ;
+    rdfs:label "processing facility" ;
+    dct:description "The name of the facility that produced the data." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy processing: .
 
-stac:datetime a owl:DatatypeProperty ;
-    rdfs:label "datetime" ;
-    rdfs:comment "Datetime associated with the Item (typically acquisition time)." ;
-    rdfs:domain stac:Item ;
-    rdfs:range xsd:dateTime .
+processing:datetime a owl:DatatypeProperty ;
+    rdfs:label "processing datetime" ;
+    dct:description "Processing date and time of the corresponding data, formatted according to RFC 3339, section 5.6, in UTC." ;
+    rdfs:range xsd:dateTime ;
+    skos:closeMatch prov:generatedAtTime ;
+    rdfs:isDefinedBy processing: .
 
-stac:start_datetime a owl:DatatypeProperty ;
-    rdfs:label "start datetime" ;
-    rdfs:domain stac:Item ;
-    rdfs:range xsd:dateTime .
+processing:version a owl:DatatypeProperty ;
+    rdfs:label "processing version" ;
+    dct:description "The version of the primary processing software or processing chain that produced the data." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy processing: .
 
-stac:end_datetime a owl:DatatypeProperty ;
-    rdfs:label "end datetime" ;
-    rdfs:domain stac:Item ;
-    rdfs:range xsd:dateTime .
-
-stac:hasAsset a owl:ObjectProperty ;
-    rdfs:label "has asset" ;
-    rdfs:comment "Links an Item to one of its Assets." ;
-    rdfs:domain stac:Item ;
-    rdfs:range stac:Asset .
-
-stac:mediaType a owl:DatatypeProperty ;
-    rdfs:label "media type" ;
-    rdfs:comment "The media type of an Asset." ;
-    rdfs:domain stac:Asset ;
-    rdfs:range xsd:string .
-
-stac:href a owl:DatatypeProperty ;
-    rdfs:label "href" ;
-    rdfs:comment "The link reference (URL)." ;
-    rdfs:domain stac:Link ;
-    rdfs:range xsd:anyURI .
-
-stac:rel a owl:DatatypeProperty ;
-    rdfs:label "rel" ;
-    rdfs:comment "The relationship type of the link." ;
-    rdfs:domain stac:Link ;
-    rdfs:range xsd:string .
-
-stac:links a owl:ObjectProperty ;
-    rdfs:label "links" ;
-    rdfs:comment "Associates a STAC entity with its links." ;
-    rdfs:domain [ owl:unionOf (stac:Catalog stac:Collection stac:Item) ] ;
-    rdfs:range stac:Link .
+processing:software a owl:DatatypeProperty ;
+    rdfs:label "processing software" ;
+    dct:description "A dictionary with name/version for key/value describing one or more applications or libraries involved during data production for provenance purposes." ;
+    rdfs:range rdf:JSON ;
+    rdfs:comment "Carried as an opaque JSON object (a name→version map) in the JSON-LD mapping (@json); individual name/version pairs are not uplifted to separate triples." ;
+    rdfs:isDefinedBy processing: .
