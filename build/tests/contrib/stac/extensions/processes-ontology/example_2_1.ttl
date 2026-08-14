@@ -1,0 +1,12 @@
+@prefix ex: <https://example.org/stac/> .
+@prefix processing: <https://w3id.org/ogc/stac/processing/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+
+ex:Sentinel2-L2A a stac:Collection ;
+    processing:facility "Copernicus S2 Processing and Archiving Facility" ;
+    processing:level "L2A" ;
+    processing:lineage "Generation of Level-2A User Product" ;
+    processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ;
+    processing:version "02.06" .
+

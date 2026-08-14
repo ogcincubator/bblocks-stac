@@ -15,12 +15,6 @@ Provides a framework for documentation and testing of additional extensions.
 
 ## Building Blocks
 
-### `ogc.contrib.stac.components.assets` — Assets object
-
-**Type:** schema
-
-Assets sub-schema reused in items and collections
-
 ### `ogc.contrib.stac.extensions.cf-ontology` — STAC CF Extension Ontology
 
 **Type:** model
@@ -29,7 +23,7 @@ Assets sub-schema reused in items and collections
 
 **Type:** model
 
-### `ogc.contrib.stac.extensions.processes-ontology` — STAC Processes Extension Ontology
+### `ogc.contrib.stac.extensions.processes-ontology` — STAC Processing Extension Ontology
 
 **Type:** model
 
@@ -37,11 +31,23 @@ Assets sub-schema reused in items and collections
 
 **Type:** model
 
+### `ogc.contrib.stac.components.assets` — Assets object
+
+**Type:** schema
+
+Assets sub-schema reused in items and collections
+
 ### `ogc.contrib.stac.collection` — STAC Collection
 
 **Type:** schema
 
 A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.
+
+### `ogc.contrib.stac.item` — Version agnostic STAC Item
+
+**Type:** schema
+
+Version-neutral SpatioTemporal Asset Catalogs (STAC) item - STAC versions are schema incompatible due to hard restrictions on version numbers. This BuildingBlock covers the interoperability that exists between versions by identifying the common elements, and is extended by version-specific restrictions and extensions.
 
 ### `ogc.contrib.stac.collection-v1-0-0` — STAC Collection (v1.0.0)
 
@@ -54,12 +60,6 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 **Type:** schema
 
 A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.
-
-### `ogc.contrib.stac.item` — Version agnostic STAC Item
-
-**Type:** schema
-
-Version-neutral SpatioTemporal Asset Catalogs (STAC) item - STAC versions are schema incompatible due to hard restrictions on version numbers. This BuildingBlock covers the interoperability that exists between versions by identifying the common elements, and is extended by version-specific restrictions and extensions.
 
 ### `ogc.contrib.stac.extensions.accuracy` — STAC Accuracy Extension
 

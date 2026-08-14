@@ -12,13 +12,42 @@
   "dependsOn": [
     "ogc.model.cross-domain.prov"
   ],
+  "shaclShapes": {
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ]
+  },
   "rules": [],
   "dateTimeAddition": "2025-06-12T00:00:00Z",
-  "dateOfLastChange": "2026-06-10",
-  "shaclShapes": {},
+  "dateOfLastChange": "2026-08-14",
   "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/core-ontology/ontology.ttl",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/",
   "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/core-ontology/",
+  "examples": [
+    {
+      "title": "STAC Item (core fields)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/core-ontology/example_1_1.ttl",
+          "sizeBytes": 906,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:item_20201211 a stac:Item ;\n    stac:id       \"20201211_223832_CS2\" ;\n    stac:datetime \"2020-12-11T22:38:32.125000Z\"^^xsd:dateTime ;\n    stac:hasAsset ex:asset-visual , ex:asset-thumbnail ;\n    stac:links    ex:link-collection , ex:link-root , ex:link-parent .\n\nex:asset-visual a stac:Asset ;\n    stac:mediaType \"image/tiff; application=geotiff; profile=cloud-optimized\" .\n\nex:asset-thumbnail a stac:Asset ;\n    stac:mediaType \"image/jpeg\" .\n\nex:link-collection a stac:Link ;\n    stac:rel  \"collection\" ;\n    stac:href \"./collection.json\"^^xsd:anyURI .\n\nex:link-root a stac:Link ;\n    stac:rel  \"root\" ;\n    stac:href \"./collection.json\"^^xsd:anyURI .\n\nex:link-parent a stac:Link ;\n    stac:rel  \"parent\" ;\n    stac:href \"./collection.json\"^^xsd:anyURI .\n"
+        }
+      ]
+    },
+    {
+      "title": "STAC Collection (core fields)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/core-ontology/example_2_1.ttl",
+          "sizeBytes": 325,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:simple-collection a stac:Collection ;\n    stac:id          \"simple-collection\" ;\n    stac:description \"A simple collection demonstrating core catalog fields with links to a couple of items\" ;\n    stac:license     \"CC-BY-4.0\" .\n"
+        }
+      ]
+    }
+  ],
   "annotatedSchema": null,
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/core-ontology"

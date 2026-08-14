@@ -1,0 +1,31 @@
+@prefix ex: <https://example.org/stac/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:item_20201211 a stac:Item ;
+    stac:datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
+    stac:hasAsset ex:asset-thumbnail,
+        ex:asset-visual ;
+    stac:id "20201211_223832_CS2" ;
+    stac:links ex:link-collection,
+        ex:link-parent,
+        ex:link-root .
+
+ex:asset-thumbnail a stac:Asset ;
+    stac:mediaType "image/jpeg" .
+
+ex:asset-visual a stac:Asset ;
+    stac:mediaType "image/tiff; application=geotiff; profile=cloud-optimized" .
+
+ex:link-collection a stac:Link ;
+    stac:href "./collection.json"^^xsd:anyURI ;
+    stac:rel "collection" .
+
+ex:link-parent a stac:Link ;
+    stac:href "./collection.json"^^xsd:anyURI ;
+    stac:rel "parent" .
+
+ex:link-root a stac:Link ;
+    stac:href "./collection.json"^^xsd:anyURI ;
+    stac:rel "root" .
+

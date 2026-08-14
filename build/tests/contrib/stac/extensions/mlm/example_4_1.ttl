@@ -1,11 +1,11 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns2: <cube:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <file:> .
-@prefix ns5: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns6: <sci:> .
+@prefix ns3: <mlm:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <sci:> .
+@prefix ns6: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -19,58 +19,58 @@
     ns2:variables [ ] ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
     rdfs:seeAlso [ dcterms:type "text/html" ;
-            ns3:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
-        [ dcterms:type "text/html" ;
-            ns3:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            ns4:relation <http://www.iana.org/assignments/relation/cite-as> ;
             oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
         [ dcterms:type "text/html" ;
-            ns3:relation <http://www.iana.org/assignments/relation/code> ;
+            ns4:relation <http://www.iana.org/assignments/relation/code> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
         [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
+        [ dcterms:type "text/html" ;
+            ns4:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
         [ dcterms:type "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ] ;
     geojson:bbox ( 2.336e+02 5.42e+01 2.975e+02 2.26e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 2.336e+02 5.42e+01 ) ( 2.975e+02 5.42e+01 ) ( 2.975e+02 2.26e+01 ) ( 2.336e+02 2.26e+01 ) ( 2.336e+02 5.42e+01 ) ) ) ] ;
-    stac:hasAsset [ ns5:model [ dcterms:description "Source code to define the U-Net model." ;
+    stac:hasAsset [ ns1:model [ dcterms:description "Source code to define the U-Net model." ;
                     dcterms:format "text/x-python" ;
                     dcterms:title "Model implementation." ;
                     oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
                     stac:roles "code",
                         "metadata",
                         "mlm:source_code" ] ;
-            ns5:train-script [ dcterms:description "Script to run training of the model." ;
+            ns1:train-script [ dcterms:description "Script to run training of the model." ;
                     dcterms:format "text/x-python" ;
                     dcterms:title "Training script." ;
                     oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
                     stac:roles "code",
                         "metadata",
                         "mlm:training" ] ;
-            ns5:weights [ ns4:size 389657415 ;
+            ns1:weights [ ns6:size 389657415 ;
                     dcterms:format "application/octet-stream; application=pytorch" ;
                     dcterms:title "U-Net Pytorch weights checkpoint" ;
                     oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ;
                     stac:roles "mlm:model",
                         "mlm:weights" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+                    ns3:artifact_type "torch.save" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:architecture "U-Net" ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu118" ;
-    ns1:input [ ] ;
-    ns1:name "UNet ClimateDiffuse ERA5 Downscaling" ;
-    ns1:output [ ] ;
-    ns1:tasks "downscaling",
+    ns3:accelerator "cuda" ;
+    ns3:accelerator_constrained false ;
+    ns3:architecture "U-Net" ;
+    ns3:framework "pytorch" ;
+    ns3:framework_version "2.1.2+cu118" ;
+    ns3:input [ ] ;
+    ns3:name "UNet ClimateDiffuse ERA5 Downscaling" ;
+    ns3:output [ ] ;
+    ns3:tasks "downscaling",
         "regression" ;
-    ns6:publications [ ] .
+    ns5:publications [ ] .
 

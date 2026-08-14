@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model",
   "bblockName": "STAC Machine Learning Model",
   "bblockId": "ogc.contrib.stac.extensions.mlm",
-  "generated": "2026-06-10T19:43:55.577587+00:00",
+  "generated": "2026-08-14T08:05:12.220174+00:00",
   "result": false,
   "items": [
     {
@@ -57,7 +57,7 @@
               "exception": "ValidationError",
               "errorMessage": "None of ['https://stac-extensions.github.io/item-assets/v1.0.0/schema.json'] are valid under the given schema",
               "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/item-assets/v1.0.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][1]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/item-assets/v1.0.0/schema.json']"
+              "message": "ValidationError: None of ['https://stac-extensions.github.io/item-assets/v1.0.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][1]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.2/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/item-assets/v1.0.0/schema.json']"
             }
           ]
         },
@@ -65,6 +65,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -75,16 +101,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -92,7 +118,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -110,6 +136,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -126,7 +187,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_basic.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -163,11 +224,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -175,6 +234,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -185,16 +270,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -204,7 +289,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-2/example-model>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-2/example-model>\n"
             },
             {
               "op": "shacl-report",
@@ -222,6 +307,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -238,7 +358,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_bands_expression.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -275,11 +395,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/eo/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/raster/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/file/v1.0.0/schema.json',\n     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -287,6 +405,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -297,16 +441,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -316,7 +460,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n"
             },
             {
               "op": "shacl-report",
@@ -334,6 +478,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -350,7 +529,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_datacube_variables.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -387,11 +566,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/datacube/v2.3.0/schema.json', 'https://stac-extensions.github.io/file/v2.1.0/schema.json', 'https://stac-extensions.github.io/scientific/v1.0.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/datacube/v2.3.0/schema.json', 'https://stac-extensions.github.io/file/v2.1.0/schema.json', 'https://stac-extensions.github.io/scientific/v1.0.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/datacube/v2.3.0/schema.json',\n     'https://stac-extensions.github.io/file/v2.1.0/schema.json',\n     'https://stac-extensions.github.io/scientific/v1.0.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -399,6 +576,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -409,16 +612,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -428,7 +631,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n"
             },
             {
               "op": "shacl-report",
@@ -446,6 +649,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -462,7 +700,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_and_raster_bands.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -499,11 +737,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/eo/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/raster/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/file/v1.0.0/schema.json',\n     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -511,6 +747,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -521,16 +783,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -540,7 +802,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n"
             },
             {
               "op": "shacl-report",
@@ -558,6 +820,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -574,7 +871,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_bands.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -611,11 +908,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/eo/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/file/v1.0.0/schema.json',\n     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -623,6 +918,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -633,16 +954,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -652,7 +973,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n"
             },
             {
               "op": "shacl-report",
@@ -670,6 +991,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -686,7 +1042,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_eo_bands_summarized.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -723,11 +1079,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/eo/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/file/v1.0.0/schema.json',\n     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -735,6 +1089,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -745,16 +1125,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -764,7 +1144,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n"
             },
             {
               "op": "shacl-report",
@@ -782,6 +1162,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -798,7 +1213,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_multi_io.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -835,11 +1250,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/raster/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/file/v1.0.0/schema.json',\n     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -847,6 +1260,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -857,16 +1296,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -876,7 +1315,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n"
             },
             {
               "op": "shacl-report",
@@ -894,6 +1333,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -910,7 +1384,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_pytorch_geo_unet.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -947,11 +1421,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/eo/v1.1.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/eo/v1.1.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -959,6 +1431,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -969,16 +1467,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -988,7 +1486,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n"
             },
             {
               "op": "shacl-report",
@@ -1006,6 +1504,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -1022,7 +1555,7 @@
         "language": "application/json",
         "sourceUrl": "https://github.com/stac-extensions/mlm/raw/refs/heads/main/examples/item_raster_bands.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -1059,11 +1592,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema",
-              "isError": true,
-              "message": "ValidationError: None of ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json', 'https://stac-extensions.github.io/raster/v1.1.0/schema.json', 'https://stac-extensions.github.io/file/v1.0.0/schema.json', 'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json'] are valid under the given schema\n\nFailed validating 'contains' in schema['allOf'][1]['allOf'][0]['then']['allOf'][1]['properties']['stac_extensions']:\n    {'contains': {'const': 'https://stac-extensions.github.io/mlm/v1.5.1/schema.json'},\n     'type': 'array'}\n\nOn instance['stac_extensions']:\n    ['https://stac-extensions.github.io/mlm/v1.5.2/schema.json',\n     'https://stac-extensions.github.io/raster/v1.1.0/schema.json',\n     'https://stac-extensions.github.io/file/v1.0.0/schema.json',\n     'https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json']"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -1071,6 +1602,32 @@
           "name": "SHACL",
           "title": "SHACL",
           "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/core-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/core-ontology/shapes.shacl",
+              "focusNodes": {
+                "stac:LinkShape": {
+                  "nodes": []
+                },
+                "stac:AssetShape": {
+                  "nodes": []
+                },
+                "stac:ItemShape": {
+                  "nodes": []
+                },
+                "stac:CollectionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+            },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
@@ -1081,16 +1638,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -1100,7 +1657,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n"
             },
             {
               "op": "shacl-report",
@@ -1118,6 +1675,41 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:FacilityShape": {
+                  "nodes": []
+                },
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:LevelShape": {
+                  "nodes": []
+                },
+                "processing:SoftwareShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -1127,7 +1719,7 @@
   "globalErrors": {},
   "counts": {
     "total": 10,
-    "passed": 0,
-    "failed": 10
+    "passed": 9,
+    "failed": 1
   }
 }

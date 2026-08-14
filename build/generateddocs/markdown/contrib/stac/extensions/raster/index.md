@@ -896,9 +896,9 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns2: <proj:> .
 @prefix ns3: <eo:> .
-@prefix ns4: <sentinel:> .
-@prefix ns5: <view:> .
-@prefix ns6: <http://www.iana.org/assignments/> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <sentinel:> .
+@prefix ns6: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -910,7 +910,7 @@ An item can describe assets that are rasters of one or multiple bands with some 
     ns3:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns6:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -1080,18 +1080,18 @@ An item can describe assets that are rasters of one or multiple bands with some 
             ns1:overview [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "True color image" ;
                     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
-                    ns1:bands [ ns3:center_wavelength 5.6e-01 ;
+                    ns1:bands [ ns3:center_wavelength 4.966e-01 ;
+                            ns3:common_name "blue" ;
+                            ns3:full_width_half_max 9.8e-02 ;
+                            ns1:name "B02" ],
+                        [ ns3:center_wavelength 5.6e-01 ;
                             ns3:common_name "green" ;
                             ns3:full_width_half_max 4.5e-02 ;
                             ns1:name "B03" ],
                         [ ns3:center_wavelength 6.645e-01 ;
                             ns3:common_name "red" ;
                             ns3:full_width_half_max 3.8e-02 ;
-                            ns1:name "B04" ],
-                        [ ns3:center_wavelength 4.966e-01 ;
-                            ns3:common_name "blue" ;
-                            ns3:full_width_half_max 9.8e-02 ;
-                            ns1:name "B02" ] ;
+                            ns1:name "B04" ] ;
                     ns1:gsd 10 ;
                     stac:roles "overview" ;
                     raster:spatial_resolution 10 ;
@@ -1109,18 +1109,18 @@ An item can describe assets that are rasters of one or multiple bands with some 
             ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "True color image" ;
                     oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ;
-                    ns1:bands [ ns3:center_wavelength 6.645e-01 ;
-                            ns3:common_name "red" ;
-                            ns3:full_width_half_max 3.8e-02 ;
-                            ns1:name "B04" ],
+                    ns1:bands [ ns3:center_wavelength 5.6e-01 ;
+                            ns3:common_name "green" ;
+                            ns3:full_width_half_max 4.5e-02 ;
+                            ns1:name "B03" ],
                         [ ns3:center_wavelength 4.966e-01 ;
                             ns3:common_name "blue" ;
                             ns3:full_width_half_max 9.8e-02 ;
                             ns1:name "B02" ],
-                        [ ns3:center_wavelength 5.6e-01 ;
-                            ns3:common_name "green" ;
-                            ns3:full_width_half_max 4.5e-02 ;
-                            ns1:name "B03" ] ;
+                        [ ns3:center_wavelength 6.645e-01 ;
+                            ns3:common_name "red" ;
+                            ns3:full_width_half_max 3.8e-02 ;
+                            ns1:name "B04" ] ;
                     ns1:gsd 10 ;
                     stac:roles "overview" ;
                     ns2:shape 10980 ;
@@ -1136,13 +1136,13 @@ An item can describe assets that are rasters of one or multiple bands with some 
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:version "1.1.0" ;
     ns2:code "EPSG:32633" ;
-    ns4:data_coverage 100 ;
-    ns4:grid_square "VB" ;
-    ns4:latitude_band "S" ;
-    ns4:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns4:sequence "0" ;
-    ns4:utm_zone 33 ;
-    ns5:off_nadir 0 .
+    ns5:data_coverage 100 ;
+    ns5:grid_square "VB" ;
+    ns5:latitude_band "S" ;
+    ns5:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns5:sequence "0" ;
+    ns5:utm_zone 33 ;
+    ns6:off_nadir 0 .
 
 
 ```

@@ -1,0 +1,17 @@
+@prefix cf: <https://w3id.org/ogc/stac/cf/> .
+@prefix ex: <https://example.org/stac/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+ex:item a stac:Item ;
+    cf:parameter [ a cf:Object ;
+            qudt:hasUnit unit:K ;
+            cf:name "sea_surface_temperature" ],
+        [ a cf:Object ;
+            qudt:hasUnit unit:K ;
+            cf:name "sea_ice_surface_temperature" ],
+        [ a cf:Object ;
+            qudt:hasUnit unit:M ;
+            cf:name "depth" ] .
+

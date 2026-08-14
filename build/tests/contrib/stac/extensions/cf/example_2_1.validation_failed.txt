@@ -1,5 +1,5 @@
 Validation report for ogc.contrib.stac.extensions.cf - STAC CF Extension
-Generated 2026-06-10T19:43:45.729828+00:00
+Generated 2026-08-14T08:05:01.080371+00:00
 === Files ===
 Using https://raw.githubusercontent.com/stac-extensions/cf/refs/heads/main/examples/item.json from examples
 JSON-LD context is present - uplifting
@@ -10,7 +10,7 @@ Output Turtle example_2_1.ttl created
 === JSON Schema ===
 
 ** Validation error **
-ValidationError: {'stac_version': '1.0.0', 'stac_extensions': ['https://stac-extensions.github.io/cf/v0.3.0/schema.json'], 'type': 'Feature', 'id': 'item', 'bbox': [172.9, 1.3, 173, 1.4], 'geometry': {'type': 'Polygon', 'coordinates': [[[172.9, 1.3], [173, 1.3], [173, 1.4], [172.9, 1.4], [172.9, 1.3]]]}, 'properties': {'datetime': '2020-12-11T22:38:32Z', 'cube:dimensions': {'time_interval1': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-24], 'unit': 'h'}, 'vertical_dimension1': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Height above ground level', 'unit': 'm', 'values': [10]}, 'time_interval2': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-60], 'unit': 'min'}, 'vertical_dimension2': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Air pressure', 'unit': 'hPa', 'values': [500]}}, 'cube:variables': {'sea_surface_temperature': {'type': 'data', 'cf:standard_name': 'sea_surface_temperature', 'description': 'Average temperature on sea surface for preceding 24 hours', 'unit': 'K', 'cf:cell_methods': ['mean'], 'dimensions': ['time_interval1']}, 'wind_speed_at_10m': {'type': 'data', 'cf:standard_name': 'wind_speed', 'description': 'minimum wind speed in 1 hour at 10 m agl', 'unit': 'kt', 'cf:cell_methods': [None, 'minimum'], 'dimensions': ['vertical_dimension1', 'time_interval2']}, 'temp_at_500hPa': {'type': 'data', 'cf:standard_name': 'air_temperature', 'description': 'air temperature at 500 hPa', 'unit': 'degC', 'dimensions': ['vertical_dimension2']}}}, 'links': [{'href': 'https://example.com/examples/item.json', 'rel': 'self'}], 'assets': {'data': {'href': 'https://example.com/examples/file.xyz'}}} is not valid under any of the given schemas
+ValidationError: {'stac_version': '1.1.0', 'stac_extensions': ['https://stac-extensions.github.io/cf/v1.0.0/schema.json'], 'type': 'Feature', 'id': 'item', 'bbox': [172.9, 1.3, 173, 1.4], 'geometry': {'type': 'Polygon', 'coordinates': [[[172.9, 1.3], [173, 1.3], [173, 1.4], [172.9, 1.4], [172.9, 1.3]]]}, 'properties': {'datetime': '2020-12-11T22:38:32Z', 'cube:dimensions': {'time_interval1': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-24], 'unit': 'h'}, 'vertical_dimension1': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Height above ground level', 'unit': 'm', 'values': [10]}, 'time_interval2': {'type': 'temporal', 'description': 'time interval that cell_methods is applied over', 'values': [-60], 'unit': 'min'}, 'vertical_dimension2': {'type': 'spatial', 'axis': 'z', 'cf:standard_name': 'height', 'description': 'Air pressure', 'unit': 'hPa', 'values': [500]}}, 'cube:variables': {'sea_surface_temperature': {'type': 'data', 'cf:standard_name': 'sea_surface_temperature', 'description': 'Average temperature on sea surface for preceding 24 hours', 'unit': 'K', 'cf:cell_methods': ['mean'], 'dimensions': ['time_interval1']}, 'wind_speed_at_10m': {'type': 'data', 'cf:standard_name': 'wind_speed', 'description': 'minimum wind speed in 1 hour at 10 m agl', 'unit': 'kt', 'cf:cell_methods': [None, 'minimum'], 'dimensions': ['vertical_dimension1', 'time_interval2']}, 'temp_at_500hPa': {'type': 'data', 'cf:standard_name': 'air_temperature', 'description': 'air temperature at 500 hPa', 'unit': 'degC', 'dimensions': ['vertical_dimension2']}}}, 'links': [{'href': 'https://example.com/examples/item.json', 'rel': 'self'}], 'assets': {'data': {'href': 'https://example.com/examples/file.xyz'}}} is not valid under any of the given schemas
 
 Failed validating 'oneOf' in schema['allOf'][1]:
     {'$id': 'https://stac-extensions.github.io/cf/v0.2.0/schema.json#',
@@ -167,22 +167,32 @@ On instance:
                                                              'type': 'data',
                                                              'unit': 'kt'}},
                     'datetime': '2020-12-11T22:38:32Z'},
-     'stac_extensions': ['https://stac-extensions.github.io/cf/v0.3.0/schema.json'],
-     'stac_version': '1.0.0',
+     'stac_extensions': ['https://stac-extensions.github.io/cf/v1.0.0/schema.json'],
+     'stac_version': '1.1.0',
      'type': 'Feature'}
 === End JSON Schema ===
 
 === SHACL ===
+Validation result for _sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/core-ontology/shapes.shacl:
+ - Shape stac:LinkShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:CollectionShape: *none*
+
 Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:LinkShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
  - Shape geojson:FeatureShape: <https://example.com/stac/cf/example-2/item>
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
 
 Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -190,6 +200,14 @@ Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sou
   
 Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+
+Validation result for _sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ObjectShape: *none*
+ - Shape cf:ParameterShape: *none*
 
 === End SHACL ===
 
