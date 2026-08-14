@@ -1,0 +1,37 @@
+examples:
+  - title: STAC Item with CF parameters
+    # Values from the STAC CF extension v0.2.0 example (item.json, cf:parameter in properties):
+    # https://github.com/stac-extensions/cf/blob/v0.2.0/examples/item.json
+    # Raw units are UDUNITS strings ("K", "m"); shown here as QUDT units via qudt:hasUnit.
+    snippets:
+      - language: turtle
+        code: |
+          @prefix cf:   <https://w3id.org/ogc/stac/cf/> .
+          @prefix qudt: <http://qudt.org/schema/qudt/> .
+          @prefix unit: <http://qudt.org/vocab/unit/> .
+          @prefix stac: <https://w3id.org/ogc/stac/core/> .
+          @prefix ex:   <https://example.org/stac/> .
+
+          ex:item a stac:Item ;
+              cf:parameter
+                  [ a cf:Object ; cf:name "sea_surface_temperature"     ; qudt:hasUnit unit:K ] ,
+                  [ a cf:Object ; cf:name "sea_ice_surface_temperature" ; qudt:hasUnit unit:K ] ,
+                  [ a cf:Object ; cf:name "depth"                       ; qudt:hasUnit unit:M ] .
+
+  - title: STAC Collection with CF parameters (summaries)
+    # Values from the STAC CF extension v0.2.0 example (collection.json, summaries):
+    # https://github.com/stac-extensions/cf/blob/v0.2.0/examples/collection.json
+    snippets:
+      - language: turtle
+        code: |
+          @prefix cf:   <https://w3id.org/ogc/stac/cf/> .
+          @prefix qudt: <http://qudt.org/schema/qudt/> .
+          @prefix unit: <http://qudt.org/vocab/unit/> .
+          @prefix stac: <https://w3id.org/ogc/stac/core/> .
+          @prefix ex:   <https://example.org/stac/> .
+
+          ex:collection a stac:Collection ;
+              cf:parameter
+                  [ a cf:Object ; cf:name "sea_surface_temperature"     ; qudt:hasUnit unit:K ] ,
+                  [ a cf:Object ; cf:name "sea_ice_surface_temperature" ; qudt:hasUnit unit:K ] ,
+                  [ a cf:Object ; cf:name "depth"                       ; qudt:hasUnit unit:M ] .

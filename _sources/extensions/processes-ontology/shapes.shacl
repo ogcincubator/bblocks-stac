@@ -1,0 +1,48 @@
+@prefix sh:         <http://www.w3.org/ns/shacl#> .
+@prefix processing: <https://w3id.org/ogc/stac/processing/> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Processing extension properties.
+#
+# Each shape targets any resource that carries the property (sh:targetSubjectsOf),
+# because processing:* fields may appear on STAC Items, Collections or Assets, which
+# have no single common class. Constraints assert only what the extension guarantees:
+# datatypes for all fields, and sh:maxCount 1 only for fields that are single-valued
+# (processing:level may repeat in Collection summaries, so it carries no maxCount).
+
+processing:LineageShape a sh:NodeShape ;
+    rdfs:label "processing:lineage shape" ;
+    sh:targetSubjectsOf processing:lineage ;
+    sh:property [ sh:path processing:lineage ; sh:datatype xsd:string ] .
+
+processing:LevelShape a sh:NodeShape ;
+    rdfs:label "processing:level shape" ;
+    sh:targetSubjectsOf processing:level ;
+    sh:property [ sh:path processing:level ; sh:datatype xsd:string ] .
+
+processing:FacilityShape a sh:NodeShape ;
+    rdfs:label "processing:facility shape" ;
+    sh:targetSubjectsOf processing:facility ;
+    sh:property [ sh:path processing:facility ; sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+processing:DatetimeShape a sh:NodeShape ;
+    rdfs:label "processing:datetime shape" ;
+    sh:targetSubjectsOf processing:datetime ;
+    sh:property [ sh:path processing:datetime ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] .
+
+processing:VersionShape a sh:NodeShape ;
+    rdfs:label "processing:version shape" ;
+    sh:targetSubjectsOf processing:version ;
+    sh:property [ sh:path processing:version ; sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+processing:SoftwareShape a sh:NodeShape ;
+    rdfs:label "processing:software shape" ;
+    sh:targetSubjectsOf processing:software ;
+    sh:property [ sh:path processing:software ; sh:datatype rdf:JSON ; sh:maxCount 1 ] .
+
+processing:ExpressionShape a sh:NodeShape ;
+    rdfs:label "processing:expression shape" ;
+    sh:targetSubjectsOf processing:expression ;
+    sh:property [ sh:path processing:expression ; sh:datatype rdf:JSON ] .

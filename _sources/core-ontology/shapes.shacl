@@ -1,0 +1,37 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC core vocabulary. Shapes target the core classes and
+# constrain the datatypes / ranges the ontology declares. Constraints are kept
+# permissive (no minCount) so partial records validate; they assert datatype and
+# single-valuedness where the core model is single-valued.
+
+stac:ItemShape a sh:NodeShape ;
+    rdfs:label "STAC Item shape" ;
+    sh:targetClass stac:Item ;
+    sh:property [ sh:path stac:id ;            sh:datatype xsd:string ;   sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:datetime ;      sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:start_datetime ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:end_datetime ;  sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:hasAsset ;      sh:class stac:Asset ] ;
+    sh:property [ sh:path stac:links ;         sh:class stac:Link ] .
+
+stac:CollectionShape a sh:NodeShape ;
+    rdfs:label "STAC Collection shape" ;
+    sh:targetClass stac:Collection ;
+    sh:property [ sh:path stac:id ;          sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:description ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path stac:license ;     sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+stac:AssetShape a sh:NodeShape ;
+    rdfs:label "STAC Asset shape" ;
+    sh:targetClass stac:Asset ;
+    sh:property [ sh:path stac:mediaType ; sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+stac:LinkShape a sh:NodeShape ;
+    rdfs:label "STAC Link shape" ;
+    sh:targetClass stac:Link ;
+    sh:property [ sh:path stac:rel ;  sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:href ; sh:datatype xsd:anyURI ; sh:maxCount 1 ] .

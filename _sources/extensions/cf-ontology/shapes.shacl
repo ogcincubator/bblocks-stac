@@ -1,0 +1,30 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix cf:   <https://w3id.org/ogc/stac/cf/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC CF extension vocabulary.
+#
+# cf:name is REQUIRED and must be a non-empty string (per the extension), so every
+# cf:Object must carry exactly one non-empty cf:name. A resource that uses cf:parameter
+# must have at least one entry, each of which must satisfy the cf:Object shape.
+
+cf:ObjectShape a sh:NodeShape ;
+    rdfs:label "cf:Object shape" ;
+    sh:targetClass cf:Object ;
+    sh:property [
+        sh:path cf:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] .
+
+cf:ParameterShape a sh:NodeShape ;
+    rdfs:label "cf:parameter shape" ;
+    sh:targetSubjectsOf cf:parameter ;
+    sh:property [
+        sh:path cf:parameter ;
+        sh:minCount 1 ;
+        sh:node cf:ObjectShape ;
+    ] .
