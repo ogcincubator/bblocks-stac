@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model",
   "bblockName": "STAC Machine Learning Model",
   "bblockId": "ogc.contrib.stac.extensions.mlm",
-  "generated": "2026-08-14T08:05:12.220174+00:00",
+  "generated": "2026-08-24T13:37:21.158063+00:00",
   "result": false,
   "items": [
     {
@@ -75,21 +75,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -101,24 +101,24 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:FeatureShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -147,13 +147,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -161,16 +167,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -212,7 +212,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 69,
+              "size": 71,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -244,21 +244,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -270,26 +270,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-2/example-model>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-2/example-model>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-2/example-model>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -318,13 +318,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -332,16 +338,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -383,7 +383,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_3_1.ttl",
-              "size": 114,
+              "size": 116,
               "isError": false,
               "message": "Output Turtle example_3_1.ttl created"
             }
@@ -415,21 +415,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -441,26 +441,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -489,13 +489,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -503,16 +509,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -554,7 +554,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_4_1.ttl",
-              "size": 113,
+              "size": 115,
               "isError": false,
               "message": "Output Turtle example_4_1.ttl created"
             }
@@ -586,21 +586,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -612,26 +612,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -660,13 +660,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -674,16 +680,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -725,7 +725,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_5_1.ttl",
-              "size": 266,
+              "size": 268,
               "isError": false,
               "message": "Output Turtle example_5_1.ttl created"
             }
@@ -757,21 +757,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -783,26 +783,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -831,13 +831,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -845,16 +851,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -896,7 +896,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_6_1.ttl",
-              "size": 175,
+              "size": 177,
               "isError": false,
               "message": "Output Turtle example_6_1.ttl created"
             }
@@ -928,21 +928,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -954,26 +954,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1002,13 +1002,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -1016,16 +1022,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -1067,7 +1067,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_7_1.ttl",
-              "size": 148,
+              "size": 150,
               "isError": false,
               "message": "Output Turtle example_7_1.ttl created"
             }
@@ -1099,21 +1099,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1125,26 +1125,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1173,13 +1173,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -1187,16 +1193,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -1238,7 +1238,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_8_1.ttl",
-              "size": 129,
+              "size": 131,
               "isError": false,
               "message": "Output Turtle example_8_1.ttl created"
             }
@@ -1270,21 +1270,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1296,26 +1296,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-8/model-multi-input>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1344,13 +1344,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -1358,16 +1364,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -1409,7 +1409,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_9_1.ttl",
-              "size": 109,
+              "size": 111,
               "isError": false,
               "message": "Output Turtle example_9_1.ttl created"
             }
@@ -1441,21 +1441,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1467,26 +1467,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-9/pytorch_geo_unet>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1515,13 +1515,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -1529,16 +1535,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }
@@ -1580,7 +1580,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_10_1.ttl",
-              "size": 213,
+              "size": 215,
               "isError": false,
               "message": "Output Turtle example_10_1.ttl created"
             }
@@ -1612,21 +1612,21 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1638,26 +1638,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>"
                   ]
+                },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1686,13 +1686,19 @@
             {
               "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": []
                 },
                 "processing:LevelShape": {
@@ -1700,16 +1706,10 @@
                 },
                 "processing:SoftwareShape": {
                   "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
             }
           ]
         }

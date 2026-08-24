@@ -246,10 +246,10 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
@@ -505,8 +505,8 @@ A knowledge organization system used to classify the resource (controlled vocabu
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -517,20 +517,20 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 <https://example.com/stac/themes/example-2/example> a geojson:Feature ;
     dcterms:date "2022-06-16T10:36:31.024000+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
-    stac:hasAsset [ ns1:data [ dcterms:format "text/plain" ;
+    stac:hasAsset [ ns2:data [ dcterms:format "text/plain" ;
                     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ],
                 [ thns:id "wiki::Summer" ] ;
             thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::11071625" ],
-                [ thns:id "geonames::2976077" ],
+        [ thns:concepts [ thns:id "geonames::2976077" ],
+                [ thns:id "geonames::11071625" ],
                 [ thns:id "geonames::3017382" ] ;
             thns:scheme "https://www.geonames.org" ] .
 
@@ -609,16 +609,25 @@ Links to the schema:
       "@container": "@set"
     },
     "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
+      "@id": "dcat:keyword",
+      "@container": "@set"
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
     "license": "dcat:license",
+    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",

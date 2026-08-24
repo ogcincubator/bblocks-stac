@@ -235,70 +235,71 @@ Ref to STAC example using version (1.0.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <fair:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <osc:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
+@prefix ns3: <fair:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/polarwarp> rdfs:label "Polarwarp" ;
-    ns1:Accessible_files 0e+00 ;
-    ns1:Accessible_general true ;
-    ns1:Accessible_protocols true ;
-    ns1:Findable_has_doi false ;
-    ns1:Findable_identifier true ;
-    ns1:Findable_indexed true ;
-    ns1:Findable_indexed_approved_data false ;
-    ns1:Findable_indexed_approved_metadata false ;
-    ns1:Findable_rich_metadata true ;
-    ns1:Findable_stac_assets false ;
-    ns1:Interoperable_controlled_vocabularies true ;
-    ns1:Interoperable_has_documentation false ;
-    ns1:Interoperable_related_links true ;
-    ns1:Interoperable_uses_formal_language true ;
-    ns1:Reusable_cloud_assets_rate 0e+00 ;
-    ns1:Reusable_has_access_example false ;
-    ns1:Reusable_has_license true ;
-    ns1:Reusable_has_visualisation false ;
-    ns1:Reusable_rich_descriptions true ;
-    ns1:Reusable_workflow_exists true ;
+    ns3:Accessible_files 0e+00 ;
+    ns3:Accessible_general true ;
+    ns3:Accessible_protocols true ;
+    ns3:Findable_has_doi false ;
+    ns3:Findable_identifier true ;
+    ns3:Findable_indexed true ;
+    ns3:Findable_indexed_approved_data false ;
+    ns3:Findable_indexed_approved_metadata false ;
+    ns3:Findable_rich_metadata true ;
+    ns3:Findable_stac_assets false ;
+    ns3:Interoperable_controlled_vocabularies true ;
+    ns3:Interoperable_has_documentation false ;
+    ns3:Interoperable_related_links true ;
+    ns3:Interoperable_uses_formal_language true ;
+    ns3:Reusable_cloud_assets_rate 0e+00 ;
+    ns3:Reusable_has_access_example false ;
+    ns3:Reusable_has_license true ;
+    ns3:Reusable_has_visualisation false ;
+    ns3:Reusable_rich_descriptions true ;
+    ns3:Reusable_workflow_exists true ;
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
+    dcterms:license "various" ;
     dcterms:type "Collection" ;
-    rdfs:seeAlso [ rdfs:label "Experiment: Polarwarp" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns3:project "cerulean-information-factory" ;
-    ns3:status "completed" ;
-    ns3:type "product" .
+    ns2:project "cerulean-information-factory" ;
+    ns2:status "completed" ;
+    ns2:type "product" .
 
 
 ```
@@ -337,6 +338,9 @@ Links to the schema:
     "id": "@id",
     "title": "rdfs:label",
     "description": "dct:description",
+    "keywords": "dct:subject",
+    "license": "dct:license",
+    "providers": "stac:hasProvider",
     "extent": "dct:extent",
     "assets": {
       "@context": {
@@ -352,6 +356,18 @@ Links to the schema:
       "@container": "@set"
     },
     "links": "rdfs:seeAlso",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "media_type": "dct:format",
     "href": {
       "@type": "@id",

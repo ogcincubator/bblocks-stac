@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.processing - STAC Processing Extension",
   "bblockName": "STAC Processing Extension",
   "bblockId": "ogc.contrib.stac.extensions.processing",
-  "generated": "2026-08-14T08:05:04.784257+00:00",
+  "generated": "2026-08-24T13:37:15.763207+00:00",
   "result": true,
   "items": [
     {
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 20,
+              "size": 30,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -73,21 +73,68 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:DatetimeShape": {
+                  "nodes": []
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider"
+                  ]
+                },
+                "processing:LineageShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider",
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider"
+                  ]
+                },
+                "processing:FacilityShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider"
+                  ]
+                },
+                "processing:LevelShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider",
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider"
+                  ]
+                },
+                "processing:SoftwareShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: <https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider\n - Shape processing:LineageShape: <https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider,<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider\n - Shape processing:FacilityShape: <https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider\n - Shape processing:LevelShape: <https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider,<https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider\n - Shape processing:SoftwareShape: <https://example.com/stac/processing/example-1/Sentinel2-L2A>/stac:hasProvider\n"
             },
             {
               "op": "shacl-report",
@@ -102,21 +149,21 @@
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "geojson:LinkShape": {
+                "geojson:FeatureShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
+                "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape/sh:or/rdf:first": {
+                "geojson:LinkShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -134,41 +181,6 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
-              "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": []
-                },
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
-                "processing:ExpressionShape": {
-                  "nodes": []
-                },
-                "processing:LevelShape": {
-                  "nodes": []
-                },
-                "processing:SoftwareShape": {
-                  "nodes": []
-                },
-                "processing:LineageShape": {
-                  "nodes": []
-                },
-                "processing:VersionShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }
@@ -210,7 +222,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 117,
+              "size": 119,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -242,21 +254,66 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
+                "stac:CollectionShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "focusNodes": {
+                "processing:DatetimeShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
+                  ]
+                },
+                "processing:ExpressionShape": {
+                  "nodes": []
+                },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:LineageShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
+                  ]
+                },
+                "processing:FacilityShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
+                  ]
+                },
+                "processing:LevelShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
+                  ]
+                },
+                "processing:SoftwareShape": {
+                  "nodes": [
+                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:FacilityShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:LevelShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:SoftwareShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n"
             },
             {
               "op": "shacl-report",
@@ -271,23 +328,23 @@
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
                   ]
                 },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -305,51 +362,6 @@
               },
               "isError": false,
               "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
-              "focusNodes": {
-                "processing:FacilityShape": {
-                  "nodes": [
-                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
-                  ]
-                },
-                "processing:DatetimeShape": {
-                  "nodes": [
-                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
-                  ]
-                },
-                "processing:ExpressionShape": {
-                  "nodes": []
-                },
-                "processing:LevelShape": {
-                  "nodes": [
-                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
-                  ]
-                },
-                "processing:SoftwareShape": {
-                  "nodes": [
-                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
-                  ]
-                },
-                "processing:LineageShape": {
-                  "nodes": [
-                    "<https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>"
-                  ]
-                },
-                "processing:VersionShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:FacilityShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:DatetimeShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:ExpressionShape: *none*\n - Shape processing:LevelShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:SoftwareShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:LineageShape: <https://example.com/stac/processing/example-2/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF>\n - Shape processing:VersionShape: *none*\n"
             }
           ]
         }

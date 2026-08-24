@@ -307,12 +307,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
         <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
-        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -321,7 +316,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
+        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -603,9 +603,9 @@ A knowledge organization system used to classify the resource (controlled vocabu
                     oa:hasTarget <https://example.com/stac/themes/example-2/example.file> ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "geonames::11071625" ],
-                [ thns:id "geonames::2976077" ],
-                [ thns:id "geonames::3017382" ] ;
+    rec:themes [ thns:concepts [ thns:id "geonames::3017382" ],
+                [ thns:id "geonames::11071625" ],
+                [ thns:id "geonames::2976077" ] ;
             thns:scheme "https://www.geonames.org" ],
         [ thns:concepts [ thns:id "wiki::Summer" ],
                 [ thns:id "wiki::Syncline" ] ;
@@ -682,16 +682,25 @@ Links to the schema:
       "@container": "@set"
     },
     "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
+      "@id": "dcat:keyword",
+      "@container": "@set"
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
     "license": "dcat:license",
+    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
@@ -766,6 +775,8 @@ Links to the schema:
       "@id": "rec:hasLinkTemplate"
     },
     "themes": {
+      "@id": "rec:themes",
+      "@container": "@set",
       "@context": {
         "concepts": {
           "@context": {
@@ -775,9 +786,7 @@ Links to the schema:
           "@id": "thns:concepts",
           "@container": "@set"
         }
-      },
-      "@container": "@set",
-      "@id": "rec:themes"
+      }
     },
     "concepts": {
       "@id": "thns:concepts",

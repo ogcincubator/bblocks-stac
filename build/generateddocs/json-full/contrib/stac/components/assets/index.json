@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-14",
+  "dateOfLastChange": "2023-12-09",
   "dependsOn": [
     "ogc.contrib.stac.core-ontology"
   ],
@@ -91,7 +91,7 @@
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.ttl",
           "sizeBytes": 1107,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <mlm:> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ns1:model [ dcterms:description \"Example model.\" ;\n                    dcterms:format \"text/html\" ;\n                    dcterms:title \"Pytorch weights checkpoint\" ;\n                    ns1:href \"https://huggingface.co/example/model-card\" ;\n                    stac:roles \"mlm:model\" ;\n                    ns2:artifact_type \"torch.save\" ] ;\n            ns1:thumbnail [ dcterms:format \"image/jpeg\" ;\n                    dcterms:title \"Thumbnail\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\" ;\n                    stac:roles \"thumbnail\" ] ;\n            ns1:visual [ dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n                    dcterms:title \"3-Band Visual\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\" ;\n                    stac:roles \"visual\" ] ] .\n\n"
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <mlm:> .\n@prefix ns2: <https://w3id.org/ogc/stac/assets/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ns2:model [ dcterms:description \"Example model.\" ;\n                    dcterms:format \"text/html\" ;\n                    dcterms:title \"Pytorch weights checkpoint\" ;\n                    ns2:href \"https://huggingface.co/example/model-card\" ;\n                    stac:roles \"mlm:model\" ;\n                    ns1:artifact_type \"torch.save\" ] ;\n            ns2:thumbnail [ dcterms:format \"image/jpeg\" ;\n                    dcterms:title \"Thumbnail\" ;\n                    ns2:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\" ;\n                    stac:roles \"thumbnail\" ] ;\n            ns2:visual [ dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n                    dcterms:title \"3-Band Visual\" ;\n                    ns2:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\" ;\n                    stac:roles \"visual\" ] ] .\n\n"
         }
       ]
     }

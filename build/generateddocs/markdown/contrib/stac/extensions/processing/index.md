@@ -238,24 +238,35 @@ STAC Processing Extension for STAC Items and STAC Collections.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix processing: <https://w3id.org/ogc/stac/processing/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/processing/example-1/Sentinel2-L2A> a <https://example.com/stac/processing/example-1/Collection> ;
     dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] ;
     dcat:license "proprietary" ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
+    stac:hasProvider [ processing:level "L2A"^^xsd:string ;
+            processing:lineage "Generation of Level-2A User Product"^^xsd:string ;
+            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
+        [ processing:facility "Copernicus S2 Processing and Archiving Facility"^^xsd:string ;
+            processing:level "L1"^^xsd:string ;
+            processing:lineage "Generation of Level-1C User Product"^^xsd:string ;
+            processing:version "02.06"^^xsd:string ],
+        [ ] ;
     stac:version "1.0.0" .
 
 
@@ -628,6 +639,7 @@ STAC Processing Extension for STAC Items and STAC Collections.
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
+    stac:end_datetime "2016-08-22T18:28:48.368201+00:00"^^xsd:dateTime ;
     stac:hasAsset [ ns1:amplitude-vh-iw [ dcterms:format "image/tiff; application=geotiff" ;
                     dcterms:title "IW VH Amplitude pixel values" ;
                     oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
@@ -669,6 +681,7 @@ STAC Processing Extension for STAC Items and STAC Collections.
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
         "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
         "https://stac-extensions.github.io/sat/v1.0.0/schema.json" ;
+    stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
     processing:datetime "2016-08-23T00:30:33+00:00"^^xsd:dateTime ;
     processing:facility "Copernicus S1 Core Ground Segment - DPA"^^xsd:string ;
@@ -769,16 +782,25 @@ Links to the schema:
       "@container": "@set"
     },
     "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
+      "@id": "dcat:keyword",
+      "@container": "@set"
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
     "license": "dcat:license",
+    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",

@@ -98,134 +98,6 @@ This is the simple item example from the STAC specification.
 
 ```
 
-#### jsonld
-```jsonld
-{
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
-  "stac_version": "1.1.0",
-  "stac_extensions": [],
-  "type": "Feature",
-  "id": "20201211_223832_CS2",
-  "bbox": [
-    172.91173669923782,
-    1.3438851951615003,
-    172.95469614953714,
-    1.3690476620161975
-  ],
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [
-          172.91173669923782,
-          1.3438851951615003
-        ],
-        [
-          172.95469614953714,
-          1.3438851951615003
-        ],
-        [
-          172.95469614953714,
-          1.3690476620161975
-        ],
-        [
-          172.91173669923782,
-          1.3690476620161975
-        ],
-        [
-          172.91173669923782,
-          1.3438851951615003
-        ]
-      ]
-    ]
-  },
-  "properties": {
-    "datetime": "2020-12-11T22:38:32.125000Z"
-  },
-  "collection": "simple-collection",
-  "links": [
-    {
-      "rel": "collection",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "root",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    },
-    {
-      "rel": "parent",
-      "href": "./collection.json",
-      "type": "application/json",
-      "title": "Simple Example Collection"
-    }
-  ],
-  "assets": {
-    "visual": {
-      "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif",
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
-      "title": "3-Band Visual",
-      "roles": [
-        "visual"
-      ]
-    },
-    "thumbnail": {
-      "href": "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg",
-      "title": "Thumbnail",
-      "type": "image/jpeg",
-      "roles": [
-        "thumbnail"
-      ]
-    }
-  }
-}
-```
-
-#### ttl
-```ttl
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
-    dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/example1/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/example1/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
-    geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
-    geojson:geometry [ a geojson:Polygon ;
-            geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:hasAsset [ ns2:thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
-                    stac:roles "thumbnail" ] ;
-            ns2:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
-                    stac:roles "visual" ] ] ;
-    stac:version "1.1.0" .
-
-
-```
-
 
 ### STAC spec core item
 This is the complete "core" item example from the STAC specification.  
@@ -509,6 +381,10 @@ This is the complete "core" item example from the STAC specification.
     dcterms:title "Core Item" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/example1/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ],
         [ rdfs:label "HTML version of this STAC Item" ;
@@ -518,14 +394,11 @@ This is the complete "core" item example from the STAC specification.
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/example1/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
+    stac:end_datetime "2020-12-11T22:38:32.327000+00:00"^^xsd:dateTime ;
     stac:hasAsset [ ns1:analytic [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "4-Band Analytic" ;
                     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
@@ -547,6 +420,7 @@ This is the complete "core" item example from the STAC specification.
                     dcterms:title "3-Band Visual" ;
                     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
                     stac:roles "visual" ] ] ;
+    stac:start_datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
     stac:version "1.1.0" .
 
 
@@ -869,20 +743,29 @@ Links to the schema:
       "@container": "@set"
     },
     "description": {
-      "@container": "@set",
-      "@id": "dct:description"
+      "@id": "dct:description",
+      "@container": "@set"
     },
     "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
+      "@id": "dcat:keyword",
+      "@container": "@set"
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
     "license": "dcat:license",
+    "providers": "stac:hasProvider",
     "stac_version": "stac:version",
     "media_type": "dct:format",
     "href": {

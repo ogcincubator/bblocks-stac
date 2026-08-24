@@ -6,6 +6,9 @@
     "id": "@id",
     "title": "rdfs:label",
     "description": "dct:description",
+    "keywords": "dct:subject",
+    "license": "dct:license",
+    "providers": "stac:hasProvider",
     "extent": "dct:extent",
     "assets": {
       "@context": {
@@ -21,6 +24,18 @@
       "@container": "@set"
     },
     "links": "rdfs:seeAlso",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "media_type": "dct:format",
     "href": {
       "@type": "@id",

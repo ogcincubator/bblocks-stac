@@ -518,17 +518,24 @@ indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Mili
 For more details on Sentinel-2 radiometric resoltuon, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
 """ ;
     dcterms:extent [ ] ;
+    dcterms:license "other" ;
+    dcterms:subject "copernicus",
+        "esa",
+        "eu",
+        "msi",
+        "radiance",
+        "sentinel" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
     rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns2:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     stac:hasAsset [ ns1:metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
                     dcterms:title "ISO 19139 metadata" ;
@@ -538,6 +545,7 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
+    stac:hasProvider [ ] ;
     stac:version "1.1.0" .
 
 
@@ -612,6 +620,21 @@ Links to the schema:
     },
     "title": "dct:title",
     "description": "dct:description",
+    "keywords": "dct:subject",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "license": "dct:license",
+    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

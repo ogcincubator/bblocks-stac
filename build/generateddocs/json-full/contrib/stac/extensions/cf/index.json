@@ -10,11 +10,11 @@
   "itemClass": "schema",
   "register": "bblocks-stac",
   "version": "0.2.0",
-  "dateOfLastChange": "2026-08-14",
+  "dateOfLastChange": "2023-12-09",
   "dependsOn": [
     "ogc.contrib.stac.collection",
-    "ogc.contrib.stac.item",
-    "ogc.contrib.stac.extensions.cf-ontology"
+    "ogc.contrib.stac.extensions.cf-ontology",
+    "ogc.contrib.stac.item"
   ],
   "sources": [
     {
@@ -32,14 +32,14 @@
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
+    "ogc.contrib.stac.extensions.cf-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
+    ],
     "ogc.geo.features.feature": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
     ],
     "ogc.api.records.v1.schemas.linkTemplate": [
       "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
-    ],
-    "ogc.contrib.stac.extensions.cf-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
     ]
   },
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/context.jsonld",
@@ -75,7 +75,7 @@
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/cf/example_1_1.ttl",
           "sizeBytes": 1079,
-          "code": "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;\n    dcterms:description \"A description\" ;\n    dcterms:extent [ ] ;\n    dcterms:title \"A title\" ;\n    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/collection.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    dcat:license \"Apache-2.0\" ;\n    stac:hasAsset [ ns1:example [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/cf/v1.0.0/schema.json\" ;\n    stac:version \"1.1.0\" .\n\n"
+          "code": "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://example.com/stac/cf/example-1/collection> a <https://example.com/stac/cf/example-1/Collection> ;\n    dcterms:description \"A description\" ;\n    dcterms:extent [ ] ;\n    dcterms:title \"A title\" ;\n    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/examples/item.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/collection.json> ] ;\n    dcat:license \"Apache-2.0\" ;\n    stac:hasAsset [ ns1:example [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/cf/v1.0.0/schema.json\" ;\n    stac:version \"1.1.0\" .\n\n"
         }
       ]
     },
@@ -100,7 +100,7 @@
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/cf/example_2_1.ttl",
           "sizeBytes": 1249,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <cube:> .\n@prefix ns3: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/cf/example-2/item> a geojson:Feature ;\n    ns2:dimensions [ ] ;\n    ns2:variables [ ] ;\n    dcterms:date \"2020-12-11T22:38:32+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ ns3:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;\n    stac:hasAsset [ ns1:data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/cf/v1.0.0/schema.json\" ;\n    stac:version \"1.1.0\" .\n\n"
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix ns3: <cube:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/cf/example-2/item> a geojson:Feature ;\n    ns3:dimensions [ ] ;\n    ns3:variables [ ] ;\n    dcterms:date \"2020-12-11T22:38:32+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;\n    stac:hasAsset [ ns1:data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/cf/v1.0.0/schema.json\" ;\n    stac:version \"1.1.0\" .\n\n"
         }
       ]
     }

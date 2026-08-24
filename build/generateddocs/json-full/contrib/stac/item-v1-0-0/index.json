@@ -11,7 +11,7 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-14",
+  "dateOfLastChange": "2023-12-09",
   "sources": [
     {
       "title": "STAC Specification",
@@ -24,20 +24,20 @@
     "item"
   ],
   "shaclShapes": {
-    "ogc.contrib.stac.core-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
-    ],
     "ogc.geo.features.feature": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
     ],
     "ogc.api.records.v1.schemas.linkTemplate": [
       "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+    ],
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ]
   },
   "dependsOn": [
-    "ogc.contrib.stac.item",
+    "ogc.geo.features.feature",
     "ogc.api.records.v1.schemas.recordGeoJSON",
-    "ogc.geo.features.feature"
+    "ogc.contrib.stac.item"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml",

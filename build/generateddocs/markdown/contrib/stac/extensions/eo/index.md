@@ -712,15 +712,15 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -728,7 +728,12 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     stac:hasAsset [ ns1:analytic [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "4-Band Analytic" ;
                     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
-                    ns1:bands [ ns1:name "band1" ;
+                    ns1:bands [ ns1:name "band2" ;
+                            eo:center_wavelength 5.6e-01 ;
+                            eo:common_name "green" ;
+                            eo:full_width_half_max 8e-02 ;
+                            eo:solar_illumination 1.82324e+03 ],
+                        [ ns1:name "band1" ;
                             eo:center_wavelength 4.7e-01 ;
                             eo:common_name "blue" ;
                             eo:full_width_half_max 7e-02 ;
@@ -742,12 +747,7 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
                             eo:center_wavelength 8e-01 ;
                             eo:common_name "nir" ;
                             eo:full_width_half_max 1.52e-01 ;
-                            eo:solar_illumination 1.04163e+03 ],
-                        [ ns1:name "band2" ;
-                            eo:center_wavelength 5.6e-01 ;
-                            eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ;
-                            eo:solar_illumination 1.82324e+03 ] ;
+                            eo:solar_illumination 1.04163e+03 ] ;
                     stac:roles "data" ;
                     eo:cloud_cover 1.2e+00 ] ;
             ns1:thumbnail [ dcterms:format "image/png" ;
@@ -757,18 +757,18 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
             ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
                     dcterms:title "3-Band Visual" ;
                     oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
-                    ns1:bands [ ns1:name "band2" ;
-                            eo:center_wavelength 5.6e-01 ;
-                            eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ],
+                    ns1:bands [ ns1:name "band1" ;
+                            eo:center_wavelength 4.7e-01 ;
+                            eo:common_name "blue" ;
+                            eo:full_width_half_max 7e-02 ],
                         [ ns1:name "band3" ;
                             eo:center_wavelength 6.45e-01 ;
                             eo:common_name "red" ;
                             eo:full_width_half_max 9e-02 ],
-                        [ ns1:name "band1" ;
-                            eo:center_wavelength 4.7e-01 ;
-                            eo:common_name "blue" ;
-                            eo:full_width_half_max 7e-02 ] ;
+                        [ ns1:name "band2" ;
+                            eo:center_wavelength 5.6e-01 ;
+                            eo:common_name "green" ;
+                            eo:full_width_half_max 8e-02 ] ;
                     stac:roles "visual" ] ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json" ;
     stac:version "1.1.0" ;
@@ -839,16 +839,25 @@ Links to the schema:
       "@container": "@set"
     },
     "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
+      "@id": "dcat:keyword",
+      "@container": "@set"
     },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "created": "dct:created",
     "updated": "dct:modified",
     "license": "dcat:license",
+    "providers": "stac:hasProvider",
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",

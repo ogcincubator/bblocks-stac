@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.core-ontology - STAC Core Ontology",
   "bblockName": "STAC Core Ontology",
   "bblockId": "ogc.contrib.stac.core-ontology",
-  "generated": "2026-08-14T08:04:54.111610+00:00",
+  "generated": "2026-08-24T13:37:06.741655+00:00",
   "result": true,
   "items": [
     {
@@ -49,17 +49,14 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
+                "stac:CollectionShape": {
+                  "nodes": []
+                },
                 "stac:LinkShape": {
                   "nodes": [
-                    "ex:link-parent",
                     "ex:link-root",
-                    "ex:link-collection"
-                  ]
-                },
-                "stac:AssetShape": {
-                  "nodes": [
-                    "ex:asset-thumbnail",
-                    "ex:asset-visual"
+                    "ex:link-collection",
+                    "ex:link-parent"
                   ]
                 },
                 "stac:ItemShape": {
@@ -67,12 +64,15 @@
                     "ex:item_20201211"
                   ]
                 },
-                "stac:CollectionShape": {
-                  "nodes": []
+                "stac:AssetShape": {
+                  "nodes": [
+                    "ex:asset-thumbnail",
+                    "ex:asset-visual"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: ex:link-parent,ex:link-root,ex:link-collection\n - Shape stac:AssetShape: ex:asset-thumbnail,ex:asset-visual\n - Shape stac:ItemShape: ex:item_20201211\n - Shape stac:CollectionShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: ex:link-root,ex:link-collection,ex:link-parent\n - Shape stac:ItemShape: ex:item_20201211\n - Shape stac:AssetShape: ex:asset-thumbnail,ex:asset-visual\n"
             }
           ]
         }
@@ -122,23 +122,23 @@
             {
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "focusNodes": {
-                "stac:LinkShape": {
-                  "nodes": []
+                "stac:CollectionShape": {
+                  "nodes": [
+                    "ex:simple-collection"
+                  ]
                 },
-                "stac:AssetShape": {
+                "stac:LinkShape": {
                   "nodes": []
                 },
                 "stac:ItemShape": {
                   "nodes": []
                 },
-                "stac:CollectionShape": {
-                  "nodes": [
-                    "ex:simple-collection"
-                  ]
+                "stac:AssetShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:CollectionShape: ex:simple-collection\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: ex:simple-collection\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
             }
           ]
         }
