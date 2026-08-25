@@ -145,11 +145,11 @@ TBD
 
 #### ttl
 ```ttl
+@prefix accuracy: <https://w3id.org/ogc/stac/accuracy/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <accuracy:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -157,20 +157,20 @@ TBD
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <file:///github/workspace/item> a geojson:Feature ;
-    ns1:geometric_rmse 1 ;
-    ns1:geometric_x_bias 0 ;
-    ns1:geometric_x_stddev 5e-01 ;
-    ns1:geometric_y_bias 0 ;
-    ns1:geometric_y_stddev 5e-01 ;
-    ns1:measurement_absolute 2e-02 ;
-    ns1:measurement_relative 1e-02 ;
     dct:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns3:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    stac:hasAsset [ ns2:data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;
+    accuracy:geometric_rmse 1e+00 ;
+    accuracy:geometric_x_bias 0e+00 ;
+    accuracy:geometric_x_stddev 5e-01 ;
+    accuracy:geometric_y_bias 0e+00 ;
+    accuracy:geometric_y_stddev 5e-01 ;
+    accuracy:measurement_absolute 2e-02 ;
+    accuracy:measurement_relative 1e-02 ;
+    stac:hasAsset [ ns1:data <https://example.com/examples/file.xyz> ] ;
     stac:hasExtension "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json" ;
     stac:version "1.0.0" .
 
@@ -188,6 +188,30 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json
+x-jsonld-extra-terms:
+  accuracy:geometric_x_bias:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_x_bias
+    x-jsonld-type: xsd:double
+  accuracy:geometric_y_bias:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_y_bias
+    x-jsonld-type: xsd:double
+  accuracy:geometric_x_stddev:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_x_stddev
+    x-jsonld-type: xsd:double
+  accuracy:geometric_y_stddev:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_y_stddev
+    x-jsonld-type: xsd:double
+  accuracy:geometric_rmse:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_rmse
+    x-jsonld-type: xsd:double
+  accuracy:measurement_relative:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/measurement_relative
+    x-jsonld-type: xsd:double
+  accuracy:measurement_absolute:
+    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/measurement_absolute
+    x-jsonld-type: xsd:double
+x-jsonld-prefixes:
+  accuracy: https://w3id.org/ogc/stac/accuracy/
 
 ```
 
@@ -253,9 +277,11 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -323,6 +349,34 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
+    "accuracy:geometric_x_bias": {
+      "@id": "accuracy:geometric_x_bias",
+      "@type": "xsd:double"
+    },
+    "accuracy:geometric_y_bias": {
+      "@id": "accuracy:geometric_y_bias",
+      "@type": "xsd:double"
+    },
+    "accuracy:geometric_x_stddev": {
+      "@id": "accuracy:geometric_x_stddev",
+      "@type": "xsd:double"
+    },
+    "accuracy:geometric_y_stddev": {
+      "@id": "accuracy:geometric_y_stddev",
+      "@type": "xsd:double"
+    },
+    "accuracy:geometric_rmse": {
+      "@id": "accuracy:geometric_rmse",
+      "@type": "xsd:double"
+    },
+    "accuracy:measurement_relative": {
+      "@id": "accuracy:measurement_relative",
+      "@type": "xsd:double"
+    },
+    "accuracy:measurement_absolute": {
+      "@id": "accuracy:measurement_absolute",
+      "@type": "xsd:double"
+    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -331,6 +385,7 @@ Links to the schema:
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
+    "accuracy": "https://w3id.org/ogc/stac/accuracy/",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",

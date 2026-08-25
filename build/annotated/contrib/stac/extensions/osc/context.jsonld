@@ -51,9 +51,11 @@
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -121,30 +123,50 @@
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "themes": {
-      "@id": "rec:themes",
-      "@container": "@set",
+    "osc:type": {
+      "@id": "osc:type",
+      "@type": "@vocab",
       "@context": {
-        "concepts": {
-          "@context": {
-            "id": "thns:id",
-            "url": "@id"
-          },
-          "@id": "thns:concepts",
-          "@container": "@set"
-        }
+        "project": "osc:project-type",
+        "product": "osc:product-type"
       }
     },
-    "concepts": {
-      "@id": "thns:concepts",
-      "@container": "@set",
+    "osc:status": {
+      "@id": "osc:status",
+      "@type": "@vocab",
       "@context": {
-        "name": "thns:name",
-        "id": "thns:id",
-        "url": "@id"
+        "planned": "osc:planned",
+        "ongoing": "osc:ongoing",
+        "completed": "osc:completed"
       }
     },
-    "scheme": "thns:scheme",
+    "osc:project": {
+      "@id": "osc:project",
+      "@type": "xsd:string"
+    },
+    "osc:region": {
+      "@id": "osc:region",
+      "@type": "xsd:string"
+    },
+    "osc:variables": {
+      "@id": "osc:variables",
+      "@type": "xsd:string",
+      "@container": "@set"
+    },
+    "osc:missions": {
+      "@id": "osc:missions",
+      "@type": "xsd:string",
+      "@container": "@set"
+    },
+    "osc:experiment": {
+      "@id": "osc:experiment",
+      "@type": "xsd:string"
+    },
+    "osc:workflows": {
+      "@id": "osc:workflows",
+      "@type": "xsd:string",
+      "@container": "@set"
+    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -153,7 +175,7 @@
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "thns": "https://w3id.org/ogc/stac/themes/",
+    "osc": "https://w3id.org/ogc/stac/osc/",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
@@ -166,6 +188,7 @@
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
     "language": "rec:language",
     "languages": {
       "@container": "@set",
@@ -182,6 +205,21 @@
       },
       "@container": "@set",
       "@id": "rec:scopedIdentifier"
+    },
+    "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": "thns:id",
+            "url": "@id"
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        },
+        "scheme": "thns:scheme"
+      },
+      "@container": "@set",
+      "@id": "rec:themes"
     },
     "formats": {
       "@context": {

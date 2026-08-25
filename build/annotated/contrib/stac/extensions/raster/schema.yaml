@@ -1,18 +1,39 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Forecast Extension
-description: STAC Forecast Extension for STAC Items and STAC Collections.
+title: Raster Extension
+description: STAC Raster Extension for STAC Items and STAC Collections.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/raster/v2.0.0/schema.json
 x-jsonld-extra-terms:
-  concepts:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+  raster:sampling:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/sampling
+    x-jsonld-type: '@vocab'
+    x-jsonld-context:
+      area: https://w3id.org/ogc/stac/raster/area
+      point: https://w3id.org/ogc/stac/raster/point
+  raster:bits_per_sample:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/bits_per_sample
+    x-jsonld-type: xsd:integer
+  raster:spatial_resolution:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/spatial_resolution
+    x-jsonld-type: xsd:double
+  raster:scale:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/scale
+    x-jsonld-type: xsd:double
+  raster:offset:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/offset
+    x-jsonld-type: xsd:double
+  raster:histogram:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/histogram
     x-jsonld-context:
       '@vocab': https://w3id.org/ogc/stac/raster/
-  raster:range:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
-    x-jsonld-container: '@list'
+      count: https://w3id.org/ogc/stac/raster/count
+      min: https://w3id.org/ogc/stac/raster/min
+      max: https://w3id.org/ogc/stac/raster/max
+      buckets:
+        '@id': https://w3id.org/ogc/stac/raster/buckets
+        '@container': '@list'
 x-jsonld-prefixes:
   raster: https://w3id.org/ogc/stac/raster/

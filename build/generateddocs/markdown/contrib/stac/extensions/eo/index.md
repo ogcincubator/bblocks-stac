@@ -712,68 +712,71 @@ EO data is considered to be data that represents a snapshot of the Earth for a s
     dcterms:modified "2020-12-12T01:48:13.725Z" ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
+        [ rdfs:label "Simple Example Collection" ;
+            dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
         [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ],
-        [ rdfs:label "Simple Example Collection" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/eo/example-2/collection.json> ] ;
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:hasAsset [ ns1:analytic [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "4-Band Analytic" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
-                    ns1:bands [ ns1:name "band2" ;
-                            eo:center_wavelength 5.6e-01 ;
-                            eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ;
-                            eo:solar_illumination 1.82324e+03 ],
-                        [ ns1:name "band1" ;
-                            eo:center_wavelength 4.7e-01 ;
-                            eo:common_name "blue" ;
-                            eo:full_width_half_max 7e-02 ;
-                            eo:solar_illumination 1.95966e+03 ],
-                        [ ns1:name "band3" ;
-                            eo:center_wavelength 6.45e-01 ;
-                            eo:common_name "red" ;
-                            eo:full_width_half_max 9e-02 ;
-                            eo:solar_illumination 1.51206e+03 ],
-                        [ ns1:name "band4" ;
-                            eo:center_wavelength 8e-01 ;
-                            eo:common_name "nir" ;
-                            eo:full_width_half_max 1.52e-01 ;
-                            eo:solar_illumination 1.04163e+03 ] ;
-                    stac:roles "data" ;
-                    eo:cloud_cover 1.2e+00 ] ;
-            ns1:thumbnail [ dcterms:format "image/png" ;
-                    dcterms:title "Thumbnail" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
-                    stac:roles "thumbnail" ] ;
-            ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
-                    ns1:bands [ ns1:name "band1" ;
-                            eo:center_wavelength 4.7e-01 ;
-                            eo:common_name "blue" ;
-                            eo:full_width_half_max 7e-02 ],
-                        [ ns1:name "band3" ;
-                            eo:center_wavelength 6.45e-01 ;
-                            eo:common_name "red" ;
-                            eo:full_width_half_max 9e-02 ],
-                        [ ns1:name "band2" ;
-                            eo:center_wavelength 5.6e-01 ;
-                            eo:common_name "green" ;
-                            eo:full_width_half_max 8e-02 ] ;
-                    stac:roles "visual" ] ] ;
+    stac:hasAsset [ ns1:analytic <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> ;
+            ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json" ;
     stac:version "1.1.0" ;
     eo:cloud_cover 1.2e+00 ;
-    eo:snow_cover 0 .
+    eo:snow_cover 0e+00 .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format "image/png" ;
+    dcterms:title "Thumbnail" ;
+    stac:hasAssetroles "thumbnail"^^xsd:string .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "3-Band Visual" ;
+    ns1:bands [ ns1:name "band1" ;
+            eo:center_wavelength 4.7e-01 ;
+            eo:common_name eo:blue ;
+            eo:full_width_half_max 7e-02 ],
+        [ ns1:name "band2" ;
+            eo:center_wavelength 5.6e-01 ;
+            eo:common_name eo:green ;
+            eo:full_width_half_max 8e-02 ],
+        [ ns1:name "band3" ;
+            eo:center_wavelength 6.45e-01 ;
+            eo:common_name eo:red ;
+            eo:full_width_half_max 9e-02 ] ;
+    stac:hasAssetroles "visual"^^xsd:string .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2_analytic.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "4-Band Analytic" ;
+    ns1:bands [ ns1:name "band2" ;
+            eo:center_wavelength 5.6e-01 ;
+            eo:common_name eo:green ;
+            eo:full_width_half_max 8e-02 ;
+            eo:solar_illumination 1.82324e+03 ],
+        [ ns1:name "band1" ;
+            eo:center_wavelength 4.7e-01 ;
+            eo:common_name eo:blue ;
+            eo:full_width_half_max 7e-02 ;
+            eo:solar_illumination 1.95966e+03 ],
+        [ ns1:name "band4" ;
+            eo:center_wavelength 8e-01 ;
+            eo:common_name eo:nir ;
+            eo:full_width_half_max 1.52e-01 ;
+            eo:solar_illumination 1.04163e+03 ],
+        [ ns1:name "band3" ;
+            eo:center_wavelength 6.45e-01 ;
+            eo:common_name eo:red ;
+            eo:full_width_half_max 9e-02 ;
+            eo:solar_illumination 1.51206e+03 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    eo:cloud_cover 1.2e+00 .
 
 
 ```
@@ -790,10 +793,45 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/eo/v2.0.0/schema.json
 x-jsonld-extra-terms:
-  eo:bands:
-    x-jsonld-id: https://w3id.org/ogc/stac/eo/bands
+  eo:cloud_cover:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/cloud_cover
+    x-jsonld-type: xsd:double
+  eo:snow_cover:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/snow_cover
+    x-jsonld-type: xsd:double
+  eo:common_name:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/common_name
+    x-jsonld-type: '@vocab'
     x-jsonld-context:
-      '@vocab': https://w3id.org/ogc/stac/eo/
+      pan: https://w3id.org/ogc/stac/eo/pan
+      coastal: https://w3id.org/ogc/stac/eo/coastal
+      blue: https://w3id.org/ogc/stac/eo/blue
+      green: https://w3id.org/ogc/stac/eo/green
+      green05: https://w3id.org/ogc/stac/eo/green05
+      yellow: https://w3id.org/ogc/stac/eo/yellow
+      red: https://w3id.org/ogc/stac/eo/red
+      rededge: https://w3id.org/ogc/stac/eo/rededge
+      rededge071: https://w3id.org/ogc/stac/eo/rededge071
+      rededge075: https://w3id.org/ogc/stac/eo/rededge075
+      rededge078: https://w3id.org/ogc/stac/eo/rededge078
+      nir: https://w3id.org/ogc/stac/eo/nir
+      nir08: https://w3id.org/ogc/stac/eo/nir08
+      nir09: https://w3id.org/ogc/stac/eo/nir09
+      cirrus: https://w3id.org/ogc/stac/eo/cirrus
+      swir16: https://w3id.org/ogc/stac/eo/swir16
+      swir22: https://w3id.org/ogc/stac/eo/swir22
+      lwir: https://w3id.org/ogc/stac/eo/lwir
+      lwir11: https://w3id.org/ogc/stac/eo/lwir11
+      lwir12: https://w3id.org/ogc/stac/eo/lwir12
+  eo:center_wavelength:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/center_wavelength
+    x-jsonld-type: xsd:double
+  eo:full_width_half_max:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/full_width_half_max
+    x-jsonld-type: xsd:double
+  eo:solar_illumination:
+    x-jsonld-id: https://w3id.org/ogc/stac/eo/solar_illumination
+    x-jsonld-type: xsd:double
 x-jsonld-prefixes:
   eo: https://w3id.org/ogc/stac/eo/
 
@@ -861,9 +899,11 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -931,11 +971,51 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "eo:bands": {
-      "@id": "eo:bands",
+    "eo:cloud_cover": {
+      "@id": "eo:cloud_cover",
+      "@type": "xsd:double"
+    },
+    "eo:snow_cover": {
+      "@id": "eo:snow_cover",
+      "@type": "xsd:double"
+    },
+    "eo:common_name": {
+      "@id": "eo:common_name",
+      "@type": "@vocab",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/eo/"
+        "pan": "eo:pan",
+        "coastal": "eo:coastal",
+        "blue": "eo:blue",
+        "green": "eo:green",
+        "green05": "eo:green05",
+        "yellow": "eo:yellow",
+        "red": "eo:red",
+        "rededge": "eo:rededge",
+        "rededge071": "eo:rededge071",
+        "rededge075": "eo:rededge075",
+        "rededge078": "eo:rededge078",
+        "nir": "eo:nir",
+        "nir08": "eo:nir08",
+        "nir09": "eo:nir09",
+        "cirrus": "eo:cirrus",
+        "swir16": "eo:swir16",
+        "swir22": "eo:swir22",
+        "lwir": "eo:lwir",
+        "lwir11": "eo:lwir11",
+        "lwir12": "eo:lwir12"
       }
+    },
+    "eo:center_wavelength": {
+      "@id": "eo:center_wavelength",
+      "@type": "xsd:double"
+    },
+    "eo:full_width_half_max": {
+      "@id": "eo:full_width_half_max",
+      "@type": "xsd:double"
+    },
+    "eo:solar_illumination": {
+      "@id": "eo:solar_illumination",
+      "@type": "xsd:double"
     },
     "href": {
       "@type": "@id",

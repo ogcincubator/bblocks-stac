@@ -11,9 +11,10 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2023-12-09",
+  "dateOfLastChange": "2026-08-25",
   "dependsOn": [
-    "ogc.contrib.stac.core-ontology"
+    "ogc.contrib.stac.core-ontology",
+    "ogc.contrib.stac.components.assets-ontology"
   ],
   "sources": [
     {
@@ -29,6 +30,9 @@
   "shaclShapes": {
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ],
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
     ]
   },
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld",
@@ -64,8 +68,8 @@
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_1_1.ttl",
-          "sizeBytes": 733,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ns1:thumbnail [ dcterms:format \"image/jpeg\" ;\n                    dcterms:title \"Thumbnail\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\" ;\n                    stac:roles \"thumbnail\" ] ;\n            ns1:visual [ dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n                    dcterms:title \"3-Band Visual\" ;\n                    ns1:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\" ;\n                    stac:roles \"visual\" ] ] .\n\n"
+          "sizeBytes": 811,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format \"image/jpeg\" ;\n    dcterms:title \"Thumbnail\" ;\n    stac:hasAssetroles \"thumbnail\"^^<xsd:string> .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n    dcterms:title \"3-Band Visual\" ;\n    stac:hasAssetroles \"visual\"^^<xsd:string> .\n\n[] stac:hasAsset [ ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;\n            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .\n\n"
         }
       ]
     },
@@ -90,13 +94,13 @@
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.ttl",
-          "sizeBytes": 1107,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <mlm:> .\n@prefix ns2: <https://w3id.org/ogc/stac/assets/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n[] stac:hasAsset [ ns2:model [ dcterms:description \"Example model.\" ;\n                    dcterms:format \"text/html\" ;\n                    dcterms:title \"Pytorch weights checkpoint\" ;\n                    ns2:href \"https://huggingface.co/example/model-card\" ;\n                    stac:roles \"mlm:model\" ;\n                    ns1:artifact_type \"torch.save\" ] ;\n            ns2:thumbnail [ dcterms:format \"image/jpeg\" ;\n                    dcterms:title \"Thumbnail\" ;\n                    ns2:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg\" ;\n                    stac:roles \"thumbnail\" ] ;\n            ns2:visual [ dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n                    dcterms:title \"3-Band Visual\" ;\n                    ns2:href \"https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif\" ;\n                    stac:roles \"visual\" ] ] .\n\n"
+          "sizeBytes": 1155,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <mlm:> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://huggingface.co/example/model-card> dcterms:description \"Example model.\" ;\n    dcterms:format \"text/html\" ;\n    dcterms:title \"Pytorch weights checkpoint\" ;\n    stac:hasAssetroles \"mlm:model\"^^<xsd:string> ;\n    ns2:artifact_type \"torch.save\" .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format \"image/jpeg\" ;\n    dcterms:title \"Thumbnail\" ;\n    stac:hasAssetroles \"thumbnail\"^^<xsd:string> .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n    dcterms:title \"3-Band Visual\" ;\n    stac:hasAssetroles \"visual\"^^<xsd:string> .\n\n[] stac:hasAsset [ ns1:model <https://huggingface.co/example/model-card> ;\n            ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;\n            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: STAC Asset\ntype: object\ndescription: This object represents a set of assets\nproperties:\n  assets:\n    $ref: '#/definitions/assets'\n    x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset\n    x-jsonld-container: '@set'\n    x-jsonld-vocab: https://w3id.org/ogc/stac/assets/\n    x-jsonld-extra-terms:\n      type: http://purl.org/dc/terms/format\n      title: http://purl.org/dc/terms/title\n      description: http://purl.org/dc/terms/description\n      roles:\n        x-jsonld-id: https://w3id.org/ogc/stac/core/roles\n        x-jsonld-container: '@set'\ndefinitions:\n  assets:\n    title: Asset links\n    description: Links to assets\n    type: object\n    additionalProperties:\n      $ref: '#/definitions/asset'\n  asset:\n    allOf:\n    - type: object\n      required:\n      - href\n      properties:\n        href:\n          title: Asset reference\n          type: string\n          format: iri-reference\n          minLength: 1\n        title:\n          title: Asset title\n          type: string\n        description:\n          title: Asset description\n          type: string\n        type:\n          title: Asset type\n          type: string\n        roles:\n          title: Asset roles\n          type: array\n          items:\n            type: string\nx-jsonld-prefixes:\n  stac: https://w3id.org/ogc/stac/core/\n  dct: http://purl.org/dc/terms/\n  rdfs: http://www.w3.org/2000/01/rdf-schema#\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: STAC Asset\ntype: object\ndescription: This object represents a set of assets\nproperties:\n  assets:\n    $ref: '#/definitions/assets'\n    x-jsonld-id: https://w3id.org/ogc/stac/core/hasAsset\n    x-jsonld-container: '@set'\n    x-jsonld-vocab: https://w3id.org/ogc/stac/assets/\n    x-jsonld-extra-terms:\n      href: '@id'\n      type: http://purl.org/dc/terms/format\n      title: http://purl.org/dc/terms/title\n      description: http://purl.org/dc/terms/description\n      roles:\n        x-jsonld-id: https://w3id.org/ogc/stac/core/hasAssetroles\n        x-jsonld-type: xsd:string\n        x-jsonld-container: '@set'\ndefinitions:\n  assets:\n    title: Asset links\n    description: Links to assets\n    type: object\n    additionalProperties:\n      $ref: '#/definitions/asset'\n  asset:\n    allOf:\n    - type: object\n      required:\n      - href\n      properties:\n        href:\n          title: Asset reference\n          type: string\n          format: iri-reference\n          minLength: 1\n        title:\n          title: Asset title\n          type: string\n        description:\n          title: Asset description\n          type: string\n        type:\n          title: Asset type\n          type: string\n        roles:\n          title: Asset roles\n          type: array\n          items:\n            type: string\nx-jsonld-prefixes:\n  stac: https://w3id.org/ogc/stac/core/\n  dct: http://purl.org/dc/terms/\n  assets: https://w3id.org/ogc/stac/core/hasAsset\n  rdfs: http://www.w3.org/2000/01/rdf-schema#\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/components/assets"
 }

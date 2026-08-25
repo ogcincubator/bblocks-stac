@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.components.assets - Assets object",
   "bblockName": "Assets object",
   "bblockId": "ogc.contrib.stac.components.assets",
-  "generated": "2026-08-24T13:37:06.769385+00:00",
+  "generated": "2026-08-25T07:34:57.022092+00:00",
   "result": true,
   "items": [
     {
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 11,
+              "size": 9,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -78,15 +78,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             }
           ]
         }
@@ -127,7 +144,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 18,
+              "size": 15,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -165,15 +182,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             }
           ]
         }

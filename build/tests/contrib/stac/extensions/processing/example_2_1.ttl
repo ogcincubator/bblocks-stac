@@ -1,7 +1,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <sar:> .
+@prefix ns1: <sar:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns3: <sat:> .
 @prefix ns4: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -22,44 +22,14 @@
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
     stac:end_datetime "2016-08-22T18:28:48.368201+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:amplitude-vh-iw [ dcterms:format "image/tiff; application=geotiff" ;
-                    dcterms:title "IW VH Amplitude pixel values" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
-                    stac:roles "data" ;
-                    ns2:polarizations "VH" ] ;
-            ns1:amplitude-vv-iw [ dcterms:format "image/tiff; application=geotiff" ;
-                    dcterms:title "IW VV Amplitude pixel values" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
-                    stac:roles "data" ;
-                    ns2:polarizations "VV" ] ;
-            ns1:annotation-vh-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Annotation VH IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-                    stac:roles "metadata" ;
-                    ns2:polarizations "VH" ] ;
-            ns1:annotation-vv-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Annotation VV IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-                    stac:roles "metadata" ;
-                    ns2:polarizations "VV" ] ;
-            ns1:calibration-vh-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Calibration VH IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-                    stac:roles "data" ;
-                    ns2:polarizations "VH" ] ;
-            ns1:calibration-vv-iw [ dcterms:format "text/xml" ;
-                    dcterms:title "Calibration VV IW" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-                    stac:roles "data" ;
-                    ns2:polarizations "VV" ] ;
-            ns1:manifest [ dcterms:created "2016-08-23T00:30:33Z" ;
-                    dcterms:format "text/xml" ;
-                    dcterms:title "SAFE Manifest" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> ;
-                    stac:roles "metadata" ] ;
-            ns1:quick-look [ dcterms:format "image/png" ;
-                    oa:hasTarget <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> ;
-                    stac:roles "overview" ] ] ;
+    stac:hasAsset [ ns2:amplitude-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
+            ns2:amplitude-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
+            ns2:annotation-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
+            ns2:annotation-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
+            ns2:calibration-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
+            ns2:calibration-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
+            ns2:manifest <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> ;
+            ns2:quick-look <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> ] ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
         "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
         "https://stac-extensions.github.io/sat/v1.0.0/schema.json" ;
@@ -70,13 +40,51 @@
     processing:level "L1"^^xsd:string ;
     processing:lineage "GRD Post Processing"^^xsd:string ;
     processing:software "{\"Sentinel-1 IPF\":\"002.71\"}"^^rdf:JSON ;
-    ns2:frequency_band "C" ;
-    ns2:instrument_mode "IW" ;
-    ns2:polarizations "VH",
+    ns1:frequency_band "C" ;
+    ns1:instrument_mode "IW" ;
+    ns1:polarizations "VH",
         "VV" ;
-    ns2:product_type "GRD" ;
+    ns1:product_type "GRD" ;
     ns3:absolute_orbit 12717 ;
     ns3:anx_datetime "2016-08-22T18:24:52.513706Z" ;
     ns3:orbit_state "ascending" ;
     ns3:relative_orbit 45 .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> dcterms:format "text/xml" ;
+    dcterms:title "Calibration VH IW" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    ns1:polarizations "VH" .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> dcterms:format "text/xml" ;
+    dcterms:title "Calibration VV IW" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    ns1:polarizations "VV" .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> dcterms:format "image/tiff; application=geotiff" ;
+    dcterms:title "IW VH Amplitude pixel values" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    ns1:polarizations "VH" .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> dcterms:format "text/xml" ;
+    dcterms:title "Annotation VH IW" ;
+    stac:hasAssetroles "metadata"^^xsd:string ;
+    ns1:polarizations "VH" .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> dcterms:format "image/tiff; application=geotiff" ;
+    dcterms:title "IW VV Amplitude pixel values" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    ns1:polarizations "VV" .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> dcterms:format "text/xml" ;
+    dcterms:title "Annotation VV IW" ;
+    stac:hasAssetroles "metadata"^^xsd:string ;
+    ns1:polarizations "VV" .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> dcterms:created "2016-08-23T00:30:33Z" ;
+    dcterms:format "text/xml" ;
+    dcterms:title "SAFE Manifest" ;
+    stac:hasAssetroles "metadata"^^xsd:string .
+
+<https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> dcterms:format "image/png" ;
+    stac:hasAssetroles "overview"^^xsd:string .
 

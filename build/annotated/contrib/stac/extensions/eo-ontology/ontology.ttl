@@ -1,0 +1,188 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix eo: <https://w3id.org/ogc/stac/eo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+eo:blue a skos:Concept ;
+    skos:definition "Band range: 0.45 - 0.53µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "blue" ;
+    skos:prefLabel "Blue"@en .
+
+eo:center_wavelength a owl:DatatypeProperty ;
+    rdfs:label "center wavelength" ;
+    dct:description "The center wavelength of the band, in micrometers (µm)." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology." ;
+    rdfs:isDefinedBy eo: ;
+    rdfs:range xsd:double .
+
+eo:cirrus a skos:Concept ;
+    skos:definition "Band range: 1.35 - 1.40µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "cirrus" ;
+    skos:prefLabel "Cirrus"@en .
+
+eo:cloud_cover a owl:DatatypeProperty ;
+    rdfs:label "cloud cover" ;
+    dct:description "Estimate of cloud cover, as a percentage (0-100), of the item/asset." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy eo: ;
+    rdfs:range xsd:double .
+
+eo:coastal a skos:Concept ;
+    skos:definition "Band range: 0.40 - 0.45µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "coastal" ;
+    skos:prefLabel "Coastal/Aerosol"@en .
+
+eo:common_name a owl:DatatypeProperty ;
+    rdfs:label "common band name" ;
+    dct:description "The name commonly used to refer to the band, drawn from the fixed EO Common Band Names vocabulary (eo:CommonBandNameScheme, see skos.ttl)." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology. Range is skos:Concept because the value is one of eo:CommonBandNameScheme's members (eo:pan, eo:blue, ...), addressed by its skos:notation string in JSON." ;
+    rdfs:isDefinedBy eo: ;
+    rdfs:range skos:Concept .
+
+eo:full_width_half_max a owl:DatatypeProperty ;
+    rdfs:label "full width half max (FWHM)" ;
+    dct:description "The width of the band, as measured at half the maximum transmission, in micrometers (µm)." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology." ;
+    rdfs:isDefinedBy eo: ;
+    rdfs:range xsd:double .
+
+eo:green a skos:Concept ;
+    skos:definition "Band range: 0.51 - 0.60µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "green" ;
+    skos:prefLabel "Green"@en .
+
+eo:green05 a skos:Concept ;
+    skos:definition "Band range: 0.51 - 0.55µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "green05" ;
+    skos:prefLabel "Green 0.5"@en .
+
+eo:lwir a skos:Concept ;
+    skos:definition "Band range: 10.4 - 12.5µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "lwir" ;
+    skos:prefLabel "Long-wave Infrared (Thermal Infrared)"@en .
+
+eo:lwir11 a skos:Concept ;
+    skos:definition "Band range: 10.5 - 11.5µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "lwir11" ;
+    skos:prefLabel "Long-wave Infrared 11"@en .
+
+eo:lwir12 a skos:Concept ;
+    skos:definition "Band range: 11.5 - 12.5µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "lwir12" ;
+    skos:prefLabel "Long-wave Infrared 12"@en .
+
+eo:nir a skos:Concept ;
+    skos:definition "Band range: 0.76 - 1.00µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "nir" ;
+    skos:prefLabel "Near Infrared"@en .
+
+eo:nir08 a skos:Concept ;
+    skos:definition "Band range: 0.80 - 0.90µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "nir08" ;
+    skos:prefLabel "Near Infrared 0.8"@en .
+
+eo:nir09 a skos:Concept ;
+    skos:definition "Band range: 0.90 - 1.00µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "nir09" ;
+    skos:prefLabel "Near Infrared 0.9"@en .
+
+eo:pan a skos:Concept ;
+    skos:definition "Band range: 0.40 - 1.00µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "pan" ;
+    skos:prefLabel "Panchromatic"@en .
+
+eo:red a skos:Concept ;
+    skos:definition "Band range: 0.62 - 0.69µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "red" ;
+    skos:prefLabel "Red"@en .
+
+eo:rededge a skos:Concept ;
+    skos:definition "Band range: 0.69 - 0.79µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge" ;
+    skos:prefLabel "Red Edge"@en .
+
+eo:rededge071 a skos:Concept ;
+    skos:definition "Band range: 0.69 - 0.73µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge071" ;
+    skos:prefLabel "Red Edge 0.71"@en .
+
+eo:rededge075 a skos:Concept ;
+    skos:definition "Band range: 0.73 - 0.76µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge075" ;
+    skos:prefLabel "Red Edge 0.75"@en .
+
+eo:rededge078 a skos:Concept ;
+    skos:definition "Band range: 0.76 - 0.79µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge078" ;
+    skos:prefLabel "Red Edge 0.78"@en .
+
+eo:snow_cover a owl:DatatypeProperty ;
+    rdfs:label "snow and ice cover" ;
+    dct:description "Estimate of snow and ice cover, as a percentage (0-100), of the item/asset." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy eo: ;
+    rdfs:range xsd:double .
+
+eo:solar_illumination a owl:DatatypeProperty ;
+    rdfs:label "solar illumination" ;
+    dct:description "The solar illumination of the band, in W/m2/micrometers." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology." ;
+    rdfs:isDefinedBy eo: ;
+    rdfs:range xsd:double .
+
+eo:swir16 a skos:Concept ;
+    skos:definition "Band range: 1.55 - 1.75µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "swir16" ;
+    skos:prefLabel "Short-wave Infrared 1.6"@en .
+
+eo:swir22 a skos:Concept ;
+    skos:definition "Band range: 2.08 - 2.35µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "swir22" ;
+    skos:prefLabel "Short-wave Infrared 2.2"@en .
+
+eo:yellow a skos:Concept ;
+    skos:definition "Band range: 0.58 - 0.62µm."@en ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "yellow" ;
+    skos:prefLabel "Yellow"@en .
+
+eo: a owl:Ontology ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:description """Vocabulary for the elements defined by the STAC Electro-Optical (EO) extension: cloud/snow cover estimates and band-level optical properties.
+
+This ontology describes only the eo:* fields that the extension adds. STAC Item and Collection are defined by the STAC core vocabulary and are reused — not redefined — here.
+
+Combines skos.ttl (eo:CommonBandNameScheme, the fixed common_name enumeration, as a skos:ConceptScheme) and owl.ttl (the eo:* datatype properties).""" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:source <https://github.com/stac-extensions/eo/tree/v2.0.0> ;
+    dct:title "STAC Electro-Optical Extension Ontology" ;
+    owl:versionInfo "2.0.0" .
+
+eo:CommonBandNameScheme a skos:ConceptScheme ;
+    dct:description "The fixed set of common spectral band names defined by the STAC Electro-Optical extension, each associated with an approximate wavelength range." ;
+    dct:title "EO Common Band Names" ;
+    rdfs:isDefinedBy eo: .
+

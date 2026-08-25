@@ -246,19 +246,14 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
-        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -267,7 +262,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
+        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -522,17 +522,18 @@ A knowledge organization system used to classify the resource (controlled vocabu
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 5.6287e+00 4.42673e+01 ) ( 5.5996e+00 4.41958e+01 ) ( 5.57633e+00 4.413603e+01 ) ( 4.25061e+00 4.415852e+01 ) ( 4.27204e+00 4.514675e+01 ) ( 5.66762e+00 4.512267e+01 ) ( 5.6287e+00 4.42673e+01 ) ) ) ] ;
-    stac:hasAsset [ ns2:data [ dcterms:format "text/plain" ;
-                    oa:hasTarget <https://example.com/stac/themes/example-2/example.file> ] ] ;
+    stac:hasAsset [ ns2:data <https://example.com/stac/themes/example-2/example.file> ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ],
-                [ thns:id "wiki::Summer" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::2976077" ],
-                [ thns:id "geonames::11071625" ],
-                [ thns:id "geonames::3017382" ] ;
-            thns:scheme "https://www.geonames.org" ] .
+    rec:themes [ thns:concepts [ thns:id "geonames::11071625" ],
+                [ thns:id "geonames::3017382" ],
+                [ thns:id "geonames::2976077" ] ;
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Summer" ],
+                [ thns:id "wiki::Syncline" ] ;
+            thns:scheme "https://en.wikipedia.org" ] .
+
+<https://example.com/stac/themes/example-2/example.file> dcterms:format "text/plain" .
 
 
 ```
@@ -560,8 +561,9 @@ x-jsonld-extra-terms:
     x-jsonld-id: https://w3id.org/ogc/stac/themes/concepts
     x-jsonld-container: '@set'
     x-jsonld-context:
-      name: https://w3id.org/ogc/stac/themes/name
       id: https://w3id.org/ogc/stac/themes/id
+      title: https://w3id.org/ogc/stac/themes/name
+      description: https://w3id.org/ogc/stac/themes/description
       url: '@id'
   scheme: https://w3id.org/ogc/stac/themes/scheme
 x-jsonld-prefixes:
@@ -631,9 +633,11 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -719,8 +723,9 @@ Links to the schema:
       "@id": "thns:concepts",
       "@container": "@set",
       "@context": {
-        "name": "thns:name",
         "id": "thns:id",
+        "title": "thns:name",
+        "description": "thns:description",
         "url": "@id"
       }
     },

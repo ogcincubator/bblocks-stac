@@ -1,0 +1,70 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.classification-ontology",
+  "name": "STAC Classification Extension Ontology",
+  "highlighted": false,
+  "title": "Definitions for STAC Classification extension elements",
+  "description": "Vocabulary defining the elements of the STAC Classification extension (classification:classes, classification:bitfields, and the Class Object / Bit Field Object fields), providing Linked Data terms for the STAC Classification schema. classification:Class is modeled as a skos:Concept subclass since each classes/bitfields entry is a dataset-specific codelist entry; the codelist containers and per-class statistics stay OWL. Reuses STAC core classes rather than redefining them.",
+  "status": "under-development",
+  "version": "0.1",
+  "itemClass": "model",
+  "dependsOn": [],
+  "sources": [
+    {
+      "title": "GitHub Repository",
+      "link": "https://github.com/stac-extensions/classification"
+    },
+    {
+      "title": "JSON Schema (v2.0.0)",
+      "link": "https://stac-extensions.github.io/classification/v2.0.0/schema.json"
+    },
+    {
+      "title": "README (Class Object / Bit Field Object field tables)",
+      "link": "https://github.com/stac-extensions/classification/blob/main/README.md"
+    },
+    {
+      "title": "Example: item-model-classes.json",
+      "link": "https://github.com/stac-extensions/classification/raw/refs/heads/main/examples/item-model-classes.json"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.extensions.classification-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/classification-ontology/shapes.shacl"
+    ]
+  },
+  "rules": [],
+  "dateTimeAddition": "2026-08-25T00:00:00Z",
+  "dateOfLastChange": "2026-08-25",
+  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/classification-ontology/ontology.ttl",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/classification-ontology/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/classification-ontology/",
+  "examples": [
+    {
+      "title": "Land-cover classes for a Sentinel-2 classification model output (EuroSAT classes)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/classification-ontology/example_1_1.ttl",
+          "sizeBytes": 1274,
+          "code": "@prefix stac:           <https://w3id.org/ogc/stac/core/> .\n@prefix classification: <https://w3id.org/ogc/stac/classification/> .\n@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:             <https://example.org/stac/> .\n\nex:resnet18-eurosat a stac:Item ;\n    classification:classes\n        [ a classification:Class ; classification:value 0 ; classification:name \"AnnualCrop\" ] ,\n        [ a classification:Class ; classification:value 1 ; classification:name \"Forest\" ] ,\n        [ a classification:Class ; classification:value 2 ; classification:name \"HerbaceousVegetation\" ] ,\n        [ a classification:Class ; classification:value 3 ; classification:name \"Highway\" ] ,\n        [ a classification:Class ; classification:value 4 ; classification:name \"Industrial\" ] ,\n        [ a classification:Class ; classification:value 5 ; classification:name \"Pasture\" ] ,\n        [ a classification:Class ; classification:value 6 ; classification:name \"PermanentCrop\" ] ,\n        [ a classification:Class ; classification:value 7 ; classification:name \"Residential\" ] ,\n        [ a classification:Class ; classification:value 8 ; classification:name \"River\" ] ,\n        [ a classification:Class ; classification:value 9 ; classification:name \"SeaLake\" ] .\n"
+        }
+      ]
+    },
+    {
+      "title": "Bitfield-encoded quality classes on a raster band",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/classification-ontology/example_2_1.ttl",
+          "sizeBytes": 790,
+          "code": "@prefix stac:           <https://w3id.org/ogc/stac/core/> .\n@prefix classification: <https://w3id.org/ogc/stac/classification/> .\n@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:             <https://example.org/stac/> .\n\nex:qa-band a stac:Asset ;\n    classification:bitfields [\n        a classification:BitField ;\n        classification:offset \"0\"^^xsd:nonNegativeInteger ;\n        classification:length \"1\"^^xsd:positiveInteger ;\n        classification:name \"cloud\" ;\n        classification:classes\n            [ a classification:Class ; classification:value 0 ; classification:name \"clear\" ; classification:title \"Clear\" ] ,\n            [ a classification:Class ; classification:value 1 ; classification:name \"cloudy\" ; classification:title \"Cloudy\" ] ;\n    ] .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/classification-ontology"
+}

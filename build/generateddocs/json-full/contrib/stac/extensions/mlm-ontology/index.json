@@ -1,0 +1,69 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.mlm-ontology",
+  "name": "STAC Machine Learning Model Extension Ontology",
+  "highlighted": false,
+  "title": "Definitions for STAC MLM extension elements",
+  "description": "Vocabulary defining the elements of the STAC Machine Learning Model (MLM) extension: model identity, framework/accelerator requirements, and the ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling structures, providing Linked Data terms for the STAC MLM schema. Tasks, framework, accelerator, resize_type and value-scaling type are modeled as skos:ConceptSchemes; everything else stays OWL. Reuses classification:classes (Classification extension) and aligns with processing:expression (Processing extension) rather than redefining them.",
+  "status": "under-development",
+  "version": "0.1",
+  "itemClass": "model",
+  "dependsOn": [],
+  "sources": [
+    {
+      "title": "GitHub Repository",
+      "link": "https://github.com/stac-extensions/mlm"
+    },
+    {
+      "title": "JSON Schema (v1.5.2)",
+      "link": "https://stac-extensions.github.io/mlm/v1.5.2/schema.json"
+    },
+    {
+      "title": "README (field descriptions and example)",
+      "link": "https://github.com/stac-extensions/mlm/blob/main/README.md"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.extensions.mlm-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/mlm-ontology/shapes.shacl"
+    ]
+  },
+  "shaclClosures": [
+    "skos.ttl"
+  ],
+  "rules": [],
+  "dateTimeAddition": "2026-08-25T00:00:00Z",
+  "dateOfLastChange": "2026-08-25",
+  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/mlm-ontology/ontology.ttl",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/mlm-ontology/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/mlm-ontology/",
+  "examples": [
+    {
+      "title": "ResNet-18 Sentinel-2 scene classifier (model identity and framework)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/mlm-ontology/example_1_1.ttl",
+          "sizeBytes": 1109,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix mlm:  <https://w3id.org/ogc/stac/mlm/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:resnet18-eurosat a stac:Item ;\n    mlm:name             \"ResNet-18 Sentinel-2 Classifier\"^^xsd:string ;\n    mlm:architecture     \"ResNet-18\"^^xsd:string ;\n    mlm:tasks            mlm:scene-classification ;\n    mlm:framework        \"PyTorch\"^^xsd:string ;\n    mlm:framework_version \"2.1.2\"^^xsd:string ;\n    mlm:total_parameters 11700000 ;\n    mlm:accelerator      mlm:cuda ;\n    mlm:input [\n        mlm:io_name \"13 Band Sentinel-2 Batch\" ;\n        mlm:input_structure [\n            mlm:shape -1, 13, 64, 64 ;\n            mlm:dim_order \"batch\", \"channel\", \"height\", \"width\" ;\n            mlm:data_type \"float32\"^^xsd:string ;\n        ]\n    ] ;\n    mlm:output [\n        mlm:io_name \"classification\" ;\n        mlm:tasks mlm:scene-classification ;\n        mlm:result [\n            mlm:shape -1, 10 ;\n            mlm:dim_order \"batch\", \"class\" ;\n            mlm:data_type \"float32\"^^xsd:string ;\n        ]\n    ] .\n"
+        }
+      ]
+    },
+    {
+      "title": "Value scaling (min-max normalization on a ModelInput)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/mlm-ontology/example_2_1.ttl",
+          "sizeBytes": 530,
+          "code": "@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:  <https://example.org/stac/> .\n\nex:input1\n    mlm:io_name \"13 Band Sentinel-2 Batch\" ;\n    mlm:input_structure [\n        mlm:shape -1, 13, 64, 64 ;\n        mlm:dim_order \"batch\", \"channel\", \"height\", \"width\" ;\n        mlm:data_type \"float32\"^^xsd:string ;\n    ] ;\n    mlm:value_scaling [\n        mlm:scaling_type mlm:min-max ;\n        mlm:minimum \"0.0\"^^xsd:double ;\n        mlm:maximum \"10000.0\"^^xsd:double ;\n    ] .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/mlm-ontology"
+}

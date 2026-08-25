@@ -1,0 +1,30 @@
+@prefix ex: <https://example.org/stac/> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:resnet18-eurosat a stac:Item ;
+    mlm:accelerator mlm:cuda ;
+    mlm:architecture "ResNet-18"^^xsd:string ;
+    mlm:framework "PyTorch"^^xsd:string ;
+    mlm:framework_version "2.1.2"^^xsd:string ;
+    mlm:input [ mlm:input_structure [ mlm:data_type "float32"^^xsd:string ;
+                    mlm:dim_order "batch",
+                        "channel",
+                        "height",
+                        "width" ;
+                    mlm:shape -1,
+                        13,
+                        64 ] ;
+            mlm:io_name "13 Band Sentinel-2 Batch" ] ;
+    mlm:name "ResNet-18 Sentinel-2 Classifier"^^xsd:string ;
+    mlm:output [ mlm:io_name "classification" ;
+            mlm:result [ mlm:data_type "float32"^^xsd:string ;
+                    mlm:dim_order "batch",
+                        "class" ;
+                    mlm:shape -1,
+                        10 ] ;
+            mlm:tasks mlm:scene-classification ] ;
+    mlm:tasks mlm:scene-classification ;
+    mlm:total_parameters 11700000 .
+

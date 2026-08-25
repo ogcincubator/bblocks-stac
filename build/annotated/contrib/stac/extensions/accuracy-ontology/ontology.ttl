@@ -1,0 +1,61 @@
+@prefix accuracy: <https://w3id.org/ogc/stac/accuracy/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+accuracy:geometric_rmse a owl:DatatypeProperty ;
+    rdfs:label "geometric radial RMSE" ;
+    dct:description "Radial root mean square error (RMSE) of the geometric accuracy, in meters." ;
+    rdfs:comment "The extension constrains this value to a minimum of 0." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy:geometric_x_bias a owl:DatatypeProperty ;
+    rdfs:label "geometric X bias" ;
+    dct:description "Estimated bias (systematic error) of the geometric accuracy in the X (east-west) direction." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy:geometric_x_stddev a owl:DatatypeProperty ;
+    rdfs:label "geometric X standard deviation" ;
+    dct:description "Estimated standard deviation of the geometric accuracy in the X (east-west) direction." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy:geometric_y_bias a owl:DatatypeProperty ;
+    rdfs:label "geometric Y bias" ;
+    dct:description "Estimated bias (systematic error) of the geometric accuracy in the Y (north-south) direction." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy:geometric_y_stddev a owl:DatatypeProperty ;
+    rdfs:label "geometric Y standard deviation" ;
+    dct:description "Estimated standard deviation of the geometric accuracy in the Y (north-south) direction." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy:measurement_absolute a owl:DatatypeProperty ;
+    rdfs:label "absolute measurement uncertainty" ;
+    dct:description "Absolute uncertainty of a measurement, expressed in the units of the measured quantity itself." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy:measurement_relative a owl:DatatypeProperty ;
+    rdfs:label "relative measurement uncertainty" ;
+    dct:description "Relative uncertainty of a measurement, expressed in the units of the measured quantity itself." ;
+    rdfs:isDefinedBy accuracy: ;
+    rdfs:range xsd:double .
+
+accuracy: a owl:Ontology ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:description """Vocabulary for the elements defined by the STAC Accuracy extension: geometric and measurement accuracy/uncertainty estimates for STAC Items, Collections and Assets.
+
+This ontology describes only the accuracy:* fields that the extension adds. STAC Item, Collection and Asset (and their core fields) are defined by the STAC core vocabulary and are reused — not redefined — here; the Accuracy schema block inherits them through its bblocks://ogc.contrib.stac.item and bblocks://ogc.contrib.stac.collection imports.
+
+Combines owl.ttl (the accuracy:* datatype properties). There is no skos.ttl content: the extension defines no enumerated/controlled values (see skos.ttl and README.md).""" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:source <https://github.com/stac-extensions/accuracy/tree/v1.0.0-beta.1> ;
+    dct:title "STAC Accuracy Extension Ontology" ;
+    owl:versionInfo "1.0.0-beta.1" .
+

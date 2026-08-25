@@ -1,6 +1,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -37,25 +37,26 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "radiance",
         "sentinel" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
-    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns2:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ rdfs:label "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
-    stac:hasAsset [ ns1:metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
-                    dcterms:title "ISO 19139 metadata" ;
-                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml" ;
-                    stac:roles "iso-19139",
-                        "metadata" ] ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
+    stac:hasAsset [ ns2:metadata_iso_19139 <https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:hasProvider [ ] ;
     stac:version "1.1.0" .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> dcterms:format "application/vnd.iso.19139+xml" ;
+    dcterms:title "ISO 19139 metadata" ;
+    stac:hasAssetroles "iso-19139"^^<xsd:string>,
+        "metadata"^^<xsd:string> .
 

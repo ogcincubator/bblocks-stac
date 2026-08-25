@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm - STAC Machine Learning Model",
   "bblockName": "STAC Machine Learning Model",
   "bblockId": "ogc.contrib.stac.extensions.mlm",
-  "generated": "2026-08-24T13:37:21.158063+00:00",
+  "generated": "2026-08-25T07:35:09.704096+00:00",
   "result": false,
   "items": [
     {
@@ -66,6 +66,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -81,15 +117,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -101,16 +154,16 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape": {
                   "nodes": []
                 },
+                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
                 "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:FeatureShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:first": {
@@ -118,7 +171,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -139,38 +192,134 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": []
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": []
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: *none*\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: *none*\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -212,7 +361,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 71,
+              "size": 116,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -235,6 +384,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -250,15 +435,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -270,7 +472,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -278,18 +486,12 @@
                     "<https://example.com/stac/mlm/example-2/example-model>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-2/example-model>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-2/example-model>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -310,38 +512,136 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": []
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-2/example-model>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: *none*\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-2/example-model>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -383,7 +683,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_3_1.ttl",
-              "size": 116,
+              "size": 176,
               "isError": false,
               "message": "Output Turtle example_3_1.ttl created"
             }
@@ -406,6 +706,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -421,15 +757,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -441,7 +794,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -449,18 +808,12 @@
                     "<https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -481,38 +834,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -554,7 +1007,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_4_1.ttl",
-              "size": 115,
+              "size": 166,
               "isError": false,
               "message": "Output Turtle example_4_1.ttl created"
             }
@@ -577,6 +1030,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -592,15 +1081,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -612,7 +1118,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -620,18 +1132,12 @@
                     "<https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -652,38 +1158,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -725,7 +1331,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_5_1.ttl",
-              "size": 268,
+              "size": 304,
               "isError": false,
               "message": "Output Turtle example_5_1.ttl created"
             }
@@ -748,6 +1354,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -763,15 +1405,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -783,7 +1442,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -791,18 +1456,12 @@
                     "<https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -823,38 +1482,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -896,7 +1655,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_6_1.ttl",
-              "size": 177,
+              "size": 318,
               "isError": false,
               "message": "Output Turtle example_6_1.ttl created"
             }
@@ -919,6 +1678,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -934,15 +1729,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -954,7 +1766,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -962,18 +1780,12 @@
                     "<https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -994,38 +1806,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -1067,7 +1979,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_7_1.ttl",
-              "size": 150,
+              "size": 290,
               "isError": false,
               "message": "Output Turtle example_7_1.ttl created"
             }
@@ -1090,6 +2002,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -1105,15 +2053,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1125,7 +2090,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -1133,18 +2104,12 @@
                     "<https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1165,38 +2130,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -1238,7 +2303,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_8_1.ttl",
-              "size": 131,
+              "size": 249,
               "isError": false,
               "message": "Output Turtle example_8_1.ttl created"
             }
@@ -1261,6 +2326,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -1276,15 +2377,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1296,7 +2414,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -1304,18 +2428,12 @@
                     "<https://example.com/stac/mlm/example-8/model-multi-input>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1336,38 +2454,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-8/model-multi-input>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-8/model-multi-input>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-8/model-multi-input>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -1409,7 +2627,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_9_1.ttl",
-              "size": 111,
+              "size": 158,
               "isError": false,
               "message": "Output Turtle example_9_1.ttl created"
             }
@@ -1432,6 +2650,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -1447,15 +2701,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1467,7 +2738,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -1475,18 +2752,12 @@
                     "<https://example.com/stac/mlm/example-9/pytorch_geo_unet>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1507,38 +2778,136 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": []
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-9/pytorch_geo_unet>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: *none*\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-9/pytorch_geo_unet>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }
@@ -1580,7 +2949,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_10_1.ttl",
-              "size": 215,
+              "size": 303,
               "isError": false,
               "message": "Output Turtle example_10_1.ttl created"
             }
@@ -1603,6 +2972,42 @@
           "title": "SHACL",
           "entries": [
             {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - ../mlm-ontology/skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            },
+            {
               "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
@@ -1618,15 +3023,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1638,7 +3060,13 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:FeatureShape": {
@@ -1646,18 +3074,12 @@
                     "<https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1678,38 +3100,138 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processes-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
-              "shaclFile": "_sources/extensions/processes-ontology/shapes.shacl",
+              "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:DatetimeShape": {
-                  "nodes": []
-                },
                 "processing:ExpressionShape": {
                   "nodes": []
                 },
-                "processing:VersionShape": {
+                "processing:SoftwareShape": {
                   "nodes": []
                 },
-                "processing:LineageShape": {
+                "processing:DatetimeShape": {
                   "nodes": []
                 },
                 "processing:FacilityShape": {
                   "nodes": []
                 },
+                "processing:VersionShape": {
+                  "nodes": []
+                },
                 "processing:LevelShape": {
                   "nodes": []
                 },
-                "processing:SoftwareShape": {
+                "processing:LineageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processes-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:ExpressionShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LineageShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:SoftwareShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:SoftwareShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:FacilityShape: *none*\n - Shape processing:VersionShape: *none*\n - Shape processing:LevelShape: *none*\n - Shape processing:LineageShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/mlm-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
+              "focusNodes": {
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:ModelInputShape": {
+                  "nodes": []
+                },
+                "mlm:AcceleratorShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:ValueScalingShape": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "<https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>"
+                  ]
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": []
+                },
+                "mlm:ResultStructureShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:AcceleratorShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ModelRootShape: <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification>\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": []
+                },
+                "classification:ClassShape": {
+                  "nodes": []
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: *none*\n - Shape classification:ClassShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
+              "focusNodes": {
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
+                  "nodes": []
+                },
+                "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n"
             }
           ]
         }

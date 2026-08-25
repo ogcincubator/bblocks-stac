@@ -1,0 +1,66 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.accuracy-ontology",
+  "name": "STAC Accuracy Extension Ontology",
+  "highlighted": false,
+  "title": "Definitions for STAC Accuracy extension elements",
+  "description": "Vocabulary defining the elements of the STAC Accuracy extension (accuracy:geometric_x_bias, accuracy:geometric_y_bias, accuracy:geometric_x_stddev, accuracy:geometric_y_stddev, accuracy:geometric_rmse, accuracy:measurement_relative and accuracy:measurement_absolute), providing Linked Data terms for the STAC Accuracy schema. Reuses STAC core classes rather than redefining them. No enumerated values are defined by the extension, so this block has no SKOS component.",
+  "status": "under-development",
+  "version": "0.1",
+  "itemClass": "model",
+  "dependsOn": [],
+  "sources": [
+    {
+      "title": "GitHub Repository",
+      "link": "https://github.com/stac-extensions/accuracy"
+    },
+    {
+      "title": "JSON Schema (v1.0.0-beta.1)",
+      "link": "https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json"
+    },
+    {
+      "title": "README (field table and units)",
+      "link": "https://github.com/stac-extensions/accuracy/blob/main/README.md"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.extensions.accuracy-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/accuracy-ontology/shapes.shacl"
+    ]
+  },
+  "rules": [],
+  "dateTimeAddition": "2026-08-25T00:00:00Z",
+  "dateOfLastChange": "2026-08-25",
+  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy-ontology/ontology.ttl",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/accuracy-ontology/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/accuracy-ontology/",
+  "examples": [
+    {
+      "title": "STAC Item with geometric and measurement accuracy",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/accuracy-ontology/example_1_1.ttl",
+          "sizeBytes": 581,
+          "code": "@prefix stac:     <https://w3id.org/ogc/stac/core/> .\n@prefix accuracy: <https://w3id.org/ogc/stac/accuracy/> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:       <https://example.org/stac/> .\n\nex:S2A_MSIL2A_item a stac:Item ;\n    accuracy:geometric_x_bias      \"0.5\"^^xsd:double ;\n    accuracy:geometric_y_bias      \"0.3\"^^xsd:double ;\n    accuracy:geometric_x_stddev    \"1.1\"^^xsd:double ;\n    accuracy:geometric_y_stddev    \"1.0\"^^xsd:double ;\n    accuracy:geometric_rmse        \"1.2\"^^xsd:double ;\n    accuracy:measurement_absolute  \"0.15\"^^xsd:double .\n"
+        }
+      ]
+    },
+    {
+      "title": "STAC Collection with relative measurement accuracy",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/accuracy-ontology/example_2_1.ttl",
+          "sizeBytes": 306,
+          "code": "@prefix stac:     <https://w3id.org/ogc/stac/core/> .\n@prefix accuracy: <https://w3id.org/ogc/stac/accuracy/> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:       <https://example.org/stac/> .\n\nex:collection a stac:Collection ;\n    accuracy:measurement_relative \"0.02\"^^xsd:double .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/accuracy-ontology"
+}

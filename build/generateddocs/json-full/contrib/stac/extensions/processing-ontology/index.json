@@ -1,7 +1,7 @@
 
 
 {
-  "itemIdentifier": "ogc.contrib.stac.extensions.processes-ontology",
+  "itemIdentifier": "ogc.contrib.stac.extensions.processing-ontology",
   "name": "STAC Processing Extension Ontology",
   "highlighted": false,
   "title": "Definitions for STAC Processing extension elements",
@@ -11,24 +11,24 @@
   "itemClass": "model",
   "dependsOn": [],
   "shaclShapes": {
-    "ogc.contrib.stac.extensions.processes-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processes-ontology/shapes.shacl"
+    "ogc.contrib.stac.extensions.processing-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/shapes.shacl"
     ]
   },
   "rules": [],
   "dateTimeAddition": "2025-06-12T00:00:00Z",
-  "dateOfLastChange": "2026-08-14",
-  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processes-ontology/ontology.ttl",
-  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processes-ontology/",
+  "dateOfLastChange": "2026-08-25",
+  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing-ontology/ontology.ttl",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/",
   "validationPassed": true,
-  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/processes-ontology/",
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/processing-ontology/",
   "examples": [
     {
       "title": "STAC Item with processing metadata (Sentinel-1 GRD)",
       "snippets": [
         {
           "language": "turtle",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/processes-ontology/example_1_1.ttl",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/processing-ontology/example_1_1.ttl",
           "sizeBytes": 625,
           "code": "@prefix stac:       <https://w3id.org/ogc/stac/core/> .\n@prefix processing: <https://w3id.org/ogc/stac/processing/> .\n@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .\n@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix ex:         <https://example.org/stac/> .\n\nex:S1A_IW_GRDH_1SDV_20160822T182823 a stac:Item ;\n    processing:lineage  \"GRD Post Processing\" ;\n    processing:level    \"L1\" ;\n    processing:facility \"Copernicus S1 Core Ground Segment - DPA\" ;\n    processing:datetime \"2016-08-23T00:30:33Z\"^^xsd:dateTime ;\n    processing:software \"{\\\"Sentinel-1 IPF\\\":\\\"002.71\\\"}\"^^rdf:JSON .\n"
         }
@@ -39,7 +39,7 @@
       "snippets": [
         {
           "language": "turtle",
-          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/processes-ontology/example_2_1.ttl",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/processing-ontology/example_2_1.ttl",
           "sizeBytes": 553,
           "code": "@prefix stac:       <https://w3id.org/ogc/stac/core/> .\n@prefix processing: <https://w3id.org/ogc/stac/processing/> .\n@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix ex:         <https://example.org/stac/> .\n\nex:Sentinel2-L2A a stac:Collection ;\n    processing:lineage  \"Generation of Level-2A User Product\" ;\n    processing:level    \"L2A\" ;\n    processing:facility \"Copernicus S2 Processing and Archiving Facility\" ;\n    processing:version  \"02.06\" ;\n    processing:software \"{\\\"Sentinel-2 Toolbox\\\":\\\"8.0.0\\\"}\"^^rdf:JSON .\n"
         }
@@ -48,5 +48,5 @@
   ],
   "annotatedSchema": null,
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
-  "gitPath": "_sources/extensions/processes-ontology"
+  "gitPath": "_sources/extensions/processing-ontology"
 }

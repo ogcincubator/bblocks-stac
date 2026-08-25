@@ -1,7 +1,7 @@
 
 # STAC Processing Extension Ontology (Model)
 
-`ogc.contrib.stac.extensions.processes-ontology` *v0.2*
+`ogc.contrib.stac.extensions.processing-ontology` *v0.2*
 
 None
 
@@ -51,5 +51,5 @@ ex:Sentinel2-L2A a stac:Collection ;
 The source code for this Building Block can be found in the following repository:
 
 * URL: [https://github.com/ogcincubator/bblocks-stac](https://github.com/ogcincubator/bblocks-stac)
-* Path: `_sources/extensions/processes-ontology`
+* Path: `_sources/extensions/processing-ontology`
 

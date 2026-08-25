@@ -67,14 +67,16 @@ This is the simple item  asset example from the STAC specification.
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ ns1:thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
-                    stac:roles "thumbnail" ] ;
-            ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
-                    stac:roles "visual" ] ] .
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format "image/jpeg" ;
+    dcterms:title "Thumbnail" ;
+    stac:hasAssetroles "thumbnail"^^<xsd:string> .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "3-Band Visual" ;
+    stac:hasAssetroles "visual"^^<xsd:string> .
+
+[] stac:hasAsset [ ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .
 
 
 ```
@@ -155,24 +157,27 @@ Includes asset types not defined by core
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <mlm:> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ ns2:model [ dcterms:description "Example model." ;
-                    dcterms:format "text/html" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    ns2:href "https://huggingface.co/example/model-card" ;
-                    stac:roles "mlm:model" ;
-                    ns1:artifact_type "torch.save" ] ;
-            ns2:thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    ns2:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
-                    stac:roles "thumbnail" ] ;
-            ns2:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    ns2:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
-                    stac:roles "visual" ] ] .
+<https://huggingface.co/example/model-card> dcterms:description "Example model." ;
+    dcterms:format "text/html" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^<xsd:string> ;
+    ns2:artifact_type "torch.save" .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format "image/jpeg" ;
+    dcterms:title "Thumbnail" ;
+    stac:hasAssetroles "thumbnail"^^<xsd:string> .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "3-Band Visual" ;
+    stac:hasAssetroles "visual"^^<xsd:string> .
+
+[] stac:hasAsset [ ns1:model <https://huggingface.co/example/model-card> ;
+            ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .
 
 
 ```
@@ -191,11 +196,13 @@ properties:
     x-jsonld-container: '@set'
     x-jsonld-vocab: https://w3id.org/ogc/stac/assets/
     x-jsonld-extra-terms:
+      href: '@id'
       type: http://purl.org/dc/terms/format
       title: http://purl.org/dc/terms/title
       description: http://purl.org/dc/terms/description
       roles:
-        x-jsonld-id: https://w3id.org/ogc/stac/core/roles
+        x-jsonld-id: https://w3id.org/ogc/stac/core/hasAssetroles
+        x-jsonld-type: xsd:string
         x-jsonld-container: '@set'
 definitions:
   assets:
@@ -232,6 +239,7 @@ definitions:
 x-jsonld-prefixes:
   stac: https://w3id.org/ogc/stac/core/
   dct: http://purl.org/dc/terms/
+  assets: https://w3id.org/ogc/stac/core/hasAsset
   rdfs: http://www.w3.org/2000/01/rdf-schema#
 
 ```
@@ -250,11 +258,13 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "title": "dct:title",
         "description": "dct:description",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },

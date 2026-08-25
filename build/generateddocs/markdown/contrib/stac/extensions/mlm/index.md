@@ -210,25 +210,25 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
     dcterms:extent [ ] ;
     dcterms:title "Machine Learning Model examples" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_multi_io.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ],
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_raster_bands.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json" ;
     stac:version "1.0.0" .
@@ -532,9 +532,9 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -543,30 +543,47 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-2/example-model> a geojson:Feature ;
     dcterms:description "Basic STAC Item with only the MLM extension and no other extension cross-references." ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-2/item_basic.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-2/collection.json> ] ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-2/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-2/item_basic.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns3:model [ dcterms:description "Example model." ;
-                    dcterms:format "text/html" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/example/model-card> ;
-                    stac:roles "mlm:model" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns2:model <https://huggingface.co/example/model-card> ] ;
     stac:hasExtension "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:architecture "ResNet" ;
-    ns1:input [ ] ;
-    ns1:name "example-model" ;
-    ns1:output [ ] ;
-    ns1:tasks "classification" .
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:input [ mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "channel" "height" "width" ) ;
+                    mlm:shape ( -1 3 64 64 ) ] ;
+            mlm:io_name "Model with RGB input that does not refer to any band." ] ;
+    mlm:name "example-model"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:color_hint 0 ;
+                    mlm:io_description "Background non-city." ;
+                    mlm:io_name "BACKGROUND" ;
+                    mlm:value 0 ],
+                [ mlm:color_hint 0,
+                        255 ;
+                    mlm:io_description "A city is detected." ;
+                    mlm:io_name "CITY" ;
+                    mlm:value 1 ] ;
+            mlm:io_name "classification" ;
+            mlm:result [ mlm:data_type "uint8" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 1 ) ] ;
+            mlm:tasks mlm:classification ] ;
+    mlm:tasks mlm:classification .
+
+<https://huggingface.co/example/model-card> dcterms:description "Example model." ;
+    dcterms:format "text/html" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
 
 
 ```
@@ -997,13 +1014,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <eo:> .
-@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <ml-aoi:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns3: <file:> .
+@prefix ns4: <ml-aoi:> .
+@prefix ns5: <eo:> .
 @prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
-@prefix ns7: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1011,50 +1028,23 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns7:size 43000000 ;
+    ns3:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ],
         [ dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns5:split "train" ],
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-3/collection.json> ],
         [ dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-3/collection.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns4:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns3:weights [ ns2:bands [ dcterms:description "Green (band 3)" ;
-                            ns3:center_wavelength 5.6e-01 ;
-                            ns3:common_name "green" ;
-                            ns3:full_width_half_max 4.5e-02 ;
-                            ns3:name "B03" ],
-                        [ dcterms:description "NIR 1 (band 8)" ;
-                            ns3:center_wavelength 8.42e-01 ;
-                            ns3:common_name "nir" ;
-                            ns3:full_width_half_max 1.45e-01 ;
-                            ns3:name "B08" ],
-                        [ dcterms:description "Blue (band 2)" ;
-                            ns3:center_wavelength 4.9e-01 ;
-                            ns3:common_name "blue" ;
-                            ns3:full_width_half_max 9.8e-02 ;
-                            ns3:name "B02" ],
-                        [ dcterms:description "Red (band 4)" ;
-                            ns3:center_wavelength 6.65e-01 ;
-                            ns3:common_name "red" ;
-                            ns3:full_width_half_max 3.8e-02 ;
-                            ns3:name "B04" ] ;
-                    dcterms:description "A vegetation classification model trained on Sentinel-2 imagery and NDVI." ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://example.com/model-rgb-ndvi.pth> ;
-                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns2:weights <https://example.com/model-rgb-ndvi.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
@@ -1062,20 +1052,75 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands [ mlm:io_name "B02" ],
+                [ mlm:io_name "B04" ],
+                [ mlm:expression "(B08 - B04) / (B08 + B04)" ;
+                    mlm:format "rio-calc" ;
+                    mlm:io_name "NDVI" ],
+                [ mlm:io_name "B03" ] ;
+            mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 4 64 64 ) ] ;
+            mlm:io_name "RBG+NDVI Bands Sentinel-2 Batch" ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ dcterms:title "Non-Vegetation" ;
+                    mlm:color_hint "000000" ;
+                    mlm:io_description "Anything that is not classified as vegetation." ;
+                    mlm:io_name "background" ;
+                    mlm:nodata false ;
+                    mlm:value 0 ],
+                [ dcterms:title "Vegetation" ;
+                    mlm:color_hint "00FF00" ;
+                    mlm:io_description "Pixels were vegetation is detected." ;
+                    mlm:io_name "vegetation" ;
+                    mlm:nodata false ;
+                    mlm:value 1 ] ;
+            mlm:io_name "classification" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 2 ) ] ;
+            mlm:tasks mlm:segmentation,
+                mlm:semantic-segmentation ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
+
+<https://example.com/model-rgb-ndvi.pth> ns5:bands [ dcterms:description "Blue (band 2)" ;
+            ns2:center_wavelength 4.9e-01 ;
+            ns2:common_name "blue" ;
+            ns2:full_width_half_max 9.8e-02 ;
+            ns2:name "B02" ],
+        [ dcterms:description "Red (band 4)" ;
+            ns2:center_wavelength 6.65e-01 ;
+            ns2:common_name "red" ;
+            ns2:full_width_half_max 3.8e-02 ;
+            ns2:name "B04" ],
+        [ dcterms:description "Green (band 3)" ;
+            ns2:center_wavelength 5.6e-01 ;
+            ns2:common_name "green" ;
+            ns2:full_width_half_max 4.5e-02 ;
+            ns2:name "B03" ],
+        [ dcterms:description "NIR 1 (band 8)" ;
+            ns2:center_wavelength 8.42e-01 ;
+            ns2:common_name "nir" ;
+            ns2:full_width_half_max 1.45e-01 ;
+            ns2:name "B08" ] ;
+    dcterms:description "A vegetation classification model trained on Sentinel-2 imagery and NDVI." ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
 
 
 ```
@@ -1696,12 +1741,12 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <sci:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <cube:> .
-@prefix ns4: <sci:> .
-@prefix ns5: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns6: <file:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns4: <cube:> .
+@prefix ns5: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1709,68 +1754,89 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
-    ns3:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
+    ns4:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
                     dcterms:extent "1940-01-01T00:00:00Z",
                         "2100-12-31T23:59:59Z" ] ] ;
-    ns3:variables [ ] ;
+    ns4:variables [ ] ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
     rdfs:seeAlso [ dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "text/html" ;
             ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
             oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
-        [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/code> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
-        [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            ns2:relation <http://www.iana.org/assignments/relation/code> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ] ;
     geojson:bbox ( 2.336e+02 5.42e+01 2.975e+02 2.26e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 2.336e+02 5.42e+01 ) ( 2.975e+02 5.42e+01 ) ( 2.975e+02 2.26e+01 ) ( 2.336e+02 2.26e+01 ) ( 2.336e+02 5.42e+01 ) ) ) ] ;
     stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns5:model [ dcterms:description "Source code to define the U-Net model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Model implementation." ;
-                    oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
-                    stac:roles "code",
-                        "metadata",
-                        "mlm:source_code" ] ;
-            ns5:train-script [ dcterms:description "Script to run training of the model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Training script." ;
-                    oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
-                    stac:roles "code",
-                        "metadata",
-                        "mlm:training" ] ;
-            ns5:weights [ ns6:size 389657415 ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "U-Net Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns3:model <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
+            ns3:train-script <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
+            ns3:weights <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
     stac:start_datetime "1940-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:architecture "U-Net" ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu118" ;
-    ns1:input [ ] ;
-    ns1:name "UNet ClimateDiffuse ERA5 Downscaling" ;
-    ns1:output [ ] ;
-    ns1:tasks "downscaling",
-        "regression" ;
-    ns4:publications [ ] .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:architecture "U-Net"^^xsd:string ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu118"^^xsd:string ;
+    mlm:input [ mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "time" "variables" "lat" "lon" ) ;
+                    mlm:shape ( -1 5 128 256 ) ] ;
+            mlm:io_name "Coarse climate variables employed by the model downscaling regression. This model takes 2 'constant/spatial' variables and 3 'spatio-temporal' variables provided by ERA5 datacube." ;
+            mlm:norm_by_channel false ;
+            mlm:pre_processing_function "{\"description\":\"Script that performs the relevant normalization and concatenation of variables for model input.\",\"expression\":{\"href\":\"https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/DatasetUS.py\",\"type\":\"text/x-python\"},\"format\":\"uri\"}"^^rdf:JSON ;
+            mlm:variables "10m_u_component_of_wind",
+                "10m_v_component_of_wind",
+                "geopotential",
+                "land_sea_mask",
+                "temperature_2m" ] ;
+    mlm:name "UNet ClimateDiffuse ERA5 Downscaling"^^xsd:string ;
+    mlm:output [ mlm:io_name "Fine climate variables predicted by the model. Only the 3 'spatio-temporal' variables are predicted." ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "time" "variables" "lat" "lon" ) ;
+                    mlm:shape ( -1 3 128 256 ) ] ;
+            mlm:tasks mlm:downscaling,
+                mlm:regression ;
+            mlm:variables "10m_u_component_of_wind",
+                "10m_v_component_of_wind",
+                "temperature_2m" ] ;
+    mlm:tasks mlm:downscaling,
+        mlm:regression ;
+    ns1:publications [ ] .
+
+<https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns5:size 389657415 ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "U-Net Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
+
+<https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> dcterms:description "Source code to define the U-Net model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Model implementation." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string,
+        "mlm:source_code"^^xsd:string .
+
+<https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> dcterms:description "Script to run training of the model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Training script." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string,
+        "mlm:training"^^xsd:string .
 
 
 ```
@@ -2961,77 +3027,52 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <eo:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <eo:> .
+@prefix ns2: <raster:> .
 @prefix ns3: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns4: <https://w3id.org/ogc/stac/assets/$> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <file:> .
-@prefix ns7: <ml-aoi:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <file:> .
+@prefix ns6: <ml-aoi:> .
+@prefix ns7: <https://w3id.org/ogc/stac/assets/$> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns2:bands [ dcterms:description "NIR 1 (band 8)" ],
-        [ dcterms:description "Blue (band 2)" ],
-        [ dcterms:description "SWIR 2 (band 12)" ],
-        [ dcterms:description "Coastal aerosol (band 1)" ],
-        [ dcterms:description "SWIR 1 (band 11)" ],
+    ns1:bands [ dcterms:description "SWIR 1 (band 11)" ],
+        [ dcterms:description "Red edge 3 (band 7)" ],
         [ dcterms:description "Green (band 3)" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ],
-        [ dcterms:description "Red edge 2 (band 6)" ],
+        [ dcterms:description "NIR 1 (band 8)" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ],
+        [ dcterms:description "Blue (band 2)" ],
         [ dcterms:description "NIR 3 (band 9)" ],
+        [ dcterms:description "Red (band 4)" ],
+        [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "Red edge 2 (band 6)" ],
         [ dcterms:description "Red edge 1 (band 5)" ],
         [ dcterms:description "NIR 2 (band 8A)" ],
-        [ dcterms:description "Red (band 4)" ],
-        [ dcterms:description "Red edge 3 (band 7)" ] ;
-    ns6:size 43000000 ;
+        [ dcterms:description "SWIR - Cirrus (band 10)" ] ;
+    ns5:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-5/item_eo_bands.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-5/collection.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns7:split "train" ] ;
+            ns6:split "train" ],
+        [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-5/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-5/item_eo_bands.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns3:source_code [ dcterms:description "Source code to run the model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Model implementation." ;
-                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-                    stac:roles "code",
-                        "metadata" ] ;
-            ns3:weights [ ns2:bands [ ns3:name "coastal" ],
-                        [ ns3:name "rededge3" ],
-                        [ ns3:name "rededge1" ],
-                        [ ns3:name "rededge2" ],
-                        [ ns3:name "swir16" ],
-                        [ ns3:name "cirrus" ],
-                        [ ns3:name "nir08" ],
-                        [ ns3:name "green" ],
-                        [ ns3:name "blue" ],
-                        [ ns3:name "nir09" ],
-                        [ ns3:name "nir" ],
-                        [ ns3:name "swir22" ],
-                        [ ns3:name "red" ] ;
-                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
-                    ns4:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns3:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns3:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
@@ -3039,124 +3080,151 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    raster:bands [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B07" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B09" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B02" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B06" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B8A" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B08" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B05" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B12" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B01" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B11" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 20 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B03" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B10" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 60 ;
-            raster:unit "m" ],
-        [ raster:bits_per_sample 15 ;
-            raster:data_type "uint16" ;
-            raster:name "B04" ;
-            raster:nodata 0 ;
-            raster:offset 0 ;
-            raster:scale 1e-04 ;
-            raster:spatial_resolution 10 ;
-            raster:unit "m" ] ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands "B01",
+                "B02",
+                "B03",
+                "B04",
+                "B05",
+                "B06",
+                "B07",
+                "B08",
+                "B09",
+                "B10",
+                "B11",
+                "B12",
+                "B8A" ;
+            mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 13 64 64 ) ] ;
+            mlm:io_name "13 Band Sentinel-2 Batch" ;
+            mlm:pre_processing_function "{\"expression\":\"torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn\",\"format\":\"python\"}"^^rdf:JSON ;
+            mlm:value_scaling [ mlm:mean 1.354405e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 2.457176e+02 ],
+                [ mlm:mean 2.369223e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.086631e+03 ],
+                [ mlm:mean 1.199473e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 5.66417e+02 ],
+                [ mlm:mean 1.118924e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 7.613032e+02 ],
+                [ mlm:mean 1.81901e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.002588e+03 ],
+                [ mlm:mean 1.118244e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3.330078e+02 ],
+                [ mlm:mean 2.296826e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.117982e+03 ],
+                [ mlm:mean 1.04293e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3.950925e+02 ],
+                [ mlm:mean 1.999791e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 8.61184e+02 ],
+                [ mlm:mean 2.594141e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.231586e+03 ],
+                [ mlm:mean 9.476262e+02 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 5.937506e+02 ],
+                [ mlm:mean 1.211328e+01 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 4.775845e+00 ],
+                [ mlm:mean 7.320834e+02 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 4.049198e+02 ] ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:io_name "Permanent Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 6 ],
+                [ mlm:io_name "Pasture" ;
+                    mlm:nodata false ;
+                    mlm:value 5 ],
+                [ mlm:io_name "Residential Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 7 ],
+                [ mlm:io_name "Forest" ;
+                    mlm:nodata false ;
+                    mlm:value 1 ],
+                [ mlm:io_name "River" ;
+                    mlm:nodata false ;
+                    mlm:value 8 ],
+                [ mlm:io_name "Highway" ;
+                    mlm:nodata false ;
+                    mlm:value 3 ],
+                [ mlm:io_name "Herbaceous Vegetation" ;
+                    mlm:nodata false ;
+                    mlm:value 2 ],
+                [ mlm:io_name "SeaLake" ;
+                    mlm:nodata false ;
+                    mlm:value 9 ],
+                [ mlm:io_name "Annual Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 0 ],
+                [ mlm:io_name "Industrial Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 4 ] ;
+            mlm:io_name "classification" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 10 ) ] ;
+            mlm:tasks mlm:classification ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger ;
+    ns2:bands [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] .
+
+<https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> dcterms:description "Source code to run the model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Model implementation." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string .
+
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns1:bands [ ns3:name "nir08" ],
+        [ ns3:name "coastal" ],
+        [ ns3:name "red" ],
+        [ ns3:name "swir16" ],
+        [ ns3:name "swir22" ],
+        [ ns3:name "nir" ],
+        [ ns3:name "nir09" ],
+        [ ns3:name "green" ],
+        [ ns3:name "blue" ],
+        [ ns3:name "rededge1" ],
+        [ ns3:name "rededge2" ],
+        [ ns3:name "cirrus" ],
+        [ ns3:name "rededge3" ] ;
+    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    ns7:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
 
 
 ```
@@ -4003,13 +4071,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <mlm:> .
-@prefix ns3: <file:> .
-@prefix ns4: <eo:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns2: <eo:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <file:> .
+@prefix ns5: <ml-aoi:> .
 @prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
-@prefix ns7: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -4017,122 +4085,216 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns3:size 43000000 ;
+    ns4:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-6/item_eo_bands.json> ],
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-6/collection.json> ],
         [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns7:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-6/collection.json> ] ;
+            ns5:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-6/item_eo_bands.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:source_code [ dcterms:description "Source code to run the model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Model implementation." ;
-                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-                    stac:roles "code",
-                        "metadata",
-                        "mlm:source_code" ] ;
-            ns1:weights [ ns4:bands [ dcterms:description "Blue (band 2)" ;
-                            ns1:center_wavelength 4.9e-01 ;
-                            ns1:common_name "blue" ;
-                            ns1:full_width_half_max 9.8e-02 ;
-                            ns1:name "B02" ],
-                        [ dcterms:description "Coastal aerosol (band 1)" ;
-                            ns1:center_wavelength 4.43e-01 ;
-                            ns1:common_name "coastal" ;
-                            ns1:full_width_half_max 2.7e-02 ;
-                            ns1:name "B01" ],
-                        [ dcterms:description "SWIR - Cirrus (band 10)" ;
-                            ns1:center_wavelength 1.375e+00 ;
-                            ns1:common_name "cirrus" ;
-                            ns1:full_width_half_max 2.6e-02 ;
-                            ns1:name "B10" ],
-                        [ dcterms:description "Red edge 3 (band 7)" ;
-                            ns1:center_wavelength 7.83e-01 ;
-                            ns1:common_name "rededge" ;
-                            ns1:full_width_half_max 2.8e-02 ;
-                            ns1:name "B07" ],
-                        [ dcterms:description "Green (band 3)" ;
-                            ns1:center_wavelength 5.6e-01 ;
-                            ns1:common_name "green" ;
-                            ns1:full_width_half_max 4.5e-02 ;
-                            ns1:name "B03" ],
-                        [ dcterms:description "NIR 3 (band 9)" ;
-                            ns1:center_wavelength 9.45e-01 ;
-                            ns1:common_name "nir09" ;
-                            ns1:full_width_half_max 2.6e-02 ;
-                            ns1:name "B09" ],
-                        [ dcterms:description "Red (band 4)" ;
-                            ns1:center_wavelength 6.65e-01 ;
-                            ns1:common_name "red" ;
-                            ns1:full_width_half_max 3.8e-02 ;
-                            ns1:name "B04" ],
-                        [ dcterms:description "NIR 1 (band 8)" ;
-                            ns1:center_wavelength 8.42e-01 ;
-                            ns1:common_name "nir" ;
-                            ns1:full_width_half_max 1.45e-01 ;
-                            ns1:name "B08" ],
-                        [ dcterms:description "Red edge 1 (band 5)" ;
-                            ns1:center_wavelength 7.04e-01 ;
-                            ns1:common_name "rededge" ;
-                            ns1:full_width_half_max 1.9e-02 ;
-                            ns1:name "B05" ],
-                        [ dcterms:description "SWIR 1 (band 11)" ;
-                            ns1:center_wavelength 1.61e+00 ;
-                            ns1:common_name "swir16" ;
-                            ns1:full_width_half_max 1.43e-01 ;
-                            ns1:name "B11" ],
-                        [ dcterms:description "NIR 2 (band 8A)" ;
-                            ns1:center_wavelength 8.65e-01 ;
-                            ns1:common_name "nir08" ;
-                            ns1:full_width_half_max 3.3e-02 ;
-                            ns1:name "B8A" ],
-                        [ dcterms:description "Red edge 2 (band 6)" ;
-                            ns1:center_wavelength 7.4e-01 ;
-                            ns1:common_name "rededge" ;
-                            ns1:full_width_half_max 1.8e-02 ;
-                            ns1:name "B06" ],
-                        [ dcterms:description "SWIR 2 (band 12)" ;
-                            ns1:center_wavelength 2.19e+00 ;
-                            ns1:common_name "swir22" ;
-                            ns1:full_width_half_max 2.42e-01 ;
-                            ns1:name "B12" ] ;
-                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
-                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    ns2:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns1:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns1:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:accelerator "cuda" ;
-    ns2:accelerator_constrained false ;
-    ns2:accelerator_summary "Unknown" ;
-    ns2:architecture "ResNet" ;
-    ns2:batch_size_suggestion 256 ;
-    ns2:framework "pytorch" ;
-    ns2:framework_version "2.1.2+cu121" ;
-    ns2:input [ ] ;
-    ns2:memory_size 1 ;
-    ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns2:output [ ] ;
-    ns2:pretrained_source "EuroSat Sentinel-2" ;
-    ns2:tasks "classification" ;
-    ns2:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands "B01",
+                "B02",
+                "B03",
+                "B04",
+                "B05",
+                "B06",
+                "B07",
+                "B08",
+                "B09",
+                "B10",
+                "B11",
+                "B12",
+                "B8A" ;
+            mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 13 64 64 ) ] ;
+            mlm:io_name "13 Band Sentinel-2 Batch" ;
+            mlm:norm_by_channel true ;
+            mlm:pre_processing_function "{\"expression\":\"torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn\",\"format\":\"python\"}"^^rdf:JSON ;
+            mlm:value_scaling [ mlm:mean 1.04293e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3.950925e+02 ],
+                [ mlm:mean 1.211328e+01 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 4.775845e+00 ],
+                [ mlm:mean 7.320834e+02 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 4.049198e+02 ],
+                [ mlm:mean 2.594141e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.231586e+03 ],
+                [ mlm:mean 1.199473e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 5.66417e+02 ],
+                [ mlm:mean 1.999791e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 8.61184e+02 ],
+                [ mlm:mean 1.81901e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.002588e+03 ],
+                [ mlm:mean 1.118924e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 7.613032e+02 ],
+                [ mlm:mean 2.296826e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.117982e+03 ],
+                [ mlm:mean 1.354405e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 2.457176e+02 ],
+                [ mlm:mean 9.476262e+02 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 5.937506e+02 ],
+                [ mlm:mean 2.369223e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.086631e+03 ],
+                [ mlm:mean 1.118244e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3.330078e+02 ] ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:io_name "SeaLake" ;
+                    mlm:nodata false ;
+                    mlm:value 9 ],
+                [ mlm:io_name "Pasture" ;
+                    mlm:nodata false ;
+                    mlm:value 5 ],
+                [ mlm:io_name "River" ;
+                    mlm:nodata false ;
+                    mlm:value 8 ],
+                [ mlm:io_name "Annual Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 0 ],
+                [ mlm:io_name "Residential Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 7 ],
+                [ mlm:io_name "Highway" ;
+                    mlm:nodata false ;
+                    mlm:value 3 ],
+                [ mlm:io_name "Herbaceous Vegetation" ;
+                    mlm:nodata false ;
+                    mlm:value 2 ],
+                [ mlm:io_name "Permanent Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 6 ],
+                [ mlm:io_name "Forest" ;
+                    mlm:nodata false ;
+                    mlm:value 1 ],
+                [ mlm:io_name "Industrial Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 4 ] ;
+            mlm:io_name "classification" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 10 ) ] ;
+            mlm:tasks mlm:classification ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
+
+<https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> dcterms:description "Source code to run the model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Model implementation." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string,
+        "mlm:source_code"^^xsd:string .
+
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns2:bands [ dcterms:description "SWIR 1 (band 11)" ;
+            ns1:center_wavelength 1.61e+00 ;
+            ns1:common_name "swir16" ;
+            ns1:full_width_half_max 1.43e-01 ;
+            ns1:name "B11" ],
+        [ dcterms:description "Red edge 2 (band 6)" ;
+            ns1:center_wavelength 7.4e-01 ;
+            ns1:common_name "rededge" ;
+            ns1:full_width_half_max 1.8e-02 ;
+            ns1:name "B06" ],
+        [ dcterms:description "NIR 2 (band 8A)" ;
+            ns1:center_wavelength 8.65e-01 ;
+            ns1:common_name "nir08" ;
+            ns1:full_width_half_max 3.3e-02 ;
+            ns1:name "B8A" ],
+        [ dcterms:description "Green (band 3)" ;
+            ns1:center_wavelength 5.6e-01 ;
+            ns1:common_name "green" ;
+            ns1:full_width_half_max 4.5e-02 ;
+            ns1:name "B03" ],
+        [ dcterms:description "Red edge 3 (band 7)" ;
+            ns1:center_wavelength 7.83e-01 ;
+            ns1:common_name "rededge" ;
+            ns1:full_width_half_max 2.8e-02 ;
+            ns1:name "B07" ],
+        [ dcterms:description "Red (band 4)" ;
+            ns1:center_wavelength 6.65e-01 ;
+            ns1:common_name "red" ;
+            ns1:full_width_half_max 3.8e-02 ;
+            ns1:name "B04" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ;
+            ns1:center_wavelength 4.43e-01 ;
+            ns1:common_name "coastal" ;
+            ns1:full_width_half_max 2.7e-02 ;
+            ns1:name "B01" ],
+        [ dcterms:description "NIR 1 (band 8)" ;
+            ns1:center_wavelength 8.42e-01 ;
+            ns1:common_name "nir" ;
+            ns1:full_width_half_max 1.45e-01 ;
+            ns1:name "B08" ],
+        [ dcterms:description "SWIR - Cirrus (band 10)" ;
+            ns1:center_wavelength 1.375e+00 ;
+            ns1:common_name "cirrus" ;
+            ns1:full_width_half_max 2.6e-02 ;
+            ns1:name "B10" ],
+        [ dcterms:description "SWIR 2 (band 12)" ;
+            ns1:center_wavelength 2.19e+00 ;
+            ns1:common_name "swir22" ;
+            ns1:full_width_half_max 2.42e-01 ;
+            ns1:name "B12" ],
+        [ dcterms:description "NIR 3 (band 9)" ;
+            ns1:center_wavelength 9.45e-01 ;
+            ns1:common_name "nir09" ;
+            ns1:full_width_half_max 2.6e-02 ;
+            ns1:name "B09" ],
+        [ dcterms:description "Blue (band 2)" ;
+            ns1:center_wavelength 4.9e-01 ;
+            ns1:common_name "blue" ;
+            ns1:full_width_half_max 9.8e-02 ;
+            ns1:name "B02" ],
+        [ dcterms:description "Red edge 1 (band 5)" ;
+            ns1:center_wavelength 7.04e-01 ;
+            ns1:common_name "rededge" ;
+            ns1:full_width_half_max 1.9e-02 ;
+            ns1:name "B05" ] ;
+    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
 
 
 ```
@@ -5057,13 +5219,13 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <eo:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <mlm:> .
-@prefix ns4: <ml-aoi:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
-@prefix ns7: <file:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <ml-aoi:> .
+@prefix ns3: <eo:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns6: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -5071,82 +5233,175 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns1:bands [ dcterms:description "Red edge 3 (band 7)" ],
-        [ dcterms:description "NIR 2 (band 8A)" ],
-        [ dcterms:description "Blue (band 2)" ],
-        [ dcterms:description "Red edge 2 (band 6)" ],
-        [ dcterms:description "Coastal aerosol (band 1)" ],
+    ns3:bands [ dcterms:description "Coastal aerosol (band 1)" ],
         [ dcterms:description "NIR 1 (band 8)" ],
-        [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "NIR 2 (band 8A)" ],
         [ dcterms:description "Green (band 3)" ],
-        [ dcterms:description "Red edge 1 (band 5)" ],
-        [ dcterms:description "NIR 3 (band 9)" ],
+        [ dcterms:description "Red edge 3 (band 7)" ],
+        [ dcterms:description "SWIR - Cirrus (band 10)" ],
         [ dcterms:description "SWIR 1 (band 11)" ],
+        [ dcterms:description "NIR 3 (band 9)" ],
         [ dcterms:description "Red (band 4)" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ] ;
-    ns7:size 43000000 ;
+        [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "Red edge 1 (band 5)" ],
+        [ dcterms:description "Red edge 2 (band 6)" ],
+        [ dcterms:description "Blue (band 2)" ] ;
+    ns6:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-7/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-7/item_eo_bands.json> ],
         [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ] ;
+            ns2:split "train" ],
+        [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-7/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns2:source_code [ dcterms:description "Source code to run the model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Model implementation." ;
-                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-                    stac:roles "code",
-                        "metadata" ] ;
-            ns2:weights [ ns1:bands [ ns2:name "coastal" ],
-                        [ ns2:name "swir16" ],
-                        [ ns2:name "green" ],
-                        [ ns2:name "rededge3" ],
-                        [ ns2:name "swir22" ],
-                        [ ns2:name "nir08" ],
-                        [ ns2:name "rededge2" ],
-                        [ ns2:name "nir09" ],
-                        [ ns2:name "nir" ],
-                        [ ns2:name "blue" ],
-                        [ ns2:name "rededge1" ],
-                        [ ns2:name "red" ],
-                        [ ns2:name "cirrus" ] ;
-                    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
-                    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    ns3:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns1:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns1:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns3:accelerator "cuda" ;
-    ns3:accelerator_constrained false ;
-    ns3:accelerator_summary "Unknown" ;
-    ns3:architecture "ResNet" ;
-    ns3:batch_size_suggestion 256 ;
-    ns3:framework "pytorch" ;
-    ns3:framework_version "2.1.2+cu121" ;
-    ns3:input [ ] ;
-    ns3:memory_size 1 ;
-    ns3:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns3:output [ ] ;
-    ns3:pretrained_source "EuroSat Sentinel-2" ;
-    ns3:tasks "classification" ;
-    ns3:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands "B01",
+                "B02",
+                "B03",
+                "B04",
+                "B05",
+                "B06",
+                "B07",
+                "B08",
+                "B09",
+                "B10",
+                "B11",
+                "B12",
+                "B8A" ;
+            mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 13 64 64 ) ] ;
+            mlm:io_name "13 Band Sentinel-2 Batch" ;
+            mlm:pre_processing_function "{\"expression\":\"torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn\",\"format\":\"python\"}"^^rdf:JSON ;
+            mlm:value_scaling [ mlm:mean 1.999791e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 8.61184e+02 ],
+                [ mlm:mean 9.476262e+02 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 5.937506e+02 ],
+                [ mlm:mean 1.354405e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 2.457176e+02 ],
+                [ mlm:mean 2.369223e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.086631e+03 ],
+                [ mlm:mean 2.296826e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.117982e+03 ],
+                [ mlm:mean 1.118924e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 7.613032e+02 ],
+                [ mlm:mean 7.320834e+02 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 4.049198e+02 ],
+                [ mlm:mean 1.04293e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3.950925e+02 ],
+                [ mlm:mean 2.594141e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.231586e+03 ],
+                [ mlm:mean 1.118244e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3.330078e+02 ],
+                [ mlm:mean 1.211328e+01 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 4.775845e+00 ],
+                [ mlm:mean 1.81901e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 1.002588e+03 ],
+                [ mlm:mean 1.199473e+03 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 5.66417e+02 ] ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:io_name "Industrial Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 4 ],
+                [ mlm:io_name "Highway" ;
+                    mlm:nodata false ;
+                    mlm:value 3 ],
+                [ mlm:io_name "Pasture" ;
+                    mlm:nodata false ;
+                    mlm:value 5 ],
+                [ mlm:io_name "Permanent Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 6 ],
+                [ mlm:io_name "River" ;
+                    mlm:nodata false ;
+                    mlm:value 8 ],
+                [ mlm:io_name "Annual Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 0 ],
+                [ mlm:io_name "Forest" ;
+                    mlm:nodata false ;
+                    mlm:value 1 ],
+                [ mlm:io_name "Herbaceous Vegetation" ;
+                    mlm:nodata false ;
+                    mlm:value 2 ],
+                [ mlm:io_name "SeaLake" ;
+                    mlm:nodata false ;
+                    mlm:value 9 ],
+                [ mlm:io_name "Residential Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 7 ] ;
+            mlm:io_name "classification" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 10 ) ] ;
+            mlm:tasks mlm:classification ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
+
+<https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> dcterms:description "Source code to run the model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Model implementation." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string .
+
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns3:bands [ ns1:name "swir16" ],
+        [ ns1:name "rededge3" ],
+        [ ns1:name "rededge2" ],
+        [ ns1:name "swir22" ],
+        [ ns1:name "red" ],
+        [ ns1:name "nir09" ],
+        [ ns1:name "nir" ],
+        [ ns1:name "cirrus" ],
+        [ ns1:name "rededge1" ],
+        [ ns1:name "blue" ],
+        [ ns1:name "green" ],
+        [ ns1:name "coastal" ],
+        [ ns1:name "nir08" ] ;
+    dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    ns5:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
 
 
 ```
@@ -5757,97 +6012,141 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <mlm:> .
-@prefix ns3: <file:> .
-@prefix ns4: <ml-aoi:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns2: <ml-aoi:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <file:> .
+@prefix ns5: <raster:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-8/model-multi-input> a geojson:Feature ;
-    ns3:size 43000000 ;
+    ns4:size 43000000 ;
     dcterms:description "Generic model that employs multiple input sources with different combination of bands, and some inputs without any band at all." ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ],
-        [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-8/item_multi_io.json> ],
         [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ] ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns2:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:weights [ dcterms:description "A Resnet-50 classification model trained on Sentinel-2 RGB imagery with torchgeo." ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    raster:bands [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B08 - nir" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B02 - blue" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B03 - green" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B04 - red" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ] ;
-                    ns2:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns1:weights <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:accelerator "cuda" ;
-    ns2:accelerator_constrained false ;
-    ns2:accelerator_summary "Unknown" ;
-    ns2:architecture "ResNet" ;
-    ns2:batch_size_suggestion 256 ;
-    ns2:framework "pytorch" ;
-    ns2:framework_version "2.1.2+cu121" ;
-    ns2:input [ ],
-        [ dcterms:description "Digital elevation model. Comes from another source than the Sentinel bands. Therefore, no 'bands' associated to it." ],
-        [ dcterms:description "Compute NDVI from Sentinel-2 bands. The single 'NDVI' virtual band is then fed as 'bands' dimension to the model input." ] ;
-    ns2:memory_size 1 ;
-    ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns2:output [ ],
-        [ ] ;
-    ns2:pretrained_source "EuroSat Sentinel-2" ;
-    ns2:tasks "classification" ;
-    ns2:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands "B04",
+                "B08" ;
+            mlm:input_structure [ mlm:data_type "uint16" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 1 64 64 ) ] ;
+            mlm:io_description "Compute NDVI from Sentinel-2 bands. The single 'NDVI' virtual band is then fed as 'bands' dimension to the model input." ;
+            mlm:io_name "NDVI" ;
+            mlm:pre_processing_function "{\"expression\":\"(A - B) / (A + B)\",\"format\":\"gdal-calc\"}"^^rdf:JSON ],
+        [ mlm:bands "B02",
+                "B03",
+                "B04" ;
+            mlm:input_structure [ mlm:data_type "uint16" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 3 64 64 ) ] ;
+            mlm:io_name "RGB" ],
+        [ mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "h" "y" "x" ) ;
+                    mlm:shape ( -1 1 64 64 ) ] ;
+            mlm:io_description "Digital elevation model. Comes from another source than the Sentinel bands. Therefore, no 'bands' associated to it." ;
+            mlm:io_name "DEM" ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:io_description "background pixels" ;
+                    mlm:io_name "NON_VEGETATION" ;
+                    mlm:value 0 ],
+                [ mlm:color_hint 0,
+                        255 ;
+                    mlm:io_description "pixels where vegetation was detected" ;
+                    mlm:io_name "VEGETATION" ;
+                    mlm:value 1 ] ;
+            mlm:io_name "vegetation-segmentation" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "uint8" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 1 ) ] ;
+            mlm:tasks mlm:semantic-segmentation ],
+        [ mlm:classification_classes [ mlm:color_hint 0 ;
+                    mlm:io_description "pixels where vegetation was detected" ;
+                    mlm:io_name "VEGETATION" ;
+                    mlm:value 1 ],
+                [ mlm:color_hint 255 ;
+                    mlm:io_description "background pixels" ;
+                    mlm:io_name "NON_VEGETATION" ;
+                    mlm:value 0 ] ;
+            mlm:io_name "inverse-mask" ;
+            mlm:post_processing_function "{\"expression\":\"logical_not(A)\",\"format\":\"gdal-calc\"}"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "uint8" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 1 ) ] ;
+            mlm:tasks mlm:semantic-segmentation ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
+
+<https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> dcterms:description "A Resnet-50 classification model trained on Sentinel-2 RGB imagery with torchgeo." ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string ;
+    ns5:bands [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B03 - green" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B08 - nir" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B02 - blue" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B04 - red" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ] .
 
 
 ```
@@ -6270,11 +6569,11 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <mlm:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <classification:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <classification:> .
-@prefix ns5: <eo:> .
+@prefix ns4: <eo:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -6283,57 +6582,80 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 
 <https://example.com/stac/mlm/example-9/pytorch_geo_unet> a geojson:Feature ;
     dcterms:description "STAC item generated using unet_mlm() in stac_model/examples.py example. Specified in https://github.com/fieldsoftheworld/ftw-baselines First 4 S2 bands are for image t1 and last 4 bands are for image t2" ;
-    rdfs:seeAlso [ rdfs:label "Publication for the training dataset of the model" ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-9/item_pytorch_geo_unet.json> ],
+        [ rdfs:label "Publication for the training dataset of the model" ;
             dcterms:type "text/html" ;
             ns3:relation <http://www.iana.org/assignments/relation/cite-as> ;
             oa:hasTarget <https://arxiv.org/abs/2409.16252> ],
         [ dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-9/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-9/item_pytorch_geo_unet.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-9/collection.json> ] ;
     geojson:bbox ( -7.88e+00 3.713e+01 2.791e+01 5.821e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88e+00 3.713e+01 ) ( -7.88e+00 5.821e+01 ) ( 2.791e+01 5.821e+01 ) ( 2.791e+01 3.713e+01 ) ( -7.88e+00 3.713e+01 ) ) ) ] ;
     stac:end_datetime "2024-08-27T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:model [ ns5:bands [ ns1:name "B8" ],
-                        [ ns1:name "B3" ],
-                        [ ns1:name "B3" ],
-                        [ ns1:name "B8" ],
-                        [ ns1:name "B2" ],
-                        [ ns1:name "B4" ],
-                        [ ns1:name "B2" ],
-                        [ ns1:name "B4" ] ;
-                    dcterms:description "A U-Net segmentation model with efficientnet-b3 encoder Weights are non-commercial." ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "U-Net_efficientnet-b3" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ;
-                    stac:roles "data",
-                        "mlm:model",
-                        "mlm:weights" ;
-                    ns2:artifact_type "torch.save" ] ;
-            ns1:source_code [ dcterms:description "GitHub repo of the pytorch model" ;
-                    dcterms:format "text/html" ;
-                    dcterms:title "Source code for U-Net_efficientnet-b3" ;
-                    oa:hasTarget <https://github.com/qubvel-org/segmentation_models.pytorch> ;
-                    stac:roles "code",
-                        "mlm:source_code" ] ] ;
+    stac:hasAsset [ ns2:model <https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ;
+            ns2:source_code <https://github.com/qubvel-org/segmentation_models.pytorch> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" ;
     stac:start_datetime "2015-06-23T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:accelerator_constrained false ;
-    ns2:architecture "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    ns2:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    ns2:framework "segmentation_models_pytorch.decoders.unet.model" ;
-    ns2:input [ ] ;
-    ns2:name "U-Net_efficientnet-b3" ;
-    ns2:output [ ns4:classes [ dcterms:description "Auto-generated class 1" ],
-                [ dcterms:description "Auto-generated class 0" ] ] ;
-    ns2:pretrained true ;
-    ns2:tasks "semantic-segmentation" ;
-    ns2:total_parameters 13160978 .
+    mlm:accelerator_constrained false ;
+    mlm:architecture "segmentation_models_pytorch.decoders.unet.model.Unet"^^xsd:string ;
+    mlm:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet"^^xsd:string ;
+    mlm:framework "segmentation_models_pytorch.decoders.unet.model"^^xsd:string ;
+    mlm:input [ mlm:bands "B2",
+                "B3",
+                "B4",
+                "B8" ;
+            mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 8 3 3 ) ] ;
+            mlm:io_name "model_input" ;
+            mlm:pre_processing_function "null"^^rdf:JSON ;
+            mlm:value_scaling [ mlm:mean 0 ;
+                    mlm:scaling_type mlm:z-score ;
+                    mlm:stddev 3000 ] ] ;
+    mlm:name "U-Net_efficientnet-b3"^^xsd:string ;
+    mlm:output [ ns1:classes [ ns1:description "Auto-generated class 1" ;
+                    ns1:name "class_1" ;
+                    ns1:value 1 ],
+                [ ns1:description "Auto-generated class 0" ;
+                    ns1:name "class_0" ;
+                    ns1:value 0 ] ;
+            mlm:io_name "model_output" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "classes" ) ;
+                    mlm:shape ( -1 2 ) ] ;
+            mlm:tasks mlm:semantic-segmentation ] ;
+    mlm:pretrained true ;
+    mlm:tasks mlm:semantic-segmentation ;
+    mlm:total_parameters "13160978"^^xsd:nonNegativeInteger .
+
+<https://github.com/qubvel-org/segmentation_models.pytorch> dcterms:description "GitHub repo of the pytorch model" ;
+    dcterms:format "text/html" ;
+    dcterms:title "Source code for U-Net_efficientnet-b3" ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "mlm:source_code"^^xsd:string .
+
+<https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ns4:bands [ ns2:name "B4" ],
+        [ ns2:name "B3" ],
+        [ ns2:name "B8" ],
+        [ ns2:name "B3" ],
+        [ ns2:name "B2" ],
+        [ ns2:name "B4" ],
+        [ ns2:name "B8" ],
+        [ ns2:name "B2" ] ;
+    dcterms:description "A U-Net segmentation model with efficientnet-b3 encoder Weights are non-commercial." ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "U-Net_efficientnet-b3" ;
+    stac:hasAssetroles "data"^^xsd:string,
+        "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
 
 
 ```
@@ -7122,173 +7444,227 @@ STAC Machine Learning Model (MLM) Extension to describe ML models, their trainin
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <file:> .
-@prefix ns5: <ml-aoi:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <ml-aoi:> .
+@prefix ns3: <raster:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns4:size 43000000 ;
+    ns5:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-10/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-10/item_raster_bands.json> ],
         [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns5:split "train" ] ;
+            ns2:split "train" ],
+        [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-10/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns2:source_code [ dcterms:description "Source code to run the model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Model implementation." ;
-                    oa:hasTarget <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-                    stac:roles "code",
-                        "metadata",
-                        "mlm:source_code" ] ;
-            ns2:weights [ dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    raster:bands [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B11" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 20 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B01" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 60 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B10" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 60 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B09" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 60 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B06" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 20 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B04" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B8A" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 20 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B03" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B08" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B07" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 20 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B02" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B05" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 20 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B12" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 20 ;
-                            raster:unit "m" ] ;
-                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns1:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns1:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:accelerator_summary "Unknown" ;
-    ns1:architecture "ResNet" ;
-    ns1:batch_size_suggestion 256 ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu121" ;
-    ns1:input [ ] ;
-    ns1:memory_size 1 ;
-    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ ] ;
-    ns1:pretrained_source "EuroSat Sentinel-2" ;
-    ns1:tasks "classification" ;
-    ns1:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands "B01",
+                "B02",
+                "B03",
+                "B04",
+                "B05",
+                "B06",
+                "B07",
+                "B08",
+                "B09",
+                "B10",
+                "B11",
+                "B12",
+                "B8A" ;
+            mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 13 64 64 ) ] ;
+            mlm:io_name "13 Band Sentinel-2 Batch" ;
+            mlm:pre_processing_function "{\"expression\":\"torchgeo.datamodules.eurosat.EuroSATDataModule.collate_fn\",\"format\":\"python\"}"^^rdf:JSON ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:io_name "Forest" ;
+                    mlm:nodata false ;
+                    mlm:value 1 ],
+                [ mlm:io_name "River" ;
+                    mlm:nodata false ;
+                    mlm:value 8 ],
+                [ mlm:io_name "SeaLake" ;
+                    mlm:nodata false ;
+                    mlm:value 9 ],
+                [ mlm:io_name "Highway" ;
+                    mlm:nodata false ;
+                    mlm:value 3 ],
+                [ mlm:io_name "Annual Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 0 ],
+                [ mlm:io_name "Residential Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 7 ],
+                [ mlm:io_name "Permanent Crop" ;
+                    mlm:nodata false ;
+                    mlm:value 6 ],
+                [ mlm:io_name "Industrial Buildings" ;
+                    mlm:nodata false ;
+                    mlm:value 4 ],
+                [ mlm:io_name "Herbaceous Vegetation" ;
+                    mlm:nodata false ;
+                    mlm:value 2 ],
+                [ mlm:io_name "Pasture" ;
+                    mlm:nodata false ;
+                    mlm:value 5 ] ;
+            mlm:io_name "classification" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 10 ) ] ;
+            mlm:tasks mlm:classification ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
+
+<https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> dcterms:description "Source code to run the model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Model implementation." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string,
+        "mlm:source_code"^^xsd:string .
+
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string ;
+    ns3:bands [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B11" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B03" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B09" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 60 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B10" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 60 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B05" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B04" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B12" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B08" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B8A" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B06" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B02" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B07" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B01" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 60 ;
+            ns1:unit "m" ] .
 
 
 ```
@@ -7305,15 +7681,208 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/mlm/v1.5.2/schema.json
 x-jsonld-extra-terms:
-  raster:bands:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+  mlm:name:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/name
+    x-jsonld-type: xsd:string
+  mlm:architecture:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/architecture
+    x-jsonld-type: xsd:string
+  mlm:tasks:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/tasks
+    x-jsonld-type: '@vocab'
+    x-jsonld-container: '@set'
     x-jsonld-context:
-      '@vocab': https://w3id.org/ogc/stac/raster/
-  raster:range:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
-    x-jsonld-container: '@list'
+      regression: https://w3id.org/ogc/stac/mlm/regression
+      classification: https://w3id.org/ogc/stac/mlm/classification
+      scene-classification: https://w3id.org/ogc/stac/mlm/scene-classification
+      detection: https://w3id.org/ogc/stac/mlm/detection
+      object-detection: https://w3id.org/ogc/stac/mlm/object-detection
+      segmentation: https://w3id.org/ogc/stac/mlm/segmentation
+      semantic-segmentation: https://w3id.org/ogc/stac/mlm/semantic-segmentation
+      instance-segmentation: https://w3id.org/ogc/stac/mlm/instance-segmentation
+      panoptic-segmentation: https://w3id.org/ogc/stac/mlm/panoptic-segmentation
+      similarity-search: https://w3id.org/ogc/stac/mlm/similarity-search
+      generative: https://w3id.org/ogc/stac/mlm/generative
+      image-captioning: https://w3id.org/ogc/stac/mlm/image-captioning
+      super-resolution: https://w3id.org/ogc/stac/mlm/super-resolution
+      downscaling: https://w3id.org/ogc/stac/mlm/downscaling
+  mlm:framework:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/framework
+    x-jsonld-type: xsd:string
+  mlm:framework_version:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/framework_version
+    x-jsonld-type: xsd:string
+  mlm:memory_size:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/memory_size
+    x-jsonld-type: xsd:nonNegativeInteger
+  mlm:total_parameters:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/total_parameters
+    x-jsonld-type: xsd:nonNegativeInteger
+  mlm:pretrained:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/pretrained
+    x-jsonld-type: xsd:boolean
+  mlm:pretrained_source:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/pretrained_source
+    x-jsonld-type: xsd:string
+  mlm:batch_size_suggestion:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/batch_size_suggestion
+    x-jsonld-type: xsd:nonNegativeInteger
+  mlm:accelerator:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator
+    x-jsonld-type: '@vocab'
+    x-jsonld-context:
+      amd64: https://w3id.org/ogc/stac/mlm/amd64
+      cuda: https://w3id.org/ogc/stac/mlm/cuda
+      xla: https://w3id.org/ogc/stac/mlm/xla
+      amd-rocm: https://w3id.org/ogc/stac/mlm/amd-rocm
+      intel-ipex-cpu: https://w3id.org/ogc/stac/mlm/intel-ipex-cpu
+      intel-ipex-gpu: https://w3id.org/ogc/stac/mlm/intel-ipex-gpu
+      macos-arm: https://w3id.org/ogc/stac/mlm/macos-arm
+  mlm:accelerator_constrained:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator_constrained
+    x-jsonld-type: xsd:boolean
+  mlm:accelerator_summary:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator_summary
+    x-jsonld-type: xsd:string
+  mlm:accelerator_count:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator_count
+    x-jsonld-type: xsd:positiveInteger
+  mlm:hyperparameters:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/hyperparameters
+    x-jsonld-type: '@json'
+  mlm:artifact_type:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/artifact_type
+    x-jsonld-type: xsd:string
+  mlm:compile_method:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/compile_method
+    x-jsonld-type: xsd:string
+  mlm:entrypoint:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/entrypoint
+    x-jsonld-type: xsd:string
+  mlm:input:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/input
+    x-jsonld-container: '@set'
+    x-jsonld-context:
+      '@vocab': https://w3id.org/ogc/stac/mlm/
+      name: https://w3id.org/ogc/stac/mlm/io_name
+      description: https://w3id.org/ogc/stac/mlm/io_description
+      bands:
+        '@id': https://w3id.org/ogc/stac/mlm/bands
+        '@container': '@set'
+      variables:
+        '@id': https://w3id.org/ogc/stac/mlm/variables
+        '@container': '@set'
+      resize_type:
+        '@id': https://w3id.org/ogc/stac/mlm/resize_type
+        '@type': '@vocab'
+        '@context':
+          crop: https://w3id.org/ogc/stac/mlm/crop
+          pad: https://w3id.org/ogc/stac/mlm/pad
+          interpolation-nearest: https://w3id.org/ogc/stac/mlm/interpolation-nearest
+          interpolation-linear: https://w3id.org/ogc/stac/mlm/interpolation-linear
+          interpolation-cubic: https://w3id.org/ogc/stac/mlm/interpolation-cubic
+          interpolation-area: https://w3id.org/ogc/stac/mlm/interpolation-area
+          interpolation-lanczos4: https://w3id.org/ogc/stac/mlm/interpolation-lanczos4
+          interpolation-max: https://w3id.org/ogc/stac/mlm/interpolation-max
+          wrap-fill-outliers: https://w3id.org/ogc/stac/mlm/wrap-fill-outliers
+          wrap-inverse-map: https://w3id.org/ogc/stac/mlm/wrap-inverse-map
+      pre_processing_function:
+        '@id': https://w3id.org/ogc/stac/mlm/pre_processing_function
+        '@type': '@json'
+      value_scaling:
+        '@id': https://w3id.org/ogc/stac/mlm/value_scaling
+        '@container': '@set'
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/mlm/
+          type:
+            '@id': https://w3id.org/ogc/stac/mlm/scaling_type
+            '@type': '@vocab'
+            '@context':
+              min-max: https://w3id.org/ogc/stac/mlm/min-max
+              z-score: https://w3id.org/ogc/stac/mlm/z-score
+              clip: https://w3id.org/ogc/stac/mlm/clip
+              clip-min: https://w3id.org/ogc/stac/mlm/clip-min
+              clip-max: https://w3id.org/ogc/stac/mlm/clip-max
+              offset: https://w3id.org/ogc/stac/mlm/offset
+              scale: https://w3id.org/ogc/stac/mlm/scale
+              processing: https://w3id.org/ogc/stac/mlm/processing
+          minimum: https://w3id.org/ogc/stac/mlm/minimum
+          maximum: https://w3id.org/ogc/stac/mlm/maximum
+          mean: https://w3id.org/ogc/stac/mlm/mean
+          stddev: https://w3id.org/ogc/stac/mlm/stddev
+          value: https://w3id.org/ogc/stac/mlm/scaling_value
+      input:
+        '@id': https://w3id.org/ogc/stac/mlm/input_structure
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/mlm/
+          shape:
+            '@id': https://w3id.org/ogc/stac/mlm/shape
+            '@container': '@list'
+          dim_order:
+            '@id': https://w3id.org/ogc/stac/mlm/dim_order
+            '@container': '@list'
+          data_type: https://w3id.org/ogc/stac/mlm/data_type
+  mlm:output:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/output
+    x-jsonld-container: '@set'
+    x-jsonld-context:
+      '@vocab': https://w3id.org/ogc/stac/mlm/
+      name: https://w3id.org/ogc/stac/mlm/io_name
+      description: https://w3id.org/ogc/stac/mlm/io_description
+      bands:
+        '@id': https://w3id.org/ogc/stac/mlm/bands
+        '@container': '@set'
+      variables:
+        '@id': https://w3id.org/ogc/stac/mlm/variables
+        '@container': '@set'
+      classification:classes:
+        '@id': classification:classes
+        '@container': '@set'
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/classification/
+          value: classification:value
+          name: classification:name
+          title: classification:title
+          description: classification:description
+          color_hint: classification:color_hint
+          nodata: classification:nodata
+          percentage: classification:percentage
+          count: classification:count
+      tasks:
+        '@id': https://w3id.org/ogc/stac/mlm/tasks
+        '@type': '@vocab'
+        '@container': '@set'
+        '@context':
+          regression: https://w3id.org/ogc/stac/mlm/regression
+          classification: https://w3id.org/ogc/stac/mlm/classification
+          scene-classification: https://w3id.org/ogc/stac/mlm/scene-classification
+          detection: https://w3id.org/ogc/stac/mlm/detection
+          object-detection: https://w3id.org/ogc/stac/mlm/object-detection
+          segmentation: https://w3id.org/ogc/stac/mlm/segmentation
+          semantic-segmentation: https://w3id.org/ogc/stac/mlm/semantic-segmentation
+          instance-segmentation: https://w3id.org/ogc/stac/mlm/instance-segmentation
+          panoptic-segmentation: https://w3id.org/ogc/stac/mlm/panoptic-segmentation
+          similarity-search: https://w3id.org/ogc/stac/mlm/similarity-search
+          generative: https://w3id.org/ogc/stac/mlm/generative
+          image-captioning: https://w3id.org/ogc/stac/mlm/image-captioning
+          super-resolution: https://w3id.org/ogc/stac/mlm/super-resolution
+          downscaling: https://w3id.org/ogc/stac/mlm/downscaling
+      post_processing_function:
+        '@id': https://w3id.org/ogc/stac/mlm/post_processing_function
+        '@type': '@json'
+      result:
+        '@id': https://w3id.org/ogc/stac/mlm/result
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/mlm/
+          shape:
+            '@id': https://w3id.org/ogc/stac/mlm/shape
+            '@container': '@list'
+          dim_order:
+            '@id': https://w3id.org/ogc/stac/mlm/dim_order
+            '@container': '@list'
+          data_type: https://w3id.org/ogc/stac/mlm/data_type
 x-jsonld-prefixes:
-  raster: https://w3id.org/ogc/stac/raster/
+  mlm: https://w3id.org/ogc/stac/mlm/
 
 ```
 
@@ -7379,9 +7948,11 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -7449,15 +8020,253 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "raster:bands": {
-      "@id": "raster:bands",
+    "mlm:name": {
+      "@id": "mlm:name",
+      "@type": "xsd:string"
+    },
+    "mlm:architecture": {
+      "@id": "mlm:architecture",
+      "@type": "xsd:string"
+    },
+    "mlm:tasks": {
+      "@id": "mlm:tasks",
+      "@type": "@vocab",
+      "@container": "@set",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
+        "regression": "mlm:regression",
+        "classification": "mlm:classification",
+        "scene-classification": "mlm:scene-classification",
+        "detection": "mlm:detection",
+        "object-detection": "mlm:object-detection",
+        "segmentation": "mlm:segmentation",
+        "semantic-segmentation": "mlm:semantic-segmentation",
+        "instance-segmentation": "mlm:instance-segmentation",
+        "panoptic-segmentation": "mlm:panoptic-segmentation",
+        "similarity-search": "mlm:similarity-search",
+        "generative": "mlm:generative",
+        "image-captioning": "mlm:image-captioning",
+        "super-resolution": "mlm:super-resolution",
+        "downscaling": "mlm:downscaling"
       }
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "mlm:framework": {
+      "@id": "mlm:framework",
+      "@type": "xsd:string"
+    },
+    "mlm:framework_version": {
+      "@id": "mlm:framework_version",
+      "@type": "xsd:string"
+    },
+    "mlm:memory_size": {
+      "@id": "mlm:memory_size",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "mlm:total_parameters": {
+      "@id": "mlm:total_parameters",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "mlm:pretrained": {
+      "@id": "mlm:pretrained",
+      "@type": "xsd:boolean"
+    },
+    "mlm:pretrained_source": {
+      "@id": "mlm:pretrained_source",
+      "@type": "xsd:string"
+    },
+    "mlm:batch_size_suggestion": {
+      "@id": "mlm:batch_size_suggestion",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "mlm:accelerator": {
+      "@id": "mlm:accelerator",
+      "@type": "@vocab",
+      "@context": {
+        "amd64": "mlm:amd64",
+        "cuda": "mlm:cuda",
+        "xla": "mlm:xla",
+        "amd-rocm": "mlm:amd-rocm",
+        "intel-ipex-cpu": "mlm:intel-ipex-cpu",
+        "intel-ipex-gpu": "mlm:intel-ipex-gpu",
+        "macos-arm": "mlm:macos-arm"
+      }
+    },
+    "mlm:accelerator_constrained": {
+      "@id": "mlm:accelerator_constrained",
+      "@type": "xsd:boolean"
+    },
+    "mlm:accelerator_summary": {
+      "@id": "mlm:accelerator_summary",
+      "@type": "xsd:string"
+    },
+    "mlm:accelerator_count": {
+      "@id": "mlm:accelerator_count",
+      "@type": "xsd:positiveInteger"
+    },
+    "mlm:hyperparameters": {
+      "@id": "mlm:hyperparameters",
+      "@type": "@json"
+    },
+    "mlm:artifact_type": {
+      "@id": "mlm:artifact_type",
+      "@type": "xsd:string"
+    },
+    "mlm:compile_method": {
+      "@id": "mlm:compile_method",
+      "@type": "xsd:string"
+    },
+    "mlm:entrypoint": {
+      "@id": "mlm:entrypoint",
+      "@type": "xsd:string"
+    },
+    "mlm:input": {
+      "@id": "mlm:input",
+      "@container": "@set",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/mlm/",
+        "name": "mlm:io_name",
+        "description": "mlm:io_description",
+        "bands": {
+          "@id": "mlm:bands",
+          "@container": "@set"
+        },
+        "variables": {
+          "@id": "mlm:variables",
+          "@container": "@set"
+        },
+        "resize_type": {
+          "@id": "mlm:resize_type",
+          "@type": "@vocab",
+          "@context": {
+            "crop": "mlm:crop",
+            "pad": "mlm:pad",
+            "interpolation-nearest": "mlm:interpolation-nearest",
+            "interpolation-linear": "mlm:interpolation-linear",
+            "interpolation-cubic": "mlm:interpolation-cubic",
+            "interpolation-area": "mlm:interpolation-area",
+            "interpolation-lanczos4": "mlm:interpolation-lanczos4",
+            "interpolation-max": "mlm:interpolation-max",
+            "wrap-fill-outliers": "mlm:wrap-fill-outliers",
+            "wrap-inverse-map": "mlm:wrap-inverse-map"
+          }
+        },
+        "pre_processing_function": {
+          "@id": "mlm:pre_processing_function",
+          "@type": "@json"
+        },
+        "value_scaling": {
+          "@id": "mlm:value_scaling",
+          "@container": "@set",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/mlm/",
+            "type": {
+              "@id": "mlm:scaling_type",
+              "@type": "@vocab",
+              "@context": {
+                "min-max": "mlm:min-max",
+                "z-score": "mlm:z-score",
+                "clip": "mlm:clip",
+                "clip-min": "mlm:clip-min",
+                "clip-max": "mlm:clip-max",
+                "offset": "mlm:offset",
+                "scale": "mlm:scale",
+                "processing": "mlm:processing"
+              }
+            },
+            "minimum": "mlm:minimum",
+            "maximum": "mlm:maximum",
+            "mean": "mlm:mean",
+            "stddev": "mlm:stddev",
+            "value": "mlm:scaling_value"
+          }
+        },
+        "input": {
+          "@id": "mlm:input_structure",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/mlm/",
+            "shape": {
+              "@id": "mlm:shape",
+              "@container": "@list"
+            },
+            "dim_order": {
+              "@id": "mlm:dim_order",
+              "@container": "@list"
+            },
+            "data_type": "mlm:data_type"
+          }
+        }
+      }
+    },
+    "mlm:output": {
+      "@id": "mlm:output",
+      "@container": "@set",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/mlm/",
+        "name": "mlm:io_name",
+        "description": "mlm:io_description",
+        "bands": {
+          "@id": "mlm:bands",
+          "@container": "@set"
+        },
+        "variables": {
+          "@id": "mlm:variables",
+          "@container": "@set"
+        },
+        "classification:classes": {
+          "@id": "classification:classes",
+          "@container": "@set",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/classification/",
+            "value": "classification:value",
+            "name": "classification:name",
+            "title": "classification:title",
+            "description": "classification:description",
+            "color_hint": "classification:color_hint",
+            "nodata": "classification:nodata",
+            "percentage": "classification:percentage",
+            "count": "classification:count"
+          }
+        },
+        "tasks": {
+          "@id": "mlm:tasks",
+          "@type": "@vocab",
+          "@container": "@set",
+          "@context": {
+            "regression": "mlm:regression",
+            "classification": "mlm:classification",
+            "scene-classification": "mlm:scene-classification",
+            "detection": "mlm:detection",
+            "object-detection": "mlm:object-detection",
+            "segmentation": "mlm:segmentation",
+            "semantic-segmentation": "mlm:semantic-segmentation",
+            "instance-segmentation": "mlm:instance-segmentation",
+            "panoptic-segmentation": "mlm:panoptic-segmentation",
+            "similarity-search": "mlm:similarity-search",
+            "generative": "mlm:generative",
+            "image-captioning": "mlm:image-captioning",
+            "super-resolution": "mlm:super-resolution",
+            "downscaling": "mlm:downscaling"
+          }
+        },
+        "post_processing_function": {
+          "@id": "mlm:post_processing_function",
+          "@type": "@json"
+        },
+        "result": {
+          "@id": "mlm:result",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/mlm/",
+            "shape": {
+              "@id": "mlm:shape",
+              "@container": "@list"
+            },
+            "dim_order": {
+              "@id": "mlm:dim_order",
+              "@container": "@list"
+            },
+            "data_type": "mlm:data_type"
+          }
+        }
+      }
     },
     "href": {
       "@type": "@id",
@@ -7467,7 +8276,7 @@ Links to the schema:
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "raster": "https://w3id.org/ogc/stac/raster/",
+    "mlm": "https://w3id.org/ogc/stac/mlm/",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",

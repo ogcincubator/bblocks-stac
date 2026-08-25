@@ -1,104 +1,121 @@
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-stac: a owl:Ontology ;
-    dct:creator "Rob Atkinson, OGC" ;
-    dct:description "Ontology for the SpatioTemporal Asset Catalog (STAC) Core 1.0.0 specification" ;
-    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:title "STAC Core Ontology" .
+osc:completed a skos:Concept ;
+    skos:definition "Work on the project or product has finished."@en ;
+    skos:inScheme osc:StatusScheme ;
+    skos:notation "completed" ;
+    skos:prefLabel "Completed"@en .
 
-stac:datetime a owl:DatatypeProperty ;
-    rdfs:label "datetime" ;
-    rdfs:comment "Datetime associated with the Item (typically acquisition time)." ;
-    rdfs:domain stac:Item ;
-    rdfs:range xsd:dateTime .
-
-stac:description a owl:DatatypeProperty ;
-    rdfs:label "description" ;
-    rdfs:domain [ owl:unionOf ( stac:Catalog stac:Collection ) ] ;
+osc:experiment a owl:DatatypeProperty ;
+    rdfs:label "OSC experiment" ;
+    dct:description "The name of the specific workflow execution that generated the product." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy osc: ;
     rdfs:range xsd:string .
 
-stac:end_datetime a owl:DatatypeProperty ;
-    rdfs:label "end datetime" ;
-    rdfs:domain stac:Item ;
-    rdfs:range xsd:dateTime .
-
-stac:extent a owl:ObjectProperty ;
-    rdfs:label "extent" ;
-    rdfs:comment "The spatiotemporal extent of a Collection." ;
-    rdfs:domain stac:Collection .
-
-stac:hasAsset a owl:ObjectProperty ;
-    rdfs:label "has asset" ;
-    rdfs:comment "Links an Item to one of its Assets." ;
-    rdfs:domain stac:Item ;
-    rdfs:range stac:Asset .
-
-stac:href a owl:DatatypeProperty ;
-    rdfs:label "href" ;
-    rdfs:comment "The link reference (URL)." ;
-    rdfs:domain stac:Link ;
-    rdfs:range xsd:anyURI .
-
-stac:id a owl:DatatypeProperty ;
-    rdfs:label "id" ;
-    rdfs:comment "Unique identifier for a STAC entity." ;
-    rdfs:domain [ owl:unionOf ( stac:Catalog stac:Collection stac:Item ) ] ;
+osc:missions a owl:DatatypeProperty ;
+    rdfs:label "OSC missions" ;
+    dct:description "Satellite missions that supplied input data for the product." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy osc: ;
     rdfs:range xsd:string .
 
-stac:license a owl:DatatypeProperty ;
-    rdfs:label "license" ;
-    rdfs:comment "Collection-wide license applying to Items unless overridden by an Item." ;
+osc:ongoing a skos:Concept ;
+    skos:definition "Work on the project or product is actively in progress."@en ;
+    skos:inScheme osc:StatusScheme ;
+    skos:notation "ongoing" ;
+    skos:prefLabel "Ongoing"@en .
+
+osc:planned a skos:Concept ;
+    skos:definition "Work on the project or product has not yet started."@en ;
+    skos:inScheme osc:StatusScheme ;
+    skos:notation "planned" ;
+    skos:prefLabel "Planned"@en .
+
+osc:product-type a skos:Concept ;
+    skos:definition "An output of a project: data produced by running one of its workflows/experiments."@en ;
+    skos:inScheme osc:ResourceTypeScheme ;
+    skos:notation "product" ;
+    skos:prefLabel "Product"@en .
+
+osc:project a owl:DatatypeProperty ;
+    rdfs:label "OSC project" ;
+    dct:description "REQUIRED on products. Names the science initiative (Project) a product belongs to." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy osc: ;
+    rdfs:range xsd:string .
+
+osc:project-type a skos:Concept ;
+    skos:definition "A thematic science initiative, typically bound to a region, that develops workflows and produces products."@en ;
+    skos:inScheme osc:ResourceTypeScheme ;
+    skos:notation "project" ;
+    skos:prefLabel "Project"@en .
+
+osc:region a owl:DatatypeProperty ;
+    rdfs:label "OSC region" ;
+    dct:description "The geographic area associated with the project/product, e.g. 'Arctic' or 'Agulhas'." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy osc: ;
+    rdfs:range xsd:string .
+
+osc:status a owl:DatatypeProperty ;
+    rdfs:label "OSC status" ;
+    dct:description "REQUIRED. The lifecycle state of the project or product, drawn from the fixed osc:StatusScheme vocabulary." ;
+    rdfs:comment "Range is skos:Concept: the value is one of osc:StatusScheme's members (osc:planned, osc:ongoing, osc:completed), addressed by its skos:notation string in JSON." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection stac:Catalog ) ] ;
+    rdfs:isDefinedBy osc: ;
+    rdfs:range skos:Concept .
+
+osc:type a owl:DatatypeProperty ;
+    rdfs:label "OSC resource type" ;
+    dct:description "REQUIRED. Specifies whether the resource is a 'project' or a 'product', drawn from the fixed osc:ResourceTypeScheme vocabulary." ;
+    rdfs:comment "Range is skos:Concept: the value is one of osc:ResourceTypeScheme's members (osc:project-type, osc:product-type), addressed by its skos:notation string in JSON." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection stac:Catalog ) ] ;
+    rdfs:isDefinedBy osc: ;
+    rdfs:range skos:Concept .
+
+osc:variables a owl:DatatypeProperty ;
+    rdfs:label "OSC variables" ;
+    dct:description "Observable physical phenomena tracked by the product, e.g. 'Wind stress'." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy osc: ;
+    rdfs:range xsd:string .
+
+osc:workflows a owl:DatatypeProperty ;
+    rdfs:label "OSC workflows" ;
+    dct:description "Processing pipelines developed within the project context." ;
     rdfs:domain stac:Collection ;
+    rdfs:isDefinedBy osc: ;
     rdfs:range xsd:string .
 
-stac:links a owl:ObjectProperty ;
-    rdfs:label "links" ;
-    rdfs:comment "Associates a STAC entity with its links." ;
-    rdfs:domain [ owl:unionOf ( stac:Catalog stac:Collection stac:Item ) ] ;
-    rdfs:range stac:Link .
+osc:ResourceTypeScheme a skos:ConceptScheme ;
+    dct:description "The fixed set of ESA Open Science Catalog resource types: whether a STAC resource represents a project or a product." ;
+    dct:title "OSC Resource Types" ;
+    rdfs:isDefinedBy osc: .
 
-stac:mediaType a owl:DatatypeProperty ;
-    rdfs:label "media type" ;
-    rdfs:comment "The media type of an Asset." ;
-    rdfs:domain stac:Asset ;
-    rdfs:range xsd:string .
+osc:StatusScheme a skos:ConceptScheme ;
+    dct:description "The fixed set of lifecycle states an OSC project or product may be in." ;
+    dct:title "OSC Status" ;
+    rdfs:isDefinedBy osc: .
 
-stac:rel a owl:DatatypeProperty ;
-    rdfs:label "rel" ;
-    rdfs:comment "The relationship type of the link." ;
-    rdfs:domain stac:Link ;
-    rdfs:range xsd:string .
+osc: a owl:Ontology ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:description """Vocabulary for the elements defined by the STAC OSC extension: classifying a STAC resource as an OSC project or product, and describing its status, region, variables, missions and workflows.
 
-stac:start_datetime a owl:DatatypeProperty ;
-    rdfs:label "start datetime" ;
-    rdfs:domain stac:Item ;
-    rdfs:range xsd:dateTime .
+This ontology describes only the osc:* fields that the extension adds. STAC Item, Collection and Catalog are defined by the STAC core vocabulary and are reused — not redefined — here.
 
-stac:Asset a owl:Class ;
-    rdfs:label "STAC Asset" ;
-    rdfs:comment "An Asset represents a file associated with a STAC Item, such as an image, data file, or metadata file." .
+Replaces an earlier placeholder version of this block, which incorrectly declared its owl:Ontology IRI as a copy of the STAC core ontology namespace (https://w3id.org/ogc/stac/core/) and described none of the OSC extension's own elements.
 
-stac:Link a owl:Class ;
-    rdfs:label "STAC Link" ;
-    rdfs:comment "A Link describes a relationship between STAC entities using rel values and hrefs." .
-
-stac:Catalog a owl:Class ;
-    rdfs:label "STAC Catalog" ;
-    rdfs:comment "A STAC Catalog is a JSON object that provides links to other STAC entities." .
-
-stac:Collection a owl:Class ;
-    rdfs:label "STAC Collection" ;
-    rdfs:comment "A Collection extends Catalog with additional metadata and describes a group of related STAC Items." ;
-    rdfs:subClassOf stac:Catalog .
-
-stac:Item a owl:Class ;
-    rdfs:label "STAC Item" ;
-    rdfs:comment "A STAC Item is a GeoJSON Feature augmented with STAC metadata fields and links." ;
-    rdfs:subClassOf geo:Feature .
+Combines skos.ttl (osc:ResourceTypeScheme and osc:StatusScheme, the extension's fixed enumerations) and owl.ttl (the osc:* datatype properties).""" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:source <https://github.com/stac-extensions/osc/tree/v1.0.0> ;
+    dct:title "STAC ESA Open Science Catalog (OSC) Extension Ontology" ;
+    owl:versionInfo "1.0.0" .
 

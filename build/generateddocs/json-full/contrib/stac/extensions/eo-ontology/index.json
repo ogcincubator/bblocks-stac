@@ -1,0 +1,69 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.eo-ontology",
+  "name": "STAC Electro-Optical Extension Ontology",
+  "highlighted": false,
+  "title": "Definitions for STAC Electro-Optical (EO) extension elements",
+  "description": "Vocabulary defining the elements of the STAC EO extension (eo:cloud_cover, eo:snow_cover, eo:common_name, eo:center_wavelength, eo:full_width_half_max, eo:solar_illumination), providing Linked Data terms for the STAC EO schema. eo:common_name's fixed 20-value enumeration is modeled as a skos:ConceptScheme (eo:CommonBandNameScheme); the remaining fields stay OWL datatype properties. Reuses STAC core classes rather than redefining them.",
+  "status": "under-development",
+  "version": "0.1",
+  "itemClass": "model",
+  "dependsOn": [],
+  "sources": [
+    {
+      "title": "GitHub Repository",
+      "link": "https://github.com/stac-extensions/eo"
+    },
+    {
+      "title": "JSON Schema (v2.0.0)",
+      "link": "https://stac-extensions.github.io/eo/v2.0.0/schema.json"
+    },
+    {
+      "title": "README (Common Band Names table)",
+      "link": "https://github.com/stac-extensions/eo/blob/main/README.md"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.extensions.eo-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/eo-ontology/shapes.shacl"
+    ]
+  },
+  "shaclClosures": [
+    "skos.ttl"
+  ],
+  "rules": [],
+  "dateTimeAddition": "2026-08-25T00:00:00Z",
+  "dateOfLastChange": "2026-08-25",
+  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/eo-ontology/ontology.ttl",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/eo-ontology/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/eo-ontology/",
+  "examples": [
+    {
+      "title": "STAC Item band with a common name (Landsat-style red band)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/eo-ontology/example_1_1.ttl",
+          "sizeBytes": 451,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix eo:   <https://w3id.org/ogc/stac/eo/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:landsat-item a stac:Item ;\n    eo:cloud_cover \"12.5\"^^xsd:double ;\n    eo:snow_cover  \"0\"^^xsd:double .\n\nex:red-band\n    eo:common_name          eo:red ;\n    eo:center_wavelength    \"0.655\"^^xsd:double ;\n    eo:full_width_half_max  \"0.07\"^^xsd:double .\n"
+        }
+      ]
+    },
+    {
+      "title": "Common band name vocabulary member",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/eo-ontology/example_2_1.ttl",
+          "sizeBytes": 283,
+          "code": "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix eo:   <https://w3id.org/ogc/stac/eo/> .\n\neo:red a skos:Concept ;\n    skos:inScheme eo:CommonBandNameScheme ;\n    skos:notation \"red\" ;\n    skos:prefLabel \"Red\"@en ;\n    skos:definition \"Band range: 0.62 - 0.69\u00b5m.\"@en .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/eo-ontology"
+}

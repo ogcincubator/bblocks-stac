@@ -1,0 +1,79 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+thns:concepts a owl:ObjectProperty ;
+    rdfs:label "theme concepts" ;
+    dct:description "REQUIRED. One or more Concepts, from the Theme's scheme, assigned to the STAC resource." ;
+    rdfs:domain thns:Theme ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:range thns:Concept .
+
+thns:description a owl:DatatypeProperty ;
+    rdfs:label "concept description" ;
+    dct:description "A human-readable explanation of the concept." ;
+    rdfs:domain thns:Concept ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:subPropertyOf skos:definition .
+
+thns:id a owl:DatatypeProperty ;
+    rdfs:label "concept id" ;
+    dct:description "REQUIRED. The identifier of the concept, as assigned within its knowledge organization system." ;
+    rdfs:domain thns:Concept ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:subPropertyOf skos:notation .
+
+thns:name a owl:DatatypeProperty ;
+    rdfs:label "concept title" ;
+    dct:description "The human-readable name of the concept." ;
+    rdfs:comment "Maps the STAC Themes Concept Object's 'title' field (not 'name' — the extension's JSON Schema does not have a 'name' field on Concept Object; the term is named thns:name for historical reasons and is preserved for compatibility with existing consumers)." ;
+    rdfs:domain thns:Concept ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:subPropertyOf skos:prefLabel .
+
+thns:scheme a owl:DatatypeProperty ;
+    rdfs:label "scheme identifier" ;
+    dct:description "REQUIRED. Identifies the knowledge organization system the Theme's concepts are drawn from, preferably as a resolvable URI." ;
+    rdfs:domain thns:Theme ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:range xsd:string .
+
+thns:schemes a owl:ObjectProperty ;
+    rdfs:label "themes" ;
+    dct:description "REQUIRED. Relates a STAC resource (Item, Catalog or Collection) to a Theme it is classified by." ;
+    rdfs:comment "JSON key is 'themes'." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection stac:Catalog ) ] ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:range thns:Theme .
+
+thns:Theme a owl:Class ;
+    rdfs:label "theme" ;
+    dct:description "A Theme Object: identifies a knowledge organization system (thns:scheme) and the Concepts (thns:concepts) drawn from it that classify a STAC resource." ;
+    rdfs:comment "Functionally analogous to a skos:ConceptScheme membership assertion — thns:scheme names the scheme (by URI, preferably resolvable) and thns:concepts lists the skos:Concepts drawn from it — but is not itself declared rdfs:subClassOf skos:ConceptScheme, since thns:scheme stays a plain string (not the scheme's own IRI) for compatibility with the existing themes-shacl SPARQL rules that concatenate it." ;
+    rdfs:isDefinedBy thns: .
+
+thns:Concept a owl:Class ;
+    rdfs:label "theme concept" ;
+    dct:description "One concept (a 'Concept Object') drawn from the knowledge organization system identified by its enclosing thns:Theme's thns:scheme." ;
+    rdfs:isDefinedBy thns: ;
+    rdfs:subClassOf skos:Concept .
+
+thns: a owl:Ontology ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:description """Vocabulary for the elements defined by the STAC Themes extension: classifying a STAC resource with concepts from a knowledge organization system (controlled vocabulary).
+
+This ontology describes only the elements the Themes extension itself adds. STAC Item, Collection and Catalog are defined by the STAC core vocabulary and are reused — not redefined — here.
+
+Term IRIs (thns:id, thns:name, thns:concepts, thns:scheme, thns:schemes) were already in use by the themes and osc schema blocks' context.jsonld and by themes-shacl/transforms/dcat-themes.ttl's SPARQL rules before this ontology block existed; they are preserved here rather than renamed (see skos.ttl's comment on thns:name for the one JSON-key/term-name mismatch this carries forward).
+
+Combines skos.ttl (thns:Concept as a skos:Concept, and its lexical properties id/name/description) and owl.ttl (thns:Theme and the structural properties schemes/scheme/concepts).""" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:source <https://github.com/stac-extensions/themes/tree/v1.0.0> ;
+    dct:title "STAC Themes Extension Ontology" ;
+    owl:versionInfo "1.0.0" .
+

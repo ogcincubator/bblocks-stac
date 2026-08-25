@@ -1,0 +1,69 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.raster-ontology",
+  "name": "STAC Raster Extension Ontology",
+  "highlighted": false,
+  "title": "Definitions for STAC Raster extension elements",
+  "description": "Vocabulary defining the elements of the STAC Raster extension (raster:sampling, raster:bits_per_sample, raster:spatial_resolution, raster:scale, raster:offset, raster:histogram and the Histogram Object), providing Linked Data terms for the STAC Raster schema. raster:sampling's fixed 2-value enumeration is modeled as a skos:ConceptScheme (raster:SamplingScheme); the remaining fields stay OWL.",
+  "status": "under-development",
+  "version": "0.1",
+  "itemClass": "model",
+  "dependsOn": [],
+  "sources": [
+    {
+      "title": "GitHub Repository",
+      "link": "https://github.com/stac-extensions/raster"
+    },
+    {
+      "title": "JSON Schema (v2.0.0)",
+      "link": "https://stac-extensions.github.io/raster/v2.0.0/schema.json"
+    },
+    {
+      "title": "README (Raster Band Object field table and example)",
+      "link": "https://github.com/stac-extensions/raster/blob/main/README.md"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.extensions.raster-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster-ontology/shapes.shacl"
+    ]
+  },
+  "shaclClosures": [
+    "skos.ttl"
+  ],
+  "rules": [],
+  "dateTimeAddition": "2026-08-25T00:00:00Z",
+  "dateOfLastChange": "2026-08-25",
+  "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/raster-ontology/ontology.ttl",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/raster-ontology/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/raster-ontology/",
+  "examples": [
+    {
+      "title": "Raster band with scale/offset (DN to reflectance conversion)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/raster-ontology/example_1_1.ttl",
+          "sizeBytes": 279,
+          "code": "@prefix raster: <https://w3id.org/ogc/stac/raster/> .\n@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:     <https://example.org/stac/> .\n\nex:B4-band\n    raster:scale  \"0.0001\"^^xsd:double ;\n    raster:offset \"0.0\"^^xsd:double ;\n    raster:sampling raster:area .\n"
+        }
+      ]
+    },
+    {
+      "title": "Raster band histogram",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/raster-ontology/example_2_1.ttl",
+          "sizeBytes": 339,
+          "code": "@prefix raster: <https://w3id.org/ogc/stac/raster/> .\n@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:     <https://example.org/stac/> .\n\nex:B4-band raster:histogram [\n    raster:count 10 ;\n    raster:min \"0.0\"^^xsd:double ;\n    raster:max \"10000.0\"^^xsd:double ;\n    raster:buckets 4, 20, 100, 15, 8, 3, 2, 1, 1, 1 ;\n] .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/raster-ontology"
+}

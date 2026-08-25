@@ -10,8 +10,13 @@
   "itemClass": "schema",
   "register": "bblocks-stac",
   "version": "0.1",
-  "dateOfLastChange": "2023-12-09",
-  "link": "https://github.com/stac-extensions/eo",
+  "dateOfLastChange": "2026-08-25",
+  "link": "https://github.com/stac-extensions/accuracy",
+  "dependsOn": [
+    "ogc.contrib.stac.extensions.accuracy-ontology",
+    "ogc.contrib.stac.item",
+    "ogc.contrib.stac.collection"
+  ],
   "sources": [
     {
       "title": "GitHub Repository",
@@ -26,8 +31,14 @@
     "dataquality"
   ],
   "shaclShapes": {
+    "ogc.contrib.stac.extensions.accuracy-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/accuracy-ontology/shapes.shacl"
+    ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ],
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
     ],
     "ogc.geo.features.feature": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
@@ -36,16 +47,13 @@
       "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
     ]
   },
-  "dependsOn": [
-    "ogc.contrib.stac.collection",
-    "ogc.contrib.stac.item"
-  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/context.jsonld",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/schema.json"
   },
   "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/accuracy/schema.yaml",
-  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/context.jsonld",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/accuracy/context.jsonld",
   "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/accuracy/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/accuracy/",
   "validationPassed": true,
@@ -70,13 +78,13 @@
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/accuracy/example_1_1.ttl",
-          "sizeBytes": 1425,
-          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <accuracy:> .\n@prefix ns2: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns3: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/item> a geojson:Feature ;\n    ns1:geometric_rmse 1 ;\n    ns1:geometric_x_bias 0 ;\n    ns1:geometric_x_stddev 5e-01 ;\n    ns1:geometric_y_bias 0 ;\n    ns1:geometric_y_stddev 5e-01 ;\n    ns1:measurement_absolute 2e-02 ;\n    ns1:measurement_relative 1e-02 ;\n    dct:date \"2020-12-11T22:38:32+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ ns3:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;\n    stac:hasAsset [ ns2:data [ oa:hasTarget <https://example.com/examples/file.xyz> ] ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json\" ;\n    stac:version \"1.0.0\" .\n\n"
+          "sizeBytes": 1486,
+          "code": "@prefix accuracy: <https://w3id.org/ogc/stac/accuracy/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<file:///github/workspace/item> a geojson:Feature ;\n    dct:date \"2020-12-11T22:38:32+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://example.com/examples/item.json> ] ;\n    geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;\n    accuracy:geometric_rmse 1e+00 ;\n    accuracy:geometric_x_bias 0e+00 ;\n    accuracy:geometric_x_stddev 5e-01 ;\n    accuracy:geometric_y_bias 0e+00 ;\n    accuracy:geometric_y_stddev 5e-01 ;\n    accuracy:measurement_absolute 2e-02 ;\n    accuracy:measurement_relative 1e-02 ;\n    stac:hasAsset [ ns1:data <https://example.com/examples/file.xyz> ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json\" ;\n    stac:version \"1.0.0\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Accuracy Extension\ndescription: STAC Accuracy Extension for STAC Items and STAC Collections.\nallOf:\n- anyOf:\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n- $ref: https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Accuracy Extension\ndescription: STAC Accuracy Extension for STAC Items and STAC Collections.\nallOf:\n- anyOf:\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n- $ref: https://stac-extensions.github.io/accuracy/v1.0.0-beta.1/schema.json\nx-jsonld-extra-terms:\n  accuracy:geometric_x_bias:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_x_bias\n    x-jsonld-type: xsd:double\n  accuracy:geometric_y_bias:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_y_bias\n    x-jsonld-type: xsd:double\n  accuracy:geometric_x_stddev:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_x_stddev\n    x-jsonld-type: xsd:double\n  accuracy:geometric_y_stddev:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_y_stddev\n    x-jsonld-type: xsd:double\n  accuracy:geometric_rmse:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/geometric_rmse\n    x-jsonld-type: xsd:double\n  accuracy:measurement_relative:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/measurement_relative\n    x-jsonld-type: xsd:double\n  accuracy:measurement_absolute:\n    x-jsonld-id: https://w3id.org/ogc/stac/accuracy/measurement_absolute\n    x-jsonld-type: xsd:double\nx-jsonld-prefixes:\n  accuracy: https://w3id.org/ogc/stac/accuracy/\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/extensions/accuracy"
 }

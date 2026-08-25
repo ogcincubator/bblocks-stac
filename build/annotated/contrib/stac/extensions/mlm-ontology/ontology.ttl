@@ -1,0 +1,677 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix processing: <https://w3id.org/ogc/stac/processing/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mlm:Caffe a skos:Concept ;
+    skos:definition "A deep learning framework originally developed at UC Berkeley, focused on convolutional neural networks."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "Caffe" ;
+    skos:prefLabel "Caffe"@en .
+
+mlm:Flax a skos:Concept ;
+    skos:definition "A neural network library built on top of JAX."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "Flax" ;
+    skos:prefLabel "Flax"@en .
+
+mlm:JAX a skos:Concept ;
+    skos:definition "A Python library for high-performance numerical computing and automatic differentiation, developed by Google."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "JAX" ;
+    skos:prefLabel "JAX"@en .
+
+mlm:Keras a skos:Concept ;
+    skos:definition "A high-level deep learning API, usable on top of TensorFlow, JAX or PyTorch."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "Keras" ;
+    skos:prefLabel "Keras"@en .
+
+mlm:MXNet a skos:Concept ;
+    skos:definition "An open-source deep learning framework, an Apache Software Foundation project."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "MXNet" ;
+    skos:prefLabel "MXNet"@en .
+
+mlm:ONNX a skos:Concept ;
+    skos:definition "Open Neural Network Exchange: an open format and runtime for representing and running trained machine learning models across frameworks."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "ONNX" ;
+    skos:prefLabel "ONNX"@en .
+
+mlm:Paddle a skos:Concept ;
+    skos:definition "PaddlePaddle: an open-source deep learning framework developed by Baidu."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "Paddle" ;
+    skos:prefLabel "Paddle"@en .
+
+mlm:PyMC a skos:Concept ;
+    skos:definition "A Python library for Bayesian statistical modeling and probabilistic programming."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "PyMC" ;
+    skos:prefLabel "PyMC"@en .
+
+mlm:PyTorch a skos:Concept ;
+    skos:definition "An open-source deep learning framework providing tensor computation and automatic differentiation, originally developed by Meta AI."@en ;
+    skos:example "The extension's own README example sets mlm:framework = \"PyTorch\" (with mlm:framework_version \"2.1.2\")."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "PyTorch" ;
+    skos:prefLabel "PyTorch"@en .
+
+mlm:TensorFlow a skos:Concept ;
+    skos:definition "An open-source deep learning framework originally developed by Google."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "TensorFlow" ;
+    skos:prefLabel "TensorFlow"@en .
+
+mlm:Weka a skos:Concept ;
+    skos:definition "A Java-based collection of machine learning algorithms and tools, developed at the University of Waikato."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "Weka" ;
+    skos:prefLabel "Weka"@en .
+
+mlm:accelerator a owl:DatatypeProperty ;
+    rdfs:label "accelerator" ;
+    dct:description "The hardware accelerator the model targets. A null value means no specific accelerator is required." ;
+    rdfs:comment "Values are drawn from mlm:AcceleratorScheme (see skos.ttl); the JSON value null (no accelerator required) has no corresponding skos:Concept and is simply the absence of this property in RDF." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range skos:Concept .
+
+mlm:accelerator_constrained a owl:DatatypeProperty ;
+    rdfs:label "accelerator constrained" ;
+    dct:description "Whether the model requires the specified accelerator to run (true), or can fall back to other hardware (false, the default)." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:boolean .
+
+mlm:accelerator_count a owl:DatatypeProperty ;
+    rdfs:label "accelerator count" ;
+    dct:description "The minimum number of accelerator instances required to run the model." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:positiveInteger .
+
+mlm:accelerator_summary a owl:DatatypeProperty ;
+    rdfs:label "accelerator summary" ;
+    dct:description "A free-text description of the accelerator requirements/recommendations." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:amd-rocm a skos:Concept ;
+    skos:definition "AMD's ROCm open software platform for running compute workloads on AMD GPUs."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "amd-rocm" ;
+    skos:prefLabel "AMD ROCm"@en .
+
+mlm:amd64 a skos:Concept ;
+    skos:definition "Standard x86-64 CPU execution, with no dedicated hardware accelerator."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "amd64" ;
+    skos:prefLabel "amd64 (CPU only)"@en .
+
+mlm:architecture a owl:DatatypeProperty ;
+    rdfs:label "model architecture" ;
+    dct:description "REQUIRED. A generic, well-established architecture name for the model, typically a common name from the literature (e.g. ResNet, VGG, Vision Transformer)." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:artifact_type a owl:DatatypeProperty ;
+    rdfs:label "artifact type" ;
+    dct:description "Specifies the framework-specific type of the model artifact, typically related to a model serialization method (e.g. torch.save, tf.keras.Model.save)." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:bands a owl:DatatypeProperty ;
+    rdfs:label "input/output bands" ;
+    dct:description "References to bands (from EO, Raster or STAC common metadata) consumed or produced by this input/output." ;
+    rdfs:domain [ owl:unionOf ( mlm:ModelInput mlm:ModelOutput ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:batch_size_suggestion a owl:DatatypeProperty ;
+    rdfs:label "suggested batch size" ;
+    dct:description "A recommended batch size to employ the model with the specified accelerator." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:nonNegativeInteger .
+
+mlm:classification a skos:Concept ;
+    skos:definition "Assigning one or more discrete class labels to the input as a whole."@en ;
+    skos:example "example-model, in the extension's own item_basic.json example, uses mlm:tasks = classification."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "classification" ;
+    skos:prefLabel "Classification"@en .
+
+mlm:clip a skos:Concept ;
+    skos:definition "Constraining a value to lie within the mlm:minimum and mlm:maximum bounds."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "clip" ;
+    skos:prefLabel "Clip"@en .
+
+mlm:clip-max a skos:Concept ;
+    skos:definition "Constraining a value to be no greater than mlm:maximum."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "clip-max" ;
+    skos:prefLabel "Clip maximum"@en .
+
+mlm:clip-min a skos:Concept ;
+    skos:definition "Constraining a value to be no less than mlm:minimum."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "clip-min" ;
+    skos:prefLabel "Clip minimum"@en .
+
+mlm:compile_method a owl:DatatypeProperty ;
+    rdfs:label "compile method" ;
+    dct:description "Specifies the method used to compile the model, if any (e.g. aot, jit)." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:crop a skos:Concept ;
+    skos:definition "Truncating the input to the required size by discarding pixels outside the target region, without rescaling."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "crop" ;
+    skos:prefLabel "Crop"@en .
+
+mlm:cuda a skos:Concept ;
+    skos:definition "NVIDIA's CUDA parallel computing platform, used to run models on NVIDIA GPUs."@en ;
+    skos:example "The extension's own README example sets mlm:accelerator = \"cuda\"."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "cuda" ;
+    skos:prefLabel "NVIDIA CUDA"@en .
+
+mlm:data_type a owl:DatatypeProperty ;
+    rdfs:label "data type" ;
+    dct:description "The tensor's data type, using NumPy/raster data type names (e.g. uint8, int16, float32)." ;
+    rdfs:domain [ owl:unionOf ( mlm:InputStructure mlm:ResultStructure ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:detection a skos:Concept ;
+    skos:definition "Identifying the presence and location of instances of interest in the input, without necessarily classifying them."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "detection" ;
+    skos:prefLabel "Detection"@en .
+
+mlm:dim_order a owl:DatatypeProperty ;
+    rdfs:label "dimension order" ;
+    dct:description "REQUIRED. The label of each dimension in mlm:shape, in order." ;
+    rdfs:comment "Common values include batch, channel, bands, variables, time, height, width, depth, token, class, score, confidence, embedding — but the extension does not close this list, so no SKOS scheme is minted for it." ;
+    rdfs:domain [ owl:unionOf ( mlm:InputStructure mlm:ResultStructure ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:downscaling a skos:Concept ;
+    skos:definition "Producing finer-grained (e.g. higher spatial or temporal resolution) output from coarser-grained input, typically used for climate/weather variables."@en ;
+    skos:example "UNet_ClimateDiffuse_ERA5_Downscaling, in the extension's own examples, uses mlm:tasks = downscaling."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "downscaling" ;
+    skos:prefLabel "Downscaling"@en .
+
+mlm:entrypoint a owl:DatatypeProperty ;
+    rdfs:label "entrypoint" ;
+    dct:description "The entrypoint script or function where the model can be invoked for inference on input data." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:framework a owl:DatatypeProperty ;
+    rdfs:label "model framework" ;
+    dct:description "The ML library/framework used to train (and typically to run) the model." ;
+    rdfs:comment "Range is a plain string, not skos:Concept: the extension explicitly allows any framework name as free text, so the JSON-LD context cannot safely convert the value to a term IRI (an unrecognized name would otherwise expand to a bogus relative IRI instead of staying a literal). Recommended values are documented in mlm:FrameworkScheme (see skos.ttl) and correspond to this string by skos:notation, but are not enforced or auto-linked." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:framework_version a owl:DatatypeProperty ;
+    rdfs:label "framework version" ;
+    dct:description "The framework's version, matching its own versioning scheme." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:generative a skos:Concept ;
+    skos:definition "Synthesizing new data (e.g. imagery) rather than labeling or measuring existing input."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "generative" ;
+    skos:prefLabel "Generative"@en .
+
+mlm:hugging-face a skos:Concept ;
+    skos:definition "The Hugging Face Transformers ecosystem/library for pretrained machine learning models."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "Hugging Face" ;
+    skos:prefLabel "Hugging Face"@en .
+
+mlm:hyperparameters a owl:DatatypeProperty ;
+    rdfs:label "hyperparameters" ;
+    dct:description "Additional hyperparameters relevant for the model." ;
+    rdfs:comment "Carried as an opaque JSON object (key/value map) in the JSON-LD mapping (@json); individual entries are not uplifted to separate triples." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range rdf:JSON .
+
+mlm:image-captioning a skos:Concept ;
+    skos:definition "Generating a natural-language text description of the input image."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "image-captioning" ;
+    skos:prefLabel "Image captioning"@en .
+
+mlm:input a owl:ObjectProperty ;
+    rdfs:label "model inputs" ;
+    dct:description "REQUIRED. The model's input(s)." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range mlm:ModelInput .
+
+mlm:input_structure a owl:ObjectProperty ;
+    rdfs:label "input structure" ;
+    dct:description "REQUIRED. The InputStructure describing this ModelInput's tensor shape." ;
+    rdfs:comment "JSON key is 'input' on ModelInput; minted as mlm:input_structure to avoid clashing with the top-level mlm:input (Item/Collection -> ModelInput) property." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range mlm:InputStructure .
+
+mlm:instance-segmentation a skos:Concept ;
+    skos:definition "Assigning a class label to every pixel while also distinguishing separate instances of the same class from one another."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "instance-segmentation" ;
+    skos:prefLabel "Instance segmentation"@en .
+
+mlm:intel-ipex-cpu a skos:Concept ;
+    skos:definition "Intel Extension for PyTorch, used to accelerate model execution on Intel CPUs."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "intel-ipex-cpu" ;
+    skos:prefLabel "Intel IPEX (CPU)"@en .
+
+mlm:intel-ipex-gpu a skos:Concept ;
+    skos:definition "Intel Extension for PyTorch, used to accelerate model execution on Intel GPUs."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "intel-ipex-gpu" ;
+    skos:prefLabel "Intel IPEX (GPU)"@en .
+
+mlm:interpolation-area a skos:Concept ;
+    skos:definition "Resampling by averaging over the pixel area, generally preferred when shrinking an image."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "interpolation-area" ;
+    skos:prefLabel "Area interpolation"@en .
+
+mlm:interpolation-cubic a skos:Concept ;
+    skos:definition "Resampling to the required size using (bi)cubic interpolation over a neighborhood of source pixels."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "interpolation-cubic" ;
+    skos:prefLabel "Cubic interpolation"@en .
+
+mlm:interpolation-lanczos4 a skos:Concept ;
+    skos:definition "Resampling using an 8x8 pixel Lanczos windowed sinc interpolation."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "interpolation-lanczos4" ;
+    skos:prefLabel "Lanczos-4 interpolation"@en .
+
+mlm:interpolation-linear a skos:Concept ;
+    skos:definition "Resampling to the required size using (bi)linear interpolation between neighboring source pixels."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "interpolation-linear" ;
+    skos:prefLabel "Linear interpolation"@en .
+
+mlm:interpolation-max a skos:Concept ;
+    skos:definition "Resampling by taking the maximum value over the source pixels contributing to each output pixel."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "interpolation-max" ;
+    skos:prefLabel "Max interpolation"@en .
+
+mlm:interpolation-nearest a skos:Concept ;
+    skos:definition "Resampling to the required size by taking the value of the nearest source pixel for each output pixel."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "interpolation-nearest" ;
+    skos:prefLabel "Nearest-neighbor interpolation"@en .
+
+mlm:io_description a owl:DatatypeProperty ;
+    rdfs:label "input/output description" ;
+    dct:description "An explanation of the ModelInput or ModelOutput." ;
+    rdfs:comment "JSON key is 'description' on both ModelInput and ModelOutput." ;
+    rdfs:domain [ owl:unionOf ( mlm:ModelInput mlm:ModelOutput ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:io_name a owl:DatatypeProperty ;
+    rdfs:label "input/output name" ;
+    dct:description "REQUIRED. Name of the ModelInput or ModelOutput." ;
+    rdfs:comment "JSON key is 'name' on both ModelInput and ModelOutput; minted as mlm:io_name to avoid clashing with mlm:name (the top-level model name)." ;
+    rdfs:domain [ owl:unionOf ( mlm:ModelInput mlm:ModelOutput ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:macos-arm a skos:Concept ;
+    skos:definition "Apple Silicon (ARM-based) hardware acceleration on macOS, e.g. via Apple's Metal Performance Shaders."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "macos-arm" ;
+    skos:prefLabel "macOS ARM (Apple Silicon)"@en .
+
+mlm:maximum a owl:DatatypeProperty ;
+    rdfs:label "scaling maximum" ;
+    dct:description "The maximum value used by min-max, clip or clip-max scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:double .
+
+mlm:mean a owl:DatatypeProperty ;
+    rdfs:label "scaling mean" ;
+    dct:description "The mean value used by z-score scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:double .
+
+mlm:memory_size a owl:DatatypeProperty ;
+    rdfs:label "memory size" ;
+    dct:description "Memory size (in bytes) required to load the model with the specified accelerator." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:nonNegativeInteger .
+
+mlm:min-max a skos:Concept ;
+    skos:definition "Rescaling a value into a fixed range (typically [0,1]) using the mlm:minimum and mlm:maximum bounds: (value - minimum) / (maximum - minimum)."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "min-max" ;
+    skos:prefLabel "Min-max scaling"@en .
+
+mlm:minimum a owl:DatatypeProperty ;
+    rdfs:label "scaling minimum" ;
+    dct:description "The minimum value used by min-max, clip or clip-min scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:double .
+
+mlm:name a owl:DatatypeProperty ;
+    rdfs:label "model name" ;
+    dct:description "REQUIRED. A name for the model, distinct from simply naming the model architecture." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:object-detection a skos:Concept ;
+    skos:definition "Identifying and localizing (typically with bounding boxes) instances of one or more object classes in the input."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "object-detection" ;
+    skos:prefLabel "Object detection"@en .
+
+mlm:offset a skos:Concept ;
+    skos:definition "Adding a fixed mlm:scaling_value to a value."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "offset" ;
+    skos:prefLabel "Offset"@en .
+
+mlm:output a owl:ObjectProperty ;
+    rdfs:label "model outputs" ;
+    dct:description "REQUIRED. The model's output(s)." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range mlm:ModelOutput .
+
+mlm:pad a skos:Concept ;
+    skos:definition "Extending the input to the required size by adding border pixels, without rescaling."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "pad" ;
+    skos:prefLabel "Pad"@en .
+
+mlm:panoptic-segmentation a skos:Concept ;
+    skos:definition "A combination of semantic and instance segmentation: every pixel gets a class label, and countable ('thing') classes are further split into individual instances."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "panoptic-segmentation" ;
+    skos:prefLabel "Panoptic segmentation"@en .
+
+mlm:post_processing_function a owl:DatatypeProperty ;
+    rdfs:label "post-processing function" ;
+    dct:description "A processing expression applied to the model's raw output to produce this ModelOutput's result." ;
+    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse." ;
+    rdfs:domain mlm:ModelOutput ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range rdf:JSON ;
+    rdfs:subPropertyOf processing:expression .
+
+mlm:pre_processing_function a owl:DatatypeProperty ;
+    rdfs:label "pre-processing function" ;
+    dct:description "A processing expression that reshapes/transforms raw data into this ModelInput's expected form." ;
+    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range rdf:JSON ;
+    rdfs:subPropertyOf processing:expression .
+
+mlm:pretrained a owl:DatatypeProperty ;
+    rdfs:label "is pretrained" ;
+    dct:description "Whether the model was pretrained. If trained from scratch, mlm:pretrained_source should be explicitly null." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:boolean .
+
+mlm:pretrained_source a owl:DatatypeProperty ;
+    rdfs:label "pretrained source" ;
+    dct:description "The source of the pre-training dataset, or an explicit null if trained from scratch." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:processing a skos:Concept ;
+    skos:closeMatch processing:expression ;
+    skos:definition "Applying an arbitrary transformation expressed as a Processing Expression, reusing the STAC Processing extension's expression shape (see mlm:pre_processing_function/mlm:post_processing_function and processing:expression)."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "processing" ;
+    skos:prefLabel "Processing expression"@en .
+
+mlm:regression a skos:Concept ;
+    skos:definition "Predicting a continuous numeric value from input data."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "regression" ;
+    skos:prefLabel "Regression"@en .
+
+mlm:resize_type a owl:DatatypeProperty ;
+    rdfs:label "resize type" ;
+    dct:description "The spatial resizing method applied to the input, if the required shape differs from the source data." ;
+    rdfs:comment "Values are drawn from mlm:ResizeTypeScheme (see skos.ttl)." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range skos:Concept .
+
+mlm:result a owl:ObjectProperty ;
+    rdfs:label "result structure" ;
+    dct:description "REQUIRED. The ResultStructure describing this ModelOutput's tensor shape." ;
+    rdfs:domain mlm:ModelOutput ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range mlm:ResultStructure .
+
+mlm:rgee a skos:Concept ;
+    skos:definition "An R package providing bindings to Google Earth Engine."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "rgee" ;
+    skos:prefLabel "rgee"@en .
+
+mlm:scale a skos:Concept ;
+    skos:definition "Multiplying a value by a fixed mlm:scaling_value."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "scale" ;
+    skos:prefLabel "Scale"@en .
+
+mlm:scaling_type a owl:DatatypeProperty ;
+    rdfs:label "value scaling type" ;
+    dct:description "REQUIRED. The transformation method this ValueScaling step applies." ;
+    rdfs:comment "JSON key is 'type'; minted as mlm:scaling_type to avoid a bare, easily-collided local name. Values are drawn from mlm:ValueScalingTypeScheme (see skos.ttl)." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range skos:Concept .
+
+mlm:scaling_value a owl:DatatypeProperty ;
+    rdfs:label "scaling value" ;
+    dct:description "The single value added (offset) or multiplied (scale) into the raw value." ;
+    rdfs:comment "JSON key is 'value'; minted as mlm:scaling_value to avoid a bare, easily-collided local name." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:double .
+
+mlm:scene-classification a skos:Concept ;
+    skos:definition "Assigning a single class label that characterizes an entire scene/image, as opposed to per-pixel classification."@en ;
+    skos:example "resnet-18_sentinel-2_all_moco_classification, in the extension's own examples, uses mlm:tasks = scene-classification."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "scene-classification" ;
+    skos:prefLabel "Scene classification"@en .
+
+mlm:scikit-learn a skos:Concept ;
+    skos:definition "An open-source Python library for classical (non-deep-learning) machine learning."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "scikit-learn" ;
+    skos:prefLabel "scikit-learn"@en .
+
+mlm:segmentation a skos:Concept ;
+    skos:definition "Partitioning the input into regions, typically by assigning a label to each pixel."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "segmentation" ;
+    skos:prefLabel "Segmentation"@en .
+
+mlm:semantic-segmentation a skos:Concept ;
+    skos:definition "Assigning a class label to every pixel of the input, without distinguishing between separate instances of the same class."@en ;
+    skos:example "pytorch_geo_unet, in the extension's own examples, uses mlm:tasks = semantic-segmentation."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "semantic-segmentation" ;
+    skos:prefLabel "Semantic segmentation"@en .
+
+mlm:shape a owl:DatatypeProperty ;
+    rdfs:label "tensor shape" ;
+    dct:description "REQUIRED. The dimension sizes of the tensor (-1 indicates a variable/unknown size for that dimension)." ;
+    rdfs:domain [ owl:unionOf ( mlm:InputStructure mlm:ResultStructure ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:integer .
+
+mlm:similarity-search a skos:Concept ;
+    skos:definition "Producing a representation (embedding) of the input suitable for retrieving other inputs that are similar to it."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "similarity-search" ;
+    skos:prefLabel "Similarity search"@en .
+
+mlm:spatialRF a skos:Concept ;
+    skos:definition "An R package for fitting spatial random forest models."@en ;
+    skos:inScheme mlm:FrameworkScheme ;
+    skos:notation "spatialRF" ;
+    skos:prefLabel "spatialRF"@en .
+
+mlm:stddev a owl:DatatypeProperty ;
+    rdfs:label "scaling standard deviation" ;
+    dct:description "The standard deviation used by z-score scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:double .
+
+mlm:super-resolution a skos:Concept ;
+    skos:definition "Producing a higher spatial-resolution output from lower spatial-resolution input."@en ;
+    skos:inScheme mlm:TaskScheme ;
+    skos:notation "super-resolution" ;
+    skos:prefLabel "Super-resolution"@en .
+
+mlm:tasks a owl:ObjectProperty ;
+    rdfs:label "model tasks" ;
+    dct:description "REQUIRED. The machine learning task type(s) the model supports." ;
+    rdfs:comment "Values are drawn from mlm:TaskScheme (see skos.ttl)." ;
+    rdfs:domain [ owl:unionOf ( stac:Item stac:Collection mlm:ModelOutput ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range skos:Concept .
+
+mlm:total_parameters a owl:DatatypeProperty ;
+    rdfs:label "total parameters" ;
+    dct:description "Total number of model parameters (weights)." ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:nonNegativeInteger .
+
+mlm:value_scaling a owl:ObjectProperty ;
+    rdfs:label "value scaling" ;
+    dct:description "The transformation(s) applied to raw values before they are used as model input." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range mlm:ValueScaling .
+
+mlm:variables a owl:DatatypeProperty ;
+    rdfs:label "input/output variables" ;
+    dct:description "References to variables (from the Datacube extension) consumed or produced by this input/output." ;
+    rdfs:domain [ owl:unionOf ( mlm:ModelInput mlm:ModelOutput ) ] ;
+    rdfs:isDefinedBy mlm: ;
+    rdfs:range xsd:string .
+
+mlm:wrap-fill-outliers a skos:Concept ;
+    skos:definition "A remapping-based resize (OpenCV WRAP_FILL_OUTLIERS) that fills destination pixels not covered by the source with the nearest valid value."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "wrap-fill-outliers" ;
+    skos:prefLabel "Wrap, fill outliers"@en .
+
+mlm:wrap-inverse-map a skos:Concept ;
+    skos:definition "A remapping-based resize (OpenCV WRAP_INVERSE_MAP) that applies the inverse of the given mapping."@en ;
+    skos:inScheme mlm:ResizeTypeScheme ;
+    skos:notation "wrap-inverse-map" ;
+    skos:prefLabel "Wrap, inverse map"@en .
+
+mlm:xla a skos:Concept ;
+    skos:definition "Accelerated Linear Algebra: a compiler for linear algebra that can target CPUs, GPUs and TPUs, used by TensorFlow/JAX."@en ;
+    skos:inScheme mlm:AcceleratorScheme ;
+    skos:notation "xla" ;
+    skos:prefLabel "XLA"@en .
+
+mlm:z-score a skos:Concept ;
+    skos:definition "Standardizing a value using the mlm:mean and mlm:stddev: (value - mean) / stddev."@en ;
+    skos:inScheme mlm:ValueScalingTypeScheme ;
+    skos:notation "z-score" ;
+    skos:prefLabel "Z-score scaling"@en .
+
+mlm:InputStructure a owl:Class ;
+    rdfs:label "MLM input structure" ;
+    dct:description "The tensor shape, dimension ordering and data type a ModelInput expects." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ResultStructure a owl:Class ;
+    rdfs:label "MLM result structure" ;
+    dct:description "The tensor shape, dimension ordering and data type a ModelOutput produces." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:AcceleratorScheme a skos:ConceptScheme ;
+    dct:description "The hardware accelerator types a model may require or target, as defined by the STAC MLM extension." ;
+    dct:title "MLM Accelerators" ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ValueScaling a owl:Class ;
+    rdfs:label "MLM value scaling" ;
+    dct:description "One value-transformation step applied to a ModelInput's raw values. Which of minimum/maximum/mean/stddev/value applies depends on mlm:scaling_type (min-max and clip use minimum+maximum; z-score uses mean+stddev; clip-min uses minimum; clip-max uses maximum; offset and scale use value; processing reuses a Processing extension expression instead)." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ModelOutput a owl:Class ;
+    rdfs:label "MLM model output" ;
+    dct:description "Describes one output a model produces: its identity, associated task(s), and result structure." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ValueScalingTypeScheme a skos:ConceptScheme ;
+    dct:description "The transformation methods a ValueScalingObject may apply to a ModelInput's values, as defined by the STAC MLM extension." ;
+    dct:title "MLM Value Scaling Types" ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ModelInput a owl:Class ;
+    rdfs:label "MLM model input" ;
+    dct:description "Describes one input a model accepts: its identity, structure, band/variable sources, and any value scaling or resizing applied before inference." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ResizeTypeScheme a skos:ConceptScheme ;
+    dct:description "Spatial resizing methods a ModelInput may apply, as defined by the STAC MLM extension." ;
+    dct:title "MLM Resize Types" ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:TaskScheme a skos:ConceptScheme ;
+    dct:description "The machine learning task types a model may support, as defined by the STAC MLM extension." ;
+    dct:title "MLM Tasks" ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:FrameworkScheme a skos:ConceptScheme ;
+    dct:description "Recommended values for the ML framework used to train/run a model, as listed by the STAC MLM extension. The extension also accepts any other framework name as free text; this scheme is not exhaustive." ;
+    dct:title "MLM Frameworks" ;
+    rdfs:isDefinedBy mlm: .
+
+mlm: a owl:Ontology ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:description """Vocabulary for the elements defined by the STAC MLM extension: model identity, framework/accelerator requirements, and the ModelInput/ModelOutput structures used to describe inference I/O.
+
+This ontology describes only the mlm:* fields (and the ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling structures) that the extension adds. STAC Item and Collection are defined by the STAC core vocabulary and are reused — not redefined — here. ModelOutput's classification:classes field reuses the STAC Classification extension's own term (already an MLM dependency) rather than redefining it. mlm:pre_processing_function and mlm:post_processing_function are declared as rdfs:subPropertyOf processing:expression (STAC Processing extension) to record that they share its Expression Object shape.
+
+Combines skos.ttl (mlm:TaskScheme, mlm:FrameworkScheme, mlm:AcceleratorScheme, mlm:ResizeTypeScheme and mlm:ValueScalingTypeScheme) and owl.ttl (the mlm:* properties and classes).""" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:source <https://github.com/stac-extensions/mlm/tree/v1.5.2> ;
+    dct:title "STAC Machine Learning Model (MLM) Extension Ontology" ;
+    owl:versionInfo "1.5.2" .
+

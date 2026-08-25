@@ -1,0 +1,173 @@
+{
+  "title": "Validation report for ogc.contrib.stac.extensions.eo-ontology - STAC Electro-Optical Extension Ontology",
+  "bblockName": "STAC Electro-Optical Extension Ontology",
+  "bblockId": "ogc.contrib.stac.extensions.eo-ontology",
+  "generated": "2026-08-25T07:34:56.844458+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/extensions/eo-ontology/example_1_1.ttl",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/eo-ontology/example_1_1.ttl",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "text/turtle"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.ttl from examples"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 6,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": [
+                    "ex:landsat-item"
+                  ]
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": [
+                    "ex:red-band"
+                  ]
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": [
+                    "ex:landsat-item"
+                  ]
+                },
+                "eo:CommonNameShape": {
+                  "nodes": [
+                    "ex:red-band"
+                  ]
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": [
+                    "ex:red-band"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: ex:landsat-item\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: ex:red-band\n - Shape eo:SnowCoverShape: ex:landsat-item\n - Shape eo:CommonNameShape: ex:red-band\n - Shape eo:FullWidthHalfMaxShape: ex:red-band\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/extensions/eo-ontology/example_2_1.ttl",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/eo-ontology/example_2_1.ttl",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "text/turtle"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_2_1.ttl from examples"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 5,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using building block SHACL closures:\n - skos.ttl"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/eo-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
+              "focusNodes": {
+                "eo:CloudCoverShape": {
+                  "nodes": []
+                },
+                "eo:SolarIlluminationShape": {
+                  "nodes": []
+                },
+                "eo:CenterWavelengthShape": {
+                  "nodes": []
+                },
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
+                "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:FullWidthHalfMaxShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

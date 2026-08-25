@@ -1,0 +1,175 @@
+{
+  "title": "Validation report for ogc.contrib.stac.extensions.accuracy-ontology - STAC Accuracy Extension Ontology",
+  "bblockName": "STAC Accuracy Extension Ontology",
+  "bblockId": "ogc.contrib.stac.extensions.accuracy-ontology",
+  "generated": "2026-08-25T07:34:56.761435+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/extensions/accuracy-ontology/example_1_1.ttl",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/accuracy-ontology/example_1_1.ttl",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "text/turtle"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.ttl from examples"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 7,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/accuracy-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/accuracy-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/accuracy-ontology/shapes.shacl",
+              "focusNodes": {
+                "accuracy:GeometricRmseShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
+                "accuracy:MeasurementRelativeShape": {
+                  "nodes": []
+                },
+                "accuracy:GeometricYBiasShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
+                "accuracy:MeasurementAbsoluteShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
+                "accuracy:GeometricXBiasShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
+                "accuracy:GeometricXStddevShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
+                "accuracy:GeometricYStddevShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricRmseShape: ex:S2A_MSIL2A_item\n - Shape accuracy:MeasurementRelativeShape: *none*\n - Shape accuracy:GeometricYBiasShape: ex:S2A_MSIL2A_item\n - Shape accuracy:MeasurementAbsoluteShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricXBiasShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricXStddevShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricYStddevShape: ex:S2A_MSIL2A_item\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/extensions/accuracy-ontology/example_2_1.ttl",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/accuracy-ontology/example_2_1.ttl",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "text/turtle"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_2_1.ttl from examples"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 2,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/accuracy-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/accuracy-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/accuracy-ontology/shapes.shacl",
+              "focusNodes": {
+                "accuracy:GeometricRmseShape": {
+                  "nodes": []
+                },
+                "accuracy:MeasurementRelativeShape": {
+                  "nodes": [
+                    "ex:collection"
+                  ]
+                },
+                "accuracy:GeometricYBiasShape": {
+                  "nodes": []
+                },
+                "accuracy:MeasurementAbsoluteShape": {
+                  "nodes": []
+                },
+                "accuracy:GeometricXBiasShape": {
+                  "nodes": []
+                },
+                "accuracy:GeometricXStddevShape": {
+                  "nodes": []
+                },
+                "accuracy:GeometricYStddevShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricRmseShape: *none*\n - Shape accuracy:MeasurementRelativeShape: ex:collection\n - Shape accuracy:GeometricYBiasShape: *none*\n - Shape accuracy:MeasurementAbsoluteShape: *none*\n - Shape accuracy:GeometricXBiasShape: *none*\n - Shape accuracy:GeometricXStddevShape: *none*\n - Shape accuracy:GeometricYStddevShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

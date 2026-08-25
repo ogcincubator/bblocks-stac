@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.accuracy - STAC Accuracy Extension",
   "bblockName": "STAC Accuracy Extension",
   "bblockId": "ogc.contrib.stac.extensions.accuracy",
-  "generated": "2026-08-24T13:37:12.154973+00:00",
+  "generated": "2026-08-25T07:35:00.502062+00:00",
   "result": true,
   "items": [
     {
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 61,
+              "size": 60,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -65,6 +65,55 @@
           "entries": [
             {
               "op": "shacl-report",
+              "shaclFile": "_sources/extensions/accuracy-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/accuracy-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/accuracy-ontology/shapes.shacl",
+              "focusNodes": {
+                "accuracy:GeometricRmseShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                },
+                "accuracy:MeasurementRelativeShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                },
+                "accuracy:GeometricYBiasShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                },
+                "accuracy:MeasurementAbsoluteShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                },
+                "accuracy:GeometricXBiasShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                },
+                "accuracy:GeometricXStddevShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                },
+                "accuracy:GeometricYStddevShape": {
+                  "nodes": [
+                    "<file:///github/workspace/item>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricRmseShape: <file:///github/workspace/item>\n - Shape accuracy:MeasurementRelativeShape: <file:///github/workspace/item>\n - Shape accuracy:GeometricYBiasShape: <file:///github/workspace/item>\n - Shape accuracy:MeasurementAbsoluteShape: <file:///github/workspace/item>\n - Shape accuracy:GeometricXBiasShape: <file:///github/workspace/item>\n - Shape accuracy:GeometricXStddevShape: <file:///github/workspace/item>\n - Shape accuracy:GeometricYStddevShape: <file:///github/workspace/item>\n"
+            },
+            {
+              "op": "shacl-report",
               "shaclFile": "_sources/core-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
@@ -79,15 +128,32 @@
                 "stac:LinkShape": {
                   "nodes": []
                 },
-                "stac:ItemShape": {
+                "stac:AssetShape": {
                   "nodes": []
                 },
-                "stac:AssetShape": {
+                "stac:ItemShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:ItemShape: *none*\n - Shape stac:AssetShape: *none*\n"
+              "message": "Focus nodes for _sources/core-ontology/shapes.shacl:\n - Shape stac:CollectionShape: *none*\n - Shape stac:LinkShape: *none*\n - Shape stac:AssetShape: *none*\n - Shape stac:ItemShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/components/assets-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/components/assets-ontology/shapes.shacl",
+              "focusNodes": {
+                "assets:RolesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/components/assets-ontology/shapes.shacl:\n - Shape assets:RolesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -99,18 +165,18 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<file:///github/workspace/item>"
                   ]
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
@@ -118,7 +184,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <file:///github/workspace/item>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <file:///github/workspace/item>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",

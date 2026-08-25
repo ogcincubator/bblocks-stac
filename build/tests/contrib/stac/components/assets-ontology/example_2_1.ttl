@@ -1,0 +1,12 @@
+@prefix assets: <https://w3id.org/ogc/stac/assets/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/stac/assets/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:B04 a stac:Asset ;
+    dct:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dct:title "Band 4 (red)" ;
+    assets:roles "data"^^xsd:string,
+        "reflectance"^^xsd:string .
+

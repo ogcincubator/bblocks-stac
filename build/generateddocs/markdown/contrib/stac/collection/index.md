@@ -489,8 +489,8 @@ Ref to STAC example from current version (1.1.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -527,27 +527,28 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "radiance",
         "sentinel" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
-    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns2:relation <http://www.iana.org/assignments/relation/license> ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Example Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
-    stac:hasAsset [ ns1:metadata_iso_19139 [ dcterms:format "application/vnd.iso.19139+xml" ;
-                    dcterms:title "ISO 19139 metadata" ;
-                    ns1:href "https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml" ;
-                    stac:roles "iso-19139",
-                        "metadata" ] ] ;
+    stac:hasAsset [ ns2:metadata_iso_19139 <https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:hasProvider [ ] ;
     stac:version "1.1.0" .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> dcterms:format "application/vnd.iso.19139+xml" ;
+    dcterms:title "ISO 19139 metadata" ;
+    stac:hasAssetroles "iso-19139"^^<xsd:string>,
+        "metadata"^^<xsd:string> .
 
 
 ```
@@ -779,65 +780,65 @@ Ref to STAC example using version (1.0.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <fair:> .
 @prefix ns2: <osc:> .
-@prefix ns3: <fair:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/polarwarp> a <https://example.com/stac/example1/Collection> ;
-    ns3:Accessible_files 0e+00 ;
-    ns3:Accessible_general true ;
-    ns3:Accessible_protocols true ;
-    ns3:Findable_has_doi false ;
-    ns3:Findable_identifier true ;
-    ns3:Findable_indexed true ;
-    ns3:Findable_indexed_approved_data false ;
-    ns3:Findable_indexed_approved_metadata false ;
-    ns3:Findable_rich_metadata true ;
-    ns3:Findable_stac_assets false ;
-    ns3:Interoperable_controlled_vocabularies true ;
-    ns3:Interoperable_has_documentation false ;
-    ns3:Interoperable_related_links true ;
-    ns3:Interoperable_uses_formal_language true ;
-    ns3:Reusable_cloud_assets_rate 0e+00 ;
-    ns3:Reusable_has_access_example false ;
-    ns3:Reusable_has_license true ;
-    ns3:Reusable_has_visualisation false ;
-    ns3:Reusable_rich_descriptions true ;
-    ns3:Reusable_workflow_exists true ;
+    ns1:Accessible_files 0e+00 ;
+    ns1:Accessible_general true ;
+    ns1:Accessible_protocols true ;
+    ns1:Findable_has_doi false ;
+    ns1:Findable_identifier true ;
+    ns1:Findable_indexed true ;
+    ns1:Findable_indexed_approved_data false ;
+    ns1:Findable_indexed_approved_metadata false ;
+    ns1:Findable_rich_metadata true ;
+    ns1:Findable_stac_assets false ;
+    ns1:Interoperable_controlled_vocabularies true ;
+    ns1:Interoperable_has_documentation false ;
+    ns1:Interoperable_related_links true ;
+    ns1:Interoperable_uses_formal_language true ;
+    ns1:Reusable_cloud_assets_rate 0e+00 ;
+    ns1:Reusable_has_access_example false ;
+    ns1:Reusable_has_license true ;
+    ns1:Reusable_has_visualisation false ;
+    ns1:Reusable_rich_descriptions true ;
+    ns1:Reusable_workflow_exists true ;
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
+    rdfs:seeAlso [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/catalog.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
+        [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ ns3:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ] ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/catalog.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
+        [ ns3:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
@@ -1087,9 +1088,11 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },

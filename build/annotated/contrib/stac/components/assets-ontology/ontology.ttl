@@ -1,0 +1,104 @@
+@prefix assets: <https://w3id.org/ogc/stac/assets/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+assets:data a skos:Concept ;
+    skos:definition "The data itself, excluding the metadata."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "data" ;
+    skos:prefLabel "Data"@en .
+
+assets:data-mask a skos:Concept ;
+    skos:definition "A file indicating whether corresponding pixels have valid data and, if not, the type of invalid data."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "data-mask" ;
+    skos:prefLabel "Data mask"@en .
+
+assets:date a skos:Concept ;
+    skos:definition "An asset that provides per-pixel acquisition timestamps, typically serving as metadata to another asset."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "date" ;
+    skos:prefLabel "Date"@en .
+
+assets:graphic a skos:Concept ;
+    skos:definition "A supporting plot, illustration, or graph associated with the Item."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "graphic" ;
+    skos:prefLabel "Graphic"@en .
+
+assets:iso-19115 a skos:Concept ;
+    skos:definition "Points to an ISO 19115 metadata file."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "iso-19115" ;
+    skos:prefLabel "ISO 19115 metadata"@en .
+
+assets:land-water a skos:Concept ;
+    skos:definition "Points to a file that indicates whether a pixel is assessed as being land or water."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "land-water" ;
+    skos:prefLabel "Land/water"@en .
+
+assets:metadata a skos:Concept ;
+    skos:definition "Metadata sidecar files describing the data, for example a Landsat-8 MTL file."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "metadata" ;
+    skos:prefLabel "Metadata"@en .
+
+assets:overview a skos:Concept ;
+    skos:definition "An asset that represents a more detailed overview of the Item or Collection: typically an RGB or grayscale image primarily for human consumption, medium resolution, full spatial extent, in an easily visualized format (e.g. Cloud-Optimized GeoTIFF)."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "overview" ;
+    skos:prefLabel "Overview"@en .
+
+assets:roles a owl:DatatypeProperty ;
+    rdfs:label "asset roles" ;
+    dct:description "The semantic roles of the asset, similar to the use of 'rel' in Links." ;
+    rdfs:comment "Range is a plain string, not skos:Concept: the STAC specification explicitly allows custom roles beyond its best-practices list, so the JSON-LD context cannot safely convert the value to a term IRI (an unrecognized role would otherwise expand to a bogus relative IRI instead of staying a literal). Recommended values are documented in assets:AssetRoleScheme (see skos.ttl) and correspond to this string by skos:notation, but are not enforced or auto-linked." ;
+    rdfs:domain stac:Asset ;
+    rdfs:isDefinedBy assets: ;
+    rdfs:range xsd:string .
+
+assets:snow-ice a skos:Concept ;
+    skos:definition "Points to a file that indicates whether a pixel is assessed as being snow/ice or not."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "snow-ice" ;
+    skos:prefLabel "Snow/ice"@en .
+
+assets:thumbnail a skos:Concept ;
+    skos:definition "An asset that represents a thumbnail of the Item or Collection: typically an RGB or grayscale image primarily for human consumption, low resolution, restricted spatial extent, and displayable in a web browser without scripts or extensions."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "thumbnail" ;
+    skos:prefLabel "Thumbnail"@en .
+
+assets:visual a skos:Concept ;
+    skos:definition "An asset that represents a detailed overview of the Item or Collection: typically an RGB or grayscale image primarily for human consumption, high or native resolution (often sharpened), full spatial extent, in an easily visualized format (e.g. Cloud-Optimized GeoTIFF)."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "visual" ;
+    skos:prefLabel "Visual"@en .
+
+assets:water-mask a skos:Concept ;
+    skos:definition "Points to a file that indicates whether a pixel is assessed as being water (e.g. a flooding map)."@en ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "water-mask" ;
+    skos:prefLabel "Water mask"@en .
+
+assets: a owl:Ontology ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:description """Vocabulary for the STAC Asset Object component: the assets:roles field and the STAC specification's best-practice Asset Roles vocabulary.
+
+This ontology describes only the Asset Object's own element that has no existing reusable term. href maps to JSON-LD @id; title/description/type are reused from dct:title/dct:description/dct:format; stac:Asset and stac:hasAsset are defined by the STAC core ontology and reused as domain/range context, not redefined here.
+
+Combines skos.ttl (assets:AssetRoleScheme, the STAC best-practices Asset Roles vocabulary) and owl.ttl (assets:roles).""" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:source <https://github.com/radiantearth/stac-spec/blob/master/commons/assets.md> ;
+    dct:title "STAC Asset Component Ontology" .
+
+assets:AssetRoleScheme a skos:ConceptScheme ;
+    dct:description "Commonly used semantic roles for a STAC Asset, as documented in the STAC specification's best practices. Assets may also carry roles outside this list — it is a recommended, not closed, vocabulary." ;
+    dct:title "STAC Asset Roles" ;
+    rdfs:isDefinedBy assets: .
+

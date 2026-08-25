@@ -51,9 +51,11 @@
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -121,15 +123,48 @@
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "raster:bands": {
-      "@id": "raster:bands",
+    "classification:classes": {
+      "@id": "classification:classes",
+      "@container": "@set",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
+        "@vocab": "https://w3id.org/ogc/stac/classification/",
+        "value": "classification:value",
+        "name": "classification:name",
+        "title": "classification:title",
+        "description": "classification:description",
+        "color_hint": "classification:color_hint",
+        "nodata": "classification:nodata",
+        "percentage": "classification:percentage",
+        "count": "classification:count"
       }
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "classification:bitfields": {
+      "@id": "classification:bitfields",
+      "@container": "@set",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/classification/",
+        "offset": "classification:offset",
+        "length": "classification:length",
+        "name": "classification:name",
+        "description": "classification:description",
+        "roles": {
+          "@id": "classification:roles",
+          "@container": "@set"
+        },
+        "classes": {
+          "@id": "classification:classes",
+          "@container": "@set",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/classification/",
+            "value": "classification:value",
+            "title": "classification:title",
+            "color_hint": "classification:color_hint",
+            "nodata": "classification:nodata",
+            "percentage": "classification:percentage",
+            "count": "classification:count"
+          }
+        }
+      }
     },
     "href": {
       "@type": "@id",
@@ -139,7 +174,7 @@
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "raster": "https://w3id.org/ogc/stac/raster/",
+    "classification": "https://w3id.org/ogc/stac/classification/",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",

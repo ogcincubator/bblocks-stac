@@ -1,11 +1,11 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <mlm:> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <sci:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <cube:> .
-@prefix ns4: <sci:> .
-@prefix ns5: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns6: <file:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns4: <cube:> .
+@prefix ns5: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,66 +13,87 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
-    ns3:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
+    ns4:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
                     dcterms:extent "1940-01-01T00:00:00Z",
                         "2100-12-31T23:59:59Z" ] ] ;
-    ns3:variables [ ] ;
+    ns4:variables [ ] ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
     rdfs:seeAlso [ dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "text/html" ;
             ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
             oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
-        [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/code> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
-        [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            ns2:relation <http://www.iana.org/assignments/relation/code> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ] ;
     geojson:bbox ( 2.336e+02 5.42e+01 2.975e+02 2.26e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 2.336e+02 5.42e+01 ) ( 2.975e+02 5.42e+01 ) ( 2.975e+02 2.26e+01 ) ( 2.336e+02 2.26e+01 ) ( 2.336e+02 5.42e+01 ) ) ) ] ;
     stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns5:model [ dcterms:description "Source code to define the U-Net model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Model implementation." ;
-                    oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
-                    stac:roles "code",
-                        "metadata",
-                        "mlm:source_code" ] ;
-            ns5:train-script [ dcterms:description "Script to run training of the model." ;
-                    dcterms:format "text/x-python" ;
-                    dcterms:title "Training script." ;
-                    oa:hasTarget <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
-                    stac:roles "code",
-                        "metadata",
-                        "mlm:training" ] ;
-            ns5:weights [ ns6:size 389657415 ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "U-Net Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    ns1:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns3:model <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
+            ns3:train-script <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
+            ns3:weights <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
     stac:start_datetime "1940-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns1:accelerator "cuda" ;
-    ns1:accelerator_constrained false ;
-    ns1:architecture "U-Net" ;
-    ns1:framework "pytorch" ;
-    ns1:framework_version "2.1.2+cu118" ;
-    ns1:input [ ] ;
-    ns1:name "UNet ClimateDiffuse ERA5 Downscaling" ;
-    ns1:output [ ] ;
-    ns1:tasks "downscaling",
-        "regression" ;
-    ns4:publications [ ] .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:architecture "U-Net"^^xsd:string ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu118"^^xsd:string ;
+    mlm:input [ mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "time" "variables" "lat" "lon" ) ;
+                    mlm:shape ( -1 5 128 256 ) ] ;
+            mlm:io_name "Coarse climate variables employed by the model downscaling regression. This model takes 2 'constant/spatial' variables and 3 'spatio-temporal' variables provided by ERA5 datacube." ;
+            mlm:norm_by_channel false ;
+            mlm:pre_processing_function "{\"description\":\"Script that performs the relevant normalization and concatenation of variables for model input.\",\"expression\":{\"href\":\"https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/DatasetUS.py\",\"type\":\"text/x-python\"},\"format\":\"uri\"}"^^rdf:JSON ;
+            mlm:variables "10m_u_component_of_wind",
+                "10m_v_component_of_wind",
+                "geopotential",
+                "land_sea_mask",
+                "temperature_2m" ] ;
+    mlm:name "UNet ClimateDiffuse ERA5 Downscaling"^^xsd:string ;
+    mlm:output [ mlm:io_name "Fine climate variables predicted by the model. Only the 3 'spatio-temporal' variables are predicted." ;
+            mlm:result [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "time" "variables" "lat" "lon" ) ;
+                    mlm:shape ( -1 3 128 256 ) ] ;
+            mlm:tasks mlm:downscaling,
+                mlm:regression ;
+            mlm:variables "10m_u_component_of_wind",
+                "10m_v_component_of_wind",
+                "temperature_2m" ] ;
+    mlm:tasks mlm:downscaling,
+        mlm:regression ;
+    ns1:publications [ ] .
+
+<https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns5:size 389657415 ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "U-Net Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string .
+
+<https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> dcterms:description "Source code to define the U-Net model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Model implementation." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string,
+        "mlm:source_code"^^xsd:string .
+
+<https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> dcterms:description "Script to run training of the model." ;
+    dcterms:format "text/x-python" ;
+    dcterms:title "Training script." ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "metadata"^^xsd:string,
+        "mlm:training"^^xsd:string .
 

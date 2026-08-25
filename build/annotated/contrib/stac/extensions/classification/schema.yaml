@@ -1,18 +1,49 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: MLM extension
-description: STAC MLM for STAC Items and STAC Collections.
+title: Classification extension
+description: STAC Classification Extension for STAC Items and STAC Collections.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/classification/v2.0.0/schema.json
 x-jsonld-extra-terms:
-  raster:bands:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+  classification:classes:
+    x-jsonld-id: https://w3id.org/ogc/stac/classification/classes
+    x-jsonld-container: '@set'
     x-jsonld-context:
-      '@vocab': https://w3id.org/ogc/stac/raster/
-  raster:range:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
-    x-jsonld-container: '@list'
+      '@vocab': https://w3id.org/ogc/stac/classification/
+      value: https://w3id.org/ogc/stac/classification/value
+      name: https://w3id.org/ogc/stac/classification/name
+      title: https://w3id.org/ogc/stac/classification/title
+      description: https://w3id.org/ogc/stac/classification/description
+      color_hint: https://w3id.org/ogc/stac/classification/color_hint
+      nodata: https://w3id.org/ogc/stac/classification/nodata
+      percentage: https://w3id.org/ogc/stac/classification/percentage
+      count: https://w3id.org/ogc/stac/classification/count
+  classification:bitfields:
+    x-jsonld-id: https://w3id.org/ogc/stac/classification/bitfields
+    x-jsonld-container: '@set'
+    x-jsonld-context:
+      '@vocab': https://w3id.org/ogc/stac/classification/
+      offset: https://w3id.org/ogc/stac/classification/offset
+      length: https://w3id.org/ogc/stac/classification/length
+      name: https://w3id.org/ogc/stac/classification/name
+      description: https://w3id.org/ogc/stac/classification/description
+      roles:
+        '@id': https://w3id.org/ogc/stac/classification/roles
+        '@container': '@set'
+      classes:
+        '@id': https://w3id.org/ogc/stac/classification/classes
+        '@container': '@set'
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/classification/
+          value: https://w3id.org/ogc/stac/classification/value
+          name: https://w3id.org/ogc/stac/classification/name
+          title: https://w3id.org/ogc/stac/classification/title
+          description: https://w3id.org/ogc/stac/classification/description
+          color_hint: https://w3id.org/ogc/stac/classification/color_hint
+          nodata: https://w3id.org/ogc/stac/classification/nodata
+          percentage: https://w3id.org/ogc/stac/classification/percentage
+          count: https://w3id.org/ogc/stac/classification/count
 x-jsonld-prefixes:
-  raster: https://w3id.org/ogc/stac/raster/
+  classification: https://w3id.org/ogc/stac/classification/

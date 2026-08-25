@@ -25,13 +25,15 @@
     geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;
-    stac:hasAsset [ ns1:thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
-                    stac:roles "thumbnail" ] ;
-            ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    oa:hasTarget <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ;
-                    stac:roles "visual" ] ] ;
+    stac:hasAsset [ ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] ;
     stac:version "1.1.0" .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format "image/jpeg" ;
+    dcterms:title "Thumbnail" ;
+    stac:hasAssetroles "thumbnail"^^xsd:string .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "3-Band Visual" ;
+    stac:hasAssetroles "visual"^^xsd:string .
 

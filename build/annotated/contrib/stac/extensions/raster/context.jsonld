@@ -51,9 +51,11 @@
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -121,15 +123,42 @@
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "concepts": {
-      "@id": "raster:bands",
+    "raster:sampling": {
+      "@id": "raster:sampling",
+      "@type": "@vocab",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
+        "area": "raster:area",
+        "point": "raster:point"
       }
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "raster:bits_per_sample": {
+      "@id": "raster:bits_per_sample",
+      "@type": "xsd:integer"
+    },
+    "raster:spatial_resolution": {
+      "@id": "raster:spatial_resolution",
+      "@type": "xsd:double"
+    },
+    "raster:scale": {
+      "@id": "raster:scale",
+      "@type": "xsd:double"
+    },
+    "raster:offset": {
+      "@id": "raster:offset",
+      "@type": "xsd:double"
+    },
+    "raster:histogram": {
+      "@id": "raster:histogram",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/raster/",
+        "count": "raster:count",
+        "min": "raster:min",
+        "max": "raster:max",
+        "buckets": {
+          "@id": "raster:buckets",
+          "@container": "@list"
+        }
+      }
     },
     "href": {
       "@type": "@id",

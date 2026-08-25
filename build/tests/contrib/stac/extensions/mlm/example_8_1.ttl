@@ -1,94 +1,138 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <mlm:> .
-@prefix ns3: <file:> .
-@prefix ns4: <ml-aoi:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns2: <ml-aoi:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <file:> .
+@prefix ns5: <raster:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-8/model-multi-input> a geojson:Feature ;
-    ns3:size 43000000 ;
+    ns4:size 43000000 ;
     dcterms:description "Generic model that employs multiple input sources with different combination of bands, and some inputs without any band at all." ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ],
-        [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-8/item_multi_io.json> ],
         [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ] ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns2:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:weights [ dcterms:description "A Resnet-50 classification model trained on Sentinel-2 RGB imagery with torchgeo." ;
-                    dcterms:format "application/octet-stream; application=pytorch" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    oa:hasTarget <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ;
-                    stac:roles "mlm:model",
-                        "mlm:weights" ;
-                    raster:bands [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B08 - nir" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B02 - blue" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B03 - green" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ],
-                        [ raster:bits_per_sample 15 ;
-                            raster:data_type "uint16" ;
-                            raster:name "B04 - red" ;
-                            raster:nodata 0 ;
-                            raster:offset 0 ;
-                            raster:scale 1e-04 ;
-                            raster:spatial_resolution 10 ;
-                            raster:unit "m" ] ;
-                    ns2:artifact_type "torch.save" ] ] ;
+    stac:hasAsset [ ns1:weights <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.2/schema.json",
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:accelerator "cuda" ;
-    ns2:accelerator_constrained false ;
-    ns2:accelerator_summary "Unknown" ;
-    ns2:architecture "ResNet" ;
-    ns2:batch_size_suggestion 256 ;
-    ns2:framework "pytorch" ;
-    ns2:framework_version "2.1.2+cu121" ;
-    ns2:input [ ],
-        [ dcterms:description "Digital elevation model. Comes from another source than the Sentinel bands. Therefore, no 'bands' associated to it." ],
-        [ dcterms:description "Compute NDVI from Sentinel-2 bands. The single 'NDVI' virtual band is then fed as 'bands' dimension to the model input." ] ;
-    ns2:memory_size 1 ;
-    ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns2:output [ ],
-        [ ] ;
-    ns2:pretrained_source "EuroSat Sentinel-2" ;
-    ns2:tasks "classification" ;
-    ns2:total_parameters 11700000 .
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:accelerator_summary "Unknown"^^xsd:string ;
+    mlm:architecture "ResNet"^^xsd:string ;
+    mlm:batch_size_suggestion "256"^^xsd:nonNegativeInteger ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.1.2+cu121"^^xsd:string ;
+    mlm:input [ mlm:bands "B04",
+                "B08" ;
+            mlm:input_structure [ mlm:data_type "uint16" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 1 64 64 ) ] ;
+            mlm:io_description "Compute NDVI from Sentinel-2 bands. The single 'NDVI' virtual band is then fed as 'bands' dimension to the model input." ;
+            mlm:io_name "NDVI" ;
+            mlm:pre_processing_function "{\"expression\":\"(A - B) / (A + B)\",\"format\":\"gdal-calc\"}"^^rdf:JSON ],
+        [ mlm:bands "B02",
+                "B03",
+                "B04" ;
+            mlm:input_structure [ mlm:data_type "uint16" ;
+                    mlm:dim_order ( "batch" "bands" "height" "width" ) ;
+                    mlm:shape ( -1 3 64 64 ) ] ;
+            mlm:io_name "RGB" ],
+        [ mlm:input_structure [ mlm:data_type "float32" ;
+                    mlm:dim_order ( "batch" "h" "y" "x" ) ;
+                    mlm:shape ( -1 1 64 64 ) ] ;
+            mlm:io_description "Digital elevation model. Comes from another source than the Sentinel bands. Therefore, no 'bands' associated to it." ;
+            mlm:io_name "DEM" ] ;
+    mlm:memory_size "1"^^xsd:nonNegativeInteger ;
+    mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
+    mlm:output [ mlm:classification_classes [ mlm:io_description "background pixels" ;
+                    mlm:io_name "NON_VEGETATION" ;
+                    mlm:value 0 ],
+                [ mlm:color_hint 0,
+                        255 ;
+                    mlm:io_description "pixels where vegetation was detected" ;
+                    mlm:io_name "VEGETATION" ;
+                    mlm:value 1 ] ;
+            mlm:io_name "vegetation-segmentation" ;
+            mlm:post_processing_function "null"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "uint8" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 1 ) ] ;
+            mlm:tasks mlm:semantic-segmentation ],
+        [ mlm:classification_classes [ mlm:color_hint 0 ;
+                    mlm:io_description "pixels where vegetation was detected" ;
+                    mlm:io_name "VEGETATION" ;
+                    mlm:value 1 ],
+                [ mlm:color_hint 255 ;
+                    mlm:io_description "background pixels" ;
+                    mlm:io_name "NON_VEGETATION" ;
+                    mlm:value 0 ] ;
+            mlm:io_name "inverse-mask" ;
+            mlm:post_processing_function "{\"expression\":\"logical_not(A)\",\"format\":\"gdal-calc\"}"^^rdf:JSON ;
+            mlm:result [ mlm:data_type "uint8" ;
+                    mlm:dim_order ( "batch" "class" ) ;
+                    mlm:shape ( -1 1 ) ] ;
+            mlm:tasks mlm:semantic-segmentation ] ;
+    mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
+    mlm:tasks mlm:classification ;
+    mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
+
+<https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> dcterms:description "A Resnet-50 classification model trained on Sentinel-2 RGB imagery with torchgeo." ;
+    dcterms:format "application/octet-stream; application=pytorch" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string ;
+    mlm:artifact_type "torch.save"^^xsd:string ;
+    ns5:bands [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B03 - green" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B08 - nir" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B02 - blue" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B04 - red" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ] .
 

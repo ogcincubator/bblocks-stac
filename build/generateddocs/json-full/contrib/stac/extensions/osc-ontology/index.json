@@ -4,19 +4,65 @@
   "itemIdentifier": "ogc.contrib.stac.extensions.osc-ontology",
   "name": "STAC Open Science Extension Ontology",
   "highlighted": false,
-  "title": "OSC ontology",
-  "description": "Definitions for STAC Open Science Catalog extension elements",
-  "status": "stable",
-  "version": "0.1",
+  "title": "Definitions for STAC OSC extension elements",
+  "description": "Vocabulary defining the elements of the STAC ESA Open Science Catalog (OSC) extension (osc:type, osc:status, osc:project, osc:region, osc:variables, osc:missions, osc:experiment, osc:workflows), providing Linked Data terms for the STAC OSC schema. osc:type and osc:status are modeled as skos:ConceptSchemes; the remaining free-text fields stay OWL. Replaces an earlier placeholder that incorrectly reused the STAC core ontology's namespace and described none of OSC's own elements.",
+  "status": "under-development",
+  "version": "0.2",
   "itemClass": "model",
   "dependsOn": [],
+  "sources": [
+    {
+      "title": "GitHub Repository",
+      "link": "https://github.com/stac-extensions/osc"
+    },
+    {
+      "title": "JSON Schema (v1.0.0)",
+      "link": "https://stac-extensions.github.io/osc/v1.0.0/schema.json"
+    },
+    {
+      "title": "README (field table for project/product resources)",
+      "link": "https://github.com/stac-extensions/osc/blob/main/README.md"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.extensions.osc-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+    ]
+  },
+  "shaclClosures": [
+    "skos.ttl"
+  ],
   "rules": [],
   "dateTimeAddition": "2025-06-12T00:00:00Z",
-  "dateOfLastChange": "2025-06-12",
-  "shaclShapes": {},
+  "dateOfLastChange": "2026-08-25",
   "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc-ontology/ontology.ttl",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/",
   "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/osc-ontology/",
+  "examples": [
+    {
+      "title": "OSC product (matching the shape of stac-extensions/osc's product examples)",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/osc-ontology/example_1_1.ttl",
+          "sizeBytes": 561,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix osc:  <https://w3id.org/ogc/stac/osc/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:product-collection a stac:Collection ;\n    osc:type       osc:product-type ;\n    osc:status     osc:ongoing ;\n    osc:project    \"Arctic Sea Ice Thickness\"^^xsd:string ;\n    osc:region     \"Arctic\"^^xsd:string ;\n    osc:variables  \"Sea ice thickness\"^^xsd:string ;\n    osc:missions   \"CryoSat-2\"^^xsd:string ;\n    osc:experiment \"cs2-retracker-v3\"^^xsd:string .\n"
+        }
+      ]
+    },
+    {
+      "title": "OSC project",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/osc-ontology/example_2_1.ttl",
+          "sizeBytes": 400,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix osc:  <https://w3id.org/ogc/stac/osc/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:project-collection a stac:Collection ;\n    osc:type      osc:project-type ;\n    osc:status    osc:planned ;\n    osc:region    \"Agulhas\"^^xsd:string ;\n    osc:workflows \"cs2-retracker-v3\"^^xsd:string .\n"
+        }
+      ]
+    }
+  ],
   "annotatedSchema": null,
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
   "gitPath": "_sources/extensions/osc-ontology"

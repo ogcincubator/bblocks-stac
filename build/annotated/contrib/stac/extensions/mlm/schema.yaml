@@ -7,12 +7,205 @@ allOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/mlm/v1.5.2/schema.json
 x-jsonld-extra-terms:
-  raster:bands:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+  mlm:name:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/name
+    x-jsonld-type: xsd:string
+  mlm:architecture:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/architecture
+    x-jsonld-type: xsd:string
+  mlm:tasks:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/tasks
+    x-jsonld-type: '@vocab'
+    x-jsonld-container: '@set'
     x-jsonld-context:
-      '@vocab': https://w3id.org/ogc/stac/raster/
-  raster:range:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
-    x-jsonld-container: '@list'
+      regression: https://w3id.org/ogc/stac/mlm/regression
+      classification: https://w3id.org/ogc/stac/mlm/classification
+      scene-classification: https://w3id.org/ogc/stac/mlm/scene-classification
+      detection: https://w3id.org/ogc/stac/mlm/detection
+      object-detection: https://w3id.org/ogc/stac/mlm/object-detection
+      segmentation: https://w3id.org/ogc/stac/mlm/segmentation
+      semantic-segmentation: https://w3id.org/ogc/stac/mlm/semantic-segmentation
+      instance-segmentation: https://w3id.org/ogc/stac/mlm/instance-segmentation
+      panoptic-segmentation: https://w3id.org/ogc/stac/mlm/panoptic-segmentation
+      similarity-search: https://w3id.org/ogc/stac/mlm/similarity-search
+      generative: https://w3id.org/ogc/stac/mlm/generative
+      image-captioning: https://w3id.org/ogc/stac/mlm/image-captioning
+      super-resolution: https://w3id.org/ogc/stac/mlm/super-resolution
+      downscaling: https://w3id.org/ogc/stac/mlm/downscaling
+  mlm:framework:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/framework
+    x-jsonld-type: xsd:string
+  mlm:framework_version:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/framework_version
+    x-jsonld-type: xsd:string
+  mlm:memory_size:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/memory_size
+    x-jsonld-type: xsd:nonNegativeInteger
+  mlm:total_parameters:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/total_parameters
+    x-jsonld-type: xsd:nonNegativeInteger
+  mlm:pretrained:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/pretrained
+    x-jsonld-type: xsd:boolean
+  mlm:pretrained_source:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/pretrained_source
+    x-jsonld-type: xsd:string
+  mlm:batch_size_suggestion:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/batch_size_suggestion
+    x-jsonld-type: xsd:nonNegativeInteger
+  mlm:accelerator:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator
+    x-jsonld-type: '@vocab'
+    x-jsonld-context:
+      amd64: https://w3id.org/ogc/stac/mlm/amd64
+      cuda: https://w3id.org/ogc/stac/mlm/cuda
+      xla: https://w3id.org/ogc/stac/mlm/xla
+      amd-rocm: https://w3id.org/ogc/stac/mlm/amd-rocm
+      intel-ipex-cpu: https://w3id.org/ogc/stac/mlm/intel-ipex-cpu
+      intel-ipex-gpu: https://w3id.org/ogc/stac/mlm/intel-ipex-gpu
+      macos-arm: https://w3id.org/ogc/stac/mlm/macos-arm
+  mlm:accelerator_constrained:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator_constrained
+    x-jsonld-type: xsd:boolean
+  mlm:accelerator_summary:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator_summary
+    x-jsonld-type: xsd:string
+  mlm:accelerator_count:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/accelerator_count
+    x-jsonld-type: xsd:positiveInteger
+  mlm:hyperparameters:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/hyperparameters
+    x-jsonld-type: '@json'
+  mlm:artifact_type:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/artifact_type
+    x-jsonld-type: xsd:string
+  mlm:compile_method:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/compile_method
+    x-jsonld-type: xsd:string
+  mlm:entrypoint:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/entrypoint
+    x-jsonld-type: xsd:string
+  mlm:input:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/input
+    x-jsonld-container: '@set'
+    x-jsonld-context:
+      '@vocab': https://w3id.org/ogc/stac/mlm/
+      name: https://w3id.org/ogc/stac/mlm/io_name
+      description: https://w3id.org/ogc/stac/mlm/io_description
+      bands:
+        '@id': https://w3id.org/ogc/stac/mlm/bands
+        '@container': '@set'
+      variables:
+        '@id': https://w3id.org/ogc/stac/mlm/variables
+        '@container': '@set'
+      resize_type:
+        '@id': https://w3id.org/ogc/stac/mlm/resize_type
+        '@type': '@vocab'
+        '@context':
+          crop: https://w3id.org/ogc/stac/mlm/crop
+          pad: https://w3id.org/ogc/stac/mlm/pad
+          interpolation-nearest: https://w3id.org/ogc/stac/mlm/interpolation-nearest
+          interpolation-linear: https://w3id.org/ogc/stac/mlm/interpolation-linear
+          interpolation-cubic: https://w3id.org/ogc/stac/mlm/interpolation-cubic
+          interpolation-area: https://w3id.org/ogc/stac/mlm/interpolation-area
+          interpolation-lanczos4: https://w3id.org/ogc/stac/mlm/interpolation-lanczos4
+          interpolation-max: https://w3id.org/ogc/stac/mlm/interpolation-max
+          wrap-fill-outliers: https://w3id.org/ogc/stac/mlm/wrap-fill-outliers
+          wrap-inverse-map: https://w3id.org/ogc/stac/mlm/wrap-inverse-map
+      pre_processing_function:
+        '@id': https://w3id.org/ogc/stac/mlm/pre_processing_function
+        '@type': '@json'
+      value_scaling:
+        '@id': https://w3id.org/ogc/stac/mlm/value_scaling
+        '@container': '@set'
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/mlm/
+          type:
+            '@id': https://w3id.org/ogc/stac/mlm/scaling_type
+            '@type': '@vocab'
+            '@context':
+              min-max: https://w3id.org/ogc/stac/mlm/min-max
+              z-score: https://w3id.org/ogc/stac/mlm/z-score
+              clip: https://w3id.org/ogc/stac/mlm/clip
+              clip-min: https://w3id.org/ogc/stac/mlm/clip-min
+              clip-max: https://w3id.org/ogc/stac/mlm/clip-max
+              offset: https://w3id.org/ogc/stac/mlm/offset
+              scale: https://w3id.org/ogc/stac/mlm/scale
+              processing: https://w3id.org/ogc/stac/mlm/processing
+          minimum: https://w3id.org/ogc/stac/mlm/minimum
+          maximum: https://w3id.org/ogc/stac/mlm/maximum
+          mean: https://w3id.org/ogc/stac/mlm/mean
+          stddev: https://w3id.org/ogc/stac/mlm/stddev
+          value: https://w3id.org/ogc/stac/mlm/scaling_value
+      input:
+        '@id': https://w3id.org/ogc/stac/mlm/input_structure
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/mlm/
+          shape:
+            '@id': https://w3id.org/ogc/stac/mlm/shape
+            '@container': '@list'
+          dim_order:
+            '@id': https://w3id.org/ogc/stac/mlm/dim_order
+            '@container': '@list'
+          data_type: https://w3id.org/ogc/stac/mlm/data_type
+  mlm:output:
+    x-jsonld-id: https://w3id.org/ogc/stac/mlm/output
+    x-jsonld-container: '@set'
+    x-jsonld-context:
+      '@vocab': https://w3id.org/ogc/stac/mlm/
+      name: https://w3id.org/ogc/stac/mlm/io_name
+      description: https://w3id.org/ogc/stac/mlm/io_description
+      bands:
+        '@id': https://w3id.org/ogc/stac/mlm/bands
+        '@container': '@set'
+      variables:
+        '@id': https://w3id.org/ogc/stac/mlm/variables
+        '@container': '@set'
+      classification:classes:
+        '@id': classification:classes
+        '@container': '@set'
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/classification/
+          value: classification:value
+          name: classification:name
+          title: classification:title
+          description: classification:description
+          color_hint: classification:color_hint
+          nodata: classification:nodata
+          percentage: classification:percentage
+          count: classification:count
+      tasks:
+        '@id': https://w3id.org/ogc/stac/mlm/tasks
+        '@type': '@vocab'
+        '@container': '@set'
+        '@context':
+          regression: https://w3id.org/ogc/stac/mlm/regression
+          classification: https://w3id.org/ogc/stac/mlm/classification
+          scene-classification: https://w3id.org/ogc/stac/mlm/scene-classification
+          detection: https://w3id.org/ogc/stac/mlm/detection
+          object-detection: https://w3id.org/ogc/stac/mlm/object-detection
+          segmentation: https://w3id.org/ogc/stac/mlm/segmentation
+          semantic-segmentation: https://w3id.org/ogc/stac/mlm/semantic-segmentation
+          instance-segmentation: https://w3id.org/ogc/stac/mlm/instance-segmentation
+          panoptic-segmentation: https://w3id.org/ogc/stac/mlm/panoptic-segmentation
+          similarity-search: https://w3id.org/ogc/stac/mlm/similarity-search
+          generative: https://w3id.org/ogc/stac/mlm/generative
+          image-captioning: https://w3id.org/ogc/stac/mlm/image-captioning
+          super-resolution: https://w3id.org/ogc/stac/mlm/super-resolution
+          downscaling: https://w3id.org/ogc/stac/mlm/downscaling
+      post_processing_function:
+        '@id': https://w3id.org/ogc/stac/mlm/post_processing_function
+        '@type': '@json'
+      result:
+        '@id': https://w3id.org/ogc/stac/mlm/result
+        '@context':
+          '@vocab': https://w3id.org/ogc/stac/mlm/
+          shape:
+            '@id': https://w3id.org/ogc/stac/mlm/shape
+            '@container': '@list'
+          dim_order:
+            '@id': https://w3id.org/ogc/stac/mlm/dim_order
+            '@container': '@list'
+          data_type: https://w3id.org/ogc/stac/mlm/data_type
 x-jsonld-prefixes:
-  raster: https://w3id.org/ogc/stac/raster/
+  mlm: https://w3id.org/ogc/stac/mlm/

@@ -1,20 +1,23 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <mlm:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <mlm:> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
-[] stac:hasAsset [ ns2:model [ dcterms:description "Example model." ;
-                    dcterms:format "text/html" ;
-                    dcterms:title "Pytorch weights checkpoint" ;
-                    ns2:href "https://huggingface.co/example/model-card" ;
-                    stac:roles "mlm:model" ;
-                    ns1:artifact_type "torch.save" ] ;
-            ns2:thumbnail [ dcterms:format "image/jpeg" ;
-                    dcterms:title "Thumbnail" ;
-                    ns2:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg" ;
-                    stac:roles "thumbnail" ] ;
-            ns2:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "3-Band Visual" ;
-                    ns2:href "https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif" ;
-                    stac:roles "visual" ] ] .
+<https://huggingface.co/example/model-card> dcterms:description "Example model." ;
+    dcterms:format "text/html" ;
+    dcterms:title "Pytorch weights checkpoint" ;
+    stac:hasAssetroles "mlm:model"^^<xsd:string> ;
+    ns2:artifact_type "torch.save" .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format "image/jpeg" ;
+    dcterms:title "Thumbnail" ;
+    stac:hasAssetroles "thumbnail"^^<xsd:string> .
+
+<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "3-Band Visual" ;
+    stac:hasAssetroles "visual"^^<xsd:string> .
+
+[] stac:hasAsset [ ns1:model <https://huggingface.co/example/model-card> ;
+            ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .
 

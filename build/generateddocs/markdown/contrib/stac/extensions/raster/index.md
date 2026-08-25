@@ -893,12 +893,12 @@ An item can describe assets that are rasters of one or multiple bands with some 
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <eo:> .
-@prefix ns3: <proj:> .
-@prefix ns4: <view:> .
-@prefix ns5: <sentinel:> .
-@prefix ns6: <http://www.iana.org/assignments/> .
+@prefix ns1: <proj:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns3: <eo:> .
+@prefix ns4: <sentinel:> .
+@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns6: <view:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -907,242 +907,254 @@ An item can describe assets that are rasters of one or multiple bands with some 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/raster/example-1/S2B_33SVB_20210221_0_L2A> a geojson:Feature ;
-    ns2:cloud_cover 2.122e+01 ;
+    ns3:cloud_cover 2.122e+01 ;
     dcterms:date "2021-02-21T10:00:17+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns6:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/raster/example-1/sentinel-s2-l2a-cogs.json> ] ;
     geojson:bbox ( 1.386148e+01 3.695257e+01 1.511107e+01 3.794753e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.387638e+01 3.695257e+01 ) ( 1.386148e+01 3.794207e+01 ) ( 1.511107e+01 3.794753e+01 ) ( 1.510962e+01 3.695784e+01 ) ( 1.387638e+01 3.695257e+01 ) ) ) ] ;
-    stac:hasAsset [ ns1:B01 [ ns2:center_wavelength 4.439e-01 ;
-                    ns2:common_name "coastal" ;
-                    ns2:full_width_half_max 2.7e-02 ;
-                    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Band 1 (coastal) BOA reflectance" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ;
-                    ns1:data_type "uint16" ;
-                    ns1:gsd 60 ;
-                    ns1:nodata 0 ;
-                    ns1:statistics [ ns1:maximum 20567 ;
-                            ns1:mean 2.339476e+03 ;
-                            ns1:minimum 1 ;
-                            ns1:stddev 3.026697e+03 ;
-                            ns1:valid_percent 9.983e+01 ] ;
-                    stac:roles "data" ;
-                    raster:bits_per_sample 15 ;
-                    raster:spatial_resolution 60 ;
-                    ns3:shape 1830 ;
-                    ns3:transform -60,
-                        0,
-                        1,
-                        60,
-                        399960,
-                        4200000 ] ;
-            ns1:B02 [ ns2:center_wavelength 4.966e-01 ;
-                    ns2:common_name "blue" ;
-                    ns2:full_width_half_max 9.8e-02 ;
-                    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Band 2 (blue) BOA reflectance" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ;
-                    ns1:data_type "uint16" ;
-                    ns1:gsd 10 ;
-                    ns1:nodata 0 ;
-                    ns1:statistics [ ns1:maximum 19264 ;
-                            ns1:mean 2.348069e+03 ;
-                            ns1:minimum 1 ;
-                            ns1:stddev 2.916545e+03 ;
-                            ns1:valid_percent 9.999e+01 ] ;
-                    stac:roles "data" ;
-                    raster:bits_per_sample 15 ;
-                    raster:spatial_resolution 10 ;
-                    ns3:shape 10980 ;
-                    ns3:transform -10,
-                        0,
-                        1,
-                        10,
-                        399960,
-                        4200000 ] ;
-            ns1:B03 [ ns2:center_wavelength 5.6e-01 ;
-                    ns2:common_name "green" ;
-                    ns2:full_width_half_max 4.5e-02 ;
-                    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Band 3 (green) BOA reflectance" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ;
-                    ns1:data_type "uint16" ;
-                    ns1:gsd 10 ;
-                    ns1:nodata 0 ;
-                    ns1:statistics [ ns1:maximum 18064 ;
-                            ns1:mean 2.384468e+03 ;
-                            ns1:minimum 1 ;
-                            ns1:stddev 2.675411e+03 ;
-                            ns1:valid_percent 9.9999e+01 ] ;
-                    stac:roles "data" ;
-                    raster:bits_per_sample 15 ;
-                    raster:spatial_resolution 10 ;
-                    ns3:shape 10980 ;
-                    ns3:transform -10,
-                        0,
-                        1,
-                        10,
-                        399960,
-                        4200000 ] ;
-            ns1:B04 [ ns2:center_wavelength 6.645e-01 ;
-                    ns2:common_name "red" ;
-                    ns2:full_width_half_max 3.8e-02 ;
-                    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Band 4 (red) BOA reflectance" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ;
-                    ns1:data_type "uint16" ;
-                    ns1:gsd 10 ;
-                    ns1:nodata 0 ;
-                    ns1:statistics [ ns1:maximum 17200 ;
-                            ns1:mean 2.273967e+03 ;
-                            ns1:minimum 1 ;
-                            ns1:stddev 2.618273e+03 ;
-                            ns1:valid_percent 9.9999e+01 ] ;
-                    stac:roles "data" ;
-                    raster:bits_per_sample 15 ;
-                    raster:spatial_resolution 10 ;
-                    ns3:shape 10980 ;
-                    ns3:transform -10,
-                        0,
-                        1,
-                        10,
-                        399960,
-                        4200000 ] ;
-            ns1:B05 [ ns2:center_wavelength 7.039e-01 ;
-                    ns2:full_width_half_max 1.9e-02 ;
-                    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Band 5 BOA reflectance" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ;
-                    ns1:data_type "uint16" ;
-                    ns1:gsd 20 ;
-                    ns1:nodata 0 ;
-                    ns1:statistics [ ns1:maximum 16842 ;
-                            ns1:mean 2.634149e+03 ;
-                            ns1:minimum 1 ;
-                            ns1:stddev 2.634149e+03 ;
-                            ns1:valid_percent 9.9999e+01 ] ;
-                    stac:roles "data" ;
-                    raster:bits_per_sample 15 ;
-                    raster:spatial_resolution 20 ;
-                    ns3:shape 5490 ;
-                    ns3:transform -20,
-                        0,
-                        1,
-                        20,
-                        399960,
-                        4200000 ] ;
-            ns1:B06 [ ns2:center_wavelength 7.402e-01 ;
-                    ns2:full_width_half_max 1.8e-02 ;
-                    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Band 6 BOA reflectance" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ;
-                    ns1:data_type "uint16" ;
-                    ns1:gsd 20 ;
-                    ns1:nodata 0 ;
-                    ns1:statistics [ ns1:maximum 16502 ;
-                            ns1:mean 3.329884e+03 ;
-                            ns1:minimum 1 ;
-                            ns1:stddev 2.30301e+03 ;
-                            ns1:valid_percent 9.9999e+01 ] ;
-                    stac:roles "data" ;
-                    raster:bits_per_sample 15 ;
-                    raster:spatial_resolution 20 ;
-                    ns3:shape 5490 ;
-                    ns3:transform -20,
-                        0,
-                        1,
-                        20,
-                        399960,
-                        4200000 ] ;
-            ns1:SCL [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "Scene Classification Map (SCL)" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> ;
-                    stac:roles "data" ;
-                    raster:spatial_resolution 20 ;
-                    ns3:shape 5490 ;
-                    ns3:transform -20,
-                        0,
-                        1,
-                        20,
-                        399960,
-                        4200000 ] ;
-            ns1:info [ dcterms:format "application/json" ;
-                    dcterms:title "Original JSON metadata" ;
-                    oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json> ;
-                    stac:roles "metadata" ] ;
-            ns1:metadata [ dcterms:format "application/xml" ;
-                    dcterms:title "Original XML metadata" ;
-                    oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml> ;
-                    stac:roles "metadata" ] ;
-            ns1:overview [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "True color image" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
-                    ns1:bands [ ns2:center_wavelength 6.645e-01 ;
-                            ns2:common_name "red" ;
-                            ns2:full_width_half_max 3.8e-02 ;
-                            ns1:name "B04" ],
-                        [ ns2:center_wavelength 4.966e-01 ;
-                            ns2:common_name "blue" ;
-                            ns2:full_width_half_max 9.8e-02 ;
-                            ns1:name "B02" ],
-                        [ ns2:center_wavelength 5.6e-01 ;
-                            ns2:common_name "green" ;
-                            ns2:full_width_half_max 4.5e-02 ;
-                            ns1:name "B03" ] ;
-                    ns1:gsd 10 ;
-                    stac:roles "overview" ;
-                    raster:spatial_resolution 10 ;
-                    ns3:shape 343 ;
-                    ns3:transform -320,
-                        0,
-                        1,
-                        320,
-                        399960,
-                        4200000 ] ;
-            ns1:thumbnail [ dcterms:format "image/png" ;
-                    dcterms:title "Thumbnail" ;
-                    oa:hasTarget <https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg> ;
-                    stac:roles "thumbnail" ] ;
-            ns1:visual [ dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
-                    dcterms:title "True color image" ;
-                    oa:hasTarget <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ;
-                    ns1:bands [ ns2:center_wavelength 4.966e-01 ;
-                            ns2:common_name "blue" ;
-                            ns2:full_width_half_max 9.8e-02 ;
-                            ns1:name "B02" ],
-                        [ ns2:center_wavelength 6.645e-01 ;
-                            ns2:common_name "red" ;
-                            ns2:full_width_half_max 3.8e-02 ;
-                            ns1:name "B04" ],
-                        [ ns2:center_wavelength 5.6e-01 ;
-                            ns2:common_name "green" ;
-                            ns2:full_width_half_max 4.5e-02 ;
-                            ns1:name "B03" ] ;
-                    ns1:gsd 10 ;
-                    stac:roles "overview" ;
-                    ns3:shape 10980 ;
-                    ns3:transform -10,
-                        0,
-                        1,
-                        10,
-                        399960,
-                        4200000 ] ] ;
+    stac:hasAsset [ ns2:B01 <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ;
+            ns2:B02 <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ;
+            ns2:B03 <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ;
+            ns2:B04 <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ;
+            ns2:B05 <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ;
+            ns2:B06 <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ;
+            ns2:SCL <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> ;
+            ns2:info <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json> ;
+            ns2:metadata <https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml> ;
+            ns2:overview <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> ;
+            ns2:thumbnail <https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg> ;
+            ns2:visual <https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
         "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
         "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:version "1.1.0" ;
-    ns3:code "EPSG:32633" ;
-    ns5:data_coverage 100 ;
-    ns5:grid_square "VB" ;
-    ns5:latitude_band "S" ;
-    ns5:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
-    ns5:sequence "0" ;
-    ns5:utm_zone 33 ;
-    ns4:off_nadir 0 .
+    ns1:code "EPSG:32633" ;
+    ns4:data_coverage 100 ;
+    ns4:grid_square "VB" ;
+    ns4:latitude_band "S" ;
+    ns4:product_id "S2B_MSIL2A_20210221T095029_N0214_R079_T33SVB_20210221T115149" ;
+    ns4:sequence "0" ;
+    ns4:utm_zone 33 ;
+    ns6:off_nadir 0 .
+
+<https://roda.sentinel-hub.com/sentinel-s2-l1c/tiles/33/S/VB/2021/2/21/0/preview.jpg> dcterms:format "image/png" ;
+    dcterms:title "Thumbnail" ;
+    stac:hasAssetroles "thumbnail"^^xsd:string .
+
+<https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/metadata.xml> dcterms:format "application/xml" ;
+    dcterms:title "Original XML metadata" ;
+    stac:hasAssetroles "metadata"^^xsd:string .
+
+<https://roda.sentinel-hub.com/sentinel-s2-l2a/tiles/33/S/VB/2021/2/21/0/tileInfo.json> dcterms:format "application/json" ;
+    dcterms:title "Original JSON metadata" ;
+    stac:hasAssetroles "metadata"^^xsd:string .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B01.tif> ns3:center_wavelength 4.439e-01 ;
+    ns3:common_name "coastal" ;
+    ns3:full_width_half_max 2.7e-02 ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 1 (coastal) BOA reflectance" ;
+    ns2:data_type "uint16" ;
+    ns2:gsd 60 ;
+    ns2:nodata 0 ;
+    ns2:statistics [ ns2:maximum 20567 ;
+            ns2:mean 2.339476e+03 ;
+            ns2:minimum 1 ;
+            ns2:stddev 3.026697e+03 ;
+            ns2:valid_percent 9.983e+01 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 6e+01 ;
+    ns1:shape 1830 ;
+    ns1:transform -60,
+        0,
+        1,
+        60,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B02.tif> ns3:center_wavelength 4.966e-01 ;
+    ns3:common_name "blue" ;
+    ns3:full_width_half_max 9.8e-02 ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 2 (blue) BOA reflectance" ;
+    ns2:data_type "uint16" ;
+    ns2:gsd 10 ;
+    ns2:nodata 0 ;
+    ns2:statistics [ ns2:maximum 19264 ;
+            ns2:mean 2.348069e+03 ;
+            ns2:minimum 1 ;
+            ns2:stddev 2.916545e+03 ;
+            ns2:valid_percent 9.999e+01 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 1e+01 ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
+        0,
+        1,
+        10,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B03.tif> ns3:center_wavelength 5.6e-01 ;
+    ns3:common_name "green" ;
+    ns3:full_width_half_max 4.5e-02 ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 3 (green) BOA reflectance" ;
+    ns2:data_type "uint16" ;
+    ns2:gsd 10 ;
+    ns2:nodata 0 ;
+    ns2:statistics [ ns2:maximum 18064 ;
+            ns2:mean 2.384468e+03 ;
+            ns2:minimum 1 ;
+            ns2:stddev 2.675411e+03 ;
+            ns2:valid_percent 9.9999e+01 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 1e+01 ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
+        0,
+        1,
+        10,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B04.tif> ns3:center_wavelength 6.645e-01 ;
+    ns3:common_name "red" ;
+    ns3:full_width_half_max 3.8e-02 ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 4 (red) BOA reflectance" ;
+    ns2:data_type "uint16" ;
+    ns2:gsd 10 ;
+    ns2:nodata 0 ;
+    ns2:statistics [ ns2:maximum 17200 ;
+            ns2:mean 2.273967e+03 ;
+            ns2:minimum 1 ;
+            ns2:stddev 2.618273e+03 ;
+            ns2:valid_percent 9.9999e+01 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 1e+01 ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
+        0,
+        1,
+        10,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B05.tif> ns3:center_wavelength 7.039e-01 ;
+    ns3:full_width_half_max 1.9e-02 ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 5 BOA reflectance" ;
+    ns2:data_type "uint16" ;
+    ns2:gsd 20 ;
+    ns2:nodata 0 ;
+    ns2:statistics [ ns2:maximum 16842 ;
+            ns2:mean 2.634149e+03 ;
+            ns2:minimum 1 ;
+            ns2:stddev 2.634149e+03 ;
+            ns2:valid_percent 9.9999e+01 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 2e+01 ;
+    ns1:shape 5490 ;
+    ns1:transform -20,
+        0,
+        1,
+        20,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/B06.tif> ns3:center_wavelength 7.402e-01 ;
+    ns3:full_width_half_max 1.8e-02 ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Band 6 BOA reflectance" ;
+    ns2:data_type "uint16" ;
+    ns2:gsd 20 ;
+    ns2:nodata 0 ;
+    ns2:statistics [ ns2:maximum 16502 ;
+            ns2:mean 3.329884e+03 ;
+            ns2:minimum 1 ;
+            ns2:stddev 2.30301e+03 ;
+            ns2:valid_percent 9.9999e+01 ] ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:bits_per_sample 15 ;
+    raster:spatial_resolution 2e+01 ;
+    ns1:shape 5490 ;
+    ns1:transform -20,
+        0,
+        1,
+        20,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/L2A_PVI.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "True color image" ;
+    ns2:bands [ ns3:center_wavelength 6.645e-01 ;
+            ns3:common_name "red" ;
+            ns3:full_width_half_max 3.8e-02 ;
+            ns2:name "B04" ],
+        [ ns3:center_wavelength 4.966e-01 ;
+            ns3:common_name "blue" ;
+            ns3:full_width_half_max 9.8e-02 ;
+            ns2:name "B02" ],
+        [ ns3:center_wavelength 5.6e-01 ;
+            ns3:common_name "green" ;
+            ns3:full_width_half_max 4.5e-02 ;
+            ns2:name "B03" ] ;
+    ns2:gsd 10 ;
+    stac:hasAssetroles "overview"^^xsd:string ;
+    raster:spatial_resolution 1e+01 ;
+    ns1:shape 343 ;
+    ns1:transform -320,
+        0,
+        1,
+        320,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/SCL.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Scene Classification Map (SCL)" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    raster:spatial_resolution 2e+01 ;
+    ns1:shape 5490 ;
+    ns1:transform -20,
+        0,
+        1,
+        20,
+        399960,
+        4200000 .
+
+<https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/33/S/VB/2021/2/S2B_33SVB_20210221_0_L2A/TCI.tif> dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "True color image" ;
+    ns2:bands [ ns3:center_wavelength 5.6e-01 ;
+            ns3:common_name "green" ;
+            ns3:full_width_half_max 4.5e-02 ;
+            ns2:name "B03" ],
+        [ ns3:center_wavelength 6.645e-01 ;
+            ns3:common_name "red" ;
+            ns3:full_width_half_max 3.8e-02 ;
+            ns2:name "B04" ],
+        [ ns3:center_wavelength 4.966e-01 ;
+            ns3:common_name "blue" ;
+            ns3:full_width_half_max 9.8e-02 ;
+            ns2:name "B02" ] ;
+    ns2:gsd 10 ;
+    stac:hasAssetroles "overview"^^xsd:string ;
+    ns1:shape 10980 ;
+    ns1:transform -10,
+        0,
+        1,
+        10,
+        399960,
+        4200000 .
 
 
 ```
@@ -1151,21 +1163,42 @@ An item can describe assets that are rasters of one or multiple bands with some 
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Forecast Extension
-description: STAC Forecast Extension for STAC Items and STAC Collections.
+title: Raster Extension
+description: STAC Raster Extension for STAC Items and STAC Collections.
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
 - $ref: https://stac-extensions.github.io/raster/v2.0.0/schema.json
 x-jsonld-extra-terms:
-  concepts:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/bands
+  raster:sampling:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/sampling
+    x-jsonld-type: '@vocab'
+    x-jsonld-context:
+      area: https://w3id.org/ogc/stac/raster/area
+      point: https://w3id.org/ogc/stac/raster/point
+  raster:bits_per_sample:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/bits_per_sample
+    x-jsonld-type: xsd:integer
+  raster:spatial_resolution:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/spatial_resolution
+    x-jsonld-type: xsd:double
+  raster:scale:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/scale
+    x-jsonld-type: xsd:double
+  raster:offset:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/offset
+    x-jsonld-type: xsd:double
+  raster:histogram:
+    x-jsonld-id: https://w3id.org/ogc/stac/raster/histogram
     x-jsonld-context:
       '@vocab': https://w3id.org/ogc/stac/raster/
-  raster:range:
-    x-jsonld-id: https://w3id.org/ogc/stac/raster/range
-    x-jsonld-container: '@list'
+      count: https://w3id.org/ogc/stac/raster/count
+      min: https://w3id.org/ogc/stac/raster/min
+      max: https://w3id.org/ogc/stac/raster/max
+      buckets:
+        '@id': https://w3id.org/ogc/stac/raster/buckets
+        '@container': '@list'
 x-jsonld-prefixes:
   raster: https://w3id.org/ogc/stac/raster/
 
@@ -1233,9 +1266,11 @@ Links to the schema:
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -1303,15 +1338,42 @@ Links to the schema:
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "concepts": {
-      "@id": "raster:bands",
+    "raster:sampling": {
+      "@id": "raster:sampling",
+      "@type": "@vocab",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
+        "area": "raster:area",
+        "point": "raster:point"
       }
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "raster:bits_per_sample": {
+      "@id": "raster:bits_per_sample",
+      "@type": "xsd:integer"
+    },
+    "raster:spatial_resolution": {
+      "@id": "raster:spatial_resolution",
+      "@type": "xsd:double"
+    },
+    "raster:scale": {
+      "@id": "raster:scale",
+      "@type": "xsd:double"
+    },
+    "raster:offset": {
+      "@id": "raster:offset",
+      "@type": "xsd:double"
+    },
+    "raster:histogram": {
+      "@id": "raster:histogram",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/raster/",
+        "count": "raster:count",
+        "min": "raster:min",
+        "max": "raster:max",
+        "buckets": {
+          "@id": "raster:buckets",
+          "@container": "@list"
+        }
+      }
     },
     "href": {
       "@type": "@id",

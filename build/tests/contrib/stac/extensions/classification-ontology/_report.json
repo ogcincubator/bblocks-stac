@@ -1,0 +1,165 @@
+{
+  "title": "Validation report for ogc.contrib.stac.extensions.classification-ontology - STAC Classification Extension Ontology",
+  "bblockName": "STAC Classification Extension Ontology",
+  "bblockId": "ogc.contrib.stac.extensions.classification-ontology",
+  "generated": "2026-08-25T07:34:56.817863+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/extensions/classification-ontology/example_1_1.ttl",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/classification-ontology/example_1_1.ttl",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "text/turtle"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.ttl from examples"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 41,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat"
+                  ]
+                },
+                "classification:ClassShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes",
+                    "ex:resnet18-eurosat/classification:classes"
+                  ]
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": []
+                },
+                "classification:BitFieldShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: ex:resnet18-eurosat\n - Shape classification:ClassShape: ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/contrib/stac/extensions/classification-ontology/example_2_1.ttl",
+        "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/classification-ontology/example_2_1.ttl",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "text/turtle"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_2_1.ttl from examples"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 16,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/extensions/classification-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
+              "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": [
+                    "ex:qa-band/classification:bitfields"
+                  ]
+                },
+                "classification:ClassShape": {
+                  "nodes": [
+                    "ex:qa-band/classification:bitfields/classification:classes",
+                    "ex:qa-band/classification:bitfields/classification:classes"
+                  ]
+                },
+                "classification:BitfieldsUsageShape": {
+                  "nodes": [
+                    "ex:qa-band"
+                  ]
+                },
+                "classification:BitFieldShape": {
+                  "nodes": [
+                    "ex:qa-band/classification:bitfields"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: ex:qa-band/classification:bitfields\n - Shape classification:ClassShape: ex:qa-band/classification:bitfields/classification:classes,ex:qa-band/classification:bitfields/classification:classes\n - Shape classification:BitfieldsUsageShape: ex:qa-band\n - Shape classification:BitFieldShape: ex:qa-band/classification:bitfields\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

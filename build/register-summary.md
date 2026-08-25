@@ -15,7 +15,27 @@ Provides a framework for documentation and testing of additional extensions.
 
 ## Building Blocks
 
+### `ogc.contrib.stac.components.assets-ontology` — STAC Asset Component Ontology
+
+**Type:** model
+
+### `ogc.contrib.stac.extensions.accuracy-ontology` — STAC Accuracy Extension Ontology
+
+**Type:** model
+
 ### `ogc.contrib.stac.extensions.cf-ontology` — STAC CF Extension Ontology
+
+**Type:** model
+
+### `ogc.contrib.stac.extensions.classification-ontology` — STAC Classification Extension Ontology
+
+**Type:** model
+
+### `ogc.contrib.stac.extensions.eo-ontology` — STAC Electro-Optical Extension Ontology
+
+**Type:** model
+
+### `ogc.contrib.stac.extensions.mlm-ontology` — STAC Machine Learning Model Extension Ontology
 
 **Type:** model
 
@@ -23,7 +43,15 @@ Provides a framework for documentation and testing of additional extensions.
 
 **Type:** model
 
-### `ogc.contrib.stac.extensions.processes-ontology` — STAC Processing Extension Ontology
+### `ogc.contrib.stac.extensions.processing-ontology` — STAC Processing Extension Ontology
+
+**Type:** model
+
+### `ogc.contrib.stac.extensions.raster-ontology` — STAC Raster Extension Ontology
+
+**Type:** model
+
+### `ogc.contrib.stac.extensions.themes-ontology` — STAC Themes Extension Ontology
 
 **Type:** model
 

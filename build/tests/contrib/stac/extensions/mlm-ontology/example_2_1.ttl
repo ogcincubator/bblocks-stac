@@ -1,0 +1,17 @@
+@prefix ex: <https://example.org/stac/> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:input1 mlm:input_structure [ mlm:data_type "float32"^^xsd:string ;
+            mlm:dim_order "batch",
+                "channel",
+                "height",
+                "width" ;
+            mlm:shape -1,
+                13,
+                64 ] ;
+    mlm:io_name "13 Band Sentinel-2 Batch" ;
+    mlm:value_scaling [ mlm:maximum 1e+04 ;
+            mlm:minimum 0e+00 ;
+            mlm:scaling_type mlm:min-max ] .
+

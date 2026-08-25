@@ -51,9 +51,11 @@
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -121,15 +123,253 @@
       },
       "@id": "rec:hasLinkTemplate"
     },
-    "raster:bands": {
-      "@id": "raster:bands",
+    "mlm:name": {
+      "@id": "mlm:name",
+      "@type": "xsd:string"
+    },
+    "mlm:architecture": {
+      "@id": "mlm:architecture",
+      "@type": "xsd:string"
+    },
+    "mlm:tasks": {
+      "@id": "mlm:tasks",
+      "@type": "@vocab",
+      "@container": "@set",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
+        "regression": "mlm:regression",
+        "classification": "mlm:classification",
+        "scene-classification": "mlm:scene-classification",
+        "detection": "mlm:detection",
+        "object-detection": "mlm:object-detection",
+        "segmentation": "mlm:segmentation",
+        "semantic-segmentation": "mlm:semantic-segmentation",
+        "instance-segmentation": "mlm:instance-segmentation",
+        "panoptic-segmentation": "mlm:panoptic-segmentation",
+        "similarity-search": "mlm:similarity-search",
+        "generative": "mlm:generative",
+        "image-captioning": "mlm:image-captioning",
+        "super-resolution": "mlm:super-resolution",
+        "downscaling": "mlm:downscaling"
       }
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "mlm:framework": {
+      "@id": "mlm:framework",
+      "@type": "xsd:string"
+    },
+    "mlm:framework_version": {
+      "@id": "mlm:framework_version",
+      "@type": "xsd:string"
+    },
+    "mlm:memory_size": {
+      "@id": "mlm:memory_size",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "mlm:total_parameters": {
+      "@id": "mlm:total_parameters",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "mlm:pretrained": {
+      "@id": "mlm:pretrained",
+      "@type": "xsd:boolean"
+    },
+    "mlm:pretrained_source": {
+      "@id": "mlm:pretrained_source",
+      "@type": "xsd:string"
+    },
+    "mlm:batch_size_suggestion": {
+      "@id": "mlm:batch_size_suggestion",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "mlm:accelerator": {
+      "@id": "mlm:accelerator",
+      "@type": "@vocab",
+      "@context": {
+        "amd64": "mlm:amd64",
+        "cuda": "mlm:cuda",
+        "xla": "mlm:xla",
+        "amd-rocm": "mlm:amd-rocm",
+        "intel-ipex-cpu": "mlm:intel-ipex-cpu",
+        "intel-ipex-gpu": "mlm:intel-ipex-gpu",
+        "macos-arm": "mlm:macos-arm"
+      }
+    },
+    "mlm:accelerator_constrained": {
+      "@id": "mlm:accelerator_constrained",
+      "@type": "xsd:boolean"
+    },
+    "mlm:accelerator_summary": {
+      "@id": "mlm:accelerator_summary",
+      "@type": "xsd:string"
+    },
+    "mlm:accelerator_count": {
+      "@id": "mlm:accelerator_count",
+      "@type": "xsd:positiveInteger"
+    },
+    "mlm:hyperparameters": {
+      "@id": "mlm:hyperparameters",
+      "@type": "@json"
+    },
+    "mlm:artifact_type": {
+      "@id": "mlm:artifact_type",
+      "@type": "xsd:string"
+    },
+    "mlm:compile_method": {
+      "@id": "mlm:compile_method",
+      "@type": "xsd:string"
+    },
+    "mlm:entrypoint": {
+      "@id": "mlm:entrypoint",
+      "@type": "xsd:string"
+    },
+    "mlm:input": {
+      "@id": "mlm:input",
+      "@container": "@set",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/mlm/",
+        "name": "mlm:io_name",
+        "description": "mlm:io_description",
+        "bands": {
+          "@id": "mlm:bands",
+          "@container": "@set"
+        },
+        "variables": {
+          "@id": "mlm:variables",
+          "@container": "@set"
+        },
+        "resize_type": {
+          "@id": "mlm:resize_type",
+          "@type": "@vocab",
+          "@context": {
+            "crop": "mlm:crop",
+            "pad": "mlm:pad",
+            "interpolation-nearest": "mlm:interpolation-nearest",
+            "interpolation-linear": "mlm:interpolation-linear",
+            "interpolation-cubic": "mlm:interpolation-cubic",
+            "interpolation-area": "mlm:interpolation-area",
+            "interpolation-lanczos4": "mlm:interpolation-lanczos4",
+            "interpolation-max": "mlm:interpolation-max",
+            "wrap-fill-outliers": "mlm:wrap-fill-outliers",
+            "wrap-inverse-map": "mlm:wrap-inverse-map"
+          }
+        },
+        "pre_processing_function": {
+          "@id": "mlm:pre_processing_function",
+          "@type": "@json"
+        },
+        "value_scaling": {
+          "@id": "mlm:value_scaling",
+          "@container": "@set",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/mlm/",
+            "type": {
+              "@id": "mlm:scaling_type",
+              "@type": "@vocab",
+              "@context": {
+                "min-max": "mlm:min-max",
+                "z-score": "mlm:z-score",
+                "clip": "mlm:clip",
+                "clip-min": "mlm:clip-min",
+                "clip-max": "mlm:clip-max",
+                "offset": "mlm:offset",
+                "scale": "mlm:scale",
+                "processing": "mlm:processing"
+              }
+            },
+            "minimum": "mlm:minimum",
+            "maximum": "mlm:maximum",
+            "mean": "mlm:mean",
+            "stddev": "mlm:stddev",
+            "value": "mlm:scaling_value"
+          }
+        },
+        "input": {
+          "@id": "mlm:input_structure",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/mlm/",
+            "shape": {
+              "@id": "mlm:shape",
+              "@container": "@list"
+            },
+            "dim_order": {
+              "@id": "mlm:dim_order",
+              "@container": "@list"
+            },
+            "data_type": "mlm:data_type"
+          }
+        }
+      }
+    },
+    "mlm:output": {
+      "@id": "mlm:output",
+      "@container": "@set",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/mlm/",
+        "name": "mlm:io_name",
+        "description": "mlm:io_description",
+        "bands": {
+          "@id": "mlm:bands",
+          "@container": "@set"
+        },
+        "variables": {
+          "@id": "mlm:variables",
+          "@container": "@set"
+        },
+        "classification:classes": {
+          "@id": "classification:classes",
+          "@container": "@set",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/classification/",
+            "value": "classification:value",
+            "name": "classification:name",
+            "title": "classification:title",
+            "description": "classification:description",
+            "color_hint": "classification:color_hint",
+            "nodata": "classification:nodata",
+            "percentage": "classification:percentage",
+            "count": "classification:count"
+          }
+        },
+        "tasks": {
+          "@id": "mlm:tasks",
+          "@type": "@vocab",
+          "@container": "@set",
+          "@context": {
+            "regression": "mlm:regression",
+            "classification": "mlm:classification",
+            "scene-classification": "mlm:scene-classification",
+            "detection": "mlm:detection",
+            "object-detection": "mlm:object-detection",
+            "segmentation": "mlm:segmentation",
+            "semantic-segmentation": "mlm:semantic-segmentation",
+            "instance-segmentation": "mlm:instance-segmentation",
+            "panoptic-segmentation": "mlm:panoptic-segmentation",
+            "similarity-search": "mlm:similarity-search",
+            "generative": "mlm:generative",
+            "image-captioning": "mlm:image-captioning",
+            "super-resolution": "mlm:super-resolution",
+            "downscaling": "mlm:downscaling"
+          }
+        },
+        "post_processing_function": {
+          "@id": "mlm:post_processing_function",
+          "@type": "@json"
+        },
+        "result": {
+          "@id": "mlm:result",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/mlm/",
+            "shape": {
+              "@id": "mlm:shape",
+              "@container": "@list"
+            },
+            "dim_order": {
+              "@id": "mlm:dim_order",
+              "@container": "@list"
+            },
+            "data_type": "mlm:data_type"
+          }
+        }
+      }
     },
     "href": {
       "@type": "@id",
@@ -139,7 +379,7 @@
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
-    "raster": "https://w3id.org/ogc/stac/raster/",
+    "mlm": "https://w3id.org/ogc/stac/mlm/",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",

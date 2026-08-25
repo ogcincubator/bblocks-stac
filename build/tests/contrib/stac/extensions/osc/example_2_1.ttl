@@ -1,22 +1,26 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
-@prefix ns3: <cf:> .
+@prefix ns2: <cf:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/osc/example-1/absolute-sea-level-heights-baltics-sar-hsu> a <https://example.com/stac/osc/example-1/Collection> ;
-    ns3:parameter [ ] ;
+    ns2:parameter [ ] ;
     dcterms:created "2021-07-07T00:00:00Z" ;
     dcterms:description "Time series of absolute sea level heights of tide gauge stations involved in the project BALTIC+ Geodetic SAR for Baltic Height System Unification (SAR-HSU). Product details available at: https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SAR-HSU-TN-0019_Dataset_User_Manual.pdf" ;
     dcterms:extent [ ] ;
     dcterms:modified "2024-09-12T20:32:06.209108Z" ;
     dcterms:title "SL-ABS: Absolute Sea Level Heights_Baltics_Multimission" ;
-    rdfs:seeAlso [ rdfs:label "EO Mission: Sentinel-1" ;
+    rdfs:seeAlso [ rdfs:label "Access" ;
+            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SL-ABS.zip> ],
+        [ rdfs:label "EO Mission: Sentinel-1" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/stac/eo-missions/sentinel-1/catalog.json> ],
@@ -24,36 +28,33 @@
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/stac/themes/oceans/catalog.json> ],
-        [ rdfs:label "EO Mission: GLONASS" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/glonass/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Project: SAR-HSU" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/osc/catalog.json> ],
+        [ rdfs:label "Project: SAR-HSU" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/projects/baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu/collection.json> ],
         [ rdfs:label "Variable: Sea Surface Height Anomaly (SSHA)" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/stac/variables/sea-surface-height-anomaly-ssha/catalog.json> ],
-        [ rdfs:label "Access" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://www.asg.ed.tum.de/fileadmin/w00cip/iapg/Baltic/SL-ABS.zip> ],
         [ rdfs:label "EO Mission: GOCE" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/eo-missions/goce/catalog.json> ] ;
+            oa:hasTarget <https://example.com/stac/eo-missions/goce/catalog.json> ],
+        [ rdfs:label "EO Mission: GLONASS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/eo-missions/glonass/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/absolute-sea-level-heights-baltics-sar-hsu/collection.json> ] ;
     dcat:keyword "Sea Surface Height",
         "Sea Surface Height Anomaly (SSHA)",
         "Sea Surface Topography" ;
@@ -62,14 +63,14 @@
         "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
+    osc:missions "glonass"^^xsd:string,
+        "goce"^^xsd:string,
+        "sentinel-1"^^xsd:string ;
+    osc:project "baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu"^^xsd:string ;
+    osc:region "Baltics"^^xsd:string ;
+    osc:status osc:ongoing ;
+    osc:type osc:product-type ;
+    osc:variables "sea-surface-height-anomaly-ssha"^^xsd:string ;
     rec:themes [ thns:concepts [ thns:id "oceans" ] ;
-            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:missions "glonass",
-        "goce",
-        "sentinel-1" ;
-    ns2:project "baltic-geodetic-sar-for-baltic-height-system-unification-sar-hsu" ;
-    ns2:region "Baltics" ;
-    ns2:status "ongoing" ;
-    ns2:type "product" ;
-    ns2:variables "sea-surface-height-anomaly-ssha" .
+            thns:scheme "https://github.com/stac-extensions/osc#theme" ] .
 

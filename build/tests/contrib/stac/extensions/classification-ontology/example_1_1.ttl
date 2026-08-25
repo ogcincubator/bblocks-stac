@@ -1,0 +1,37 @@
+@prefix classification: <https://w3id.org/ogc/stac/classification/> .
+@prefix ex: <https://example.org/stac/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:resnet18-eurosat a stac:Item ;
+    classification:classes [ a classification:Class ;
+            classification:name "AnnualCrop" ;
+            classification:value 0 ],
+        [ a classification:Class ;
+            classification:name "SeaLake" ;
+            classification:value 9 ],
+        [ a classification:Class ;
+            classification:name "Forest" ;
+            classification:value 1 ],
+        [ a classification:Class ;
+            classification:name "HerbaceousVegetation" ;
+            classification:value 2 ],
+        [ a classification:Class ;
+            classification:name "Highway" ;
+            classification:value 3 ],
+        [ a classification:Class ;
+            classification:name "Industrial" ;
+            classification:value 4 ],
+        [ a classification:Class ;
+            classification:name "Pasture" ;
+            classification:value 5 ],
+        [ a classification:Class ;
+            classification:name "PermanentCrop" ;
+            classification:value 6 ],
+        [ a classification:Class ;
+            classification:name "Residential" ;
+            classification:value 7 ],
+        [ a classification:Class ;
+            classification:name "River" ;
+            classification:value 8 ] .
+

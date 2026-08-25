@@ -10,11 +10,13 @@
       "x-jsonld-container": "@set",
       "x-jsonld-vocab": "https://w3id.org/ogc/stac/assets/",
       "x-jsonld-extra-terms": {
+        "href": "@id",
         "type": "http://purl.org/dc/terms/format",
         "title": "http://purl.org/dc/terms/title",
         "description": "http://purl.org/dc/terms/description",
         "roles": {
-          "x-jsonld-id": "https://w3id.org/ogc/stac/core/roles",
+          "x-jsonld-id": "https://w3id.org/ogc/stac/core/hasAssetroles",
+          "x-jsonld-type": "xsd:string",
           "x-jsonld-container": "@set"
         }
       }
@@ -70,6 +72,7 @@
   "x-jsonld-prefixes": {
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
+    "assets": "https://w3id.org/ogc/stac/core/hasAsset",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
   }
 }

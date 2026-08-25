@@ -1,0 +1,83 @@
+
+# STAC Machine Learning Model Extension Ontology (Model)
+
+`ogc.contrib.stac.extensions.mlm-ontology` *v0.1*
+
+None
+
+[*Status*](http://www.opengis.net/def/status): Under development
+
+## Examples
+
+### ResNet-18 Sentinel-2 scene classifier (model identity and framework)
+#### turtle
+```turtle
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix mlm:  <https://w3id.org/ogc/stac/mlm/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <https://example.org/stac/> .
+
+ex:resnet18-eurosat a stac:Item ;
+    mlm:name             "ResNet-18 Sentinel-2 Classifier"^^xsd:string ;
+    mlm:architecture     "ResNet-18"^^xsd:string ;
+    mlm:tasks            mlm:scene-classification ;
+    mlm:framework        "PyTorch"^^xsd:string ;
+    mlm:framework_version "2.1.2"^^xsd:string ;
+    mlm:total_parameters 11700000 ;
+    mlm:accelerator      mlm:cuda ;
+    mlm:input [
+        mlm:io_name "13 Band Sentinel-2 Batch" ;
+        mlm:input_structure [
+            mlm:shape -1, 13, 64, 64 ;
+            mlm:dim_order "batch", "channel", "height", "width" ;
+            mlm:data_type "float32"^^xsd:string ;
+        ]
+    ] ;
+    mlm:output [
+        mlm:io_name "classification" ;
+        mlm:tasks mlm:scene-classification ;
+        mlm:result [
+            mlm:shape -1, 10 ;
+            mlm:dim_order "batch", "class" ;
+            mlm:data_type "float32"^^xsd:string ;
+        ]
+    ] .
+
+```
+
+
+### Value scaling (min-max normalization on a ModelInput)
+#### turtle
+```turtle
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <https://example.org/stac/> .
+
+ex:input1
+    mlm:io_name "13 Band Sentinel-2 Batch" ;
+    mlm:input_structure [
+        mlm:shape -1, 13, 64, 64 ;
+        mlm:dim_order "batch", "channel", "height", "width" ;
+        mlm:data_type "float32"^^xsd:string ;
+    ] ;
+    mlm:value_scaling [
+        mlm:scaling_type mlm:min-max ;
+        mlm:minimum "0.0"^^xsd:double ;
+        mlm:maximum "10000.0"^^xsd:double ;
+    ] .
+
+```
+
+## Sources
+
+* [GitHub Repository](https://github.com/stac-extensions/mlm)
+* [JSON Schema (v1.5.2)](https://stac-extensions.github.io/mlm/v1.5.2/schema.json)
+* [README (field descriptions and example)](https://github.com/stac-extensions/mlm/blob/main/README.md)
+
+# For developers
+
+The source code for this Building Block can be found in the following repository:
+
+* URL: [https://github.com/ogcincubator/bblocks-stac](https://github.com/ogcincubator/bblocks-stac)
+* Path: `_sources/extensions/mlm-ontology`
+
