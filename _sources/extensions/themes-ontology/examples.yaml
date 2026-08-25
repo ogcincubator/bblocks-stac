@@ -1,0 +1,22 @@
+examples:
+  - title: A STAC Item classified with a Themes concept
+    # Shape taken from the STAC Themes extension: https://github.com/stac-extensions/themes
+    snippets:
+      - language: turtle
+        code: |
+          @prefix stac: <https://w3id.org/ogc/stac/core/> .
+          @prefix thns:  <https://w3id.org/ogc/stac/themes/> .
+          @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:   <https://example.org/stac/> .
+
+          ex:item a stac:Item ;
+              thns:schemes [
+                  a thns:Theme ;
+                  thns:scheme "https://www.eionet.europa.eu/gemet/en/inspire-theme/" ;
+                  thns:concepts [
+                      a thns:Concept ;
+                      thns:id "hb" ;
+                      thns:name "Habitats and biotopes" ;
+                      thns:description "Geographical areas characterized by specific ecological conditions, processes, structure, and life-support functions." ;
+                  ] ;
+              ] .

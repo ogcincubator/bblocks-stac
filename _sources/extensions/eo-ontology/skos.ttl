@@ -1,0 +1,137 @@
+@prefix eo:   <https://w3id.org/ogc/stac/eo/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# SKOS component — eo:common_name is a fixed, extension-defined
+# enumeration (unlike classification:classes, which is dataset-specific),
+# so it is modeled as a proper skos:ConceptScheme with one skos:Concept
+# per allowed value. Wavelength ranges are from the extension's Common
+# Band Names table: https://github.com/stac-extensions/eo#common-band-names
+#################################################################
+
+eo:CommonBandNameScheme a skos:ConceptScheme ;
+    dct:title "EO Common Band Names" ;
+    dct:description "The fixed set of common spectral band names defined by the STAC Electro-Optical extension, each associated with an approximate wavelength range." ;
+    rdfs:isDefinedBy eo: .
+
+eo:pan a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "pan" ;
+    skos:prefLabel "Panchromatic"@en ;
+    skos:definition "Band range: 0.40 - 1.00µm."@en .
+
+eo:coastal a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "coastal" ;
+    skos:prefLabel "Coastal/Aerosol"@en ;
+    skos:definition "Band range: 0.40 - 0.45µm."@en .
+
+eo:blue a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "blue" ;
+    skos:prefLabel "Blue"@en ;
+    skos:definition "Band range: 0.45 - 0.53µm."@en .
+
+eo:green a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "green" ;
+    skos:prefLabel "Green"@en ;
+    skos:definition "Band range: 0.51 - 0.60µm."@en .
+
+eo:green05 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "green05" ;
+    skos:prefLabel "Green 0.5"@en ;
+    skos:definition "Band range: 0.51 - 0.55µm."@en .
+
+eo:yellow a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "yellow" ;
+    skos:prefLabel "Yellow"@en ;
+    skos:definition "Band range: 0.58 - 0.62µm."@en .
+
+eo:red a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "red" ;
+    skos:prefLabel "Red"@en ;
+    skos:definition "Band range: 0.62 - 0.69µm."@en .
+
+eo:rededge a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge" ;
+    skos:prefLabel "Red Edge"@en ;
+    skos:definition "Band range: 0.69 - 0.79µm."@en .
+
+eo:rededge071 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge071" ;
+    skos:prefLabel "Red Edge 0.71"@en ;
+    skos:definition "Band range: 0.69 - 0.73µm."@en .
+
+eo:rededge075 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge075" ;
+    skos:prefLabel "Red Edge 0.75"@en ;
+    skos:definition "Band range: 0.73 - 0.76µm."@en .
+
+eo:rededge078 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "rededge078" ;
+    skos:prefLabel "Red Edge 0.78"@en ;
+    skos:definition "Band range: 0.76 - 0.79µm."@en .
+
+eo:nir a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "nir" ;
+    skos:prefLabel "Near Infrared"@en ;
+    skos:definition "Band range: 0.76 - 1.00µm."@en .
+
+eo:nir08 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "nir08" ;
+    skos:prefLabel "Near Infrared 0.8"@en ;
+    skos:definition "Band range: 0.80 - 0.90µm."@en .
+
+eo:nir09 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "nir09" ;
+    skos:prefLabel "Near Infrared 0.9"@en ;
+    skos:definition "Band range: 0.90 - 1.00µm."@en .
+
+eo:cirrus a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "cirrus" ;
+    skos:prefLabel "Cirrus"@en ;
+    skos:definition "Band range: 1.35 - 1.40µm."@en .
+
+eo:swir16 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "swir16" ;
+    skos:prefLabel "Short-wave Infrared 1.6"@en ;
+    skos:definition "Band range: 1.55 - 1.75µm."@en .
+
+eo:swir22 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "swir22" ;
+    skos:prefLabel "Short-wave Infrared 2.2"@en ;
+    skos:definition "Band range: 2.08 - 2.35µm."@en .
+
+eo:lwir a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "lwir" ;
+    skos:prefLabel "Long-wave Infrared (Thermal Infrared)"@en ;
+    skos:definition "Band range: 10.4 - 12.5µm."@en .
+
+eo:lwir11 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "lwir11" ;
+    skos:prefLabel "Long-wave Infrared 11"@en ;
+    skos:definition "Band range: 10.5 - 11.5µm."@en .
+
+eo:lwir12 a skos:Concept ;
+    skos:inScheme eo:CommonBandNameScheme ;
+    skos:notation "lwir12" ;
+    skos:prefLabel "Long-wave Infrared 12"@en ;
+    skos:definition "Band range: 11.5 - 12.5µm."@en .

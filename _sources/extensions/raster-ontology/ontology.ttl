@@ -1,0 +1,120 @@
+@prefix raster: <https://w3id.org/ogc/stac/raster/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Ontology Metadata
+#################################################################
+
+raster: a owl:Ontology ;
+    dct:title "STAC Raster Extension Ontology" ;
+    dct:description """Vocabulary for the elements defined by the STAC Raster extension: per-band pixel encoding, calibration and histogram metadata.
+
+This ontology describes only the raster:* fields that the extension adds. STAC common metadata (the 'bands' array) is not itself defined here, since it is shared with other extensions (Classification, EO) and is not the Raster extension's own concept.
+
+Combines skos.ttl (raster:SamplingScheme, the fixed sampling enumeration, as a skos:ConceptScheme) and owl.ttl (the raster:* datatype/object properties and raster:Histogram).""" ;
+    dct:source <https://github.com/stac-extensions/raster/tree/v2.0.0> ;
+    dct:creator "Rob Atkinson, OGC" ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    owl:versionInfo "2.0.0" .
+
+#################################################################
+# SKOS component — the fixed raster:sampling enumeration
+# (component source: skos.ttl)
+#################################################################
+
+raster:SamplingScheme a skos:ConceptScheme ;
+    dct:title "Raster Pixel Sampling" ;
+    dct:description "The fixed set of pixel sampling strategies defined by the STAC Raster extension." ;
+    rdfs:isDefinedBy raster: .
+
+raster:area a skos:Concept ;
+    skos:inScheme raster:SamplingScheme ;
+    skos:notation "area" ;
+    skos:prefLabel "Area sampling"@en ;
+    skos:definition "A pixel value should be assumed to represent a sampling over the region of the pixel."@en .
+
+raster:point a skos:Concept ;
+    skos:inScheme raster:SamplingScheme ;
+    skos:notation "point" ;
+    skos:prefLabel "Point sampling"@en ;
+    skos:definition "A pixel value should be assumed to represent a point sample at the center of the pixel."@en .
+
+#################################################################
+# OWL component — the raster:* datatype properties and the
+# raster:Histogram class
+# (component source: owl.ttl)
+#################################################################
+
+raster:sampling a owl:DatatypeProperty ;
+    rdfs:label "pixel sampling" ;
+    dct:description "Indicates whether a pixel value should be assumed to represent an area sampling or a point sampling, drawn from the fixed raster:SamplingScheme vocabulary." ;
+    rdfs:comment "Range is skos:Concept: the value is one of raster:SamplingScheme's members (raster:area, raster:point), addressed by its skos:notation string in JSON." ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy raster: .
+
+raster:bits_per_sample a owl:DatatypeProperty ;
+    rdfs:label "bits per sample" ;
+    dct:description "The actual number of bits used for this band. Normally only present when the number of bits is non-standard for the datatype." ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy raster: .
+
+raster:spatial_resolution a owl:DatatypeProperty ;
+    rdfs:label "spatial resolution" ;
+    dct:description "Average spatial resolution (in meters) of the pixels in the band." ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy raster: .
+
+raster:scale a owl:DatatypeProperty ;
+    rdfs:label "pixel value scale" ;
+    dct:description "Multiplicator factor of the pixel value to transform into the value (i.e. pixel value * scale + offset)." ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy raster: .
+
+raster:offset a owl:DatatypeProperty ;
+    rdfs:label "pixel value offset" ;
+    dct:description "Number to be added to the pixel value (after scaling) to transform into the value." ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy raster: .
+
+raster:Histogram a owl:Class ;
+    rdfs:label "raster histogram" ;
+    dct:description "Histogram distribution information of the pixel values in a band." ;
+    rdfs:isDefinedBy raster: .
+
+raster:histogram a owl:ObjectProperty ;
+    rdfs:label "raster histogram" ;
+    dct:description "The Histogram Object describing the distribution of pixel values in the band." ;
+    rdfs:range raster:Histogram ;
+    rdfs:isDefinedBy raster: .
+
+raster:count a owl:DatatypeProperty ;
+    rdfs:label "histogram bucket count" ;
+    dct:description "REQUIRED. The number of buckets of the distribution." ;
+    rdfs:domain raster:Histogram ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy raster: .
+
+raster:min a owl:DatatypeProperty ;
+    rdfs:label "histogram minimum" ;
+    dct:description "REQUIRED. Minimum value of the buckets, i.e. the mean value of the first bucket." ;
+    rdfs:domain raster:Histogram ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy raster: .
+
+raster:max a owl:DatatypeProperty ;
+    rdfs:label "histogram maximum" ;
+    dct:description "REQUIRED. Maximum value of the buckets, i.e. the mean value of the last bucket." ;
+    rdfs:domain raster:Histogram ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy raster: .
+
+raster:buckets a owl:DatatypeProperty ;
+    rdfs:label "histogram buckets" ;
+    dct:description "REQUIRED. An array of integer counts, one per distribution bucket, containing at least three buckets." ;
+    rdfs:domain raster:Histogram ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy raster: .

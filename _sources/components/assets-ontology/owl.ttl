@@ -1,0 +1,27 @@
+@prefix assets: <https://w3id.org/ogc/stac/assets/> .
+@prefix stac:   <https://w3id.org/ogc/stac/core/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# OWL component — assets:roles
+#
+# The Asset Object's other fields are all reused, not minted here:
+#   href        -> JSON-LD @id (the asset's own identity, not a predicate)
+#   title       -> dct:title (reused)
+#   description -> dct:description (reused)
+#   type        -> dct:format (reused; an IANA media type)
+# stac:Asset and stac:hasAsset are defined by the STAC core ontology and are
+# reused as this property's domain/range context, not redefined here.
+#################################################################
+
+assets:roles a owl:DatatypeProperty ;
+    rdfs:label "asset roles" ;
+    dct:description "The semantic roles of the asset, similar to the use of 'rel' in Links." ;
+    rdfs:comment "Range is a plain string, not skos:Concept: the STAC specification explicitly allows custom roles beyond its best-practices list, so the JSON-LD context cannot safely convert the value to a term IRI (an unrecognized role would otherwise expand to a bogus relative IRI instead of staying a literal). Recommended values are documented in assets:AssetRoleScheme (see skos.ttl) and correspond to this string by skos:notation, but are not enforced or auto-linked." ;
+    rdfs:domain stac:Asset ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy assets: .

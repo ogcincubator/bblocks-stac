@@ -1,0 +1,53 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix raster: <https://w3id.org/ogc/stac/raster/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Raster extension properties.
+#
+# raster:sampling must be one of raster:SamplingScheme's two members. The Histogram
+# Object requires count, min, max and buckets (min 3 buckets per the extension).
+
+raster:SamplingShape a sh:NodeShape ;
+    rdfs:label "raster:sampling shape" ;
+    sh:targetSubjectsOf raster:sampling ;
+    sh:property [
+        sh:path raster:sampling ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in ( raster:area raster:point ) ;
+    ] .
+
+raster:BitsPerSampleShape a sh:NodeShape ;
+    rdfs:label "raster:bits_per_sample shape" ;
+    sh:targetSubjectsOf raster:bits_per_sample ;
+    sh:property [ sh:path raster:bits_per_sample ; sh:datatype xsd:integer ; sh:maxCount 1 ] .
+
+raster:SpatialResolutionShape a sh:NodeShape ;
+    rdfs:label "raster:spatial_resolution shape" ;
+    sh:targetSubjectsOf raster:spatial_resolution ;
+    sh:property [ sh:path raster:spatial_resolution ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+raster:ScaleShape a sh:NodeShape ;
+    rdfs:label "raster:scale shape" ;
+    sh:targetSubjectsOf raster:scale ;
+    sh:property [ sh:path raster:scale ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+raster:OffsetShape a sh:NodeShape ;
+    rdfs:label "raster:offset shape" ;
+    sh:targetSubjectsOf raster:offset ;
+    sh:property [ sh:path raster:offset ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+raster:HistogramShape a sh:NodeShape ;
+    rdfs:label "raster:Histogram shape" ;
+    sh:targetClass raster:Histogram ;
+    sh:property [ sh:path raster:count ; sh:datatype xsd:integer ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path raster:min ; sh:datatype xsd:double ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path raster:max ; sh:datatype xsd:double ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path raster:buckets ; sh:datatype xsd:integer ; sh:minCount 3 ] .
+
+raster:HistogramUsageShape a sh:NodeShape ;
+    rdfs:label "raster:histogram usage shape" ;
+    sh:targetSubjectsOf raster:histogram ;
+    sh:property [ sh:path raster:histogram ; sh:maxCount 1 ; sh:node raster:HistogramShape ] .

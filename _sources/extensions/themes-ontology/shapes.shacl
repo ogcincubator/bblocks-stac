@@ -1,0 +1,41 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Themes extension vocabulary.
+#
+# thns:scheme and thns:concepts are REQUIRED on every Theme; thns:id is REQUIRED
+# on every Concept. thns:name/thns:description are optional and single-valued.
+
+thns:ThemeShape a sh:NodeShape ;
+    rdfs:label "thns:Theme shape" ;
+    sh:targetClass thns:Theme ;
+    sh:property [
+        sh:path thns:scheme ;
+        sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ;
+    ] ;
+    sh:property [
+        sh:path thns:concepts ;
+        sh:minCount 1 ;
+        sh:node thns:ConceptShape ;
+    ] .
+
+thns:ConceptShape a sh:NodeShape ;
+    rdfs:label "thns:Concept shape" ;
+    sh:targetClass thns:Concept ;
+    sh:property [
+        sh:path thns:id ;
+        sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ;
+    ] ;
+    sh:property [ sh:path thns:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path thns:description ; sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+thns:SchemesUsageShape a sh:NodeShape ;
+    rdfs:label "thns:schemes usage shape" ;
+    sh:targetSubjectsOf thns:schemes ;
+    sh:property [
+        sh:path thns:schemes ;
+        sh:minCount 1 ;
+        sh:node thns:ThemeShape ;
+    ] .

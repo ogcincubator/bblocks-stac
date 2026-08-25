@@ -1,0 +1,60 @@
+@prefix eo:   <https://w3id.org/ogc/stac/eo/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# OWL component — the eo:* datatype properties
+#
+# eo:common_name is a controlled vocabulary and is defined in skos.ttl instead.
+#
+# eo:center_wavelength, eo:full_width_half_max and eo:solar_illumination apply to
+# Band objects (the "bands" array of STAC common metadata) — a structure this
+# ontology does not itself define, since it is not the Electro-Optical extension's
+# own concept. No rdfs:domain is asserted for them; see rdfs:comment on each.
+#################################################################
+
+eo:cloud_cover a owl:DatatypeProperty ;
+    rdfs:label "cloud cover" ;
+    dct:description "Estimate of cloud cover, as a percentage (0-100), of the item/asset." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy eo: .
+
+eo:snow_cover a owl:DatatypeProperty ;
+    rdfs:label "snow and ice cover" ;
+    dct:description "Estimate of snow and ice cover, as a percentage (0-100), of the item/asset." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy eo: .
+
+eo:common_name a owl:DatatypeProperty ;
+    rdfs:label "common band name" ;
+    dct:description "The name commonly used to refer to the band, drawn from the fixed EO Common Band Names vocabulary (eo:CommonBandNameScheme, see skos.ttl)." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology. Range is skos:Concept because the value is one of eo:CommonBandNameScheme's members (eo:pan, eo:blue, ...), addressed by its skos:notation string in JSON." ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy eo: .
+
+eo:center_wavelength a owl:DatatypeProperty ;
+    rdfs:label "center wavelength" ;
+    dct:description "The center wavelength of the band, in micrometers (µm)." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology." ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy eo: .
+
+eo:full_width_half_max a owl:DatatypeProperty ;
+    rdfs:label "full width half max (FWHM)" ;
+    dct:description "The width of the band, as measured at half the maximum transmission, in micrometers (µm)." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology." ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy eo: .
+
+eo:solar_illumination a owl:DatatypeProperty ;
+    rdfs:label "solar illumination" ;
+    dct:description "The solar illumination of the band, in W/m2/micrometers." ;
+    rdfs:comment "Applies to a Band object (STAC common metadata 'bands' array), not defined by this ontology." ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy eo: .

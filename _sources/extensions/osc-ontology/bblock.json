@@ -1,17 +1,28 @@
 {
   "name": "STAC Open Science Extension Ontology",
   "highlighted": false,
-  "title": "OSC ontology",
-  "description": "Definitions for STAC Open Science Catalog extension elements",
-  "status": "stable",
-  "version": "0.1",
+  "title": "Definitions for STAC OSC extension elements",
+  "description": "Vocabulary defining the elements of the STAC ESA Open Science Catalog (OSC) extension (osc:type, osc:status, osc:project, osc:region, osc:variables, osc:missions, osc:experiment, osc:workflows), providing Linked Data terms for the STAC OSC schema. osc:type and osc:status are modeled as skos:ConceptSchemes; the remaining free-text fields stay OWL. Replaces an earlier placeholder that incorrectly reused the STAC core ontology's namespace and described none of OSC's own elements.",
+  "status": "under-development",
+  "version": "0.2",
   "itemClass": "model",
   "dependsOn": [
+  ],
+  "sources": [
+    { "title": "GitHub Repository", "link": "https://github.com/stac-extensions/osc" },
+    { "title": "JSON Schema (v1.0.0)", "link": "https://stac-extensions.github.io/osc/v1.0.0/schema.json" },
+    { "title": "README (field table for project/product resources)", "link": "https://github.com/stac-extensions/osc/blob/main/README.md" }
+  ],
+  "shaclShapes": [
+    "shapes.shacl"
+  ],
+  "shaclClosures": [
+    "skos.ttl"
   ],
 
   "rules": [
 
   ],
   "dateTimeAddition": "2025-06-12T00:00:00Z",
-  "dateOfLastChange": "2025-06-12"
+  "dateOfLastChange": "2026-08-25"
 }

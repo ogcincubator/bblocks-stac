@@ -1,15 +1,24 @@
 {
   "@context": {
     "raster": "https://w3id.org/ogc/stac/raster/",
-    "concepts": {
-      "@id": "https://w3id.org/ogc/stac/raster/bands",
-      "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
-      }
+    "raster:sampling": {
+      "@id": "raster:sampling",
+      "@type": "@vocab",
+      "@context": { "area": "raster:area", "point": "raster:point" }
     },
-    "raster:range": {
-      "@id": "https://w3id.org/ogc/stac/raster/range",
-      "@container": "@list"
+    "raster:bits_per_sample": { "@id": "raster:bits_per_sample", "@type": "xsd:integer" },
+    "raster:spatial_resolution": { "@id": "raster:spatial_resolution", "@type": "xsd:double" },
+    "raster:scale": { "@id": "raster:scale", "@type": "xsd:double" },
+    "raster:offset": { "@id": "raster:offset", "@type": "xsd:double" },
+    "raster:histogram": {
+      "@id": "raster:histogram",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/raster/",
+        "count": "raster:count",
+        "min": "raster:min",
+        "max": "raster:max",
+        "buckets": { "@id": "raster:buckets", "@container": "@list" }
+      }
     }
   }
 }

@@ -1,0 +1,74 @@
+@prefix osc:  <https://w3id.org/ogc/stac/osc/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# OWL component — the osc:* datatype properties
+#
+# osc:type and osc:status are controlled vocabularies and are defined in
+# skos.ttl instead. osc:project/osc:workflows/osc:variables/osc:missions/
+# osc:experiment/osc:region are free-text fields the extension does not
+# constrain to a fixed list, so they stay plain OWL datatype properties.
+#################################################################
+
+osc:type a owl:DatatypeProperty ;
+    rdfs:label "OSC resource type" ;
+    dct:description "REQUIRED. Specifies whether the resource is a 'project' or a 'product', drawn from the fixed osc:ResourceTypeScheme vocabulary." ;
+    rdfs:comment "Range is skos:Concept: the value is one of osc:ResourceTypeScheme's members (osc:project-type, osc:product-type), addressed by its skos:notation string in JSON." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection stac:Catalog) ] ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy osc: .
+
+osc:status a owl:DatatypeProperty ;
+    rdfs:label "OSC status" ;
+    dct:description "REQUIRED. The lifecycle state of the project or product, drawn from the fixed osc:StatusScheme vocabulary." ;
+    rdfs:comment "Range is skos:Concept: the value is one of osc:StatusScheme's members (osc:planned, osc:ongoing, osc:completed), addressed by its skos:notation string in JSON." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection stac:Catalog) ] ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy osc: .
+
+osc:project a owl:DatatypeProperty ;
+    rdfs:label "OSC project" ;
+    dct:description "REQUIRED on products. Names the science initiative (Project) a product belongs to." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy osc: .
+
+osc:region a owl:DatatypeProperty ;
+    rdfs:label "OSC region" ;
+    dct:description "The geographic area associated with the project/product, e.g. 'Arctic' or 'Agulhas'." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy osc: .
+
+osc:variables a owl:DatatypeProperty ;
+    rdfs:label "OSC variables" ;
+    dct:description "Observable physical phenomena tracked by the product, e.g. 'Wind stress'." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy osc: .
+
+osc:missions a owl:DatatypeProperty ;
+    rdfs:label "OSC missions" ;
+    dct:description "Satellite missions that supplied input data for the product." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy osc: .
+
+osc:experiment a owl:DatatypeProperty ;
+    rdfs:label "OSC experiment" ;
+    dct:description "The name of the specific workflow execution that generated the product." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy osc: .
+
+osc:workflows a owl:DatatypeProperty ;
+    rdfs:label "OSC workflows" ;
+    dct:description "Processing pipelines developed within the project context." ;
+    rdfs:domain stac:Collection ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy osc: .

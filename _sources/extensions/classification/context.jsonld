@@ -1,15 +1,47 @@
 {
   "@context": {
-    "raster": "https://w3id.org/ogc/stac/raster/",
-    "raster:bands": {
-      "@id": "raster:bands",
+    "classification": "https://w3id.org/ogc/stac/classification/",
+    "classification:classes": {
+      "@id": "classification:classes",
+      "@container": "@set",
       "@context": {
-        "@vocab": "https://w3id.org/ogc/stac/raster/"
+        "@vocab": "https://w3id.org/ogc/stac/classification/",
+        "value": "classification:value",
+        "name": "classification:name",
+        "title": "classification:title",
+        "description": "classification:description",
+        "color_hint": "classification:color_hint",
+        "nodata": "classification:nodata",
+        "percentage": "classification:percentage",
+        "count": "classification:count"
       }
     },
-    "raster:range": {
-      "@id": "raster:range",
-      "@container": "@list"
+    "classification:bitfields": {
+      "@id": "classification:bitfields",
+      "@container": "@set",
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/stac/classification/",
+        "offset": "classification:offset",
+        "length": "classification:length",
+        "name": "classification:name",
+        "description": "classification:description",
+        "roles": { "@id": "classification:roles", "@container": "@set" },
+        "classes": {
+          "@id": "classification:classes",
+          "@container": "@set",
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/stac/classification/",
+            "value": "classification:value",
+            "name": "classification:name",
+            "title": "classification:title",
+            "description": "classification:description",
+            "color_hint": "classification:color_hint",
+            "nodata": "classification:nodata",
+            "percentage": "classification:percentage",
+            "count": "classification:count"
+          }
+        }
+      }
     }
   }
 }

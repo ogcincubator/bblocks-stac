@@ -1,0 +1,75 @@
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix classification: <https://w3id.org/ogc/stac/classification/> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Classification extension vocabulary.
+#
+# classification:value and classification:name are REQUIRED on every Class Object;
+# classification:offset, classification:length and classification:classes are REQUIRED
+# on every Bit Field Object. Other fields are optional and single-valued except
+# classification:roles, which may repeat.
+
+classification:ClassShape a sh:NodeShape ;
+    rdfs:label "classification:Class shape" ;
+    sh:targetClass classification:Class ;
+    sh:property [
+        sh:path classification:value ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path classification:name ;
+        sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ;
+        sh:pattern "^[0-9A-Za-z_-]+$" ;
+    ] ;
+    sh:property [ sh:path classification:title ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path classification:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [
+        sh:path classification:color_hint ;
+        sh:datatype xsd:string ; sh:maxCount 1 ;
+        sh:pattern "^[0-9A-Fa-f]{6}$" ;
+    ] ;
+    sh:property [ sh:path classification:nodata ; sh:datatype xsd:boolean ; sh:maxCount 1 ] ;
+    sh:property [
+        sh:path classification:percentage ;
+        sh:datatype xsd:double ; sh:maxCount 1 ;
+        sh:minInclusive 0 ; sh:maxInclusive 100 ;
+    ] ;
+    sh:property [ sh:path classification:count ; sh:datatype xsd:nonNegativeInteger ; sh:maxCount 1 ] .
+
+classification:BitFieldShape a sh:NodeShape ;
+    rdfs:label "classification:BitField shape" ;
+    sh:targetClass classification:BitField ;
+    sh:property [
+        sh:path classification:offset ;
+        sh:datatype xsd:nonNegativeInteger ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path classification:length ;
+        sh:datatype xsd:positiveInteger ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path classification:classes ;
+        sh:minCount 1 ;
+        sh:node classification:ClassShape ;
+    ] ;
+    sh:property [ sh:path classification:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path classification:description ; sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+classification:ClassesUsageShape a sh:NodeShape ;
+    rdfs:label "classification:classes usage shape" ;
+    sh:targetSubjectsOf classification:classes ;
+    sh:property [
+        sh:path classification:classes ;
+        sh:minCount 1 ;
+        sh:node classification:ClassShape ;
+    ] .
+
+classification:BitfieldsUsageShape a sh:NodeShape ;
+    rdfs:label "classification:bitfields usage shape" ;
+    sh:targetSubjectsOf classification:bitfields ;
+    sh:property [
+        sh:path classification:bitfields ;
+        sh:minCount 1 ;
+        sh:node classification:BitFieldShape ;
+    ] .

@@ -1,0 +1,29 @@
+examples:
+  - title: Raster band with scale/offset (DN to reflectance conversion)
+    # Values taken from the STAC Raster extension example: https://github.com/stac-extensions/raster
+    snippets:
+      - language: turtle
+        code: |
+          @prefix raster: <https://w3id.org/ogc/stac/raster/> .
+          @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:     <https://example.org/stac/> .
+
+          ex:B4-band
+              raster:scale  "0.0001"^^xsd:double ;
+              raster:offset "0.0"^^xsd:double ;
+              raster:sampling raster:area .
+
+  - title: Raster band histogram
+    snippets:
+      - language: turtle
+        code: |
+          @prefix raster: <https://w3id.org/ogc/stac/raster/> .
+          @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:     <https://example.org/stac/> .
+
+          ex:B4-band raster:histogram [
+              raster:count 10 ;
+              raster:min "0.0"^^xsd:double ;
+              raster:max "10000.0"^^xsd:double ;
+              raster:buckets 4, 20, 100, 15, 8, 3, 2, 1, 1, 1 ;
+          ] .
