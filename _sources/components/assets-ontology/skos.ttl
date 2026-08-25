@@ -1,0 +1,90 @@
+@prefix assets: <https://w3id.org/ogc/stac/assets/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# SKOS component — the STAC "Asset Roles" best-practice vocabulary.
+#
+# The STAC specification's best-practices.md documents a set of commonly used
+# asset roles; assets:roles is NOT restricted to this list (the spec explicitly
+# allows custom roles), so this scheme is marked non-exhaustive — the same
+# pattern used for mlm:FrameworkScheme.
+#################################################################
+
+assets:AssetRoleScheme a skos:ConceptScheme ;
+    dct:title "STAC Asset Roles" ;
+    dct:description "Commonly used semantic roles for a STAC Asset, as documented in the STAC specification's best practices. Assets may also carry roles outside this list — it is a recommended, not closed, vocabulary." ;
+    rdfs:isDefinedBy assets: .
+
+assets:data a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "data" ;
+    skos:prefLabel "Data"@en ;
+    skos:definition "The data itself, excluding the metadata."@en .
+
+assets:metadata a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "metadata" ;
+    skos:prefLabel "Metadata"@en ;
+    skos:definition "Metadata sidecar files describing the data, for example a Landsat-8 MTL file."@en .
+
+assets:thumbnail a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "thumbnail" ;
+    skos:prefLabel "Thumbnail"@en ;
+    skos:definition "An asset that represents a thumbnail of the Item or Collection: typically an RGB or grayscale image primarily for human consumption, low resolution, restricted spatial extent, and displayable in a web browser without scripts or extensions."@en .
+
+assets:overview a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "overview" ;
+    skos:prefLabel "Overview"@en ;
+    skos:definition "An asset that represents a more detailed overview of the Item or Collection: typically an RGB or grayscale image primarily for human consumption, medium resolution, full spatial extent, in an easily visualized format (e.g. Cloud-Optimized GeoTIFF)."@en .
+
+assets:visual a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "visual" ;
+    skos:prefLabel "Visual"@en ;
+    skos:definition "An asset that represents a detailed overview of the Item or Collection: typically an RGB or grayscale image primarily for human consumption, high or native resolution (often sharpened), full spatial extent, in an easily visualized format (e.g. Cloud-Optimized GeoTIFF)."@en .
+
+assets:date a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "date" ;
+    skos:prefLabel "Date"@en ;
+    skos:definition "An asset that provides per-pixel acquisition timestamps, typically serving as metadata to another asset."@en .
+
+assets:graphic a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "graphic" ;
+    skos:prefLabel "Graphic"@en ;
+    skos:definition "A supporting plot, illustration, or graph associated with the Item."@en .
+
+assets:data-mask a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "data-mask" ;
+    skos:prefLabel "Data mask"@en ;
+    skos:definition "A file indicating whether corresponding pixels have valid data and, if not, the type of invalid data."@en .
+
+assets:snow-ice a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "snow-ice" ;
+    skos:prefLabel "Snow/ice"@en ;
+    skos:definition "Points to a file that indicates whether a pixel is assessed as being snow/ice or not."@en .
+
+assets:land-water a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "land-water" ;
+    skos:prefLabel "Land/water"@en ;
+    skos:definition "Points to a file that indicates whether a pixel is assessed as being land or water."@en .
+
+assets:water-mask a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "water-mask" ;
+    skos:prefLabel "Water mask"@en ;
+    skos:definition "Points to a file that indicates whether a pixel is assessed as being water (e.g. a flooding map)."@en .
+
+assets:iso-19115 a skos:Concept ;
+    skos:inScheme assets:AssetRoleScheme ;
+    skos:notation "iso-19115" ;
+    skos:prefLabel "ISO 19115 metadata"@en ;
+    skos:definition "Points to an ISO 19115 metadata file."@en .

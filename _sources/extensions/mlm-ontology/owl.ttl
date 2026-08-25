@@ -1,0 +1,333 @@
+@prefix mlm:        <https://w3id.org/ogc/stac/mlm/> .
+@prefix stac:       <https://w3id.org/ogc/stac/core/> .
+@prefix processing: <https://w3id.org/ogc/stac/processing/> .
+@prefix classification: <https://w3id.org/ogc/stac/classification/> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# OWL component — top-level mlm:* properties and the ModelInput /
+# ModelOutput / InputStructure / ResultStructure / ValueScaling classes
+#
+# mlm:tasks, mlm:framework, mlm:accelerator and ModelInput's resize_type
+# take values from the SKOS schemes defined in skos.ttl.
+#
+# ModelOutput reuses classification:classes from the STAC Classification
+# extension (already an MLM dependency) rather than redefining it — MLM
+# only reuses that term, it does not own it.
+#################################################################
+
+mlm:name a owl:DatatypeProperty ;
+    rdfs:label "model name" ;
+    dct:description "REQUIRED. A name for the model, distinct from simply naming the model architecture." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:architecture a owl:DatatypeProperty ;
+    rdfs:label "model architecture" ;
+    dct:description "REQUIRED. A generic, well-established architecture name for the model, typically a common name from the literature (e.g. ResNet, VGG, Vision Transformer)." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:tasks a owl:ObjectProperty ;
+    rdfs:label "model tasks" ;
+    dct:description "REQUIRED. The machine learning task type(s) the model supports." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection mlm:ModelOutput) ] ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "Values are drawn from mlm:TaskScheme (see skos.ttl)." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:framework a owl:DatatypeProperty ;
+    rdfs:label "model framework" ;
+    dct:description "The ML library/framework used to train (and typically to run) the model." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Range is a plain string, not skos:Concept: the extension explicitly allows any framework name as free text, so the JSON-LD context cannot safely convert the value to a term IRI (an unrecognized name would otherwise expand to a bogus relative IRI instead of staying a literal). Recommended values are documented in mlm:FrameworkScheme (see skos.ttl) and correspond to this string by skos:notation, but are not enforced or auto-linked." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:framework_version a owl:DatatypeProperty ;
+    rdfs:label "framework version" ;
+    dct:description "The framework's version, matching its own versioning scheme." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:memory_size a owl:DatatypeProperty ;
+    rdfs:label "memory size" ;
+    dct:description "Memory size (in bytes) required to load the model with the specified accelerator." ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:total_parameters a owl:DatatypeProperty ;
+    rdfs:label "total parameters" ;
+    dct:description "Total number of model parameters (weights)." ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:pretrained a owl:DatatypeProperty ;
+    rdfs:label "is pretrained" ;
+    dct:description "Whether the model was pretrained. If trained from scratch, mlm:pretrained_source should be explicitly null." ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:pretrained_source a owl:DatatypeProperty ;
+    rdfs:label "pretrained source" ;
+    dct:description "The source of the pre-training dataset, or an explicit null if trained from scratch." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:batch_size_suggestion a owl:DatatypeProperty ;
+    rdfs:label "suggested batch size" ;
+    dct:description "A recommended batch size to employ the model with the specified accelerator." ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:accelerator a owl:DatatypeProperty ;
+    rdfs:label "accelerator" ;
+    dct:description "The hardware accelerator the model targets. A null value means no specific accelerator is required." ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "Values are drawn from mlm:AcceleratorScheme (see skos.ttl); the JSON value null (no accelerator required) has no corresponding skos:Concept and is simply the absence of this property in RDF." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:accelerator_constrained a owl:DatatypeProperty ;
+    rdfs:label "accelerator constrained" ;
+    dct:description "Whether the model requires the specified accelerator to run (true), or can fall back to other hardware (false, the default)." ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:accelerator_summary a owl:DatatypeProperty ;
+    rdfs:label "accelerator summary" ;
+    dct:description "A free-text description of the accelerator requirements/recommendations." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:accelerator_count a owl:DatatypeProperty ;
+    rdfs:label "accelerator count" ;
+    dct:description "The minimum number of accelerator instances required to run the model." ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:hyperparameters a owl:DatatypeProperty ;
+    rdfs:label "hyperparameters" ;
+    dct:description "Additional hyperparameters relevant for the model." ;
+    rdfs:range rdf:JSON ;
+    rdfs:comment "Carried as an opaque JSON object (key/value map) in the JSON-LD mapping (@json); individual entries are not uplifted to separate triples." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:artifact_type a owl:DatatypeProperty ;
+    rdfs:label "artifact type" ;
+    dct:description "Specifies the framework-specific type of the model artifact, typically related to a model serialization method (e.g. torch.save, tf.keras.Model.save)." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:compile_method a owl:DatatypeProperty ;
+    rdfs:label "compile method" ;
+    dct:description "Specifies the method used to compile the model, if any (e.g. aot, jit)." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:entrypoint a owl:DatatypeProperty ;
+    rdfs:label "entrypoint" ;
+    dct:description "The entrypoint script or function where the model can be invoked for inference on input data." ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+#################################################################
+# ModelInput / ModelOutput
+#################################################################
+
+mlm:ModelInput a owl:Class ;
+    rdfs:label "MLM model input" ;
+    dct:description "Describes one input a model accepts: its identity, structure, band/variable sources, and any value scaling or resizing applied before inference." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:input a owl:ObjectProperty ;
+    rdfs:label "model inputs" ;
+    dct:description "REQUIRED. The model's input(s)." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range mlm:ModelInput ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ModelOutput a owl:Class ;
+    rdfs:label "MLM model output" ;
+    dct:description "Describes one output a model produces: its identity, associated task(s), and result structure." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:output a owl:ObjectProperty ;
+    rdfs:label "model outputs" ;
+    dct:description "REQUIRED. The model's output(s)." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
+    rdfs:range mlm:ModelOutput ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:io_name a owl:DatatypeProperty ;
+    rdfs:label "input/output name" ;
+    dct:description "REQUIRED. Name of the ModelInput or ModelOutput." ;
+    rdfs:domain [ owl:unionOf (mlm:ModelInput mlm:ModelOutput) ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "JSON key is 'name' on both ModelInput and ModelOutput; minted as mlm:io_name to avoid clashing with mlm:name (the top-level model name)." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:io_description a owl:DatatypeProperty ;
+    rdfs:label "input/output description" ;
+    dct:description "An explanation of the ModelInput or ModelOutput." ;
+    rdfs:domain [ owl:unionOf (mlm:ModelInput mlm:ModelOutput) ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "JSON key is 'description' on both ModelInput and ModelOutput." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:bands a owl:DatatypeProperty ;
+    rdfs:label "input/output bands" ;
+    dct:description "References to bands (from EO, Raster or STAC common metadata) consumed or produced by this input/output." ;
+    rdfs:domain [ owl:unionOf (mlm:ModelInput mlm:ModelOutput) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:variables a owl:DatatypeProperty ;
+    rdfs:label "input/output variables" ;
+    dct:description "References to variables (from the Datacube extension) consumed or produced by this input/output." ;
+    rdfs:domain [ owl:unionOf (mlm:ModelInput mlm:ModelOutput) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:value_scaling a owl:ObjectProperty ;
+    rdfs:label "value scaling" ;
+    dct:description "The transformation(s) applied to raw values before they are used as model input." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:range mlm:ValueScaling ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:resize_type a owl:DatatypeProperty ;
+    rdfs:label "resize type" ;
+    dct:description "The spatial resizing method applied to the input, if the required shape differs from the source data." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "Values are drawn from mlm:ResizeTypeScheme (see skos.ttl)." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:pre_processing_function a owl:DatatypeProperty ;
+    rdfs:subPropertyOf processing:expression ;
+    rdfs:label "pre-processing function" ;
+    dct:description "A processing expression that reshapes/transforms raw data into this ModelInput's expected form." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:range rdf:JSON ;
+    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:post_processing_function a owl:DatatypeProperty ;
+    rdfs:subPropertyOf processing:expression ;
+    rdfs:label "post-processing function" ;
+    dct:description "A processing expression applied to the model's raw output to produce this ModelOutput's result." ;
+    rdfs:domain mlm:ModelOutput ;
+    rdfs:range rdf:JSON ;
+    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse." ;
+    rdfs:isDefinedBy mlm: .
+
+#################################################################
+# InputStructure / ResultStructure
+#################################################################
+
+mlm:InputStructure a owl:Class ;
+    rdfs:label "MLM input structure" ;
+    dct:description "The tensor shape, dimension ordering and data type a ModelInput expects." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:ResultStructure a owl:Class ;
+    rdfs:label "MLM result structure" ;
+    dct:description "The tensor shape, dimension ordering and data type a ModelOutput produces." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:input_structure a owl:ObjectProperty ;
+    rdfs:label "input structure" ;
+    dct:description "REQUIRED. The InputStructure describing this ModelInput's tensor shape." ;
+    rdfs:domain mlm:ModelInput ;
+    rdfs:range mlm:InputStructure ;
+    rdfs:comment "JSON key is 'input' on ModelInput; minted as mlm:input_structure to avoid clashing with the top-level mlm:input (Item/Collection -> ModelInput) property." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:result a owl:ObjectProperty ;
+    rdfs:label "result structure" ;
+    dct:description "REQUIRED. The ResultStructure describing this ModelOutput's tensor shape." ;
+    rdfs:domain mlm:ModelOutput ;
+    rdfs:range mlm:ResultStructure ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:shape a owl:DatatypeProperty ;
+    rdfs:label "tensor shape" ;
+    dct:description "REQUIRED. The dimension sizes of the tensor (-1 indicates a variable/unknown size for that dimension)." ;
+    rdfs:domain [ owl:unionOf (mlm:InputStructure mlm:ResultStructure) ] ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:dim_order a owl:DatatypeProperty ;
+    rdfs:label "dimension order" ;
+    dct:description "REQUIRED. The label of each dimension in mlm:shape, in order." ;
+    rdfs:comment "Common values include batch, channel, bands, variables, time, height, width, depth, token, class, score, confidence, embedding — but the extension does not close this list, so no SKOS scheme is minted for it." ;
+    rdfs:domain [ owl:unionOf (mlm:InputStructure mlm:ResultStructure) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:data_type a owl:DatatypeProperty ;
+    rdfs:label "data type" ;
+    dct:description "The tensor's data type, using NumPy/raster data type names (e.g. uint8, int16, float32)." ;
+    rdfs:domain [ owl:unionOf (mlm:InputStructure mlm:ResultStructure) ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy mlm: .
+
+#################################################################
+# ValueScaling
+#################################################################
+
+mlm:ValueScaling a owl:Class ;
+    rdfs:label "MLM value scaling" ;
+    dct:description "One value-transformation step applied to a ModelInput's raw values. Which of minimum/maximum/mean/stddev/value applies depends on mlm:scaling_type (min-max and clip use minimum+maximum; z-score uses mean+stddev; clip-min uses minimum; clip-max uses maximum; offset and scale use value; processing reuses a Processing extension expression instead)." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:scaling_type a owl:DatatypeProperty ;
+    rdfs:label "value scaling type" ;
+    dct:description "REQUIRED. The transformation method this ValueScaling step applies." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "JSON key is 'type'; minted as mlm:scaling_type to avoid a bare, easily-collided local name. Values are drawn from mlm:ValueScalingTypeScheme (see skos.ttl)." ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:minimum a owl:DatatypeProperty ;
+    rdfs:label "scaling minimum" ;
+    dct:description "The minimum value used by min-max, clip or clip-min scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:maximum a owl:DatatypeProperty ;
+    rdfs:label "scaling maximum" ;
+    dct:description "The maximum value used by min-max, clip or clip-max scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:mean a owl:DatatypeProperty ;
+    rdfs:label "scaling mean" ;
+    dct:description "The mean value used by z-score scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:stddev a owl:DatatypeProperty ;
+    rdfs:label "scaling standard deviation" ;
+    dct:description "The standard deviation used by z-score scaling." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy mlm: .
+
+mlm:scaling_value a owl:DatatypeProperty ;
+    rdfs:label "scaling value" ;
+    dct:description "The single value added (offset) or multiplied (scale) into the raw value." ;
+    rdfs:domain mlm:ValueScaling ;
+    rdfs:range xsd:double ;
+    rdfs:comment "JSON key is 'value'; minted as mlm:scaling_value to avoid a bare, easily-collided local name." ;
+    rdfs:isDefinedBy mlm: .

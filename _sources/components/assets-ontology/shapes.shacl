@@ -1,0 +1,14 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix assets: <https://w3id.org/ogc/stac/assets/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Asset component vocabulary.
+#
+# assets:roles is open (recommended, not closed): any string is valid, so this only
+# constrains the datatype — no sh:in list, unlike a genuinely closed enumeration.
+
+assets:RolesShape a sh:NodeShape ;
+    rdfs:label "assets:roles shape" ;
+    sh:targetSubjectsOf assets:roles ;
+    sh:property [ sh:path assets:roles ; sh:datatype xsd:string ] .

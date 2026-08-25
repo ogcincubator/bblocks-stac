@@ -1,0 +1,42 @@
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# OWL component — thns:Theme, and the structural properties that
+# relate a STAC resource, a Theme, and its Concepts
+#
+# thns:Concept and its lexical properties are defined in skos.ttl.
+#################################################################
+
+thns:Theme a owl:Class ;
+    rdfs:label "theme" ;
+    dct:description "A Theme Object: identifies a knowledge organization system (thns:scheme) and the Concepts (thns:concepts) drawn from it that classify a STAC resource." ;
+    rdfs:comment "Functionally analogous to a skos:ConceptScheme membership assertion — thns:scheme names the scheme (by URI, preferably resolvable) and thns:concepts lists the skos:Concepts drawn from it — but is not itself declared rdfs:subClassOf skos:ConceptScheme, since thns:scheme stays a plain string (not the scheme's own IRI) for compatibility with the existing themes-shacl SPARQL rules that concatenate it." ;
+    rdfs:isDefinedBy thns: .
+
+thns:schemes a owl:ObjectProperty ;
+    rdfs:label "themes" ;
+    dct:description "REQUIRED. Relates a STAC resource (Item, Catalog or Collection) to a Theme it is classified by." ;
+    rdfs:comment "JSON key is 'themes'." ;
+    rdfs:domain [ owl:unionOf (stac:Item stac:Collection stac:Catalog) ] ;
+    rdfs:range thns:Theme ;
+    rdfs:isDefinedBy thns: .
+
+thns:scheme a owl:DatatypeProperty ;
+    rdfs:label "scheme identifier" ;
+    dct:description "REQUIRED. Identifies the knowledge organization system the Theme's concepts are drawn from, preferably as a resolvable URI." ;
+    rdfs:domain thns:Theme ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy thns: .
+
+thns:concepts a owl:ObjectProperty ;
+    rdfs:label "theme concepts" ;
+    dct:description "REQUIRED. One or more Concepts, from the Theme's scheme, assigned to the STAC resource." ;
+    rdfs:domain thns:Theme ;
+    rdfs:range thns:Concept ;
+    rdfs:isDefinedBy thns: .

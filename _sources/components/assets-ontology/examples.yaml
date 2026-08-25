@@ -1,0 +1,30 @@
+examples:
+  - title: A thumbnail asset
+    snippets:
+      - language: turtle
+        code: |
+          @prefix stac:   <https://w3id.org/ogc/stac/core/> .
+          @prefix assets: <https://w3id.org/ogc/stac/assets/> .
+          @prefix dct:    <http://purl.org/dc/terms/> .
+          @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:     <https://example.org/stac/assets/> .
+
+          ex:thumb a stac:Asset ;
+              dct:title "Thumbnail image" ;
+              dct:format "image/png" ;
+              assets:roles "thumbnail"^^xsd:string .
+
+  - title: A data asset with a custom role alongside a recommended one
+    snippets:
+      - language: turtle
+        code: |
+          @prefix stac:   <https://w3id.org/ogc/stac/core/> .
+          @prefix assets: <https://w3id.org/ogc/stac/assets/> .
+          @prefix dct:    <http://purl.org/dc/terms/> .
+          @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:     <https://example.org/stac/assets/> .
+
+          ex:B04 a stac:Asset ;
+              dct:title "Band 4 (red)" ;
+              dct:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+              assets:roles "data"^^xsd:string, "reflectance"^^xsd:string .

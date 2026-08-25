@@ -1,0 +1,33 @@
+examples:
+  - title: OSC product (matching the shape of stac-extensions/osc's product examples)
+    snippets:
+      - language: turtle
+        code: |
+          @prefix stac: <https://w3id.org/ogc/stac/core/> .
+          @prefix osc:  <https://w3id.org/ogc/stac/osc/> .
+          @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:   <https://example.org/stac/> .
+
+          ex:product-collection a stac:Collection ;
+              osc:type       osc:product-type ;
+              osc:status     osc:ongoing ;
+              osc:project    "Arctic Sea Ice Thickness"^^xsd:string ;
+              osc:region     "Arctic"^^xsd:string ;
+              osc:variables  "Sea ice thickness"^^xsd:string ;
+              osc:missions   "CryoSat-2"^^xsd:string ;
+              osc:experiment "cs2-retracker-v3"^^xsd:string .
+
+  - title: OSC project
+    snippets:
+      - language: turtle
+        code: |
+          @prefix stac: <https://w3id.org/ogc/stac/core/> .
+          @prefix osc:  <https://w3id.org/ogc/stac/osc/> .
+          @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+          @prefix ex:   <https://example.org/stac/> .
+
+          ex:project-collection a stac:Collection ;
+              osc:type      osc:project-type ;
+              osc:status    osc:planned ;
+              osc:region    "Agulhas"^^xsd:string ;
+              osc:workflows "cs2-retracker-v3"^^xsd:string .

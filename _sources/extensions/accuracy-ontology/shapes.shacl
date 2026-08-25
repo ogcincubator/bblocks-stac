@@ -1,0 +1,46 @@
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix accuracy: <https://w3id.org/ogc/stac/accuracy/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Accuracy extension properties.
+#
+# Each shape targets any resource that carries the property (sh:targetSubjectsOf),
+# because accuracy:* fields may appear on STAC Items, Collections or Assets, which
+# have no single common class. All fields are single-valued numbers; accuracy:geometric_rmse
+# additionally carries the extension's own minimum-0 constraint.
+
+accuracy:GeometricXBiasShape a sh:NodeShape ;
+    rdfs:label "accuracy:geometric_x_bias shape" ;
+    sh:targetSubjectsOf accuracy:geometric_x_bias ;
+    sh:property [ sh:path accuracy:geometric_x_bias ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+accuracy:GeometricYBiasShape a sh:NodeShape ;
+    rdfs:label "accuracy:geometric_y_bias shape" ;
+    sh:targetSubjectsOf accuracy:geometric_y_bias ;
+    sh:property [ sh:path accuracy:geometric_y_bias ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+accuracy:GeometricXStddevShape a sh:NodeShape ;
+    rdfs:label "accuracy:geometric_x_stddev shape" ;
+    sh:targetSubjectsOf accuracy:geometric_x_stddev ;
+    sh:property [ sh:path accuracy:geometric_x_stddev ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+accuracy:GeometricYStddevShape a sh:NodeShape ;
+    rdfs:label "accuracy:geometric_y_stddev shape" ;
+    sh:targetSubjectsOf accuracy:geometric_y_stddev ;
+    sh:property [ sh:path accuracy:geometric_y_stddev ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+accuracy:GeometricRmseShape a sh:NodeShape ;
+    rdfs:label "accuracy:geometric_rmse shape" ;
+    sh:targetSubjectsOf accuracy:geometric_rmse ;
+    sh:property [ sh:path accuracy:geometric_rmse ; sh:datatype xsd:double ; sh:minInclusive 0 ; sh:maxCount 1 ] .
+
+accuracy:MeasurementRelativeShape a sh:NodeShape ;
+    rdfs:label "accuracy:measurement_relative shape" ;
+    sh:targetSubjectsOf accuracy:measurement_relative ;
+    sh:property [ sh:path accuracy:measurement_relative ; sh:datatype xsd:double ; sh:maxCount 1 ] .
+
+accuracy:MeasurementAbsoluteShape a sh:NodeShape ;
+    rdfs:label "accuracy:measurement_absolute shape" ;
+    sh:targetSubjectsOf accuracy:measurement_absolute ;
+    sh:property [ sh:path accuracy:measurement_absolute ; sh:datatype xsd:double ; sh:maxCount 1 ] .

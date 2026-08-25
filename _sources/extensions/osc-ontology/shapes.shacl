@@ -1,0 +1,58 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix osc:  <https://w3id.org/ogc/stac/osc/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC OSC extension properties.
+#
+# osc:type and osc:status are REQUIRED, single-valued, and closed to their SKOS
+# scheme's members. osc:project is required on products but that distinction
+# (type-conditional requirement) is not expressible without a SPARQL-based shape,
+# so it is left as an optional, single-valued string here.
+
+osc:TypeShape a sh:NodeShape ;
+    rdfs:label "osc:type shape" ;
+    sh:targetSubjectsOf osc:type ;
+    sh:property [
+        sh:path osc:type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class skos:Concept ;
+        sh:in ( osc:project-type osc:product-type ) ;
+    ] .
+
+osc:StatusShape a sh:NodeShape ;
+    rdfs:label "osc:status shape" ;
+    sh:targetSubjectsOf osc:status ;
+    sh:property [
+        sh:path osc:status ; sh:minCount 1 ; sh:maxCount 1 ; sh:class skos:Concept ;
+        sh:in ( osc:planned osc:ongoing osc:completed ) ;
+    ] .
+
+osc:ProjectShape a sh:NodeShape ;
+    rdfs:label "osc:project shape" ;
+    sh:targetSubjectsOf osc:project ;
+    sh:property [ sh:path osc:project ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+osc:RegionShape a sh:NodeShape ;
+    rdfs:label "osc:region shape" ;
+    sh:targetSubjectsOf osc:region ;
+    sh:property [ sh:path osc:region ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+osc:ExperimentShape a sh:NodeShape ;
+    rdfs:label "osc:experiment shape" ;
+    sh:targetSubjectsOf osc:experiment ;
+    sh:property [ sh:path osc:experiment ; sh:datatype xsd:string ; sh:maxCount 1 ; sh:minLength 1 ] .
+
+osc:VariablesShape a sh:NodeShape ;
+    rdfs:label "osc:variables shape" ;
+    sh:targetSubjectsOf osc:variables ;
+    sh:property [ sh:path osc:variables ; sh:datatype xsd:string ; sh:minCount 1 ] .
+
+osc:MissionsShape a sh:NodeShape ;
+    rdfs:label "osc:missions shape" ;
+    sh:targetSubjectsOf osc:missions ;
+    sh:property [ sh:path osc:missions ; sh:datatype xsd:string ; sh:minCount 1 ] .
+
+osc:WorkflowsShape a sh:NodeShape ;
+    rdfs:label "osc:workflows shape" ;
+    sh:targetSubjectsOf osc:workflows ;
+    sh:property [ sh:path osc:workflows ; sh:datatype xsd:string ; sh:minCount 1 ] .

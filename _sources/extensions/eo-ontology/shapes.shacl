@@ -1,0 +1,49 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix eo:   <https://w3id.org/ogc/stac/eo/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SHACL shapes for the STAC Electro-Optical extension properties.
+#
+# eo:cloud_cover / eo:snow_cover are single-valued percentages. eo:common_name must be
+# one of eo:CommonBandNameScheme's members; the other band properties are single-valued
+# positive numbers, per the extension's own minimumExclusive/minimum constraints.
+
+eo:CloudCoverShape a sh:NodeShape ;
+    rdfs:label "eo:cloud_cover shape" ;
+    sh:targetSubjectsOf eo:cloud_cover ;
+    sh:property [ sh:path eo:cloud_cover ; sh:datatype xsd:double ; sh:minInclusive 0 ; sh:maxInclusive 100 ; sh:maxCount 1 ] .
+
+eo:SnowCoverShape a sh:NodeShape ;
+    rdfs:label "eo:snow_cover shape" ;
+    sh:targetSubjectsOf eo:snow_cover ;
+    sh:property [ sh:path eo:snow_cover ; sh:datatype xsd:double ; sh:minInclusive 0 ; sh:maxInclusive 100 ; sh:maxCount 1 ] .
+
+eo:CommonNameShape a sh:NodeShape ;
+    rdfs:label "eo:common_name shape" ;
+    sh:targetSubjectsOf eo:common_name ;
+    sh:property [
+        sh:path eo:common_name ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:in ( eo:pan eo:coastal eo:blue eo:green eo:green05 eo:yellow eo:red
+                eo:rededge eo:rededge071 eo:rededge075 eo:rededge078
+                eo:nir eo:nir08 eo:nir09 eo:cirrus eo:swir16 eo:swir22
+                eo:lwir eo:lwir11 eo:lwir12 ) ;
+    ] .
+
+eo:CenterWavelengthShape a sh:NodeShape ;
+    rdfs:label "eo:center_wavelength shape" ;
+    sh:targetSubjectsOf eo:center_wavelength ;
+    sh:property [ sh:path eo:center_wavelength ; sh:datatype xsd:double ; sh:minExclusive 0 ; sh:maxCount 1 ] .
+
+eo:FullWidthHalfMaxShape a sh:NodeShape ;
+    rdfs:label "eo:full_width_half_max shape" ;
+    sh:targetSubjectsOf eo:full_width_half_max ;
+    sh:property [ sh:path eo:full_width_half_max ; sh:datatype xsd:double ; sh:minExclusive 0 ; sh:maxCount 1 ] .
+
+eo:SolarIlluminationShape a sh:NodeShape ;
+    rdfs:label "eo:solar_illumination shape" ;
+    sh:targetSubjectsOf eo:solar_illumination ;
+    sh:property [ sh:path eo:solar_illumination ; sh:datatype xsd:double ; sh:minInclusive 0 ; sh:maxCount 1 ] .

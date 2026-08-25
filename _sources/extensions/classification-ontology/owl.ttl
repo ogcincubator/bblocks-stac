@@ -1,0 +1,79 @@
+@prefix classification: <https://w3id.org/ogc/stac/classification/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# OWL component — codelist containers, bitfields, and per-class
+# statistics that carry no SKOS meaning of their own
+#
+# classification:Class itself, and its lexical properties (value, name, title,
+# description), are defined in skos.ttl.
+#################################################################
+
+classification:classes a owl:ObjectProperty ;
+    rdfs:label "classification classes" ;
+    dct:description "A list of classes (a codelist) contained in the data, where one or more unique coded integer values are present within a raster asset or band." ;
+    rdfs:range classification:Class ;
+    rdfs:isDefinedBy classification: .
+
+classification:BitField a owl:Class ;
+    rdfs:label "classification bit field" ;
+    dct:description "A field of continuous bits within a pixel's value (a bit mask / bit index) whose bit-integer combinations represent classes." ;
+    rdfs:isDefinedBy classification: .
+
+classification:bitfields a owl:ObjectProperty ;
+    rdfs:label "classification bitfields" ;
+    dct:description "A list of bit fields (classes stored in fields of continuous bits within the pixel's value)." ;
+    rdfs:range classification:BitField ;
+    rdfs:isDefinedBy classification: .
+
+classification:offset a owl:DatatypeProperty ;
+    rdfs:label "bit field offset" ;
+    dct:description "REQUIRED. Position of the first (least significant, rightmost) bit of the field." ;
+    rdfs:domain classification:BitField ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy classification: .
+
+classification:length a owl:DatatypeProperty ;
+    rdfs:label "bit field length" ;
+    dct:description "REQUIRED. Number of bits in the field." ;
+    rdfs:domain classification:BitField ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:isDefinedBy classification: .
+
+classification:roles a owl:DatatypeProperty ;
+    rdfs:label "bit field roles" ;
+    dct:description "Semantic roles (STAC asset roles) that further specify the purpose of the bit field." ;
+    rdfs:domain classification:BitField ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy classification: .
+
+classification:color_hint a owl:DatatypeProperty ;
+    rdfs:label "class color hint" ;
+    dct:description "A hint for a legend/visualization color: six hexadecimal characters, either lower or upper case, without a leading '#'." ;
+    rdfs:domain classification:Class ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy classification: .
+
+classification:nodata a owl:DatatypeProperty ;
+    rdfs:label "class is nodata" ;
+    dct:description "Whether the value in this class represents missing data (nodata). Defaults to false when absent." ;
+    rdfs:domain classification:Class ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy classification: .
+
+classification:percentage a owl:DatatypeProperty ;
+    rdfs:label "class percentage" ;
+    dct:description "The percentage of the values in the file that belong to this class, between 0 and 100." ;
+    rdfs:domain classification:Class ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy classification: .
+
+classification:count a owl:DatatypeProperty ;
+    rdfs:label "class count" ;
+    dct:description "The number of pixels/values in the file that belong to this class." ;
+    rdfs:domain classification:Class ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy classification: .

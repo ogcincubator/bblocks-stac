@@ -1,0 +1,54 @@
+@prefix osc:  <https://w3id.org/ogc/stac/osc/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# SKOS component — osc:type and osc:status are fixed, extension-
+# defined enumerations.
+#################################################################
+
+osc:ResourceTypeScheme a skos:ConceptScheme ;
+    dct:title "OSC Resource Types" ;
+    dct:description "The fixed set of ESA Open Science Catalog resource types: whether a STAC resource represents a project or a product." ;
+    rdfs:isDefinedBy osc: .
+
+osc:project-type a skos:Concept ;
+    skos:inScheme osc:ResourceTypeScheme ;
+    skos:notation "project" ;
+    skos:prefLabel "Project"@en ;
+    skos:definition "A thematic science initiative, typically bound to a region, that develops workflows and produces products."@en .
+
+osc:product-type a skos:Concept ;
+    skos:inScheme osc:ResourceTypeScheme ;
+    skos:notation "product" ;
+    skos:prefLabel "Product"@en ;
+    skos:definition "An output of a project: data produced by running one of its workflows/experiments."@en .
+
+osc:StatusScheme a skos:ConceptScheme ;
+    dct:title "OSC Status" ;
+    dct:description "The fixed set of lifecycle states an OSC project or product may be in." ;
+    rdfs:isDefinedBy osc: .
+
+# The extension's schema gives only the enum values themselves and a one-line description of the
+# osc:status field as a whole ("Indicates if work is planned, ongoing, or completed") — no separate
+# prose per value. The definitions below are a faithful, minimal reading of each value in that context,
+# not additional spec text (there is none to copy).
+
+osc:planned a skos:Concept ;
+    skos:inScheme osc:StatusScheme ;
+    skos:notation "planned" ;
+    skos:prefLabel "Planned"@en ;
+    skos:definition "Work on the project or product has not yet started."@en .
+
+osc:ongoing a skos:Concept ;
+    skos:inScheme osc:StatusScheme ;
+    skos:notation "ongoing" ;
+    skos:prefLabel "Ongoing"@en ;
+    skos:definition "Work on the project or product is actively in progress."@en .
+
+osc:completed a skos:Concept ;
+    skos:inScheme osc:StatusScheme ;
+    skos:notation "completed" ;
+    skos:prefLabel "Completed"@en ;
+    skos:definition "Work on the project or product has finished."@en .

@@ -1,0 +1,26 @@
+@prefix raster: <https://w3id.org/ogc/stac/raster/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# SKOS component — raster:sampling is a fixed, extension-defined
+# enumeration of exactly two values.
+#################################################################
+
+raster:SamplingScheme a skos:ConceptScheme ;
+    dct:title "Raster Pixel Sampling" ;
+    dct:description "The fixed set of pixel sampling strategies defined by the STAC Raster extension." ;
+    rdfs:isDefinedBy raster: .
+
+raster:area a skos:Concept ;
+    skos:inScheme raster:SamplingScheme ;
+    skos:notation "area" ;
+    skos:prefLabel "Area sampling"@en ;
+    skos:definition "A pixel value should be assumed to represent a sampling over the region of the pixel."@en .
+
+raster:point a skos:Concept ;
+    skos:inScheme raster:SamplingScheme ;
+    skos:notation "point" ;
+    skos:prefLabel "Point sampling"@en ;
+    skos:definition "A pixel value should be assumed to represent a point sample at the center of the pixel."@en .

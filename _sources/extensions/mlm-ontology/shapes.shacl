@@ -1,0 +1,84 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix mlm:   <https://w3id.org/ogc/stac/mlm/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# SHACL shapes for the STAC MLM extension vocabulary.
+#
+# Only constrains what the extension itself guarantees: required top-level fields
+# (name, architecture, tasks, input, output), the closed enumerations (tasks,
+# accelerator, resize_type, scaling_type), and the required sub-fields of
+# ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling.
+
+mlm:ModelRootShape a sh:NodeShape ;
+    rdfs:label "MLM model root shape" ;
+    sh:targetSubjectsOf mlm:architecture ;
+    sh:property [ sh:path mlm:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path mlm:architecture ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path mlm:tasks ; sh:minCount 1 ; sh:class skos:Concept ] ;
+    sh:property [ sh:path mlm:input ; sh:minCount 1 ; sh:node mlm:ModelInputShape ] ;
+    sh:property [ sh:path mlm:output ; sh:minCount 1 ; sh:node mlm:ModelOutputShape ] .
+
+mlm:AcceleratorShape a sh:NodeShape ;
+    rdfs:label "mlm:accelerator shape" ;
+    sh:targetSubjectsOf mlm:accelerator ;
+    sh:property [
+        sh:path mlm:accelerator ; sh:maxCount 1 ; sh:class skos:Concept ;
+        sh:in ( mlm:amd64 mlm:cuda mlm:xla mlm:amd-rocm mlm:intel-ipex-cpu mlm:intel-ipex-gpu mlm:macos-arm ) ;
+    ] .
+
+mlm:ModelInputShape a sh:NodeShape ;
+    rdfs:label "mlm:ModelInput shape" ;
+    sh:targetClass mlm:ModelInput ;
+    sh:property [ sh:path mlm:io_name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+    sh:property [ sh:path mlm:input_structure ; sh:minCount 1 ; sh:maxCount 1 ; sh:node mlm:InputStructureShape ] ;
+    sh:property [
+        sh:path mlm:resize_type ; sh:maxCount 1 ; sh:class skos:Concept ;
+        sh:in ( mlm:crop mlm:pad mlm:interpolation-nearest mlm:interpolation-linear mlm:interpolation-cubic
+                mlm:interpolation-area mlm:interpolation-lanczos4 mlm:interpolation-max
+                mlm:wrap-fill-outliers mlm:wrap-inverse-map ) ;
+    ] .
+
+mlm:ModelOutputShape a sh:NodeShape ;
+    rdfs:label "mlm:ModelOutput shape" ;
+    sh:targetClass mlm:ModelOutput ;
+    sh:property [ sh:path mlm:io_name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ] ;
+    sh:property [ sh:path mlm:result ; sh:minCount 1 ; sh:maxCount 1 ; sh:node mlm:ResultStructureShape ] .
+
+mlm:InputStructureShape a sh:NodeShape ;
+    rdfs:label "mlm:InputStructure shape" ;
+    sh:targetClass mlm:InputStructure ;
+    sh:property [ sh:path mlm:shape ; sh:minCount 1 ] ;
+    sh:property [
+        sh:path (mlm:shape [ sh:zeroOrMorePath (rdf:rest) ] rdf:first) ;
+        sh:datatype xsd:integer ;
+    ] ;
+    sh:property [ sh:path mlm:dim_order ; sh:minCount 1 ] ;
+    sh:property [
+        sh:path (mlm:dim_order [ sh:zeroOrMorePath (rdf:rest) ] rdf:first) ;
+        sh:datatype xsd:string ;
+    ] .
+
+mlm:ResultStructureShape a sh:NodeShape ;
+    rdfs:label "mlm:ResultStructure shape" ;
+    sh:targetClass mlm:ResultStructure ;
+    sh:property [ sh:path mlm:shape ; sh:minCount 1 ] ;
+    sh:property [
+        sh:path (mlm:shape [ sh:zeroOrMorePath (rdf:rest) ] rdf:first) ;
+        sh:datatype xsd:integer ;
+    ] ;
+    sh:property [ sh:path mlm:dim_order ; sh:minCount 1 ] ;
+    sh:property [
+        sh:path (mlm:dim_order [ sh:zeroOrMorePath (rdf:rest) ] rdf:first) ;
+        sh:datatype xsd:string ;
+    ] .
+
+mlm:ValueScalingShape a sh:NodeShape ;
+    rdfs:label "mlm:ValueScaling shape" ;
+    sh:targetClass mlm:ValueScaling ;
+    sh:property [
+        sh:path mlm:scaling_type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class skos:Concept ;
+        sh:in ( mlm:min-max mlm:z-score mlm:clip mlm:clip-min mlm:clip-max mlm:offset mlm:scale mlm:processing ) ;
+    ] .
