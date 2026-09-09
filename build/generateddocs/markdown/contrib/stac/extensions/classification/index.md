@@ -274,10 +274,10 @@ STAC Classification Extension for STAC Items and STAC Collections.
     dcterms:description "103001005D31F500 ARD Tiles" ;
     dcterms:extent [ ] ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
         [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/classification/order_collections/5867496013686833273_root_collection.json> ],
         [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
@@ -1064,11 +1064,11 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <mlm:> .
-@prefix ns2: <file:> .
-@prefix ns3: <raster:> .
-@prefix ns4: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <ml-aoi:> .
+@prefix ns2: <raster:> .
+@prefix ns3: <file:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <ml-aoi:> .
+@prefix ns6: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1076,21 +1076,21 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns2:size 43000000 ;
+    ns3:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns6:split "train" ],
+            ns5:split "train" ],
         [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns4:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-            ns4:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
+    stac:hasAsset [ ns6:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns6:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://crim-ca.github.io/mlm-extension/v1.0.0/schema.json",
         "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -1108,7 +1108,13 @@ STAC Classification Extension for STAC Items and STAC Collections.
     ns1:input [ ] ;
     ns1:memory_size 1 ;
     ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns1:output [ classification:classes [ classification:color_hint "FFFF00" ;
+    ns1:output [ classification:classes [ classification:color_hint "808080" ;
+                    classification:description "Denotes highways and roads with a neutral gray color." ;
+                    classification:name "Highway" ;
+                    classification:nodata false ;
+                    classification:title "Gray" ;
+                    classification:value 3 ],
+                [ classification:color_hint "FFFF00" ;
                     classification:description "Represents areas of annual crops with a bright yellow color." ;
                     classification:name "AnnualCrop" ;
                     classification:nodata false ;
@@ -1120,36 +1126,24 @@ STAC Classification Extension for STAC Items and STAC Collections.
                     classification:nodata false ;
                     classification:title "Herbaceous Vegetation" ;
                     classification:value 2 ],
-                [ classification:color_hint "006400" ;
-                    classification:description "Represents permanent crop areas with a dark green color." ;
-                    classification:name "PermanentCrop" ;
-                    classification:nodata false ;
-                    classification:title "Permanent Crop" ;
-                    classification:value 6 ],
-                [ classification:color_hint "008000" ;
-                    classification:description "Depicts forested areas with a deep green color." ;
-                    classification:name "Forest" ;
-                    classification:nodata false ;
-                    classification:title "Forest" ;
-                    classification:value 1 ],
-                [ classification:color_hint "0000FF" ;
-                    classification:description "Indicates seas and lakes with a serene blue color." ;
-                    classification:name "SeaLake" ;
-                    classification:nodata false ;
-                    classification:title "Sea and Lake" ;
-                    classification:value 9 ],
                 [ classification:color_hint "FF0000" ;
                     classification:description "Marks residential buildings with a bold red color." ;
                     classification:name "Residential" ;
                     classification:nodata false ;
                     classification:title "Residential Buildings" ;
                     classification:value 7 ],
-                [ classification:color_hint "808080" ;
-                    classification:description "Denotes highways and roads with a neutral gray color." ;
-                    classification:name "Highway" ;
+                [ classification:color_hint "006400" ;
+                    classification:description "Represents permanent crop areas with a dark green color." ;
+                    classification:name "PermanentCrop" ;
                     classification:nodata false ;
-                    classification:title "Gray" ;
-                    classification:value 3 ],
+                    classification:title "Permanent Crop" ;
+                    classification:value 6 ],
+                [ classification:color_hint "7CFC00" ;
+                    classification:description "Illustrates pasture areas with a fresh lawn green color." ;
+                    classification:name "Pasture" ;
+                    classification:nodata false ;
+                    classification:title "Pasture" ;
+                    classification:value 5 ],
                 [ classification:color_hint "800080" ;
                     classification:description "Highlights industrial buildings with a vibrant purple color." ;
                     classification:name "Industrial" ;
@@ -1162,16 +1156,22 @@ STAC Classification Extension for STAC Items and STAC Collections.
                     classification:nodata false ;
                     classification:title "River" ;
                     classification:value 8 ],
-                [ classification:color_hint "7CFC00" ;
-                    classification:description "Illustrates pasture areas with a fresh lawn green color." ;
-                    classification:name "Pasture" ;
+                [ classification:color_hint "008000" ;
+                    classification:description "Depicts forested areas with a deep green color." ;
+                    classification:name "Forest" ;
                     classification:nodata false ;
-                    classification:title "Pasture" ;
-                    classification:value 5 ] ] ;
+                    classification:title "Forest" ;
+                    classification:value 1 ],
+                [ classification:color_hint "0000FF" ;
+                    classification:description "Indicates seas and lakes with a serene blue color." ;
+                    classification:name "SeaLake" ;
+                    classification:nodata false ;
+                    classification:title "Sea and Lake" ;
+                    classification:value 9 ] ] ;
     ns1:pretrained_source "EuroSat Sentinel-2" ;
     ns1:tasks "classification" ;
     ns1:total_parameters 11700000 ;
-    ns3:bands [ ],
+    ns2:bands [ ],
         [ ],
         [ ],
         [ ],

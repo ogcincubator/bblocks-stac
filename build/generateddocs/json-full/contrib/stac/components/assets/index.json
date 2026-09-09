@@ -11,10 +11,10 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-25",
+  "dateOfLastChange": "2026-09-09",
   "dependsOn": [
-    "ogc.contrib.stac.core-ontology",
-    "ogc.contrib.stac.components.assets-ontology"
+    "ogc.contrib.stac.components.assets-ontology",
+    "ogc.contrib.stac.core-ontology"
   ],
   "sources": [
     {
@@ -28,11 +28,14 @@
     "item"
   ],
   "shaclShapes": {
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
-    "ogc.contrib.stac.components.assets-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld",
