@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.eo-ontology - STAC Electro-Optical Extension Ontology",
   "bblockName": "STAC Electro-Optical Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.eo-ontology",
-  "generated": "2026-09-09T13:27:11.855845+00:00",
+  "generated": "2026-09-11T22:57:08.934876+00:00",
   "result": true,
   "items": [
     {
@@ -53,9 +53,19 @@
             {
               "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
               "focusNodes": {
+                "eo:SnowCoverShape": {
+                  "nodes": [
+                    "ex:landsat-item"
+                  ]
+                },
                 "eo:CommonNameShape": {
                   "nodes": [
                     "ex:red-band"
+                  ]
+                },
+                "eo:CloudCoverShape": {
+                  "nodes": [
+                    "ex:landsat-item"
                   ]
                 },
                 "eo:FullWidthHalfMaxShape": {
@@ -68,22 +78,12 @@
                     "ex:red-band"
                   ]
                 },
-                "eo:SnowCoverShape": {
-                  "nodes": [
-                    "ex:landsat-item"
-                  ]
-                },
-                "eo:CloudCoverShape": {
-                  "nodes": [
-                    "ex:landsat-item"
-                  ]
-                },
                 "eo:SolarIlluminationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CommonNameShape: ex:red-band\n - Shape eo:FullWidthHalfMaxShape: ex:red-band\n - Shape eo:CenterWavelengthShape: ex:red-band\n - Shape eo:SnowCoverShape: ex:landsat-item\n - Shape eo:CloudCoverShape: ex:landsat-item\n - Shape eo:SolarIlluminationShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:SnowCoverShape: ex:landsat-item\n - Shape eo:CommonNameShape: ex:red-band\n - Shape eo:CloudCoverShape: ex:landsat-item\n - Shape eo:FullWidthHalfMaxShape: ex:red-band\n - Shape eo:CenterWavelengthShape: ex:red-band\n - Shape eo:SolarIlluminationShape: *none*\n"
             }
           ]
         }
@@ -137,7 +137,13 @@
             {
               "shaclFile": "_sources/extensions/eo-ontology/shapes.shacl",
               "focusNodes": {
+                "eo:SnowCoverShape": {
+                  "nodes": []
+                },
                 "eo:CommonNameShape": {
+                  "nodes": []
+                },
+                "eo:CloudCoverShape": {
                   "nodes": []
                 },
                 "eo:FullWidthHalfMaxShape": {
@@ -146,18 +152,12 @@
                 "eo:CenterWavelengthShape": {
                   "nodes": []
                 },
-                "eo:SnowCoverShape": {
-                  "nodes": []
-                },
-                "eo:CloudCoverShape": {
-                  "nodes": []
-                },
                 "eo:SolarIlluminationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:CommonNameShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/eo-ontology/shapes.shacl:\n - Shape eo:SnowCoverShape: *none*\n - Shape eo:CommonNameShape: *none*\n - Shape eo:CloudCoverShape: *none*\n - Shape eo:FullWidthHalfMaxShape: *none*\n - Shape eo:CenterWavelengthShape: *none*\n - Shape eo:SolarIlluminationShape: *none*\n"
             }
           ]
         }

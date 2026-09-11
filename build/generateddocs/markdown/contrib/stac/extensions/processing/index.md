@@ -248,15 +248,15 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ] ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
     dcat:license "proprietary" ;
     stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
     stac:hasProvider [ ],
@@ -620,8 +620,8 @@ STAC Processing Extension for STAC Items and STAC Collections.
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <sar:> .
 @prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <sat:> .
+@prefix ns3: <sat:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -634,7 +634,7 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:date "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            ns4:relation <http://www.iana.org/assignments/relation/processing-execution> ;
             oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -663,10 +663,10 @@ STAC Processing Extension for STAC Items and STAC Collections.
     ns1:polarizations "VH",
         "VV" ;
     ns1:product_type "GRD" ;
-    ns4:absolute_orbit 12717 ;
-    ns4:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns4:orbit_state "ascending" ;
-    ns4:relative_orbit 45 .
+    ns3:absolute_orbit 12717 ;
+    ns3:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns3:orbit_state "ascending" ;
+    ns3:relative_orbit 45 .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> dcterms:format "text/xml" ;
     dcterms:title "Calibration VH IW" ;
