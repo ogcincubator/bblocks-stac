@@ -12,7 +12,7 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-11",
+  "dateOfLastChange": "2026-09-16",
   "sources": [
     {
       "title": "STAC Specification",
@@ -28,14 +28,14 @@
     "ogc.geo.features.feature": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
     ],
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
     "ogc.model.cross-domain.prov": [
       "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
-    ],
-    "ogc.contrib.stac.components.assets-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
     ],
     "ogc.api.records.v1.schemas.linkTemplate": [
       "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
@@ -79,7 +79,7 @@
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/item-v1-1-0/example_1_1.ttl",
           "sizeBytes": 2383,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix ns2: <https://w3id.org/ogc/stac/assets/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;\n    dcterms:date \"2020-12-11T22:38:32.125000+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:format \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/example1/collection.json> ],\n        [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:format \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/example1/collection.json> ],\n        [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:format \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/collection> ;\n            oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;\n    geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;\n    stac:hasAsset [ ns2:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;\n            ns2:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] ;\n    stac:version \"1.1.0\" .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format \"image/jpeg\" ;\n    dcterms:title \"Thumbnail\" ;\n    stac:hasAssetroles \"thumbnail\"^^xsd:string .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n    dcterms:title \"3-Band Visual\" ;\n    stac:hasAssetroles \"visual\"^^xsd:string .\n\n"
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;\n    dcterms:date \"2020-12-11T22:38:32.125000+00:00\"^^xsd:dateTime ;\n    rdfs:seeAlso [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:format \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/collection> ;\n            oa:hasTarget <https://example.com/stac/example1/collection.json> ],\n        [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:format \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/example1/collection.json> ],\n        [ rdfs:label \"Simple Example Collection\" ;\n            dcterms:format \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/example1/collection.json> ] ;\n    geojson:bbox ( 1.729117e+02 1.343885e+00 1.729547e+02 1.369048e+00 ) ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.729117e+02 1.343885e+00 ) ( 1.729547e+02 1.343885e+00 ) ( 1.729547e+02 1.369048e+00 ) ( 1.729117e+02 1.369048e+00 ) ( 1.729117e+02 1.343885e+00 ) ) ) ] ;\n    stac:hasAsset [ ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;\n            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] ;\n    stac:version \"1.1.0\" .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format \"image/jpeg\" ;\n    dcterms:title \"Thumbnail\" ;\n    stac:hasAssetroles \"thumbnail\"^^xsd:string .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n    dcterms:title \"3-Band Visual\" ;\n    stac:hasAssetroles \"visual\"^^xsd:string .\n\n"
         }
       ]
     },

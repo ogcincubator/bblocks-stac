@@ -1,10 +1,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <cube:> .
-@prefix ns3: <sci:> .
-@prefix ns4: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <sci:> .
+@prefix ns3: <cube:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
 @prefix ns5: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,33 +13,33 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
-    ns2:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
+    ns3:dimensions [ dcterms:temporal [ a <https://example.com/stac/mlm/example-4/temporal> ;
                     dcterms:extent "1940-01-01T00:00:00Z",
                         "2100-12-31T23:59:59Z" ] ] ;
-    ns2:variables [ ] ;
+    ns3:variables [ ] ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
-    rdfs:seeAlso [ dcterms:type "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
-        [ dcterms:type "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/code> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
         [ dcterms:type "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            ns4:relation <http://www.iana.org/assignments/relation/code> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "text/html" ;
+            ns4:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
+        [ dcterms:type "text/html" ;
+            ns4:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ] ;
     geojson:bbox ( 2.336e+02 5.42e+01 2.975e+02 2.26e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 2.336e+02 5.42e+01 ) ( 2.975e+02 5.42e+01 ) ( 2.975e+02 2.26e+01 ) ( 2.336e+02 2.26e+01 ) ( 2.336e+02 5.42e+01 ) ) ) ] ;
     stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns4:model <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
-            ns4:train-script <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
-            ns4:weights <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ] ;
+    stac:hasAsset [ ns1:model <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
+            ns1:train-script <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
+            ns1:weights <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.5.3/schema.json",
@@ -74,7 +74,7 @@
                 "temperature_2m" ] ;
     mlm:tasks mlm:downscaling,
         mlm:regression ;
-    ns3:publications [ ] .
+    ns2:publications [ ] .
 
 <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns5:size 389657415 ;
     dcterms:format "application/octet-stream; application=pytorch" ;

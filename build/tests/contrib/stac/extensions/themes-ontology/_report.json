@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.themes-ontology - STAC Themes Extension Ontology",
   "bblockName": "STAC Themes Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.themes-ontology",
-  "generated": "2026-09-11T22:57:09.118448+00:00",
+  "generated": "2026-09-16T22:20:25.860556+00:00",
   "result": true,
   "items": [
     {
@@ -53,9 +53,9 @@
             {
               "shaclFile": "_sources/extensions/themes-ontology/shapes.shacl",
               "focusNodes": {
-                "thns:ThemeShape": {
+                "thns:ConceptShape": {
                   "nodes": [
-                    "ex:item/thns:schemes"
+                    "ex:item/thns:schemes/thns:concepts"
                   ]
                 },
                 "thns:SchemesUsageShape": {
@@ -63,14 +63,14 @@
                     "ex:item"
                   ]
                 },
-                "thns:ConceptShape": {
+                "thns:ThemeShape": {
                   "nodes": [
-                    "ex:item/thns:schemes/thns:concepts"
+                    "ex:item/thns:schemes"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/themes-ontology/shapes.shacl:\n - Shape thns:ThemeShape: ex:item/thns:schemes\n - Shape thns:SchemesUsageShape: ex:item\n - Shape thns:ConceptShape: ex:item/thns:schemes/thns:concepts\n"
+              "message": "Focus nodes for _sources/extensions/themes-ontology/shapes.shacl:\n - Shape thns:ConceptShape: ex:item/thns:schemes/thns:concepts\n - Shape thns:SchemesUsageShape: ex:item\n - Shape thns:ThemeShape: ex:item/thns:schemes\n"
             }
           ]
         }
