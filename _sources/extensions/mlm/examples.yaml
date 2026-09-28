@@ -1,4 +1,11 @@
 
+# NOTE:
+# example references are taking 'main' endpoint to get latest updates (since no "partial" version are available)
+# however, the schema references employ the partial 'v1.6' since that is made available
+# semantic definitions are considered consistent on 'v1.6.z' branch although the 'PATCH' (z) part migrates with bugfixes
+# a MINOR update would imply a new backward compatible feature (typically a new field) that requires a semantic update
+# therefore, we WANT a new MINOR version to flag a failure such that we can consider if the BBlock also needs an update
+# a MAJOR update implies an important breaking change, and is typically guaranteed to fail regardless
 
 - title: Collection of items contained in the Machine Learning Model examples.
 
