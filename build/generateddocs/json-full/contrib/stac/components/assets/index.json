@@ -12,10 +12,10 @@
   "itemClass": "schema",
   "register": "ogc-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-16",
+  "dateOfLastChange": "2026-09-28",
   "dependsOn": [
-    "ogc.contrib.stac.components.assets-ontology",
-    "ogc.contrib.stac.core-ontology"
+    "ogc.contrib.stac.core-ontology",
+    "ogc.contrib.stac.components.assets-ontology"
   ],
   "sources": [
     {
@@ -29,14 +29,14 @@
     "item"
   ],
   "shaclShapes": {
-    "ogc.contrib.stac.components.assets-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
-    ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
     "ogc.model.cross-domain.prov": [
       "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
     ]
   },
   "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/components/assets/context.jsonld",
@@ -99,7 +99,7 @@
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/components/assets/example_2_1.ttl",
           "sizeBytes": 1155,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <https://w3id.org/ogc/stac/assets/> .\n@prefix ns2: <mlm:> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://huggingface.co/example/model-card> dcterms:description \"Example model.\" ;\n    dcterms:format \"text/html\" ;\n    dcterms:title \"Pytorch weights checkpoint\" ;\n    stac:hasAssetroles \"mlm:model\"^^<xsd:string> ;\n    ns2:artifact_type \"torch.save\" .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format \"image/jpeg\" ;\n    dcterms:title \"Thumbnail\" ;\n    stac:hasAssetroles \"thumbnail\"^^<xsd:string> .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n    dcterms:title \"3-Band Visual\" ;\n    stac:hasAssetroles \"visual\"^^<xsd:string> .\n\n[] stac:hasAsset [ ns1:model <https://huggingface.co/example/model-card> ;\n            ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;\n            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .\n\n"
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <mlm:> .\n@prefix ns2: <https://w3id.org/ogc/stac/assets/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://huggingface.co/example/model-card> dcterms:description \"Example model.\" ;\n    dcterms:format \"text/html\" ;\n    dcterms:title \"Pytorch weights checkpoint\" ;\n    stac:hasAssetroles \"mlm:model\"^^<xsd:string> ;\n    ns1:artifact_type \"torch.save\" .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format \"image/jpeg\" ;\n    dcterms:title \"Thumbnail\" ;\n    stac:hasAssetroles \"thumbnail\"^^<xsd:string> .\n\n<https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> dcterms:format \"image/tiff; application=geotiff; profile=cloud-optimized\" ;\n    dcterms:title \"3-Band Visual\" ;\n    stac:hasAssetroles \"visual\"^^<xsd:string> .\n\n[] stac:hasAsset [ ns2:model <https://huggingface.co/example/model-card> ;\n            ns2:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;\n            ns2:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .\n\n"
         }
       ]
     }

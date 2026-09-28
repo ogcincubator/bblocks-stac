@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.classification-ontology - STAC Classification Extension Ontology",
   "bblockName": "STAC Classification Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.classification-ontology",
-  "generated": "2026-09-16T22:20:25.637267+00:00",
+  "generated": "2026-09-28T21:00:50.607886+00:00",
   "result": true,
   "items": [
     {
@@ -53,6 +53,11 @@
             {
               "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
               "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat"
+                  ]
+                },
                 "classification:ClassShape": {
                   "nodes": [
                     "ex:resnet18-eurosat/classification:classes",
@@ -67,20 +72,15 @@
                     "ex:resnet18-eurosat/classification:classes"
                   ]
                 },
-                "classification:ClassesUsageShape": {
-                  "nodes": [
-                    "ex:resnet18-eurosat"
-                  ]
-                },
-                "classification:BitfieldsUsageShape": {
+                "classification:BitFieldShape": {
                   "nodes": []
                 },
-                "classification:BitFieldShape": {
+                "classification:BitfieldsUsageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassShape: ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes\n - Shape classification:ClassesUsageShape: ex:resnet18-eurosat\n - Shape classification:BitfieldsUsageShape: *none*\n - Shape classification:BitFieldShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: ex:resnet18-eurosat\n - Shape classification:ClassShape: ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes,ex:resnet18-eurosat/classification:classes\n - Shape classification:BitFieldShape: *none*\n - Shape classification:BitfieldsUsageShape: *none*\n"
             }
           ]
         }
@@ -134,13 +134,18 @@
             {
               "shaclFile": "_sources/extensions/classification-ontology/shapes.shacl",
               "focusNodes": {
+                "classification:ClassesUsageShape": {
+                  "nodes": [
+                    "ex:qa-band/classification:bitfields"
+                  ]
+                },
                 "classification:ClassShape": {
                   "nodes": [
                     "ex:qa-band/classification:bitfields/classification:classes",
                     "ex:qa-band/classification:bitfields/classification:classes"
                   ]
                 },
-                "classification:ClassesUsageShape": {
+                "classification:BitFieldShape": {
                   "nodes": [
                     "ex:qa-band/classification:bitfields"
                   ]
@@ -149,15 +154,10 @@
                   "nodes": [
                     "ex:qa-band"
                   ]
-                },
-                "classification:BitFieldShape": {
-                  "nodes": [
-                    "ex:qa-band/classification:bitfields"
-                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassShape: ex:qa-band/classification:bitfields/classification:classes,ex:qa-band/classification:bitfields/classification:classes\n - Shape classification:ClassesUsageShape: ex:qa-band/classification:bitfields\n - Shape classification:BitfieldsUsageShape: ex:qa-band\n - Shape classification:BitFieldShape: ex:qa-band/classification:bitfields\n"
+              "message": "Focus nodes for _sources/extensions/classification-ontology/shapes.shacl:\n - Shape classification:ClassesUsageShape: ex:qa-band/classification:bitfields\n - Shape classification:ClassShape: ex:qa-band/classification:bitfields/classification:classes,ex:qa-band/classification:bitfields/classification:classes\n - Shape classification:BitFieldShape: ex:qa-band/classification:bitfields\n - Shape classification:BitfieldsUsageShape: ex:qa-band\n"
             }
           ]
         }

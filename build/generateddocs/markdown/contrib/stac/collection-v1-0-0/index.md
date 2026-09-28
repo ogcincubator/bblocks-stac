@@ -14,117 +14,12 @@ Ref to STAC example using version (1.0.0)
 #### json
 ```json
 {
-  "id": "polarwarp",
-  "title": "Polarwarp",
-  "created": "2025-10-13T16:54:34Z",
-  "osc:status": "completed",
-  "type": "Collection",
-  "osc:type": "product",
-  "stac_version": "1.0.0",
-  "description": "Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
-  "license": "various",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -0.0018099989187332413,
-          0.00043814539682784925,
-          0.001347252506956414,
-          0.0007574196581714432
-        ]
-      ]
-    },
-    "temporal": {
-      "interval": [
-        [
-          "2025-02-25T00:00:00Z",
-          null
-        ]
-      ]
-    }
-  },
-  "links": [
+  "sci:publications": [
     {
-      "rel": "root",
-      "href": "../../catalog.json",
-      "type": "application/json",
-      "title": "Open Science Catalog"
-    },
-    {
-      "rel": "parent",
-      "href": "../catalog.json",
-      "type": "application/json",
-      "title": "Products"
-    },
-    {
-      "href": "../../projects/cerulean-information-factory/collection.json",
-      "rel": "related",
-      "type": "application/json",
-      "title": "Project: Cerulean Information Factory"
-    },
-    {
-      "href": "../../themes/cryosphere/catalog.json",
-      "rel": "related",
-      "type": "application/json",
-      "title": "Theme: Cryosphere"
-    },
-    {
-      "rel": "related",
-      "href": "../../experiments/polarwarp/record.json",
-      "type": "application/json",
-      "title": "Experiment: Polarwarp"
-    },
-    {
-      "href": "./item.json",
-      "rel": "item"
-    },
-    {
-      "href": "https://github.com/gtif-cerulean/polarwarp",
-      "rel": "via"
+      "doi": "10.83395/gznw-2213"
     }
   ],
-  "stac_extensions": [
-    "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
-  ],
-  "osc:project": "cerulean-information-factory",
-  "themes": [
-    {
-      "scheme": "https://github.com/stac-extensions/osc#theme",
-      "concepts": [
-        {
-          "id": "cryosphere"
-        }
-      ]
-    }
-  ],
-  "fair:Findable_has_doi": false,
-  "fair:Findable_rich_metadata": true,
-  "fair:Findable_identifier": true,
-  "fair:Findable_stac_assets": false,
-  "fair:Findable_indexed": true,
-  "fair:Findable_indexed_approved_metadata": false,
-  "fair:Findable_indexed_approved_data": false,
-  "fair:Accessible_general": true,
-  "fair:Accessible_protocols": true,
-  "fair:Accessible_files": 0.0,
-  "fair:Interoperable_uses_formal_language": true,
-  "fair:Interoperable_controlled_vocabularies": true,
-  "fair:Interoperable_related_links": true,
-  "fair:Interoperable_has_documentation": false,
-  "fair:Reusable_rich_descriptions": true,
-  "fair:Reusable_has_license": true,
-  "fair:Reusable_workflow_exists": true,
-  "fair:Reusable_cloud_assets_rate": 0.0,
-  "fair:Reusable_has_visualisation": false,
-  "fair:Reusable_has_access_example": false
-}
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/context.jsonld",
+  "sci:doi": "10.83395/zfk4-9k53",
   "id": "polarwarp",
   "title": "Polarwarp",
   "created": "2025-10-13T16:54:34Z",
@@ -192,11 +87,31 @@ Ref to STAC example using version (1.0.0)
     {
       "href": "https://github.com/gtif-cerulean/polarwarp",
       "rel": "via"
+    },
+    {
+      "rel": "latest-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Latest version"
+    },
+    {
+      "rel": "has-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Version 1"
+    },
+    {
+      "rel": "version-history",
+      "href": "https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
+      "type": "application/vnd.datacite.datacite+json",
+      "title": "Version History (DataCite JSON)"
     }
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json"
   ],
   "osc:project": "cerulean-information-factory",
   "themes": [
@@ -212,13 +127,13 @@ Ref to STAC example using version (1.0.0)
   "fair:Findable_has_doi": false,
   "fair:Findable_rich_metadata": true,
   "fair:Findable_identifier": true,
-  "fair:Findable_stac_assets": false,
+  "fair:Findable_stac_assets": true,
   "fair:Findable_indexed": true,
-  "fair:Findable_indexed_approved_metadata": false,
-  "fair:Findable_indexed_approved_data": false,
+  "fair:Findable_indexed_approved_metadata": true,
+  "fair:Findable_indexed_approved_data": true,
   "fair:Accessible_general": true,
   "fair:Accessible_protocols": true,
-  "fair:Accessible_files": 0.0,
+  "fair:Accessible_files": 1.0,
   "fair:Interoperable_uses_formal_language": true,
   "fair:Interoperable_controlled_vocabularies": true,
   "fair:Interoperable_related_links": true,
@@ -226,7 +141,144 @@ Ref to STAC example using version (1.0.0)
   "fair:Reusable_rich_descriptions": true,
   "fair:Reusable_has_license": true,
   "fair:Reusable_workflow_exists": true,
-  "fair:Reusable_cloud_assets_rate": 0.0,
+  "fair:Reusable_cloud_assets_rate": 1.0,
+  "fair:Reusable_has_visualisation": false,
+  "fair:Reusable_has_access_example": false
+}
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/context.jsonld",
+  "sci:publications": [
+    {
+      "doi": "10.83395/gznw-2213"
+    }
+  ],
+  "sci:doi": "10.83395/zfk4-9k53",
+  "id": "polarwarp",
+  "title": "Polarwarp",
+  "created": "2025-10-13T16:54:34Z",
+  "osc:status": "completed",
+  "type": "Collection",
+  "osc:type": "product",
+  "stac_version": "1.0.0",
+  "description": "Polarwarp product\n\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
+  "license": "various",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -0.0018099989187332413,
+          0.00043814539682784925,
+          0.001347252506956414,
+          0.0007574196581714432
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2025-02-25T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "Products"
+    },
+    {
+      "href": "../../projects/cerulean-information-factory/collection.json",
+      "rel": "related",
+      "type": "application/json",
+      "title": "Project: Cerulean Information Factory"
+    },
+    {
+      "href": "../../themes/cryosphere/catalog.json",
+      "rel": "related",
+      "type": "application/json",
+      "title": "Theme: Cryosphere"
+    },
+    {
+      "rel": "related",
+      "href": "../../experiments/polarwarp/record.json",
+      "type": "application/json",
+      "title": "Experiment: Polarwarp"
+    },
+    {
+      "href": "./item.json",
+      "rel": "item"
+    },
+    {
+      "href": "https://github.com/gtif-cerulean/polarwarp",
+      "rel": "via"
+    },
+    {
+      "rel": "latest-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Latest version"
+    },
+    {
+      "rel": "has-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Version 1"
+    },
+    {
+      "rel": "version-history",
+      "href": "https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
+      "type": "application/vnd.datacite.datacite+json",
+      "title": "Version History (DataCite JSON)"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json"
+  ],
+  "osc:project": "cerulean-information-factory",
+  "themes": [
+    {
+      "scheme": "https://github.com/stac-extensions/osc#theme",
+      "concepts": [
+        {
+          "id": "cryosphere"
+        }
+      ]
+    }
+  ],
+  "fair:Findable_has_doi": false,
+  "fair:Findable_rich_metadata": true,
+  "fair:Findable_identifier": true,
+  "fair:Findable_stac_assets": true,
+  "fair:Findable_indexed": true,
+  "fair:Findable_indexed_approved_metadata": true,
+  "fair:Findable_indexed_approved_data": true,
+  "fair:Accessible_general": true,
+  "fair:Accessible_protocols": true,
+  "fair:Accessible_files": 1.0,
+  "fair:Interoperable_uses_formal_language": true,
+  "fair:Interoperable_controlled_vocabularies": true,
+  "fair:Interoperable_related_links": true,
+  "fair:Interoperable_has_documentation": false,
+  "fair:Reusable_rich_descriptions": true,
+  "fair:Reusable_has_license": true,
+  "fair:Reusable_workflow_exists": true,
+  "fair:Reusable_cloud_assets_rate": 1.0,
   "fair:Reusable_has_visualisation": false,
   "fair:Reusable_has_access_example": false
 }
@@ -235,30 +287,31 @@ Ref to STAC example using version (1.0.0)
 #### ttl
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
 @prefix ns2: <fair:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns3: <osc:> .
+@prefix ns4: <sci:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/example1/polarwarp> rdfs:label "Polarwarp" ;
-    ns2:Accessible_files 0e+00 ;
+    ns2:Accessible_files 1e+00 ;
     ns2:Accessible_general true ;
     ns2:Accessible_protocols true ;
     ns2:Findable_has_doi false ;
     ns2:Findable_identifier true ;
     ns2:Findable_indexed true ;
-    ns2:Findable_indexed_approved_data false ;
-    ns2:Findable_indexed_approved_metadata false ;
+    ns2:Findable_indexed_approved_data true ;
+    ns2:Findable_indexed_approved_metadata true ;
     ns2:Findable_rich_metadata true ;
-    ns2:Findable_stac_assets false ;
+    ns2:Findable_stac_assets true ;
     ns2:Interoperable_controlled_vocabularies true ;
     ns2:Interoperable_has_documentation false ;
     ns2:Interoperable_related_links true ;
     ns2:Interoperable_uses_formal_language true ;
-    ns2:Reusable_cloud_assets_rate 0e+00 ;
+    ns2:Reusable_cloud_assets_rate 1e+00 ;
     ns2:Reusable_has_access_example false ;
     ns2:Reusable_has_license true ;
     ns2:Reusable_has_visualisation false ;
@@ -270,36 +323,52 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:type "Collection" ;
-    rdfs:seeAlso [ ns3:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ ns3:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Theme: Cryosphere" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Latest version" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            oa:hasTarget <https://example.com/stac/example1/collection_v1.json> ],
+        [ rdfs:label "Version History (DataCite JSON)" ;
+            dcterms:type "application/vnd.datacite.datacite+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/version-history> ;
+            oa:hasTarget <https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Version 1" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/has-version> ;
+            oa:hasTarget <https://example.com/stac/example1/collection_v1.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+        "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns1:project "cerulean-information-factory" ;
-    ns1:status "completed" ;
-    ns1:type "product" .
+    ns3:project "cerulean-information-factory" ;
+    ns3:status "completed" ;
+    ns3:type "product" ;
+    ns4:doi "10.83395/zfk4-9k53" ;
+    ns4:publications [ ] .
 
 
 ```

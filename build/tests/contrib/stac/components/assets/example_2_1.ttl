@@ -1,13 +1,13 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <mlm:> .
+@prefix ns1: <mlm:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 
 <https://huggingface.co/example/model-card> dcterms:description "Example model." ;
     dcterms:format "text/html" ;
     dcterms:title "Pytorch weights checkpoint" ;
     stac:hasAssetroles "mlm:model"^^<xsd:string> ;
-    ns2:artifact_type "torch.save" .
+    ns1:artifact_type "torch.save" .
 
 <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> dcterms:format "image/jpeg" ;
     dcterms:title "Thumbnail" ;
@@ -17,7 +17,7 @@
     dcterms:title "3-Band Visual" ;
     stac:hasAssetroles "visual"^^<xsd:string> .
 
-[] stac:hasAsset [ ns1:model <https://huggingface.co/example/model-card> ;
-            ns1:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
-            ns1:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .
+[] stac:hasAsset [ ns2:model <https://huggingface.co/example/model-card> ;
+            ns2:thumbnail <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.jpg> ;
+            ns2:visual <https://storage.googleapis.com/open-cogs/stac-examples/20201211_223832_CS2.tif> ] .
 

@@ -1063,11 +1063,11 @@ STAC Classification Extension for STAC Items and STAC Collections.
 @prefix classification: <https://w3id.org/ogc/stac/classification/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <ml-aoi:> .
-@prefix ns2: <mlm:> .
-@prefix ns3: <raster:> .
+@prefix ns1: <mlm:> .
+@prefix ns2: <raster:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix ns4: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns5: <ml-aoi:> .
 @prefix ns6: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -1078,13 +1078,13 @@ STAC Classification Extension for STAC Items and STAC Collections.
 <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
     ns6:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns1:split "train" ] ;
+            ns5:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/classification/example-1/resnet-18_sentinel-2_all_moco_classification.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -1098,80 +1098,80 @@ STAC Classification Extension for STAC Items and STAC Collections.
         "https://stac-extensions.github.io/raster/v1.1.0/schema.json" ;
     stac:start_datetime "1900-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.0.0" ;
-    ns2:accelerator "cuda" ;
-    ns2:accelerator_constrained false ;
-    ns2:accelerator_summary "Unknown" ;
-    ns2:architecture "ResNet" ;
-    ns2:batch_size_suggestion 256 ;
-    ns2:framework "pytorch" ;
-    ns2:framework_version "2.1.2+cu121" ;
-    ns2:input [ ] ;
-    ns2:memory_size 1 ;
-    ns2:name "Resnet-18 Sentinel-2 ALL MOCO" ;
-    ns2:output [ classification:classes [ classification:color_hint "ADFF2F" ;
-                    classification:description "Indicates areas of herbaceous vegetation with a green-yellow hue." ;
-                    classification:name "HerbaceousVegetation" ;
+    ns1:accelerator "cuda" ;
+    ns1:accelerator_constrained false ;
+    ns1:accelerator_summary "Unknown" ;
+    ns1:architecture "ResNet" ;
+    ns1:batch_size_suggestion 256 ;
+    ns1:framework "pytorch" ;
+    ns1:framework_version "2.1.2+cu121" ;
+    ns1:input [ ] ;
+    ns1:memory_size 1 ;
+    ns1:name "Resnet-18 Sentinel-2 ALL MOCO" ;
+    ns1:output [ classification:classes [ classification:color_hint "FF0000" ;
+                    classification:description "Marks residential buildings with a bold red color." ;
+                    classification:name "Residential" ;
                     classification:nodata false ;
-                    classification:title "Herbaceous Vegetation" ;
-                    classification:value 2 ],
+                    classification:title "Residential Buildings" ;
+                    classification:value 7 ],
                 [ classification:color_hint "0000FF" ;
                     classification:description "Indicates seas and lakes with a serene blue color." ;
                     classification:name "SeaLake" ;
                     classification:nodata false ;
                     classification:title "Sea and Lake" ;
                     classification:value 9 ],
-                [ classification:color_hint "800080" ;
-                    classification:description "Highlights industrial buildings with a vibrant purple color." ;
-                    classification:name "Industrial" ;
-                    classification:nodata false ;
-                    classification:title "Industrial Buildings" ;
-                    classification:value 4 ],
-                [ classification:color_hint "006400" ;
-                    classification:description "Represents permanent crop areas with a dark green color." ;
-                    classification:name "PermanentCrop" ;
-                    classification:nodata false ;
-                    classification:title "Permanent Crop" ;
-                    classification:value 6 ],
-                [ classification:color_hint "FFFF00" ;
-                    classification:description "Represents areas of annual crops with a bright yellow color." ;
-                    classification:name "AnnualCrop" ;
-                    classification:nodata false ;
-                    classification:title "Annual Crop" ;
-                    classification:value 0 ],
-                [ classification:color_hint "808080" ;
-                    classification:description "Denotes highways and roads with a neutral gray color." ;
-                    classification:name "Highway" ;
-                    classification:nodata false ;
-                    classification:title "Gray" ;
-                    classification:value 3 ],
-                [ classification:color_hint "FF0000" ;
-                    classification:description "Marks residential buildings with a bold red color." ;
-                    classification:name "Residential" ;
-                    classification:nodata false ;
-                    classification:title "Residential Buildings" ;
-                    classification:value 7 ],
-                [ classification:color_hint "00FFFF" ;
-                    classification:description "Depicts rivers and water bodies with a vivid cyan color." ;
-                    classification:name "River" ;
-                    classification:nodata false ;
-                    classification:title "River" ;
-                    classification:value 8 ],
                 [ classification:color_hint "7CFC00" ;
                     classification:description "Illustrates pasture areas with a fresh lawn green color." ;
                     classification:name "Pasture" ;
                     classification:nodata false ;
                     classification:title "Pasture" ;
                     classification:value 5 ],
+                [ classification:color_hint "006400" ;
+                    classification:description "Represents permanent crop areas with a dark green color." ;
+                    classification:name "PermanentCrop" ;
+                    classification:nodata false ;
+                    classification:title "Permanent Crop" ;
+                    classification:value 6 ],
+                [ classification:color_hint "808080" ;
+                    classification:description "Denotes highways and roads with a neutral gray color." ;
+                    classification:name "Highway" ;
+                    classification:nodata false ;
+                    classification:title "Gray" ;
+                    classification:value 3 ],
                 [ classification:color_hint "008000" ;
                     classification:description "Depicts forested areas with a deep green color." ;
                     classification:name "Forest" ;
                     classification:nodata false ;
                     classification:title "Forest" ;
-                    classification:value 1 ] ] ;
-    ns2:pretrained_source "EuroSat Sentinel-2" ;
-    ns2:tasks "classification" ;
-    ns2:total_parameters 11700000 ;
-    ns3:bands [ ],
+                    classification:value 1 ],
+                [ classification:color_hint "FFFF00" ;
+                    classification:description "Represents areas of annual crops with a bright yellow color." ;
+                    classification:name "AnnualCrop" ;
+                    classification:nodata false ;
+                    classification:title "Annual Crop" ;
+                    classification:value 0 ],
+                [ classification:color_hint "800080" ;
+                    classification:description "Highlights industrial buildings with a vibrant purple color." ;
+                    classification:name "Industrial" ;
+                    classification:nodata false ;
+                    classification:title "Industrial Buildings" ;
+                    classification:value 4 ],
+                [ classification:color_hint "ADFF2F" ;
+                    classification:description "Indicates areas of herbaceous vegetation with a green-yellow hue." ;
+                    classification:name "HerbaceousVegetation" ;
+                    classification:nodata false ;
+                    classification:title "Herbaceous Vegetation" ;
+                    classification:value 2 ],
+                [ classification:color_hint "00FFFF" ;
+                    classification:description "Depicts rivers and water bodies with a vivid cyan color." ;
+                    classification:name "River" ;
+                    classification:nodata false ;
+                    classification:title "River" ;
+                    classification:value 8 ] ] ;
+    ns1:pretrained_source "EuroSat Sentinel-2" ;
+    ns1:tasks "classification" ;
+    ns1:total_parameters 11700000 ;
+    ns2:bands [ ],
         [ ],
         [ ],
         [ ],
