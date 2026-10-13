@@ -230,14 +230,93 @@ class MLMTransformsTest(unittest.TestCase):
         """
         item = copy.deepcopy(self.unet)
         item["properties"]["custom:floats"] = [1.2345678901234567, 1e-300, 1e300, 1.0]
-        item["properties"]["mlm:input"][0]["value_scaling"] = [
+        input_obj = item["properties"]["mlm:input"][0]
+        input_obj["value_scaling"] = [
             {"type": "offset", "value": 1.2345678901234567},
             {"type": "scale", "value": 2.0},
-        ]
+        ] + [{"type": "offset", "value": float(index)} for index in range(len(input_obj["variables"]) - 2)]
         for media_type in ("text/turtle", "application/ld+json"):
             with self.subTest(media_type=media_type):
                 _, decoded = self.convert(item, media_type)
                 self.assertEqual(decoded, item)
+
+    def test_ordering_constraints(self) -> None:
+        """
+        Tests rejection of list positions that can no longer be aligned between MLM ordered fields.
+        """
+        def first_input(props: dict) -> dict:
+            return props["mlm:input"][0]
+
+        def first_structure(props: dict) -> dict:
+            return first_input(props)["input"]
+
+        mutations = {
+            "shape-length": (
+                lambda props: first_structure(props)["shape"].append(1),
+                "mlm:shape has 5 entries but mlm:dim_order has 4",
+            ),
+            "dim-order-length": (
+                lambda props: first_structure(props)["dim_order"].pop(),
+                "mlm:shape has 4 entries but mlm:dim_order has 3",
+            ),
+            "zero-size": (
+                lambda props: first_structure(props)["shape"].__setitem__(2, 0),
+                "mlm:shape size 0 is invalid",
+            ),
+            "duplicate-dimension": (
+                lambda props: first_structure(props)["dim_order"].__setitem__(3, "rlat"),
+                "repeats the dimension name 'rlat'",
+            ),
+            "missing-reserved-axis": (
+                lambda props: first_structure(props)["dim_order"].__setitem__(1, "channel"),
+                "reserved dim_order axis 'variables'",
+            ),
+            "reserved-axis-without-references": (
+                lambda props: first_input(props).__setitem__("variables", []),
+                "reserved dim_order axis 'variables'",
+            ),
+            "reference-count": (
+                lambda props: first_input(props)["variables"].pop(),
+                "'variables' axis has size 14 in mlm:shape but mlm:variables lists 13 entries",
+            ),
+            "output-reference-count": (
+                lambda props: props["mlm:output"][0]["result"]["shape"].__setitem__(1, 3),
+                "'variables' axis has size 3 in mlm:shape but mlm:variables lists 4 entries",
+            ),
+            "value-scaling-count": (
+                lambda props: first_input(props).__setitem__(
+                    "value_scaling", [{"type": "scale", "value": 2.0}, {"type": "scale", "value": 3.0}]
+                ),
+                "mlm:value_scaling has 2 entries",
+            ),
+        }
+        for mutation, (mutate, message) in mutations.items():
+            with self.subTest(mutation=mutation):
+                item = copy.deepcopy(self.unet)
+                mutate(item["properties"])
+                codec = CODEC.ItemRDF(CODEC.load_context(BLOCK, CONTEXT))
+                codec.encode_object(item, codec.context)
+                with self.assertRaisesRegex(ValueError, message):
+                    CODEC.validate_graph(codec.graph, BLOCK)
+                with self.assertRaises((ValueError, STACValidationError)):
+                    self.convert(item)
+
+    def test_ordering_exceptions(self) -> None:
+        """
+        Tests that broadcast scaling, variable axis sizes and size-changing functions remain valid.
+        """
+        item = copy.deepcopy(self.unet)
+        input_obj = item["properties"]["mlm:input"][0]
+        input_obj["value_scaling"] = [{"type": "scale", "value": 2.0}]
+        second_input = item["properties"]["mlm:input"][1]
+        second_input["input"]["shape"][1] = -1
+        second_input["variables"].pop()
+        output_obj = item["properties"]["mlm:output"][0]
+        output_obj["result"]["shape"][1] = 1
+        output_obj["post_processing_function"] = {"format": "test", "expression": {"operation": "aggregate"}}
+        codec = CODEC.ItemRDF(CODEC.load_context(BLOCK, CONTEXT))
+        codec.encode_object(item, codec.context)
+        CODEC.validate_graph(codec.graph, BLOCK)
 
     def test_corrupt_rdf_list(self) -> None:
         """

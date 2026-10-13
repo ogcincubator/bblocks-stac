@@ -68,7 +68,10 @@ adapter's validation projection, not from the Item or RDF. Official JSON Schema 
 active for the complete document and its declared Classification extension.
 
 Shared MLM SHACL adds variable-name resolution against Item/Asset Datacube definitions, variable
-dimension resolution, and model-artifact role checks. Malformed lists, inconsistent field metadata,
+dimension resolution, model-artifact role checks, and the list-position rules described under
+[Order matters](../mlm-ontology/description.md#order-matters). Both transforms therefore reject, for example,
+a `shape` and `dim_order` of different lengths, or `bands` / `variables` lists whose length does not match
+their tensor axis. Malformed lists, inconsistent field metadata,
 duplicate map keys, cyclic structures, and missing or multiple Item roots are rejected explicitly.
 Band-name cross-reference resolution is not yet covered by the shared SHACL rules; EO/Raster metadata
 is nevertheless preserved and its declared schemas are validated.

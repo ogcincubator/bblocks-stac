@@ -105,11 +105,19 @@ STAC Item / Collection
 | STAC Asset | `eo:*` / `raster:*` | band metadata | Description of the referenced band, supplied by EO/Raster extensions. |
 | STAC Link | `vcs:*` | repository metadata | VCS extension identifies the source repository for an application or other resource. |
 
+> [!IMPORTANT]
+> **Order matters.** `bands`, `variables`, `shape`, `dim_order`, `value_scaling`, and arrays of processing
+> expressions are positional. `shape[i]` is the size of the axis named `dim_order[i]`, and the order of
+> `bands` and `variables` defines the indices along the reserved `"bands"` and `"variables"` axes.
+> `value_scaling` entry `i` applies to stacked element `i`, unless it has one broadcast entry. Processing
+> expression arrays run sequentially. Reordering any of these arrays changes the model contract.
+> See [Order matters](description.md#order-matters) for the full table and the checks that enforce it.
+
 The `bands` and `variables` arrays preserve model channel/variable order through RDF lists. MLM
-`input`, `output`, `tasks`, and `value_scaling` arrays are also RDF lists. Table and diagram
-relationships to their members are traversed using `rdf:rest*/rdf:first` after the field predicate.
-When present, the
-corresponding `mlm:dim_order` list uses `bands` and/or `variables` to identify those tensor axes.
+`input`, `output`, `tasks`, `value_scaling`, `shape`, and `dim_order` arrays are also RDF lists. Table and
+diagram relationships to their members are traversed using `rdf:rest*/rdf:first` after the field predicate.
+When present, the corresponding `mlm:dim_order` list uses `bands` and/or `variables` to identify those tensor
+axes.
 The ontology does not assert that `mlm:bands` is equivalent to `eo:bands` or `raster:bands`:
 those extensions describe the referenced STAC data, whereas MLM selects the data used by the model.
 
@@ -132,6 +140,14 @@ because they depend on multiple resources or on ordered RDF structures:
 - each dimension named by a Datacube variable must resolve to a key in that resource's
   `cube:dimensions` map;
 - an asset carrying `mlm:artifact_type` must also carry the STAC `mlm:model` asset role;
+- `shape` and `dim_order` must have the same length, have sizes greater than 0 or equal to -1, and use
+  unique dimension names;
+- the reserved `"bands"` / `"variables"` axis must be present if and only if the corresponding list is
+  non-empty;
+- the `bands` / `variables` list length must equal that axis size, unless the size is -1 or a
+  pre/post-processing function changes the stacked size;
+- `value_scaling` must have one broadcast entry or one entry per stacked `bands` / `variables` /
+  `channel` element;
 - nested MLM input/output structures and band/variable reference objects receive their applicable
   field-level shape checks.
 

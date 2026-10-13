@@ -12,7 +12,8 @@
 # Only constrains what the extension itself guarantees: required top-level fields
 # (name, architecture, tasks, input, output), the closed enumerations (tasks,
 # accelerator, resize_type, scaling_type), and the required sub-fields of
-# ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling.
+# ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling, plus the
+# cross-reference and list-position (ordering) rules that JSON Schema cannot express.
 
 mlm:ModelRootShape a sh:NodeShape ;
     rdfs:label "MLM model root shape" ;
@@ -152,6 +153,172 @@ mlm:VariableDimensionResolutionShape a sh:NodeShape ;
         """
     ] .
 
+
+# Ordering constraints.
+#
+# MLM arrays are RDF lists because their positions carry meaning: mlm:shape[i] is the size of the
+# axis named mlm:dim_order[i], and mlm:bands / mlm:variables supply the element order along the
+# reserved "bands" / "variables" axes. The constraints below reject definitions whose positions can
+# no longer be aligned, which JSON Schema alone cannot express.
+
+mlm:TensorStructureOrderShape a sh:NodeShape ;
+    rdfs:label "MLM tensor structure order shape" ;
+    sh:targetSubjectsOf mlm:dim_order ;
+    sh:sparql [
+        sh:message "mlm:shape has {?shapeLength} entries but mlm:dim_order has {?dimensionLength}: each shape size must be named by the dim_order entry at the same position." ;
+        sh:select """
+            SELECT $this ?shapeLength ?dimensionLength
+            WHERE {
+                {
+                    SELECT $this (COUNT(?sizeNode) AS ?shapeLength)
+                    WHERE { $this mlm:shape/rdf:rest* ?sizeNode . ?sizeNode rdf:first ?size }
+                    GROUP BY $this
+                }
+                {
+                    SELECT $this (COUNT(?dimensionNode) AS ?dimensionLength)
+                    WHERE { $this mlm:dim_order/rdf:rest* ?dimensionNode . ?dimensionNode rdf:first ?dimension }
+                    GROUP BY $this
+                }
+                FILTER (?shapeLength != ?dimensionLength)
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "mlm:shape size {?size} is invalid: each dimension size must be greater than 0, or -1 for a variable size." ;
+        sh:select """
+            SELECT $this ?size
+            WHERE {
+                $this mlm:shape/rdf:rest*/rdf:first ?size .
+                FILTER (?size = 0 || ?size < -1)
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "mlm:dim_order repeats the dimension name '{?dimension}': each axis must be uniquely named." ;
+        sh:select """
+            SELECT DISTINCT $this ?dimension
+            WHERE {
+                $this mlm:dim_order/rdf:rest* ?firstNode .
+                ?firstNode rdf:first ?dimension ;
+                           rdf:rest+ ?laterNode .
+                ?laterNode rdf:first ?laterDimension .
+                FILTER (STR(?dimension) = STR(?laterDimension))
+            }
+        """
+    ] .
+
+mlm:StackedReferenceOrderShape a sh:NodeShape ;
+    rdfs:label "MLM stacked band/variable order shape" ;
+    sh:targetSubjectsOf mlm:input_structure, mlm:result ;
+    sh:sparql [
+        sh:message "The reserved dim_order axis '{?axis}' must be present if and only if the corresponding mlm:{?axis} list is non-empty, since that list supplies the element order along the axis." ;
+        sh:select """
+            SELECT $this ?axis
+            WHERE {
+                { BIND ("bands" AS ?axis) BIND (mlm:bands AS ?referenceProperty) }
+                UNION
+                { BIND ("variables" AS ?axis) BIND (mlm:variables AS ?referenceProperty) }
+                $this mlm:input_structure|mlm:result ?structure .
+                BIND (EXISTS { $this ?referenceProperty ?references . ?references rdf:first ?reference } AS ?hasReferences)
+                BIND (EXISTS {
+                    ?structure mlm:dim_order/rdf:rest*/rdf:first ?dimension .
+                    FILTER (STR(?dimension) = ?axis)
+                } AS ?hasAxis)
+                FILTER (?hasReferences != ?hasAxis)
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "The '{?axis}' axis has size {?size} in mlm:shape but mlm:{?axis} lists {?referenceCount} entries. Without a processing function changing the stacked size, entry i of the list must describe index i of that axis." ;
+        sh:select """
+            SELECT $this ?axis ?size ?referenceCount
+            WHERE {
+                { BIND ("bands" AS ?axis) BIND (mlm:bands AS ?referenceProperty) }
+                UNION
+                { BIND ("variables" AS ?axis) BIND (mlm:variables AS ?referenceProperty) }
+                FILTER NOT EXISTS {
+                    $this mlm:pre_processing_function|mlm:post_processing_function ?function .
+                    FILTER (STR(?function) != "null" && ?function != rdf:nil)
+                }
+                {
+                    SELECT $this ?referenceProperty (COUNT(?referenceNode) AS ?referenceCount)
+                    WHERE {
+                        $this ?referenceProperty ?references .
+                        FILTER (?referenceProperty IN (mlm:bands, mlm:variables))
+                        ?references rdf:rest* ?referenceNode .
+                        ?referenceNode rdf:first ?reference .
+                    }
+                    GROUP BY $this ?referenceProperty
+                }
+                {
+                    SELECT $this ?axisName (COUNT(?dimensionPrefix) AS ?position)
+                    WHERE {
+                        $this (mlm:input_structure|mlm:result)/mlm:dim_order ?dimensions .
+                        ?dimensions rdf:rest* ?dimensionPrefix .
+                        ?dimensionPrefix rdf:rest* ?dimensionNode .
+                        ?dimensionNode rdf:first ?axisName .
+                    }
+                    GROUP BY $this ?dimensionNode ?axisName
+                }
+                {
+                    SELECT $this ?size (COUNT(?sizePrefix) AS ?position)
+                    WHERE {
+                        $this (mlm:input_structure|mlm:result)/mlm:shape ?sizes .
+                        ?sizes rdf:rest* ?sizePrefix .
+                        ?sizePrefix rdf:rest* ?sizeNode .
+                        ?sizeNode rdf:first ?size .
+                    }
+                    GROUP BY $this ?sizeNode ?size
+                }
+                FILTER (STR(?axisName) = ?axis && ?size != -1 && ?size != ?referenceCount)
+            }
+        """
+    ] .
+
+mlm:ValueScalingOrderShape a sh:NodeShape ;
+    rdfs:label "MLM value scaling order shape" ;
+    sh:targetSubjectsOf mlm:value_scaling ;
+    sh:sparql [
+        sh:message "mlm:value_scaling has {?scalingCount} entries, which matches no stacked bands/variables/channel axis size ({?axisSizes}). Provide one entry to broadcast, or one entry per axis element in the same order." ;
+        sh:select """
+            SELECT $this ?scalingCount (GROUP_CONCAT(DISTINCT STR(?size); separator=", ") AS ?axisSizes)
+            WHERE {
+                {
+                    SELECT $this (COUNT(?scalingNode) AS ?scalingCount)
+                    WHERE {
+                        $this mlm:value_scaling ?scalings .
+                        ?scalings rdf:rest* ?scalingNode .
+                        ?scalingNode rdf:first ?scaling .
+                    }
+                    GROUP BY $this
+                }
+                FILTER (?scalingCount > 1)
+                {
+                    SELECT $this ?axisName (COUNT(?dimensionPrefix) AS ?position)
+                    WHERE {
+                        $this mlm:input_structure/mlm:dim_order ?dimensions .
+                        ?dimensions rdf:rest* ?dimensionPrefix .
+                        ?dimensionPrefix rdf:rest* ?dimensionNode .
+                        ?dimensionNode rdf:first ?axisName .
+                    }
+                    GROUP BY $this ?dimensionNode ?axisName
+                }
+                {
+                    SELECT $this ?size (COUNT(?sizePrefix) AS ?position)
+                    WHERE {
+                        $this mlm:input_structure/mlm:shape ?sizes .
+                        ?sizes rdf:rest* ?sizePrefix .
+                        ?sizePrefix rdf:rest* ?sizeNode .
+                        ?sizeNode rdf:first ?size .
+                    }
+                    GROUP BY $this ?sizeNode ?size
+                }
+                FILTER (STR(?axisName) IN ("bands", "variables", "channel") && ?size != -1)
+            }
+            GROUP BY $this ?scalingCount
+            HAVING (SUM(IF(?size = ?scalingCount, 1, 0)) = 0)
+        """
+    ] .
 
 mlm:ModelAssetShape a sh:NodeShape ;
     rdfs:label "MLM model asset shape" ;

@@ -411,7 +411,7 @@ mlm:input a owl:ObjectProperty ;
     dct:description "REQUIRED. The model's input(s)." ;
     rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
     rdfs:range rdf:List ;
-    rdfs:comment "An ordered RDF list whose members are mlm:ModelInput resources." ;
+    rdfs:comment "An ordered RDF list whose members are mlm:ModelInput resources. ORDER MATTERS: list order is preserved and can correspond to the positional arguments of the model inference call signature." ;
     rdfs:seeAlso <https://github.com/stac-extensions/mlm#model-input-object> ;
     rdfs:isDefinedBy mlm: .
 
@@ -425,7 +425,7 @@ mlm:output a owl:ObjectProperty ;
     dct:description "REQUIRED. The model's output(s)." ;
     rdfs:domain [ owl:unionOf (stac:Item stac:Collection) ] ;
     rdfs:range rdf:List ;
-    rdfs:comment "An ordered RDF list whose members are mlm:ModelOutput resources." ;
+    rdfs:comment "An ordered RDF list whose members are mlm:ModelOutput resources. ORDER MATTERS: list order is preserved and can correspond to the positional results returned by the model inference call." ;
     rdfs:seeAlso <https://github.com/stac-extensions/mlm#model-output-object> ;
     rdfs:isDefinedBy mlm: .
 
@@ -437,7 +437,7 @@ mlm:bands a owl:Property ;
     rdfs:seeAlso <https://github.com/radiantearth/stac-spec/blob/v1.1.0/commons/common-metadata.md#bands>,
         <https://github.com/stac-extensions/raster#raster-band-object>, eo:common_name,
         raster:spatial_resolution ;
-    rdfs:comment "Each value is a name/reference into the corresponding STAC Asset band metadata. The referenced band may use STAC common metadata, EO properties such as eo:common_name, and Raster properties such as raster:spatial_resolution. This is a reference relationship, not an equivalent-property assertion." ;
+    rdfs:comment "Each value is a name/reference into the corresponding STAC Asset band metadata. The referenced band may use STAC common metadata, EO properties such as eo:common_name, and Raster properties such as raster:spatial_resolution. This is a reference relationship, not an equivalent-property assertion. ORDER MATTERS: the list position is the index along the \"bands\" axis of mlm:dim_order, so reordering the list changes which band feeds which tensor channel. A non-empty list requires a \"bands\" entry in mlm:dim_order and, unless a processing function changes the stacked size, its length must equal the corresponding mlm:shape size (when not -1). Processing expressions may also refer to these bands positionally." ;
     rdfs:isDefinedBy mlm: .
 
 mlm:variables a owl:Property ;
@@ -446,7 +446,7 @@ mlm:variables a owl:Property ;
     rdfs:domain [ owl:unionOf (mlm:ModelInput mlm:ModelOutput) ] ;
     rdfs:range rdf:List ;
     rdfs:seeAlso <https://github.com/stac-extensions/datacube#data-variables>, cube:variables ;
-    rdfs:comment "Each value is a key in the STAC Datacube cube:variables map on the relevant Item, Collection, or Asset. The referenced variable can in turn refer to cube:dimensions." ;
+    rdfs:comment "Each value is a key in the STAC Datacube cube:variables map on the relevant Item, Collection, or Asset. The referenced variable can in turn refer to cube:dimensions. ORDER MATTERS: the list position is the index along the \"variables\" axis of mlm:dim_order, so reordering the list changes which variable feeds which tensor slice. A non-empty list requires a \"variables\" entry in mlm:dim_order and, unless a processing function changes the stacked size, its length must equal the corresponding mlm:shape size (when not -1)." ;
     rdfs:isDefinedBy mlm: .
 
 mlm:value_scaling a owl:ObjectProperty ;
@@ -454,7 +454,7 @@ mlm:value_scaling a owl:ObjectProperty ;
     dct:description "The transformation(s) applied to raw values before they are used as model input." ;
     rdfs:domain mlm:ModelInput ;
     rdfs:range rdf:List ;
-    rdfs:comment "An ordered RDF list of mlm:ValueScaling resources, optionally including explicit null entries." ;
+    rdfs:comment "An ordered RDF list of mlm:ValueScaling resources, optionally including explicit null entries. ORDER MATTERS: the list contains either a single entry broadcast to every stacked element, or exactly one entry per element of the stacked bands/variables/channel axis, where entry i applies to element i of that axis (and therefore to item i of mlm:bands or mlm:variables)." ;
     rdfs:isDefinedBy mlm: .
 
 mlm:model_asset a owl:ObjectProperty ;
@@ -480,7 +480,7 @@ mlm:pre_processing_function a owl:DatatypeProperty ;
     dct:description "A processing expression that reshapes/transforms raw data into this ModelInput's expected form." ;
     rdfs:domain mlm:ModelInput ;
     rdfs:range rdf:JSON ;
-    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse." ;
+    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse. ORDER MATTERS: when the JSON value is an array of expressions, they are applied sequentially in array order, each result feeding the next one." ;
     rdfs:isDefinedBy mlm: .
 
 mlm:post_processing_function a owl:DatatypeProperty ;
@@ -489,7 +489,7 @@ mlm:post_processing_function a owl:DatatypeProperty ;
     dct:description "A processing expression applied to the model's raw output to produce this ModelOutput's result." ;
     rdfs:domain mlm:ModelOutput ;
     rdfs:range rdf:JSON ;
-    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse." ;
+    rdfs:comment "Shares the Expression Object shape used by processing:expression (STAC Processing extension); declared as a subproperty to record that semantic reuse. ORDER MATTERS: when the JSON value is an array of expressions, they are applied sequentially in array order, each result feeding the next one." ;
     rdfs:isDefinedBy mlm: .
 
 #################################################################
@@ -526,13 +526,13 @@ mlm:shape a owl:ObjectProperty ;
     dct:description "REQUIRED. The dimension sizes of the tensor (-1 indicates a variable/unknown size for that dimension)." ;
     rdfs:domain [ owl:unionOf (mlm:InputStructure mlm:ResultStructure) ] ;
     rdfs:range rdf:List ;
-    rdfs:comment "Ordered numeric list members correspond one-to-one with mlm:dim_order members." ;
+    rdfs:comment "ORDER MATTERS: ordered numeric list members correspond one-to-one, by position, with mlm:dim_order members, so both lists must have the same length. Each size is greater than 0, or -1 for a variable size." ;
     rdfs:isDefinedBy mlm: .
 
 mlm:dim_order a owl:ObjectProperty ;
     rdfs:label "dimension order" ;
     dct:description "REQUIRED. The label of each dimension in mlm:shape, in order." ;
-    rdfs:comment "Common values include batch, channel, bands, variables, time, height, width, depth, token, class, score, confidence, embedding. When mlm:bands or mlm:variables is present, the corresponding value identifies its tensor axis and the array order supplies channel/variable order. The extension does not close this list, so no SKOS scheme is minted for it." ;
+    rdfs:comment "Common values include batch, channel, bands, variables, time, height, width, depth, token, class, score, confidence, embedding. ORDER MATTERS: entry i names the tensor axis whose size is entry i of mlm:shape, and the sequence defines the memory layout expected by the framework (e.g. channels-first versus channels-last). The names \"bands\" and \"variables\" are reserved: each must be present if and only if the corresponding mlm:bands or mlm:variables list is non-empty, and the order of that list supplies the order along that axis. Names must be unique. The extension does not close this list, so no SKOS scheme is minted for it." ;
     rdfs:domain [ owl:unionOf (mlm:InputStructure mlm:ResultStructure) ] ;
     rdfs:range rdf:List ;
     rdfs:isDefinedBy mlm: .
