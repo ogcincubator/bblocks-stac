@@ -105,7 +105,10 @@ STAC Item / Collection
 | STAC Asset | `eo:*` / `raster:*` | band metadata | Description of the referenced band, supplied by EO/Raster extensions. |
 | STAC Link | `vcs:*` | repository metadata | VCS extension identifies the source repository for an application or other resource. |
 
-The `bands` and `variables` arrays preserve model channel/variable order. When present, the
+The `bands` and `variables` arrays preserve model channel/variable order through RDF lists. MLM
+`input`, `output`, `tasks`, and `value_scaling` arrays are also RDF lists. Table and diagram
+relationships to their members are traversed using `rdf:rest*/rdf:first` after the field predicate.
+When present, the
 corresponding `mlm:dim_order` list uses `bands` and/or `variables` to identify those tensor axes.
 The ontology does not assert that `mlm:bands` is equivalent to `eo:bands` or `raster:bands`:
 those extensions describe the referenced STAC data, whereas MLM selects the data used by the model.
@@ -125,7 +128,7 @@ The ontology includes SHACL constraints for relationships that the MLM JSON Sche
 because they depend on multiple resources or on ordered RDF structures:
 
 - each `mlm:variables` reference on an input or output must resolve to a key in the enclosing
-  Datacube `cube:variables` map;
+  Item or attached Asset Datacube `cube:variables` map;
 - each dimension named by a Datacube variable must resolve to a key in that resource's
   `cube:dimensions` map;
 - an asset carrying `mlm:artifact_type` must also carry the STAC `mlm:model` asset role;
@@ -139,6 +142,10 @@ implementation terms, not replacements for Datacube's `cube:variables` or `cube:
 properties. Band-name resolution is intentionally not asserted here because the current STAC EO and
 Raster RDF mappings do not provide one authoritative, interoperable RDF predicate for every form of
 asset band name.
+
+The [MLM schema block transforms](../mlm/README.md) additionally provide a reversible Item RDF profile
+that preserves explicit nulls, extension metadata, dictionary keys, and array order. Its structural
+serialization vocabulary is separate from the upstream MLM fields.
 
 ## SKOS vs. OWL
 

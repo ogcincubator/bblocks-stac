@@ -3,17 +3,18 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
 
-from pystac.validation import validate_dict
 from pyshacl import validate
-from rdflib import BNode, Graph, Literal, Namespace, RDF, URIRef
+from pystac.validation import validate_dict
+from rdflib import RDF, XSD, BNode, Graph, Literal, Namespace, URIRef
 from rdflib.collection import Collection
 from rdflib.term import Identifier
 from stac_model.runtime import Runtime
-from stac_model.schema import MLModelProperties, SCHEMA_URI
+from stac_model.schema import SCHEMA_URI, MLModelProperties
 
 SER = Namespace("https://w3id.org/ogc/stac/mlm/serialization/")
 MLM = Namespace("https://w3id.org/ogc/stac/mlm/")
@@ -60,7 +61,7 @@ def mapping(key: str, context: dict[str, Any]) -> tuple[URIRef, dict[str, Any], 
     scoped = {**context, **definition.get("@context", {})}
     term = definition.get("@id", key)
     if term == "@type":
-        return RDF.type, scoped, True
+        return URIRef(str(SER) + "member/" + quote(key, safe="")), scoped, False
     if term.startswith("@"):
         term = str(SER) + "member/" + quote(key, safe="")
     return URIRef(expand(term, scoped)), scoped, definition.get("@type") == "@vocab"
@@ -111,7 +112,11 @@ class ItemRDF:
         if value is None:
             return Literal("null", datatype=RDF.JSON)
         if vocabulary and isinstance(value, str):
-            return URIRef(expand(value, context))
+            iri = expand(value, context)
+            if not iri.startswith(str(SER) + "member/"):
+                return URIRef(iri)
+        if isinstance(value, float):
+            return Literal(format(Decimal(repr(value)), "f"), datatype=XSD.decimal, normalize=False)
         return Literal(value)
 
     def encode_list(self, values: list[Any], context: dict[str, Any], vocabulary: bool = False) -> Identifier:
@@ -124,6 +129,10 @@ class ItemRDF:
     def encode_object(self, obj: dict[str, Any], context: dict[str, Any]) -> BNode:
         node = BNode()
         self.graph.add((node, RDF.type, SER.Object))
+        if isinstance(obj.get("type"), str) and context.get("type") == "@type":
+            iri = expand(obj["type"], context)
+            if not iri.startswith(str(SER) + "member/"):
+                self.graph.add((node, RDF.type, URIRef(iri)))
         predicates: set[URIRef] = set()
         for key, value in obj.items():
             predicate, scoped, vocabulary = mapping(key, context)
@@ -148,7 +157,7 @@ class ItemRDF:
                 kind = "map"
                 for name, entry in value.items():
                     if not isinstance(entry, dict):
-                        raise ValueError(f"Map {key!r} entry {name!r} must be an object.")
+                        raise TypeError(f"Map {key!r} entry {name!r} must be an object.")
                     child = self.encode_object(entry, scoped)
                     self.graph.add((child, SER.mapKey, Literal(name)))
                     self.graph.add((node, predicate, child))
@@ -170,9 +179,24 @@ class ItemRDF:
                     self.graph.add((field, SER.items, head))
                     for entry in Collection(self.graph, head):
                         self.graph.add((node, predicate, entry))
+                member_class = {
+                    MLM.input: MLM.ModelInput,
+                    MLM.output: MLM.ModelOutput,
+                    MLM.bands: MLM.BandVariableReference,
+                    MLM.variables: MLM.BandVariableReference,
+                    MLM.value_scaling: MLM.ValueScaling,
+                }.get(predicate)
+                if member_class is not None:
+                    for entry in Collection(self.graph, head):
+                        if isinstance(entry, BNode):
+                            self.graph.add((entry, RDF.type, member_class))
             else:
                 kind = "value"
-                self.graph.add((node, predicate, self.encode_value(value, scoped, vocabulary)))
+                entry = self.encode_value(value, scoped, vocabulary)
+                self.graph.add((node, predicate, entry))
+                object_class = {MLM.input_structure: MLM.InputStructure, MLM.result: MLM.ResultStructure}.get(predicate)
+                if isinstance(entry, BNode) and object_class is not None:
+                    self.graph.add((entry, RDF.type, object_class))
             self.graph.add((field, SER.kind, Literal(kind)))
         return node
 
@@ -198,8 +222,10 @@ class ItemRDF:
             if value.datatype == RDF.JSON:
                 return json.loads(str(value))
             decoded = value.toPython()
+            if isinstance(decoded, Decimal):
+                return float(decoded)
             if not isinstance(decoded, (str, int, float, bool)):
-                raise ValueError(f"Unsupported RDF literal datatype: {value.datatype}")
+                raise TypeError(f"Unsupported RDF literal datatype: {value.datatype}")
             return decoded
         if (value, RDF.type, SER.Array) in self.graph:
             if value in seen:
@@ -237,6 +263,12 @@ class ItemRDF:
                     name = str(self.one(child, SER.mapKey))
                     if name in entries:
                         raise ValueError(f"Duplicate map key: {name}")
+                    if key in ("cube:variables", "cube:dimensions"):
+                        name_predicate = (
+                            MLM.datacube_variable_name if key == "cube:variables" else MLM.datacube_dimension_name
+                        )
+                        if self.one(child, name_predicate) != Literal(name):
+                            raise ValueError(f"Datacube map key {name!r} disagrees with its semantic name.")
                     entries[name] = self.decode_object(child, scoped, seen)
                 obj[key] = entries
             elif kind == "null":
@@ -286,6 +318,8 @@ def transform(data: str, direction: str, source_type: str, target_type: str, blo
     """
     Convert a validated Item to RDF or decode a validated reversible RDF graph.
     """
+    source_type = source_type.split(";", 1)[0]
+    target_type = target_type.split(";", 1)[0]
     codec = ItemRDF(load_context(block, assembled))
     if direction == "to-rdf":
         if target_type not in ("text/turtle", "application/ld+json"):
@@ -296,9 +330,11 @@ def transform(data: str, direction: str, source_type: str, target_type: str, blo
         root = codec.encode_object(item, codec.context)
         codec.graph.add((root, RDF.type, SER.Item))
         validate_graph(codec.graph, block)
-        if codec.decode_object(root, codec.context) != item:
-            raise ValueError("RDF encoding changed the Item's JSON values.")
-        return codec.graph.serialize(format="json-ld" if target_type == "application/ld+json" else "turtle")
+        output = codec.graph.serialize(format="json-ld" if target_type == "application/ld+json" else "turtle")
+        decoded = json.loads(transform(output, "to-item", target_type, "application/json", block, assembled))
+        if json.dumps(decoded, sort_keys=True) != json.dumps(item, sort_keys=True):
+            raise ValueError("RDF serialization changed the Item's JSON values.")
+        return output
     if direction != "to-item":
         raise ValueError(f"Unknown transform direction: {direction}")
     if source_type not in ("text/turtle", "application/ld+json"):
@@ -330,13 +366,14 @@ def check_expanded_jsonld(value: Any) -> None:
             check_expanded_jsonld(child)
 
 
-if "transform_metadata" in globals():
-    context = transform_metadata.context
+runtime = globals().get("transform_metadata")
+if runtime is not None:
+    context = runtime.context
     output_data = transform(
-        input_data,
-        transform_metadata.metadata.direction,
-        transform_metadata.source_mime_type,
-        transform_metadata.target_mime_type,
+        globals()["input_data"],
+        runtime.metadata.direction,
+        runtime.source_mime_type,
+        runtime.target_mime_type,
         Path(context.bblock_files_path),
         Path(context.jsonld_context_path),
     )
@@ -345,7 +382,9 @@ elif __name__ == "__main__":
     parser.add_argument("direction", choices=["to-rdf", "to-item"])
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path)
-    parser.add_argument("--context", type=Path, required=True, help="Assembled MLM context.jsonld from a bblocks build.")
+    parser.add_argument(
+        "--context", type=Path, required=True, help="Assembled MLM context.jsonld from a bblocks build."
+    )
     parser.add_argument("--rdf-format", choices=["turtle", "jsonld"], default="turtle")
     args = parser.parse_args()
     rdf_type = "application/ld+json" if args.rdf_format == "jsonld" else "text/turtle"

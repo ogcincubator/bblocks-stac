@@ -8,7 +8,11 @@ transforms:
     inputs:
       mediaTypes: [application/geo+json]
     outputs:
-      mediaTypes: [text/turtle, application/ld+json]
+      mediaTypes:
+        - mimeType: 'text/turtle; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+          defaultExtension: ttl
+        - mimeType: 'application/ld+json; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+          defaultExtension: jsonld
     metadata:
       direction: to-rdf
       dependencies:
@@ -22,7 +26,9 @@ transforms:
     type: python
     ref: transforms/item_rdf.py
     inputs:
-      mediaTypes: [text/turtle, application/ld+json]
+      mediaTypes:
+        - 'text/turtle; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+        - 'application/ld+json; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
     outputs:
       mediaTypes: [application/json]
       profiles: [bblocks://ogc.contrib.stac.extensions.mlm]

@@ -16,7 +16,7 @@
 
 mlm:ModelRootShape a sh:NodeShape ;
     rdfs:label "MLM model root shape" ;
-    sh:targetSubjectsOf mlm:architecture ;
+    sh:targetSubjectsOf mlm:input ;
     sh:property [ sh:path mlm:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
     sh:property [ sh:path mlm:architecture ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
     sh:property [
@@ -73,7 +73,7 @@ mlm:InputStructureShape a sh:NodeShape ;
     sh:property [ sh:path mlm:shape ; sh:minCount 1 ] ;
     sh:property [
         sh:path (mlm:shape [ sh:zeroOrMorePath rdf:rest ] rdf:first) ;
-        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:double ] ) ;
+        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:double ] [ sh:datatype xsd:decimal ] ) ;
     ] ;
     sh:property [ sh:path mlm:dim_order ; sh:minCount 1 ] ;
     sh:property [
@@ -87,7 +87,7 @@ mlm:ResultStructureShape a sh:NodeShape ;
     sh:property [ sh:path mlm:shape ; sh:minCount 1 ] ;
     sh:property [
         sh:path (mlm:shape [ sh:zeroOrMorePath rdf:rest ] rdf:first) ;
-        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:double ] ) ;
+        sh:or ( [ sh:datatype xsd:integer ] [ sh:datatype xsd:double ] [ sh:datatype xsd:decimal ] ) ;
     ] ;
     sh:property [ sh:path mlm:dim_order ; sh:minCount 1 ] ;
     sh:property [
@@ -107,7 +107,7 @@ mlm:VariableReferenceResolutionShape a sh:NodeShape ;
     rdfs:label "MLM variable reference resolution shape" ;
     sh:targetSubjectsOf mlm:variables ;
     sh:sparql [
-        sh:message "Every MLM variable reference must resolve to a key in the enclosing Datacube cube:variables map." ;
+        sh:message "Every MLM variable reference must resolve to a key in the enclosing Item or Asset Datacube cube:variables map." ;
         sh:select """
             SELECT $this ?reference
             WHERE {
@@ -118,7 +118,15 @@ mlm:VariableReferenceResolutionShape a sh:NodeShape ;
                     ?model ?inputOutput ?inputsOutputs .
                     FILTER (?inputOutput IN (mlm:input, mlm:output))
                     ?inputsOutputs rdf:rest*/rdf:first $this .
-                    ?model cube:variables ?variable .
+                    ?source cube:variables ?variable .
+                    FILTER (
+                        ?source = ?model
+                        || EXISTS { ?model stac:hasAsset ?source }
+                        || EXISTS {
+                            ?item <https://w3id.org/ogc/stac/mlm/serialization/member/properties> ?model ;
+                                  stac:hasAsset ?source
+                        }
+                    )
                     ?variable mlm:datacube_variable_name ?name
                 }
             }
