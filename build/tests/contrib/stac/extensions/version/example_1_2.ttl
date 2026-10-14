@@ -1,0 +1,27 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix ver: <https://w3id.org/ogc/stac/version/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/version/collection/merraclim> a <https://example.com/stac/version/collection/Collection> ;
+    dcterms:description "A high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling." ;
+    dcterms:extent [ ] ;
+    dcterms:title "MERRAclim" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json> ] ;
+    dcat:license "CC0-1.0" ;
+    stac:hasExtension "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
+    stac:version "1.0.0" ;
+    ver:deprecated true ;
+    ver:version "1"^^xsd:string .
+

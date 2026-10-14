@@ -1,0 +1,93 @@
+@prefix cube: <https://w3id.org/ogc/stac/datacube/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/datacube/daymet-hi-annual/daymet-hi-annual> a <https://example.com/stac/datacube/daymet-hi-annual/Collection> ;
+    dcterms:description "Daymet is a data product derived from a collection of algorithms and computer software designed to interpolate and extrapolate from daily meteorological observations to produce gridded estimates of daily weather parameters. Weather parameters generated include daily surfaces of minimum and maximum temperature, precipitation, vapor pressure, radiation, snow water equivalent, and day length produced on a 1 km x 1 km gridded surface. The motivation for producing Daymet is to provide measurements of near-surface meteorological conditions where no instrumentation exists. Having estimates of these surfaces is critical to understanding many processes in the terrestrial biogeochemical system." ;
+    dcterms:extent [ ] ;
+    dcterms:title "Daymet Hawaii Annual" ;
+    dcat:license "proprietary" ;
+    stac:hasAsset [ ns1:data <abfs://daymet-zarr/annual/hi.zarr> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" ;
+    stac:version "1.1.0" ;
+    cube:dimensions [ cube:description "Annual" ;
+            cube:extent ( "1980:00:00T00:00:00Z" "2020:00:00T00:00:00Z" ) ;
+            cube:step "P1Y" ;
+            cube:type "temporal" ],
+        [ cube:description "Size of time_bnds." ;
+            cube:type "count" ;
+            cube:values ( 0 1 ) ],
+        [ cube:axis "y" ;
+            cube:description "North American Lambert Conformal Conic, 1KM grid." ;
+            cube:extent ( -5802250 -39000 ) ;
+            cube:reference_system "PROJCRS[\"undefined\",BASEGEOGCRS[\"undefined\",DATUM[\"undefined\",ELLIPSOID[\"undefined\",6378137,298.257223563,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of 1st standard parallel\",25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",60,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Latitude of false origin\",42.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-100,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Easting at false origin\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]" ;
+            cube:step 1000 ;
+            cube:type "spatial" ],
+        [ cube:axis "x" ;
+            cube:description "North American Lambert Conformal Conic, 1KM grid." ;
+            cube:extent ( -622000 -5519250 ) ;
+            cube:reference_system "PROJCRS[\"undefined\",BASEGEOGCRS[\"undefined\",DATUM[\"undefined\",ELLIPSOID[\"undefined\",6378137,298.257223563,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of 1st standard parallel\",25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",60,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Latitude of false origin\",42.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-100,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Easting at false origin\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]" ;
+            cube:step 1000 ;
+            cube:type "spatial" ] ;
+    cube:variables [ cube:description "The average of the daily average partial pressure of water vapor over the monthly period." ;
+            cube:dimensions "time",
+                "x",
+                "y" ;
+            cube:type "data" ;
+            cube:unit "Pa" ],
+        [ cube:description "The average of the daily snow water equivalent (the amount of water contained within the snowpack) in kilograms per square meter over the monthly period." ;
+            cube:dimensions "time",
+                "x",
+                "y" ;
+            cube:extent ( 0 ) ;
+            cube:type "data" ;
+            cube:unit "kg/m2" ],
+        [ cube:description "" ;
+            cube:dimensions "nv",
+                "time" ;
+            cube:type "auxiliary" ],
+        [ cube:description "The average minimum temperature for a daily period over the entire monthly period." ;
+            cube:dimensions "time",
+                "x",
+                "y" ;
+            cube:type "data" ;
+            cube:unit "degrees C" ],
+        [ cube:description "The total accumulated precipitation over the monthly period of the daily total precipitation. Sum of all forms of precipitation converted to a water-equivalent depth." ;
+            cube:dimensions "time",
+                "x",
+                "y" ;
+            cube:extent ( 0 ) ;
+            cube:type "data" ;
+            cube:unit "mm" ],
+        [ cube:description "latitude coordinate" ;
+            cube:dimensions "x",
+                "y" ;
+            cube:extent ( 1.796004e+01 2.351233e+01 ) ;
+            cube:type "auxiliary" ;
+            cube:unit "degrees_north" ],
+        [ cube:description "Lambert Conformal Conic." ;
+            cube:type "auxiliary" ;
+            cube:values ( -32767 ) ],
+        [ cube:description "longitude coordinate" ;
+            cube:dimensions "x",
+                "y" ;
+            cube:extent ( -1.602988e+02 -1.547781e+02 ) ;
+            cube:type "auxiliary" ;
+            cube:unit "degrees_east" ],
+        [ cube:description "The average maximum temperature for a daily period over the entire monthly period." ;
+            cube:dimensions "time",
+                "x",
+                "y" ;
+            cube:type "data" ;
+            cube:unit "degrees C" ] .
+
+<abfs://daymet-zarr/annual/hi.zarr> dcterms:description "The root of the annual Hawaii Daymet Zarr Group on Azure Blob Storage." ;
+    dcterms:title "Annual Hawaii Daymet zarr root" ;
+    stac:hasAssetroles "azure-blob-storge"^^xsd:string,
+        "data"^^xsd:string,
+        "zarr-root"^^xsd:string .
+

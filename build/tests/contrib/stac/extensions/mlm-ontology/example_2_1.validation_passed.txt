@@ -1,5 +1,5 @@
 Validation report for ogc.contrib.stac.extensions.mlm-ontology - STAC Machine Learning Model Extension Ontology
-Generated 2026-09-28T21:00:50.739646+00:00
+Generated 2026-10-14T20:24:27.719056+00:00
 === Files ===
 Using example_2_1.ttl from examples
 Output Turtle example_2_1.ttl created
@@ -14,13 +14,26 @@ Validation result for _sources/extensions/mlm-ontology/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:
- - Shape mlm:ValueScalingShape: *none*
- - Shape mlm:AcceleratorShape: *none*
- - Shape mlm:InputStructureShape: *none*
- - Shape mlm:ModelInputShape: *none*
+ - Shape mlm:VariableReferenceResolutionShape: *none*
+ - Shape mlm:ValueScalingOrderShape: ex:input1
+ - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb71: *none*
+ - Shape mlm:InputStructureShape: ex:input1/mlm:input_structure
+ - Shape mlm:TensorStructureOrderShape: ex:input1/mlm:input_structure
  - Shape mlm:ModelOutputShape: *none*
- - Shape mlm:ResultStructureShape: *none*
+ - Shape mlm:StackedReferenceOrderShape: ex:input1
+ - Shape mlm:ModelAssetShape: *none*
+ - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb54: *none*
  - Shape mlm:ModelRootShape: *none*
+ - Shape mlm:InputStructureShape/sh:property/sh:or/rdf:first: *none*
+ - Shape mlm:AcceleratorShape: *none*
+ - Shape mlm:ResultStructureShape/sh:property/sh:or/rdf:first: *none*
+ - Shape mlm:ModelInputShape: ex:input1
+ - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb72: *none*
+ - Shape mlm:ValueScalingShape: ex:input1/mlm:value_scaling/rdf:first
+ - Shape mlm:ResultStructureShape: ex:input1/mlm:input_structure
+ - Shape mlm:VariableDimensionResolutionShape: *none*
+ - Shape mlm:BandVariableReferenceShape: *none*
+ - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb53: *none*
 
 === End SHACL ===
 

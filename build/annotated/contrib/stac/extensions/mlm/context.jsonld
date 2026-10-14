@@ -123,6 +123,63 @@
       },
       "@id": "rec:hasLinkTemplate"
     },
+    "cube:variables": {
+      "@id": "cube:variables",
+      "@container": "@index",
+      "@index": "mlm:datacube_variable_name",
+      "@context": {
+        "dimensions": {
+          "@id": "cube:dimensions",
+          "@container": "@set"
+        },
+        "type": "cube:type",
+        "description": "cube:description",
+        "extent": {
+          "@id": "cube:extent",
+          "@container": "@list"
+        },
+        "values": {
+          "@id": "cube:values",
+          "@container": "@list"
+        },
+        "unit": "cube:unit",
+        "nodata": "cube:nodata",
+        "data_type": "cube:data_type"
+      }
+    },
+    "cube:dimensions": {
+      "@id": "cube:dimensions",
+      "@container": "@index",
+      "@index": "mlm:datacube_dimension_name",
+      "@context": {
+        "type": "cube:type",
+        "axis": "cube:axis",
+        "axes": {
+          "@id": "cube:axes",
+          "@container": "@set"
+        },
+        "description": "cube:description",
+        "extent": {
+          "@id": "cube:extent",
+          "@container": "@list"
+        },
+        "values": {
+          "@id": "cube:values",
+          "@container": "@list"
+        },
+        "step": "cube:step",
+        "unit": "cube:unit",
+        "reference_system": "cube:reference_system",
+        "bbox": {
+          "@id": "cube:bbox",
+          "@container": "@list"
+        },
+        "geometry_types": {
+          "@id": "cube:geometry_types",
+          "@container": "@set"
+        }
+      }
+    },
     "mlm:name": {
       "@id": "mlm:name",
       "@type": "xsd:string"
@@ -134,7 +191,7 @@
     "mlm:tasks": {
       "@id": "mlm:tasks",
       "@type": "@vocab",
-      "@container": "@set",
+      "@container": "@list",
       "@context": {
         "regression": "mlm:regression",
         "classification": "mlm:classification",
@@ -223,18 +280,35 @@
     },
     "mlm:input": {
       "@id": "mlm:input",
-      "@container": "@set",
+      "@container": "@list",
+      "@type": "mlm:ModelInput",
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/mlm/",
         "name": "mlm:io_name",
         "description": "mlm:io_description",
         "bands": {
           "@id": "mlm:bands",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "mlm:reference_name",
+            "format": "mlm:reference_format",
+            "expression": {
+              "@id": "mlm:reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "variables": {
           "@id": "mlm:variables",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "mlm:reference_name",
+            "format": "mlm:reference_format",
+            "expression": {
+              "@id": "mlm:reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "resize_type": {
           "@id": "mlm:resize_type",
@@ -258,7 +332,8 @@
         },
         "value_scaling": {
           "@id": "mlm:value_scaling",
-          "@container": "@set",
+          "@container": "@list",
+          "@type": "mlm:ValueScaling",
           "@context": {
             "@vocab": "https://w3id.org/ogc/stac/mlm/",
             "type": {
@@ -284,6 +359,7 @@
         },
         "input": {
           "@id": "mlm:input_structure",
+          "@type": "mlm:InputStructure",
           "@context": {
             "@vocab": "https://w3id.org/ogc/stac/mlm/",
             "shape": {
@@ -301,18 +377,35 @@
     },
     "mlm:output": {
       "@id": "mlm:output",
-      "@container": "@set",
+      "@container": "@list",
+      "@type": "mlm:ModelOutput",
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/mlm/",
         "name": "mlm:io_name",
         "description": "mlm:io_description",
         "bands": {
           "@id": "mlm:bands",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "mlm:reference_name",
+            "format": "mlm:reference_format",
+            "expression": {
+              "@id": "mlm:reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "variables": {
           "@id": "mlm:variables",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "mlm:reference_name",
+            "format": "mlm:reference_format",
+            "expression": {
+              "@id": "mlm:reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "classification:classes": {
           "@id": "classification:classes",
@@ -332,7 +425,7 @@
         "tasks": {
           "@id": "mlm:tasks",
           "@type": "@vocab",
-          "@container": "@set",
+          "@container": "@list",
           "@context": {
             "regression": "mlm:regression",
             "classification": "mlm:classification",
@@ -356,6 +449,7 @@
         },
         "result": {
           "@id": "mlm:result",
+          "@type": "mlm:ResultStructure",
           "@context": {
             "@vocab": "https://w3id.org/ogc/stac/mlm/",
             "shape": {
@@ -379,6 +473,7 @@
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
+    "cube": "https://w3id.org/ogc/stac/datacube/",
     "mlm": "https://w3id.org/ogc/stac/mlm/",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",

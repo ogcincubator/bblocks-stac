@@ -1,0 +1,54 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Datacube extension
+description: STAC Datacube Extension for Items and Collections.
+allOf:
+- anyOf:
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
+- $ref: https://stac-extensions.github.io/datacube/v2.3.0/schema.json
+x-jsonld-extra-terms:
+  cube:dimensions:
+    x-jsonld-id: https://w3id.org/ogc/stac/datacube/dimensions
+    x-jsonld-container: '@index'
+    x-jsonld-context:
+      type: https://w3id.org/ogc/stac/datacube/type
+      axis: https://w3id.org/ogc/stac/datacube/axis
+      axes:
+        '@id': https://w3id.org/ogc/stac/datacube/axes
+        '@container': '@set'
+      description: https://w3id.org/ogc/stac/datacube/description
+      extent:
+        '@id': https://w3id.org/ogc/stac/datacube/extent
+        '@container': '@list'
+      values:
+        '@id': https://w3id.org/ogc/stac/datacube/values
+        '@container': '@list'
+      step: https://w3id.org/ogc/stac/datacube/step
+      unit: https://w3id.org/ogc/stac/datacube/unit
+      reference_system: https://w3id.org/ogc/stac/datacube/reference_system
+      bbox:
+        '@id': https://w3id.org/ogc/stac/datacube/bbox
+        '@container': '@list'
+      geometry_types:
+        '@id': https://w3id.org/ogc/stac/datacube/geometry_types
+        '@container': '@set'
+  cube:variables:
+    x-jsonld-id: https://w3id.org/ogc/stac/datacube/variables
+    x-jsonld-container: '@index'
+    x-jsonld-context:
+      dimensions:
+        '@id': https://w3id.org/ogc/stac/datacube/dimensions
+        '@container': '@set'
+      type: https://w3id.org/ogc/stac/datacube/type
+      description: https://w3id.org/ogc/stac/datacube/description
+      extent:
+        '@id': https://w3id.org/ogc/stac/datacube/extent
+        '@container': '@list'
+      values:
+        '@id': https://w3id.org/ogc/stac/datacube/values
+        '@container': '@list'
+      unit: https://w3id.org/ogc/stac/datacube/unit
+      nodata: https://w3id.org/ogc/stac/datacube/nodata
+      data_type: https://w3id.org/ogc/stac/datacube/data_type
+x-jsonld-prefixes:
+  cube: https://w3id.org/ogc/stac/datacube/

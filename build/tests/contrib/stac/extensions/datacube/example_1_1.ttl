@@ -1,0 +1,60 @@
+@prefix cube: <https://w3id.org/ogc/stac/datacube/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/datacube/item/datacube-123> a geojson:Feature ;
+    dcterms:date "2016-05-03T13:21:30.040000+00:00"^^xsd:dateTime ;
+    dcterms:title "Multi-dimensional data cube 123 in a STAC Item." ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <http://cool-sat.com/catalog/datacube-123/item.json> ] ;
+    geojson:bbox ( -1.225975e+02 3.748804e+01 -1.22288e+02 3.761354e+01 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( -1.223082e+02 3.748804e+01 ) ( -1.225975e+02 3.753887e+01 ) ( -1.225767e+02 3.761354e+01 ) ( -1.22288e+02 3.756282e+01 ) ( -1.223082e+02 3.748804e+01 ) ) ) ] ;
+    stac:hasAsset [ ns1:data <http://cool-sat.com/catalog/datacube-123/data.nc> ;
+            ns1:thumbnail <http://cool-sat.com/catalog/datacube-123/thumbnail.png> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" ;
+    stac:version "1.1.0" ;
+    cube:dimensions [ cube:axis "z" ;
+            cube:extent ( 0 1000 ) ;
+            cube:step 100 ;
+            cube:type "spatial" ;
+            cube:unit "Pa" ],
+        [ cube:axis "z" ;
+            cube:type "spatial" ;
+            cube:unit "m" ;
+            cube:values ( 0 10 25 50 100 1000 ) ],
+        [ cube:axis "x" ;
+            cube:extent ( -1.225975e+02 -1.22288e+02 ) ;
+            cube:reference_system 4326 ;
+            cube:type "spatial" ],
+        [ cube:type "bands" ;
+            cube:values ( "red" "green" "blue" ) ],
+        [ cube:type "temporal" ;
+            cube:values ( "2016-05-03T13:21:30.040Z" ) ],
+        [ cube:axis "y" ;
+            cube:extent ( 3.748804e+01 3.761354e+01 ) ;
+            cube:reference_system 4326 ;
+            cube:type "spatial" ] ;
+    cube:variables [ cube:type "auxiliary" ;
+            cube:values ( "red" "green" "blue" ) ],
+        [ cube:data_type "float32" ;
+            cube:dimensions "pressure_levels",
+                "time",
+                "x",
+                "y" ;
+            cube:nodata "nan" ;
+            cube:type "data" ] .
+
+<http://cool-sat.com/catalog/datacube-123/data.nc> dcterms:format "application/netcdf" ;
+    dcterms:title "netCDF Data cube" .
+
+<http://cool-sat.com/catalog/datacube-123/thumbnail.png> dcterms:format "image/png" ;
+    dcterms:title "Thumbnail" .
+

@@ -1,0 +1,36 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix ver: <https://w3id.org/ogc/stac/version/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/version/item/MERRAclim.2_5m_min_80s> a geojson:Feature ;
+    dcterms:date "1985-07-01T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:description "MERRAclim Dataset. 19 global bioclimatic variables from the 1980s decade at 2.5 arcminutes resolution in GEOtiff format. The humidity version used is the min. The variables have been built using the same protocol as WorldClim with data from MERRA. Temperature layers (BIO1-BIO11) are in degree Celsius multiplied by 10, humidity layers (BIO12-BIO19) are in kg of water/kg of air multiplied by 100000." ;
+    dcterms:title "MERRAclim. 2_5m_min_80s" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json> ] ;
+    geojson:bbox ( -180 -90 180 90 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( -180 -90 ) ( 180 -90 ) ( 180 90 ) ( -180 90 ) ( -180 -90 ) ) ) ] ;
+    stac:hasAsset [ ns2:primary <https://datadryad.org/stash/downloads/file_stream/100467> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
+    stac:version "1.0.0" ;
+    ver:version "1"^^xsd:string .
+
+<https://datadryad.org/stash/downloads/file_stream/100467> dcterms:format "application/zip" ;
+    dcterms:title "MERRAclim. 2_5m_min_80s" .
+

@@ -5,9 +5,15 @@
   "name": "STAC Machine Learning Model Extension Ontology",
   "highlighted": false,
   "title": "Definitions for STAC MLM extension elements",
-  "description": "Vocabulary defining the elements of the STAC Machine Learning Model (MLM) extension: model identity, framework/accelerator requirements, and the ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling structures, providing Linked Data terms for the STAC MLM schema. Tasks, framework, accelerator, resize_type and value-scaling type are modeled as skos:ConceptSchemes; everything else stays OWL. Reuses classification:classes (Classification extension) and aligns with processing:expression (Processing extension) rather than redefining them.",
+  "description": "This building block defines the RDF vocabulary (OWL classes and properties, SKOS concept schemes, and SHACL\nshapes) for the fields introduced by the [STAC Machine Learning Model (MLM) extension](https://github.com/stac-extensions/mlm).\nIt is bound to the MLM JSON Schema by the\n[STAC Machine Learning Model](bblocks://ogc.contrib.stac.extensions.mlm) block's JSON-LD context. See the\n[ontology README](README.md) for the interaction graph and the full relationship reference.\n\n## Order matters\n\n> [!IMPORTANT]\n> Several MLM arrays are **positional**: the index of an element carries meaning. Reordering them changes\n> which data feeds which tensor channel, or which operation runs first, even when every value is individually\n> valid. These arrays are mapped to ordered RDF lists (`rdf:List`), never to unordered multi-valued\n> properties. Traverse their members with `rdf:rest*/rdf:first`.\n\n| Field | What the position means | Validation |\n| --- | --- | --- |\n| `shape` / `dim_order` (in `input` and `result`) | `shape[i]` is the size of the axis named `dim_order[i]`; the sequence is the tensor memory layout expected by the framework (e.g. channels-first versus channels-last). | **SHACL error** when lengths differ, when a size is `0` or below `-1`, or when a dimension name repeats. |\n| `bands` | Item `i` describes index `i` of the reserved `\"bands\"` axis in `dim_order`. Processing expressions may also refer to these bands positionally (e.g. `A`, `B` in `gdal-calc`). | **SHACL error** when a non-empty list has no `\"bands\"` axis (or the reverse), or when the list length differs from that axis size (unless the size is `-1` or a processing function changes the stacked size). |\n| `variables` | Item `i` describes index `i` of the reserved `\"variables\"` axis in `dim_order`. | Same checks as `bands`, with the `\"variables\"` axis. |\n| `value_scaling` | Either one entry broadcast to every stacked element, or entry `i` applies to element `i` of the stacked `bands` / `variables` / `channel` axis. | **SHACL error** when more than one entry is provided and the count matches no known size on those axes. |\n| `pre_processing_function` / `post_processing_function` | When an array of expressions is provided, they run sequentially in array order, each result feeding the next. | Preserved by the JSON literal; documentation only. |\n| `mlm:input` / `mlm:output` | Can correspond to the positional arguments and results of the model inference call. | Order preserved; documentation only. |\n| `mlm:tasks` | No semantic order. | Order preserved only for round-trip fidelity. |\n| `classification:classes` | No semantic order; classes are identified by their `value`. | Modeled as a set. |\n\nThe JSON Schema already rejects some of these cases on its own (for example a non-empty `bands` without a\n`\"bands\"` axis, or repeated `dim_order` names). The SHACL shapes repeat those checks so that RDF data that\ndid not originate from validated JSON is held to the same rules. They also add the position-alignment checks\nthat JSON Schema cannot express.\n",
+  "maintainers": [
+    {
+      "name": "Francis Charette-Migneault",
+      "url": "https://orcid.org/0000-0003-4862-3349"
+    }
+  ],
   "status": "under-development",
-  "version": "0.1",
+  "version": "0.2",
   "itemClass": "model",
   "dependsOn": [],
   "sources": [
@@ -16,8 +22,8 @@
       "link": "https://github.com/stac-extensions/mlm"
     },
     {
-      "title": "JSON Schema (v1.5.2)",
-      "link": "https://stac-extensions.github.io/mlm/v1.5.2/schema.json"
+      "title": "JSON Schema (v1.6.0)",
+      "link": "https://stac-extensions.github.io/mlm/v1.6.0/schema.json"
     },
     {
       "title": "README (field descriptions and example)",
@@ -34,7 +40,7 @@
   ],
   "rules": [],
   "dateTimeAddition": "2026-08-25T00:00:00Z",
-  "dateOfLastChange": "2026-09-28",
+  "dateOfLastChange": "2026-10-14",
   "ontology": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/mlm-ontology/ontology.ttl",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/mlm-ontology/",
   "validationPassed": true,
@@ -46,8 +52,8 @@
         {
           "language": "turtle",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/mlm-ontology/example_1_1.ttl",
-          "sizeBytes": 1109,
-          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix mlm:  <https://w3id.org/ogc/stac/mlm/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:resnet18-eurosat a stac:Item ;\n    mlm:name             \"ResNet-18 Sentinel-2 Classifier\"^^xsd:string ;\n    mlm:architecture     \"ResNet-18\"^^xsd:string ;\n    mlm:tasks            mlm:scene-classification ;\n    mlm:framework        \"PyTorch\"^^xsd:string ;\n    mlm:framework_version \"2.1.2\"^^xsd:string ;\n    mlm:total_parameters 11700000 ;\n    mlm:accelerator      mlm:cuda ;\n    mlm:input [\n        mlm:io_name \"13 Band Sentinel-2 Batch\" ;\n        mlm:input_structure [\n            mlm:shape -1, 13, 64, 64 ;\n            mlm:dim_order \"batch\", \"channel\", \"height\", \"width\" ;\n            mlm:data_type \"float32\"^^xsd:string ;\n        ]\n    ] ;\n    mlm:output [\n        mlm:io_name \"classification\" ;\n        mlm:tasks mlm:scene-classification ;\n        mlm:result [\n            mlm:shape -1, 10 ;\n            mlm:dim_order \"batch\", \"class\" ;\n            mlm:data_type \"float32\"^^xsd:string ;\n        ]\n    ] .\n"
+          "sizeBytes": 1133,
+          "code": "@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix mlm:  <https://w3id.org/ogc/stac/mlm/> .\n@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:   <https://example.org/stac/> .\n\nex:resnet18-eurosat a stac:Item ;\n    mlm:name             \"ResNet-18 Sentinel-2 Classifier\"^^xsd:string ;\n    mlm:architecture     \"ResNet-18\"^^xsd:string ;\n    mlm:tasks            ( mlm:scene-classification ) ;\n    mlm:framework        \"PyTorch\"^^xsd:string ;\n    mlm:framework_version \"2.1.2\"^^xsd:string ;\n    mlm:total_parameters 11700000 ;\n    mlm:accelerator      mlm:cuda ;\n    mlm:input ( [\n        mlm:io_name \"13 Band Sentinel-2 Batch\" ;\n        mlm:input_structure [\n            mlm:shape ( -1 13 64 64 ) ;\n            mlm:dim_order ( \"batch\" \"channel\" \"height\" \"width\" ) ;\n            mlm:data_type \"float32\"^^xsd:string ;\n        ]\n    ] ) ;\n    mlm:output ( [\n        mlm:io_name \"classification\" ;\n        mlm:tasks ( mlm:scene-classification ) ;\n        mlm:result [\n            mlm:shape ( -1 10 ) ;\n            mlm:dim_order ( \"batch\" \"class\" ) ;\n            mlm:data_type \"float32\"^^xsd:string ;\n        ]\n    ] ) .\n"
         }
       ]
     },
@@ -57,8 +63,8 @@
         {
           "language": "turtle",
           "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/mlm-ontology/example_2_1.ttl",
-          "sizeBytes": 530,
-          "code": "@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:  <https://example.org/stac/> .\n\nex:input1\n    mlm:io_name \"13 Band Sentinel-2 Batch\" ;\n    mlm:input_structure [\n        mlm:shape -1, 13, 64, 64 ;\n        mlm:dim_order \"batch\", \"channel\", \"height\", \"width\" ;\n        mlm:data_type \"float32\"^^xsd:string ;\n    ] ;\n    mlm:value_scaling [\n        mlm:scaling_type mlm:min-max ;\n        mlm:minimum \"0.0\"^^xsd:double ;\n        mlm:maximum \"10000.0\"^^xsd:double ;\n    ] .\n"
+          "sizeBytes": 536,
+          "code": "@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ex:  <https://example.org/stac/> .\n\nex:input1\n    mlm:io_name \"13 Band Sentinel-2 Batch\" ;\n    mlm:input_structure [\n        mlm:shape ( -1 13 64 64 ) ;\n        mlm:dim_order ( \"batch\" \"channel\" \"height\" \"width\" ) ;\n        mlm:data_type \"float32\"^^xsd:string ;\n    ] ;\n    mlm:value_scaling ( [\n        mlm:scaling_type mlm:min-max ;\n        mlm:minimum \"0.0\"^^xsd:double ;\n        mlm:maximum \"10000.0\"^^xsd:double ;\n    ] ) .\n"
         }
       ]
     }

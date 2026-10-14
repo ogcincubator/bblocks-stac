@@ -1,0 +1,626 @@
+@prefix cube: <https://w3id.org/ogc/stac/datacube/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix file: <https://w3id.org/ogc/stac/file/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <https://w3id.org/ogc/stac/mlm/serialization/member/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <https://w3id.org/ogc/stac/mlm/serialization/member/%> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sci: <https://w3id.org/ogc/stac/scientific/> .
+@prefix serialization: <https://w3id.org/ogc/stac/mlm/serialization/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a geojson:Feature,
+        serialization:Item,
+        serialization:Object ;
+    rdfs:seeAlso _:N1d000117e353436f8d1e9da18f2c342e,
+        _:N9232d45243df4c0899ffa3c048fbf4bc,
+        _:N9861b08a941a4c4db06ac13403787c56,
+        _:N9fab0b3b6acd409cb64f4bd5d87a78df,
+        _:Nd2ee745e9c1045cdb55ce63b3685afff ;
+    geojson:bbox ( 233.6 54.2 297.5 22.6 ) ;
+    geojson:geometry [ a geojson:Polygon,
+                serialization:Object ;
+            geojson:coordinates ( [ a serialization:Array ;
+                        serialization:items ( [ a serialization:Array ;
+                                    serialization:items ( 233.6 54.2 ) ] [ a serialization:Array ;
+                                    serialization:items ( 297.5 54.2 ) ] [ a serialization:Array ;
+                                    serialization:items ( 297.5 22.6 ) ] [ a serialization:Array ;
+                                    serialization:items ( 233.6 22.6 ) ] [ a serialization:Array ;
+                                    serialization:items ( 233.6 54.2 ) ] ) ] ) ;
+            serialization:field [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:type ],
+                [ serialization:key "coordinates" ;
+                    serialization:kind "array" ;
+                    serialization:predicate geojson:coordinates ] ;
+            ns1:type "Polygon" ] ;
+    stac:hasAsset [ a serialization:Object ;
+            dct:description "Script to run training of the model." ;
+            dct:format "text/x-python" ;
+            dct:title "Training script." ;
+            stac:hasAssetroles "code",
+                "metadata",
+                "mlm:training" ;
+            serialization:field [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:items ( "mlm:training" "code" "metadata" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ],
+                [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ] ;
+            serialization:mapKey "train-script" ;
+            ns1:href "https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py" ],
+        [ a serialization:Object ;
+            dct:format "application/octet-stream; application=pytorch" ;
+            dct:title "U-Net Pytorch weights checkpoint" ;
+            stac:hasAssetroles "mlm:model",
+                "mlm:weights" ;
+            file:size 389657415 ;
+            mlm:artifact_type "torch.save" ;
+            serialization:field [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "file:size" ;
+                    serialization:kind "value" ;
+                    serialization:predicate file:size ],
+                [ serialization:key "mlm:artifact_type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:artifact_type ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:items ( "mlm:model" "mlm:weights" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ] ;
+            serialization:mapKey "weights" ;
+            ns1:href "https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt" ],
+        [ a serialization:Object ;
+            dct:description "Source code to define the U-Net model." ;
+            dct:format "text/x-python" ;
+            dct:title "Model implementation." ;
+            stac:hasAssetroles "code",
+                "metadata",
+                "mlm:source_code" ;
+            serialization:field [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:items ( "mlm:source_code" "code" "metadata" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ] ;
+            serialization:mapKey "model" ;
+            ns1:href "https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py" ] ;
+    stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.6.0/schema.json",
+        "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
+    serialization:field [ serialization:key "inference-script" ;
+            serialization:kind "value" ;
+            serialization:predicate ns1:inference-script ],
+        [ serialization:key "type" ;
+            serialization:kind "value" ;
+            serialization:predicate ns1:type ],
+        [ serialization:key "geometry" ;
+            serialization:kind "value" ;
+            serialization:predicate geojson:geometry ],
+        [ serialization:items ( "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" "https://stac-extensions.github.io/file/v2.1.0/schema.json" "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ) ;
+            serialization:key "stac_extensions" ;
+            serialization:kind "set" ;
+            serialization:predicate stac:hasExtension ],
+        [ serialization:key "assets" ;
+            serialization:kind "map" ;
+            serialization:predicate stac:hasAsset ],
+        [ serialization:key "id" ;
+            serialization:kind "value" ;
+            serialization:predicate ns1:id ],
+        [ serialization:key "collection" ;
+            serialization:kind "value" ;
+            serialization:predicate ns1:collection ],
+        [ serialization:items ( _:N9232d45243df4c0899ffa3c048fbf4bc _:N1d000117e353436f8d1e9da18f2c342e _:Nd2ee745e9c1045cdb55ce63b3685afff _:N9fab0b3b6acd409cb64f4bd5d87a78df _:N9861b08a941a4c4db06ac13403787c56 ) ;
+            serialization:key "links" ;
+            serialization:kind "set" ;
+            serialization:predicate rdfs:seeAlso ],
+        [ serialization:key "bbox" ;
+            serialization:kind "array" ;
+            serialization:predicate geojson:bbox ],
+        [ serialization:key "properties" ;
+            serialization:kind "value" ;
+            serialization:predicate ns1:properties ],
+        [ serialization:key "stac_version" ;
+            serialization:kind "value" ;
+            serialization:predicate stac:version ],
+        [ serialization:key "$comment" ;
+            serialization:kind "value" ;
+            serialization:predicate ns3:24comment ] ;
+    ns3:24comment "Demonstrate the use of MLM and DataCube variables description to characterize its inputs and outputs." ;
+    ns1:collection "ml-model-examples" ;
+    ns1:id "UNet_ClimateDiffuse_ERA5_Downscaling" ;
+    ns1:inference-script [ a serialization:Object ;
+            dct:description "Script to run inference with the model." ;
+            dct:title "Inference script." ;
+            oa:hasTarget "https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Inference.py" ;
+            serialization:field [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate oa:hasTarget ],
+                [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:type ],
+                [ serialization:key "roles" ;
+                    serialization:kind "array" ;
+                    serialization:predicate ns1:roles ] ;
+            ns1:roles ( "mlm:inference" "code" "metadata" ) ;
+            ns1:type "text/x-python" ] ;
+    ns1:properties [ a serialization:Object ;
+            dct:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
+            stac:end_datetime "2100-12-31T23:59:59Z" ;
+            stac:start_datetime "1940-01-01T00:00:00Z" ;
+            cube:dimensions [ a serialization:Object ;
+                    cube:axis "y" ;
+                    cube:extent ( 54.2 22.6 ) ;
+                    cube:type "spatial" ;
+                    mlm:datacube_dimension_name "lat" ;
+                    serialization:field [ serialization:key "axis" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:axis ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "extent" ;
+                            serialization:kind "array" ;
+                            serialization:predicate cube:extent ] ;
+                    serialization:mapKey "lat" ],
+                [ a serialization:Object ;
+                    cube:axis "x" ;
+                    cube:extent ( 233.6 297.5 ) ;
+                    cube:type "spatial" ;
+                    mlm:datacube_dimension_name "lon" ;
+                    serialization:field [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "axis" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:axis ],
+                        [ serialization:key "extent" ;
+                            serialization:kind "array" ;
+                            serialization:predicate cube:extent ] ;
+                    serialization:mapKey "lon" ],
+                [ a serialization:Object ;
+                    cube:extent ( "1940-01-01T00:00:00Z" "2100-12-31T23:59:59Z" ) ;
+                    cube:step "P1H" ;
+                    cube:type "temporal" ;
+                    mlm:datacube_dimension_name "time" ;
+                    serialization:field [ serialization:key "step" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:step ],
+                        [ serialization:key "extent" ;
+                            serialization:kind "array" ;
+                            serialization:predicate cube:extent ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "time" ] ;
+            cube:variables [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "This parameter is the northward component of the 10m wind. It is the horizontal speed of air moving towards the north, at a height of ten metres above the surface of the Earth, in metres per second." ;
+                    cube:dimensions "lat",
+                        "lon",
+                        "time" ;
+                    cube:type "data" ;
+                    cube:unit "m s-1" ;
+                    mlm:datacube_variable_name "10m_v_component_of_wind" ;
+                    serialization:field [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:key "definition" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:definition ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:items ( "time" "lat" "lon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "shortname" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:shortname ] ;
+                    serialization:mapKey "10m_v_component_of_wind" ;
+                    ns1:definition "https://codes.ecmwf.int/grib/param-db/166" ;
+                    ns1:shortname "10v" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "This parameter is the temperature of air at 2m above the surface of land, sea or in-land waters." ;
+                    cube:dimensions "lat",
+                        "lon",
+                        "time" ;
+                    cube:type "data" ;
+                    cube:unit "K" ;
+                    mlm:datacube_variable_name "temperature_2m" ;
+                    serialization:field [ serialization:items ( "time" "lat" "lon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "definition" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:definition ] ;
+                    serialization:mapKey "temperature_2m" ;
+                    ns1:definition "https://codes.ecmwf.int/grib/param-db/167" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "This parameter is the geopotential, which is the potential energy per unit mass at a point in the atmosphere, expressed in metres squared per second squared (m² s⁻²). It is a measure of the height of a point in the atmosphere relative to sea level." ;
+                    cube:dimensions "lat",
+                        "lon" ;
+                    cube:type "data" ;
+                    cube:unit "m² s-2" ;
+                    mlm:datacube_variable_name "geopotential" ;
+                    serialization:field [ serialization:key "definition" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:definition ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:items ( "lat" "lon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "shortname" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:shortname ] ;
+                    serialization:mapKey "geopotential" ;
+                    ns1:definition "https://codes.ecmwf.int/grib/param-db/129" ;
+                    ns1:shortname "z" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "Proportion of land-sea, where 1 indicates land and 0 indicates sea." ;
+                    cube:dimensions "lat",
+                        "lon" ;
+                    cube:extent ( 0 1 ) ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "land_sea_mask" ;
+                    serialization:field [ serialization:key "definition" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:definition ],
+                        [ serialization:key "extent" ;
+                            serialization:kind "array" ;
+                            serialization:predicate cube:extent ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "shortname" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:shortname ],
+                        [ serialization:items ( "lat" "lon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "land_sea_mask" ;
+                    ns1:definition "https://codes.ecmwf.int/grib/param-db/172" ;
+                    ns1:shortname "lsm" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "This parameter is the eastward component of the 10m wind. It is the horizontal speed of air moving towards the east, at a height of ten metres above the surface of the Earth, in metres per second." ;
+                    cube:dimensions "lat",
+                        "lon",
+                        "time" ;
+                    cube:type "data" ;
+                    cube:unit "m s-1" ;
+                    mlm:datacube_variable_name "10m_u_component_of_wind" ;
+                    serialization:field [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:key "shortname" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:shortname ],
+                        [ serialization:items ( "time" "lat" "lon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "definition" ;
+                            serialization:kind "value" ;
+                            serialization:predicate ns1:definition ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ] ;
+                    serialization:mapKey "10m_u_component_of_wind" ;
+                    ns1:definition "https://codes.ecmwf.int/grib/param-db/165" ;
+                    ns1:shortname "10u" ] ;
+            mlm:accelerator mlm:cuda ;
+            mlm:accelerator_constrained false ;
+            mlm:architecture "U-Net" ;
+            mlm:framework "pytorch" ;
+            mlm:framework_version "2.1.2+cu118" ;
+            mlm:input ( [ a mlm:ModelInput,
+                            serialization:Object ;
+                        mlm:input_structure [ a mlm:InputStructure,
+                                    serialization:Object ;
+                                mlm:data_type "float32" ;
+                                mlm:dim_order ( "time" "variables" "lat" "lon" ) ;
+                                serialization:field [ serialization:key "data_type" ;
+                                        serialization:kind "value" ;
+                                        serialization:predicate mlm:data_type ],
+                                    [ serialization:key "shape" ;
+                                        serialization:kind "array" ;
+                                        serialization:predicate mlm:shape ],
+                                    [ serialization:key "dim_order" ;
+                                        serialization:kind "array" ;
+                                        serialization:predicate mlm:dim_order ] ;
+                                mlm:shape ( -1 5 128 256 ) ] ;
+                        mlm:io_name "Coarse climate variables employed by the model downscaling regression. This model takes 2 'constant/spatial' variables and 3 'spatio-temporal' variables provided by ERA5 datacube." ;
+                        mlm:pre_processing_function "{\"description\": \"Script that performs the relevant normalization and concatenation of variables for model input.\", \"format\": \"uri\", \"expression\": {\"href\": \"https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/DatasetUS.py\", \"type\": \"text/x-python\"}}"^^rdf:JSON ;
+                        serialization:field [ serialization:key "norm_by_channel" ;
+                                serialization:kind "value" ;
+                                serialization:predicate ns1:norm_by_channel ],
+                            [ serialization:key "pre_processing_function" ;
+                                serialization:kind "json" ;
+                                serialization:predicate mlm:pre_processing_function ],
+                            [ serialization:key "name" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:io_name ],
+                            [ serialization:key "resize_type" ;
+                                serialization:kind "null" ;
+                                serialization:predicate mlm:resize_type ],
+                            [ serialization:key "input" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:input_structure ],
+                            [ serialization:key "variables" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:variables ] ;
+                        ns1:norm_by_channel false ;
+                        mlm:variables ( "land_sea_mask" "geopotential" "temperature_2m" "10m_u_component_of_wind" "10m_v_component_of_wind" ) ] ) ;
+            mlm:name "UNet ClimateDiffuse ERA5 Downscaling" ;
+            mlm:output ( [ a mlm:ModelOutput,
+                            serialization:Object ;
+                        mlm:io_name "Fine climate variables predicted by the model. Only the 3 'spatio-temporal' variables are predicted." ;
+                        mlm:result [ a mlm:ResultStructure,
+                                    serialization:Object ;
+                                mlm:data_type "float32" ;
+                                mlm:dim_order ( "time" "variables" "lat" "lon" ) ;
+                                serialization:field [ serialization:key "shape" ;
+                                        serialization:kind "array" ;
+                                        serialization:predicate mlm:shape ],
+                                    [ serialization:key "dim_order" ;
+                                        serialization:kind "array" ;
+                                        serialization:predicate mlm:dim_order ],
+                                    [ serialization:key "data_type" ;
+                                        serialization:kind "value" ;
+                                        serialization:predicate mlm:data_type ] ;
+                                mlm:shape ( -1 3 128 256 ) ] ;
+                        serialization:field [ serialization:key "name" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:io_name ],
+                            [ serialization:key "result" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:result ],
+                            [ serialization:key "tasks" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:tasks ],
+                            [ serialization:key "variables" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:variables ] ;
+                        mlm:tasks ( mlm:regression mlm:downscaling ) ;
+                        mlm:variables ( "temperature_2m" "10m_u_component_of_wind" "10m_v_component_of_wind" ) ] ) ;
+            serialization:field [ serialization:key "end_datetime" ;
+                    serialization:kind "value" ;
+                    serialization:predicate stac:end_datetime ],
+                [ serialization:key "mlm:architecture" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:architecture ],
+                [ serialization:key "mlm:input" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:input ],
+                [ serialization:key "datetime" ;
+                    serialization:kind "null" ;
+                    serialization:predicate dct:date ],
+                [ serialization:key "mlm:framework_version" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:framework_version ],
+                [ serialization:key "mlm:tasks" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:tasks ],
+                [ serialization:key "cube:variables" ;
+                    serialization:kind "map" ;
+                    serialization:predicate cube:variables ],
+                [ serialization:key "mlm:accelerator" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:accelerator ],
+                [ serialization:key "mlm:accelerator_constrained" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:accelerator_constrained ],
+                [ serialization:key "start_datetime" ;
+                    serialization:kind "value" ;
+                    serialization:predicate stac:start_datetime ],
+                [ serialization:key "mlm:output" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:output ],
+                [ serialization:key "cube:dimensions" ;
+                    serialization:kind "map" ;
+                    serialization:predicate cube:dimensions ],
+                [ serialization:key "mlm:name" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:name ],
+                [ serialization:key "sci:publications" ;
+                    serialization:kind "json" ;
+                    serialization:predicate sci:publications ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:key "mlm:framework" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:framework ] ;
+            mlm:tasks ( mlm:regression mlm:downscaling ) ;
+            sci:publications "[{\"doi\": \"10.48550/arXiv.2404.17752\", \"citation\": \"Robbie A. Watt, Laura A. Mansfield, Generative Diffusion-based Downscaling for Climate\"}]"^^rdf:JSON ] ;
+    ns1:type "Feature" .
+
+_:N107a6dce18714c82aa00fde79cd9f160 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:N213c06f3c4ab45fe9c554cdfd0a14ad6 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N21794ec69c84405c8b4815c0d478b090 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N238c3fd3810c43b2b0aa0c6e359cee00 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N4724c8594d554f76befed1319223687b serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N4940a9f198424e15b08a07657d59d1c5 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N6527122395f04083ae116e46f8eaa944 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N892f1fddcfaf48ecbbbcd11c2a303d10 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:N8e9329f97fb84be7b6ee388319444b09 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:N981730404d2a4458885f1c457b4b076e serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N9b5474a8ce7b4b5e9fd6f5f5d2f177b4 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:Nbd06b2db0fbe4aa796d62873388924b7 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:Nd00f090dab0441d1811858309a9fbb03 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:Nd7624e124597476f9dd3fa7caa7fcade serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:Nf3ac023f12144c10a88b10cacaee9a15 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N1d000117e353436f8d1e9da18f2c342e a serialization:Object ;
+    dct:type "application/geo+json" ;
+    ns2:relation "self" ;
+    oa:hasTarget "./item_datacube_variables.json" ;
+    serialization:field _:N21794ec69c84405c8b4815c0d478b090,
+        _:N9b5474a8ce7b4b5e9fd6f5f5d2f177b4,
+        _:Nd7624e124597476f9dd3fa7caa7fcade .
+
+_:N9232d45243df4c0899ffa3c048fbf4bc a serialization:Object ;
+    dct:type "application/json" ;
+    ns2:relation "collection" ;
+    oa:hasTarget "./collection.json" ;
+    serialization:field _:N213c06f3c4ab45fe9c554cdfd0a14ad6,
+        _:N892f1fddcfaf48ecbbbcd11c2a303d10,
+        _:Nd00f090dab0441d1811858309a9fbb03 .
+
+_:N9861b08a941a4c4db06ac13403787c56 a serialization:Object ;
+    dct:type "text/html" ;
+    ns2:relation "code" ;
+    oa:hasTarget "https://github.com/robbiewatt1/ClimateDiffuse" ;
+    serialization:field _:N107a6dce18714c82aa00fde79cd9f160,
+        _:N4724c8594d554f76befed1319223687b,
+        _:N4940a9f198424e15b08a07657d59d1c5 .
+
+_:N9fab0b3b6acd409cb64f4bd5d87a78df a serialization:Object ;
+    dct:type "text/html" ;
+    ns2:relation "cite-as" ;
+    oa:hasTarget "https://doi.org/10.48550/arXiv.2404.17752" ;
+    serialization:field _:N238c3fd3810c43b2b0aa0c6e359cee00,
+        _:N8e9329f97fb84be7b6ee388319444b09,
+        _:Nf3ac023f12144c10a88b10cacaee9a15 .
+
+_:Nd2ee745e9c1045cdb55ce63b3685afff a serialization:Object ;
+    dct:type "text/html" ;
+    ns2:relation "via" ;
+    oa:hasTarget "https://github.com/robbiewatt1/ClimateDiffuse" ;
+    serialization:field _:N6527122395f04083ae116e46f8eaa944,
+        _:N981730404d2a4458885f1c457b4b076e,
+        _:Nbd06b2db0fbe4aa796d62873388924b7 .
+

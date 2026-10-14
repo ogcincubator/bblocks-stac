@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.mlm-ontology - STAC Machine Learning Model Extension Ontology",
   "bblockName": "STAC Machine Learning Model Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.mlm-ontology",
-  "generated": "2026-09-28T21:00:50.739734+00:00",
+  "generated": "2026-10-14T20:24:27.719147+00:00",
   "result": true,
   "items": [
     {
@@ -29,7 +29,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 28,
+              "size": 53,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -53,7 +53,50 @@
             {
               "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
               "focusNodes": {
-                "mlm:ValueScalingShape": {
+                "mlm:VariableReferenceResolutionShape": {
+                  "nodes": []
+                },
+                "mlm:ValueScalingOrderShape": {
+                  "nodes": []
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb71": {
+                  "nodes": []
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/mlm:input/rdf:first/mlm:input_structure",
+                    "ex:resnet18-eurosat/mlm:output/rdf:first/mlm:result"
+                  ]
+                },
+                "mlm:TensorStructureOrderShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/mlm:input/rdf:first/mlm:input_structure",
+                    "ex:resnet18-eurosat/mlm:output/rdf:first/mlm:result"
+                  ]
+                },
+                "mlm:ModelOutputShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/mlm:output/rdf:first"
+                  ]
+                },
+                "mlm:StackedReferenceOrderShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/mlm:input/rdf:first",
+                    "ex:resnet18-eurosat/mlm:output/rdf:first"
+                  ]
+                },
+                "mlm:ModelAssetShape": {
+                  "nodes": []
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb54": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat"
+                  ]
+                },
+                "mlm:InputStructureShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "mlm:AcceleratorShape": {
@@ -61,26 +104,38 @@
                     "ex:resnet18-eurosat"
                   ]
                 },
-                "mlm:InputStructureShape": {
+                "mlm:ResultStructureShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "mlm:ModelInputShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/mlm:input/rdf:first"
+                  ]
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb72": {
                   "nodes": []
                 },
-                "mlm:ModelOutputShape": {
+                "mlm:ValueScalingShape": {
                   "nodes": []
                 },
                 "mlm:ResultStructureShape": {
+                  "nodes": [
+                    "ex:resnet18-eurosat/mlm:input/rdf:first/mlm:input_structure",
+                    "ex:resnet18-eurosat/mlm:output/rdf:first/mlm:result"
+                  ]
+                },
+                "mlm:VariableDimensionResolutionShape": {
                   "nodes": []
                 },
-                "mlm:ModelRootShape": {
-                  "nodes": [
-                    "ex:resnet18-eurosat"
-                  ]
+                "mlm:BandVariableReferenceShape": {
+                  "nodes": []
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb53": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:AcceleratorShape: ex:resnet18-eurosat\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n - Shape mlm:ModelRootShape: ex:resnet18-eurosat\n"
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:VariableReferenceResolutionShape: *none*\n - Shape mlm:ValueScalingOrderShape: *none*\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb71: *none*\n - Shape mlm:InputStructureShape: ex:resnet18-eurosat/mlm:input/rdf:first/mlm:input_structure,ex:resnet18-eurosat/mlm:output/rdf:first/mlm:result\n - Shape mlm:TensorStructureOrderShape: ex:resnet18-eurosat/mlm:input/rdf:first/mlm:input_structure,ex:resnet18-eurosat/mlm:output/rdf:first/mlm:result\n - Shape mlm:ModelOutputShape: ex:resnet18-eurosat/mlm:output/rdf:first\n - Shape mlm:StackedReferenceOrderShape: ex:resnet18-eurosat/mlm:input/rdf:first,ex:resnet18-eurosat/mlm:output/rdf:first\n - Shape mlm:ModelAssetShape: *none*\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb54: *none*\n - Shape mlm:ModelRootShape: ex:resnet18-eurosat\n - Shape mlm:InputStructureShape/sh:property/sh:or/rdf:first: *none*\n - Shape mlm:AcceleratorShape: ex:resnet18-eurosat\n - Shape mlm:ResultStructureShape/sh:property/sh:or/rdf:first: *none*\n - Shape mlm:ModelInputShape: ex:resnet18-eurosat/mlm:input/rdf:first\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb72: *none*\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:ResultStructureShape: ex:resnet18-eurosat/mlm:input/rdf:first/mlm:input_structure,ex:resnet18-eurosat/mlm:output/rdf:first/mlm:result\n - Shape mlm:VariableDimensionResolutionShape: *none*\n - Shape mlm:BandVariableReferenceShape: *none*\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb53: *none*\n"
             }
           ]
         }
@@ -110,7 +165,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 14,
+              "size": 27,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -134,30 +189,83 @@
             {
               "shaclFile": "_sources/extensions/mlm-ontology/shapes.shacl",
               "focusNodes": {
-                "mlm:ValueScalingShape": {
+                "mlm:VariableReferenceResolutionShape": {
+                  "nodes": []
+                },
+                "mlm:ValueScalingOrderShape": {
+                  "nodes": [
+                    "ex:input1"
+                  ]
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb71": {
+                  "nodes": []
+                },
+                "mlm:InputStructureShape": {
+                  "nodes": [
+                    "ex:input1/mlm:input_structure"
+                  ]
+                },
+                "mlm:TensorStructureOrderShape": {
+                  "nodes": [
+                    "ex:input1/mlm:input_structure"
+                  ]
+                },
+                "mlm:ModelOutputShape": {
+                  "nodes": []
+                },
+                "mlm:StackedReferenceOrderShape": {
+                  "nodes": [
+                    "ex:input1"
+                  ]
+                },
+                "mlm:ModelAssetShape": {
+                  "nodes": []
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb54": {
+                  "nodes": []
+                },
+                "mlm:ModelRootShape": {
+                  "nodes": []
+                },
+                "mlm:InputStructureShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "mlm:AcceleratorShape": {
                   "nodes": []
                 },
-                "mlm:InputStructureShape": {
+                "mlm:ResultStructureShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "mlm:ModelInputShape": {
+                  "nodes": [
+                    "ex:input1"
+                  ]
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb72": {
                   "nodes": []
                 },
-                "mlm:ModelOutputShape": {
-                  "nodes": []
+                "mlm:ValueScalingShape": {
+                  "nodes": [
+                    "ex:input1/mlm:value_scaling/rdf:first"
+                  ]
                 },
                 "mlm:ResultStructureShape": {
+                  "nodes": [
+                    "ex:input1/mlm:input_structure"
+                  ]
+                },
+                "mlm:VariableDimensionResolutionShape": {
                   "nodes": []
                 },
-                "mlm:ModelRootShape": {
+                "mlm:BandVariableReferenceShape": {
+                  "nodes": []
+                },
+                "_:ndcec353c3fd244129aa4f8e6ee757f7fb53": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:ValueScalingShape: *none*\n - Shape mlm:AcceleratorShape: *none*\n - Shape mlm:InputStructureShape: *none*\n - Shape mlm:ModelInputShape: *none*\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:ResultStructureShape: *none*\n - Shape mlm:ModelRootShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/mlm-ontology/shapes.shacl:\n - Shape mlm:VariableReferenceResolutionShape: *none*\n - Shape mlm:ValueScalingOrderShape: ex:input1\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb71: *none*\n - Shape mlm:InputStructureShape: ex:input1/mlm:input_structure\n - Shape mlm:TensorStructureOrderShape: ex:input1/mlm:input_structure\n - Shape mlm:ModelOutputShape: *none*\n - Shape mlm:StackedReferenceOrderShape: ex:input1\n - Shape mlm:ModelAssetShape: *none*\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb54: *none*\n - Shape mlm:ModelRootShape: *none*\n - Shape mlm:InputStructureShape/sh:property/sh:or/rdf:first: *none*\n - Shape mlm:AcceleratorShape: *none*\n - Shape mlm:ResultStructureShape/sh:property/sh:or/rdf:first: *none*\n - Shape mlm:ModelInputShape: ex:input1\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb72: *none*\n - Shape mlm:ValueScalingShape: ex:input1/mlm:value_scaling/rdf:first\n - Shape mlm:ResultStructureShape: ex:input1/mlm:input_structure\n - Shape mlm:VariableDimensionResolutionShape: *none*\n - Shape mlm:BandVariableReferenceShape: *none*\n - Shape _:ndcec353c3fd244129aa4f8e6ee757f7fb53: *none*\n"
             }
           ]
         }

@@ -18,6 +18,63 @@
     }
   ],
   "x-jsonld-extra-terms": {
+    "cube:variables": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/datacube/variables",
+      "x-jsonld-container": "@index",
+      "x-jsonld-index": "https://w3id.org/ogc/stac/mlm/datacube_variable_name",
+      "x-jsonld-context": {
+        "dimensions": {
+          "@id": "https://w3id.org/ogc/stac/datacube/dimensions",
+          "@container": "@set"
+        },
+        "type": "https://w3id.org/ogc/stac/datacube/type",
+        "description": "https://w3id.org/ogc/stac/datacube/description",
+        "extent": {
+          "@id": "https://w3id.org/ogc/stac/datacube/extent",
+          "@container": "@list"
+        },
+        "values": {
+          "@id": "https://w3id.org/ogc/stac/datacube/values",
+          "@container": "@list"
+        },
+        "unit": "https://w3id.org/ogc/stac/datacube/unit",
+        "nodata": "https://w3id.org/ogc/stac/datacube/nodata",
+        "data_type": "https://w3id.org/ogc/stac/datacube/data_type"
+      }
+    },
+    "cube:dimensions": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/datacube/dimensions",
+      "x-jsonld-container": "@index",
+      "x-jsonld-index": "https://w3id.org/ogc/stac/mlm/datacube_dimension_name",
+      "x-jsonld-context": {
+        "type": "https://w3id.org/ogc/stac/datacube/type",
+        "axis": "https://w3id.org/ogc/stac/datacube/axis",
+        "axes": {
+          "@id": "https://w3id.org/ogc/stac/datacube/axes",
+          "@container": "@set"
+        },
+        "description": "https://w3id.org/ogc/stac/datacube/description",
+        "extent": {
+          "@id": "https://w3id.org/ogc/stac/datacube/extent",
+          "@container": "@list"
+        },
+        "values": {
+          "@id": "https://w3id.org/ogc/stac/datacube/values",
+          "@container": "@list"
+        },
+        "step": "https://w3id.org/ogc/stac/datacube/step",
+        "unit": "https://w3id.org/ogc/stac/datacube/unit",
+        "reference_system": "https://w3id.org/ogc/stac/datacube/reference_system",
+        "bbox": {
+          "@id": "https://w3id.org/ogc/stac/datacube/bbox",
+          "@container": "@list"
+        },
+        "geometry_types": {
+          "@id": "https://w3id.org/ogc/stac/datacube/geometry_types",
+          "@container": "@set"
+        }
+      }
+    },
     "mlm:name": {
       "x-jsonld-id": "https://w3id.org/ogc/stac/mlm/name",
       "x-jsonld-type": "xsd:string"
@@ -29,7 +86,7 @@
     "mlm:tasks": {
       "x-jsonld-id": "https://w3id.org/ogc/stac/mlm/tasks",
       "x-jsonld-type": "@vocab",
-      "x-jsonld-container": "@set",
+      "x-jsonld-container": "@list",
       "x-jsonld-context": {
         "regression": "https://w3id.org/ogc/stac/mlm/regression",
         "classification": "https://w3id.org/ogc/stac/mlm/classification",
@@ -118,18 +175,35 @@
     },
     "mlm:input": {
       "x-jsonld-id": "https://w3id.org/ogc/stac/mlm/input",
-      "x-jsonld-container": "@set",
+      "x-jsonld-container": "@list",
+      "x-jsonld-type": "https://w3id.org/ogc/stac/mlm/ModelInput",
       "x-jsonld-context": {
         "@vocab": "https://w3id.org/ogc/stac/mlm/",
         "name": "https://w3id.org/ogc/stac/mlm/io_name",
         "description": "https://w3id.org/ogc/stac/mlm/io_description",
         "bands": {
           "@id": "https://w3id.org/ogc/stac/mlm/bands",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "https://w3id.org/ogc/stac/mlm/reference_name",
+            "format": "https://w3id.org/ogc/stac/mlm/reference_format",
+            "expression": {
+              "@id": "https://w3id.org/ogc/stac/mlm/reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "variables": {
           "@id": "https://w3id.org/ogc/stac/mlm/variables",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "https://w3id.org/ogc/stac/mlm/reference_name",
+            "format": "https://w3id.org/ogc/stac/mlm/reference_format",
+            "expression": {
+              "@id": "https://w3id.org/ogc/stac/mlm/reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "resize_type": {
           "@id": "https://w3id.org/ogc/stac/mlm/resize_type",
@@ -153,7 +227,8 @@
         },
         "value_scaling": {
           "@id": "https://w3id.org/ogc/stac/mlm/value_scaling",
-          "@container": "@set",
+          "@container": "@list",
+          "@type": "https://w3id.org/ogc/stac/mlm/ValueScaling",
           "@context": {
             "@vocab": "https://w3id.org/ogc/stac/mlm/",
             "type": {
@@ -179,6 +254,7 @@
         },
         "input": {
           "@id": "https://w3id.org/ogc/stac/mlm/input_structure",
+          "@type": "https://w3id.org/ogc/stac/mlm/InputStructure",
           "@context": {
             "@vocab": "https://w3id.org/ogc/stac/mlm/",
             "shape": {
@@ -196,18 +272,35 @@
     },
     "mlm:output": {
       "x-jsonld-id": "https://w3id.org/ogc/stac/mlm/output",
-      "x-jsonld-container": "@set",
+      "x-jsonld-container": "@list",
+      "x-jsonld-type": "https://w3id.org/ogc/stac/mlm/ModelOutput",
       "x-jsonld-context": {
         "@vocab": "https://w3id.org/ogc/stac/mlm/",
         "name": "https://w3id.org/ogc/stac/mlm/io_name",
         "description": "https://w3id.org/ogc/stac/mlm/io_description",
         "bands": {
           "@id": "https://w3id.org/ogc/stac/mlm/bands",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "https://w3id.org/ogc/stac/mlm/reference_name",
+            "format": "https://w3id.org/ogc/stac/mlm/reference_format",
+            "expression": {
+              "@id": "https://w3id.org/ogc/stac/mlm/reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "variables": {
           "@id": "https://w3id.org/ogc/stac/mlm/variables",
-          "@container": "@set"
+          "@container": "@list",
+          "@context": {
+            "name": "https://w3id.org/ogc/stac/mlm/reference_name",
+            "format": "https://w3id.org/ogc/stac/mlm/reference_format",
+            "expression": {
+              "@id": "https://w3id.org/ogc/stac/mlm/reference_expression",
+              "@type": "@json"
+            }
+          }
         },
         "classification:classes": {
           "@id": "classification:classes",
@@ -227,7 +320,7 @@
         "tasks": {
           "@id": "https://w3id.org/ogc/stac/mlm/tasks",
           "@type": "@vocab",
-          "@container": "@set",
+          "@container": "@list",
           "@context": {
             "regression": "https://w3id.org/ogc/stac/mlm/regression",
             "classification": "https://w3id.org/ogc/stac/mlm/classification",
@@ -251,6 +344,7 @@
         },
         "result": {
           "@id": "https://w3id.org/ogc/stac/mlm/result",
+          "@type": "https://w3id.org/ogc/stac/mlm/ResultStructure",
           "@context": {
             "@vocab": "https://w3id.org/ogc/stac/mlm/",
             "shape": {
@@ -268,6 +362,7 @@
     }
   },
   "x-jsonld-prefixes": {
+    "cube": "https://w3id.org/ogc/stac/datacube/",
     "mlm": "https://w3id.org/ogc/stac/mlm/"
   }
 }

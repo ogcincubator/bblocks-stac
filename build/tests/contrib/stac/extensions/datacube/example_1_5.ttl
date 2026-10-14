@@ -1,0 +1,36 @@
+@prefix cube: <https://w3id.org/ogc/stac/datacube/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/datacube/collection/Sentinel2-L1C> a <https://example.com/stac/datacube/collection/Collection> ;
+    dcterms:description "Multi-dimensional Sentinel-2 data cube in a STAC collection." ;
+    dcterms:extent [ ] ;
+    dcterms:title "Sentinel-2: MultiSpectral Instrument, Level-1C" ;
+    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.sentinel2-hub.com/stac/example-collection.json> ] ;
+    dcat:license "proprietary" ;
+    stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" ;
+    stac:version "1.1.0" ;
+    cube:dimensions [ cube:axis "y" ;
+            cube:extent ( -56 83 ) ;
+            cube:reference_system 3857 ;
+            cube:type "spatial" ],
+        [ cube:extent ( "2015-06-23T00:00:00Z" "2019-07-10T13:44:56Z" ) ;
+            cube:step "P5D" ;
+            cube:type "temporal" ],
+        [ cube:axis "x" ;
+            cube:extent ( -180 180 ) ;
+            cube:reference_system 3857 ;
+            cube:type "spatial" ],
+        [ cube:type "bands" ;
+            cube:values ( "B1" "B2" "B3" "B4" "B5" "B6" "B7" "B8" "B8A" "B9" "B10" "B11" "B12" "QA10" "QA20" "QA60" ) ] .
+

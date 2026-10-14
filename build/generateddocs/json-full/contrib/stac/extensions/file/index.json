@@ -1,0 +1,115 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.file",
+  "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
+  "name": "STAC File Info Extension",
+  "highlighted": true,
+  "group": "STAC Extensions",
+  "seeAlso": [
+    "ogc.contrib.stac.extensions.mlm"
+  ],
+  "abstract": "STAC File Info Extension for Items, Collections, Catalogs and Assets.",
+  "maintainers": [
+    {
+      "name": "Francis Charette-Migneault",
+      "url": "https://orcid.org/0000-0003-4862-3349"
+    }
+  ],
+  "status": "under-development",
+  "dateTimeAddition": "2026-10-03T00:00:00Z",
+  "dateOfLastChange": "2026-10-14",
+  "version": "2.1.0",
+  "itemClass": "schema",
+  "register": "ogc-building-block-register",
+  "scope": "contrib",
+  "tags": [
+    "stac",
+    "stac-extension",
+    "file"
+  ],
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/file/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/file/context.jsonld",
+  "sources": [
+    {
+      "title": "STAC File Info Extension",
+      "link": "https://github.com/stac-extensions/file/tree/v2.1.0"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    ],
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.api.records.v1.schemas.linkTemplate": [
+      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.contrib.stac.collection",
+    "ogc.contrib.stac.item"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/file/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/file/schema.json"
+  },
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/file/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/file/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/file/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/file/",
+  "examples": [
+    {
+      "title": "STAC File Info item",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://github.com/stac-extensions/file/raw/v2.1.0/examples/item.json",
+          "base-uri": "https://example.com/stac/file/item/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/file/example_1_1.json",
+          "sizeBytes": 3142,
+          "code": "{\n  \"id\": \"S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616\",\n  \"type\": \"Feature\",\n  \"stac_version\": \"1.0.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/file/v2.1.0/schema.json\"\n  ],\n  \"bbox\": [\n    -70.275032,\n    -64.72924,\n    -65.087479,\n    -51.105831\n  ],\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          -67.071648,\n          -64.72924\n        ],\n        [\n          -65.087479,\n          -56.674374\n        ],\n        [\n          -68.033211,\n          -51.105831\n        ],\n        [\n          -70.275032,\n          -59.805672\n        ],\n        [\n          -67.071648,\n          -64.72924\n        ]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"datetime\": \"2018-11-03T23:58:55Z\"\n  },\n  \"assets\": {\n    \"noises\": {\n      \"href\": \"./annotation/calibration/noise-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml\",\n      \"title\": \"Calibration Schema\",\n      \"type\": \"text/xml\",\n      \"file:checksum\": \"90e40210a30d1711e81a4b11ef67b28744321659\",\n      \"file:local_path\": \"S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616.SAFE/annotation/calibration/noise-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml\"\n    },\n    \"calibrations\": {\n      \"href\": \"./annotation/calibration/calibration-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml\",\n      \"title\": \"Noise Schema\",\n      \"type\": \"text/xml\",\n      \"file:checksum\": \"90e402104fc5351af67db0b8f1746efe421a05e4\",\n      \"file:local_path\": \"S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616.SAFE/annotation/calibration/calibration-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml\"\n    },\n    \"products\": {\n      \"href\": \"./annotation/s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml\",\n      \"title\": \"Product Schema\",\n      \"type\": \"text/xml\",\n      \"file:checksum\": \"90e402107a7f2588a85362b9beea2a12d4514d45\"\n    },\n    \"measurement\": {\n      \"href\": \"./measurement/s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.tiff\",\n      \"title\": \"Measurements\",\n      \"type\": \"image/tiff\",\n      \"sar:polarizations\": [\n        \"HH\"\n      ],\n      \"file:byte_order\": \"little-endian\",\n      \"file:size\": 209715200,\n      \"file:header_size\": 4096,\n      \"file:checksum\": \"90e40210163700a8a6501eccd00b6d3b44ddaed0\"\n    },\n    \"thumbnail\": {\n      \"href\": \"./preview/quick-look.png\",\n      \"title\": \"Thumbnail\",\n      \"type\": \"image/png\",\n      \"file:byte_order\": \"big-endian\",\n      \"file:size\": 146484,\n      \"file:checksum\": \"90e40210f52acd32b09769d3b1871b420789456c\"\n    }\n  },\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://example.com/collections/sentinel-1/items/S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616\"\n    },\n    {\n      \"rel\": \"parent\",\n      \"href\": \"https://example.com/collections/sentinel-1\",\n      \"file:checksum\": \"11146d97123fd2c02dec9a1b6d3b13136dbe600cf966\"\n    },\n    {\n      \"rel\": \"root\",\n      \"href\": \"https://example.com/collections\",\n      \"file:checksum\": \"1114fa4b9d69fdddc7c1be7bed9440621400b383b43f\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "json",
+          "ref": "https://github.com/stac-extensions/file/raw/v2.1.0/examples/collection.json",
+          "base-uri": "https://example.com/stac/file/collection/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/file/example_1_2.json",
+          "sizeBytes": 1001,
+          "code": "{\n  \"stac_version\": \"1.0.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/file/v2.1.0/schema.json\"\n  ],\n  \"id\": \"example\",\n  \"type\": \"Collection\",\n  \"title\": \"File Example\",\n  \"description\": \"This examples shows how to use the file extension for collection assets.\",\n  \"extent\": {\n    \"spatial\": {\n      \"bbox\": [\n        [\n          -180,\n          -90,\n          180,\n          90\n        ]\n      ]\n    },\n    \"temporal\": {\n      \"interval\": [\n        [\n          \"2012-01-15T12:00:00Z\",\n          \"2014-12-15T12:00:00Z\"\n        ]\n      ]\n    }\n  },\n  \"license\": \"Apache-2.0\",\n  \"links\": [\n    {\n      \"href\": \"https://example.com\",\n      \"type\": \"text/html\",\n      \"rel\": \"about\"\n    }\n  ],\n  \"assets\": {\n    \"thumbnail\": {\n      \"href\": \"logo.png\",\n      \"title\": \"A preview image for visualization.\",\n      \"type\": \"image/png\",\n      \"roles\": [\n        \"thumbnail\"\n      ],\n      \"file:checksum\": \"90e4021044a8995dd50b6657a037a7839304535b\",\n      \"file:size\": 153600\n    }\n  }\n}\n"
+        },
+        {
+          "language": "json",
+          "ref": "https://github.com/stac-extensions/file/raw/v2.1.0/examples/catalog.json",
+          "base-uri": "https://example.com/stac/file/catalog/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/file/example_1_3.json",
+          "sizeBytes": 787,
+          "code": "{\n  \"id\": \"examples\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/file/v2.1.0/schema.json\"\n  ],\n  \"type\": \"Catalog\",\n  \"title\": \"Example Catalog\",\n  \"stac_version\": \"1.0.0\",\n  \"description\": \"This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.\",\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"./catalog.json\",\n      \"type\": \"application/json\"\n    },\n    {\n      \"rel\": \"item\",\n      \"href\": \"./some-item.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Some item\",\n      \"file:size\": 8675309\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json\",\n      \"type\": \"application/json\"\n    }\n  ]\n}\n\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/file/example_1_3.jsonld",
+          "sizeBytes": 906,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/file/context.jsonld\",\n  \"id\": \"examples\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/file/v2.1.0/schema.json\"\n  ],\n  \"type\": \"Catalog\",\n  \"title\": \"Example Catalog\",\n  \"stac_version\": \"1.0.0\",\n  \"description\": \"This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.\",\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"./catalog.json\",\n      \"type\": \"application/json\"\n    },\n    {\n      \"rel\": \"item\",\n      \"href\": \"./some-item.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Some item\",\n      \"file:size\": 8675309\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json\",\n      \"type\": \"application/json\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/file/example_1_3.ttl",
+          "sizeBytes": 1497,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix file: <https://w3id.org/ogc/stac/file/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/file/catalog/examples> a <https://example.com/stac/file/catalog/Catalog> ;\n    dcterms:description \"This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.\" ;\n    dcterms:title \"Example Catalog\" ;\n    rdfs:seeAlso [ dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/file/catalog/catalog.json> ],\n        [ rdfs:label \"Some item\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/stac/file/catalog/some-item.json> ;\n            file:size \"8675309\"^^xsd:nonNegativeInteger ],\n        [ dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json> ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/file/v2.1.0/schema.json\" ;\n    stac:version \"1.0.0\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: File Info extension\ndescription: STAC File Info Extension for Items, Collections, Catalogs and Assets.\nallOf:\n- anyOf:\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n  - type: object\n    required:\n    - id\n    - type\n    - stac_version\n    - description\n    - links\n    properties:\n      id:\n        type: string\n      type:\n        const: Catalog\n      stac_version:\n        type: string\n      description:\n        type: string\n      links:\n        type: array\n- $ref: https://stac-extensions.github.io/file/v2.1.0/schema.json\nx-jsonld-extra-terms:\n  file:byte_order:\n    x-jsonld-id: https://w3id.org/ogc/stac/file/byte_order\n    x-jsonld-type: xsd:string\n  file:checksum:\n    x-jsonld-id: https://w3id.org/ogc/stac/file/checksum\n    x-jsonld-type: xsd:string\n  file:header_size:\n    x-jsonld-id: https://w3id.org/ogc/stac/file/header_size\n    x-jsonld-type: xsd:nonNegativeInteger\n  file:size:\n    x-jsonld-id: https://w3id.org/ogc/stac/file/size\n    x-jsonld-type: xsd:nonNegativeInteger\n  file:values:\n    x-jsonld-id: https://w3id.org/ogc/stac/file/values\n    x-jsonld-type: '@json'\n  file:local_path:\n    x-jsonld-id: https://w3id.org/ogc/stac/file/local_path\n    x-jsonld-type: xsd:string\nx-jsonld-prefixes:\n  file: https://w3id.org/ogc/stac/file/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/file"
+}

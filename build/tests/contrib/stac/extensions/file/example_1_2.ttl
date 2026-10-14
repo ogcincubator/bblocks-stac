@@ -1,0 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix file: <https://w3id.org/ogc/stac/file/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/file/collection/example> a <https://example.com/stac/file/collection/Collection> ;
+    dcterms:description "This examples shows how to use the file extension for collection assets." ;
+    dcterms:extent [ ] ;
+    dcterms:title "File Example" ;
+    rdfs:seeAlso [ dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/about> ;
+            oa:hasTarget <https://example.com> ] ;
+    dcat:license "Apache-2.0" ;
+    stac:hasAsset [ ns2:thumbnail <https://example.com/stac/file/collection/logo.png> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/file/v2.1.0/schema.json" ;
+    stac:version "1.0.0" .
+
+<https://example.com/stac/file/collection/logo.png> dcterms:format "image/png" ;
+    dcterms:title "A preview image for visualization." ;
+    stac:hasAssetroles "thumbnail"^^xsd:string ;
+    file:checksum "90e4021044a8995dd50b6657a037a7839304535b"^^xsd:string ;
+    file:size "153600"^^xsd:nonNegativeInteger .
+

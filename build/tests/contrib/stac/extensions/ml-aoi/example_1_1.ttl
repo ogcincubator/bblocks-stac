@@ -1,0 +1,174 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ml-aoi: <https://w3id.org/ogc/stac/ml-aoi/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <label:> .
+@prefix ns3: <eo:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
+@prefix ns5: <raster:> .
+@prefix ns6: <file:> .
+@prefix ns7: <view:> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/ml-aoi/item/EuroSAT-subset-train-sample-42-class-Residential> a geojson:Feature ;
+    ns3:bands [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    dcterms:date "2023-12-19T16:11:19.208953+00:00"^^xsd:dateTime ;
+    dcterms:description "Annotated sample from the EuroSAT-subset-train collection." ;
+    dcterms:title "EuroSAT subset train sample 42 class Residential" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
+        [ rdfs:label "Raster Residential_1331 with Residential class" ;
+            dcterms:type "image/tiff; application=geotiff" ;
+            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ;
+            ml-aoi:role "feature"^^xsd:string ],
+        [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
+            dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/collection.json> ;
+            ml-aoi:split "train"^^xsd:string ],
+        [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
+            dcterms:type "application/json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/collection.json> ;
+            ml-aoi:split "train"^^xsd:string ],
+        [ rdfs:label "Raster Residential_1331 with Residential class" ;
+            dcterms:type "image/tiff; application=geotiff" ;
+            ns4:relation <http://www.iana.org/assignments/relation/source> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ;
+            ml-aoi:role "label"^^xsd:string ;
+            ns2:assets "labels",
+                "raster" ],
+        [ dcterms:type "application/geo+json" ;
+            ns4:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-42.json> ],
+        [ rdfs:label "Preview of Residential_1331." ;
+            dcterms:type "image/png" ;
+            ns4:relation <http://www.iana.org/assignments/relation/thumbnail> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/png/Residential/Residential_1331.png> ] ;
+    dcat:license "MIT" ;
+    geojson:bbox ( -3.147254e+00 5.1532e+01 -3.138001e+00 5.153774e+01 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( -3.138001e+00 5.1532e+01 ) ( -3.138001e+00 5.153774e+01 ) ( -3.147254e+00 5.153774e+01 ) ( -3.147254e+00 5.1532e+01 ) ( -3.138001e+00 5.1532e+01 ) ) ) ] ;
+    stac:hasAsset [ ns1:labels <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/label/Residential/Residential_1331.geojson> ;
+            ns1:raster <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ;
+            ns1:thumbnail <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/png/Residential/Residential_1331.png> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/file/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/label/v1.0.1/schema.json",
+        "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/version/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
+    ml-aoi:split "train"^^xsd:string ;
+    ns2:classes [ ] ;
+    ns2:description "Land-cover area classification on Sentinel-2 image." ;
+    ns2:methods "manual" ;
+    ns2:overviews [ ] ;
+    ns2:properties "class" ;
+    ns2:tasks "classification",
+        "segmentation" ;
+    ns2:type "vector" ;
+    ns7:off_nadir 0 .
+
+<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/label/Residential/Residential_1331.geojson> ns6:size 749 ;
+    dcterms:format "application/geo+json" ;
+    dcterms:title "Labels for image Residential_1331 with Residential class" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    ml-aoi:role "label"^^xsd:string .
+
+<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/png/Residential/Residential_1331.png> ns3:bands [ ns1:center_wavelength 5.6e-01 ;
+            ns1:common_name "green" ;
+            ns1:full_width_half_max 4.5e-02 ;
+            ns1:name "B03" ],
+        [ ns1:center_wavelength 4.966e-01 ;
+            ns1:common_name "blue" ;
+            ns1:full_width_half_max 9.8e-02 ;
+            ns1:name "B02" ],
+        [ ns1:center_wavelength 6.645e-01 ;
+            ns1:common_name "red" ;
+            ns1:full_width_half_max 3.8e-02 ;
+            ns1:name "B04" ] ;
+    ns6:size 6984 ;
+    dcterms:format "image/png" ;
+    dcterms:title "Preview of Residential_1331." ;
+    stac:hasAssetroles "thumbnail"^^xsd:string,
+        "visual"^^xsd:string .
+
+<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ns6:size 107244 ;
+    dcterms:format "image/tiff; application=geotiff" ;
+    dcterms:title "Raster Residential_1331 with Residential class" ;
+    stac:hasAssetroles "data"^^xsd:string ;
+    ml-aoi:reference-grid true ;
+    ml-aoi:role "feature"^^xsd:string ;
+    ns5:bands [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:data_type "uint16" ;
+            ns1:nodata 0 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ] .
+

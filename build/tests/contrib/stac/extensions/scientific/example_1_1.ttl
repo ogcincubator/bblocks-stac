@@ -1,0 +1,35 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sci: <https://w3id.org/ogc/stac/scientific/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/scientific/item/MERRAclim.2_5m_min_80s> a geojson:Feature ;
+    dcterms:date "1985-07-01T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:description "MERRAclim Dataset. 19 global bioclimatic variables from the 1980s decade at 2.5 arcminutes resolution in GEOtiff format. The humidity version used is the min. The variables have been built using the same protocol as WorldClim with data from MERRA. Temperature layers (BIO1-BIO11) are in degree Celsius multiplied by 10, humidity layers (BIO12-BIO19) are in kg of water/kg of air multiplied by 100000." ;
+    dcterms:title "MERRAclim. 2_5m_min_80s" ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/item.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://doi.org/10.5061/dryad.s2v81.2/27.2> ] ;
+    geojson:bbox ( -180 -90 180 90 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( -180 -90 ) ( 180 -90 ) ( 180 90 ) ( -180 90 ) ( -180 -90 ) ) ) ] ;
+    stac:end_datetime "1989-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ns1:primary <https://datadryad.org/stash/downloads/file_stream/100467> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" ;
+    stac:start_datetime "1980-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    stac:version "1.0.0" ;
+    sci:doi "10.5061/dryad.s2v81.2/27.2"^^xsd:string ;
+    sci:publications "[{\"citation\":\"Vega GC, Pertierra LR, Olalla-Tárraga MÁ (2017) Data from: MERRAclim, a high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling. Dryad Digital Repository.\",\"doi\":\"10.5061/dryad.s2v81.2\"},{\"citation\":\"Vega GC, Pertierra LR, Olalla-Tárraga MÁ (2017) MERRAclim, a high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling. Scientific Data 4: 170078.\",\"doi\":\"10.1038/sdata.2017.78\"}]"^^rdf:JSON .
+
+<https://datadryad.org/stash/downloads/file_stream/100467> dcterms:format "application/zip" ;
+    dcterms:title "MERRAclim. 2_5m_min_80s" .
+

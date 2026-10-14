@@ -1,0 +1,38 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Versioning Indicators extension
+description: STAC Versioning Indicators Extension for STAC resources and assets.
+allOf:
+- anyOf:
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
+- $ref: https://stac-extensions.github.io/version/v1.2.0/schema.json
+x-jsonld-extra-terms:
+  version:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/version
+    x-jsonld-type: xsd:string
+  deprecated:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/deprecated
+    x-jsonld-type: xsd:boolean
+  experimental:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/experimental
+    x-jsonld-type: xsd:boolean
+  latest-version:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/latest-version
+    x-jsonld-type: '@id'
+  predecessor-version:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/predecessor-version
+    x-jsonld-type: '@id'
+  successor-version:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/successor-version
+    x-jsonld-type: '@id'
+  version-history:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/version-history
+    x-jsonld-type: '@id'
+  has-version:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/has-version
+    x-jsonld-type: '@id'
+  is-version-of:
+    x-jsonld-id: https://w3id.org/ogc/stac/version/is-version-of
+    x-jsonld-type: '@id'
+x-jsonld-prefixes:
+  ver: https://w3id.org/ogc/stac/version/

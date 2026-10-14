@@ -1,0 +1,107 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.version",
+  "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
+  "name": "STAC Versioning Indicators Extension",
+  "highlighted": true,
+  "group": "STAC Extensions",
+  "seeAlso": [
+    "ogc.contrib.stac.extensions.mlm"
+  ],
+  "abstract": "STAC Versioning Indicators Extension for Items, Collections, Catalogs and Assets.",
+  "maintainers": [
+    {
+      "name": "Francis Charette-Migneault",
+      "url": "https://orcid.org/0000-0003-4862-3349"
+    }
+  ],
+  "status": "under-development",
+  "dateTimeAddition": "2026-10-03T00:00:00Z",
+  "dateOfLastChange": "2026-10-14",
+  "version": "1.2.0",
+  "itemClass": "schema",
+  "register": "ogc-building-block-register",
+  "scope": "contrib",
+  "tags": [
+    "stac",
+    "stac-extension",
+    "version"
+  ],
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/version/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/version/context.jsonld",
+  "sources": [
+    {
+      "title": "STAC Versioning Indicators Extension",
+      "link": "https://github.com/stac-extensions/version/tree/v1.2.0"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    ],
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.api.records.v1.schemas.linkTemplate": [
+      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.contrib.stac.collection",
+    "ogc.contrib.stac.item"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/version/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/version/schema.json"
+  },
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/version/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/version/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/version/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/version/",
+  "examples": [
+    {
+      "title": "STAC Versioning Indicators item",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://github.com/stac-extensions/version/raw/v1.2.0/examples/item.json",
+          "base-uri": "https://example.com/stac/version/item/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/version/example_1_1.json",
+          "sizeBytes": 1969,
+          "code": "{\n  \"stac_version\": \"1.0.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/version/v1.2.0/schema.json\"\n  ],\n  \"id\": \"MERRAclim.2_5m_min_80s\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          -180,\n          -90\n        ],\n        [\n          180,\n          -90\n        ],\n        [\n          180,\n          90\n        ],\n        [\n          -180,\n          90\n        ],\n        [\n          -180,\n          -90\n        ]\n      ]\n    ]\n  },\n  \"bbox\": [\n    -180,\n    -90,\n    180,\n    90\n  ],\n  \"properties\": {\n    \"version\": \"1\",\n    \"title\": \"MERRAclim. 2_5m_min_80s\",\n    \"description\": \"MERRAclim Dataset. 19 global bioclimatic variables from the 1980s decade at 2.5 arcminutes resolution in GEOtiff format. The humidity version used is the min. The variables have been built using the same protocol as WorldClim with data from MERRA. Temperature layers (BIO1-BIO11) are in degree Celsius multiplied by 10, humidity layers (BIO12-BIO19) are in kg of water/kg of air multiplied by 100000.\",\n    \"datetime\": \"1985-07-01T00:00:00Z\"\n  },\n  \"collection\": \"merraclim\",\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json\"\n    },\n    {\n      \"rel\": \"collection\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json\"\n    },\n    {\n      \"rel\": \"parent\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json\"\n    },\n    {\n      \"rel\": \"root\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json\"\n    },\n    {\n      \"rel\": \"latest-version\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/item.json\"\n    }\n  ],\n  \"assets\": {\n    \"primary\": {\n      \"href\": \"https://datadryad.org/stash/downloads/file_stream/100467\",\n      \"type\": \"application/zip\",\n      \"title\": \"MERRAclim. 2_5m_min_80s\"\n    }\n  }\n}"
+        },
+        {
+          "language": "json",
+          "ref": "https://github.com/stac-extensions/version/raw/v1.2.0/examples/collection.json",
+          "base-uri": "https://example.com/stac/version/collection/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/version/example_1_2.json",
+          "sizeBytes": 1173,
+          "code": "{\n  \"stac_version\": \"1.0.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/version/v1.2.0/schema.json\"\n  ],\n  \"id\": \"merraclim\",\n  \"type\": \"Collection\",\n  \"title\": \"MERRAclim\",\n  \"description\": \"A high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling.\",\n  \"license\": \"CC0-1.0\",\n  \"version\": \"1\",\n  \"deprecated\": true,\n  \"extent\": {\n    \"spatial\": {\n      \"bbox\": [\n        [\n          -180,\n          -90,\n          180,\n          90\n        ]\n      ]\n    },\n    \"temporal\": {\n      \"interval\": [\n        [\n          \"1980-01-01T00:00:00Z\",\n          \"2009-12-31T23:59:59Z\"\n        ]\n      ]\n    }\n  },\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json\"\n    },\n    {\n      \"rel\": \"item\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json\"\n    },\n    {\n      \"rel\": \"root\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json\"\n    },\n    {\n      \"rel\": \"latest-version\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/version/example_1_2.jsonld",
+          "sizeBytes": 1297,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/version/context.jsonld\",\n  \"stac_version\": \"1.0.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/version/v1.2.0/schema.json\"\n  ],\n  \"id\": \"merraclim\",\n  \"type\": \"Collection\",\n  \"title\": \"MERRAclim\",\n  \"description\": \"A high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling.\",\n  \"license\": \"CC0-1.0\",\n  \"version\": \"1\",\n  \"deprecated\": true,\n  \"extent\": {\n    \"spatial\": {\n      \"bbox\": [\n        [\n          -180,\n          -90,\n          180,\n          90\n        ]\n      ]\n    },\n    \"temporal\": {\n      \"interval\": [\n        [\n          \"1980-01-01T00:00:00Z\",\n          \"2009-12-31T23:59:59Z\"\n        ]\n      ]\n    }\n  },\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json\"\n    },\n    {\n      \"rel\": \"item\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json\"\n    },\n    {\n      \"rel\": \"root\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json\"\n    },\n    {\n      \"rel\": \"latest-version\",\n      \"href\": \"https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/version/example_1_2.ttl",
+          "sizeBytes": 1615,
+          "code": "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix ver: <https://w3id.org/ogc/stac/version/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/version/collection/merraclim> a <https://example.com/stac/version/collection/Collection> ;\n    dcterms:description \"A high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling.\" ;\n    dcterms:extent [ ] ;\n    dcterms:title \"MERRAclim\" ;\n    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ],\n        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json> ],\n        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json> ],\n        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;\n            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json> ] ;\n    dcat:license \"CC0-1.0\" ;\n    stac:hasExtension \"https://stac-extensions.github.io/version/v1.2.0/schema.json\" ;\n    stac:version \"1.0.0\" ;\n    ver:deprecated true ;\n    ver:version \"1\"^^xsd:string .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Versioning Indicators extension\ndescription: STAC Versioning Indicators Extension for STAC resources and assets.\nallOf:\n- anyOf:\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n- $ref: https://stac-extensions.github.io/version/v1.2.0/schema.json\nx-jsonld-extra-terms:\n  version:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/version\n    x-jsonld-type: xsd:string\n  deprecated:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/deprecated\n    x-jsonld-type: xsd:boolean\n  experimental:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/experimental\n    x-jsonld-type: xsd:boolean\n  latest-version:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/latest-version\n    x-jsonld-type: '@id'\n  predecessor-version:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/predecessor-version\n    x-jsonld-type: '@id'\n  successor-version:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/successor-version\n    x-jsonld-type: '@id'\n  version-history:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/version-history\n    x-jsonld-type: '@id'\n  has-version:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/has-version\n    x-jsonld-type: '@id'\n  is-version-of:\n    x-jsonld-id: https://w3id.org/ogc/stac/version/is-version-of\n    x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  ver: https://w3id.org/ogc/stac/version/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/version"
+}

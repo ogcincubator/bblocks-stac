@@ -1,0 +1,20 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Scientific Citation extension
+description: STAC Scientific Citation Extension for Items and Collections.
+allOf:
+- anyOf:
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
+- $ref: https://stac-extensions.github.io/scientific/v1.0.0/schema.json
+x-jsonld-extra-terms:
+  sci:doi:
+    x-jsonld-id: https://w3id.org/ogc/stac/scientific/doi
+    x-jsonld-type: xsd:string
+  sci:citation:
+    x-jsonld-id: https://w3id.org/ogc/stac/scientific/citation
+    x-jsonld-type: xsd:string
+  sci:publications:
+    x-jsonld-id: https://w3id.org/ogc/stac/scientific/publications
+    x-jsonld-type: '@json'
+x-jsonld-prefixes:
+  sci: https://w3id.org/ogc/stac/scientific/

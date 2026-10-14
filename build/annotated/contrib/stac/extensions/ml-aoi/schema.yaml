@@ -1,0 +1,23 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ML-AOI extension
+description: STAC ML-AOI Extension for machine-learning areas of interest.
+allOf:
+- anyOf:
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
+- $ref: https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json
+x-jsonld-extra-terms:
+  ml-aoi:split:
+    x-jsonld-id: https://w3id.org/ogc/stac/ml-aoi/split
+    x-jsonld-type: xsd:string
+  ml-aoi:role:
+    x-jsonld-id: https://w3id.org/ogc/stac/ml-aoi/role
+    x-jsonld-type: xsd:string
+  ml-aoi:reference-grid:
+    x-jsonld-id: https://w3id.org/ogc/stac/ml-aoi/reference-grid
+    x-jsonld-type: xsd:boolean
+  ml-aoi:resampling-method:
+    x-jsonld-id: https://w3id.org/ogc/stac/ml-aoi/resampling-method
+    x-jsonld-type: xsd:string
+x-jsonld-prefixes:
+  ml-aoi: https://w3id.org/ogc/stac/ml-aoi/

@@ -1,0 +1,100 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.extensions.application",
+  "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
+  "name": "STAC Application Extension",
+  "highlighted": true,
+  "group": "STAC Extensions",
+  "seeAlso": [
+    "ogc.contrib.stac.extensions.mlm",
+    "ogc.contrib.stac.extensions.vcs"
+  ],
+  "abstract": "STAC Application Extension for describing software applications in Items, Collections and Catalogs.",
+  "maintainers": [
+    {
+      "name": "Francis Charette-Migneault",
+      "url": "https://orcid.org/0000-0003-4862-3349"
+    }
+  ],
+  "status": "under-development",
+  "dateTimeAddition": "2026-10-03T00:00:00Z",
+  "dateOfLastChange": "2026-10-14",
+  "version": "0.1.0",
+  "itemClass": "schema",
+  "register": "ogc-building-block-register",
+  "scope": "contrib",
+  "tags": [
+    "stac",
+    "stac-extension",
+    "application"
+  ],
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/application/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/application/context.jsonld",
+  "sources": [
+    {
+      "title": "STAC Application Extension",
+      "link": "https://github.com/stac-extensions/application/tree/v0.1.0"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.components.assets-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    ],
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.api.records.v1.schemas.linkTemplate": [
+      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.contrib.stac.collection",
+    "ogc.contrib.stac.item"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/application/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/application/schema.json"
+  },
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/application/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/application/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/application/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/extensions/application/",
+  "examples": [
+    {
+      "title": "STAC Application item",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://raw.githubusercontent.com/stac-extensions/application/d89b20f66c957ad068cd9a0f5fa923156722af2c/examples/item.json",
+          "base-uri": "https://example.com/stac/application/item/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/application/example_1_1.json",
+          "sizeBytes": 3127,
+          "code": "{\n  \"stac_version\": \"1.1.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/application/v0.1.0/schema.json\"\n  ],\n  \"id\": \"esa-cci-permafrost\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"properties\": {\n    \"datetime\": \"2025-03-17T14:30:23Z\",\n    \"type\": \"workflow\",\n    \"title\": \"ESA CCI permafrost\",\n    \"description\": \"cube generation workflow for esa-cci-permafrost\",\n    \"application:container\": \"Jupyter Notebook\",\n    \"application:languages\": [\n      \"Python\"\n    ]\n  },\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"../../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Open Science Catalog\"\n    },\n    {\n      \"rel\": \"parent\",\n      \"href\": \"../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Workflows\"\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/esa-cci-permafrost/record.json\",\n      \"type\": \"application/json\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../projects/deep-earth-system-data-lab/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Project: DeepESDL\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"../../experiments/esa-cci-permafrost/record.json\",\n      \"type\": \"application/json\",\n      \"title\": \"ESA CCI permafrost\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../themes/cryosphere/catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Theme: Cryosphere\"\n    },\n    {\n      \"rel\": \"vcs\",\n      \"title\": \"Git source repository\",\n      \"href\": \"https://github.com/deepesdl/cube-gen.git\",\n      \"vcs:type\": \"git\",\n      \"vcs:branch\": \"main\"\n    },\n    {\n      \"rel\": \"application\",\n      \"title\": \"Jupyter Notebook: Create CCI Permafrost cube\",\n      \"href\": \"https://github.com/deepesdl/cube-gen/blob/main/Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb\",\n      \"file:local_path\": \"Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb\",\n      \"type\": \"application/x-ipynb+json\",\n      \"application:container\": \"Jupyter Notebook\",\n      \"application:languages\": [\n        \"Python\"\n      ],\n      \"jupyter:kernel\": {\n        \"name\": \"deepesdl-xcube-1.8.3\",\n        \"pythonVersion\": \"3.11\",\n        \"envFile\": \"https://github.com/deepesdl/cube-gen/blob/main/Permafrost/environment.yml\"\n      }\n    },\n    {\n      \"rel\": \"example\",\n      \"title\": \"Cube generation script\",\n      \"href\": \"https://github.com/deepesdl/cube-gen/blob/main/Permafrost/cube.py\",\n      \"type\": \"text/x-python\",\n      \"application:entrypoint\": \"generate_cube\",\n      \"application:languages\": [\n        \"Python\"\n      ]\n    },\n    {\n      \"rel\": \"application-platform\",\n      \"title\": \"DeepESDL platform\",\n      \"href\": \"https://deep.earthsystemdatalab.net/\",\n      \"type\": \"text/html\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"https://deep.earthsystemdatalab.net/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdeepesdl%2Fcube-gen&urlpath=lab%2Ftree%2Fcube-gen%2FPermafrost%2FCreate-CCI-Permafrost-cube-EarthCODE.ipynb&branch=main\",\n      \"title\": \"Open notebook on the DeepESDL platform\"\n    }\n  ],\n  \"assets\": {}\n}"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/application/example_1_1.jsonld",
+          "sizeBytes": 3255,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/application/context.jsonld\",\n  \"stac_version\": \"1.1.0\",\n  \"stac_extensions\": [\n    \"https://stac-extensions.github.io/application/v0.1.0/schema.json\"\n  ],\n  \"id\": \"esa-cci-permafrost\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"properties\": {\n    \"datetime\": \"2025-03-17T14:30:23Z\",\n    \"type\": \"workflow\",\n    \"title\": \"ESA CCI permafrost\",\n    \"description\": \"cube generation workflow for esa-cci-permafrost\",\n    \"application:container\": \"Jupyter Notebook\",\n    \"application:languages\": [\n      \"Python\"\n    ]\n  },\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"../../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Open Science Catalog\"\n    },\n    {\n      \"rel\": \"parent\",\n      \"href\": \"../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Workflows\"\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/esa-cci-permafrost/record.json\",\n      \"type\": \"application/json\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../projects/deep-earth-system-data-lab/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Project: DeepESDL\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"../../experiments/esa-cci-permafrost/record.json\",\n      \"type\": \"application/json\",\n      \"title\": \"ESA CCI permafrost\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../themes/cryosphere/catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Theme: Cryosphere\"\n    },\n    {\n      \"rel\": \"vcs\",\n      \"title\": \"Git source repository\",\n      \"href\": \"https://github.com/deepesdl/cube-gen.git\",\n      \"vcs:type\": \"git\",\n      \"vcs:branch\": \"main\"\n    },\n    {\n      \"rel\": \"application\",\n      \"title\": \"Jupyter Notebook: Create CCI Permafrost cube\",\n      \"href\": \"https://github.com/deepesdl/cube-gen/blob/main/Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb\",\n      \"file:local_path\": \"Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb\",\n      \"type\": \"application/x-ipynb+json\",\n      \"application:container\": \"Jupyter Notebook\",\n      \"application:languages\": [\n        \"Python\"\n      ],\n      \"jupyter:kernel\": {\n        \"name\": \"deepesdl-xcube-1.8.3\",\n        \"pythonVersion\": \"3.11\",\n        \"envFile\": \"https://github.com/deepesdl/cube-gen/blob/main/Permafrost/environment.yml\"\n      }\n    },\n    {\n      \"rel\": \"example\",\n      \"title\": \"Cube generation script\",\n      \"href\": \"https://github.com/deepesdl/cube-gen/blob/main/Permafrost/cube.py\",\n      \"type\": \"text/x-python\",\n      \"application:entrypoint\": \"generate_cube\",\n      \"application:languages\": [\n        \"Python\"\n      ]\n    },\n    {\n      \"rel\": \"application-platform\",\n      \"title\": \"DeepESDL platform\",\n      \"href\": \"https://deep.earthsystemdatalab.net/\",\n      \"type\": \"text/html\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"https://deep.earthsystemdatalab.net/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdeepesdl%2Fcube-gen&urlpath=lab%2Ftree%2Fcube-gen%2FPermafrost%2FCreate-CCI-Permafrost-cube-EarthCODE.ipynb&branch=main\",\n      \"title\": \"Open notebook on the DeepESDL platform\"\n    }\n  ],\n  \"assets\": {}\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/extensions/application/example_1_1.ttl",
+          "sizeBytes": 4426,
+          "code": "@prefix application: <https://w3id.org/ogc/stac/application/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix ns2: <jupyter:> .\n@prefix ns3: <file:> .\n@prefix ns4: <vcs:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.com/stac/application/item/esa-cci-permafrost> a <https://example.com/stac/application/item/workflow>,\n        geojson:Feature ;\n    dcterms:date \"2025-03-17T14:30:23+00:00\"^^xsd:dateTime ;\n    dcterms:description \"cube generation workflow for esa-cci-permafrost\" ;\n    dcterms:title \"ESA CCI permafrost\" ;\n    rdfs:seeAlso [ rdfs:label \"Workflows\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://example.com/stac/application/catalog.json> ],\n        [ rdfs:label \"Theme: Cryosphere\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/stac/themes/cryosphere/catalog.json> ],\n        [ rdfs:label \"Cube generation script\" ;\n            dcterms:type \"text/x-python\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/example> ;\n            oa:hasTarget <https://github.com/deepesdl/cube-gen/blob/main/Permafrost/cube.py> ;\n            application:entrypoint \"generate_cube\"^^xsd:string ;\n            application:languages \"Python\"^^xsd:string ],\n        [ rdfs:label \"Open Science Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/catalog.json> ],\n        [ rdfs:label \"ESA CCI permafrost\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/child> ;\n            oa:hasTarget <https://example.com/stac/experiments/esa-cci-permafrost/record.json> ],\n        [ rdfs:label \"Git source repository\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;\n            oa:hasTarget <https://github.com/deepesdl/cube-gen.git> ;\n            ns4:branch \"main\" ;\n            ns4:type \"git\" ],\n        [ rdfs:label \"Open notebook on the DeepESDL platform\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://deep.earthsystemdatalab.net/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdeepesdl%2Fcube-gen&urlpath=lab%2Ftree%2Fcube-gen%2FPermafrost%2FCreate-CCI-Permafrost-cube-EarthCODE.ipynb&branch=main> ],\n        [ dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/esa-cci-permafrost/record.json> ],\n        [ rdfs:label \"Jupyter Notebook: Create CCI Permafrost cube\" ;\n            ns3:local_path \"Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb\" ;\n            dcterms:type \"application/x-ipynb+json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/application> ;\n            oa:hasTarget <https://github.com/deepesdl/cube-gen/blob/main/Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb> ;\n            application:container \"Jupyter Notebook\"^^xsd:string ;\n            application:languages \"Python\"^^xsd:string ;\n            ns2:kernel [ ] ],\n        [ rdfs:label \"DeepESDL platform\" ;\n            dcterms:type \"text/html\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/application-platform> ;\n            oa:hasTarget <https://deep.earthsystemdatalab.net/> ],\n        [ rdfs:label \"Project: DeepESDL\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://example.com/stac/projects/deep-earth-system-data-lab/collection.json> ] ;\n    application:container \"Jupyter Notebook\"^^xsd:string ;\n    application:languages \"Python\"^^xsd:string ;\n    stac:hasAsset [ ] ;\n    stac:hasExtension \"https://stac-extensions.github.io/application/v0.1.0/schema.json\" ;\n    stac:version \"1.1.0\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Application extension\ndescription: STAC Application Extension for Items, Collections and Catalogs.\nallOf:\n- anyOf:\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml\n  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml\n- $ref: https://stac-extensions.github.io/application/v0.1.0/schema.json\nx-jsonld-extra-terms:\n  application:container:\n    x-jsonld-id: https://w3id.org/ogc/stac/application/container\n    x-jsonld-type: xsd:string\n  application:entrypoint:\n    x-jsonld-id: https://w3id.org/ogc/stac/application/entrypoint\n    x-jsonld-type: xsd:string\n  application:languages:\n    x-jsonld-id: https://w3id.org/ogc/stac/application/languages\n    x-jsonld-container: '@set'\n    x-jsonld-type: xsd:string\nx-jsonld-prefixes:\n  application: https://w3id.org/ogc/stac/application/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/extensions/application"
+}

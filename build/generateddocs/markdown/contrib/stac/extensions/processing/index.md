@@ -13,9 +13,9 @@ STAC Processing Extension for STAC Items and STAC Collections.
 #### json
 ```json
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+    "https://stac-extensions.github.io/processing/v1.3.0/schema.json"
   ],
   "type": "Collection",
   "id": "Sentinel2-L2A",
@@ -125,9 +125,9 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/context.jsonld",
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+    "https://stac-extensions.github.io/processing/v1.3.0/schema.json"
   ],
   "type": "Collection",
   "id": "Sentinel2-L2A",
@@ -248,26 +248,26 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:description "Sentinel-2 is a wide-swath, high-resolution, multi-spectral imaging mission." ;
     dcterms:extent [ ] ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-2A" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://processing-corp.com/catalog/COPERNICUS_S2.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://processing-corp.com/catalog/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ] ;
     dcat:license "proprietary" ;
-    stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json" ;
-    stac:hasProvider [ processing:level "L2A"^^xsd:string ;
-            processing:lineage "Generation of Level-2A User Product"^^xsd:string ;
-            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
-        [ processing:facility "Copernicus S2 Processing and Archiving Facility"^^xsd:string ;
+    stac:hasExtension "https://stac-extensions.github.io/processing/v1.3.0/schema.json" ;
+    stac:hasProvider [ processing:facility "Copernicus S2 Processing and Archiving Facility"^^xsd:string ;
             processing:level "L1"^^xsd:string ;
             processing:lineage "Generation of Level-1C User Product"^^xsd:string ;
             processing:version "02.06"^^xsd:string ],
+        [ processing:level "L2A"^^xsd:string ;
+            processing:lineage "Generation of Level-2A User Product"^^xsd:string ;
+            processing:software "{\"Sentinel-2 Toolbox\":\"8.0.0\"}"^^rdf:JSON ],
         [ ] ;
-    stac:version "1.0.0" .
+    stac:version "1.1.0" .
 
 
 ```
@@ -277,11 +277,11 @@ STAC Processing Extension for STAC Items and STAC Collections.
 #### json
 ```json
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+    "https://stac-extensions.github.io/processing/v1.3.0/schema.json"
   ],
   "id": "S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF",
   "properties": {
@@ -448,11 +448,11 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/processing/context.jsonld",
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+    "https://stac-extensions.github.io/processing/v1.3.0/schema.json"
   ],
   "id": "S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF",
   "properties": {
@@ -618,10 +618,10 @@ STAC Processing Extension for STAC Items and STAC Collections.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <sar:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <sat:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <sat:> .
+@prefix ns3: <sar:> .
+@prefix ns4: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix processing: <https://w3id.org/ogc/stac/processing/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -634,69 +634,69 @@ STAC Processing Extension for STAC Items and STAC Collections.
     dcterms:date "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
     rdfs:seeAlso [ rdfs:label "GRD Post Processing (90AF)" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/processing-execution> ;
+            ns4:relation <http://www.iana.org/assignments/relation/processing-execution> ;
             oa:hasTarget <https://api.example.com/processing/s1-grd-l1c/jobs/90AF> ] ;
     geojson:bbox ( -5.730959e+00 1.344167e+01 -3.136116e+00 1.538866e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -5.730959e+00 1.495344e+01 ) ( -3.431006e+00 1.538866e+01 ) ( -3.136116e+00 1.388057e+01 ) ( -5.419919e+00 1.344167e+01 ) ( -5.730959e+00 1.495344e+01 ) ) ) ] ;
     stac:end_datetime "2016-08-22T18:28:48.368201+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns2:amplitude-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
-            ns2:amplitude-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
-            ns2:annotation-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-            ns2:annotation-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-            ns2:calibration-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
-            ns2:calibration-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
-            ns2:manifest <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> ;
-            ns2:quick-look <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> ] ;
-    stac:hasExtension "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+    stac:hasAsset [ ns1:amplitude-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> ;
+            ns1:amplitude-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> ;
+            ns1:annotation-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
+            ns1:annotation-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
+            ns1:calibration-vh-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> ;
+            ns1:calibration-vv-iw <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> ;
+            ns1:manifest <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> ;
+            ns1:quick-look <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/preview/quick-look.png> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/processing/v1.3.0/schema.json",
         "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
         "https://stac-extensions.github.io/sat/v1.0.0/schema.json" ;
     stac:start_datetime "2016-08-22T18:28:23.368922+00:00"^^xsd:dateTime ;
-    stac:version "1.0.0" ;
+    stac:version "1.1.0" ;
     processing:datetime "2016-08-23T00:30:33+00:00"^^xsd:dateTime ;
     processing:facility "Copernicus S1 Core Ground Segment - DPA"^^xsd:string ;
     processing:level "L1"^^xsd:string ;
     processing:lineage "GRD Post Processing"^^xsd:string ;
     processing:software "{\"Sentinel-1 IPF\":\"002.71\"}"^^rdf:JSON ;
-    ns1:frequency_band "C" ;
-    ns1:instrument_mode "IW" ;
-    ns1:polarizations "VH",
+    ns3:frequency_band "C" ;
+    ns3:instrument_mode "IW" ;
+    ns3:polarizations "VH",
         "VV" ;
-    ns1:product_type "GRD" ;
-    ns4:absolute_orbit 12717 ;
-    ns4:anx_datetime "2016-08-22T18:24:52.513706Z" ;
-    ns4:orbit_state "ascending" ;
-    ns4:relative_orbit 45 .
+    ns3:product_type "GRD" ;
+    ns2:absolute_orbit 12717 ;
+    ns2:anx_datetime "2016-08-22T18:24:52.513706Z" ;
+    ns2:orbit_state "ascending" ;
+    ns2:relative_orbit 45 .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> dcterms:format "text/xml" ;
     dcterms:title "Calibration VH IW" ;
     stac:hasAssetroles "data"^^xsd:string ;
-    ns1:polarizations "VH" .
+    ns3:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/calibration/calibration-s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> dcterms:format "text/xml" ;
     dcterms:title "Calibration VV IW" ;
     stac:hasAssetroles "data"^^xsd:string ;
-    ns1:polarizations "VV" .
+    ns3:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.tiff> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VH Amplitude pixel values" ;
     stac:hasAssetroles "data"^^xsd:string ;
-    ns1:polarizations "VH" .
+    ns3:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vh-20160822t182823-20160822t182848-012717-013ffe-002.xml> dcterms:format "text/xml" ;
     dcterms:title "Annotation VH IW" ;
     stac:hasAssetroles "metadata"^^xsd:string ;
-    ns1:polarizations "VH" .
+    ns3:polarizations "VH" .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.tiff> dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "IW VV Amplitude pixel values" ;
     stac:hasAssetroles "data"^^xsd:string ;
-    ns1:polarizations "VV" .
+    ns3:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/annotation/s1a-iw-grd-vv-20160822t182823-20160822t182848-012717-013ffe-001.xml> dcterms:format "text/xml" ;
     dcterms:title "Annotation VV IW" ;
     stac:hasAssetroles "metadata"^^xsd:string ;
-    ns1:polarizations "VV" .
+    ns3:polarizations "VV" .
 
 <https://example.com/stac/processing/example-2/data/S1A_IW_GRDH_1SDV_20160822T182823_20160822T182848_012717_013FFE_90AF.SAFE/manifest.safe> dcterms:created "2016-08-23T00:30:33Z" ;
     dcterms:format "text/xml" ;

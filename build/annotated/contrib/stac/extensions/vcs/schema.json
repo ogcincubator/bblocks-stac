@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VCS extension",
+  "description": "STAC VCS Extension for Catalogs, Collections, Items, Assets and Links.",
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.json"
+        }
+      ]
+    },
+    {
+      "$ref": "https://stac-extensions.github.io/vcs/v0.1.0/schema.json"
+    }
+  ],
+  "x-jsonld-extra-terms": {
+    "vcs:type": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/vcs/type",
+      "x-jsonld-type": "xsd:string"
+    },
+    "vcs:branch": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/vcs/branch",
+      "x-jsonld-type": "xsd:string"
+    },
+    "vcs:revision": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/vcs/revision",
+      "x-jsonld-type": "xsd:string"
+    },
+    "vcs:tag": {
+      "x-jsonld-id": "https://w3id.org/ogc/stac/vcs/tag",
+      "x-jsonld-type": "xsd:string"
+    }
+  },
+  "x-jsonld-prefixes": {
+    "vcs": "https://w3id.org/ogc/stac/vcs/"
+  }
+}

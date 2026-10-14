@@ -1,7 +1,7 @@
 
 # STAC CF Extension (Schema)
 
-`ogc.contrib.stac.extensions.cf` *v0.2.0*
+`ogc.contrib.stac.extensions.cf` *v1.0.0*
 
 CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to provide the Standard Name Table based on the CF metadata convention.
 
@@ -278,8 +278,8 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -288,12 +288,12 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ] ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ] ;
     dcat:license "Apache-2.0" ;
-    stac:hasAsset [ ns2:example <https://example.com/examples/file.xyz> ] ;
+    stac:hasAsset [ ns1:example <https://example.com/examples/file.xyz> ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
 
@@ -577,8 +577,8 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <cube:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -589,12 +589,12 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
     ns1:dimensions [ ] ;
     ns1:variables [ ] ;
     dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns3:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    stac:hasAsset [ ns2:data <https://example.com/examples/file.xyz> ] ;
+    stac:hasAsset [ ns3:data <https://example.com/examples/file.xyz> ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
 
@@ -610,7 +610,7 @@ allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
-- $ref: https://stac-extensions.github.io/cf/v0.2.0/schema.json
+- $ref: https://stac-extensions.github.io/cf/v1.0.0/schema.json
 x-jsonld-extra-terms:
   name: https://w3id.org/ogc/stac/cf/name
   unit:

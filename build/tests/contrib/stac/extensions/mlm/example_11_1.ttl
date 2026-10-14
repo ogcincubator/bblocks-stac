@@ -1,0 +1,397 @@
+@prefix cube: <https://w3id.org/ogc/stac/datacube/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <vcs:> .
+@prefix ns3: <file:> .
+@prefix ns4: <application:> .
+@prefix ns5: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns6: <ml-aoi:> .
+@prefix ns7: <sci:> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/mlm/resoterre-unet/unet_rdps_to_hrdps> a geojson:Feature ;
+    dcterms:description "U-Net trained to downscale RDPS meteorological data to HRDPS resolution." ;
+    rdfs:seeAlso [ rdfs:label "RDPS train samples" ;
+            dcterms:description "RDPS train-split input samples used as machine-learning features." ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
+            ns6:role "feature" ;
+            ns6:split "train" ],
+        [ rdfs:label "RDPS test samples" ;
+            dcterms:description "RDPS test-split input samples used as machine-learning features." ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
+            ns6:role "feature" ;
+            ns6:split "test" ],
+        [ rdfs:label "RDPS validate samples" ;
+            dcterms:description "RDPS validate-split input samples used as machine-learning features." ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
+            ns6:role "feature" ;
+            ns6:split "validate" ],
+        [ rdfs:label "resoterre citation metadata" ;
+            dcterms:type "text/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ],
+        [ rdfs:label "RDPS download CWL tool" ;
+            ns4:languages "Common Workflow Language" ;
+            ns3:checksum "1220cfe6377d576e12763fa6e0f89f1fbc61a587475fbacf29c0d4921cdba758db19" ;
+            ns3:size 1611 ;
+            dcterms:description "CWL CommandLineTool downloading the listed RDPS files into a local directory." ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_download_files.cwl> ;
+            ns2:branch "main" ;
+            ns2:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns2:type "git" ],
+        [ rdfs:label "HRDPS validate samples" ;
+            dcterms:description "HRDPS validate-split target samples used as labels and predicted downscaling results." ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
+            ns6:role "label" ;
+            ns6:split "validate" ],
+        [ rdfs:label "RDPS file listing CWL tool" ;
+            ns4:languages "Common Workflow Language" ;
+            ns3:checksum "1220b41206d6ae38ceedfb499c179851d670555a73bfe7a70819ba47b511c1f78f01" ;
+            ns3:size 2284 ;
+            dcterms:description "CWL CommandLineTool listing the RDPS files required for a requested datetime range." ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_generate_file_list.cwl> ;
+            ns2:branch "main" ;
+            ns2:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns2:type "git" ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/resoterre-unet/unet_rdps_to_hrdps.json> ],
+        [ rdfs:label "resoterre source repository" ;
+            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/Ouranosinc/resoterre.git> ;
+            ns2:branch "main" ;
+            ns2:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns2:type "git" ],
+        [ rdfs:label "U-Net inference CWL tool" ;
+            ns4:languages "Common Workflow Language" ;
+            ns3:checksum "122081999f65ffb1cf3256b1a72a3aed25134b4ba446acea1b781b5a783f6ac6b09f" ;
+            ns3:size 2359 ;
+            dcterms:description "CWL CommandLineTool running the U-Net downscaling inference on the downloaded RDPS data." ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_unet.cwl> ;
+            ns2:branch "main" ;
+            ns2:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns2:type "git" ],
+        [ rdfs:label "HRDPS test samples" ;
+            dcterms:description "HRDPS test-split target samples used as labels and predicted downscaling results." ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
+            ns6:role "label" ;
+            ns6:split "test" ],
+        [ rdfs:label "HRDPS train samples" ;
+            dcterms:description "HRDPS train-split target samples used as labels and predicted downscaling results." ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
+            ns6:role "label" ;
+            ns6:split "train" ],
+        [ rdfs:label "RDPS-to-HRDPS downscaling CWL workflow" ;
+            ns4:languages "Common Workflow Language" ;
+            ns3:checksum "122054639a4072d5fb7e2a0039975ca8446e9fc3e95e91c91f9f4b37bebd3e798937" ;
+            ns3:size 2624 ;
+            dcterms:description "CWL Workflow chaining the file listing, download and U-Net inference steps." ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_unet_workflow.cwl> ;
+            ns2:branch "main" ;
+            ns2:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns2:type "git" ] ;
+    dcat:license "Apache-2.0" ;
+    geojson:bbox ( -8.645e+01 3.752e+01 -6.416e+01 5.325e+01 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( -8.645e+01 3.752e+01 ) ( -8.645e+01 5.325e+01 ) ( -6.416e+01 5.325e+01 ) ( -6.416e+01 3.752e+01 ) ( -8.645e+01 3.752e+01 ) ) ) ] ;
+    stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
+    stac:hasAsset [ ns5:citation <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ;
+            ns5:configuration <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml> ;
+            ns5:container <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference> ;
+            ns5:model <https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors> ;
+            ns5:runtime <docker://resoterre-inference:0.1.3.dev9> ;
+            ns5:source_code <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/application/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
+        "https://stac-extensions.github.io/mlm/v1.6.0/schema.json",
+        "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/vcs/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
+    stac:hasProvider [ dcterms:description "Producer and licensor of the model." ],
+        [ dcterms:description "Deployment host and inference-container processor." ] ;
+    stac:start_datetime "2017-05-22T07:00:00+00:00"^^xsd:dateTime ;
+    stac:version "1.1.0" ;
+    cube:dimensions [ cube:description "Valid time associated with each independently processed model sample." ;
+            cube:extent ( "2017-05-22T07:00:00Z" "2100-12-31T23:59:59Z" ) ;
+            cube:type "temporal" ;
+            cube:unit "s" ;
+            mlm:datacube_dimension_name "time" ],
+        [ cube:axis "y" ;
+            cube:description "Row coordinate of the 512x512 HRDPS target array in its rotated-pole grid. The geographic positions are provided by the two-dimensional lat/lon auxiliary coordinates." ;
+            cube:extent ( 0 511 ) ;
+            cube:type "spatial" ;
+            cube:unit "index" ;
+            mlm:datacube_dimension_name "rlat" ],
+        [ cube:axis "x" ;
+            cube:description "Column coordinate of the 512x512 HRDPS target array in its rotated-pole grid. The geographic positions are provided by the two-dimensional lat/lon auxiliary coordinates." ;
+            cube:extent ( 0 511 ) ;
+            cube:type "spatial" ;
+            cube:unit "index" ;
+            mlm:datacube_dimension_name "rlon" ] ;
+    cube:variables [ cube:data_type "float32" ;
+            cube:description "RDPS geopotential height at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "GZ850" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS geopotential height at 500 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "GZ500" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS northward wind component at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "VV850" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS northward wind component at 10 m, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_VVC_10000" ],
+        [ cube:data_type "float32" ;
+            cube:description "Geographic latitude auxiliary coordinate for the rotated grid." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "auxiliary" ;
+            cube:unit "degree_north" ;
+            mlm:datacube_variable_name "lat" ],
+        [ cube:data_type "float32" ;
+            cube:description "Static HRDPS orography on the target rotated grid, aligned to the output patch." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "orog" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS eastward wind component at 10 m, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_UUC_10000" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS air temperature on model levels, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "TT_model_levels" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS eastward wind component at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "UU850" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS air temperature at 10 m, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_TT_10000" ],
+        [ cube:data_type "float32" ;
+            cube:description "Static HRDPS land-fraction field on the target rotated grid, aligned to the output patch." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "sftlf" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS pressure at the surface, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "PN" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS precipitation rate at the surface, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "PR" ],
+        [ cube:data_type "float32" ;
+            cube:description "Geographic longitude auxiliary coordinate for the rotated grid." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "auxiliary" ;
+            cube:unit "degree_east" ;
+            mlm:datacube_variable_name "lon" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS precipitation rate at the surface, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_PR_SFC" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS relative humidity at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HU850" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS convective precipitation at the surface, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "PC" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS dew-point temperature, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "TD" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS northward wind component on model levels, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "VV_model_levels" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS eastward wind component on model levels, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "UU_model_levels" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS air temperature at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "TT850" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS relative humidity at 700 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HU700" ] ;
+    mlm:accelerator mlm:cuda ;
+    mlm:accelerator_constrained false ;
+    mlm:architecture "U-Net"^^xsd:string ;
+    mlm:framework "pytorch"^^xsd:string ;
+    mlm:framework_version "2.14.0+cu130"^^xsd:string ;
+    mlm:hyperparameters "{\"coarsen_factor\":4,\"depth\":2,\"device\":\"cpu\",\"global_end_datetime\":\"2024-09-01 12:00:00\",\"global_start_datetime\":\"2017-05-22 07:00:00\",\"initial_nb_of_hidden_channels\":144,\"kernel_size\":3,\"learning_rate\":0.002,\"mae_loss_weight\":0.0,\"mass_loss_weight\":0.0,\"mse_loss_weight\":0.5,\"nb_of_epochs\":18,\"num_threads\":16,\"num_workers\":8,\"optimizer\":\"Adam\",\"reduction_ratio\":4,\"ssim_k1\":0.01,\"ssim_k2\":0.03,\"ssim_kernel_size\":11,\"ssim_loss_weight\":0.5,\"ssim_sigma\":1.5,\"test_period_start\":\"2023-06-01 00:00:00\",\"training_batch_size\":64,\"validation_period_start\":\"2023-01-10 00:00:00\",\"weight_decay\":\"1e-05\"}"^^rdf:JSON ;
+    mlm:input ( [ mlm:bands () ;
+                mlm:input_structure [ mlm:data_type "float32" ;
+                        mlm:dim_order ( "batch" "variables" "rlat" "rlon" ) ;
+                        mlm:shape ( -1 14 128 128 ) ] ;
+                mlm:io_description "Fourteen normalized RDPS meteorological channels on the 128x128 coarse rotated grid. Each flexible batch element represents one independently selected valid time. The time identifies samples in the surrounding dataset but is not a tensor axis because the U-Net does not jointly process a temporal sequence." ;
+                mlm:io_name "rdps_inputs" ;
+                mlm:pre_processing_function "null"^^rdf:JSON ;
+                mlm:variables ( "TT_model_levels" "PR" "UU_model_levels" "VV_model_levels" "PC" "PN" "TT850" "GZ500" "GZ850" "HU850" "HU700" "TD" "UU850" "VV850" ) ] [ mlm:bands () ;
+                mlm:input_structure [ mlm:data_type "float32" ;
+                        mlm:dim_order ( "batch" "variables" "rlat" "rlon" ) ;
+                        mlm:shape ( -1 2 512 512 ) ] ;
+                mlm:io_description "Static orography and land-fraction channels on the 512x512 target grid. The geographic lat/lon are auxiliary coordinates over rlat/rlon." ;
+                mlm:io_name "hrdps_geophysical_inputs" ;
+                mlm:pre_processing_function "null"^^rdf:JSON ;
+                mlm:variables ( "orog" "sftlf" ) ] ) ;
+    mlm:name "UNet RDPS HRDPS Downscaling"^^xsd:string ;
+    mlm:output ( [ mlm:bands () ;
+                mlm:io_description "Four continuous HRDPS fields reconstructed for the same valid time on the 512x512 target rotated grid." ;
+                mlm:io_name "hrdps_outputs" ;
+                mlm:post_processing_function "null"^^rdf:JSON ;
+                mlm:result [ mlm:data_type "float32" ;
+                        mlm:dim_order ( "batch" "variables" "rlat" "rlon" ) ;
+                        mlm:shape ( -1 4 512 512 ) ] ;
+                mlm:tasks ( mlm:downscaling mlm:super-resolution ) ;
+                mlm:variables ( "HRDPS_P_TT_10000" "HRDPS_P_PR_SFC" "HRDPS_P_UUC_10000" "HRDPS_P_VVC_10000" ) ] ) ;
+    mlm:pretrained false ;
+    mlm:tasks ( mlm:downscaling mlm:super-resolution ) ;
+    mlm:total_parameters "9871888"^^xsd:nonNegativeInteger ;
+    ns7:citation "Gauvin St-Denis, B., and Smith, T. J. resoterre (version 0.1.3.dev9). Ouranos." ;
+    ns2:branch "main" ;
+    ns2:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+    ns2:type "git" .
+
+<docker://resoterre-inference:0.1.3.dev9> dcterms:description "Versioned OCI container that packages PyTorch, Snakemake, the workflow, and model dependencies." ;
+    dcterms:format "application/vnd.oci.image.index.v1+json" ;
+    dcterms:title "resoterre inference container 0.1.3.dev9" ;
+    stac:hasAssetroles "mlm:inference-runtime"^^xsd:string,
+        "runtime"^^xsd:string .
+
+<https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors> ns4:entrypoint "resoterre.ml.neural_networks_unet:UNet" ;
+    ns3:checksum "122090e4bbd8583de97cea555072b98479920d1c2c6949daa3254f3c771571cebf6b" ;
+    ns3:size 39526256 ;
+    dcterms:description "SafeTensors weights loaded by the resoterre U-Net implementation." ;
+    dcterms:format "application/octet-stream; framework=pytorch" ;
+    dcterms:title "Epoch 18 U-Net SafeTensors weights" ;
+    stac:hasAssetroles "data"^^xsd:string,
+        "mlm:model"^^xsd:string,
+        "mlm:weights"^^xsd:string,
+        "model"^^xsd:string,
+        "weights"^^xsd:string ;
+    mlm:artifact_type "safetensors.torch.save_file"^^xsd:string .
+
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml> ns3:checksum "1220386fc766bf6ab79ef6a9dd6f0ac3f706669bf09a037be02b87991b159af44136" ;
+    ns3:size 3606 ;
+    dcterms:description "Configuration consumed by the Snakemake workflow." ;
+    dcterms:format "application/yaml" ;
+    dcterms:title "Training and inference configuration" ;
+    stac:hasAssetroles "configuration"^^xsd:string,
+        "metadata"^^xsd:string .
+
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference> ns4:languages "Dockerfile" ;
+    ns3:checksum "12201afe4cb941fb434e8fac2bd83a4ddf3a701993bd050a3bae82584e94b3b0824b" ;
+    ns3:size 1626 ;
+    dcterms:description "Generic Dockerfile used to build the inference container image." ;
+    dcterms:format "text/x-dockerfile" ;
+    dcterms:title "Inference container definition" ;
+    stac:hasAssetroles "container"^^xsd:string .
+
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk> ns4:entrypoint "scripts/meta_workflows/downscaling/rdps_to_hrdps.smk" ;
+    ns4:languages "Python" ;
+    ns3:checksum "1220fbfe7b7f39796c9e378dc2522a82581ec9024781222327a5d75ba59dc3b32046" ;
+    ns3:size 1700 ;
+    dcterms:description "Executable Snakemake workflow that preprocesses RDPS data and runs downscaling inference." ;
+    dcterms:format "text/x-snakemake" ;
+    dcterms:title "RDPS-to-HRDPS Snakemake workflow" ;
+    stac:hasAssetroles "code"^^xsd:string,
+        "mlm:source_code"^^xsd:string ;
+    mlm:entrypoint "snakemake -s scripts/meta_workflows/downscaling/rdps_to_hrdps.smk --config config_yaml=/app/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml -j1 --directory=/app"^^xsd:string .
+
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ns3:checksum "1220ffe80cd84de27fed65be4cd5289bcf00defe4553f2fc7086465228bec4d28476" ;
+    ns3:size 945 ;
+    dcterms:description "Citation File Format metadata for resoterre." ;
+    dcterms:format "text/yaml" ;
+    dcterms:title "Citation metadata" ;
+    stac:hasAssetroles "metadata"^^xsd:string .
+

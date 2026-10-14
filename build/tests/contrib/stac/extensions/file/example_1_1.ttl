@@ -1,0 +1,61 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix file: <https://w3id.org/ogc/stac/file/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <sar:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/file/item/S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616> a geojson:Feature ;
+    dcterms:date "2018-11-03T23:58:55+00:00"^^xsd:dateTime ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/collections> ;
+            file:checksum "1114fa4b9d69fdddc7c1be7bed9440621400b383b43f"^^xsd:string ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/collections/sentinel-1/items/S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/collections/sentinel-1> ;
+            file:checksum "11146d97123fd2c02dec9a1b6d3b13136dbe600cf966"^^xsd:string ] ;
+    geojson:bbox ( -7.027503e+01 -6.472924e+01 -6.508748e+01 -5.110583e+01 ) ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( -6.707165e+01 -6.472924e+01 ) ( -6.508748e+01 -5.667437e+01 ) ( -6.803321e+01 -5.110583e+01 ) ( -7.027503e+01 -5.980567e+01 ) ( -6.707165e+01 -6.472924e+01 ) ) ) ] ;
+    stac:hasAsset [ ns3:calibrations <https://example.com/stac/file/item/annotation/calibration/calibration-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml> ;
+            ns3:measurement <https://example.com/stac/file/item/measurement/s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.tiff> ;
+            ns3:noises <https://example.com/stac/file/item/annotation/calibration/noise-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml> ;
+            ns3:products <https://example.com/stac/file/item/annotation/s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml> ;
+            ns3:thumbnail <https://example.com/stac/file/item/preview/quick-look.png> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/file/v2.1.0/schema.json" ;
+    stac:version "1.0.0" .
+
+<https://example.com/stac/file/item/annotation/calibration/calibration-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml> dcterms:format "text/xml" ;
+    dcterms:title "Noise Schema" ;
+    file:checksum "90e402104fc5351af67db0b8f1746efe421a05e4"^^xsd:string ;
+    file:local_path "S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616.SAFE/annotation/calibration/calibration-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml"^^xsd:string .
+
+<https://example.com/stac/file/item/annotation/calibration/noise-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml> dcterms:format "text/xml" ;
+    dcterms:title "Calibration Schema" ;
+    file:checksum "90e40210a30d1711e81a4b11ef67b28744321659"^^xsd:string ;
+    file:local_path "S1A_EW_GRDM_1SSH_20181103T235855_20181103T235955_024430_02AD5D_5616.SAFE/annotation/calibration/noise-s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml"^^xsd:string .
+
+<https://example.com/stac/file/item/annotation/s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.xml> dcterms:format "text/xml" ;
+    dcterms:title "Product Schema" ;
+    file:checksum "90e402107a7f2588a85362b9beea2a12d4514d45"^^xsd:string .
+
+<https://example.com/stac/file/item/measurement/s1a-ew-grd-hh-20181103t235855-20181103t235955-024430-02ad5d-001.tiff> dcterms:format "image/tiff" ;
+    dcterms:title "Measurements" ;
+    file:byte_order "little-endian"^^xsd:string ;
+    file:checksum "90e40210163700a8a6501eccd00b6d3b44ddaed0"^^xsd:string ;
+    file:header_size "4096"^^xsd:nonNegativeInteger ;
+    file:size "209715200"^^xsd:nonNegativeInteger ;
+    ns2:polarizations "HH" .
+
+<https://example.com/stac/file/item/preview/quick-look.png> dcterms:format "image/png" ;
+    dcterms:title "Thumbnail" ;
+    file:byte_order "big-endian"^^xsd:string ;
+    file:checksum "90e40210f52acd32b09769d3b1871b420789456c"^^xsd:string ;
+    file:size "146484"^^xsd:nonNegativeInteger .
+

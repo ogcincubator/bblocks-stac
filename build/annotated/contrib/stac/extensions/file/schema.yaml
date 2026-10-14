@@ -1,0 +1,47 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: File Info extension
+description: STAC File Info Extension for Items, Collections, Catalogs and Assets.
+allOf:
+- anyOf:
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/schema.yaml
+  - type: object
+    required:
+    - id
+    - type
+    - stac_version
+    - description
+    - links
+    properties:
+      id:
+        type: string
+      type:
+        const: Catalog
+      stac_version:
+        type: string
+      description:
+        type: string
+      links:
+        type: array
+- $ref: https://stac-extensions.github.io/file/v2.1.0/schema.json
+x-jsonld-extra-terms:
+  file:byte_order:
+    x-jsonld-id: https://w3id.org/ogc/stac/file/byte_order
+    x-jsonld-type: xsd:string
+  file:checksum:
+    x-jsonld-id: https://w3id.org/ogc/stac/file/checksum
+    x-jsonld-type: xsd:string
+  file:header_size:
+    x-jsonld-id: https://w3id.org/ogc/stac/file/header_size
+    x-jsonld-type: xsd:nonNegativeInteger
+  file:size:
+    x-jsonld-id: https://w3id.org/ogc/stac/file/size
+    x-jsonld-type: xsd:nonNegativeInteger
+  file:values:
+    x-jsonld-id: https://w3id.org/ogc/stac/file/values
+    x-jsonld-type: '@json'
+  file:local_path:
+    x-jsonld-id: https://w3id.org/ogc/stac/file/local_path
+    x-jsonld-type: xsd:string
+x-jsonld-prefixes:
+  file: https://w3id.org/ogc/stac/file/

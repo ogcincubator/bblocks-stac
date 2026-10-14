@@ -1,0 +1,26 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix vcs: <https://w3id.org/ogc/stac/vcs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/stac/vcs/item/vcs-example> a geojson:Feature ;
+    dcterms:date "2025-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:title "VCS extension example" ;
+    rdfs:seeAlso [ rdfs:label "Git source repository" ;
+            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/stac-extensions/vcs.git> ;
+            vcs:branch "main"^^xsd:string ;
+            vcs:revision "abc1234"^^xsd:string ;
+            vcs:tag "v1.0.0"^^xsd:string ;
+            vcs:type "git"^^xsd:string ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://stac-extensions.github.io/vcs/v0.1.0/examples/item.json> ] ;
+    stac:hasAsset [ ] ;
+    stac:hasExtension "https://stac-extensions.github.io/vcs/v0.1.0/schema.json" ;
+    stac:version "1.1.0" .
+

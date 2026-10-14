@@ -95,6 +95,12 @@ A SpatioTemporal Asset Catalogs (STAC) collection.  This building block implemen
 
 TBD
 
+### `ogc.contrib.stac.extensions.application` — STAC Application Extension
+
+**Type:** schema
+
+STAC Application Extension for describing software applications in Items, Collections and Catalogs.
+
 ### `ogc.contrib.stac.extensions.cf` — STAC CF Extension
 
 **Type:** schema
@@ -107,6 +113,12 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 
 STAC Classification Extension for STAC Items and STAC Collections.
 
+### `ogc.contrib.stac.extensions.datacube` — STAC Datacube Extension
+
+**Type:** schema
+
+STAC Datacube Extension for Items, Collections and Assets.
+
 ### `ogc.contrib.stac.extensions.eo` — STAC Electro-Optical Extension
 
 **Type:** schema
@@ -114,6 +126,18 @@ STAC Classification Extension for STAC Items and STAC Collections.
 Electro-Optical (EO) Extension to the SpatioTemporal Asset Catalog (STAC) specification.
 
 EO data is considered to be data that represents a snapshot of the Earth for a single date and time. It could consist of multiple spectral bands in any part of the electromagnetic spectrum. Examples of EO data include sensors with visible, short-wave and mid-wave IR bands (e.g., the OLI instrument on Landsat-8), long-wave IR bands (e.g. TIRS aboard Landsat-8).
+
+### `ogc.contrib.stac.extensions.file` — STAC File Info Extension
+
+**Type:** schema
+
+STAC File Info Extension for Items, Collections, Catalogs and Assets.
+
+### `ogc.contrib.stac.extensions.ml-aoi` — STAC ML-AOI Extension
+
+**Type:** schema
+
+STAC ML-AOI Extension for machine-learning training, validation and test areas of interest.
 
 ### `ogc.contrib.stac.extensions.osc` — STAC Extension - ESA Open Science Catalog
 
@@ -132,6 +156,12 @@ STAC Processing Extension for STAC Items and STAC Collections.
 **Type:** schema
 
 An item can describe assets that are rasters of one or multiple bands with some information common to them all (raster size, projection) and also specific to each of them (data type, unit, number of bits used, nodata). A raster is often strongly linked with the georeferencing transform and coordinate system definition of all bands (using the projection extension). In many applications, it is interesting to have some metadata about the rasters in the asset (values statistics, value interpretation, transforms).
+
+### `ogc.contrib.stac.extensions.scientific` — STAC Scientific Citation Extension
+
+**Type:** schema
+
+STAC Scientific Citation Extension for Items, Collections and Assets.
 
 ### `ogc.contrib.stac.extensions.themes` — STAC Themes Extension
 
@@ -153,6 +183,18 @@ A knowledge organization system used to classify the resource (controlled vocabu
 
 Themes Extension to the SpatioTemporal Asset Catalog (STAC) specification.
 A knowledge organization system used to classify the resource (controlled vocabularies / keywords)
+
+### `ogc.contrib.stac.extensions.vcs` — STAC VCS Extension
+
+**Type:** schema
+
+STAC VCS Extension for describing version control system references.
+
+### `ogc.contrib.stac.extensions.version` — STAC Versioning Indicators Extension
+
+**Type:** schema
+
+STAC Versioning Indicators Extension for Items, Collections, Catalogs and Assets.
 
 ### `ogc.contrib.stac.item-prov` — STAC Item with Provenance
 
