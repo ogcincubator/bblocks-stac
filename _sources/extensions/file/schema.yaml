@@ -1,0 +1,16 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: "File Info extension"
+description: "STAC File Info Extension for Items, Collections, Catalogs and Assets."
+allOf:
+  - anyOf:
+      - $ref: bblocks://ogc.contrib.stac.collection
+      - $ref: bblocks://ogc.contrib.stac.item
+      - type: object
+        required: [id, type, stac_version, description, links]
+        properties:
+          id: { type: string }
+          type: { const: Catalog }
+          stac_version: { type: string }
+          description: { type: string }
+          links: { type: array }
+  - $ref: https://stac-extensions.github.io/file/v2.1.0/schema.json

@@ -1,0 +1,8 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: "VCS extension"
+description: "STAC VCS Extension for Catalogs, Collections, Items, Assets and Links."
+allOf:
+  - anyOf:
+      - $ref: bblocks://ogc.contrib.stac.collection
+      - $ref: bblocks://ogc.contrib.stac.item
+  - $ref: https://stac-extensions.github.io/vcs/v0.1.0/schema.json

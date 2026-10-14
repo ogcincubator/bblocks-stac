@@ -1,0 +1,8 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: "ML-AOI extension"
+description: "STAC ML-AOI Extension for machine-learning areas of interest."
+allOf:
+  - anyOf:
+      - $ref: bblocks://ogc.contrib.stac.collection
+      - $ref: bblocks://ogc.contrib.stac.item
+  - $ref: https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json

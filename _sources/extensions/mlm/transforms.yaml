@@ -1,0 +1,39 @@
+transforms:
+  - id: item-to-rdf
+    description: >-
+      Validate an MLM STAC Item and encode it as reversible semantic RDF, preserving
+      array order, explicit nulls, empty containers, extension fields, and map keys.
+    type: python
+    ref: transforms/item_rdf.py
+    inputs:
+      mediaTypes: [application/geo+json]
+    outputs:
+      mediaTypes:
+        - mimeType: 'text/turtle; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+          defaultExtension: ttl
+        - mimeType: 'application/ld+json; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+          defaultExtension: jsonld
+    metadata:
+      direction: to-rdf
+      dependencies:
+        pip: ["stac-model==0.7.0", "rdflib>=7.1,<8", "pyshacl>=0.30,<1"]
+        python: ">=3.11"
+
+  - id: rdf-to-item
+    description: >-
+      Decode the reversible MLM Item RDF profile into a validated STAC Item.
+      Ordinary lossy JSON-LD uplift is not an input to this transform.
+    type: python
+    ref: transforms/item_rdf.py
+    inputs:
+      mediaTypes:
+        - 'text/turtle; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+        - 'application/ld+json; profile="https://w3id.org/ogc/stac/mlm/serialization/"'
+    outputs:
+      mediaTypes: [application/json]
+      profiles: [bblocks://ogc.contrib.stac.extensions.mlm]
+    metadata:
+      direction: to-item
+      dependencies:
+        pip: ["stac-model==0.7.0", "rdflib>=7.1,<8", "pyshacl>=0.30,<1"]
+        python: ">=3.11"

@@ -2,15 +2,21 @@
   "name": "STAC Machine Learning Model Extension Ontology",
   "highlighted": false,
   "title": "Definitions for STAC MLM extension elements",
-  "description": "Vocabulary defining the elements of the STAC Machine Learning Model (MLM) extension: model identity, framework/accelerator requirements, and the ModelInput/ModelOutput/InputStructure/ResultStructure/ValueScaling structures, providing Linked Data terms for the STAC MLM schema. Tasks, framework, accelerator, resize_type and value-scaling type are modeled as skos:ConceptSchemes; everything else stays OWL. Reuses classification:classes (Classification extension) and aligns with processing:expression (Processing extension) rather than redefining them.",
+  "description": "Vocabulary defining the elements of the STAC Machine Learning Model (MLM) extension, including model identity, input/output structures, band and variable references, value scaling, and model assets. The ontology documents interactions with STAC core, EO, Raster, Datacube, Classification, Processing, Application, and VCS extensions. Input/output descriptions use the distinct mlm:io_description predicate.",
+  "maintainers": [
+    {
+      "name": "Francis Charette-Migneault",
+      "url": "https://orcid.org/0000-0003-4862-3349"
+    }
+  ],
   "status": "under-development",
-  "version": "0.1",
+  "version": "0.2",
   "itemClass": "model",
   "dependsOn": [
   ],
   "sources": [
     { "title": "GitHub Repository", "link": "https://github.com/stac-extensions/mlm" },
-    { "title": "JSON Schema (v1.5.2)", "link": "https://stac-extensions.github.io/mlm/v1.5.2/schema.json" },
+    { "title": "JSON Schema (v1.6.0)", "link": "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" },
     { "title": "README (field descriptions and example)", "link": "https://github.com/stac-extensions/mlm/blob/main/README.md" }
   ],
   "shaclShapes": [
@@ -24,5 +30,5 @@
 
   ],
   "dateTimeAddition": "2026-08-25T00:00:00Z",
-  "dateOfLastChange": "2026-08-25"
+  "dateOfLastChange": "2026-10-13"
 }

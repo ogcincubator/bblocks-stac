@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "cube": "https://w3id.org/ogc/stac/datacube/",
+    "cube:dimensions": {
+      "@id": "cube:dimensions",
+      "@container": "@index",
+      "@context": {
+        "type": "cube:type",
+        "axis": "cube:axis",
+        "axes": { "@id": "cube:axes", "@container": "@set" },
+        "description": "cube:description",
+        "extent": { "@id": "cube:extent", "@container": "@list" },
+        "values": { "@id": "cube:values", "@container": "@list" },
+        "step": "cube:step",
+        "unit": "cube:unit",
+        "reference_system": "cube:reference_system",
+        "bbox": { "@id": "cube:bbox", "@container": "@list" },
+        "geometry_types": { "@id": "cube:geometry_types", "@container": "@set" }
+      }
+    },
+    "cube:variables": {
+      "@id": "cube:variables",
+      "@container": "@index",
+      "@context": {
+        "dimensions": { "@id": "cube:dimensions", "@container": "@set" },
+        "type": "cube:type",
+        "description": "cube:description",
+        "extent": { "@id": "cube:extent", "@container": "@list" },
+        "values": { "@id": "cube:values", "@container": "@list" },
+        "unit": "cube:unit",
+        "nodata": "cube:nodata",
+        "data_type": "cube:data_type"
+      }
+    }
+  }
+}

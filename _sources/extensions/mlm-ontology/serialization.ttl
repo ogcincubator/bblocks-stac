@@ -1,0 +1,38 @@
+@prefix serialization: <https://w3id.org/ogc/stac/mlm/serialization/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+
+serialization: a owl:Ontology ;
+    schema:maintainer <https://orcid.org/0000-0003-4862-3349> ;
+    rdfs:label "Reversible MLM STAC Item RDF serialization" ;
+    rdfs:comment "Implementation vocabulary for the Item transforms. Not part of the upstream STAC MLM extension." .
+
+serialization:Object a owl:Class ;
+    rdfs:comment "A JSON object represented by semantic predicate values and explicit field descriptors." .
+serialization:Item a owl:Class ;
+    rdfs:subClassOf serialization:Object ;
+    rdfs:comment "The unique root of a reversible STAC Item document." .
+serialization:Array a owl:Class ;
+    rdfs:comment "A nested JSON array whose ordered members are held by serialization:items." .
+serialization:field a owl:ObjectProperty ;
+    rdfs:comment "Connects a JSON object to a descriptor of a present JSON field." .
+serialization:key a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The exact JSON member name, including any extension prefix." .
+serialization:predicate a owl:ObjectProperty ;
+    rdfs:comment "The semantic predicate on the owning object that holds this field's current values." .
+serialization:kind a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Field representation: value, json, null, array, set, or map. null has no semantic value triple." .
+serialization:items a owl:ObjectProperty ;
+    rdfs:range rdf:List ;
+    rdfs:comment "Ordered values for a nested array or an unordered semantic field. Set members share value nodes." .
+serialization:mapKey a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The original asset or extension dictionary key on its value object." .
+
+<https://w3id.org/ogc/stac/mlm/serialization/member/> a rdfs:Resource ;
+    rdfs:comment "IRI prefix for percent-encoded JSON keys without a mapped semantic predicate, including structural keys." .
