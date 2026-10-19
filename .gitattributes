@@ -1,0 +1,6 @@
+# Force LF line endings for shell scripts regardless of the checking-out platform's
+# core.autocrlf setting, so build.sh/view.sh remain runnable under WSL/Git Bash after a
+# Windows checkout ("build.sh: line N: syntax error: unexpected end of file" is the
+# symptom of a CRLF checkout mangling if/fi and do/done matching).
+* text=auto eol=lf
+*.sh text eol=lf
