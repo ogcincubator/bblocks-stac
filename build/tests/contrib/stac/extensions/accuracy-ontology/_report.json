@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.accuracy-ontology - STAC Accuracy Extension Ontology",
   "bblockName": "STAC Accuracy Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.accuracy-ontology",
-  "generated": "2026-11-24T11:00:37.458080+00:00",
+  "generated": "2026-11-24T12:13:00.354127+00:00",
   "result": true,
   "items": [
     {
@@ -64,7 +64,20 @@
                     "ex:S2A_MSIL2A_item"
                   ]
                 },
+                "accuracy:GeometricXStddevShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
                 "accuracy:GeometricYStddevShape": {
+                  "nodes": [
+                    "ex:S2A_MSIL2A_item"
+                  ]
+                },
+                "accuracy:MeasurementRelativeShape": {
+                  "nodes": []
+                },
+                "accuracy:GeometricYBiasShape": {
                   "nodes": [
                     "ex:S2A_MSIL2A_item"
                   ]
@@ -73,23 +86,10 @@
                   "nodes": [
                     "ex:S2A_MSIL2A_item"
                   ]
-                },
-                "accuracy:GeometricYBiasShape": {
-                  "nodes": [
-                    "ex:S2A_MSIL2A_item"
-                  ]
-                },
-                "accuracy:MeasurementRelativeShape": {
-                  "nodes": []
-                },
-                "accuracy:GeometricXStddevShape": {
-                  "nodes": [
-                    "ex:S2A_MSIL2A_item"
-                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricXBiasShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricRmseShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricYStddevShape: ex:S2A_MSIL2A_item\n - Shape accuracy:MeasurementAbsoluteShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricYBiasShape: ex:S2A_MSIL2A_item\n - Shape accuracy:MeasurementRelativeShape: *none*\n - Shape accuracy:GeometricXStddevShape: ex:S2A_MSIL2A_item\n"
+              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricXBiasShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricRmseShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricXStddevShape: ex:S2A_MSIL2A_item\n - Shape accuracy:GeometricYStddevShape: ex:S2A_MSIL2A_item\n - Shape accuracy:MeasurementRelativeShape: *none*\n - Shape accuracy:GeometricYBiasShape: ex:S2A_MSIL2A_item\n - Shape accuracy:MeasurementAbsoluteShape: ex:S2A_MSIL2A_item\n"
             }
           ]
         }
@@ -150,13 +150,10 @@
                 "accuracy:GeometricRmseShape": {
                   "nodes": []
                 },
+                "accuracy:GeometricXStddevShape": {
+                  "nodes": []
+                },
                 "accuracy:GeometricYStddevShape": {
-                  "nodes": []
-                },
-                "accuracy:MeasurementAbsoluteShape": {
-                  "nodes": []
-                },
-                "accuracy:GeometricYBiasShape": {
                   "nodes": []
                 },
                 "accuracy:MeasurementRelativeShape": {
@@ -164,12 +161,15 @@
                     "ex:collection"
                   ]
                 },
-                "accuracy:GeometricXStddevShape": {
+                "accuracy:GeometricYBiasShape": {
+                  "nodes": []
+                },
+                "accuracy:MeasurementAbsoluteShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricXBiasShape: *none*\n - Shape accuracy:GeometricRmseShape: *none*\n - Shape accuracy:GeometricYStddevShape: *none*\n - Shape accuracy:MeasurementAbsoluteShape: *none*\n - Shape accuracy:GeometricYBiasShape: *none*\n - Shape accuracy:MeasurementRelativeShape: ex:collection\n - Shape accuracy:GeometricXStddevShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/accuracy-ontology/shapes.shacl:\n - Shape accuracy:GeometricXBiasShape: *none*\n - Shape accuracy:GeometricRmseShape: *none*\n - Shape accuracy:GeometricXStddevShape: *none*\n - Shape accuracy:GeometricYStddevShape: *none*\n - Shape accuracy:MeasurementRelativeShape: ex:collection\n - Shape accuracy:GeometricYBiasShape: *none*\n - Shape accuracy:MeasurementAbsoluteShape: *none*\n"
             }
           ]
         }

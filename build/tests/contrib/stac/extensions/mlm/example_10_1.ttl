@@ -2,11 +2,11 @@
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <classification:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns2: <ml-aoi:> .
+@prefix ns3: <classification:> .
 @prefix ns4: <raster:> .
-@prefix ns5: <file:> .
-@prefix ns6: <ml-aoi:> .
+@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns6: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -14,17 +14,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns5:size 43000000 ;
+    ns6:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns6:split "train" ],
+            ns2:split "train" ],
         [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-10/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            ns5:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-10/item_raster_bands.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
@@ -55,41 +55,41 @@
                 mlm:value_scaling () ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns2:classes [ ns2:name "Pasture" ;
-                        ns2:nodata false ;
-                        ns2:value 5 ],
-                    [ ns2:name "Residential_Buildings" ;
-                        ns2:nodata false ;
-                        ns2:title "Residential Buildings" ;
-                        ns2:value 7 ],
-                    [ ns2:name "Forest" ;
-                        ns2:nodata false ;
-                        ns2:value 1 ],
-                    [ ns2:name "Permanent_Crop" ;
-                        ns2:nodata false ;
-                        ns2:title "Permanent Crop" ;
-                        ns2:value 6 ],
-                    [ ns2:name "Highway" ;
-                        ns2:nodata false ;
-                        ns2:value 3 ],
-                    [ ns2:name "Herbaceous_Vegetation" ;
-                        ns2:nodata false ;
-                        ns2:title "Herbaceous Vegetation" ;
-                        ns2:value 2 ],
-                    [ ns2:name "River" ;
-                        ns2:nodata false ;
-                        ns2:value 8 ],
-                    [ ns2:name "Industrial_Buildings" ;
-                        ns2:nodata false ;
-                        ns2:title "Industrial Buildings" ;
-                        ns2:value 4 ],
-                    [ ns2:name "SeaLake" ;
-                        ns2:nodata false ;
-                        ns2:value 9 ],
-                    [ ns2:name "Annual_Crop" ;
-                        ns2:nodata false ;
-                        ns2:title "Annual Crop" ;
-                        ns2:value 0 ] ;
+    mlm:output ( [ ns3:classes [ ns3:name "Pasture" ;
+                        ns3:nodata false ;
+                        ns3:value 5 ],
+                    [ ns3:name "SeaLake" ;
+                        ns3:nodata false ;
+                        ns3:value 9 ],
+                    [ ns3:name "Forest" ;
+                        ns3:nodata false ;
+                        ns3:value 1 ],
+                    [ ns3:name "Residential_Buildings" ;
+                        ns3:nodata false ;
+                        ns3:title "Residential Buildings" ;
+                        ns3:value 7 ],
+                    [ ns3:name "Highway" ;
+                        ns3:nodata false ;
+                        ns3:value 3 ],
+                    [ ns3:name "River" ;
+                        ns3:nodata false ;
+                        ns3:value 8 ],
+                    [ ns3:name "Permanent_Crop" ;
+                        ns3:nodata false ;
+                        ns3:title "Permanent Crop" ;
+                        ns3:value 6 ],
+                    [ ns3:name "Herbaceous_Vegetation" ;
+                        ns3:nodata false ;
+                        ns3:title "Herbaceous Vegetation" ;
+                        ns3:value 2 ],
+                    [ ns3:name "Annual_Crop" ;
+                        ns3:nodata false ;
+                        ns3:title "Annual Crop" ;
+                        ns3:value 0 ],
+                    [ ns3:name "Industrial_Buildings" ;
+                        ns3:nodata false ;
+                        ns3:title "Industrial Buildings" ;
+                        ns3:value 4 ] ;
                 mlm:io_name "classification" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "float32" ;
@@ -115,11 +115,19 @@
     mlm:artifact_type "torch.save"^^xsd:string ;
     ns4:bands [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
-            ns1:name "B03" ;
+            ns1:name "B04" ;
             ns1:nodata 0 ;
             ns1:offset 0 ;
             ns1:scale 1e-04 ;
             ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B07" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
             ns1:unit "m" ],
         [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
@@ -131,27 +139,27 @@
             ns1:unit "m" ],
         [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
-            ns1:name "B06" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B05" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B10" ;
+            ns1:name "B01" ;
             ns1:nodata 0 ;
             ns1:offset 0 ;
             ns1:scale 1e-04 ;
             ns1:spatial_resolution 60 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B8A" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B03" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
             ns1:unit "m" ],
         [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
@@ -163,11 +171,11 @@
             ns1:unit "m" ],
         [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
-            ns1:name "B01" ;
+            ns1:name "B05" ;
             ns1:nodata 0 ;
             ns1:offset 0 ;
             ns1:scale 1e-04 ;
-            ns1:spatial_resolution 60 ;
+            ns1:spatial_resolution 20 ;
             ns1:unit "m" ],
         [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
@@ -187,31 +195,23 @@
             ns1:unit "m" ],
         [ ns1:bits_per_sample 15 ;
             ns1:data_type "uint16" ;
-            ns1:name "B8A" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B07" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B04" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 10 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
             ns1:name "B12" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 20 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B10" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 60 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:data_type "uint16" ;
+            ns1:name "B06" ;
             ns1:nodata 0 ;
             ns1:offset 0 ;
             ns1:scale 1e-04 ;

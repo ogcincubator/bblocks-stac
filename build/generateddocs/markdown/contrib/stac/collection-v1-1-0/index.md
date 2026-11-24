@@ -528,14 +528,14 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
     rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
         [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
             ns1:relation <http://www.iana.org/assignments/relation/license> ;
             oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     stac:hasAsset [ ns2:metadata_iso_19139 <https://storage.googleapis.com/open-cogs/stac-examples/sentinel-2-iso-19139.xml> ] ;
     stac:hasExtension "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
@@ -556,13 +556,13 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-description: STAC Collection V1.0.0
+description: STAC Collection v1.1.0
 allOf:
 - $ref: https://schemas.stacspec.org/v1.1.0/collection-spec/json-schema/collection.json
 - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
 - type: object
   properties:
-    stac-version:
+    stac_version:
       title: STAC version
       type: string
       const: 1.1.0

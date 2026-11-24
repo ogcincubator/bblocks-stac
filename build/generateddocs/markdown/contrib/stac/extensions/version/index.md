@@ -219,10 +219,10 @@ STAC Versioning Indicators Extension for Items, Collections, Catalogs and Assets
     dcterms:title "MERRAclim" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
-            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ] ;
     dcat:license "CC0-1.0" ;

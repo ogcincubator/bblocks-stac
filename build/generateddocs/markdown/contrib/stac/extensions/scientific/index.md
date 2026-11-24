@@ -462,9 +462,9 @@ STAC Scientific Citation Extension for Items, Collections and Assets.
     dcterms:title "MERRAclim, a high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling." ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/cite-as> ;
             oa:hasTarget <https://doi.org/10.5061/dryad.s2v81.2> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/item.json> ] ;

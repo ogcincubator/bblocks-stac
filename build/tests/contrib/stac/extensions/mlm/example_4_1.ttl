@@ -3,9 +3,9 @@
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
 @prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <file:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <sci:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <sci:> .
+@prefix ns4: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -14,21 +14,21 @@
 
 <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
-    rdfs:seeAlso [ dcterms:type "text/html" ;
-            ns3:relation <http://www.iana.org/assignments/relation/code> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "text/html" ;
-            ns3:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ],
+            ns2:relation <http://www.iana.org/assignments/relation/code> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
         [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
         [ dcterms:type "text/html" ;
-            ns3:relation <http://www.iana.org/assignments/relation/via> ;
+            ns2:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
-        [ dcterms:type "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ] ;
+        [ dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ] ;
     geojson:bbox ( -1.264e+02 2.26e+01 -6.25e+01 5.42e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -1.264e+02 5.42e+01 ) ( -6.25e+01 5.42e+01 ) ( -6.25e+01 2.26e+01 ) ( -1.264e+02 2.26e+01 ) ( -1.264e+02 5.42e+01 ) ) ) ] ;
@@ -46,14 +46,14 @@
             cube:extent ( 2.336e+02 2.975e+02 ) ;
             cube:type "spatial" ;
             mlm:datacube_dimension_name "lon" ],
-        [ cube:axis "y" ;
-            cube:extent ( 5.42e+01 2.26e+01 ) ;
-            cube:type "spatial" ;
-            mlm:datacube_dimension_name "lat" ],
         [ cube:extent ( "1940-01-01T00:00:00Z" "2100-12-31T23:59:59Z" ) ;
             cube:step "P1H" ;
             cube:type "temporal" ;
-            mlm:datacube_dimension_name "time" ] ;
+            mlm:datacube_dimension_name "time" ],
+        [ cube:axis "y" ;
+            cube:extent ( 5.42e+01 2.26e+01 ) ;
+            cube:type "spatial" ;
+            mlm:datacube_dimension_name "lat" ] ;
     cube:variables [ cube:data_type "float32" ;
             cube:description "This parameter is the eastward component of the 10m wind. It is the horizontal speed of air moving towards the east, at a height of ten metres above the surface of the Earth, in metres per second." ;
             cube:dimensions "lat",
@@ -62,14 +62,6 @@
             cube:type "data" ;
             cube:unit "m s-1" ;
             mlm:datacube_variable_name "10m_u_component_of_wind" ],
-        [ cube:data_type "float32" ;
-            cube:description "This parameter is the temperature of air at 2m above the surface of land, sea or in-land waters." ;
-            cube:dimensions "lat",
-                "lon",
-                "time" ;
-            cube:type "data" ;
-            cube:unit "K" ;
-            mlm:datacube_variable_name "2m_temperature" ],
         [ cube:data_type "float32" ;
             cube:description "This parameter is the geopotential, which is the potential energy per unit mass at a point in the atmosphere, expressed in metres squared per second squared (m² s⁻²). It is a measure of the height of a point in the atmosphere relative to sea level." ;
             cube:dimensions "lat",
@@ -91,7 +83,15 @@
                 "lon" ;
             cube:extent ( 0 1 ) ;
             cube:type "data" ;
-            mlm:datacube_variable_name "land_sea_mask" ] ;
+            mlm:datacube_variable_name "land_sea_mask" ],
+        [ cube:data_type "float32" ;
+            cube:description "This parameter is the temperature of air at 2m above the surface of land, sea or in-land waters." ;
+            cube:dimensions "lat",
+                "lon",
+                "time" ;
+            cube:type "data" ;
+            cube:unit "K" ;
+            mlm:datacube_variable_name "2m_temperature" ] ;
     mlm:accelerator mlm:cuda ;
     mlm:accelerator_constrained false ;
     mlm:architecture "U-Net"^^xsd:string ;
@@ -112,9 +112,9 @@
                 mlm:tasks ( mlm:regression mlm:downscaling ) ;
                 mlm:variables ( "2m_temperature" "10m_u_component_of_wind" "10m_v_component_of_wind" ) ] ) ;
     mlm:tasks ( mlm:regression mlm:downscaling ) ;
-    ns4:publications [ ] .
+    ns3:publications [ ] .
 
-<https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns2:size 389657415 ;
+<https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns4:size 389657415 ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "U-Net Pytorch weights checkpoint" ;
     stac:hasAssetroles "mlm:model"^^xsd:string,
