@@ -1,31 +1,27 @@
-@prefix ex: <https://example.org/stac/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <https://example.org/stac/> .
 
 ex:item_20201211 a stac:Item ;
-    stac:datetime "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
-    stac:hasAsset ex:asset-thumbnail,
-        ex:asset-visual ;
-    stac:id "20201211_223832_CS2" ;
-    stac:links ex:link-collection,
-        ex:link-parent,
-        ex:link-root .
-
-ex:asset-thumbnail a stac:Asset ;
-    stac:mediaType "image/jpeg" .
+    stac:id       "20201211_223832_CS2" ;
+    stac:datetime "2020-12-11T22:38:32.125000Z"^^xsd:dateTime ;
+    stac:hasAsset ex:asset-visual , ex:asset-thumbnail ;
+    stac:links    ex:link-collection , ex:link-root , ex:link-parent .
 
 ex:asset-visual a stac:Asset ;
     stac:mediaType "image/tiff; application=geotiff; profile=cloud-optimized" .
 
-ex:link-collection a stac:Link ;
-    stac:href "./collection.json"^^xsd:anyURI ;
-    stac:rel "collection" .
+ex:asset-thumbnail a stac:Asset ;
+    stac:mediaType "image/jpeg" .
 
-ex:link-parent a stac:Link ;
-    stac:href "./collection.json"^^xsd:anyURI ;
-    stac:rel "parent" .
+ex:link-collection a stac:Link ;
+    stac:rel  "collection" ;
+    stac:href "./collection.json"^^xsd:anyURI .
 
 ex:link-root a stac:Link ;
-    stac:href "./collection.json"^^xsd:anyURI ;
-    stac:rel "root" .
+    stac:rel  "root" ;
+    stac:href "./collection.json"^^xsd:anyURI .
 
+ex:link-parent a stac:Link ;
+    stac:rel  "parent" ;
+    stac:href "./collection.json"^^xsd:anyURI .

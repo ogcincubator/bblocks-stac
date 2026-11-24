@@ -1060,11 +1060,7 @@ STAC Datacube Extension for Items, Collections and Assets.
     dcat:license "proprietary" ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" ;
     stac:version "1.1.0" ;
-    cube:dimensions [ cube:axis "y" ;
-            cube:extent ( -56 83 ) ;
-            cube:reference_system 3857 ;
-            cube:type "spatial" ],
-        [ cube:extent ( "2015-06-23T00:00:00Z" "2019-07-10T13:44:56Z" ) ;
+    cube:dimensions [ cube:extent ( "2015-06-23T00:00:00Z" "2019-07-10T13:44:56Z" ) ;
             cube:step "P5D" ;
             cube:type "temporal" ],
         [ cube:axis "x" ;
@@ -1072,7 +1068,11 @@ STAC Datacube Extension for Items, Collections and Assets.
             cube:reference_system 3857 ;
             cube:type "spatial" ],
         [ cube:type "bands" ;
-            cube:values ( "B1" "B2" "B3" "B4" "B5" "B6" "B7" "B8" "B8A" "B9" "B10" "B11" "B12" "QA10" "QA20" "QA60" ) ] .
+            cube:values ( "B1" "B2" "B3" "B4" "B5" "B6" "B7" "B8" "B8A" "B9" "B10" "B11" "B12" "QA10" "QA20" "QA60" ) ],
+        [ cube:axis "y" ;
+            cube:extent ( -56 83 ) ;
+            cube:reference_system 3857 ;
+            cube:type "spatial" ] .
 
 
 ```
@@ -1134,6 +1134,11 @@ x-jsonld-extra-terms:
       data_type: https://w3id.org/ogc/stac/datacube/data_type
 x-jsonld-prefixes:
   cube: https://w3id.org/ogc/stac/datacube/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.datacube
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 2.3.0
+  dateOfLastChange: '2026-11-24'
 
 ```
 

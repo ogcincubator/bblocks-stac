@@ -1,16 +1,10 @@
-@prefix ex: <https://example.org/stac/> .
 @prefix raster: <https://w3id.org/ogc/stac/raster/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:     <https://example.org/stac/> .
 
-ex:B4-band raster:histogram [ raster:buckets 1,
-                2,
-                3,
-                4,
-                8,
-                15,
-                20,
-                100 ;
-            raster:count 10 ;
-            raster:max 1e+04 ;
-            raster:min 0e+00 ] .
-
+ex:B4-band raster:histogram [
+    raster:count 10 ;
+    raster:min "0.0"^^xsd:double ;
+    raster:max "10000.0"^^xsd:double ;
+    raster:buckets 4, 20, 100, 15, 8, 3, 2, 1, 1, 1 ;
+] .

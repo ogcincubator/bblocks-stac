@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.cf-ontology - STAC CF Extension Ontology",
   "bblockName": "STAC CF Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.cf-ontology",
-  "generated": "2026-10-14T20:24:26.898255+00:00",
+  "generated": "2026-11-24T11:00:37.482334+00:00",
   "result": true,
   "items": [
     {
@@ -16,6 +16,7 @@
         "language": "text/turtle"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -31,7 +32,7 @@
               "filename": "example_1_1.ttl",
               "size": 13,
               "isError": false,
-              "message": "Output Turtle example_1_1.ttl created"
+              "message": "Output Turtle example_1_1.ttl kept as provided"
             }
           ]
         },
@@ -48,26 +49,26 @@
               "shaclFile": "_sources/extensions/cf-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/cf-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/cf-ontology/shapes.shacl: no results"
             },
             {
               "shaclFile": "_sources/extensions/cf-ontology/shapes.shacl",
               "focusNodes": {
-                "cf:ParameterShape": {
-                  "nodes": [
-                    "ex:item"
-                  ]
-                },
                 "cf:ObjectShape": {
                   "nodes": [
                     "ex:item/cf:parameter",
                     "ex:item/cf:parameter",
                     "ex:item/cf:parameter"
                   ]
+                },
+                "cf:ParameterShape": {
+                  "nodes": [
+                    "ex:item"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/cf-ontology/shapes.shacl:\n - Shape cf:ParameterShape: ex:item\n - Shape cf:ObjectShape: ex:item/cf:parameter,ex:item/cf:parameter,ex:item/cf:parameter\n"
+              "message": "Focus nodes for _sources/extensions/cf-ontology/shapes.shacl:\n - Shape cf:ObjectShape: ex:item/cf:parameter,ex:item/cf:parameter,ex:item/cf:parameter\n - Shape cf:ParameterShape: ex:item\n"
             }
           ]
         }
@@ -84,6 +85,7 @@
         "language": "text/turtle"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -99,7 +101,7 @@
               "filename": "example_2_1.ttl",
               "size": 13,
               "isError": false,
-              "message": "Output Turtle example_2_1.ttl created"
+              "message": "Output Turtle example_2_1.ttl kept as provided"
             }
           ]
         },
@@ -116,26 +118,26 @@
               "shaclFile": "_sources/extensions/cf-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/cf-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/cf-ontology/shapes.shacl: no results"
             },
             {
               "shaclFile": "_sources/extensions/cf-ontology/shapes.shacl",
               "focusNodes": {
-                "cf:ParameterShape": {
-                  "nodes": [
-                    "ex:collection"
-                  ]
-                },
                 "cf:ObjectShape": {
                   "nodes": [
                     "ex:collection/cf:parameter",
                     "ex:collection/cf:parameter",
                     "ex:collection/cf:parameter"
                   ]
+                },
+                "cf:ParameterShape": {
+                  "nodes": [
+                    "ex:collection"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/cf-ontology/shapes.shacl:\n - Shape cf:ParameterShape: ex:collection\n - Shape cf:ObjectShape: ex:collection/cf:parameter,ex:collection/cf:parameter,ex:collection/cf:parameter\n"
+              "message": "Focus nodes for _sources/extensions/cf-ontology/shapes.shacl:\n - Shape cf:ObjectShape: ex:collection/cf:parameter,ex:collection/cf:parameter,ex:collection/cf:parameter\n - Shape cf:ParameterShape: ex:collection\n"
             }
           ]
         }
@@ -143,6 +145,7 @@
     }
   ],
   "globalErrors": {},
+  "hasWarnings": false,
   "counts": {
     "total": 2,
     "passed": 2,

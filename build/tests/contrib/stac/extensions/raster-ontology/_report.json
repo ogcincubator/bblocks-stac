@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.raster-ontology - STAC Raster Extension Ontology",
   "bblockName": "STAC Raster Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.raster-ontology",
-  "generated": "2026-10-14T20:24:27.781738+00:00",
+  "generated": "2026-11-24T11:00:38.167465+00:00",
   "result": true,
   "items": [
     {
@@ -16,6 +16,7 @@
         "language": "text/turtle"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -31,7 +32,7 @@
               "filename": "example_1_1.ttl",
               "size": 3,
               "isError": false,
-              "message": "Output Turtle example_1_1.ttl created"
+              "message": "Output Turtle example_1_1.ttl kept as provided"
             }
           ]
         },
@@ -48,15 +49,20 @@
               "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl: no results"
             },
             {
               "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
               "focusNodes": {
-                "raster:BitsPerSampleShape": {
-                  "nodes": []
+                "raster:ScaleShape": {
+                  "nodes": [
+                    "ex:B4-band"
+                  ]
                 },
                 "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
                   "nodes": []
                 },
                 "raster:SpatialResolutionShape": {
@@ -72,17 +78,12 @@
                     "ex:B4-band"
                   ]
                 },
-                "raster:ScaleShape": {
-                  "nodes": [
-                    "ex:B4-band"
-                  ]
-                },
                 "raster:HistogramUsageShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: ex:B4-band\n - Shape raster:SamplingShape: ex:B4-band\n - Shape raster:ScaleShape: ex:B4-band\n - Shape raster:HistogramUsageShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:ScaleShape: ex:B4-band\n - Shape raster:HistogramShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: ex:B4-band\n - Shape raster:SamplingShape: ex:B4-band\n - Shape raster:HistogramUsageShape: *none*\n"
             }
           ]
         }
@@ -99,6 +100,7 @@
         "language": "text/turtle"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -114,7 +116,7 @@
               "filename": "example_2_1.ttl",
               "size": 12,
               "isError": false,
-              "message": "Output Turtle example_2_1.ttl created"
+              "message": "Output Turtle example_2_1.ttl kept as provided"
             }
           ]
         },
@@ -131,15 +133,18 @@
               "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/raster-ontology/shapes.shacl: no results"
             },
             {
               "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
               "focusNodes": {
-                "raster:BitsPerSampleShape": {
+                "raster:ScaleShape": {
                   "nodes": []
                 },
                 "raster:HistogramShape": {
+                  "nodes": []
+                },
+                "raster:BitsPerSampleShape": {
                   "nodes": []
                 },
                 "raster:SpatialResolutionShape": {
@@ -151,9 +156,6 @@
                 "raster:SamplingShape": {
                   "nodes": []
                 },
-                "raster:ScaleShape": {
-                  "nodes": []
-                },
                 "raster:HistogramUsageShape": {
                   "nodes": [
                     "ex:B4-band"
@@ -161,7 +163,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:ScaleShape: *none*\n - Shape raster:HistogramUsageShape: ex:B4-band\n"
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:ScaleShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:HistogramUsageShape: ex:B4-band\n"
             }
           ]
         }
@@ -169,6 +171,7 @@
     }
   ],
   "globalErrors": {},
+  "hasWarnings": false,
   "counts": {
     "total": 2,
     "passed": 2,

@@ -246,10 +246,10 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dcterms:description "A description" ;
     dcterms:extent [ ] ;
     dcterms:title "A title" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/examples/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/examples/item.json> ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/examples/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/examples/collection.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
@@ -525,13 +525,13 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:hasAsset [ ns1:data <https://example.com/stac/themes/example-2/example.file> ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "geonames::3017382" ],
-                [ thns:id "geonames::11071625" ],
-                [ thns:id "geonames::2976077" ] ;
-            thns:scheme "https://www.geonames.org" ],
-        [ thns:concepts [ thns:id "wiki::Syncline" ],
+    rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ],
                 [ thns:id "wiki::Summer" ] ;
-            thns:scheme "https://en.wikipedia.org" ] .
+            thns:scheme "https://en.wikipedia.org" ],
+        [ thns:concepts [ thns:id "geonames::3017382" ],
+                [ thns:id "geonames::2976077" ],
+                [ thns:id "geonames::11071625" ] ;
+            thns:scheme "https://www.geonames.org" ] .
 
 <https://example.com/stac/themes/example-2/example.file> dcterms:format "text/plain" .
 
@@ -568,6 +568,11 @@ x-jsonld-extra-terms:
   scheme: https://w3id.org/ogc/stac/themes/scheme
 x-jsonld-prefixes:
   thns: https://w3id.org/ogc/stac/themes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.themes
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

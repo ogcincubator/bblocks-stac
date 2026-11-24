@@ -1,13 +1,16 @@
-@prefix ex: <https://example.org/stac/> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <https://example.org/stac/> .
 
-ex:input1 mlm:input_structure [ mlm:data_type "float32"^^xsd:string ;
-            mlm:dim_order ( "batch" "channel" "height" "width" ) ;
-            mlm:shape ( -1 13 64 64 ) ] ;
+ex:input1
     mlm:io_name "13 Band Sentinel-2 Batch" ;
-    mlm:value_scaling ( [ mlm:maximum 1e+04 ;
-                mlm:minimum 0e+00 ;
-                mlm:scaling_type mlm:min-max ] ) .
-
+    mlm:input_structure [
+        mlm:shape ( -1 13 64 64 ) ;
+        mlm:dim_order ( "batch" "channel" "height" "width" ) ;
+        mlm:data_type "float32"^^xsd:string ;
+    ] ;
+    mlm:value_scaling ( [
+        mlm:scaling_type mlm:min-max ;
+        mlm:minimum "0.0"^^xsd:double ;
+        mlm:maximum "10000.0"^^xsd:double ;
+    ] ) .

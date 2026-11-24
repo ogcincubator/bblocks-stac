@@ -22,14 +22,14 @@
     stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
 
-<regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+<regulations:Act3> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:type <https://example.com/stac/example1/Legislation> ;
     prov:wasAttributedTo <agents:someGovernment> .
 
-<surveys:DP-1-S1> a prov:Activity,
-        <https://example.com/stac/example1/InitialSurvey> ;
+<surveys:DP-1-S1> a prov:Activity ;
     prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
+    prov:type <https://example.com/stac/example1/InitialSurvey> ;
     prov:used <regulations:Act3> ;
     prov:wasAssociatedWith <staff:jd234> .
 

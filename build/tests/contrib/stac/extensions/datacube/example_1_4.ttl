@@ -1,8 +1,8 @@
 @prefix cube: <https://w3id.org/ogc/stac/datacube/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -12,14 +12,14 @@
 <https://example.com/stac/datacube/vector/vector-datacube> a geojson:Feature ;
     dcterms:date "2017-01-01T00:00:00+00:00"^^xsd:dateTime ;
     dcterms:title "Multi-dimensional vector data cube in a STAC Item." ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <http://cool-sat.com/catalog/datacube/vector.json> ] ;
     geojson:bbox ( -1.225158e+02 3.750373e+01 -1.221099e+02 3.774751e+01 ) ;
     geojson:geometry [ a geojson:MultiPolygon ;
             geojson:coordinates ( ( ( ( -1.224086e+02 3.760281e+01 ) ( -1.22353e+02 3.760281e+01 ) ( -1.22353e+02 3.764169e+01 ) ( -1.224086e+02 3.764169e+01 ) ( -1.224086e+02 3.760281e+01 ) ) ) ( ( ( -1.225158e+02 3.750373e+01 ) ( -1.224831e+02 3.750373e+01 ) ( -1.224831e+02 3.752443e+01 ) ( -1.225158e+02 3.752443e+01 ) ( -1.225158e+02 3.750373e+01 ) ) ) ( ( ( -1.22262e+02 3.769727e+01 ) ( -1.221958e+02 3.769727e+01 ) ( -1.221958e+02 3.774751e+01 ) ( -1.22262e+02 3.774751e+01 ) ( -1.22262e+02 3.769727e+01 ) ) ) ( ( ( -1.221342e+02 3.765175e+01 ) ( -1.221099e+02 3.765175e+01 ) ( -1.221099e+02 3.766765e+01 ) ( -1.221342e+02 3.766765e+01 ) ( -1.221342e+02 3.765175e+01 ) ) ) ) ] ;
     stac:end_datetime "2018-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:data <http://cool-sat.com/catalog/datacube/data.nc> ;
-            ns1:thumbnail <http://cool-sat.com/catalog/datacube/thumbnail.png> ] ;
+    stac:hasAsset [ ns2:data <http://cool-sat.com/catalog/datacube/data.nc> ;
+            ns2:thumbnail <http://cool-sat.com/catalog/datacube/thumbnail.png> ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" ;
     stac:start_datetime "2016-01-01T00:00:00+00:00"^^xsd:dateTime ;
     stac:version "1.1.0" ;

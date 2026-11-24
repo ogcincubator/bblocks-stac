@@ -576,9 +576,9 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <cube:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <cube:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -586,15 +586,15 @@ CF Extension to the SpatioTemporal Asset Catalog (STAC) specification. Allows to
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/cf/example-2/item> a geojson:Feature ;
-    ns1:dimensions [ ] ;
-    ns1:variables [ ] ;
+    ns2:dimensions [ ] ;
+    ns2:variables [ ] ;
     dcterms:date "2020-12-11T22:38:32+00:00"^^xsd:dateTime ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/examples/item.json> ] ;
     geojson:bbox ( 1.729e+02 1.3e+00 173 1.4e+00 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 1.729e+02 1.3e+00 ) ( 173 1.3e+00 ) ( 173 1.4e+00 ) ( 1.729e+02 1.4e+00 ) ( 1.729e+02 1.3e+00 ) ) ) ] ;
-    stac:hasAsset [ ns3:data <https://example.com/examples/file.xyz> ] ;
+    stac:hasAsset [ ns1:data <https://example.com/examples/file.xyz> ] ;
     stac:hasExtension "https://stac-extensions.github.io/cf/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
 
@@ -620,6 +620,11 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   cf: https://w3id.org/ogc/stac/cf/
   qudt: http://qudt.org/schema/qudt/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.cf
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 1.0.0
+  dateOfLastChange: '2026-11-24'
 
 ```
 

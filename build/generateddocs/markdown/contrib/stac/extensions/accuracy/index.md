@@ -212,6 +212,11 @@ x-jsonld-extra-terms:
     x-jsonld-type: xsd:double
 x-jsonld-prefixes:
   accuracy: https://w3id.org/ogc/stac/accuracy/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.accuracy
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

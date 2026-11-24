@@ -1,19 +1,15 @@
+@prefix stac:           <https://w3id.org/ogc/stac/core/> .
 @prefix classification: <https://w3id.org/ogc/stac/classification/> .
-@prefix ex: <https://example.org/stac/> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:             <https://example.org/stac/> .
 
 ex:qa-band a stac:Asset ;
-    classification:bitfields [ a classification:BitField ;
-            classification:classes [ a classification:Class ;
-                    classification:name "clear" ;
-                    classification:title "Clear" ;
-                    classification:value 0 ],
-                [ a classification:Class ;
-                    classification:name "cloudy" ;
-                    classification:title "Cloudy" ;
-                    classification:value 1 ] ;
-            classification:length "1"^^xsd:positiveInteger ;
-            classification:name "cloud" ;
-            classification:offset "0"^^xsd:nonNegativeInteger ] .
-
+    classification:bitfields [
+        a classification:BitField ;
+        classification:offset "0"^^xsd:nonNegativeInteger ;
+        classification:length "1"^^xsd:positiveInteger ;
+        classification:name "cloud" ;
+        classification:classes
+            [ a classification:Class ; classification:value 0 ; classification:name "clear" ; classification:title "Clear" ] ,
+            [ a classification:Class ; classification:value 1 ; classification:name "cloudy" ; classification:title "Cloudy" ] ;
+    ] .

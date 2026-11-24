@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.processing-ontology - STAC Processing Extension Ontology",
   "bblockName": "STAC Processing Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.processing-ontology",
-  "generated": "2026-10-14T20:24:27.762102+00:00",
+  "generated": "2026-11-24T11:00:38.139573+00:00",
   "result": true,
   "items": [
     {
@@ -16,6 +16,7 @@
         "language": "text/turtle"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -31,7 +32,7 @@
               "filename": "example_1_1.ttl",
               "size": 6,
               "isError": false,
-              "message": "Output Turtle example_1_1.ttl created"
+              "message": "Output Turtle example_1_1.ttl kept as provided"
             }
           ]
         },
@@ -48,25 +49,25 @@
               "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl: no results"
             },
             {
               "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:ExpressionShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": [
                     "ex:S1A_IW_GRDH_1SDV_20160822T182823"
                   ]
                 },
-                "processing:LevelShape": {
+                "processing:VersionShape": {
+                  "nodes": []
+                },
+                "processing:FacilityShape": {
                   "nodes": [
                     "ex:S1A_IW_GRDH_1SDV_20160822T182823"
                   ]
                 },
-                "processing:FacilityShape": {
+                "processing:LevelShape": {
                   "nodes": [
                     "ex:S1A_IW_GRDH_1SDV_20160822T182823"
                   ]
@@ -81,12 +82,12 @@
                     "ex:S1A_IW_GRDH_1SDV_20160822T182823"
                   ]
                 },
-                "processing:VersionShape": {
+                "processing:ExpressionShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:DatetimeShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:LevelShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:FacilityShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:SoftwareShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:LineageShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:VersionShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:VersionShape: *none*\n - Shape processing:FacilityShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:LevelShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:SoftwareShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:LineageShape: ex:S1A_IW_GRDH_1SDV_20160822T182823\n - Shape processing:ExpressionShape: *none*\n"
             }
           ]
         }
@@ -103,6 +104,7 @@
         "language": "text/turtle"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -118,7 +120,7 @@
               "filename": "example_2_1.ttl",
               "size": 6,
               "isError": false,
-              "message": "Output Turtle example_2_1.ttl created"
+              "message": "Output Turtle example_2_1.ttl kept as provided"
             }
           ]
         },
@@ -135,23 +137,25 @@
               "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+              "message": "Validation result for _sources/extensions/processing-ontology/shapes.shacl: no results"
             },
             {
               "shaclFile": "_sources/extensions/processing-ontology/shapes.shacl",
               "focusNodes": {
-                "processing:ExpressionShape": {
-                  "nodes": []
-                },
                 "processing:DatetimeShape": {
                   "nodes": []
                 },
-                "processing:LevelShape": {
+                "processing:VersionShape": {
                   "nodes": [
                     "ex:Sentinel2-L2A"
                   ]
                 },
                 "processing:FacilityShape": {
+                  "nodes": [
+                    "ex:Sentinel2-L2A"
+                  ]
+                },
+                "processing:LevelShape": {
                   "nodes": [
                     "ex:Sentinel2-L2A"
                   ]
@@ -166,14 +170,12 @@
                     "ex:Sentinel2-L2A"
                   ]
                 },
-                "processing:VersionShape": {
-                  "nodes": [
-                    "ex:Sentinel2-L2A"
-                  ]
+                "processing:ExpressionShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:ExpressionShape: *none*\n - Shape processing:DatetimeShape: *none*\n - Shape processing:LevelShape: ex:Sentinel2-L2A\n - Shape processing:FacilityShape: ex:Sentinel2-L2A\n - Shape processing:SoftwareShape: ex:Sentinel2-L2A\n - Shape processing:LineageShape: ex:Sentinel2-L2A\n - Shape processing:VersionShape: ex:Sentinel2-L2A\n"
+              "message": "Focus nodes for _sources/extensions/processing-ontology/shapes.shacl:\n - Shape processing:DatetimeShape: *none*\n - Shape processing:VersionShape: ex:Sentinel2-L2A\n - Shape processing:FacilityShape: ex:Sentinel2-L2A\n - Shape processing:LevelShape: ex:Sentinel2-L2A\n - Shape processing:SoftwareShape: ex:Sentinel2-L2A\n - Shape processing:LineageShape: ex:Sentinel2-L2A\n - Shape processing:ExpressionShape: *none*\n"
             }
           ]
         }
@@ -181,6 +183,7 @@
     }
   ],
   "globalErrors": {},
+  "hasWarnings": false,
   "counts": {
     "total": 2,
     "passed": 2,

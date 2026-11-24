@@ -94,16 +94,16 @@ STAC VCS Extension for describing version control system references.
 <https://example.com/stac/vcs/item/vcs-example> a geojson:Feature ;
     dcterms:date "2025-01-01T00:00:00+00:00"^^xsd:dateTime ;
     dcterms:title "VCS extension example" ;
-    rdfs:seeAlso [ rdfs:label "Git source repository" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://stac-extensions.github.io/vcs/v0.1.0/examples/item.json> ],
+        [ rdfs:label "Git source repository" ;
             ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/stac-extensions/vcs.git> ;
             vcs:branch "main"^^xsd:string ;
             vcs:revision "abc1234"^^xsd:string ;
             vcs:tag "v1.0.0"^^xsd:string ;
-            vcs:type "git"^^xsd:string ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://stac-extensions.github.io/vcs/v0.1.0/examples/item.json> ] ;
+            vcs:type "git"^^xsd:string ] ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/vcs/v0.1.0/schema.json" ;
     stac:version "1.1.0" .
@@ -137,6 +137,11 @@ x-jsonld-extra-terms:
     x-jsonld-type: xsd:string
 x-jsonld-prefixes:
   vcs: https://w3id.org/ogc/stac/vcs/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.vcs
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 0.1.0
+  dateOfLastChange: '2026-11-24'
 
 ```
 

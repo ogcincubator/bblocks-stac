@@ -270,14 +270,14 @@ A STAC item is a prov:Entity with the "wasGeneratedBy" property defined by PROV-
     stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
 
-<regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+<regulations:Act3> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:type <https://example.com/stac/example1/Legislation> ;
     prov:wasAttributedTo <agents:someGovernment> .
 
-<surveys:DP-1-S1> a prov:Activity,
-        <https://example.com/stac/example1/InitialSurvey> ;
+<surveys:DP-1-S1> a prov:Activity ;
     prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
+    prov:type <https://example.com/stac/example1/InitialSurvey> ;
     prov:used <regulations:Act3> ;
     prov:wasAssociatedWith <staff:jd234> .
 
@@ -425,7 +425,6 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -433,8 +432,6 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
 
 <https://example.com/stac/example1/20201211_223832_CS2> a geojson:Feature ;
     dcterms:date "2020-12-11T22:38:32.125000+00:00"^^xsd:dateTime ;
-    dcterms:provenance <https://example.com/stac/example1/DP-2223>,
-        <surveys:DP-1-S1> ;
     rdfs:seeAlso [ rdfs:label "Simple Example Collection" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
@@ -445,21 +442,6 @@ A STAC item is a prov:Entity with the "has_provenance" property whose range is a
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/prov/v1.0.0/schema.json" ;
     stac:version "1.1.0" .
-
-<https://example.com/stac/example1/DP-2223> a <ftc:SomeKindOfSurvey>,
-        prov:Entity ;
-    prov:wasGeneratedBy <surveys:DP-1-S1> .
-
-<regulations:Act3> a <https://example.com/stac/example1/Legislation> ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
-    prov:wasAttributedTo <agents:someGovernment> .
-
-<surveys:DP-1-S1> a prov:Activity,
-        <https://example.com/stac/example1/InitialSurvey> ;
-    prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
-    prov:used <regulations:Act3> ;
-    prov:wasAssociatedWith <staff:jd234> .
 
 
 ```
@@ -479,6 +461,11 @@ allOf:
       type: array
       contains:
         const: https://stac-extensions.github.io/prov/v1.0.0/schema.json
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.item-prov
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-24'
 
 ```
 
@@ -494,31 +481,114 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
-    "type": "@type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
     },
     "id": "@id",
     "provType": "@type",
-    "featureType": "@type",
-    "entityType": "@type",
-    "has_provenance": {
-      "@id": "dct:provenance",
+    "entityType": {
+      "@id": "prov:type",
       "@type": "@id"
     },
+    "name": "rdfs:label",
     "wasGeneratedBy": {
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -550,6 +620,26 @@ Links to the schema:
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "generatedAtTime": {
       "@id": "prov:generatedAtTime",
       "@type": "xsd:dateTime"
@@ -571,26 +661,6 @@ Links to the schema:
       "@id": "prov:qualifiedRevision",
       "@type": "@id"
     },
-    "atLocation": {
-      "@id": "prov:atLocation",
-      "@type": "@id"
-    },
-    "links": {
-      "@context": {
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -607,8 +677,18 @@ Links to the schema:
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
-    "activityType": "@type",
-    "agentType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -832,7 +912,6 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -846,6 +925,7 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
+    "type": "@type",
     "properties": "@nest",
     "geometry": {
       "@context": {
@@ -946,6 +1026,11 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "geojson": "https://purl.org/geojson/vocab#",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -955,7 +1040,6 @@ Links to the schema:
     "w3ctime": "http://www.w3.org/2006/time#",
     "dctype": "http://purl.org/dc/dcmitype/",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "stac": "https://w3id.org/ogc/stac/core/",
     "language": "rec:language",

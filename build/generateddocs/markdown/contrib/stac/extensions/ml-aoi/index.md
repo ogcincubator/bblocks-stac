@@ -1489,9 +1489,9 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ml-aoi: <https://w3id.org/ogc/stac/ml-aoi/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <stats:> .
+@prefix ns2: <sci:> .
 @prefix ns3: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns4: <sci:> .
+@prefix ns4: <stats:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
@@ -1501,128 +1501,27 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
     dcterms:description "EuroSAT dataset with labeled annotations for land-cover classification and associated imagery. This collection represents the samples part of the train split set for training machine learning algorithms." ;
     dcterms:extent [ ] ;
     dcterms:title "EuroSAT subset train" ;
-    rdfs:seeAlso [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/validate/collection.json> ;
-            ml-aoi:split "validate"^^xsd:string ],
-        [ dcterms:type "application/geo+json" ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-57.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-14.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-46.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-32.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-25.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-58.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-22.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-41.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-7.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-11.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-44.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-36.json> ],
-        [ rdfs:label "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification" ;
-            dcterms:type "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://raw.githubusercontent.com/phelber/EuroSAT/master/LICENSE> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-12.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-20.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-55.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-52.json> ],
-        [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/test/collection.json> ;
-            ml-aoi:split "test"^^xsd:string ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-47.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-33.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-34.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-24.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-53.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-42.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-30.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-45.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-59.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-13.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-27.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-9.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-48.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-18.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-49.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-0.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-31.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-6.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-32.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-1.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-48.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-8.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-47.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-15.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-5.json> ],
         [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
@@ -1630,78 +1529,106 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
             ml-aoi:split "train"^^xsd:string ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-19.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-35.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-56.json> ],
-        [ rdfs:label "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification" ;
-            dcterms:type "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://arxiv.org/abs/1709.00029> ],
-        [ rdfs:label "STAC Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-51.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-37.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-16.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-17.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-3.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-29.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-28.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-54.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-39.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-21.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-15.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-41.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-26.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-50.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-58.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-2.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-54.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-45.json> ],
+        [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/validate/collection.json> ;
+            ml-aoi:split "validate"^^xsd:string ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-16.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-50.json> ],
+        [ rdfs:label "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification" ;
+            dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://arxiv.org/abs/1709.00029> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-37.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-23.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-39.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-18.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-33.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-42.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-52.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-11.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-40.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-7.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-56.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-53.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-28.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-38.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-4.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-5.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-43.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-1.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-10.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-40.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-46.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-20.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-14.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-4.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-44.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-51.json> ],
         [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/collection> ;
@@ -1709,13 +1636,86 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
             ml-aoi:split "train"^^xsd:string ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-0.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-12.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-35.json> ],
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-27.json> ],
         [ dcterms:type "application/geo+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-23.json> ] ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-2.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-49.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-25.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-55.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-30.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-43.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-34.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-17.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-21.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-6.json> ],
+        [ rdfs:label "STAC Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
+        [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/test/collection.json> ;
+            ml-aoi:split "test"^^xsd:string ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-19.json> ],
+        [ rdfs:label "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification" ;
+            dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://raw.githubusercontent.com/phelber/EuroSAT/master/LICENSE> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-13.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-9.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-3.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-24.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-57.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-36.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-8.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-29.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-22.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-59.json> ] ;
     dcat:license "MIT" ;
     stac:hasAsset [ dcat:license <https://raw.githubusercontent.com/phelber/EuroSAT/master/LICENSE> ;
             ns3:paper <https://www.researchgate.net/publication/319463676> ;
@@ -1728,7 +1728,7 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
         "https://stac-extensions.github.io/version/v1.0.0/schema.json",
         "https://stac-extensions.github.io/view/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    ns2:items [ ] .
+    ns4:items [ ] .
 
 <https://github.com/phelber/EuroSAT/> dcterms:description "Source GitHub repository of the EuroSAT dataset." ;
     dcterms:format "text/html" ;
@@ -1737,13 +1737,13 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
         "data"^^xsd:string,
         "scientific"^^xsd:string,
         "source"^^xsd:string ;
-    ns4:doi "10.1109/JSTARS.2019.2918242" .
+    ns2:doi "10.1109/JSTARS.2019.2918242" .
 
 <https://raw.githubusercontent.com/phelber/EuroSAT/master/eurosat_overview_small.jpg> dcterms:description "Preview of dataset samples." ;
     dcterms:format "image/jpeg" ;
     stac:hasAssetroles "overview"^^xsd:string,
         "thumbnail"^^xsd:string ;
-    ns4:doi "10.1109/JSTARS.2019.2918242" .
+    ns2:doi "10.1109/JSTARS.2019.2918242" .
 
 <https://www.researchgate.net/publication/319463676> dcterms:description "ResearchGate page with embedded PDF of the scientific paper supporting the dataset." ;
     dcterms:format "text/html" ;
@@ -1751,14 +1751,14 @@ STAC ML-AOI Extension for machine-learning training, validation and test areas o
     stac:hasAssetroles "citation"^^xsd:string,
         "paper"^^xsd:string,
         "scientific"^^xsd:string ;
-    ns4:doi "10.1109/JSTARS.2019.2918242" .
+    ns2:doi "10.1109/JSTARS.2019.2918242" .
 
 <https://raw.githubusercontent.com/phelber/EuroSAT/master/LICENSE> dcterms:description "License contents associated to the EuroSAT dataset." ;
     dcterms:format "text/plain" ;
     dcterms:title "License" ;
     stac:hasAssetroles "legal"^^xsd:string,
         "license"^^xsd:string ;
-    ns4:doi "10.1109/JSTARS.2019.2918242" .
+    ns2:doi "10.1109/JSTARS.2019.2918242" .
 
 
 ```
@@ -1789,6 +1789,11 @@ x-jsonld-extra-terms:
     x-jsonld-type: xsd:string
 x-jsonld-prefixes:
   ml-aoi: https://w3id.org/ogc/stac/ml-aoi/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.ml-aoi
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 0.2.0
+  dateOfLastChange: '2026-11-24'
 
 ```
 

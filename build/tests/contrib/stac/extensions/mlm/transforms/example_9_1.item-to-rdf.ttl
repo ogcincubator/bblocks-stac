@@ -4,9 +4,9 @@
 @prefix eo: <https://w3id.org/ogc/stac/eo/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <https://w3id.org/ogc/stac/mlm/serialization/member/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <https://w3id.org/ogc/stac/mlm/serialization/member/%> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/mlm/serialization/member/%> .
+@prefix ns3: <https://w3id.org/ogc/stac/mlm/serialization/member/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -17,9 +17,9 @@
 [] a geojson:Feature,
         serialization:Item,
         serialization:Object ;
-    rdfs:seeAlso _:N0da81510001b44fb8d5e68c8e6a7b7d5,
-        _:N3b954a51691a485c9e52c12a51f621ec,
-        _:N3e310bea4ea746aab1ce7a550a002889 ;
+    rdfs:seeAlso _:N677ee260f918448faba7d945ca9d0814,
+        _:Nc97fb54264c6424887dc4af862270429,
+        _:Ne1e0c4abdcc4412f9fbf5eb8934f29d2 ;
     geojson:bbox ( -7.88 37.13 27.91 58.21 ) ;
     geojson:geometry [ a geojson:Polygon,
                 serialization:Object ;
@@ -30,124 +30,125 @@
                                     serialization:items ( 27.91 58.21 ) ] [ a serialization:Array ;
                                     serialization:items ( 27.91 37.13 ) ] [ a serialization:Array ;
                                     serialization:items ( -7.88 37.13 ) ] ) ] ) ;
-            serialization:field [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:type ],
-                [ serialization:key "coordinates" ;
+            serialization:field [ serialization:key "coordinates" ;
                     serialization:kind "array" ;
-                    serialization:predicate geojson:coordinates ] ;
-            ns1:type "Polygon" ] ;
+                    serialization:predicate geojson:coordinates ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns3:type ] ;
+            ns3:type "Polygon" ] ;
     stac:hasAsset [ a serialization:Object ;
+            dct:description "GitHub repo of the pytorch model" ;
+            dct:format "text/html" ;
+            dct:title "Source code for U-Net_efficientnet-b3" ;
+            stac:hasAssetroles "code",
+                "mlm:source_code" ;
+            serialization:field [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns3:href ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ],
+                [ serialization:items ( "mlm:source_code" "code" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ] ;
+            serialization:mapKey "source_code" ;
+            ns3:href "https://github.com/qubvel-org/segmentation_models.pytorch" ],
+        [ a serialization:Object ;
             dct:description "A U-Net segmentation model with efficientnet-b3 encoder Weights are non-commercial." ;
             dct:format "application/octet-stream; application=pytorch" ;
             dct:title "U-Net_efficientnet-b3" ;
             stac:hasAssetroles "data",
                 "mlm:model",
                 "mlm:weights" ;
-            eo:bands _:N0a3966e4894a4952b9420cf3c2d72e5b,
-                _:N11c33ef42bab4317bdd4949dfc3f286f,
-                _:N3fff88b829134d44a397e13f1bc2ffbc,
-                _:N50ad5b382ada445dacc9a4c5545b2bdb,
-                _:N71d13278ba054d898845cbf2ba73902a,
-                _:Nd94cbefc193e4bacacd7c850f48a5ed5,
-                _:Ne3091cf17b0d4e7d91fcb5f2887b2192,
-                _:Neada879a08aa45419c724f4d50945776 ;
+            eo:bands _:N12bc5e38dc5649deaf093a0174742f8b,
+                _:N1ad2ea61c29448f28f6392758ae44799,
+                _:N20912efb904a4014aea43aba232fe5c5,
+                _:N2df581049ded4ec5b9ce09be2632fde0,
+                _:N495b83a8902e4438b311361e3a7dce73,
+                _:N5969d313929c4d75b5b209eb9b48f8b5,
+                _:N689d0daec08b4604b009a6366c7fb73e,
+                _:Ne216798eccef449ba243b85c4a0e699c ;
             mlm:artifact_type "torch.save" ;
             serialization:field [ serialization:key "href" ;
                     serialization:kind "value" ;
-                    serialization:predicate ns1:href ],
+                    serialization:predicate ns3:href ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
                 [ serialization:key "type" ;
                     serialization:kind "value" ;
                     serialization:predicate dct:format ],
-                [ serialization:key "title" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:title ],
                 [ serialization:key "mlm:artifact_type" ;
                     serialization:kind "value" ;
                     serialization:predicate mlm:artifact_type ],
-                [ serialization:items ( _:N0a3966e4894a4952b9420cf3c2d72e5b _:N11c33ef42bab4317bdd4949dfc3f286f _:N3fff88b829134d44a397e13f1bc2ffbc _:Nd94cbefc193e4bacacd7c850f48a5ed5 _:Neada879a08aa45419c724f4d50945776 _:N50ad5b382ada445dacc9a4c5545b2bdb _:N71d13278ba054d898845cbf2ba73902a _:Ne3091cf17b0d4e7d91fcb5f2887b2192 ) ;
-                    serialization:key "eo:bands" ;
-                    serialization:kind "set" ;
-                    serialization:predicate eo:bands ],
                 [ serialization:items ( "mlm:model" "mlm:weights" "data" ) ;
                     serialization:key "roles" ;
                     serialization:kind "set" ;
                     serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ] ;
-            serialization:mapKey "model" ;
-            ns1:href "https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth" ],
-        [ a serialization:Object ;
-            dct:description "GitHub repo of the pytorch model" ;
-            dct:format "text/html" ;
-            dct:title "Source code for U-Net_efficientnet-b3" ;
-            stac:hasAssetroles "code",
-                "mlm:source_code" ;
-            serialization:field [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ],
-                [ serialization:items ( "mlm:source_code" "code" ) ;
-                    serialization:key "roles" ;
-                    serialization:kind "set" ;
-                    serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "href" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:href ],
                 [ serialization:key "title" ;
                     serialization:kind "value" ;
-                    serialization:predicate dct:title ] ;
-            serialization:mapKey "source_code" ;
-            ns1:href "https://github.com/qubvel-org/segmentation_models.pytorch" ] ;
-    stac:hasExtension "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
+                    serialization:predicate dct:title ],
+                [ serialization:items ( _:N495b83a8902e4438b311361e3a7dce73 _:N1ad2ea61c29448f28f6392758ae44799 _:N5969d313929c4d75b5b209eb9b48f8b5 _:N20912efb904a4014aea43aba232fe5c5 _:N689d0daec08b4604b009a6366c7fb73e _:N12bc5e38dc5649deaf093a0174742f8b _:N2df581049ded4ec5b9ce09be2632fde0 _:Ne216798eccef449ba243b85c4a0e699c ) ;
+                    serialization:key "eo:bands" ;
+                    serialization:kind "set" ;
+                    serialization:predicate eo:bands ] ;
+            serialization:mapKey "model" ;
+            ns3:href "https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth" ] ;
+    stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" ;
     stac:version "1.0.0" ;
     mlm:entrypoint "segmentation_models_pytorch.decoders.unet.model.Unet" ;
-    serialization:field [ serialization:items ( "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" "https://stac-extensions.github.io/eo/v1.1.0/schema.json" ) ;
+    serialization:field [ serialization:key "stac_version" ;
+            serialization:kind "value" ;
+            serialization:predicate stac:version ],
+        [ serialization:key "collection" ;
+            serialization:kind "value" ;
+            serialization:predicate ns3:collection ],
+        [ serialization:items ( "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" "https://stac-extensions.github.io/eo/v1.1.0/schema.json" "https://stac-extensions.github.io/classification/v2.0.0/schema.json" ) ;
             serialization:key "stac_extensions" ;
             serialization:kind "set" ;
             serialization:predicate stac:hasExtension ],
-        [ serialization:key "$comment" ;
-            serialization:kind "value" ;
-            serialization:predicate ns3:24comment ],
-        [ serialization:key "type" ;
-            serialization:kind "value" ;
-            serialization:predicate ns1:type ],
-        [ serialization:key "id" ;
-            serialization:kind "value" ;
-            serialization:predicate ns1:id ],
-        [ serialization:items ( _:N3e310bea4ea746aab1ce7a550a002889 _:N3b954a51691a485c9e52c12a51f621ec _:N0da81510001b44fb8d5e68c8e6a7b7d5 ) ;
-            serialization:key "links" ;
-            serialization:kind "set" ;
-            serialization:predicate rdfs:seeAlso ],
-        [ serialization:key "assets" ;
-            serialization:kind "map" ;
-            serialization:predicate stac:hasAsset ],
-        [ serialization:key "properties" ;
-            serialization:kind "value" ;
-            serialization:predicate ns1:properties ],
-        [ serialization:key "bbox" ;
-            serialization:kind "array" ;
-            serialization:predicate geojson:bbox ],
-        [ serialization:key "collection" ;
-            serialization:kind "value" ;
-            serialization:predicate ns1:collection ],
         [ serialization:key "geometry" ;
             serialization:kind "value" ;
             serialization:predicate geojson:geometry ],
-        [ serialization:key "stac_version" ;
+        [ serialization:key "bbox" ;
+            serialization:kind "array" ;
+            serialization:predicate geojson:bbox ],
+        [ serialization:key "properties" ;
             serialization:kind "value" ;
-            serialization:predicate stac:version ],
+            serialization:predicate ns3:properties ],
+        [ serialization:key "$comment" ;
+            serialization:kind "value" ;
+            serialization:predicate ns2:24comment ],
+        [ serialization:key "assets" ;
+            serialization:kind "map" ;
+            serialization:predicate stac:hasAsset ],
         [ serialization:key "mlm:entrypoint" ;
             serialization:kind "value" ;
-            serialization:predicate mlm:entrypoint ] ;
-    ns3:24comment "STAC item auto-generated using unet_mlm() in https://raw.githubusercontent.com/stac-extensions/mlm/refs/heads/main/stac_model/examples.py" ;
-    ns1:collection "ml-model-examples" ;
-    ns1:id "pytorch_geo_unet" ;
-    ns1:properties [ a serialization:Object ;
+            serialization:predicate mlm:entrypoint ],
+        [ serialization:items ( _:N677ee260f918448faba7d945ca9d0814 _:Ne1e0c4abdcc4412f9fbf5eb8934f29d2 _:Nc97fb54264c6424887dc4af862270429 ) ;
+            serialization:key "links" ;
+            serialization:kind "set" ;
+            serialization:predicate rdfs:seeAlso ],
+        [ serialization:key "type" ;
+            serialization:kind "value" ;
+            serialization:predicate ns3:type ],
+        [ serialization:key "id" ;
+            serialization:kind "value" ;
+            serialization:predicate ns3:id ] ;
+    ns2:24comment "STAC item auto-generated using unet_mlm() in https://raw.githubusercontent.com/stac-extensions/mlm/refs/heads/main/stac_model/examples.py" ;
+    ns3:collection "ml-model-examples" ;
+    ns3:id "pytorch_geo_unet" ;
+    ns3:properties [ a serialization:Object ;
             dct:description "STAC item generated using unet_mlm() in stac_model/examples.py example. Specified in https://github.com/fieldsoftheworld/ftw-baselines First 4 S2 bands are for image t1 and last 4 bands are for image t2" ;
             stac:end_datetime "2024-08-27T23:59:59Z" ;
             stac:start_datetime "2015-06-23T00:00:00Z" ;
@@ -164,42 +165,42 @@
                                 serialization:field [ serialization:key "shape" ;
                                         serialization:kind "array" ;
                                         serialization:predicate mlm:shape ],
-                                    [ serialization:key "data_type" ;
-                                        serialization:kind "value" ;
-                                        serialization:predicate mlm:data_type ],
                                     [ serialization:key "dim_order" ;
                                         serialization:kind "array" ;
-                                        serialization:predicate mlm:dim_order ] ;
+                                        serialization:predicate mlm:dim_order ],
+                                    [ serialization:key "data_type" ;
+                                        serialization:kind "value" ;
+                                        serialization:predicate mlm:data_type ] ;
                                 mlm:shape ( -1 8 3 3 ) ] ;
                         mlm:io_name "model_input" ;
-                        serialization:field [ serialization:key "pre_processing_function" ;
-                                serialization:kind "null" ;
-                                serialization:predicate mlm:pre_processing_function ],
-                            [ serialization:key "input" ;
-                                serialization:kind "value" ;
-                                serialization:predicate mlm:input_structure ],
-                            [ serialization:key "name" ;
+                        serialization:field [ serialization:key "name" ;
                                 serialization:kind "value" ;
                                 serialization:predicate mlm:io_name ],
+                            [ serialization:key "bands" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:bands ],
                             [ serialization:key "variables" ;
                                 serialization:kind "array" ;
                                 serialization:predicate mlm:variables ],
                             [ serialization:key "value_scaling" ;
                                 serialization:kind "array" ;
                                 serialization:predicate mlm:value_scaling ],
-                            [ serialization:key "bands" ;
-                                serialization:kind "array" ;
-                                serialization:predicate mlm:bands ] ;
+                            [ serialization:key "pre_processing_function" ;
+                                serialization:kind "null" ;
+                                serialization:predicate mlm:pre_processing_function ],
+                            [ serialization:key "input" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:input_structure ] ;
                         mlm:value_scaling ( [ a mlm:ValueScaling,
                                         serialization:Object ;
                                     mlm:mean 0 ;
                                     mlm:scaling_type mlm:z-score ;
-                                    serialization:field [ serialization:key "stddev" ;
-                                            serialization:kind "value" ;
-                                            serialization:predicate mlm:stddev ],
-                                        [ serialization:key "type" ;
+                                    serialization:field [ serialization:key "type" ;
                                             serialization:kind "value" ;
                                             serialization:predicate mlm:scaling_type ],
+                                        [ serialization:key "stddev" ;
+                                            serialization:kind "value" ;
+                                            serialization:predicate mlm:stddev ],
                                         [ serialization:key "mean" ;
                                             serialization:kind "value" ;
                                             serialization:predicate mlm:mean ] ;
@@ -208,259 +209,259 @@
             mlm:name "U-Net_efficientnet-b3" ;
             mlm:output ( [ a mlm:ModelOutput,
                             serialization:Object ;
-                        classification:classes _:N120c9190b90043cd8872d443bc2c01af,
-                            _:N4117519f163e439ebb6ba27347da3ad6 ;
+                        classification:classes _:N22774cb223044f218cf96ecb8795d04a,
+                            _:Nea96e3e6e00046e69278f26257355f67 ;
                         mlm:bands () ;
                         mlm:io_name "model_output" ;
                         mlm:result [ a mlm:ResultStructure,
                                     serialization:Object ;
                                 mlm:data_type "float32" ;
                                 mlm:dim_order ( "batch" "classes" ) ;
-                                serialization:field [ serialization:key "shape" ;
-                                        serialization:kind "array" ;
-                                        serialization:predicate mlm:shape ],
-                                    [ serialization:key "dim_order" ;
+                                serialization:field [ serialization:key "dim_order" ;
                                         serialization:kind "array" ;
                                         serialization:predicate mlm:dim_order ],
                                     [ serialization:key "data_type" ;
                                         serialization:kind "value" ;
-                                        serialization:predicate mlm:data_type ] ;
+                                        serialization:predicate mlm:data_type ],
+                                    [ serialization:key "shape" ;
+                                        serialization:kind "array" ;
+                                        serialization:predicate mlm:shape ] ;
                                 mlm:shape ( -1 2 ) ] ;
                         serialization:field [ serialization:key "result" ;
                                 serialization:kind "value" ;
                                 serialization:predicate mlm:result ],
-                            [ serialization:key "name" ;
-                                serialization:kind "value" ;
-                                serialization:predicate mlm:io_name ],
-                            [ serialization:key "bands" ;
-                                serialization:kind "array" ;
-                                serialization:predicate mlm:bands ],
-                            [ serialization:items ( _:N4117519f163e439ebb6ba27347da3ad6 _:N120c9190b90043cd8872d443bc2c01af ) ;
-                                serialization:key "classification:classes" ;
-                                serialization:kind "set" ;
-                                serialization:predicate classification:classes ],
                             [ serialization:key "post_processing_function" ;
                                 serialization:kind "null" ;
                                 serialization:predicate mlm:post_processing_function ],
+                            [ serialization:items ( _:Nea96e3e6e00046e69278f26257355f67 _:N22774cb223044f218cf96ecb8795d04a ) ;
+                                serialization:key "classification:classes" ;
+                                serialization:kind "set" ;
+                                serialization:predicate classification:classes ],
+                            [ serialization:key "name" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:io_name ],
                             [ serialization:key "tasks" ;
                                 serialization:kind "array" ;
                                 serialization:predicate mlm:tasks ],
+                            [ serialization:key "bands" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:bands ],
                             [ serialization:key "variables" ;
                                 serialization:kind "array" ;
                                 serialization:predicate mlm:variables ] ;
                         mlm:tasks ( mlm:semantic-segmentation ) ;
                         mlm:variables () ] ) ;
             mlm:pretrained true ;
-            serialization:field [ serialization:key "datetime" ;
-                    serialization:kind "null" ;
-                    serialization:predicate dct:date ],
-                [ serialization:key "mlm:input" ;
-                    serialization:kind "array" ;
-                    serialization:predicate mlm:input ],
-                [ serialization:key "mlm:pretrained" ;
+            serialization:field [ serialization:key "mlm:pretrained" ;
                     serialization:kind "value" ;
                     serialization:predicate mlm:pretrained ],
-                [ serialization:key "start_datetime" ;
-                    serialization:kind "value" ;
-                    serialization:predicate stac:start_datetime ],
-                [ serialization:key "mlm:framework" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:framework ],
                 [ serialization:key "mlm:architecture" ;
                     serialization:kind "value" ;
                     serialization:predicate mlm:architecture ],
-                [ serialization:key "mlm:name" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:name ],
-                [ serialization:key "mlm:tasks" ;
-                    serialization:kind "array" ;
-                    serialization:predicate mlm:tasks ],
-                [ serialization:key "mlm:total_parameters" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:total_parameters ],
-                [ serialization:key "mlm:output" ;
-                    serialization:kind "array" ;
-                    serialization:predicate mlm:output ],
                 [ serialization:key "description" ;
                     serialization:kind "value" ;
                     serialization:predicate dct:description ],
                 [ serialization:key "end_datetime" ;
                     serialization:kind "value" ;
                     serialization:predicate stac:end_datetime ],
+                [ serialization:key "mlm:framework" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:framework ],
+                [ serialization:key "start_datetime" ;
+                    serialization:kind "value" ;
+                    serialization:predicate stac:start_datetime ],
+                [ serialization:key "mlm:output" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:output ],
+                [ serialization:key "mlm:tasks" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:tasks ],
+                [ serialization:key "mlm:input" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:input ],
+                [ serialization:key "datetime" ;
+                    serialization:kind "null" ;
+                    serialization:predicate dct:date ],
+                [ serialization:key "mlm:name" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:name ],
+                [ serialization:key "mlm:total_parameters" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:total_parameters ],
                 [ serialization:key "mlm:accelerator_constrained" ;
                     serialization:kind "value" ;
                     serialization:predicate mlm:accelerator_constrained ] ;
             mlm:tasks ( mlm:semantic-segmentation ) ;
             mlm:total_parameters 13160978 ] ;
-    ns1:type "Feature" .
+    ns3:type "Feature" .
 
-_:N15e6b0a4791a42a19f2e2ccae7dc7b6e serialization:key "type" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:type .
-
-_:N1af577ffc4db4519b1ea310e2a601d07 serialization:key "name" ;
+_:N05f62db587794cc99ea33e50a4abf7e3 serialization:key "name" ;
     serialization:kind "value" ;
     serialization:predicate cf:name .
 
-_:N1c7d7c102ed14f49a1ff1c1f31474a71 serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:N1d9d57a7c2024cc2a6abb2c54414a346 serialization:key "value" ;
+_:N07e2e83ad876434a8e64713c1f16beab serialization:key "value" ;
     serialization:kind "value" ;
     serialization:predicate classification:value .
 
-_:N2e8d8d59f2dd4efda73f98a7937226cf serialization:key "name" ;
+_:N0814a2db90bc4cd6a9f1df191b74bc5e serialization:key "name" ;
     serialization:kind "value" ;
     serialization:predicate cf:name .
 
-_:N3901c8f514134b249b45dd183524831f serialization:key "rel" ;
+_:N11a3d6b439ab44f29a9a12174bc0ca34 serialization:key "href" ;
     serialization:kind "value" ;
-    serialization:predicate ns2:relation .
+    serialization:predicate oa:hasTarget .
 
-_:N3af585932dc446228f2f09f8d026fdb7 serialization:key "name" ;
+_:N1f5b70e3b41f4452ae33c15035ea5068 serialization:key "name" ;
     serialization:kind "value" ;
     serialization:predicate classification:name .
 
-_:N4b1e2b6ce950459ea0baf87fee8f523f serialization:key "type" ;
+_:N3d499ac724684f2ca66c91d25c55b819 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns1:relation .
+
+_:N44a51d124e614e7baafebe5a79b82bfd serialization:key "type" ;
     serialization:kind "value" ;
     serialization:predicate dct:type .
 
-_:N555ec405059e490580394e5443a38c4d serialization:key "name" ;
-    serialization:kind "value" ;
-    serialization:predicate classification:name .
-
-_:N586647be21ec46e0af7d5214a38eba61 serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate classification:description .
-
-_:N60d74df4d8ee4146ab3be65fd6e6a6ca serialization:key "name" ;
+_:N59be3505496f402aa8d94aa1ff5ec10b serialization:key "name" ;
     serialization:kind "value" ;
     serialization:predicate cf:name .
 
-_:N711cf8dbd11b4f129916ee12ab27152f serialization:key "title" ;
+_:N63fce7e554574f8fa858c5bac10473c8 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N72a80f620fb64346845b36f557203196 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:N8da0086dde624df4b86b6de851c3728b serialization:key "name" ;
+    serialization:kind "value" ;
+    serialization:predicate cf:name .
+
+_:N9cd229ff271345a6b36d2ad81c71efbc serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:Na6b5d48f2688477f9c8d0b78e03f64f1 serialization:key "name" ;
+    serialization:kind "value" ;
+    serialization:predicate cf:name .
+
+_:Na8ceee1794574e5eb263336e9138d84e serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate classification:description .
+
+_:Naa12c53bb2254960bfd1784cea4ba926 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns1:relation .
+
+_:Nae8e0509183e43e2859b41deb48f5e5f serialization:key "name" ;
+    serialization:kind "value" ;
+    serialization:predicate cf:name .
+
+_:Nb505335f1f9a4b66b4751f61eecce48c serialization:key "name" ;
+    serialization:kind "value" ;
+    serialization:predicate cf:name .
+
+_:Nba521fd9628844c1b11dd99102a1d8ce serialization:key "name" ;
+    serialization:kind "value" ;
+    serialization:predicate cf:name .
+
+_:Nd228528e0951418097ea592e420c6f6f serialization:key "title" ;
     serialization:kind "value" ;
     serialization:predicate rdfs:label .
 
-_:N7217705bef524a7a9d48517900194515 serialization:key "name" ;
-    serialization:kind "value" ;
-    serialization:predicate cf:name .
-
-_:N7bc283a27ca045329198543f5d6c74cc serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:N833ccbda6aa045c09f701919e14ce68f serialization:key "name" ;
-    serialization:kind "value" ;
-    serialization:predicate cf:name .
-
-_:N85d40eae7aa14093af63bec86953d63c serialization:key "type" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:type .
-
-_:N8f85883ee55743beb1d669624f79880c serialization:key "name" ;
-    serialization:kind "value" ;
-    serialization:predicate cf:name .
-
-_:N9aac73498e094f2da101c295e6507be0 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:Na0ed17721dd147d09c8e503725428b10 serialization:key "description" ;
+_:Ne1fe25040e814692995e2ebdaacb5da0 serialization:key "description" ;
     serialization:kind "value" ;
     serialization:predicate classification:description .
 
-_:Na495b4d902274c65bcf0eaab15441d30 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:Na4b7a6aef7dc45ddb3504bcf49cc1a99 serialization:key "name" ;
-    serialization:kind "value" ;
-    serialization:predicate cf:name .
-
-_:Nda8e7dbc3c8a47afbb0e75426e7e4a67 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:Nef06ee3474f84f3da85dd71823e9c23f serialization:key "name" ;
-    serialization:kind "value" ;
-    serialization:predicate cf:name .
-
-_:Nfe471a34d843434b899c69262a2daa78 serialization:key "value" ;
+_:Necde21e2f05345319cac9b0d70ba3d2e serialization:key "value" ;
     serialization:kind "value" ;
     serialization:predicate classification:value .
 
-_:N0a3966e4894a4952b9420cf3c2d72e5b a serialization:Object ;
-    cf:name "B4" ;
-    serialization:field _:N833ccbda6aa045c09f701919e14ce68f .
+_:Nee937b38b7994ca2ade94d54860a3123 serialization:key "name" ;
+    serialization:kind "value" ;
+    serialization:predicate classification:name .
 
-_:N0da81510001b44fb8d5e68c8e6a7b7d5 a serialization:Object ;
-    dct:type "application/json" ;
-    ns2:relation "collection" ;
-    oa:hasTarget "./collection.json" ;
-    serialization:field _:N15e6b0a4791a42a19f2e2ccae7dc7b6e,
-        _:N3901c8f514134b249b45dd183524831f,
-        _:Na495b4d902274c65bcf0eaab15441d30 .
+_:Nf996091bd61b45e996187c97bd83a6eb serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
 
-_:N11c33ef42bab4317bdd4949dfc3f286f a serialization:Object ;
+_:Nfe0b4c81020a4edfb76969d49b715ace serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns1:relation .
+
+_:N12bc5e38dc5649deaf093a0174742f8b a serialization:Object ;
     cf:name "B3" ;
-    serialization:field _:N2e8d8d59f2dd4efda73f98a7937226cf .
+    serialization:field _:Nae8e0509183e43e2859b41deb48f5e5f .
 
-_:N120c9190b90043cd8872d443bc2c01af a serialization:Object ;
+_:N1ad2ea61c29448f28f6392758ae44799 a serialization:Object ;
+    cf:name "B3" ;
+    serialization:field _:Na6b5d48f2688477f9c8d0b78e03f64f1 .
+
+_:N20912efb904a4014aea43aba232fe5c5 a serialization:Object ;
+    cf:name "B8" ;
+    serialization:field _:Nb505335f1f9a4b66b4751f61eecce48c .
+
+_:N22774cb223044f218cf96ecb8795d04a a serialization:Object ;
     classification:description "Auto-generated class 1" ;
     classification:name "class_1" ;
     classification:value 1 ;
-    serialization:field _:N1d9d57a7c2024cc2a6abb2c54414a346,
-        _:N3af585932dc446228f2f09f8d026fdb7,
-        _:Na0ed17721dd147d09c8e503725428b10 .
+    serialization:field _:Na8ceee1794574e5eb263336e9138d84e,
+        _:Necde21e2f05345319cac9b0d70ba3d2e,
+        _:Nee937b38b7994ca2ade94d54860a3123 .
 
-_:N3b954a51691a485c9e52c12a51f621ec a serialization:Object ;
-    dct:type "application/geo+json" ;
-    ns2:relation "self" ;
-    oa:hasTarget "./item_pytorch_geo_unet.json" ;
-    serialization:field _:N1c7d7c102ed14f49a1ff1c1f31474a71,
-        _:N4b1e2b6ce950459ea0baf87fee8f523f,
-        _:N9aac73498e094f2da101c295e6507be0 .
+_:N2df581049ded4ec5b9ce09be2632fde0 a serialization:Object ;
+    cf:name "B2" ;
+    serialization:field _:Nba521fd9628844c1b11dd99102a1d8ce .
 
-_:N3e310bea4ea746aab1ce7a550a002889 a serialization:Object ;
+_:N495b83a8902e4438b311361e3a7dce73 a serialization:Object ;
+    cf:name "B4" ;
+    serialization:field _:N8da0086dde624df4b86b6de851c3728b .
+
+_:N5969d313929c4d75b5b209eb9b48f8b5 a serialization:Object ;
+    cf:name "B2" ;
+    serialization:field _:N0814a2db90bc4cd6a9f1df191b74bc5e .
+
+_:N677ee260f918448faba7d945ca9d0814 a serialization:Object ;
     rdfs:label "Publication for the training dataset of the model" ;
     dct:type "text/html" ;
-    ns2:relation "cite-as" ;
+    ns1:relation "cite-as" ;
     oa:hasTarget "https://arxiv.org/abs/2409.16252" ;
-    serialization:field _:N711cf8dbd11b4f129916ee12ab27152f,
-        _:N7bc283a27ca045329198543f5d6c74cc,
-        _:N85d40eae7aa14093af63bec86953d63c,
-        _:Nda8e7dbc3c8a47afbb0e75426e7e4a67 .
+    serialization:field _:N3d499ac724684f2ca66c91d25c55b819,
+        _:N44a51d124e614e7baafebe5a79b82bfd,
+        _:N63fce7e554574f8fa858c5bac10473c8,
+        _:Nd228528e0951418097ea592e420c6f6f .
 
-_:N3fff88b829134d44a397e13f1bc2ffbc a serialization:Object ;
-    cf:name "B2" ;
-    serialization:field _:N8f85883ee55743beb1d669624f79880c .
+_:N689d0daec08b4604b009a6366c7fb73e a serialization:Object ;
+    cf:name "B4" ;
+    serialization:field _:N05f62db587794cc99ea33e50a4abf7e3 .
 
-_:N4117519f163e439ebb6ba27347da3ad6 a serialization:Object ;
+_:Nc97fb54264c6424887dc4af862270429 a serialization:Object ;
+    dct:type "application/json" ;
+    ns1:relation "collection" ;
+    oa:hasTarget "./collection.json" ;
+    serialization:field _:N11a3d6b439ab44f29a9a12174bc0ca34,
+        _:N72a80f620fb64346845b36f557203196,
+        _:Naa12c53bb2254960bfd1784cea4ba926 .
+
+_:Ne1e0c4abdcc4412f9fbf5eb8934f29d2 a serialization:Object ;
+    dct:type "application/geo+json" ;
+    ns1:relation "self" ;
+    oa:hasTarget "./item_pytorch_geo_unet.json" ;
+    serialization:field _:N9cd229ff271345a6b36d2ad81c71efbc,
+        _:Nf996091bd61b45e996187c97bd83a6eb,
+        _:Nfe0b4c81020a4edfb76969d49b715ace .
+
+_:Ne216798eccef449ba243b85c4a0e699c a serialization:Object ;
+    cf:name "B8" ;
+    serialization:field _:N59be3505496f402aa8d94aa1ff5ec10b .
+
+_:Nea96e3e6e00046e69278f26257355f67 a serialization:Object ;
     classification:description "Auto-generated class 0" ;
     classification:name "class_0" ;
     classification:value 0 ;
-    serialization:field _:N555ec405059e490580394e5443a38c4d,
-        _:N586647be21ec46e0af7d5214a38eba61,
-        _:Nfe471a34d843434b899c69262a2daa78 .
-
-_:N50ad5b382ada445dacc9a4c5545b2bdb a serialization:Object ;
-    cf:name "B3" ;
-    serialization:field _:N1af577ffc4db4519b1ea310e2a601d07 .
-
-_:N71d13278ba054d898845cbf2ba73902a a serialization:Object ;
-    cf:name "B2" ;
-    serialization:field _:Nef06ee3474f84f3da85dd71823e9c23f .
-
-_:Nd94cbefc193e4bacacd7c850f48a5ed5 a serialization:Object ;
-    cf:name "B8" ;
-    serialization:field _:N60d74df4d8ee4146ab3be65fd6e6a6ca .
-
-_:Ne3091cf17b0d4e7d91fcb5f2887b2192 a serialization:Object ;
-    cf:name "B8" ;
-    serialization:field _:Na4b7a6aef7dc45ddb3504bcf49cc1a99 .
-
-_:Neada879a08aa45419c724f4d50945776 a serialization:Object ;
-    cf:name "B4" ;
-    serialization:field _:N7217705bef524a7a9d48517900194515 .
+    serialization:field _:N07e2e83ad876434a8e64713c1f16beab,
+        _:N1f5b70e3b41f4452ae33c15035ea5068,
+        _:Ne1fe25040e814692995e2ebdaacb5da0 .
 

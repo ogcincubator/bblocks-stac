@@ -253,7 +253,12 @@ A knowledge organization system used to classify the resource (controlled vocabu
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
+    rec:themes [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
+                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
+            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ],
+        [ thns:concepts <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_dobson>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_filter>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_hoelper>,
@@ -262,12 +267,7 @@ A knowledge organization system used to classify the resource (controlled vocabu
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_saoz>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_spectral>,
                 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_vassey> ;
-            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ],
-        [ thns:concepts <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_atmosphericComposition>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_observationPlatform>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_pollution>,
-                <https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode_rocketSounding> ;
-            thns:scheme "https://wis.wmo.int/2012/codelists/WMOCodeLists.xml#WMO_CategoryCode" ] .
+            thns:scheme "https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode" ] .
 
 <https://geo.woudc.org/codelists.xml#WOUDC_InstrumentCode_brewer> thns:id "brewer" .
 
@@ -525,13 +525,13 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:hasAsset [ ns2:data <https://example.com/stac/themes/example-2/example.file> ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ],
-                [ thns:id "wiki::Summer" ] ;
-            thns:scheme "https://en.wikipedia.org" ],
-        [ thns:concepts [ thns:id "geonames::3017382" ],
-                [ thns:id "geonames::11071625" ],
+    rec:themes [ thns:concepts [ thns:id "geonames::11071625" ],
+                [ thns:id "geonames::3017382" ],
                 [ thns:id "geonames::2976077" ] ;
-            thns:scheme "https://www.geonames.org" ] .
+            thns:scheme "https://www.geonames.org" ],
+        [ thns:concepts [ thns:id "wiki::Syncline" ],
+                [ thns:id "wiki::Summer" ] ;
+            thns:scheme "https://en.wikipedia.org" ] .
 
 <https://example.com/stac/themes/example-2/example.file> dcterms:format "text/plain" .
 
@@ -563,6 +563,11 @@ x-jsonld-extra-terms:
   scheme: https://w3id.org/ogc/stac/themes/scheme
 x-jsonld-prefixes:
   thns: https://w3id.org/ogc/stac/themes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.themes-shacl
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

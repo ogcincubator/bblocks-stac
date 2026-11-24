@@ -217,14 +217,14 @@ STAC Versioning Indicators Extension for Items, Collections, Catalogs and Assets
     dcterms:description "A high-resolution global dataset of remotely sensed bioclimatic variables for ecological modelling." ;
     dcterms:extent [ ] ;
     dcterms:title "MERRAclim" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
-            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v2/collection.json> ] ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://datadryad.org/resource/doi:10.5061/dryad.s2v81/v1/collection.json> ] ;
     dcat:license "CC0-1.0" ;
     stac:hasExtension "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
     stac:version "1.0.0" ;
@@ -275,6 +275,11 @@ x-jsonld-extra-terms:
     x-jsonld-type: '@id'
 x-jsonld-prefixes:
   ver: https://w3id.org/ogc/stac/version/
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.extensions.version
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 1.2.0
+  dateOfLastChange: '2026-11-24'
 
 ```
 

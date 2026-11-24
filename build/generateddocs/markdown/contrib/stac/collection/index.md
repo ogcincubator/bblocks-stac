@@ -527,13 +527,13 @@ For more details on Sentinel-2 radiometric resoltuon, [see this page](https://ea
         "radiance",
         "sentinel" ;
     dcterms:title "Sentinel-2 MSI: MultiSpectral Instrument, Level-1C" ;
-    rdfs:seeAlso [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
-            ns1:relation <http://www.iana.org/assignments/relation/license> ;
-            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
-        [ rdfs:label "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Legal notice on the use of Copernicus Sentinel Data and Service Information" ;
+            ns1:relation <http://www.iana.org/assignments/relation/license> ;
+            oa:hasTarget <https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf> ],
         [ rdfs:label "Example Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -599,7 +599,7 @@ Ref to STAC example using version (1.0.0)
       "rel": "root",
       "href": "../../catalog.json",
       "type": "application/json",
-      "title": "Open Science Catalog"
+      "title": "Open Science Catalogue"
     },
     {
       "rel": "parent",
@@ -647,7 +647,7 @@ Ref to STAC example using version (1.0.0)
     },
     {
       "rel": "version-history",
-      "href": "https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
+      "href": "https://api.datacite.org//dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
       "type": "application/vnd.datacite.datacite+json",
       "title": "Version History (DataCite JSON)"
     }
@@ -736,7 +736,7 @@ Ref to STAC example using version (1.0.0)
       "rel": "root",
       "href": "../../catalog.json",
       "type": "application/json",
-      "title": "Open Science Catalog"
+      "title": "Open Science Catalogue"
     },
     {
       "rel": "parent",
@@ -784,7 +784,7 @@ Ref to STAC example using version (1.0.0)
     },
     {
       "rel": "version-history",
-      "href": "https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
+      "href": "https://api.datacite.org//dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
       "type": "application/vnd.datacite.datacite+json",
       "title": "Version History (DataCite JSON)"
     }
@@ -868,28 +868,24 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ ns3:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/example1/item.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Version History (DataCite JSON)" ;
+    rdfs:seeAlso [ rdfs:label "Version History (DataCite JSON)" ;
             dcterms:type "application/vnd.datacite.datacite+json" ;
             ns3:relation <http://www.iana.org/assignments/relation/version-history> ;
-            oa:hasTarget <https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53> ],
+            oa:hasTarget <https://api.datacite.org//dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/projects/cerulean-information-factory/collection.json> ],
+        [ ns3:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Latest version" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/latest-version> ;
@@ -898,12 +894,16 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/has-version> ;
             oa:hasTarget <https://example.com/stac/example1/collection_v1.json> ],
-        [ rdfs:label "Open Science Catalog" ;
+        [ ns3:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/item.json> ],
+        [ rdfs:label "Open Science Catalogue" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/catalog.json> ],
-        [ ns3:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ] ;
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
@@ -1099,6 +1099,11 @@ x-jsonld-prefixes:
   stac: https://w3id.org/ogc/stac/core/
   dct: http://purl.org/dc/terms/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.collection
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 1.1.0
+  dateOfLastChange: '2026-11-24'
 
 ```
 
