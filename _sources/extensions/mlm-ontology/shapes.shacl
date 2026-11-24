@@ -7,6 +7,17 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
+# Prefix declarations for the SPARQL-based constraints below (sh:prefixes).
+# Without these, SHACL-SPARQL engines cannot resolve prefixed names in the
+# queries, and validation fails with "Unknown namespace prefix".
+mlm:ShapesPrefixes
+    sh:declare [ sh:prefix "mlm" ; sh:namespace "https://w3id.org/ogc/stac/mlm/"^^xsd:anyURI ] ,
+               [ sh:prefix "cube" ; sh:namespace "https://w3id.org/ogc/stac/datacube/"^^xsd:anyURI ] ,
+               [ sh:prefix "stac" ; sh:namespace "https://w3id.org/ogc/stac/core/"^^xsd:anyURI ] ,
+               [ sh:prefix "rdf" ; sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ] ,
+               [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] ,
+               [ sh:prefix "xsd" ; sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ] .
+
 # SHACL shapes for the STAC MLM extension vocabulary.
 #
 # Only constrains what the extension itself guarantees: required top-level fields
@@ -108,6 +119,7 @@ mlm:VariableReferenceResolutionShape a sh:NodeShape ;
     rdfs:label "MLM variable reference resolution shape" ;
     sh:targetSubjectsOf mlm:variables ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "Every MLM variable reference must resolve to a key in the enclosing Item or Asset Datacube cube:variables map." ;
         sh:select """
             SELECT $this ?reference
@@ -138,6 +150,7 @@ mlm:VariableDimensionResolutionShape a sh:NodeShape ;
     rdfs:label "Datacube variable dimension resolution shape" ;
     sh:targetSubjectsOf cube:variables ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "Every dimension named by a Datacube variable must resolve to a key in cube:dimensions on the same resource." ;
         sh:select """
             SELECT $this ?dimension
@@ -165,6 +178,7 @@ mlm:TensorStructureOrderShape a sh:NodeShape ;
     rdfs:label "MLM tensor structure order shape" ;
     sh:targetSubjectsOf mlm:dim_order ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "mlm:shape has {?shapeLength} entries but mlm:dim_order has {?dimensionLength}: each shape size must be named by the dim_order entry at the same position." ;
         sh:select """
             SELECT $this ?shapeLength ?dimensionLength
@@ -184,6 +198,7 @@ mlm:TensorStructureOrderShape a sh:NodeShape ;
         """
     ] ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "mlm:shape size {?size} is invalid: each dimension size must be greater than 0, or -1 for a variable size." ;
         sh:select """
             SELECT $this ?size
@@ -194,6 +209,7 @@ mlm:TensorStructureOrderShape a sh:NodeShape ;
         """
     ] ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "mlm:dim_order repeats the dimension name '{?dimension}': each axis must be uniquely named." ;
         sh:select """
             SELECT DISTINCT $this ?dimension
@@ -211,6 +227,7 @@ mlm:StackedReferenceOrderShape a sh:NodeShape ;
     rdfs:label "MLM stacked band/variable order shape" ;
     sh:targetSubjectsOf mlm:input_structure, mlm:result ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "The reserved dim_order axis '{?axis}' must be present if and only if the corresponding mlm:{?axis} list is non-empty, since that list supplies the element order along the axis." ;
         sh:select """
             SELECT $this ?axis
@@ -229,6 +246,7 @@ mlm:StackedReferenceOrderShape a sh:NodeShape ;
         """
     ] ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "The '{?axis}' axis has size {?size} in mlm:shape but mlm:{?axis} lists {?referenceCount} entries. Without a processing function changing the stacked size, entry i of the list must describe index i of that axis." ;
         sh:select """
             SELECT $this ?axis ?size ?referenceCount
@@ -279,6 +297,7 @@ mlm:ValueScalingOrderShape a sh:NodeShape ;
     rdfs:label "MLM value scaling order shape" ;
     sh:targetSubjectsOf mlm:value_scaling ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "mlm:value_scaling has {?scalingCount} entries, which matches no stacked bands/variables/channel axis size ({?axisSizes}). Provide one entry to broadcast, or one entry per axis element in the same order." ;
         sh:select """
             SELECT $this ?scalingCount (GROUP_CONCAT(DISTINCT STR(?size); separator=", ") AS ?axisSizes)
@@ -324,6 +343,7 @@ mlm:ModelAssetShape a sh:NodeShape ;
     rdfs:label "MLM model asset shape" ;
     sh:targetSubjectsOf mlm:artifact_type ;
     sh:sparql [
+        sh:prefixes mlm:ShapesPrefixes ;
         sh:message "An asset with mlm:artifact_type must also carry the mlm:model role." ;
         sh:select """
             SELECT $this
