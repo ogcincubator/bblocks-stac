@@ -18,6 +18,14 @@ stac:ItemShape a sh:NodeShape ;
     sh:property [ sh:path stac:hasAsset ;      sh:class stac:Asset ] ;
     sh:property [ sh:path stac:links ;         sh:class stac:Link ] .
 
+# Applies to Collections too, since stac:Collection rdfs:subClassOf stac:Catalog.
+stac:CatalogShape a sh:NodeShape ;
+    rdfs:label "STAC Catalog shape" ;
+    sh:targetClass stac:Catalog ;
+    sh:property [ sh:path stac:id ;          sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:description ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path stac:links ;       sh:class stac:Link ] .
+
 stac:CollectionShape a sh:NodeShape ;
     rdfs:label "STAC Collection shape" ;
     sh:targetClass stac:Collection ;

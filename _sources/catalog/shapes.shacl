@@ -1,0 +1,70 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix iana: <http://www.iana.org/assignments/> .
+
+# SHACL shapes for STAC Catalogs as uplifted by this block's JSON-LD context
+# (dct:title, dct:description, stac:version, links as rdfs:seeAlso with an
+# IANA relation). The core-ontology shapes use stac:* properties, which this
+# context does not produce, so these shapes check the RDF that is actually
+# generated from STAC JSON.
+#
+# Link relations follow the STAC Catalog spec: a Catalog has at most one
+# self, root and parent link, and self and root links are STRONGLY
+# RECOMMENDED (reported as warnings).
+
+stac:CatalogJsonShape a sh:NodeShape ;
+    rdfs:label "STAC Catalog (JSON uplift) shape" ;
+    sh:targetClass stac:Catalog ;
+    sh:property [
+        sh:path dct:description ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "A STAC Catalog must have a description." ;
+    ] ;
+    sh:property [
+        sh:path dct:title ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path stac:version ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A STAC Catalog must declare exactly one stac_version." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:seeAlso ;
+        sh:qualifiedValueShape [ sh:path iana:relation ; sh:hasValue <http://www.iana.org/assignments/relation/self> ] ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "A STAC Catalog must not have more than one self link." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:seeAlso ;
+        sh:qualifiedValueShape [ sh:path iana:relation ; sh:hasValue <http://www.iana.org/assignments/relation/root> ] ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "A STAC Catalog must not have more than one root link." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:seeAlso ;
+        sh:qualifiedValueShape [ sh:path iana:relation ; sh:hasValue <http://www.iana.org/assignments/relation/parent> ] ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "A STAC Catalog must not have more than one parent link." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:seeAlso ;
+        sh:qualifiedValueShape [ sh:path iana:relation ; sh:hasValue <http://www.iana.org/assignments/relation/self> ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A self link is STRONGLY RECOMMENDED for a STAC Catalog." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:seeAlso ;
+        sh:qualifiedValueShape [ sh:path iana:relation ; sh:hasValue <http://www.iana.org/assignments/relation/root> ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "A root link is STRONGLY RECOMMENDED for a STAC Catalog." ;
+    ] .

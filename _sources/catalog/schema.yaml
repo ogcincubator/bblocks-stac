@@ -1,0 +1,38 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+title: STAC Catalog Specification
+description: This object represents Catalogs in a SpatioTemporal Asset Catalog (adapted from official specs)
+allOf:
+- "$ref": "#/definitions/catalog"
+- "$ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json"
+definitions:
+  catalog:
+    title: STAC Catalog
+    description: These are the fields specific to a STAC Catalog.
+    type: object
+    "$comment": title and description are validated through the common metadata.
+      stac_version is required by the version-specific building blocks.
+    required:
+    - type
+    - id
+    - description
+    - links
+    properties:
+      stac_extensions:
+        title: STAC extensions
+        type: array
+        uniqueItems: true
+        items:
+          title: Reference to a JSON Schema
+          type: string
+          format: iri
+      type:
+        title: Type of STAC entity
+        const: Catalog
+      id:
+        title: Identifier
+        type: string
+        minLength: 1
+      links:
+        type: array
+        items:
+          $ref: bblocks://ogc.ogc-utils.json-link

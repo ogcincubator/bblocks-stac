@@ -1,0 +1,13 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+description: 'STAC Catalog V1.1.0'
+allOf:
+  - $ref: https://schemas.stacspec.org/v1.1.0/catalog-spec/json-schema/catalog.json
+  - $ref: bblocks://ogc.contrib.stac.catalog
+  - type: object
+    properties:
+      stac_version:
+        title: STAC version
+        type: string
+        const: 1.1.0
+    required:
+      - stac_version
