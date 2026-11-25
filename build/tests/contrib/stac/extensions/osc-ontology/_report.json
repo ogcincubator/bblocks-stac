@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.osc-ontology - STAC Open Science Extension Ontology",
   "bblockName": "STAC Open Science Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.osc-ontology",
-  "generated": "2026-11-24T12:13:01.131626+00:00",
+  "generated": "2026-11-25T01:22:13.057778+00:00",
   "result": true,
   "items": [
     {
@@ -54,7 +54,25 @@
             {
               "shaclFile": "_sources/extensions/osc-ontology/shapes.shacl",
               "focusNodes": {
+                "osc:VariablesShape": {
+                  "nodes": [
+                    "ex:product-collection"
+                  ]
+                },
+                "osc:MissionsShape": {
+                  "nodes": [
+                    "ex:product-collection"
+                  ]
+                },
+                "osc:WorkflowsShape": {
+                  "nodes": []
+                },
                 "osc:StatusShape": {
+                  "nodes": [
+                    "ex:product-collection"
+                  ]
+                },
+                "osc:ExperimentShape": {
                   "nodes": [
                     "ex:product-collection"
                   ]
@@ -73,28 +91,10 @@
                   "nodes": [
                     "ex:product-collection"
                   ]
-                },
-                "osc:MissionsShape": {
-                  "nodes": [
-                    "ex:product-collection"
-                  ]
-                },
-                "osc:ExperimentShape": {
-                  "nodes": [
-                    "ex:product-collection"
-                  ]
-                },
-                "osc:VariablesShape": {
-                  "nodes": [
-                    "ex:product-collection"
-                  ]
-                },
-                "osc:WorkflowsShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/osc-ontology/shapes.shacl:\n - Shape osc:StatusShape: ex:product-collection\n - Shape osc:RegionShape: ex:product-collection\n - Shape osc:ProjectShape: ex:product-collection\n - Shape osc:TypeShape: ex:product-collection\n - Shape osc:MissionsShape: ex:product-collection\n - Shape osc:ExperimentShape: ex:product-collection\n - Shape osc:VariablesShape: ex:product-collection\n - Shape osc:WorkflowsShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/osc-ontology/shapes.shacl:\n - Shape osc:VariablesShape: ex:product-collection\n - Shape osc:MissionsShape: ex:product-collection\n - Shape osc:WorkflowsShape: *none*\n - Shape osc:StatusShape: ex:product-collection\n - Shape osc:ExperimentShape: ex:product-collection\n - Shape osc:RegionShape: ex:product-collection\n - Shape osc:ProjectShape: ex:product-collection\n - Shape osc:TypeShape: ex:product-collection\n"
             }
           ]
         }
@@ -149,10 +149,24 @@
             {
               "shaclFile": "_sources/extensions/osc-ontology/shapes.shacl",
               "focusNodes": {
+                "osc:VariablesShape": {
+                  "nodes": []
+                },
+                "osc:MissionsShape": {
+                  "nodes": []
+                },
+                "osc:WorkflowsShape": {
+                  "nodes": [
+                    "ex:project-collection"
+                  ]
+                },
                 "osc:StatusShape": {
                   "nodes": [
                     "ex:project-collection"
                   ]
+                },
+                "osc:ExperimentShape": {
+                  "nodes": []
                 },
                 "osc:RegionShape": {
                   "nodes": [
@@ -166,24 +180,10 @@
                   "nodes": [
                     "ex:project-collection"
                   ]
-                },
-                "osc:MissionsShape": {
-                  "nodes": []
-                },
-                "osc:ExperimentShape": {
-                  "nodes": []
-                },
-                "osc:VariablesShape": {
-                  "nodes": []
-                },
-                "osc:WorkflowsShape": {
-                  "nodes": [
-                    "ex:project-collection"
-                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/osc-ontology/shapes.shacl:\n - Shape osc:StatusShape: ex:project-collection\n - Shape osc:RegionShape: ex:project-collection\n - Shape osc:ProjectShape: *none*\n - Shape osc:TypeShape: ex:project-collection\n - Shape osc:MissionsShape: *none*\n - Shape osc:ExperimentShape: *none*\n - Shape osc:VariablesShape: *none*\n - Shape osc:WorkflowsShape: ex:project-collection\n"
+              "message": "Focus nodes for _sources/extensions/osc-ontology/shapes.shacl:\n - Shape osc:VariablesShape: *none*\n - Shape osc:MissionsShape: *none*\n - Shape osc:WorkflowsShape: ex:project-collection\n - Shape osc:StatusShape: ex:project-collection\n - Shape osc:ExperimentShape: *none*\n - Shape osc:RegionShape: ex:project-collection\n - Shape osc:ProjectShape: *none*\n - Shape osc:TypeShape: ex:project-collection\n"
             }
           ]
         }

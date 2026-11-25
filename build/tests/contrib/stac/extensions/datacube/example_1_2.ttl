@@ -24,13 +24,7 @@
 
 <http://cool-sat.com/catalog/datacube-123/data.nc> dcterms:format "application/netcdf" ;
     dcterms:title "netCDF Data cube" ;
-    cube:dimensions [ cube:axis "x" ;
-            cube:extent ( -1.225975e+02 -1.22288e+02 ) ;
-            cube:reference_system 4326 ;
-            cube:type "spatial" ],
-        [ cube:type "bands" ;
-            cube:values ( "red" "green" "blue" ) ],
-        [ cube:axis "z" ;
+    cube:dimensions [ cube:axis "z" ;
             cube:type "spatial" ;
             cube:unit "m" ;
             cube:values ( 0 10 25 50 100 1000 ) ],
@@ -44,7 +38,13 @@
             cube:extent ( 0 1000 ) ;
             cube:step 100 ;
             cube:type "spatial" ;
-            cube:unit "Pa" ] ;
+            cube:unit "Pa" ],
+        [ cube:axis "x" ;
+            cube:extent ( -1.225975e+02 -1.22288e+02 ) ;
+            cube:reference_system 4326 ;
+            cube:type "spatial" ],
+        [ cube:type "bands" ;
+            cube:values ( "red" "green" "blue" ) ] ;
     cube:variables [ cube:dimensions "pressure_levels",
                 "time",
                 "x",

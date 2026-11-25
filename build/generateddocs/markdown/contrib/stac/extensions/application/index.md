@@ -227,8 +227,8 @@ STAC Application Extension for describing software applications in Items, Collec
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <file:> .
-@prefix ns3: <jupyter:> .
+@prefix ns2: <jupyter:> .
+@prefix ns3: <file:> .
 @prefix ns4: <vcs:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -240,55 +240,55 @@ STAC Application Extension for describing software applications in Items, Collec
     dcterms:date "2025-03-17T14:30:23+00:00"^^xsd:dateTime ;
     dcterms:description "cube generation workflow for esa-cci-permafrost" ;
     dcterms:title "ESA CCI permafrost" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/catalog.json> ],
-        [ rdfs:label "DeepESDL platform" ;
-            dcterms:type "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application-platform> ;
-            oa:hasTarget <https://deep.earthsystemdatalab.net/> ],
-        [ rdfs:label "Project: DeepESDL" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/stac/projects/deep-earth-system-data-lab/collection.json> ],
-        [ rdfs:label "Open notebook on the DeepESDL platform" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://deep.earthsystemdatalab.net/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdeepesdl%2Fcube-gen&urlpath=lab%2Ftree%2Fcube-gen%2FPermafrost%2FCreate-CCI-Permafrost-cube-EarthCODE.ipynb&branch=main> ],
-        [ dcterms:type "application/json" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/esa-cci-permafrost/record.json> ],
-        [ rdfs:label "Workflows" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/stac/application/catalog.json> ],
-        [ rdfs:label "Git source repository" ;
-            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
-            oa:hasTarget <https://github.com/deepesdl/cube-gen.git> ;
-            ns4:branch "main" ;
-            ns4:type "git" ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/stac/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Project: DeepESDL" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/stac/projects/deep-earth-system-data-lab/collection.json> ],
+        [ rdfs:label "Jupyter Notebook: Create CCI Permafrost cube" ;
+            ns3:local_path "Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb" ;
+            dcterms:type "application/x-ipynb+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/deepesdl/cube-gen/blob/main/Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb> ;
+            application:container "Jupyter Notebook"^^xsd:string ;
+            application:languages "Python"^^xsd:string ;
+            ns2:kernel [ ] ],
         [ rdfs:label "Cube generation script" ;
             dcterms:type "text/x-python" ;
             ns1:relation <http://www.iana.org/assignments/relation/example> ;
             oa:hasTarget <https://github.com/deepesdl/cube-gen/blob/main/Permafrost/cube.py> ;
             application:entrypoint "generate_cube"^^xsd:string ;
             application:languages "Python"^^xsd:string ],
-        [ rdfs:label "Jupyter Notebook: Create CCI Permafrost cube" ;
-            ns2:local_path "Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb" ;
-            dcterms:type "application/x-ipynb+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/deepesdl/cube-gen/blob/main/Permafrost/Create-CCI-Permafrost-cube-EarthCODE.ipynb> ;
-            application:container "Jupyter Notebook"^^xsd:string ;
-            application:languages "Python"^^xsd:string ;
-            ns3:kernel [ ] ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/catalog.json> ],
+        [ rdfs:label "Git source repository" ;
+            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/deepesdl/cube-gen.git> ;
+            ns4:branch "main" ;
+            ns4:type "git" ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/stac/application/catalog.json> ],
+        [ rdfs:label "DeepESDL platform" ;
+            dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application-platform> ;
+            oa:hasTarget <https://deep.earthsystemdatalab.net/> ],
         [ rdfs:label "ESA CCI permafrost" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/stac/experiments/esa-cci-permafrost/record.json> ] ;
+            oa:hasTarget <https://example.com/stac/experiments/esa-cci-permafrost/record.json> ],
+        [ rdfs:label "Open notebook on the DeepESDL platform" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://deep.earthsystemdatalab.net/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdeepesdl%2Fcube-gen&urlpath=lab%2Ftree%2Fcube-gen%2FPermafrost%2FCreate-CCI-Permafrost-cube-EarthCODE.ipynb&branch=main> ] ;
     application:container "Jupyter Notebook"^^xsd:string ;
     application:languages "Python"^^xsd:string ;
     stac:hasAsset [ ] ;
@@ -326,7 +326,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.contrib.stac.extensions.application
   register: https://ogcincubator.github.io/bblocks-stac/build/register.json
   version: 0.1.0
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

@@ -216,7 +216,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.contrib.stac.extensions.accuracy
   register: https://ogcincubator.github.io/bblocks-stac/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

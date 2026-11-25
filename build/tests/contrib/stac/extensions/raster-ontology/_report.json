@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.contrib.stac.extensions.raster-ontology - STAC Raster Extension Ontology",
   "bblockName": "STAC Raster Extension Ontology",
   "bblockId": "ogc.contrib.stac.extensions.raster-ontology",
-  "generated": "2026-11-24T12:13:01.205686+00:00",
+  "generated": "2026-11-25T01:22:13.129670+00:00",
   "result": true,
   "items": [
     {
@@ -42,7 +42,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):\n - /github/workspace/_sources/extensions/raster-ontology/ontology.ttl\n - /github/workspace/_sources/extensions/raster-ontology/skos.ttl"
+              "message": "Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):\n - /github/workspace/_sources/extensions/raster-ontology/skos.ttl\n - /github/workspace/_sources/extensions/raster-ontology/ontology.ttl"
             },
             {
               "op": "shacl-report",
@@ -54,18 +54,16 @@
             {
               "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
               "focusNodes": {
-                "raster:ScaleShape": {
-                  "nodes": [
-                    "ex:B4-band"
-                  ]
-                },
                 "raster:BitsPerSampleShape": {
                   "nodes": []
                 },
-                "raster:SpatialResolutionShape": {
+                "raster:HistogramShape": {
                   "nodes": []
                 },
-                "raster:OffsetShape": {
+                "raster:HistogramUsageShape": {
+                  "nodes": []
+                },
+                "raster:ScaleShape": {
                   "nodes": [
                     "ex:B4-band"
                   ]
@@ -75,15 +73,17 @@
                     "ex:B4-band"
                   ]
                 },
-                "raster:HistogramUsageShape": {
+                "raster:SpatialResolutionShape": {
                   "nodes": []
                 },
-                "raster:HistogramShape": {
-                  "nodes": []
+                "raster:OffsetShape": {
+                  "nodes": [
+                    "ex:B4-band"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:ScaleShape: ex:B4-band\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: ex:B4-band\n - Shape raster:SamplingShape: ex:B4-band\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:HistogramShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: *none*\n - Shape raster:ScaleShape: ex:B4-band\n - Shape raster:SamplingShape: ex:B4-band\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: ex:B4-band\n"
             }
           ]
         }
@@ -126,7 +126,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):\n - /github/workspace/_sources/extensions/raster-ontology/ontology.ttl\n - /github/workspace/_sources/extensions/raster-ontology/skos.ttl"
+              "message": "Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):\n - /github/workspace/_sources/extensions/raster-ontology/skos.ttl\n - /github/workspace/_sources/extensions/raster-ontology/ontology.ttl"
             },
             {
               "op": "shacl-report",
@@ -138,19 +138,10 @@
             {
               "shaclFile": "_sources/extensions/raster-ontology/shapes.shacl",
               "focusNodes": {
-                "raster:ScaleShape": {
-                  "nodes": []
-                },
                 "raster:BitsPerSampleShape": {
                   "nodes": []
                 },
-                "raster:SpatialResolutionShape": {
-                  "nodes": []
-                },
-                "raster:OffsetShape": {
-                  "nodes": []
-                },
-                "raster:SamplingShape": {
+                "raster:HistogramShape": {
                   "nodes": []
                 },
                 "raster:HistogramUsageShape": {
@@ -158,12 +149,21 @@
                     "ex:B4-band"
                   ]
                 },
-                "raster:HistogramShape": {
+                "raster:ScaleShape": {
+                  "nodes": []
+                },
+                "raster:SamplingShape": {
+                  "nodes": []
+                },
+                "raster:SpatialResolutionShape": {
+                  "nodes": []
+                },
+                "raster:OffsetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:ScaleShape: *none*\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:HistogramUsageShape: ex:B4-band\n - Shape raster:HistogramShape: *none*\n"
+              "message": "Focus nodes for _sources/extensions/raster-ontology/shapes.shacl:\n - Shape raster:BitsPerSampleShape: *none*\n - Shape raster:HistogramShape: *none*\n - Shape raster:HistogramUsageShape: ex:B4-band\n - Shape raster:ScaleShape: *none*\n - Shape raster:SamplingShape: *none*\n - Shape raster:SpatialResolutionShape: *none*\n - Shape raster:OffsetShape: *none*\n"
             }
           ]
         }

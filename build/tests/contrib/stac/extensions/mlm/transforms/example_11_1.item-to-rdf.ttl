@@ -22,19 +22,19 @@
 [] a geojson:Feature,
         serialization:Item,
         serialization:Object ;
-    rdfs:seeAlso _:N0bd2fb7a4d3242909bf5e6d12d8a35cb,
-        _:N0d5fa82d86ee436e8feadbfa8ee43b69,
-        _:N1f7edc13e3e04975b572c740bc3df60c,
-        _:N3a0089c7aaaf4553a71b31f48c8dad67,
-        _:N51add52a1d2f48998ac04d265443f604,
-        _:N6c7a9e7e2dce4ac894fcccd472102a3b,
-        _:Nac13fe92294f408a9890abe23c3a9d0d,
-        _:Nc02b3ad2ae8f4fab87c929be5f528ed4,
-        _:Nc29cfdddc04c4c38be63e37f75e25018,
-        _:Nc3b69ca53a76418ebc9f8040aaa8c483,
-        _:Nda65efd4da8d4e7f80a27afe0d8d1dd5,
-        _:Nf33808720fc94a6081be41fa8500f5ed,
-        _:Nfeaa8c96d8b14c17a09bb3fb79edac97 ;
+    rdfs:seeAlso _:N16994aa5e5de41d68397de967a3026da,
+        _:N229b29681f5a4dc8983a53152fed1dd9,
+        _:N3db695bb26e04de482c7c49706e9b7f4,
+        _:N519215e7b1414f9089e6a06ac1e0d03f,
+        _:N6f644ce907d64c93ac980449c12e7ad5,
+        _:N8231aa45fec448c49277695439ffde4a,
+        _:N8e5ac76ba91b42b29639e3dbd93be212,
+        _:N9369fa5b6b0241a4873a3c272957f010,
+        _:Nbab7baad993947c0acd583f39d3ab5a2,
+        _:Nd7d83c67c07e43e3af9fcf6d40879208,
+        _:Nd90a6d52eea4401d9c508dfc96af9f00,
+        _:Ne0c96bfbef664bb8b6a5b11342c4992e,
+        _:Nfd354be1e50146cd9e96a22ef78063fd ;
     geojson:bbox ( -86.45 37.52 -64.16 53.25 ) ;
     geojson:geometry [ a geojson:Polygon,
                 serialization:Object ;
@@ -45,14 +45,45 @@
                                     serialization:items ( -64.16 53.25 ) ] [ a serialization:Array ;
                                     serialization:items ( -64.16 37.52 ) ] [ a serialization:Array ;
                                     serialization:items ( -86.45 37.52 ) ] ) ] ) ;
-            serialization:field [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:type ],
-                [ serialization:key "coordinates" ;
+            serialization:field [ serialization:key "coordinates" ;
                     serialization:kind "array" ;
-                    serialization:predicate geojson:coordinates ] ;
+                    serialization:predicate geojson:coordinates ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:type ] ;
             ns1:type "Polygon" ] ;
     stac:hasAsset [ a serialization:Object ;
+            dct:description "Citation File Format metadata for resoterre." ;
+            dct:format "text/yaml" ;
+            dct:title "Citation metadata" ;
+            stac:hasAssetroles "metadata" ;
+            file:checksum "1220ffe80cd84de27fed65be4cd5289bcf00defe4553f2fc7086465228bec4d28476" ;
+            file:size 945 ;
+            serialization:field [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:items ( "metadata" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "file:size" ;
+                    serialization:kind "value" ;
+                    serialization:predicate file:size ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ],
+                [ serialization:key "file:checksum" ;
+                    serialization:kind "value" ;
+                    serialization:predicate file:checksum ] ;
+            serialization:mapKey "citation" ;
+            ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff" ],
+        [ a serialization:Object ;
             dct:description "Configuration consumed by the Snakemake workflow." ;
             dct:format "application/yaml" ;
             dct:title "Training and inference configuration" ;
@@ -60,28 +91,28 @@
                 "metadata" ;
             file:checksum "1220386fc766bf6ab79ef6a9dd6f0ac3f706669bf09a037be02b87991b159af44136" ;
             file:size 3606 ;
-            serialization:field [ serialization:key "file:checksum" ;
+            serialization:field [ serialization:key "href" ;
                     serialization:kind "value" ;
-                    serialization:predicate file:checksum ],
-                [ serialization:items ( "configuration" "metadata" ) ;
-                    serialization:key "roles" ;
-                    serialization:kind "set" ;
-                    serialization:predicate stac:hasAssetroles ],
+                    serialization:predicate ns1:href ],
                 [ serialization:key "description" ;
                     serialization:kind "value" ;
                     serialization:predicate dct:description ],
                 [ serialization:key "file:size" ;
                     serialization:kind "value" ;
                     serialization:predicate file:size ],
-                [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:key "href" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:href ],
                 [ serialization:key "title" ;
                     serialization:kind "value" ;
-                    serialization:predicate dct:title ] ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "file:checksum" ;
+                    serialization:kind "value" ;
+                    serialization:predicate file:checksum ],
+                [ serialization:items ( "configuration" "metadata" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ] ;
             serialization:mapKey "configuration" ;
             ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml" ],
         [ a serialization:Object ;
@@ -97,127 +128,36 @@
             file:checksum "122090e4bbd8583de97cea555072b98479920d1c2c6949daa3254f3c771571cebf6b" ;
             file:size 39526256 ;
             mlm:artifact_type "safetensors.torch.save_file" ;
-            serialization:field [ serialization:items ( "mlm:model" "mlm:weights" "model" "weights" "data" ) ;
-                    serialization:key "roles" ;
-                    serialization:kind "set" ;
-                    serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:key "href" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:href ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ],
-                [ serialization:key "file:checksum" ;
+            serialization:field [ serialization:key "file:checksum" ;
                     serialization:kind "value" ;
                     serialization:predicate file:checksum ],
-                [ serialization:key "application:entrypoint" ;
-                    serialization:kind "value" ;
-                    serialization:predicate application:entrypoint ],
                 [ serialization:key "title" ;
                     serialization:kind "value" ;
                     serialization:predicate dct:title ],
                 [ serialization:key "mlm:artifact_type" ;
                     serialization:kind "value" ;
                     serialization:predicate mlm:artifact_type ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ],
+                [ serialization:key "application:entrypoint" ;
+                    serialization:kind "value" ;
+                    serialization:predicate application:entrypoint ],
+                [ serialization:items ( "mlm:model" "mlm:weights" "model" "weights" "data" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
                 [ serialization:key "file:size" ;
                     serialization:kind "value" ;
-                    serialization:predicate file:size ] ;
+                    serialization:predicate file:size ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ] ;
             serialization:mapKey "model" ;
             ns1:href "https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors" ],
-        [ a serialization:Object ;
-            dct:description "Citation File Format metadata for resoterre." ;
-            dct:format "text/yaml" ;
-            dct:title "Citation metadata" ;
-            stac:hasAssetroles "metadata" ;
-            file:checksum "1220ffe80cd84de27fed65be4cd5289bcf00defe4553f2fc7086465228bec4d28476" ;
-            file:size 945 ;
-            serialization:field [ serialization:key "file:checksum" ;
-                    serialization:kind "value" ;
-                    serialization:predicate file:checksum ],
-                [ serialization:items ( "metadata" ) ;
-                    serialization:key "roles" ;
-                    serialization:kind "set" ;
-                    serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "file:size" ;
-                    serialization:kind "value" ;
-                    serialization:predicate file:size ],
-                [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:key "title" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:title ],
-                [ serialization:key "href" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:href ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ] ;
-            serialization:mapKey "citation" ;
-            ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff" ],
-        [ a serialization:Object ;
-            dct:description "Generic Dockerfile used to build the inference container image." ;
-            dct:format "text/x-dockerfile" ;
-            dct:title "Inference container definition" ;
-            application:languages "Dockerfile" ;
-            stac:hasAssetroles "container" ;
-            file:checksum "12201afe4cb941fb434e8fac2bd83a4ddf3a701993bd050a3bae82584e94b3b0824b" ;
-            file:size 1626 ;
-            serialization:field [ serialization:items ( "container" ) ;
-                    serialization:key "roles" ;
-                    serialization:kind "set" ;
-                    serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "title" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:title ],
-                [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:key "file:checksum" ;
-                    serialization:kind "value" ;
-                    serialization:predicate file:checksum ],
-                [ serialization:items ( "Dockerfile" ) ;
-                    serialization:key "application:languages" ;
-                    serialization:kind "set" ;
-                    serialization:predicate application:languages ],
-                [ serialization:key "file:size" ;
-                    serialization:kind "value" ;
-                    serialization:predicate file:size ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ],
-                [ serialization:key "href" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:href ] ;
-            serialization:mapKey "container" ;
-            ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference" ],
-        [ a serialization:Object ;
-            dct:description "Versioned OCI container that packages PyTorch, Snakemake, the workflow, and model dependencies." ;
-            dct:format "application/vnd.oci.image.index.v1+json" ;
-            dct:title "resoterre inference container 0.1.3.dev9" ;
-            stac:hasAssetroles "mlm:inference-runtime",
-                "runtime" ;
-            serialization:field [ serialization:key "href" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ns1:href ],
-                [ serialization:key "type" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:items ( "mlm:inference-runtime" "runtime" ) ;
-                    serialization:key "roles" ;
-                    serialization:kind "set" ;
-                    serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "title" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:title ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ] ;
-            serialization:mapKey "runtime" ;
-            ns1:href "docker://resoterre-inference:0.1.3.dev9" ],
         [ a serialization:Object ;
             dct:description "Executable Snakemake workflow that preprocesses RDPS data and runs downscaling inference." ;
             dct:format "text/x-snakemake" ;
@@ -229,40 +169,100 @@
             file:checksum "1220fbfe7b7f39796c9e378dc2522a82581ec9024781222327a5d75ba59dc3b32046" ;
             file:size 1700 ;
             mlm:entrypoint "snakemake -s scripts/meta_workflows/downscaling/rdps_to_hrdps.smk --config config_yaml=/app/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml -j1 --directory=/app" ;
-            serialization:field [ serialization:key "type" ;
+            serialization:field [ serialization:key "title" ;
                     serialization:kind "value" ;
-                    serialization:predicate dct:format ],
-                [ serialization:items ( "Python" ) ;
-                    serialization:key "application:languages" ;
-                    serialization:kind "set" ;
-                    serialization:predicate application:languages ],
-                [ serialization:key "mlm:entrypoint" ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "description" ;
                     serialization:kind "value" ;
-                    serialization:predicate mlm:entrypoint ],
+                    serialization:predicate dct:description ],
                 [ serialization:key "file:size" ;
                     serialization:kind "value" ;
                     serialization:predicate file:size ],
+                [ serialization:key "application:entrypoint" ;
+                    serialization:kind "value" ;
+                    serialization:predicate application:entrypoint ],
                 [ serialization:items ( "mlm:source_code" "code" ) ;
                     serialization:key "roles" ;
                     serialization:kind "set" ;
                     serialization:predicate stac:hasAssetroles ],
-                [ serialization:key "file:checksum" ;
+                [ serialization:key "mlm:entrypoint" ;
                     serialization:kind "value" ;
-                    serialization:predicate file:checksum ],
-                [ serialization:key "description" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dct:description ],
+                    serialization:predicate mlm:entrypoint ],
+                [ serialization:items ( "Python" ) ;
+                    serialization:key "application:languages" ;
+                    serialization:kind "set" ;
+                    serialization:predicate application:languages ],
                 [ serialization:key "href" ;
                     serialization:kind "value" ;
                     serialization:predicate ns1:href ],
+                [ serialization:key "file:checksum" ;
+                    serialization:kind "value" ;
+                    serialization:predicate file:checksum ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ] ;
+            serialization:mapKey "source_code" ;
+            ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk" ],
+        [ a serialization:Object ;
+            dct:description "Versioned OCI container that packages PyTorch, Snakemake, the workflow, and model dependencies." ;
+            dct:format "application/vnd.oci.image.index.v1+json" ;
+            dct:title "resoterre inference container 0.1.3.dev9" ;
+            stac:hasAssetroles "mlm:inference-runtime",
+                "runtime" ;
+            serialization:field [ serialization:key "title" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:title ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:items ( "mlm:inference-runtime" "runtime" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ] ;
+            serialization:mapKey "runtime" ;
+            ns1:href "docker://resoterre-inference:0.1.3.dev9" ],
+        [ a serialization:Object ;
+            dct:description "Generic Dockerfile used to build the inference container image." ;
+            dct:format "text/x-dockerfile" ;
+            dct:title "Inference container definition" ;
+            application:languages "Dockerfile" ;
+            stac:hasAssetroles "container" ;
+            file:checksum "12201afe4cb941fb434e8fac2bd83a4ddf3a701993bd050a3bae82584e94b3b0824b" ;
+            file:size 1626 ;
+            serialization:field [ serialization:items ( "Dockerfile" ) ;
+                    serialization:key "application:languages" ;
+                    serialization:kind "set" ;
+                    serialization:predicate application:languages ],
+                [ serialization:items ( "container" ) ;
+                    serialization:key "roles" ;
+                    serialization:kind "set" ;
+                    serialization:predicate stac:hasAssetroles ],
+                [ serialization:key "description" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:description ],
+                [ serialization:key "file:size" ;
+                    serialization:kind "value" ;
+                    serialization:predicate file:size ],
                 [ serialization:key "title" ;
                     serialization:kind "value" ;
                     serialization:predicate dct:title ],
-                [ serialization:key "application:entrypoint" ;
+                [ serialization:key "file:checksum" ;
                     serialization:kind "value" ;
-                    serialization:predicate application:entrypoint ] ;
-            serialization:mapKey "source_code" ;
-            ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk" ] ;
+                    serialization:predicate file:checksum ],
+                [ serialization:key "type" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dct:format ],
+                [ serialization:key "href" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ns1:href ] ;
+            serialization:mapKey "container" ;
+            ns1:href "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference" ] ;
     stac:hasExtension "https://stac-extensions.github.io/application/v0.1.0/schema.json",
         "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
@@ -272,67 +272,44 @@
         "https://stac-extensions.github.io/vcs/v0.1.0/schema.json",
         "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
     stac:version "1.1.0" ;
-    serialization:field [ serialization:key "id" ;
+    serialization:field [ serialization:key "bbox" ;
+            serialization:kind "array" ;
+            serialization:predicate geojson:bbox ],
+        [ serialization:items ( _:Nd7d83c67c07e43e3af9fcf6d40879208 _:Ne0c96bfbef664bb8b6a5b11342c4992e _:N9369fa5b6b0241a4873a3c272957f010 _:N8e5ac76ba91b42b29639e3dbd93be212 _:N519215e7b1414f9089e6a06ac1e0d03f _:Nd90a6d52eea4401d9c508dfc96af9f00 _:N3db695bb26e04de482c7c49706e9b7f4 _:N16994aa5e5de41d68397de967a3026da _:N8231aa45fec448c49277695439ffde4a _:N229b29681f5a4dc8983a53152fed1dd9 _:Nfd354be1e50146cd9e96a22ef78063fd _:N6f644ce907d64c93ac980449c12e7ad5 _:Nbab7baad993947c0acd583f39d3ab5a2 ) ;
+            serialization:key "links" ;
+            serialization:kind "set" ;
+            serialization:predicate rdfs:seeAlso ],
+        [ serialization:key "stac_version" ;
+            serialization:kind "value" ;
+            serialization:predicate stac:version ],
+        [ serialization:key "assets" ;
+            serialization:kind "map" ;
+            serialization:predicate stac:hasAsset ],
+        [ serialization:key "properties" ;
+            serialization:kind "value" ;
+            serialization:predicate ns1:properties ],
+        [ serialization:key "id" ;
             serialization:kind "value" ;
             serialization:predicate ns1:id ],
         [ serialization:key "type" ;
             serialization:kind "value" ;
             serialization:predicate ns1:type ],
-        [ serialization:items ( _:Nc29cfdddc04c4c38be63e37f75e25018 _:Nc3b69ca53a76418ebc9f8040aaa8c483 _:N3a0089c7aaaf4553a71b31f48c8dad67 _:Nc02b3ad2ae8f4fab87c929be5f528ed4 _:Nf33808720fc94a6081be41fa8500f5ed _:N6c7a9e7e2dce4ac894fcccd472102a3b _:N51add52a1d2f48998ac04d265443f604 _:N1f7edc13e3e04975b572c740bc3df60c _:Nac13fe92294f408a9890abe23c3a9d0d _:N0bd2fb7a4d3242909bf5e6d12d8a35cb _:N0d5fa82d86ee436e8feadbfa8ee43b69 _:Nfeaa8c96d8b14c17a09bb3fb79edac97 _:Nda65efd4da8d4e7f80a27afe0d8d1dd5 ) ;
-            serialization:key "links" ;
-            serialization:kind "set" ;
-            serialization:predicate rdfs:seeAlso ],
-        [ serialization:key "properties" ;
+        [ serialization:key "geometry" ;
             serialization:kind "value" ;
-            serialization:predicate ns1:properties ],
+            serialization:predicate geojson:geometry ],
         [ serialization:items ( "https://stac-extensions.github.io/version/v1.2.0/schema.json" "https://stac-extensions.github.io/scientific/v1.0.0/schema.json" "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" "https://stac-extensions.github.io/file/v2.1.0/schema.json" "https://stac-extensions.github.io/datacube/v2.3.0/schema.json" "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json" "https://stac-extensions.github.io/application/v0.1.0/schema.json" "https://stac-extensions.github.io/vcs/v0.1.0/schema.json" ) ;
             serialization:key "stac_extensions" ;
             serialization:kind "set" ;
-            serialization:predicate stac:hasExtension ],
-        [ serialization:key "assets" ;
-            serialization:kind "map" ;
-            serialization:predicate stac:hasAsset ],
-        [ serialization:key "bbox" ;
-            serialization:kind "array" ;
-            serialization:predicate geojson:bbox ],
-        [ serialization:key "stac_version" ;
-            serialization:kind "value" ;
-            serialization:predicate stac:version ],
-        [ serialization:key "geometry" ;
-            serialization:kind "value" ;
-            serialization:predicate geojson:geometry ] ;
+            serialization:predicate stac:hasExtension ] ;
     ns1:id "unet_rdps_to_hrdps" ;
     ns1:properties [ a serialization:Object ;
             dct:description "U-Net trained to downscale RDPS meteorological data to HRDPS resolution." ;
             dcat:license "Apache-2.0" ;
             stac:end_datetime "2100-12-31T23:59:59Z" ;
-            stac:hasProvider _:N26e67d30ecb54be6bb80d295df2d4c71,
-                _:Nc5bc7421c80b4978b5c139b48c6a7215 ;
+            stac:hasProvider _:Nc4be1a8e28b24415aa71735e197760bd,
+                _:Nd7bb6752ed2e46f79e99167b68d32506 ;
             stac:start_datetime "2017-05-22T07:00:00Z" ;
             cube:dimensions [ a serialization:Object ;
-                    cube:axis "y" ;
-                    cube:description "Row coordinate of the 512x512 HRDPS target array in its rotated-pole grid. The geographic positions are provided by the two-dimensional lat/lon auxiliary coordinates." ;
-                    cube:extent ( 0 511 ) ;
-                    cube:type "spatial" ;
-                    cube:unit "index" ;
-                    mlm:datacube_dimension_name "rlat" ;
-                    serialization:field [ serialization:key "unit" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:unit ],
-                        [ serialization:key "axis" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:axis ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "extent" ;
-                            serialization:kind "array" ;
-                            serialization:predicate cube:extent ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "rlat" ],
-                [ a serialization:Object ;
                     cube:description "Valid time associated with each independently processed model sample." ;
                     cube:extent ( "2017-05-22T07:00:00Z" "2100-12-31T23:59:59Z" ) ;
                     cube:type "temporal" ;
@@ -341,26 +318,6 @@
                     serialization:field [ serialization:key "description" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:description ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:key "unit" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:unit ],
-                        [ serialization:key "extent" ;
-                            serialization:kind "array" ;
-                            serialization:predicate cube:extent ] ;
-                    serialization:mapKey "time" ],
-                [ a serialization:Object ;
-                    cube:axis "x" ;
-                    cube:description "Column coordinate of the 512x512 HRDPS target array in its rotated-pole grid. The geographic positions are provided by the two-dimensional lat/lon auxiliary coordinates." ;
-                    cube:extent ( 0 511 ) ;
-                    cube:type "spatial" ;
-                    cube:unit "index" ;
-                    mlm:datacube_dimension_name "rlon" ;
-                    serialization:field [ serialization:key "axis" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:axis ],
                         [ serialization:key "extent" ;
                             serialization:kind "array" ;
                             serialization:predicate cube:extent ],
@@ -369,193 +326,62 @@
                             serialization:predicate cube:type ],
                         [ serialization:key "unit" ;
                             serialization:kind "value" ;
-                            serialization:predicate cube:unit ],
-                        [ serialization:key "description" ;
+                            serialization:predicate cube:unit ] ;
+                    serialization:mapKey "time" ],
+                [ a serialization:Object ;
+                    cube:axis "x" ;
+                    cube:description "Column coordinate of the 512x512 HRDPS target array in its rotated-pole grid. The geographic positions are provided by the two-dimensional lat/lon auxiliary coordinates." ;
+                    cube:extent ( 0 511 ) ;
+                    cube:type "spatial" ;
+                    cube:unit "index" ;
+                    mlm:datacube_dimension_name "rlon" ;
+                    serialization:field [ serialization:key "description" ;
                             serialization:kind "value" ;
-                            serialization:predicate cube:description ] ;
-                    serialization:mapKey "rlon" ] ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "extent" ;
+                            serialization:kind "array" ;
+                            serialization:predicate cube:extent ],
+                        [ serialization:key "axis" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:axis ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ] ;
+                    serialization:mapKey "rlon" ],
+                [ a serialization:Object ;
+                    cube:axis "y" ;
+                    cube:description "Row coordinate of the 512x512 HRDPS target array in its rotated-pole grid. The geographic positions are provided by the two-dimensional lat/lon auxiliary coordinates." ;
+                    cube:extent ( 0 511 ) ;
+                    cube:type "spatial" ;
+                    cube:unit "index" ;
+                    mlm:datacube_dimension_name "rlat" ;
+                    serialization:field [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:key "extent" ;
+                            serialization:kind "array" ;
+                            serialization:predicate cube:extent ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "axis" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:axis ] ;
+                    serialization:mapKey "rlat" ] ;
             cube:variables [ a serialization:Object ;
                     cube:data_type "float32" ;
-                    cube:description "RDPS relative humidity at 850 hPa, normalized before inference." ;
+                    cube:description "RDPS geopotential height at 850 hPa, normalized before inference." ;
                     cube:dimensions "rlat",
                         "rlon",
                         "time" ;
                     cube:type "data" ;
-                    mlm:datacube_variable_name "HU850" ;
-                    serialization:field [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ] ;
-                    serialization:mapKey "HU850" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS geopotential height at 500 hPa, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "GZ500" ;
-                    serialization:field [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ] ;
-                    serialization:mapKey "GZ500" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "Static HRDPS orography on the target rotated grid, aligned to the output patch." ;
-                    cube:dimensions "rlat",
-                        "rlon" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "orog" ;
-                    serialization:field [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:items ( "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ] ;
-                    serialization:mapKey "orog" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS northward wind component on model levels, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "VV_model_levels" ;
-                    serialization:field [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "VV_model_levels" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "HRDPS northward wind component at 10 m, reconstructed on the target grid." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "HRDPS_P_VVC_10000" ;
-                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ] ;
-                    serialization:mapKey "HRDPS_P_VVC_10000" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "Static HRDPS land-fraction field on the target rotated grid, aligned to the output patch." ;
-                    cube:dimensions "rlat",
-                        "rlon" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "sftlf" ;
-                    serialization:field [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:items ( "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ] ;
-                    serialization:mapKey "sftlf" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS dew-point temperature, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "TD" ;
-                    serialization:field [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ] ;
-                    serialization:mapKey "TD" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS air temperature on model levels, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "TT_model_levels" ;
-                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ] ;
-                    serialization:mapKey "TT_model_levels" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS convective precipitation at the surface, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "PC" ;
+                    mlm:datacube_variable_name "GZ850" ;
                     serialization:field [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ],
@@ -569,37 +395,79 @@
                             serialization:key "dimensions" ;
                             serialization:kind "set" ;
                             serialization:predicate cube:dimensions ] ;
-                    serialization:mapKey "PC" ],
+                    serialization:mapKey "GZ850" ],
                 [ a serialization:Object ;
                     cube:data_type "float32" ;
-                    cube:description "HRDPS air temperature at 10 m, reconstructed on the target grid." ;
+                    cube:description "Static HRDPS land-fraction field on the target rotated grid, aligned to the output patch." ;
                     cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
+                        "rlon" ;
                     cube:type "data" ;
-                    mlm:datacube_variable_name "HRDPS_P_TT_10000" ;
-                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
+                    mlm:datacube_variable_name "sftlf" ;
+                    serialization:field [ serialization:items ( "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "sftlf" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "Static HRDPS orography on the target rotated grid, aligned to the output patch." ;
+                    cube:dimensions "rlat",
+                        "rlon" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "orog" ;
+                    serialization:field [ serialization:items ( "rlat" "rlon" ) ;
                             serialization:key "dimensions" ;
                             serialization:kind "set" ;
                             serialization:predicate cube:dimensions ],
                         [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
                         [ serialization:key "description" ;
                             serialization:kind "value" ;
-                            serialization:predicate cube:description ] ;
-                    serialization:mapKey "HRDPS_P_TT_10000" ],
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ] ;
+                    serialization:mapKey "orog" ],
                 [ a serialization:Object ;
                     cube:data_type "float32" ;
-                    cube:description "RDPS air temperature at 850 hPa, normalized before inference." ;
+                    cube:description "HRDPS northward wind component at 10 m, reconstructed on the target grid." ;
                     cube:dimensions "rlat",
                         "rlon",
                         "time" ;
                     cube:type "data" ;
-                    mlm:datacube_variable_name "TT850" ;
+                    mlm:datacube_variable_name "HRDPS_P_VVC_10000" ;
+                    serialization:field [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ] ;
+                    serialization:mapKey "HRDPS_P_VVC_10000" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS relative humidity at 850 hPa, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "HU850" ;
                     serialization:field [ serialization:key "description" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:description ],
@@ -613,7 +481,255 @@
                         [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ] ;
+                    serialization:mapKey "HU850" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS air temperature at 850 hPa, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "TT850" ;
+                    serialization:field [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ] ;
                     serialization:mapKey "TT850" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS dew-point temperature, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "TD" ;
+                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "TD" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "HRDPS air temperature at 10 m, reconstructed on the target grid." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "HRDPS_P_TT_10000" ;
+                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ] ;
+                    serialization:mapKey "HRDPS_P_TT_10000" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS geopotential height at 500 hPa, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "GZ500" ;
+                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "GZ500" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS northward wind component on model levels, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "VV_model_levels" ;
+                    serialization:field [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "VV_model_levels" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "Geographic longitude auxiliary coordinate for the rotated grid." ;
+                    cube:dimensions "rlat",
+                        "rlon" ;
+                    cube:type "auxiliary" ;
+                    cube:unit "degree_east" ;
+                    mlm:datacube_variable_name "lon" ;
+                    serialization:field [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:items ( "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ] ;
+                    serialization:mapKey "lon" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS relative humidity at 700 hPa, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "HU700" ;
+                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ] ;
+                    serialization:mapKey "HU700" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS northward wind component at 850 hPa, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "VV850" ;
+                    serialization:field [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ] ;
+                    serialization:mapKey "VV850" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS pressure at the surface, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "PN" ;
+                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "PN" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "Geographic latitude auxiliary coordinate for the rotated grid." ;
+                    cube:dimensions "rlat",
+                        "rlon" ;
+                    cube:type "auxiliary" ;
+                    cube:unit "degree_north" ;
+                    mlm:datacube_variable_name "lat" ;
+                    serialization:field [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "unit" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:unit ],
+                        [ serialization:items ( "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ] ;
+                    serialization:mapKey "lat" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS air temperature on model levels, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "TT_model_levels" ;
+                    serialization:field [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ] ;
+                    serialization:mapKey "TT_model_levels" ],
                 [ a serialization:Object ;
                     cube:data_type "float32" ;
                     cube:description "RDPS precipitation rate at the surface, normalized before inference." ;
@@ -629,82 +745,79 @@
                         [ serialization:key "data_type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:data_type ],
+                        [ serialization:key "description" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:description ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ] ;
+                    serialization:mapKey "PR" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS eastward wind component on model levels, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "UU_model_levels" ;
+                    serialization:field [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
                         [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ],
                         [ serialization:key "description" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:description ] ;
-                    serialization:mapKey "PR" ],
+                    serialization:mapKey "UU_model_levels" ],
                 [ a serialization:Object ;
                     cube:data_type "float32" ;
-                    cube:description "Geographic longitude auxiliary coordinate for the rotated grid." ;
-                    cube:dimensions "rlat",
-                        "rlon" ;
-                    cube:type "auxiliary" ;
-                    cube:unit "degree_east" ;
-                    mlm:datacube_variable_name "lon" ;
-                    serialization:field [ serialization:key "unit" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:unit ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:items ( "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "lon" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS pressure at the surface, normalized before inference." ;
+                    cube:description "RDPS convective precipitation at the surface, normalized before inference." ;
                     cube:dimensions "rlat",
                         "rlon",
                         "time" ;
                     cube:type "data" ;
-                    mlm:datacube_variable_name "PN" ;
-                    serialization:field [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "description" ;
+                    mlm:datacube_variable_name "PC" ;
+                    serialization:field [ serialization:key "description" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:description ],
                         [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "PN" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "HRDPS eastward wind component at 10 m, reconstructed on the target grid." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "HRDPS_P_UUC_10000" ;
-                    serialization:field [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ],
-                        [ serialization:key "description" ;
+                        [ serialization:items ( "time" "rlat" "rlon" ) ;
+                            serialization:key "dimensions" ;
+                            serialization:kind "set" ;
+                            serialization:predicate cube:dimensions ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ] ;
+                    serialization:mapKey "PC" ],
+                [ a serialization:Object ;
+                    cube:data_type "float32" ;
+                    cube:description "RDPS eastward wind component at 850 hPa, normalized before inference." ;
+                    cube:dimensions "rlat",
+                        "rlon",
+                        "time" ;
+                    cube:type "data" ;
+                    mlm:datacube_variable_name "UU850" ;
+                    serialization:field [ serialization:key "description" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:description ],
                         [ serialization:key "data_type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:data_type ],
+                        [ serialization:key "type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:type ],
                         [ serialization:items ( "time" "rlat" "rlon" ) ;
                             serialization:key "dimensions" ;
                             serialization:kind "set" ;
                             serialization:predicate cube:dimensions ] ;
-                    serialization:mapKey "HRDPS_P_UUC_10000" ],
+                    serialization:mapKey "UU850" ],
                 [ a serialization:Object ;
                     cube:data_type "float32" ;
                     cube:description "HRDPS precipitation rate at the surface, reconstructed on the target grid." ;
@@ -716,141 +829,28 @@
                     serialization:field [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ],
+                        [ serialization:key "data_type" ;
+                            serialization:kind "value" ;
+                            serialization:predicate cube:data_type ],
                         [ serialization:items ( "time" "rlat" "rlon" ) ;
                             serialization:key "dimensions" ;
                             serialization:kind "set" ;
                             serialization:predicate cube:dimensions ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
                         [ serialization:key "description" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:description ] ;
                     serialization:mapKey "HRDPS_P_PR_SFC" ],
                 [ a serialization:Object ;
                     cube:data_type "float32" ;
-                    cube:description "Geographic latitude auxiliary coordinate for the rotated grid." ;
-                    cube:dimensions "rlat",
-                        "rlon" ;
-                    cube:type "auxiliary" ;
-                    cube:unit "degree_north" ;
-                    mlm:datacube_variable_name "lat" ;
-                    serialization:field [ serialization:items ( "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "unit" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:unit ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "lat" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS eastward wind component on model levels, normalized before inference." ;
+                    cube:description "HRDPS eastward wind component at 10 m, reconstructed on the target grid." ;
                     cube:dimensions "rlat",
                         "rlon",
                         "time" ;
                     cube:type "data" ;
-                    mlm:datacube_variable_name "UU_model_levels" ;
-                    serialization:field [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "UU_model_levels" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS geopotential height at 850 hPa, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "GZ850" ;
-                    serialization:field [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ] ;
-                    serialization:mapKey "GZ850" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS eastward wind component at 850 hPa, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "UU850" ;
+                    mlm:datacube_variable_name "HRDPS_P_UUC_10000" ;
                     serialization:field [ serialization:key "type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ] ;
-                    serialization:mapKey "UU850" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS northward wind component at 850 hPa, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "VV850" ;
-                    serialization:field [ serialization:key "data_type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:data_type ],
-                        [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
-                        [ serialization:key "type" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:type ],
-                        [ serialization:items ( "time" "rlat" "rlon" ) ;
-                            serialization:key "dimensions" ;
-                            serialization:kind "set" ;
-                            serialization:predicate cube:dimensions ] ;
-                    serialization:mapKey "VV850" ],
-                [ a serialization:Object ;
-                    cube:data_type "float32" ;
-                    cube:description "RDPS relative humidity at 700 hPa, normalized before inference." ;
-                    cube:dimensions "rlat",
-                        "rlon",
-                        "time" ;
-                    cube:type "data" ;
-                    mlm:datacube_variable_name "HU700" ;
-                    serialization:field [ serialization:key "description" ;
-                            serialization:kind "value" ;
-                            serialization:predicate cube:description ],
                         [ serialization:key "data_type" ;
                             serialization:kind "value" ;
                             serialization:predicate cube:data_type ],
@@ -858,10 +858,10 @@
                             serialization:key "dimensions" ;
                             serialization:kind "set" ;
                             serialization:predicate cube:dimensions ],
-                        [ serialization:key "type" ;
+                        [ serialization:key "description" ;
                             serialization:kind "value" ;
-                            serialization:predicate cube:type ] ;
-                    serialization:mapKey "HU700" ] ;
+                            serialization:predicate cube:description ] ;
+                    serialization:mapKey "HRDPS_P_UUC_10000" ] ;
             mlm:accelerator mlm:cuda ;
             mlm:accelerator_constrained false ;
             mlm:architecture "U-Net" ;
@@ -875,12 +875,12 @@
                                     serialization:Object ;
                                 mlm:data_type "float32" ;
                                 mlm:dim_order ( "batch" "variables" "rlat" "rlon" ) ;
-                                serialization:field [ serialization:key "data_type" ;
-                                        serialization:kind "value" ;
-                                        serialization:predicate mlm:data_type ],
-                                    [ serialization:key "dim_order" ;
+                                serialization:field [ serialization:key "dim_order" ;
                                         serialization:kind "array" ;
                                         serialization:predicate mlm:dim_order ],
+                                    [ serialization:key "data_type" ;
+                                        serialization:kind "value" ;
+                                        serialization:predicate mlm:data_type ],
                                     [ serialization:key "shape" ;
                                         serialization:kind "array" ;
                                         serialization:predicate mlm:shape ] ;
@@ -890,21 +890,21 @@
                         serialization:field [ serialization:key "name" ;
                                 serialization:kind "value" ;
                                 serialization:predicate mlm:io_name ],
-                            [ serialization:key "pre_processing_function" ;
-                                serialization:kind "null" ;
-                                serialization:predicate mlm:pre_processing_function ],
                             [ serialization:key "input" ;
                                 serialization:kind "value" ;
                                 serialization:predicate mlm:input_structure ],
-                            [ serialization:key "variables" ;
-                                serialization:kind "array" ;
-                                serialization:predicate mlm:variables ],
                             [ serialization:key "description" ;
                                 serialization:kind "value" ;
                                 serialization:predicate mlm:io_description ],
+                            [ serialization:key "variables" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:variables ],
                             [ serialization:key "bands" ;
                                 serialization:kind "array" ;
-                                serialization:predicate mlm:bands ] ;
+                                serialization:predicate mlm:bands ],
+                            [ serialization:key "pre_processing_function" ;
+                                serialization:kind "null" ;
+                                serialization:predicate mlm:pre_processing_function ] ;
                         mlm:variables ( "TT_model_levels" "PR" "UU_model_levels" "VV_model_levels" "PC" "PN" "TT850" "GZ500" "GZ850" "HU850" "HU700" "TD" "UU850" "VV850" ) ] [ a mlm:ModelInput,
                             serialization:Object ;
                         mlm:bands () ;
@@ -912,28 +912,19 @@
                                     serialization:Object ;
                                 mlm:data_type "float32" ;
                                 mlm:dim_order ( "batch" "variables" "rlat" "rlon" ) ;
-                                serialization:field [ serialization:key "shape" ;
-                                        serialization:kind "array" ;
-                                        serialization:predicate mlm:shape ],
-                                    [ serialization:key "data_type" ;
+                                serialization:field [ serialization:key "data_type" ;
                                         serialization:kind "value" ;
                                         serialization:predicate mlm:data_type ],
+                                    [ serialization:key "shape" ;
+                                        serialization:kind "array" ;
+                                        serialization:predicate mlm:shape ],
                                     [ serialization:key "dim_order" ;
                                         serialization:kind "array" ;
                                         serialization:predicate mlm:dim_order ] ;
                                 mlm:shape ( -1 2 512 512 ) ] ;
                         mlm:io_description "Static orography and land-fraction channels on the 512x512 target grid. The geographic lat/lon are auxiliary coordinates over rlat/rlon." ;
                         mlm:io_name "hrdps_geophysical_inputs" ;
-                        serialization:field [ serialization:key "variables" ;
-                                serialization:kind "array" ;
-                                serialization:predicate mlm:variables ],
-                            [ serialization:key "pre_processing_function" ;
-                                serialization:kind "null" ;
-                                serialization:predicate mlm:pre_processing_function ],
-                            [ serialization:key "name" ;
-                                serialization:kind "value" ;
-                                serialization:predicate mlm:io_name ],
-                            [ serialization:key "bands" ;
+                        serialization:field [ serialization:key "bands" ;
                                 serialization:kind "array" ;
                                 serialization:predicate mlm:bands ],
                             [ serialization:key "description" ;
@@ -941,7 +932,16 @@
                                 serialization:predicate mlm:io_description ],
                             [ serialization:key "input" ;
                                 serialization:kind "value" ;
-                                serialization:predicate mlm:input_structure ] ;
+                                serialization:predicate mlm:input_structure ],
+                            [ serialization:key "pre_processing_function" ;
+                                serialization:kind "null" ;
+                                serialization:predicate mlm:pre_processing_function ],
+                            [ serialization:key "variables" ;
+                                serialization:kind "array" ;
+                                serialization:predicate mlm:variables ],
+                            [ serialization:key "name" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:io_name ] ;
                         mlm:variables ( "orog" "sftlf" ) ] ) ;
             mlm:name "UNet RDPS HRDPS Downscaling" ;
             mlm:output ( [ a mlm:ModelOutput,
@@ -963,9 +963,9 @@
                                         serialization:kind "array" ;
                                         serialization:predicate mlm:dim_order ] ;
                                 mlm:shape ( -1 4 512 512 ) ] ;
-                        serialization:field [ serialization:key "description" ;
-                                serialization:kind "value" ;
-                                serialization:predicate mlm:io_description ],
+                        serialization:field [ serialization:key "post_processing_function" ;
+                                serialization:kind "null" ;
+                                serialization:predicate mlm:post_processing_function ],
                             [ serialization:key "name" ;
                                 serialization:kind "value" ;
                                 serialization:predicate mlm:io_name ],
@@ -978,18 +978,36 @@
                             [ serialization:key "variables" ;
                                 serialization:kind "array" ;
                                 serialization:predicate mlm:variables ],
-                            [ serialization:key "post_processing_function" ;
-                                serialization:kind "null" ;
-                                serialization:predicate mlm:post_processing_function ],
                             [ serialization:key "result" ;
                                 serialization:kind "value" ;
-                                serialization:predicate mlm:result ] ;
+                                serialization:predicate mlm:result ],
+                            [ serialization:key "description" ;
+                                serialization:kind "value" ;
+                                serialization:predicate mlm:io_description ] ;
                         mlm:tasks ( mlm:downscaling mlm:super-resolution ) ;
                         mlm:variables ( "HRDPS_P_TT_10000" "HRDPS_P_PR_SFC" "HRDPS_P_UUC_10000" "HRDPS_P_VVC_10000" ) ] ) ;
             mlm:pretrained false ;
             serialization:field [ serialization:key "mlm:input" ;
                     serialization:kind "array" ;
                     serialization:predicate mlm:input ],
+                [ serialization:key "mlm:tasks" ;
+                    serialization:kind "array" ;
+                    serialization:predicate mlm:tasks ],
+                [ serialization:key "mlm:pretrained" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:pretrained ],
+                [ serialization:key "license" ;
+                    serialization:kind "value" ;
+                    serialization:predicate dcat:license ],
+                [ serialization:key "end_datetime" ;
+                    serialization:kind "value" ;
+                    serialization:predicate stac:end_datetime ],
+                [ serialization:key "mlm:framework" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:framework ],
+                [ serialization:key "mlm:accelerator" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:accelerator ],
                 [ serialization:key "description" ;
                     serialization:kind "value" ;
                     serialization:predicate dct:description ],
@@ -999,73 +1017,55 @@
                 [ serialization:key "version" ;
                     serialization:kind "value" ;
                     serialization:predicate ver:version ],
-                [ serialization:key "sci:citation" ;
-                    serialization:kind "value" ;
-                    serialization:predicate sci:citation ],
-                [ serialization:key "mlm:tasks" ;
-                    serialization:kind "array" ;
-                    serialization:predicate mlm:tasks ],
-                [ serialization:key "end_datetime" ;
-                    serialization:kind "value" ;
-                    serialization:predicate stac:end_datetime ],
-                [ serialization:key "experimental" ;
-                    serialization:kind "value" ;
-                    serialization:predicate ver:experimental ],
-                [ serialization:key "mlm:accelerator" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:accelerator ],
                 [ serialization:key "cube:variables" ;
                     serialization:kind "map" ;
                     serialization:predicate cube:variables ],
-                [ serialization:key "mlm:framework_version" ;
+                [ serialization:key "mlm:architecture" ;
                     serialization:kind "value" ;
-                    serialization:predicate mlm:framework_version ],
+                    serialization:predicate mlm:architecture ],
+                [ serialization:key "sci:citation" ;
+                    serialization:kind "value" ;
+                    serialization:predicate sci:citation ],
                 [ serialization:key "vcs:type" ;
                     serialization:kind "value" ;
                     serialization:predicate vcs:type ],
                 [ serialization:key "vcs:revision" ;
                     serialization:kind "value" ;
                     serialization:predicate vcs:revision ],
-                [ serialization:key "mlm:total_parameters" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:total_parameters ],
-                [ serialization:key "mlm:architecture" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:architecture ],
-                [ serialization:key "mlm:framework" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:framework ],
-                [ serialization:key "cube:dimensions" ;
-                    serialization:kind "map" ;
-                    serialization:predicate cube:dimensions ],
                 [ serialization:key "mlm:hyperparameters" ;
                     serialization:kind "json" ;
                     serialization:predicate mlm:hyperparameters ],
-                [ serialization:key "mlm:pretrained" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:pretrained ],
-                [ serialization:key "license" ;
-                    serialization:kind "value" ;
-                    serialization:predicate dcat:license ],
-                [ serialization:key "datetime" ;
-                    serialization:kind "null" ;
-                    serialization:predicate dct:date ],
-                [ serialization:key "mlm:name" ;
-                    serialization:kind "value" ;
-                    serialization:predicate mlm:name ],
-                [ serialization:key "start_datetime" ;
-                    serialization:kind "value" ;
-                    serialization:predicate stac:start_datetime ],
                 [ serialization:key "mlm:output" ;
                     serialization:kind "array" ;
                     serialization:predicate mlm:output ],
-                [ serialization:items ( _:N26e67d30ecb54be6bb80d295df2d4c71 _:Nc5bc7421c80b4978b5c139b48c6a7215 ) ;
+                [ serialization:items ( _:Nd7bb6752ed2e46f79e99167b68d32506 _:Nc4be1a8e28b24415aa71735e197760bd ) ;
                     serialization:key "providers" ;
                     serialization:kind "set" ;
                     serialization:predicate stac:hasProvider ],
+                [ serialization:key "mlm:name" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:name ],
+                [ serialization:key "mlm:total_parameters" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:total_parameters ],
+                [ serialization:key "datetime" ;
+                    serialization:kind "null" ;
+                    serialization:predicate dct:date ],
                 [ serialization:key "vcs:branch" ;
                     serialization:kind "value" ;
-                    serialization:predicate vcs:branch ] ;
+                    serialization:predicate vcs:branch ],
+                [ serialization:key "mlm:framework_version" ;
+                    serialization:kind "value" ;
+                    serialization:predicate mlm:framework_version ],
+                [ serialization:key "start_datetime" ;
+                    serialization:kind "value" ;
+                    serialization:predicate stac:start_datetime ],
+                [ serialization:key "cube:dimensions" ;
+                    serialization:kind "map" ;
+                    serialization:predicate cube:dimensions ],
+                [ serialization:key "experimental" ;
+                    serialization:kind "value" ;
+                    serialization:predicate ver:experimental ] ;
             mlm:tasks ( mlm:downscaling mlm:super-resolution ) ;
             mlm:total_parameters 9871888 ;
             sci:citation "Gauvin St-Denis, B., and Smith, T. J. resoterre (version 0.1.3.dev9). Ouranos." ;
@@ -1076,478 +1076,427 @@
             ver:version "0.1.3.dev9" ] ;
     ns1:type "Feature" .
 
-_:N00c24111a97f43d6883e62e5e79b7cf9 serialization:key "file:checksum" ;
-    serialization:kind "value" ;
-    serialization:predicate file:checksum .
-
-_:N010c65ed514343f4a31ee09b1858f3f6 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N04bd147fcd484c6a9ce4495e5e3ab9de serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N04d1b108b38043bf98af31db0a23b783 serialization:key "vcs:revision" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:revision .
-
-_:N091acaa4b0bf479299267e57492acb83 serialization:key "vcs:branch" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:branch .
-
-_:N0c7af93c1be24c299c62c5496925a3f4 serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N11cab9089ece455294e9218e3d9947c1 serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:N155a55ed653343d1935d50887dceec96 serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N1a5244f0ba2642e2a0d543c3e7040741 rdf:first "Common Workflow Language" ;
-    rdf:rest () .
-
-_:N1a7b86205ce14bc2a949a65d4d94ae8c rdf:first "Common Workflow Language" ;
-    rdf:rest () .
-
-_:N1aa30e2216d24efeb90204a254bf83f5 serialization:key "file:size" ;
-    serialization:kind "value" ;
-    serialization:predicate file:size .
-
-_:N1b908500771446afa230e63de2091322 serialization:key "type" ;
+_:N06a763421ce142fa92c5cc5d6f1a6a16 serialization:key "type" ;
     serialization:kind "value" ;
     serialization:predicate dct:type .
 
-_:N1c42994d364b4f52ac1563bb638fa5b3 serialization:key "vcs:branch" ;
+_:N0a14abfd192e4b43a6bde6519def50d5 serialization:key "href" ;
     serialization:kind "value" ;
-    serialization:predicate vcs:branch .
+    serialization:predicate oa:hasTarget .
 
-_:N1d18a85f2d5b47b0a869289ce1c93746 serialization:key "vcs:type" ;
+_:N0ab7b871871048daae526a22c23f52ee serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N0c55da06050445b7a5c46135c9279e71 serialization:key "ml-aoi:role" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:role .
+
+_:N0cfa94143c4548b793f3c1f943a6e255 serialization:key "vcs:type" ;
     serialization:kind "value" ;
     serialization:predicate vcs:type .
 
-_:N23773beef7274ce1bbfb7bc2784b4f65 serialization:key "ml-aoi:role" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:role .
-
-_:N240be7f7bbff4c07ae3e01222b074713 serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N2a42452d210c4ad5b399a5f65c001f3e serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:N2d477c44464a4088a02c73079a8a5eb8 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N318d5b5cf744400290f2770c050c073c serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N32f55f9419354ad797b602f61de7a7c5 serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:N38e259cbc55947eaab9e59b062633982 serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:N3a5e793426984f4889133f9c4db03dc6 serialization:key "ml-aoi:role" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:role .
-
-_:N3c9a60018a2f4ebeb1da428f7c1fa7a4 serialization:key "ml-aoi:split" ;
+_:N0fc99da70859421684dc2e836f6cafdd serialization:key "ml-aoi:split" ;
     serialization:kind "value" ;
     serialization:predicate ml-aoi:split .
 
-_:N41537eefb5a64d60aeb6984a2154f2ed serialization:key "type" ;
+_:N1097283dce3243c49ecda9c1d628cb52 serialization:key "title" ;
     serialization:kind "value" ;
-    serialization:predicate dct:type .
+    serialization:predicate rdfs:label .
 
-_:N42f1c7d7beb64d4886164f23fe60e184 serialization:key "vcs:branch" ;
+_:N124b7adc3a1c461283ecadc12930d75a serialization:items ( "Common Workflow Language" ) ;
+    serialization:key "application:languages" ;
+    serialization:kind "set" ;
+    serialization:predicate application:languages .
+
+_:N14198c037e434c25b31f43874d587213 serialization:key "ml-aoi:split" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:split .
+
+_:N155ab56e15b94ecfbc4d95c108afc5c6 serialization:key "ml-aoi:split" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:split .
+
+_:N18554dfe833a4784b9fc9ad423baf403 serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:N19eb40650c524a4fa8bd290b3de773ca serialization:key "vcs:revision" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:revision .
+
+_:N1b5e1959736e47f5b35bace1af8a0e94 serialization:items ( "Common Workflow Language" ) ;
+    serialization:key "application:languages" ;
+    serialization:kind "set" ;
+    serialization:predicate application:languages .
+
+_:N1c4a9a5c79914d6bbe5f5f34b3e4e80b serialization:key "vcs:branch" ;
     serialization:kind "value" ;
     serialization:predicate vcs:branch .
 
-_:N452c28ad95164cef9faa716935041272 rdf:first "Common Workflow Language" ;
-    rdf:rest () .
-
-_:N4929fbfdd192425c8bcefd6c6b085c31 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N4bb8847a60064bbaa79643cb439de468 serialization:key "ml-aoi:split" ;
+_:N1d71f904432942e59f1409630a8d504b serialization:key "ml-aoi:split" ;
     serialization:kind "value" ;
     serialization:predicate ml-aoi:split .
 
-_:N4c4b3bdfa3da4faca70cbcb39ef7e6a6 serialization:key "href" ;
+_:N1e39dcaa9f3745bc92f68a7cb173bf6a serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:N1f429efe69cb458589faba4d536d1822 serialization:key "ml-aoi:split" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:split .
+
+_:N21a1461a56b94cbb97799615cc640428 serialization:key "href" ;
     serialization:kind "value" ;
     serialization:predicate oa:hasTarget .
 
-_:N4dfed0ff82e14d54a19201754270362f serialization:key "url" ;
+_:N2328cde22090479d8375eaf8e6b44a1c serialization:key "vcs:revision" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:revision .
+
+_:N23f576fe6e4c480b8119902c293bc92a serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N24a09481da1147d5bc052542a1bdc9ef serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:N264687bb8193430a8510f56820356555 serialization:key "ml-aoi:role" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:role .
+
+_:N2650f9a626da4588a46d1bb042d82295 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N28469c6287d145f2b4d68cc325bdacee serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N2941df5d3a4f4bc2b87bf4c2990ec2ff serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:N29d63689ab6541668db48e3d4d4cda7e serialization:key "vcs:branch" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:branch .
+
+_:N2cc126f8b1b54ba99e3cc72470005c45 serialization:key "vcs:branch" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:branch .
+
+_:N2d308b703af44a0990216f23a5288cb2 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:N2d98f9498a3843dcaca7d0d1b75607b9 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N31ed7dd6051e430db34e96003685abb0 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N34c083b6a060483c9b4a524d1c3adb77 rdf:first "licensor" ;
+    rdf:rest () .
+
+_:N34cf33ac6c8f4fbb9565491297fccbe6 serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:N36fe3bed84a24737a1da1d8fa964d03c serialization:key "ml-aoi:split" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:split .
+
+_:N3999aea2ddae461ea43c06d3b643a042 serialization:key "file:checksum" ;
+    serialization:kind "value" ;
+    serialization:predicate file:checksum .
+
+_:N3bddeaefc6c14b2581de2ff944f48ca4 serialization:items ( "Common Workflow Language" ) ;
+    serialization:key "application:languages" ;
+    serialization:kind "set" ;
+    serialization:predicate application:languages .
+
+_:N3bf3fab62b544c98a65a521e13ffce78 serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:N3dcbd94b0c4c43c8ad0f21dcd7b67829 serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:N45bb4504a27f4895b0c36ba3de671061 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N4971e6d4cced441a9581f484e60391ac serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N4a2f2b195d834d78a49b7556e82baacc serialization:key "url" ;
     serialization:kind "value" ;
     serialization:predicate ns1:url .
 
-_:N4fe85bb99c464976a7fec1bf1ae5a394 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N53063da65e9d47f18143860e3bd5acc5 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N531bf0cc0194424ba4e3a5898c87d4ac serialization:key "ml-aoi:role" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:role .
-
-_:N548be40f17204543943266f686b407c0 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N584cb4ef6ee04c299c6aff7bdfbe0424 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N590838e28e6e491395f79c32852efe21 serialization:key "ml-aoi:role" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:role .
-
-_:N590fc7027add4ea88a222739d827bcc0 serialization:items ( "Common Workflow Language" ) ;
-    serialization:key "application:languages" ;
-    serialization:kind "set" ;
-    serialization:predicate application:languages .
-
-_:N598fce599e1b46ef9a1d80104bf0227c serialization:key "vcs:type" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:type .
-
-_:N5b3775be6d0a452384bbb738fe44e78f serialization:key "vcs:revision" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:revision .
-
-_:N658fe07e3bd74da18f66511583b4e488 serialization:key "vcs:branch" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:branch .
-
-_:N6604ffd53de9425a8747d0340db551df serialization:key "rel" ;
+_:N4c88436884f44eba962dc24855740b17 serialization:key "rel" ;
     serialization:kind "value" ;
     serialization:predicate ns2:relation .
 
-_:N6a7eb610ecc34edc83a8d67bea053266 rdf:first "host" ;
-    rdf:rest ( "processor" ) .
-
-_:N6c662317fbe84bae98648026acb46283 serialization:key "file:size" ;
-    serialization:kind "value" ;
-    serialization:predicate file:size .
-
-_:N72dba896b2b14e01a128360606d6f545 serialization:key "href" ;
+_:N56cdb2a63c6b43fa9c950b4a5692f902 serialization:key "href" ;
     serialization:kind "value" ;
     serialization:predicate oa:hasTarget .
 
-_:N73acb8cfc08d4d9e866d3cc90a31683b serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N74f9a58b16914f4386a9353edccdf036 serialization:key "roles" ;
-    serialization:kind "array" ;
-    serialization:predicate ns1:roles .
-
-_:N79f81523792048e3bb0634f11aa38f52 serialization:items _:N1a7b86205ce14bc2a949a65d4d94ae8c ;
-    serialization:key "application:languages" ;
-    serialization:kind "set" ;
-    serialization:predicate application:languages .
-
-_:N7a1854975b544cb1bd0440f092acc2ed serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N7c8cec3cfecd492e883801583e54bca3 serialization:key "vcs:revision" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:revision .
-
-_:N7d19cd3b5f5a472d916991ee8784f31f serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N7ffd281e68864f9fbdd85188e097fd4d serialization:key "description" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:description .
-
-_:N8a89fe32b67c4abd9487a5fa441a5c79 serialization:key "vcs:revision" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:revision .
-
-_:N8d8f84a5c35f44108e3486f3af0eb845 serialization:key "title" ;
+_:N5b48ed0deb4b436baa8b2b2731d5a175 serialization:key "title" ;
     serialization:kind "value" ;
     serialization:predicate rdfs:label .
 
-_:N8e5572f525ff4b6d89e66f9730302823 serialization:key "type" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:type .
-
-_:N8e80106d42f24763ba42ea0bbad367f1 serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:N92cb4a0f3a8740ee96351397bca5d9c0 serialization:key "rel" ;
+_:N5f581d6993514fac86df37a84d09af9d serialization:key "rel" ;
     serialization:kind "value" ;
     serialization:predicate ns2:relation .
 
-_:N92f2c175baed484bb13286fdec5c737c serialization:key "description" ;
+_:N60d58b4a4ad145308d9c2800c05c36e7 serialization:key "description" ;
     serialization:kind "value" ;
     serialization:predicate dct:description .
 
-_:N95402e89eea245f3920b72887736060d serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:N95a9bc45dd004504939ac6cabe40f209 serialization:key "file:checksum" ;
-    serialization:kind "value" ;
-    serialization:predicate file:checksum .
-
-_:N95fc65d1cba946cc8a4596ade7b5e24e serialization:key "name" ;
+_:N65626a2b1f4f4fe29a3a50ee81f49dbc serialization:key "name" ;
     serialization:kind "value" ;
     serialization:predicate cf:name .
 
-_:N97e4c5a33a9a4b5d96e48369a8f41dd1 serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:N981c753f852b4712a002873d4f7acc53 serialization:key "file:checksum" ;
-    serialization:kind "value" ;
-    serialization:predicate file:checksum .
-
-_:N99c6d183083749b09ba543b5d671c59f serialization:key "roles" ;
-    serialization:kind "array" ;
-    serialization:predicate ns1:roles .
-
-_:N9a3c4234e2f248569001766723a2ddc7 serialization:key "vcs:revision" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:revision .
-
-_:N9d13ca7c333149879de36c53c0911d1e serialization:key "ml-aoi:split" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:split .
-
-_:Na028507c55be4986a38d3b51e0905f73 serialization:key "vcs:type" ;
+_:N668c62254ee349d7930b2c212441fcd7 serialization:key "vcs:type" ;
     serialization:kind "value" ;
     serialization:predicate vcs:type .
 
-_:Na1ca82c268b44a679b33f884ae17bd70 serialization:items _:N452c28ad95164cef9faa716935041272 ;
-    serialization:key "application:languages" ;
-    serialization:kind "set" ;
-    serialization:predicate application:languages .
-
-_:Na2916d761d2d4a78a8383cc6a721c75a rdf:first "producer" ;
-    rdf:rest ( "licensor" ) .
-
-_:Na3ec9787139743439780786fb97823e7 serialization:key "file:checksum" ;
-    serialization:kind "value" ;
-    serialization:predicate file:checksum .
-
-_:Na7f16e81d60b46269f591df9e0519bc1 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:Na81abea6a8e14557a5f96e243934fcef serialization:key "vcs:type" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:type .
-
-_:Nace8fb5a2f194428b3695461718fcd02 serialization:key "vcs:branch" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:branch .
-
-_:Nae2e805336784775b320e8476f0ac7de serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:Naf812b0af8ba426fbfb188cea4716942 serialization:key "ml-aoi:split" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:split .
-
-_:Nb0fcd4a82fe0494aa4881ebbfc53d2ca serialization:key "rel" ;
+_:N68b8906728f84273bcd6a91f5bbff529 serialization:key "rel" ;
     serialization:kind "value" ;
     serialization:predicate ns2:relation .
 
-_:Nb4e7a40e02894dcbb7f704de2e9015b7 serialization:key "rel" ;
+_:N6a36e979933c48578f5155f5b5c7cd70 serialization:key "description" ;
     serialization:kind "value" ;
-    serialization:predicate ns2:relation .
+    serialization:predicate dct:description .
 
-_:Nb95f6cc31fce43eb88d2b3d6fbb19171 serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:Nb96b0c8e655346dea0e1e54fe6c007fe serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:Nc39b6692db784e53a6aeda9e6920c01d serialization:key "ml-aoi:role" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:role .
-
-_:Nc50336b62bd24942afb6097d9dd06a14 serialization:key "ml-aoi:split" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:split .
-
-_:Nc5b1554790674828a42ebe22ce3e1fde serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:Nc6eaa4f41617481a9737c9aed49c25f9 serialization:items _:N1a5244f0ba2642e2a0d543c3e7040741 ;
-    serialization:key "application:languages" ;
-    serialization:kind "set" ;
-    serialization:predicate application:languages .
-
-_:Ncc78bd1904c746c682b6eac2b76e37ed serialization:key "file:size" ;
-    serialization:kind "value" ;
-    serialization:predicate file:size .
-
-_:Ncdae88502e964fd98cd4596bb9b23d63 serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:Nd2182f35e036442eb195de436d2a2150 serialization:key "rel" ;
-    serialization:kind "value" ;
-    serialization:predicate ns2:relation .
-
-_:Nd6920674ef57466d8f889252ed473761 serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:Nd98f2f61ddb84c3495d9dd181fa5011f serialization:key "type" ;
+_:N6a47d629983b426fa5c772f0d2d47e61 serialization:key "type" ;
     serialization:kind "value" ;
     serialization:predicate dct:type .
 
-_:Nddae0c689cbc487b946eb69f2f413931 serialization:key "description" ;
+_:N6b9af60b7d8046babfe75255f1e8ea82 serialization:key "vcs:type" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:type .
+
+_:N6db736e3c4e044ecb741e01907920c11 serialization:key "file:checksum" ;
+    serialization:kind "value" ;
+    serialization:predicate file:checksum .
+
+_:N6de07cadf5d64ea2ae780814e1678dfb serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N6f0ef2d2624d433eb29c8b1e518ea184 serialization:key "ml-aoi:role" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:role .
+
+_:N7b30d5adff6245f2afa41cf531a84082 serialization:key "vcs:branch" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:branch .
+
+_:N7c476f907b544e5db854c1b95c5412e6 serialization:key "description" ;
     serialization:kind "value" ;
     serialization:predicate dct:description .
 
-_:Ndee0425436be47748a57eba6e6f5d765 serialization:key "rel" ;
+_:N7ce5da5ec45f4c898a2086313b8b8399 serialization:key "vcs:branch" ;
     serialization:kind "value" ;
-    serialization:predicate ns2:relation .
+    serialization:predicate vcs:branch .
 
-_:Ne29ce36bd43045e79296fa21266c3000 serialization:key "rel" ;
+_:N7cfbf720a6ee4545983f82f9cbb720b4 serialization:key "description" ;
     serialization:kind "value" ;
-    serialization:predicate ns2:relation .
+    serialization:predicate dct:description .
 
-_:Ne518c8c8c2eb4d1ca09072a69c9c8ca9 serialization:key "rel" ;
+_:N82a924f46a6e4064b824b5c8ceda3c18 serialization:key "file:size" ;
     serialization:kind "value" ;
-    serialization:predicate ns2:relation .
+    serialization:predicate file:size .
 
-_:Ne671c2b8cde94447b95d0fd6e5f465f2 serialization:key "title" ;
+_:N85a2501aada94d2dbba81ba32746af65 rdf:first "processor" ;
+    rdf:rest () .
+
+_:N87a46b3621af40caba4fab906e7e5f8c serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:N883d7c0cd182428d9fb259cdcbd3af8e serialization:key "title" ;
     serialization:kind "value" ;
     serialization:predicate rdfs:label .
 
-_:Nec5bc727757b42d7a688244a97eabd12 serialization:key "name" ;
+_:N89d25d4151db4355b3c5702d18b680d3 serialization:items ( "Common Workflow Language" ) ;
+    serialization:key "application:languages" ;
+    serialization:kind "set" ;
+    serialization:predicate application:languages .
+
+_:N8ed34b572cf342a699a433723a9493d9 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:N916ec31dc2a34600b3f6b0bf84f808e7 serialization:key "vcs:type" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:type .
+
+_:N91c10380ee874582b1d737faa7c01a0c serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N94b898f9cc034757990cb58b5e93992d serialization:key "vcs:type" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:type .
+
+_:N9902d99bc583429eb6f8866bdc968e09 rdf:first "producer" ;
+    rdf:rest _:N34c083b6a060483c9b4a524d1c3adb77 .
+
+_:N9bfa47598605414c9afcdbeef562c202 serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N9d9ed4602f6f4672967a2c4671531f0d serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:N9eee6d05789b4ca48e0fd88dc7e8ba86 serialization:key "file:checksum" ;
+    serialization:kind "value" ;
+    serialization:predicate file:checksum .
+
+_:Na15a7143eb524f5684178ce3a51ed831 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:Na5440230b2d34dad83cb392e93ef5a67 serialization:key "vcs:revision" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:revision .
+
+_:Na67d9697bca74c12841020b368b0c37a serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:Na8fc427e7eaf4369b075f67b431301c0 serialization:key "roles" ;
+    serialization:kind "array" ;
+    serialization:predicate ns1:roles .
+
+_:Naa55597244b2488494279b6f811be741 serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:Nafb79b8b21b74c76b0e781f99783c3a2 serialization:key "vcs:revision" ;
+    serialization:kind "value" ;
+    serialization:predicate vcs:revision .
+
+_:Nb16bb41d149749edbfd923e5baef067c serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:Nb93df36405e748889b3f88e789610d1c serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:Nbaa6dda0d84345a182046d48c64d7a27 serialization:key "ml-aoi:role" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:role .
+
+_:Nbad05762f6f5404cbe8b6048d5c18b50 serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:Nbb56fd4c58da4e879dbad3caeeb71f62 serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:Nbeddf1f4747a45179bd7f11ce4d57644 serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:Nbf80936ca3be423794fff1920f597887 serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:Nc055f4dbfcf34773bbfe5850ab2eca1b serialization:key "file:checksum" ;
+    serialization:kind "value" ;
+    serialization:predicate file:checksum .
+
+_:Nc1b4749dcddb4050a0e87913d6fe922c serialization:key "file:size" ;
+    serialization:kind "value" ;
+    serialization:predicate file:size .
+
+_:Nce517889e3a4442596b5edf9df2d898e rdf:first "host" ;
+    rdf:rest _:N85a2501aada94d2dbba81ba32746af65 .
+
+_:Nd054a4dbff7f406fb11ddbf0f03ff9cc serialization:key "roles" ;
+    serialization:kind "array" ;
+    serialization:predicate ns1:roles .
+
+_:Nd3bbdd22fea74fd7b96efe0428ce766b serialization:key "rel" ;
+    serialization:kind "value" ;
+    serialization:predicate ns2:relation .
+
+_:Nd461be36de0a4eaa852ce844c3a8bb7d serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:Nd4899254be17450d9d645224be3b118a serialization:key "title" ;
+    serialization:kind "value" ;
+    serialization:predicate rdfs:label .
+
+_:Nd6b7a459e6714ee7a2a226d3662477fb serialization:key "description" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:description .
+
+_:Ndc2117e7de5440cf8762a2d95e5f9b39 serialization:key "name" ;
     serialization:kind "value" ;
     serialization:predicate cf:name .
 
-_:Neebca98256244b01b680dc87e36a7887 serialization:key "description" ;
+_:Ndec808fbe9444cd99901a00cf2bcead9 serialization:key "href" ;
     serialization:kind "value" ;
-    serialization:predicate dct:description .
+    serialization:predicate oa:hasTarget .
 
-_:Nf411aed4bd004423b970ebc36432ea30 serialization:key "rel" ;
+_:Ne039313c71bd47608ad265664b19a06e serialization:key "rel" ;
     serialization:kind "value" ;
     serialization:predicate ns2:relation .
 
-_:Nf64f1cef00d740af85388ff096df1cea serialization:key "title" ;
+_:Ne21c0588f8ab42b38fa3e35dafab5cfe serialization:key "vcs:revision" ;
     serialization:kind "value" ;
-    serialization:predicate rdfs:label .
+    serialization:predicate vcs:revision .
 
-_:Nf71edfa07b084ceaa3c8d0c16a9c33e9 serialization:key "url" ;
+_:Ne5e93341afe84070a4554263a1538cd9 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:Ne7d804fbc0264eccac9ada9ee536d2c9 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:Ne8d4f3d18c9c47d284951e44ce24a152 serialization:key "href" ;
+    serialization:kind "value" ;
+    serialization:predicate oa:hasTarget .
+
+_:Neb02c9b75be34e52854f1a0cc85c7b57 serialization:key "type" ;
+    serialization:kind "value" ;
+    serialization:predicate dct:type .
+
+_:Nf192b46f468b4542a8185f3fd89309fd serialization:key "ml-aoi:role" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:role .
+
+_:Nf632fe062bf04d418f81fc665ed8bc5f serialization:key "file:size" ;
+    serialization:kind "value" ;
+    serialization:predicate file:size .
+
+_:Nfaa6dfab9e6d4e8688dd926d2703697b serialization:key "ml-aoi:role" ;
+    serialization:kind "value" ;
+    serialization:predicate ml-aoi:role .
+
+_:Nfc9b6ff10d2a4c88b091e69c46e64a3e serialization:key "url" ;
     serialization:kind "value" ;
     serialization:predicate ns1:url .
 
-_:Nf8b0dd4063604a6eb710d744c03d696c serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:Nf8ce83918abd436987a4bfec38aa60b6 serialization:key "ml-aoi:role" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:role .
-
-_:Nf94b789720e44a289b70138e71a75d3f serialization:key "type" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:type .
-
-_:Nfc46fe5ff71844c0aed074488d9d775e serialization:key "vcs:type" ;
-    serialization:kind "value" ;
-    serialization:predicate vcs:type .
-
-_:Nfc57b93018f144f69bb7474d26752416 serialization:key "type" ;
-    serialization:kind "value" ;
-    serialization:predicate dct:type .
-
-_:Nfd0a640851c64db08042b8f2fa1b9f0a serialization:key "ml-aoi:split" ;
-    serialization:kind "value" ;
-    serialization:predicate ml-aoi:split .
-
-_:Nff1e0c3b2c4a49c2bd8d47705fc6e1a0 serialization:key "title" ;
-    serialization:kind "value" ;
-    serialization:predicate rdfs:label .
-
-_:Nff39efa3d07447bc91a5070264fded19 serialization:key "file:size" ;
+_:Nff1fa8197d6644e494c586b2452e4ad7 serialization:key "file:size" ;
     serialization:kind "value" ;
     serialization:predicate file:size .
 
-_:Nffd562018adb420ba6bdd561cb6ca413 serialization:key "href" ;
-    serialization:kind "value" ;
-    serialization:predicate oa:hasTarget .
-
-_:N0bd2fb7a4d3242909bf5e6d12d8a35cb a serialization:Object ;
-    rdfs:label "RDPS download CWL tool" ;
-    dct:description "CWL CommandLineTool downloading the listed RDPS files into a local directory." ;
-    dct:type "application/cwl+yaml" ;
-    ns2:relation "application" ;
-    oa:hasTarget "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_download_files.cwl" ;
-    application:languages "Common Workflow Language" ;
-    file:checksum "1220cfe6377d576e12763fa6e0f89f1fbc61a587475fbacf29c0d4921cdba758db19" ;
-    file:size 1611 ;
-    serialization:field _:N42f1c7d7beb64d4886164f23fe60e184,
-        _:N4fe85bb99c464976a7fec1bf1ae5a394,
-        _:N6c662317fbe84bae98648026acb46283,
-        _:N79f81523792048e3bb0634f11aa38f52,
-        _:N7ffd281e68864f9fbdd85188e097fd4d,
-        _:N92cb4a0f3a8740ee96351397bca5d9c0,
-        _:N9a3c4234e2f248569001766723a2ddc7,
-        _:Na3ec9787139743439780786fb97823e7,
-        _:Nd98f2f61ddb84c3495d9dd181fa5011f,
-        _:Nfc46fe5ff71844c0aed074488d9d775e,
-        _:Nff1e0c3b2c4a49c2bd8d47705fc6e1a0 ;
-    vcs:branch "main" ;
-    vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-    vcs:type "git" .
-
-_:N0d5fa82d86ee436e8feadbfa8ee43b69 a serialization:Object ;
-    rdfs:label "U-Net inference CWL tool" ;
-    dct:description "CWL CommandLineTool running the U-Net downscaling inference on the downloaded RDPS data." ;
-    dct:type "application/cwl+yaml" ;
-    ns2:relation "application" ;
-    oa:hasTarget "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_unet.cwl" ;
-    application:languages "Common Workflow Language" ;
-    file:checksum "122081999f65ffb1cf3256b1a72a3aed25134b4ba446acea1b781b5a783f6ac6b09f" ;
-    file:size 2359 ;
-    serialization:field _:N04d1b108b38043bf98af31db0a23b783,
-        _:N1d18a85f2d5b47b0a869289ce1c93746,
-        _:N53063da65e9d47f18143860e3bd5acc5,
-        _:N658fe07e3bd74da18f66511583b4e488,
-        _:N8e5572f525ff4b6d89e66f9730302823,
-        _:N95a9bc45dd004504939ac6cabe40f209,
-        _:Nb4e7a40e02894dcbb7f704de2e9015b7,
-        _:Nc6eaa4f41617481a9737c9aed49c25f9,
-        _:Ncc78bd1904c746c682b6eac2b76e37ed,
-        _:Nd6920674ef57466d8f889252ed473761,
-        _:Neebca98256244b01b680dc87e36a7887 ;
-    vcs:branch "main" ;
-    vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-    vcs:type "git" .
-
-_:N1f7edc13e3e04975b572c740bc3df60c a serialization:Object ;
+_:N16994aa5e5de41d68397de967a3026da a serialization:Object ;
     rdfs:label "RDPS-to-HRDPS downscaling CWL workflow" ;
     dct:description "CWL Workflow chaining the file listing, download and U-Net inference steps." ;
     dct:type "application/cwl+yaml" ;
@@ -1556,70 +1505,84 @@ _:N1f7edc13e3e04975b572c740bc3df60c a serialization:Object ;
     application:languages "Common Workflow Language" ;
     file:checksum "122054639a4072d5fb7e2a0039975ca8446e9fc3e95e91c91f9f4b37bebd3e798937" ;
     file:size 2624 ;
-    serialization:field _:N00c24111a97f43d6883e62e5e79b7cf9,
-        _:N1c42994d364b4f52ac1563bb638fa5b3,
-        _:N2a42452d210c4ad5b399a5f65c001f3e,
-        _:N4c4b3bdfa3da4faca70cbcb39ef7e6a6,
-        _:N590fc7027add4ea88a222739d827bcc0,
-        _:N7a1854975b544cb1bd0440f092acc2ed,
-        _:N8a89fe32b67c4abd9487a5fa441a5c79,
-        _:Na81abea6a8e14557a5f96e243934fcef,
-        _:Nd2182f35e036442eb195de436d2a2150,
-        _:Nf94b789720e44a289b70138e71a75d3f,
-        _:Nff39efa3d07447bc91a5070264fded19 ;
+    serialization:field _:N06a763421ce142fa92c5cc5d6f1a6a16,
+        _:N2328cde22090479d8375eaf8e6b44a1c,
+        _:N2650f9a626da4588a46d1bb042d82295,
+        _:N2941df5d3a4f4bc2b87bf4c2990ec2ff,
+        _:N2cc126f8b1b54ba99e3cc72470005c45,
+        _:N3999aea2ddae461ea43c06d3b643a042,
+        _:N3bddeaefc6c14b2581de2ff944f48ca4,
+        _:N6b9af60b7d8046babfe75255f1e8ea82,
+        _:Nbad05762f6f5404cbe8b6048d5c18b50,
+        _:Nc1b4749dcddb4050a0e87913d6fe922c,
+        _:Ne039313c71bd47608ad265664b19a06e ;
     vcs:branch "main" ;
     vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
     vcs:type "git" .
 
-_:N26e67d30ecb54be6bb80d295df2d4c71 a serialization:Object ;
-    dct:description "Producer and licensor of the model." ;
-    cf:name "Ouranos" ;
-    serialization:field _:N4dfed0ff82e14d54a19201754270362f,
-        _:N7d19cd3b5f5a472d916991ee8784f31f,
-        _:N95fc65d1cba946cc8a4596ade7b5e24e,
-        _:N99c6d183083749b09ba543b5d671c59f ;
-    ns1:roles _:Na2916d761d2d4a78a8383cc6a721c75a ;
-    ns1:url "https://www.ouranos.ca/" .
+_:N229b29681f5a4dc8983a53152fed1dd9 a serialization:Object ;
+    rdfs:label "RDPS download CWL tool" ;
+    dct:description "CWL CommandLineTool downloading the listed RDPS files into a local directory." ;
+    dct:type "application/cwl+yaml" ;
+    ns2:relation "application" ;
+    oa:hasTarget "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_download_files.cwl" ;
+    application:languages "Common Workflow Language" ;
+    file:checksum "1220cfe6377d576e12763fa6e0f89f1fbc61a587475fbacf29c0d4921cdba758db19" ;
+    file:size 1611 ;
+    serialization:field _:N19eb40650c524a4fa8bd290b3de773ca,
+        _:N23f576fe6e4c480b8119902c293bc92a,
+        _:N7c476f907b544e5db854c1b95c5412e6,
+        _:N7ce5da5ec45f4c898a2086313b8b8399,
+        _:N89d25d4151db4355b3c5702d18b680d3,
+        _:N8ed34b572cf342a699a433723a9493d9,
+        _:N94b898f9cc034757990cb58b5e93992d,
+        _:Na15a7143eb524f5684178ce3a51ed831,
+        _:Nb16bb41d149749edbfd923e5baef067c,
+        _:Nc055f4dbfcf34773bbfe5850ab2eca1b,
+        _:Nf632fe062bf04d418f81fc665ed8bc5f ;
+    vcs:branch "main" ;
+    vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+    vcs:type "git" .
 
-_:N3a0089c7aaaf4553a71b31f48c8dad67 a serialization:Object ;
-    rdfs:label "RDPS validate samples" ;
-    dct:description "RDPS validate-split input samples used as machine-learning features." ;
-    ns2:relation "derived_from" ;
-    oa:hasTarget "https://hirondelle.crim.ca/stac/collections/RDPS_CRIM" ;
-    ml-aoi:role "feature" ;
-    ml-aoi:split "validate" ;
-    serialization:field _:N010c65ed514343f4a31ee09b1858f3f6,
-        _:N318d5b5cf744400290f2770c050c073c,
-        _:N3a5e793426984f4889133f9c4db03dc6,
-        _:N4bb8847a60064bbaa79643cb439de468,
-        _:N8d8f84a5c35f44108e3486f3af0eb845,
-        _:Ndee0425436be47748a57eba6e6f5d765 .
-
-_:N51add52a1d2f48998ac04d265443f604 a serialization:Object ;
+_:N3db695bb26e04de482c7c49706e9b7f4 a serialization:Object ;
     rdfs:label "resoterre citation metadata" ;
     dct:type "text/yaml" ;
     ns2:relation "cite-as" ;
     oa:hasTarget "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff" ;
-    serialization:field _:N41537eefb5a64d60aeb6984a2154f2ed,
-        _:N6604ffd53de9425a8747d0340db551df,
-        _:N8e80106d42f24763ba42ea0bbad367f1,
-        _:Nf8b0dd4063604a6eb710d744c03d696c .
+    serialization:field _:N21a1461a56b94cbb97799615cc640428,
+        _:N28469c6287d145f2b4d68cc325bdacee,
+        _:N5b48ed0deb4b436baa8b2b2731d5a175,
+        _:Ne5e93341afe84070a4554263a1538cd9 .
 
-_:N6c7a9e7e2dce4ac894fcccd472102a3b a serialization:Object ;
-    rdfs:label "HRDPS test samples" ;
-    dct:description "HRDPS test-split target samples used as labels and predicted downscaling results." ;
+_:N519215e7b1414f9089e6a06ac1e0d03f a serialization:Object ;
+    rdfs:label "RDPS test samples" ;
+    dct:description "RDPS test-split input samples used as machine-learning features." ;
     ns2:relation "derived_from" ;
-    oa:hasTarget "https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM" ;
-    ml-aoi:role "label" ;
+    oa:hasTarget "https://hirondelle.crim.ca/stac/collections/RDPS_CRIM" ;
+    ml-aoi:role "feature" ;
     ml-aoi:split "test" ;
-    serialization:field _:N32f55f9419354ad797b602f61de7a7c5,
-        _:N3c9a60018a2f4ebeb1da428f7c1fa7a4,
-        _:N72dba896b2b14e01a128360606d6f545,
-        _:N92f2c175baed484bb13286fdec5c737c,
-        _:Nb0fcd4a82fe0494aa4881ebbfc53d2ca,
-        _:Nf8ce83918abd436987a4bfec38aa60b6 .
+    serialization:field _:N0ab7b871871048daae526a22c23f52ee,
+        _:N0fc99da70859421684dc2e836f6cafdd,
+        _:N264687bb8193430a8510f56820356555,
+        _:N45bb4504a27f4895b0c36ba3de671061,
+        _:Nbeddf1f4747a45179bd7f11ce4d57644,
+        _:Nbf80936ca3be423794fff1920f597887 .
 
-_:Nac13fe92294f408a9890abe23c3a9d0d a serialization:Object ;
+_:N6f644ce907d64c93ac980449c12e7ad5 a serialization:Object ;
+    rdfs:label "resoterre source repository" ;
+    ns2:relation "vcs" ;
+    oa:hasTarget "https://github.com/Ouranosinc/resoterre.git" ;
+    serialization:field _:N0a14abfd192e4b43a6bde6519def50d5,
+        _:N29d63689ab6541668db48e3d4d4cda7e,
+        _:N31ed7dd6051e430db34e96003685abb0,
+        _:N3dcbd94b0c4c43c8ad0f21dcd7b67829,
+        _:N668c62254ee349d7930b2c212441fcd7,
+        _:Ne21c0588f8ab42b38fa3e35dafab5cfe ;
+    vcs:branch "main" ;
+    vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+    vcs:type "git" .
+
+_:N8231aa45fec448c49277695439ffde4a a serialization:Object ;
     rdfs:label "RDPS file listing CWL tool" ;
     dct:description "CWL CommandLineTool listing the RDPS files required for a requested datetime range." ;
     dct:type "application/cwl+yaml" ;
@@ -1628,105 +1591,139 @@ _:Nac13fe92294f408a9890abe23c3a9d0d a serialization:Object ;
     application:languages "Common Workflow Language" ;
     file:checksum "1220b41206d6ae38ceedfb499c179851d670555a73bfe7a70819ba47b511c1f78f01" ;
     file:size 2284 ;
-    serialization:field _:N1aa30e2216d24efeb90204a254bf83f5,
-        _:N1b908500771446afa230e63de2091322,
-        _:N240be7f7bbff4c07ae3e01222b074713,
-        _:N4929fbfdd192425c8bcefd6c6b085c31,
-        _:N598fce599e1b46ef9a1d80104bf0227c,
-        _:N5b3775be6d0a452384bbb738fe44e78f,
-        _:N981c753f852b4712a002873d4f7acc53,
-        _:Na1ca82c268b44a679b33f884ae17bd70,
-        _:Nace8fb5a2f194428b3695461718fcd02,
-        _:Ncdae88502e964fd98cd4596bb9b23d63,
-        _:Ne29ce36bd43045e79296fa21266c3000 ;
+    serialization:field _:N124b7adc3a1c461283ecadc12930d75a,
+        _:N24a09481da1147d5bc052542a1bdc9ef,
+        _:N2d308b703af44a0990216f23a5288cb2,
+        _:N4971e6d4cced441a9581f484e60391ac,
+        _:N7b30d5adff6245f2afa41cf531a84082,
+        _:N82a924f46a6e4064b824b5c8ceda3c18,
+        _:N916ec31dc2a34600b3f6b0bf84f808e7,
+        _:N91c10380ee874582b1d737faa7c01a0c,
+        _:N9eee6d05789b4ca48e0fd88dc7e8ba86,
+        _:Naa55597244b2488494279b6f811be741,
+        _:Nafb79b8b21b74c76b0e781f99783c3a2 ;
     vcs:branch "main" ;
     vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
     vcs:type "git" .
 
-_:Nc02b3ad2ae8f4fab87c929be5f528ed4 a serialization:Object ;
+_:N8e5ac76ba91b42b29639e3dbd93be212 a serialization:Object ;
     rdfs:label "HRDPS validate samples" ;
     dct:description "HRDPS validate-split target samples used as labels and predicted downscaling results." ;
     ns2:relation "derived_from" ;
     oa:hasTarget "https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM" ;
     ml-aoi:role "label" ;
     ml-aoi:split "validate" ;
-    serialization:field _:N155a55ed653343d1935d50887dceec96,
-        _:N95402e89eea245f3920b72887736060d,
-        _:Na7f16e81d60b46269f591df9e0519bc1,
-        _:Nb96b0c8e655346dea0e1e54fe6c007fe,
-        _:Nc39b6692db784e53a6aeda9e6920c01d,
-        _:Nfd0a640851c64db08042b8f2fa1b9f0a .
+    serialization:field _:N14198c037e434c25b31f43874d587213,
+        _:N9bfa47598605414c9afcdbeef562c202,
+        _:Nb93df36405e748889b3f88e789610d1c,
+        _:Nd6b7a459e6714ee7a2a226d3662477fb,
+        _:Ndec808fbe9444cd99901a00cf2bcead9,
+        _:Nf192b46f468b4542a8185f3fd89309fd .
 
-_:Nc29cfdddc04c4c38be63e37f75e25018 a serialization:Object ;
+_:N9369fa5b6b0241a4873a3c272957f010 a serialization:Object ;
+    rdfs:label "RDPS validate samples" ;
+    dct:description "RDPS validate-split input samples used as machine-learning features." ;
+    ns2:relation "derived_from" ;
+    oa:hasTarget "https://hirondelle.crim.ca/stac/collections/RDPS_CRIM" ;
+    ml-aoi:role "feature" ;
+    ml-aoi:split "validate" ;
+    serialization:field _:N2d98f9498a3843dcaca7d0d1b75607b9,
+        _:N36fe3bed84a24737a1da1d8fa964d03c,
+        _:N3bf3fab62b544c98a65a521e13ffce78,
+        _:N60d58b4a4ad145308d9c2800c05c36e7,
+        _:N68b8906728f84273bcd6a91f5bbff529,
+        _:Nfaa6dfab9e6d4e8688dd926d2703697b .
+
+_:Nbab7baad993947c0acd583f39d3ab5a2 a serialization:Object ;
+    dct:type "application/geo+json" ;
+    ns2:relation "self" ;
+    oa:hasTarget "unet_rdps_to_hrdps.json" ;
+    serialization:field _:N5f581d6993514fac86df37a84d09af9d,
+        _:Ne7d804fbc0264eccac9ada9ee536d2c9,
+        _:Neb02c9b75be34e52854f1a0cc85c7b57 .
+
+_:Nc4be1a8e28b24415aa71735e197760bd a serialization:Object ;
+    dct:description "Deployment host and inference-container processor." ;
+    cf:name "CRIM" ;
+    serialization:field _:N7cfbf720a6ee4545983f82f9cbb720b4,
+        _:Na8fc427e7eaf4369b075f67b431301c0,
+        _:Ndc2117e7de5440cf8762a2d95e5f9b39,
+        _:Nfc9b6ff10d2a4c88b091e69c46e64a3e ;
+    ns1:roles _:Nce517889e3a4442596b5edf9df2d898e ;
+    ns1:url "https://www.crim.ca/" .
+
+_:Nd7bb6752ed2e46f79e99167b68d32506 a serialization:Object ;
+    dct:description "Producer and licensor of the model." ;
+    cf:name "Ouranos" ;
+    serialization:field _:N4a2f2b195d834d78a49b7556e82baacc,
+        _:N65626a2b1f4f4fe29a3a50ee81f49dbc,
+        _:N6a36e979933c48578f5155f5b5c7cd70,
+        _:Nd054a4dbff7f406fb11ddbf0f03ff9cc ;
+    ns1:roles _:N9902d99bc583429eb6f8866bdc968e09 ;
+    ns1:url "https://www.ouranos.ca/" .
+
+_:Nd7d83c67c07e43e3af9fcf6d40879208 a serialization:Object ;
     rdfs:label "RDPS train samples" ;
     dct:description "RDPS train-split input samples used as machine-learning features." ;
     ns2:relation "derived_from" ;
     oa:hasTarget "https://hirondelle.crim.ca/stac/collections/RDPS_CRIM" ;
     ml-aoi:role "feature" ;
     ml-aoi:split "train" ;
-    serialization:field _:N2d477c44464a4088a02c73079a8a5eb8,
-        _:N590838e28e6e491395f79c32852efe21,
-        _:Nb95f6cc31fce43eb88d2b3d6fbb19171,
-        _:Nc50336b62bd24942afb6097d9dd06a14,
-        _:Nddae0c689cbc487b946eb69f2f413931,
-        _:Nf64f1cef00d740af85388ff096df1cea .
+    serialization:field _:N0c55da06050445b7a5c46135c9279e71,
+        _:N1097283dce3243c49ecda9c1d628cb52,
+        _:N1d71f904432942e59f1409630a8d504b,
+        _:N4c88436884f44eba962dc24855740b17,
+        _:N56cdb2a63c6b43fa9c950b4a5692f902,
+        _:N87a46b3621af40caba4fab906e7e5f8c .
 
-_:Nc3b69ca53a76418ebc9f8040aaa8c483 a serialization:Object ;
+_:Nd90a6d52eea4401d9c508dfc96af9f00 a serialization:Object ;
+    rdfs:label "HRDPS test samples" ;
+    dct:description "HRDPS test-split target samples used as labels and predicted downscaling results." ;
+    ns2:relation "derived_from" ;
+    oa:hasTarget "https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM" ;
+    ml-aoi:role "label" ;
+    ml-aoi:split "test" ;
+    serialization:field _:N1f429efe69cb458589faba4d536d1822,
+        _:N34cf33ac6c8f4fbb9565491297fccbe6,
+        _:N6f0ef2d2624d433eb29c8b1e518ea184,
+        _:N883d7c0cd182428d9fb259cdcbd3af8e,
+        _:N9d9ed4602f6f4672967a2c4671531f0d,
+        _:Nd461be36de0a4eaa852ce844c3a8bb7d .
+
+_:Ne0c96bfbef664bb8b6a5b11342c4992e a serialization:Object ;
     rdfs:label "HRDPS train samples" ;
     dct:description "HRDPS train-split target samples used as labels and predicted downscaling results." ;
     ns2:relation "derived_from" ;
     oa:hasTarget "https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM" ;
     ml-aoi:role "label" ;
     ml-aoi:split "train" ;
-    serialization:field _:N0c7af93c1be24c299c62c5496925a3f4,
-        _:N531bf0cc0194424ba4e3a5898c87d4ac,
-        _:N9d13ca7c333149879de36c53c0911d1e,
-        _:Ne671c2b8cde94447b95d0fd6e5f465f2,
-        _:Nf411aed4bd004423b970ebc36432ea30,
-        _:Nffd562018adb420ba6bdd561cb6ca413 .
+    serialization:field _:N155ab56e15b94ecfbc4d95c108afc5c6,
+        _:N18554dfe833a4784b9fc9ad423baf403,
+        _:Nbaa6dda0d84345a182046d48c64d7a27,
+        _:Nd3bbdd22fea74fd7b96efe0428ce766b,
+        _:Nd4899254be17450d9d645224be3b118a,
+        _:Ne8d4f3d18c9c47d284951e44ce24a152 .
 
-_:Nc5bc7421c80b4978b5c139b48c6a7215 a serialization:Object ;
-    dct:description "Deployment host and inference-container processor." ;
-    cf:name "CRIM" ;
-    serialization:field _:N04bd147fcd484c6a9ce4495e5e3ab9de,
-        _:N74f9a58b16914f4386a9353edccdf036,
-        _:Nec5bc727757b42d7a688244a97eabd12,
-        _:Nf71edfa07b084ceaa3c8d0c16a9c33e9 ;
-    ns1:roles _:N6a7eb610ecc34edc83a8d67bea053266 ;
-    ns1:url "https://www.crim.ca/" .
-
-_:Nda65efd4da8d4e7f80a27afe0d8d1dd5 a serialization:Object ;
-    dct:type "application/geo+json" ;
-    ns2:relation "self" ;
-    oa:hasTarget "unet_rdps_to_hrdps.json" ;
-    serialization:field _:Nc5b1554790674828a42ebe22ce3e1fde,
-        _:Ne518c8c8c2eb4d1ca09072a69c9c8ca9,
-        _:Nfc57b93018f144f69bb7474d26752416 .
-
-_:Nf33808720fc94a6081be41fa8500f5ed a serialization:Object ;
-    rdfs:label "RDPS test samples" ;
-    dct:description "RDPS test-split input samples used as machine-learning features." ;
-    ns2:relation "derived_from" ;
-    oa:hasTarget "https://hirondelle.crim.ca/stac/collections/RDPS_CRIM" ;
-    ml-aoi:role "feature" ;
-    ml-aoi:split "test" ;
-    serialization:field _:N11cab9089ece455294e9218e3d9947c1,
-        _:N23773beef7274ce1bbfb7bc2784b4f65,
-        _:N548be40f17204543943266f686b407c0,
-        _:N73acb8cfc08d4d9e866d3cc90a31683b,
-        _:Nae2e805336784775b320e8476f0ac7de,
-        _:Naf812b0af8ba426fbfb188cea4716942 .
-
-_:Nfeaa8c96d8b14c17a09bb3fb79edac97 a serialization:Object ;
-    rdfs:label "resoterre source repository" ;
-    ns2:relation "vcs" ;
-    oa:hasTarget "https://github.com/Ouranosinc/resoterre.git" ;
-    serialization:field _:N091acaa4b0bf479299267e57492acb83,
-        _:N38e259cbc55947eaab9e59b062633982,
-        _:N584cb4ef6ee04c299c6aff7bdfbe0424,
-        _:N7c8cec3cfecd492e883801583e54bca3,
-        _:N97e4c5a33a9a4b5d96e48369a8f41dd1,
-        _:Na028507c55be4986a38d3b51e0905f73 ;
+_:Nfd354be1e50146cd9e96a22ef78063fd a serialization:Object ;
+    rdfs:label "U-Net inference CWL tool" ;
+    dct:description "CWL CommandLineTool running the U-Net downscaling inference on the downloaded RDPS data." ;
+    dct:type "application/cwl+yaml" ;
+    ns2:relation "application" ;
+    oa:hasTarget "https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_unet.cwl" ;
+    application:languages "Common Workflow Language" ;
+    file:checksum "122081999f65ffb1cf3256b1a72a3aed25134b4ba446acea1b781b5a783f6ac6b09f" ;
+    file:size 2359 ;
+    serialization:field _:N0cfa94143c4548b793f3c1f943a6e255,
+        _:N1b5e1959736e47f5b35bace1af8a0e94,
+        _:N1c4a9a5c79914d6bbe5f5f34b3e4e80b,
+        _:N1e39dcaa9f3745bc92f68a7cb173bf6a,
+        _:N6a47d629983b426fa5c772f0d2d47e61,
+        _:N6db736e3c4e044ecb741e01907920c11,
+        _:N6de07cadf5d64ea2ae780814e1678dfb,
+        _:Na5440230b2d34dad83cb392e93ef5a67,
+        _:Na67d9697bca74c12841020b368b0c37a,
+        _:Nbb56fd4c58da4e879dbad3caeeb71f62,
+        _:Nff1fa8197d6644e494c586b2452e4ad7 ;
     vcs:branch "main" ;
     vcs:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
     vcs:type "git" .

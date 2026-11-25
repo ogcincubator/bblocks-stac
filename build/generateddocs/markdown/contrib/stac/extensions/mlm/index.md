@@ -317,27 +317,27 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     dcterms:extent [ ] ;
     dcterms:title "Machine Learning Model examples" ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_core-bands.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_raster_bands.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_multi_io.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_bands_summarized.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_basic.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_multi_io.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_pytorch_geo_unet.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_core-bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_datacube_variables.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_eo_and_raster_bands.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/item_bands_expression.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-1/collection.json> ] ;
     dcat:license "Apache-2.0" ;
     stac:hasExtension "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" ;
@@ -629,8 +629,8 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <classification:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <classification:> .
 @prefix ns3: <https://w3id.org/ogc/stac/assets/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -640,12 +640,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 
 <https://example.com/stac/mlm/example-2/example-model> a geojson:Feature ;
     dcterms:description "Basic STAC Item with MLM and Classification output classes." ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-2/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-2/item_basic.json> ] ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-2/item_basic.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-2/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
@@ -662,14 +662,14 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                         mlm:shape ( -1 3 64 64 ) ] ;
                 mlm:io_name "Model with RGB input that does not refer to any band." ] ) ;
     mlm:name "example-model"^^xsd:string ;
-    mlm:output ( [ ns1:classes [ ns1:color_hint "000000" ;
-                        ns1:description "Background non-city." ;
-                        ns1:name "BACKGROUND" ;
-                        ns1:value 0 ],
-                    [ ns1:color_hint "0000FF" ;
-                        ns1:description "A city is detected." ;
-                        ns1:name "CITY" ;
-                        ns1:value 1 ] ;
+    mlm:output ( [ ns2:classes [ ns2:color_hint "0000FF" ;
+                        ns2:description "A city is detected." ;
+                        ns2:name "CITY" ;
+                        ns2:value 1 ],
+                    [ ns2:color_hint "000000" ;
+                        ns2:description "Background non-city." ;
+                        ns2:name "BACKGROUND" ;
+                        ns2:value 0 ] ;
                 mlm:io_name "classification" ;
                 mlm:result [ mlm:data_type "uint8" ;
                         mlm:dim_order ( "batch" "class" ) ;
@@ -1113,12 +1113,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <file:> .
-@prefix ns3: <classification:> .
-@prefix ns4: <eo:> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns4: <classification:> .
+@prefix ns5: <eo:> .
+@prefix ns6: <file:> .
 @prefix ns7: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -1127,23 +1127,23 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-3/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns2:size 43000000 ;
+    ns6:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
             ns7:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-3/item_bands_expression.json> ],
         [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-3/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:weights <https://example.com/model-rgb-ndvi.pth> ] ;
+    stac:hasAsset [ ns2:weights <https://example.com/model-rgb-ndvi.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -1167,18 +1167,18 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                 mlm:io_name "RBG+NDVI Bands Sentinel-2 Batch" ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns3:classes [ ns3:color_hint "00FF00" ;
-                        ns3:description "Pixels were vegetation is detected." ;
-                        ns3:name "vegetation" ;
-                        ns3:nodata false ;
-                        ns3:title "Vegetation" ;
-                        ns3:value 1 ],
-                    [ ns3:color_hint "000000" ;
-                        ns3:description "Anything that is not classified as vegetation." ;
-                        ns3:name "background" ;
-                        ns3:nodata false ;
-                        ns3:title "Non-Vegetation" ;
-                        ns3:value 0 ] ;
+    mlm:output ( [ ns4:classes [ ns4:color_hint "00FF00" ;
+                        ns4:description "Pixels were vegetation is detected." ;
+                        ns4:name "vegetation" ;
+                        ns4:nodata false ;
+                        ns4:title "Vegetation" ;
+                        ns4:value 1 ],
+                    [ ns4:color_hint "000000" ;
+                        ns4:description "Anything that is not classified as vegetation." ;
+                        ns4:name "background" ;
+                        ns4:nodata false ;
+                        ns4:title "Non-Vegetation" ;
+                        ns4:value 0 ] ;
                 mlm:io_name "classification" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "float32" ;
@@ -1189,30 +1189,30 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     mlm:tasks ( mlm:classification ) ;
     mlm:total_parameters "11700000"^^xsd:nonNegativeInteger .
 
-<https://example.com/model-rgb-ndvi.pth> ns4:bands [ dcterms:description "Green (band 3)" ;
-            ns1:center_wavelength 5.6e-01 ;
-            ns1:common_name "green" ;
-            ns1:full_width_half_max 4.5e-02 ;
-            ns1:name "B03" ],
-        [ dcterms:description "NIR 1 (band 8)" ;
-            ns1:center_wavelength 8.42e-01 ;
-            ns1:common_name "nir" ;
-            ns1:full_width_half_max 1.45e-01 ;
-            ns1:name "B08" ],
-        [ dcterms:description "Blue (band 2)" ;
-            ns1:center_wavelength 4.9e-01 ;
-            ns1:common_name "blue" ;
-            ns1:full_width_half_max 9.8e-02 ;
-            ns1:name "B02" ],
+<https://example.com/model-rgb-ndvi.pth> ns5:bands [ dcterms:description "Blue (band 2)" ;
+            ns2:center_wavelength 4.9e-01 ;
+            ns2:common_name "blue" ;
+            ns2:full_width_half_max 9.8e-02 ;
+            ns2:name "B02" ],
         [ dcterms:description "Red (band 4)" ;
-            ns1:center_wavelength 6.65e-01 ;
-            ns1:common_name "red" ;
-            ns1:full_width_half_max 3.8e-02 ;
-            ns1:name "B04" ] ;
+            ns2:center_wavelength 6.65e-01 ;
+            ns2:common_name "red" ;
+            ns2:full_width_half_max 3.8e-02 ;
+            ns2:name "B04" ],
+        [ dcterms:description "NIR 1 (band 8)" ;
+            ns2:center_wavelength 8.42e-01 ;
+            ns2:common_name "nir" ;
+            ns2:full_width_half_max 1.45e-01 ;
+            ns2:name "B08" ],
+        [ dcterms:description "Green (band 3)" ;
+            ns2:center_wavelength 5.6e-01 ;
+            ns2:common_name "green" ;
+            ns2:full_width_half_max 4.5e-02 ;
+            ns2:name "B03" ] ;
     dcterms:description "A vegetation classification model trained on Sentinel-2 imagery and NDVI." ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "Pytorch weights checkpoint" ;
-    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    ns3:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string .
@@ -1840,10 +1840,10 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <sci:> .
-@prefix ns4: <file:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns3: <file:> .
+@prefix ns4: <sci:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -1853,27 +1853,27 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 <https://example.com/stac/mlm/example-4/UNet_ClimateDiffuse_ERA5_Downscaling> a geojson:Feature ;
     dcterms:description "UNet model for coarse-to-fine downscaling as regression task of climate indices of ERA5 dataset." ;
     rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/item_datacube_variables.json> ],
         [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/code> ;
+            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
+        [ dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/code> ;
             oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-4/collection.json> ],
         [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/robbiewatt1/ClimateDiffuse> ],
-        [ dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            ns1:relation <http://www.iana.org/assignments/relation/cite-as> ;
             oa:hasTarget <https://doi.org/10.48550/arXiv.2404.17752> ] ;
     geojson:bbox ( -1.264e+02 2.26e+01 -6.25e+01 5.42e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -1.264e+02 5.42e+01 ) ( -6.25e+01 5.42e+01 ) ( -6.25e+01 2.26e+01 ) ( -1.264e+02 2.26e+01 ) ( -1.264e+02 5.42e+01 ) ) ) ] ;
     stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:model <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
-            ns1:train-script <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
-            ns1:weights <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ] ;
+    stac:hasAsset [ ns2:model <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/Network.py> ;
+            ns2:train-script <https://raw.githubusercontent.com/robbiewatt1/ClimateDiffuse/refs/heads/main/src/TrainUnet.py> ;
+            ns2:weights <https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ] ;
     stac:hasExtension "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.6.0/schema.json",
@@ -1893,6 +1893,13 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
             cube:type "spatial" ;
             mlm:datacube_dimension_name "lat" ] ;
     cube:variables [ cube:data_type "float32" ;
+            cube:description "This parameter is the geopotential, which is the potential energy per unit mass at a point in the atmosphere, expressed in metres squared per second squared (m² s⁻²). It is a measure of the height of a point in the atmosphere relative to sea level." ;
+            cube:dimensions "lat",
+                "lon" ;
+            cube:type "data" ;
+            cube:unit "m² s-2" ;
+            mlm:datacube_variable_name "geopotential" ],
+        [ cube:data_type "float32" ;
             cube:description "This parameter is the eastward component of the 10m wind. It is the horizontal speed of air moving towards the east, at a height of ten metres above the surface of the Earth, in metres per second." ;
             cube:dimensions "lat",
                 "lon",
@@ -1900,13 +1907,6 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
             cube:type "data" ;
             cube:unit "m s-1" ;
             mlm:datacube_variable_name "10m_u_component_of_wind" ],
-        [ cube:data_type "float32" ;
-            cube:description "This parameter is the geopotential, which is the potential energy per unit mass at a point in the atmosphere, expressed in metres squared per second squared (m² s⁻²). It is a measure of the height of a point in the atmosphere relative to sea level." ;
-            cube:dimensions "lat",
-                "lon" ;
-            cube:type "data" ;
-            cube:unit "m² s-2" ;
-            mlm:datacube_variable_name "geopotential" ],
         [ cube:data_type "float32" ;
             cube:description "This parameter is the northward component of the 10m wind. It is the horizontal speed of air moving towards the north, at a height of ten metres above the surface of the Earth, in metres per second." ;
             cube:dimensions "lat",
@@ -1916,20 +1916,20 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
             cube:unit "m s-1" ;
             mlm:datacube_variable_name "10m_v_component_of_wind" ],
         [ cube:data_type "float32" ;
-            cube:description "Proportion of land-sea, where 1 indicates land and 0 indicates sea." ;
-            cube:dimensions "lat",
-                "lon" ;
-            cube:extent ( 0 1 ) ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "land_sea_mask" ],
-        [ cube:data_type "float32" ;
             cube:description "This parameter is the temperature of air at 2m above the surface of land, sea or in-land waters." ;
             cube:dimensions "lat",
                 "lon",
                 "time" ;
             cube:type "data" ;
             cube:unit "K" ;
-            mlm:datacube_variable_name "2m_temperature" ] ;
+            mlm:datacube_variable_name "2m_temperature" ],
+        [ cube:data_type "float32" ;
+            cube:description "Proportion of land-sea, where 1 indicates land and 0 indicates sea." ;
+            cube:dimensions "lat",
+                "lon" ;
+            cube:extent ( 0 1 ) ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "land_sea_mask" ] ;
     mlm:accelerator mlm:cuda ;
     mlm:accelerator_constrained false ;
     mlm:architecture "U-Net"^^xsd:string ;
@@ -1950,9 +1950,9 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                 mlm:tasks ( mlm:regression mlm:downscaling ) ;
                 mlm:variables ( "2m_temperature" "10m_u_component_of_wind" "10m_v_component_of_wind" ) ] ) ;
     mlm:tasks ( mlm:regression mlm:downscaling ) ;
-    ns3:publications [ ] .
+    ns4:publications [ ] .
 
-<https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns4:size 389657415 ;
+<https://github.com/robbiewatt1/ClimateDiffuse/raw/refs/heads/main/Model_chpt/unet.pt> ns3:size 389657415 ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "U-Net Pytorch weights checkpoint" ;
     stac:hasAssetroles "mlm:model"^^xsd:string,
@@ -3115,14 +3115,14 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <raster:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns2: <classification:> .
-@prefix ns3: <eo:> .
-@prefix ns4: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <https://w3id.org/ogc/stac/assets/$> .
-@prefix ns7: <ml-aoi:> .
-@prefix ns8: <file:> .
+@prefix ns3: <raster:> .
+@prefix ns4: <eo:> .
+@prefix ns5: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns6: <file:> .
+@prefix ns7: <http://www.iana.org/assignments/> .
+@prefix ns8: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -3130,37 +3130,37 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-5/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns3:bands [ dcterms:description "SWIR 2 (band 12)" ],
-        [ dcterms:description "SWIR 1 (band 11)" ],
-        [ dcterms:description "Red edge 1 (band 5)" ],
-        [ dcterms:description "Blue (band 2)" ],
-        [ dcterms:description "Red (band 4)" ],
-        [ dcterms:description "Coastal aerosol (band 1)" ],
-        [ dcterms:description "NIR 1 (band 8)" ],
+    ns4:bands [ dcterms:description "SWIR - Cirrus (band 10)" ],
         [ dcterms:description "NIR 2 (band 8A)" ],
-        [ dcterms:description "Green (band 3)" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ],
+        [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "Red edge 2 (band 6)" ],
+        [ dcterms:description "Blue (band 2)" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ],
+        [ dcterms:description "Red edge 1 (band 5)" ],
         [ dcterms:description "Red edge 3 (band 7)" ],
+        [ dcterms:description "Red (band 4)" ],
+        [ dcterms:description "SWIR 1 (band 11)" ],
         [ dcterms:description "NIR 3 (band 9)" ],
-        [ dcterms:description "Red edge 2 (band 6)" ] ;
-    ns8:size 43000000 ;
+        [ dcterms:description "Green (band 3)" ],
+        [ dcterms:description "NIR 1 (band 8)" ] ;
+    ns6:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-5/item_eo_bands.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-5/collection.json> ],
-        [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns7:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns7:split "train" ] ;
+            ns8:split "train" ],
+        [ dcterms:type "application/json" ;
+            ns7:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-5/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns7:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-5/item_eo_bands.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns4:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-            ns4:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
+    stac:hasAsset [ ns1:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns1:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -3211,12 +3211,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                             mlm:stddev 1.231586e+03 ] ) ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns2:classes [ ns2:name "SeaLake" ;
+    mlm:output ( [ ns2:classes [ ns2:name "Pasture" ;
                         ns2:nodata false ;
-                        ns2:value 9 ],
-                    [ ns2:name "River" ;
+                        ns2:value 5 ],
+                    [ ns2:name "Highway" ;
                         ns2:nodata false ;
-                        ns2:value 8 ],
+                        ns2:value 3 ],
                     [ ns2:name "Residential_Buildings" ;
                         ns2:nodata false ;
                         ns2:title "Residential Buildings" ;
@@ -3225,27 +3225,27 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                         ns2:nodata false ;
                         ns2:title "Industrial Buildings" ;
                         ns2:value 4 ],
-                    [ ns2:name "Highway" ;
-                        ns2:nodata false ;
-                        ns2:value 3 ],
                     [ ns2:name "Annual_Crop" ;
                         ns2:nodata false ;
                         ns2:title "Annual Crop" ;
                         ns2:value 0 ],
-                    [ ns2:name "Herbaceous_Vegetation" ;
-                        ns2:nodata false ;
-                        ns2:title "Herbaceous Vegetation" ;
-                        ns2:value 2 ],
-                    [ ns2:name "Pasture" ;
-                        ns2:nodata false ;
-                        ns2:value 5 ],
                     [ ns2:name "Permanent_Crop" ;
                         ns2:nodata false ;
                         ns2:title "Permanent Crop" ;
                         ns2:value 6 ],
+                    [ ns2:name "Herbaceous_Vegetation" ;
+                        ns2:nodata false ;
+                        ns2:title "Herbaceous Vegetation" ;
+                        ns2:value 2 ],
                     [ ns2:name "Forest" ;
                         ns2:nodata false ;
-                        ns2:value 1 ] ;
+                        ns2:value 1 ],
+                    [ ns2:name "SeaLake" ;
+                        ns2:nodata false ;
+                        ns2:value 9 ],
+                    [ ns2:name "River" ;
+                        ns2:nodata false ;
+                        ns2:value 8 ] ;
                 mlm:io_name "classification" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "float32" ;
@@ -3255,7 +3255,7 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     mlm:pretrained_source "EuroSat Sentinel-2"^^xsd:string ;
     mlm:tasks ( mlm:classification ) ;
     mlm:total_parameters "11700000"^^xsd:nonNegativeInteger ;
-    ns1:bands [ ],
+    ns3:bands [ ],
         [ ],
         [ ],
         [ ],
@@ -3275,23 +3275,23 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     stac:hasAssetroles "code"^^xsd:string,
         "metadata"^^xsd:string .
 
-<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns3:bands [ ns4:name "cirrus" ],
-        [ ns4:name "rededge2" ],
-        [ ns4:name "red" ],
-        [ ns4:name "coastal" ],
-        [ ns4:name "blue" ],
-        [ ns4:name "nir08" ],
-        [ ns4:name "swir16" ],
-        [ ns4:name "rededge3" ],
-        [ ns4:name "green" ],
-        [ ns4:name "nir09" ],
-        [ ns4:name "nir" ],
-        [ ns4:name "swir22" ],
-        [ ns4:name "rededge1" ] ;
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns4:bands [ ns1:name "rededge3" ],
+        [ ns1:name "rededge1" ],
+        [ ns1:name "coastal" ],
+        [ ns1:name "nir" ],
+        [ ns1:name "swir22" ],
+        [ ns1:name "red" ],
+        [ ns1:name "blue" ],
+        [ ns1:name "cirrus" ],
+        [ ns1:name "rededge2" ],
+        [ ns1:name "nir09" ],
+        [ ns1:name "nir08" ],
+        [ ns1:name "swir16" ],
+        [ ns1:name "green" ] ;
     dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "Pytorch weights checkpoint" ;
-    ns6:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    ns5:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string .
@@ -4094,13 +4094,13 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <ml-aoi:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <classification:> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <eo:> .
-@prefix ns6: <file:> .
-@prefix ns7: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns1: <eo:> .
+@prefix ns2: <classification:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns4: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns6: <ml-aoi:> .
+@prefix ns7: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -4108,24 +4108,24 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-6/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns6:size 43000000 ;
+    ns7:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns1:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-6/collection.json> ],
         [ dcterms:type "application/geo+json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-6/item_eo_bands.json> ] ;
+            ns5:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-6/item_eo_bands.json> ],
+        [ dcterms:type "application/json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns6:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns2:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-            ns2:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
+    stac:hasAsset [ ns3:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns3:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -4176,41 +4176,41 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                             mlm:stddev 1.231586e+03 ] ) ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns3:classes [ ns3:name "Annual_Crop" ;
-                        ns3:nodata false ;
-                        ns3:title "Annual Crop" ;
-                        ns3:value 0 ],
-                    [ ns3:name "Pasture" ;
-                        ns3:nodata false ;
-                        ns3:value 5 ],
-                    [ ns3:name "River" ;
-                        ns3:nodata false ;
-                        ns3:value 8 ],
-                    [ ns3:name "Forest" ;
-                        ns3:nodata false ;
-                        ns3:value 1 ],
-                    [ ns3:name "Residential_Buildings" ;
-                        ns3:nodata false ;
-                        ns3:title "Residential Buildings" ;
-                        ns3:value 7 ],
-                    [ ns3:name "Herbaceous_Vegetation" ;
-                        ns3:nodata false ;
-                        ns3:title "Herbaceous Vegetation" ;
-                        ns3:value 2 ],
-                    [ ns3:name "Highway" ;
-                        ns3:nodata false ;
-                        ns3:value 3 ],
-                    [ ns3:name "Permanent_Crop" ;
-                        ns3:nodata false ;
-                        ns3:title "Permanent Crop" ;
-                        ns3:value 6 ],
-                    [ ns3:name "SeaLake" ;
-                        ns3:nodata false ;
-                        ns3:value 9 ],
-                    [ ns3:name "Industrial_Buildings" ;
-                        ns3:nodata false ;
-                        ns3:title "Industrial Buildings" ;
-                        ns3:value 4 ] ;
+    mlm:output ( [ ns2:classes [ ns2:name "River" ;
+                        ns2:nodata false ;
+                        ns2:value 8 ],
+                    [ ns2:name "Highway" ;
+                        ns2:nodata false ;
+                        ns2:value 3 ],
+                    [ ns2:name "Residential_Buildings" ;
+                        ns2:nodata false ;
+                        ns2:title "Residential Buildings" ;
+                        ns2:value 7 ],
+                    [ ns2:name "Permanent_Crop" ;
+                        ns2:nodata false ;
+                        ns2:title "Permanent Crop" ;
+                        ns2:value 6 ],
+                    [ ns2:name "Annual_Crop" ;
+                        ns2:nodata false ;
+                        ns2:title "Annual Crop" ;
+                        ns2:value 0 ],
+                    [ ns2:name "Forest" ;
+                        ns2:nodata false ;
+                        ns2:value 1 ],
+                    [ ns2:name "Herbaceous_Vegetation" ;
+                        ns2:nodata false ;
+                        ns2:title "Herbaceous Vegetation" ;
+                        ns2:value 2 ],
+                    [ ns2:name "Pasture" ;
+                        ns2:nodata false ;
+                        ns2:value 5 ],
+                    [ ns2:name "SeaLake" ;
+                        ns2:nodata false ;
+                        ns2:value 9 ],
+                    [ ns2:name "Industrial_Buildings" ;
+                        ns2:nodata false ;
+                        ns2:title "Industrial Buildings" ;
+                        ns2:value 4 ] ;
                 mlm:io_name "classification" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "float32" ;
@@ -4228,75 +4228,75 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
         "metadata"^^xsd:string,
         "mlm:source_code"^^xsd:string .
 
-<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns5:bands [ dcterms:description "Green (band 3)" ;
-            ns2:center_wavelength 5.6e-01 ;
-            ns2:common_name "green" ;
-            ns2:full_width_half_max 4.5e-02 ;
-            ns2:name "B03" ],
-        [ dcterms:description "Blue (band 2)" ;
-            ns2:center_wavelength 4.9e-01 ;
-            ns2:common_name "blue" ;
-            ns2:full_width_half_max 9.8e-02 ;
-            ns2:name "B02" ],
-        [ dcterms:description "Red (band 4)" ;
-            ns2:center_wavelength 6.65e-01 ;
-            ns2:common_name "red" ;
-            ns2:full_width_half_max 3.8e-02 ;
-            ns2:name "B04" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ;
-            ns2:center_wavelength 1.375e+00 ;
-            ns2:common_name "cirrus" ;
-            ns2:full_width_half_max 2.6e-02 ;
-            ns2:name "B10" ],
-        [ dcterms:description "Red edge 2 (band 6)" ;
-            ns2:center_wavelength 7.4e-01 ;
-            ns2:common_name "rededge" ;
-            ns2:full_width_half_max 1.8e-02 ;
-            ns2:name "B06" ],
-        [ dcterms:description "NIR 3 (band 9)" ;
-            ns2:center_wavelength 9.45e-01 ;
-            ns2:common_name "nir09" ;
-            ns2:full_width_half_max 2.6e-02 ;
-            ns2:name "B09" ],
-        [ dcterms:description "Red edge 3 (band 7)" ;
-            ns2:center_wavelength 7.83e-01 ;
-            ns2:common_name "rededge" ;
-            ns2:full_width_half_max 2.8e-02 ;
-            ns2:name "B07" ],
-        [ dcterms:description "NIR 1 (band 8)" ;
-            ns2:center_wavelength 8.42e-01 ;
-            ns2:common_name "nir" ;
-            ns2:full_width_half_max 1.45e-01 ;
-            ns2:name "B08" ],
-        [ dcterms:description "SWIR 1 (band 11)" ;
-            ns2:center_wavelength 1.61e+00 ;
-            ns2:common_name "swir16" ;
-            ns2:full_width_half_max 1.43e-01 ;
-            ns2:name "B11" ],
-        [ dcterms:description "Coastal aerosol (band 1)" ;
-            ns2:center_wavelength 4.43e-01 ;
-            ns2:common_name "coastal" ;
-            ns2:full_width_half_max 2.7e-02 ;
-            ns2:name "B01" ],
-        [ dcterms:description "Red edge 1 (band 5)" ;
-            ns2:center_wavelength 7.04e-01 ;
-            ns2:common_name "rededge" ;
-            ns2:full_width_half_max 1.9e-02 ;
-            ns2:name "B05" ],
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns1:bands [ dcterms:description "Blue (band 2)" ;
+            ns3:center_wavelength 4.9e-01 ;
+            ns3:common_name "blue" ;
+            ns3:full_width_half_max 9.8e-02 ;
+            ns3:name "B02" ],
         [ dcterms:description "SWIR 2 (band 12)" ;
-            ns2:center_wavelength 2.19e+00 ;
-            ns2:common_name "swir22" ;
-            ns2:full_width_half_max 2.42e-01 ;
-            ns2:name "B12" ],
+            ns3:center_wavelength 2.19e+00 ;
+            ns3:common_name "swir22" ;
+            ns3:full_width_half_max 2.42e-01 ;
+            ns3:name "B12" ],
         [ dcterms:description "NIR 2 (band 8A)" ;
-            ns2:center_wavelength 8.65e-01 ;
-            ns2:common_name "nir08" ;
-            ns2:full_width_half_max 3.3e-02 ;
-            ns2:name "B8A" ] ;
+            ns3:center_wavelength 8.65e-01 ;
+            ns3:common_name "nir08" ;
+            ns3:full_width_half_max 3.3e-02 ;
+            ns3:name "B8A" ],
+        [ dcterms:description "Green (band 3)" ;
+            ns3:center_wavelength 5.6e-01 ;
+            ns3:common_name "green" ;
+            ns3:full_width_half_max 4.5e-02 ;
+            ns3:name "B03" ],
+        [ dcterms:description "Red edge 2 (band 6)" ;
+            ns3:center_wavelength 7.4e-01 ;
+            ns3:common_name "rededge" ;
+            ns3:full_width_half_max 1.8e-02 ;
+            ns3:name "B06" ],
+        [ dcterms:description "NIR 3 (band 9)" ;
+            ns3:center_wavelength 9.45e-01 ;
+            ns3:common_name "nir09" ;
+            ns3:full_width_half_max 2.6e-02 ;
+            ns3:name "B09" ],
+        [ dcterms:description "Red edge 1 (band 5)" ;
+            ns3:center_wavelength 7.04e-01 ;
+            ns3:common_name "rededge" ;
+            ns3:full_width_half_max 1.9e-02 ;
+            ns3:name "B05" ],
+        [ dcterms:description "Red edge 3 (band 7)" ;
+            ns3:center_wavelength 7.83e-01 ;
+            ns3:common_name "rededge" ;
+            ns3:full_width_half_max 2.8e-02 ;
+            ns3:name "B07" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ;
+            ns3:center_wavelength 4.43e-01 ;
+            ns3:common_name "coastal" ;
+            ns3:full_width_half_max 2.7e-02 ;
+            ns3:name "B01" ],
+        [ dcterms:description "Red (band 4)" ;
+            ns3:center_wavelength 6.65e-01 ;
+            ns3:common_name "red" ;
+            ns3:full_width_half_max 3.8e-02 ;
+            ns3:name "B04" ],
+        [ dcterms:description "NIR 1 (band 8)" ;
+            ns3:center_wavelength 8.42e-01 ;
+            ns3:common_name "nir" ;
+            ns3:full_width_half_max 1.45e-01 ;
+            ns3:name "B08" ],
+        [ dcterms:description "SWIR - Cirrus (band 10)" ;
+            ns3:center_wavelength 1.375e+00 ;
+            ns3:common_name "cirrus" ;
+            ns3:full_width_half_max 2.6e-02 ;
+            ns3:name "B10" ],
+        [ dcterms:description "SWIR 1 (band 11)" ;
+            ns3:center_wavelength 1.61e+00 ;
+            ns3:common_name "swir16" ;
+            ns3:full_width_half_max 1.43e-01 ;
+            ns3:name "B11" ] ;
     dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "Pytorch weights checkpoint" ;
-    ns7:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    ns4:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string .
@@ -5177,13 +5177,13 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <classification:> .
-@prefix ns2: <eo:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns5: <https://w3id.org/ogc/stac/assets/$> .
-@prefix ns6: <file:> .
-@prefix ns7: <ml-aoi:> .
+@prefix ns1: <eo:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns3: <classification:> .
+@prefix ns4: <https://w3id.org/ogc/stac/assets/$> .
+@prefix ns5: <http://www.iana.org/assignments/> .
+@prefix ns6: <ml-aoi:> .
+@prefix ns7: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -5191,37 +5191,37 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-7/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns2:bands [ dcterms:description "Coastal aerosol (band 1)" ],
-        [ dcterms:description "Red edge 3 (band 7)" ],
-        [ dcterms:description "SWIR - Cirrus (band 10)" ],
+    ns1:bands [ dcterms:description "SWIR 1 (band 11)" ],
         [ dcterms:description "NIR 3 (band 9)" ],
-        [ dcterms:description "Red edge 2 (band 6)" ],
-        [ dcterms:description "NIR 1 (band 8)" ],
+        [ dcterms:description "Coastal aerosol (band 1)" ],
         [ dcterms:description "Red edge 1 (band 5)" ],
-        [ dcterms:description "NIR 2 (band 8A)" ],
-        [ dcterms:description "SWIR 1 (band 11)" ],
-        [ dcterms:description "Blue (band 2)" ],
+        [ dcterms:description "SWIR - Cirrus (band 10)" ],
+        [ dcterms:description "Red edge 2 (band 6)" ],
+        [ dcterms:description "Red (band 4)" ],
         [ dcterms:description "SWIR 2 (band 12)" ],
+        [ dcterms:description "Blue (band 2)" ],
+        [ dcterms:description "Red edge 3 (band 7)" ],
         [ dcterms:description "Green (band 3)" ],
-        [ dcterms:description "Red (band 4)" ] ;
-    ns6:size 43000000 ;
+        [ dcterms:description "NIR 1 (band 8)" ],
+        [ dcterms:description "NIR 2 (band 8A)" ] ;
+    ns7:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns6:split "train" ],
+        [ dcterms:type "application/geo+json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-7/item_eo_bands.json> ],
         [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns7:split "train" ],
-        [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-7/collection.json> ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns4:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-            ns4:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
+    stac:hasAsset [ ns2:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns2:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
@@ -5271,41 +5271,41 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                             mlm:stddev 1.231586e+03 ] ) ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns1:classes [ ns1:name "Permanent_Crop" ;
-                        ns1:nodata false ;
-                        ns1:title "Permanent Crop" ;
-                        ns1:value 6 ],
-                    [ ns1:name "Forest" ;
-                        ns1:nodata false ;
-                        ns1:value 1 ],
-                    [ ns1:name "Residential_Buildings" ;
-                        ns1:nodata false ;
-                        ns1:title "Residential Buildings" ;
-                        ns1:value 7 ],
-                    [ ns1:name "Annual_Crop" ;
-                        ns1:nodata false ;
-                        ns1:title "Annual Crop" ;
-                        ns1:value 0 ],
-                    [ ns1:name "Industrial_Buildings" ;
-                        ns1:nodata false ;
-                        ns1:title "Industrial Buildings" ;
-                        ns1:value 4 ],
-                    [ ns1:name "River" ;
-                        ns1:nodata false ;
-                        ns1:value 8 ],
-                    [ ns1:name "Pasture" ;
-                        ns1:nodata false ;
-                        ns1:value 5 ],
-                    [ ns1:name "Highway" ;
-                        ns1:nodata false ;
-                        ns1:value 3 ],
-                    [ ns1:name "Herbaceous_Vegetation" ;
-                        ns1:nodata false ;
-                        ns1:title "Herbaceous Vegetation" ;
-                        ns1:value 2 ],
-                    [ ns1:name "SeaLake" ;
-                        ns1:nodata false ;
-                        ns1:value 9 ] ;
+    mlm:output ( [ ns3:classes [ ns3:name "Forest" ;
+                        ns3:nodata false ;
+                        ns3:value 1 ],
+                    [ ns3:name "SeaLake" ;
+                        ns3:nodata false ;
+                        ns3:value 9 ],
+                    [ ns3:name "Highway" ;
+                        ns3:nodata false ;
+                        ns3:value 3 ],
+                    [ ns3:name "River" ;
+                        ns3:nodata false ;
+                        ns3:value 8 ],
+                    [ ns3:name "Pasture" ;
+                        ns3:nodata false ;
+                        ns3:value 5 ],
+                    [ ns3:name "Permanent_Crop" ;
+                        ns3:nodata false ;
+                        ns3:title "Permanent Crop" ;
+                        ns3:value 6 ],
+                    [ ns3:name "Industrial_Buildings" ;
+                        ns3:nodata false ;
+                        ns3:title "Industrial Buildings" ;
+                        ns3:value 4 ],
+                    [ ns3:name "Residential_Buildings" ;
+                        ns3:nodata false ;
+                        ns3:title "Residential Buildings" ;
+                        ns3:value 7 ],
+                    [ ns3:name "Herbaceous_Vegetation" ;
+                        ns3:nodata false ;
+                        ns3:title "Herbaceous Vegetation" ;
+                        ns3:value 2 ],
+                    [ ns3:name "Annual_Crop" ;
+                        ns3:nodata false ;
+                        ns3:title "Annual Crop" ;
+                        ns3:value 0 ] ;
                 mlm:io_name "classification" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "float32" ;
@@ -5322,23 +5322,23 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     stac:hasAssetroles "code"^^xsd:string,
         "metadata"^^xsd:string .
 
-<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns2:bands [ ns4:name "rededge2" ],
-        [ ns4:name "rededge3" ],
-        [ ns4:name "swir16" ],
-        [ ns4:name "rededge1" ],
-        [ ns4:name "nir09" ],
-        [ ns4:name "cirrus" ],
-        [ ns4:name "coastal" ],
-        [ ns4:name "red" ],
-        [ ns4:name "swir22" ],
-        [ ns4:name "blue" ],
-        [ ns4:name "green" ],
-        [ ns4:name "nir" ],
-        [ ns4:name "nir08" ] ;
+<https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ns1:bands [ ns2:name "coastal" ],
+        [ ns2:name "blue" ],
+        [ ns2:name "swir22" ],
+        [ ns2:name "swir16" ],
+        [ ns2:name "red" ],
+        [ ns2:name "cirrus" ],
+        [ ns2:name "nir08" ],
+        [ ns2:name "nir" ],
+        [ ns2:name "green" ],
+        [ ns2:name "rededge3" ],
+        [ ns2:name "nir09" ],
+        [ ns2:name "rededge1" ],
+        [ ns2:name "rededge2" ] ;
     dcterms:description "A Resnet-18 classification model trained on normalized Sentinel-2 imagery with Eurosat landcover labels with torchgeo" ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "Pytorch weights checkpoint" ;
-    ns5:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
+    ns4:comment "Following 'eo:bands' is required to fulfil schema validation of 'eo' extension." ;
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string .
@@ -5937,11 +5937,11 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <classification:> .
-@prefix ns4: <ml-aoi:> .
-@prefix ns5: <raster:> .
+@prefix ns1: <raster:> .
+@prefix ns2: <ml-aoi:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns4: <classification:> .
+@prefix ns5: <http://www.iana.org/assignments/> .
 @prefix ns6: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -5952,21 +5952,21 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 <https://example.com/stac/mlm/example-8/model-multi-input> a geojson:Feature ;
     ns6:size 43000000 ;
     dcterms:description "Generic model that employs multiple input sources with different combination of bands, and some inputs without any band at all." ;
-    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
+        [ dcterms:type "application/geo+json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-8/item_multi_io.json> ],
         [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns4:split "train" ] ;
+            ns2:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns2:weights <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ] ;
+    stac:hasAsset [ ns3:weights <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
@@ -6000,26 +6000,26 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                 mlm:io_name "DEM" ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns3:classes [ ns3:color_hint "00FF00" ;
-                        ns3:description "pixels where vegetation was detected" ;
-                        ns3:name "VEGETATION" ;
-                        ns3:value 1 ],
-                    [ ns3:description "background pixels" ;
-                        ns3:name "NON_VEGETATION" ;
-                        ns3:value 0 ] ;
+    mlm:output ( [ ns4:classes [ ns4:color_hint "00FF00" ;
+                        ns4:description "pixels where vegetation was detected" ;
+                        ns4:name "VEGETATION" ;
+                        ns4:value 1 ],
+                    [ ns4:description "background pixels" ;
+                        ns4:name "NON_VEGETATION" ;
+                        ns4:value 0 ] ;
                 mlm:io_name "vegetation-segmentation" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "uint8" ;
                         mlm:dim_order ( "batch" "class" ) ;
                         mlm:shape ( -1 1 ) ] ;
-                mlm:tasks ( mlm:semantic-segmentation ) ] [ ns3:classes [ ns3:color_hint "000000" ;
-                        ns3:description "pixels where vegetation was detected" ;
-                        ns3:name "VEGETATION" ;
-                        ns3:value 1 ],
-                    [ ns3:color_hint "FFFFFF" ;
-                        ns3:description "background pixels" ;
-                        ns3:name "NON_VEGETATION" ;
-                        ns3:value 0 ] ;
+                mlm:tasks ( mlm:semantic-segmentation ) ] [ ns4:classes [ ns4:color_hint "FFFFFF" ;
+                        ns4:description "background pixels" ;
+                        ns4:name "NON_VEGETATION" ;
+                        ns4:value 0 ],
+                    [ ns4:color_hint "000000" ;
+                        ns4:description "pixels where vegetation was detected" ;
+                        ns4:name "VEGETATION" ;
+                        ns4:value 1 ] ;
                 mlm:io_name "inverse-mask" ;
                 mlm:post_processing_function "{\"expression\":\"logical_not(A)\",\"format\":\"gdal-calc\"}"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "uint8" ;
@@ -6036,42 +6036,42 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string ;
-    ns5:bands [ ns2:bits_per_sample 15 ;
-            ns2:common_name "nir" ;
-            ns2:data_type "uint16" ;
-            ns2:name "B08" ;
-            ns2:nodata 0 ;
-            ns2:offset 0 ;
-            ns2:scale 1e-04 ;
-            ns2:spatial_resolution 10 ;
-            ns2:unit "m" ],
-        [ ns2:bits_per_sample 15 ;
-            ns2:common_name "red" ;
-            ns2:data_type "uint16" ;
-            ns2:name "B04" ;
-            ns2:nodata 0 ;
-            ns2:offset 0 ;
-            ns2:scale 1e-04 ;
-            ns2:spatial_resolution 10 ;
-            ns2:unit "m" ],
-        [ ns2:bits_per_sample 15 ;
-            ns2:common_name "green" ;
-            ns2:data_type "uint16" ;
-            ns2:name "B03" ;
-            ns2:nodata 0 ;
-            ns2:offset 0 ;
-            ns2:scale 1e-04 ;
-            ns2:spatial_resolution 10 ;
-            ns2:unit "m" ],
-        [ ns2:bits_per_sample 15 ;
-            ns2:common_name "blue" ;
-            ns2:data_type "uint16" ;
-            ns2:name "B02" ;
-            ns2:nodata 0 ;
-            ns2:offset 0 ;
-            ns2:scale 1e-04 ;
-            ns2:spatial_resolution 10 ;
-            ns2:unit "m" ] .
+    ns1:bands [ ns3:bits_per_sample 15 ;
+            ns3:common_name "green" ;
+            ns3:data_type "uint16" ;
+            ns3:name "B03" ;
+            ns3:nodata 0 ;
+            ns3:offset 0 ;
+            ns3:scale 1e-04 ;
+            ns3:spatial_resolution 10 ;
+            ns3:unit "m" ],
+        [ ns3:bits_per_sample 15 ;
+            ns3:common_name "red" ;
+            ns3:data_type "uint16" ;
+            ns3:name "B04" ;
+            ns3:nodata 0 ;
+            ns3:offset 0 ;
+            ns3:scale 1e-04 ;
+            ns3:spatial_resolution 10 ;
+            ns3:unit "m" ],
+        [ ns3:bits_per_sample 15 ;
+            ns3:common_name "blue" ;
+            ns3:data_type "uint16" ;
+            ns3:name "B02" ;
+            ns3:nodata 0 ;
+            ns3:offset 0 ;
+            ns3:scale 1e-04 ;
+            ns3:spatial_resolution 10 ;
+            ns3:unit "m" ],
+        [ ns3:bits_per_sample 15 ;
+            ns3:common_name "nir" ;
+            ns3:data_type "uint16" ;
+            ns3:name "B08" ;
+            ns3:nodata 0 ;
+            ns3:offset 0 ;
+            ns3:scale 1e-04 ;
+            ns3:spatial_resolution 10 ;
+            ns3:unit "m" ] .
 
 
 ```
@@ -6497,9 +6497,9 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns1: <classification:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <classification:> .
+@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
 @prefix ns4: <eo:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -6523,8 +6523,8 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88e+00 3.713e+01 ) ( -7.88e+00 5.821e+01 ) ( 2.791e+01 5.821e+01 ) ( 2.791e+01 3.713e+01 ) ( -7.88e+00 3.713e+01 ) ) ) ] ;
     stac:end_datetime "2024-08-27T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:model <https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ;
-            ns1:source_code <https://github.com/qubvel-org/segmentation_models.pytorch> ] ;
+    stac:hasAsset [ ns3:model <https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ;
+            ns3:source_code <https://github.com/qubvel-org/segmentation_models.pytorch> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
         "https://stac-extensions.github.io/mlm/v1.6.0/schema.json" ;
@@ -6545,12 +6545,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                             mlm:stddev 3000 ] ) ;
                 mlm:variables () ] ) ;
     mlm:name "U-Net_efficientnet-b3"^^xsd:string ;
-    mlm:output ( [ ns3:classes [ ns3:description "Auto-generated class 1" ;
-                        ns3:name "class_1" ;
-                        ns3:value 1 ],
-                    [ ns3:description "Auto-generated class 0" ;
-                        ns3:name "class_0" ;
-                        ns3:value 0 ] ;
+    mlm:output ( [ ns1:classes [ ns1:description "Auto-generated class 0" ;
+                        ns1:name "class_0" ;
+                        ns1:value 0 ],
+                    [ ns1:description "Auto-generated class 1" ;
+                        ns1:name "class_1" ;
+                        ns1:value 1 ] ;
                 mlm:bands () ;
                 mlm:io_name "model_output" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
@@ -6569,14 +6569,14 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     stac:hasAssetroles "code"^^xsd:string,
         "mlm:source_code"^^xsd:string .
 
-<https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ns4:bands [ ns1:name "B8" ],
-        [ ns1:name "B4" ],
-        [ ns1:name "B3" ],
-        [ ns1:name "B8" ],
-        [ ns1:name "B4" ],
-        [ ns1:name "B2" ],
-        [ ns1:name "B3" ],
-        [ ns1:name "B2" ] ;
+<https://huggingface.co/torchgeo/ftw/resolve/d2fdab6ea9d9cd38b491292cc9a5c8642533cef5/noncommercial/2-class/sentinel2_unet_effb3-bf010a31.pth> ns4:bands [ ns3:name "B4" ],
+        [ ns3:name "B3" ],
+        [ ns3:name "B2" ],
+        [ ns3:name "B2" ],
+        [ ns3:name "B4" ],
+        [ ns3:name "B8" ],
+        [ ns3:name "B3" ],
+        [ ns3:name "B8" ] ;
     dcterms:description "A U-Net segmentation model with efficientnet-b3 encoder Weights are non-commercial." ;
     dcterms:format "application/octet-stream; application=pytorch" ;
     dcterms:title "U-Net_efficientnet-b3" ;
@@ -7325,12 +7325,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns2: <ml-aoi:> .
-@prefix ns3: <classification:> .
-@prefix ns4: <raster:> .
+@prefix ns1: <classification:> .
+@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns3: <raster:> .
+@prefix ns4: <file:> .
 @prefix ns5: <http://www.iana.org/assignments/> .
-@prefix ns6: <file:> .
+@prefix ns6: <ml-aoi:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7338,24 +7338,24 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/mlm/example-10/resnet-18_sentinel-2_all_moco_classification> a geojson:Feature ;
-    ns6:size 43000000 ;
+    ns4:size 43000000 ;
     dcterms:description "Sourced from torchgeo python library, identifier is ResNet18_Weights.SENTINEL2_ALL_MOCO" ;
     rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns2:split "train" ],
-        [ dcterms:type "application/json" ;
             ns5:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://example.com/stac/mlm/example-10/collection.json> ],
         [ dcterms:type "application/geo+json" ;
             ns5:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-10/item_raster_bands.json> ] ;
+            oa:hasTarget <https://example.com/stac/mlm/example-10/item_raster_bands.json> ],
+        [ dcterms:type "application/json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
+            ns6:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns1:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
-            ns1:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
+    stac:hasAsset [ ns2:source_code <https://github.com/microsoft/torchgeo/blob/61efd2e2c4df7ebe3bd03002ebbaeaa3cfe9885a/torchgeo/models/resnet.py#L207> ;
+            ns2:weights <https://huggingface.co/torchgeo/resnet18_sentinel2_all_moco/resolve/main/resnet18_sentinel2_all_moco-59bfdff9.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
@@ -7379,41 +7379,41 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
                 mlm:value_scaling () ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns3:classes [ ns3:name "Pasture" ;
-                        ns3:nodata false ;
-                        ns3:value 5 ],
-                    [ ns3:name "SeaLake" ;
-                        ns3:nodata false ;
-                        ns3:value 9 ],
-                    [ ns3:name "Forest" ;
-                        ns3:nodata false ;
-                        ns3:value 1 ],
-                    [ ns3:name "Residential_Buildings" ;
-                        ns3:nodata false ;
-                        ns3:title "Residential Buildings" ;
-                        ns3:value 7 ],
-                    [ ns3:name "Highway" ;
-                        ns3:nodata false ;
-                        ns3:value 3 ],
-                    [ ns3:name "River" ;
-                        ns3:nodata false ;
-                        ns3:value 8 ],
-                    [ ns3:name "Permanent_Crop" ;
-                        ns3:nodata false ;
-                        ns3:title "Permanent Crop" ;
-                        ns3:value 6 ],
-                    [ ns3:name "Herbaceous_Vegetation" ;
-                        ns3:nodata false ;
-                        ns3:title "Herbaceous Vegetation" ;
-                        ns3:value 2 ],
-                    [ ns3:name "Annual_Crop" ;
-                        ns3:nodata false ;
-                        ns3:title "Annual Crop" ;
-                        ns3:value 0 ],
-                    [ ns3:name "Industrial_Buildings" ;
-                        ns3:nodata false ;
-                        ns3:title "Industrial Buildings" ;
-                        ns3:value 4 ] ;
+    mlm:output ( [ ns1:classes [ ns1:name "Industrial_Buildings" ;
+                        ns1:nodata false ;
+                        ns1:title "Industrial Buildings" ;
+                        ns1:value 4 ],
+                    [ ns1:name "Forest" ;
+                        ns1:nodata false ;
+                        ns1:value 1 ],
+                    [ ns1:name "Residential_Buildings" ;
+                        ns1:nodata false ;
+                        ns1:title "Residential Buildings" ;
+                        ns1:value 7 ],
+                    [ ns1:name "Pasture" ;
+                        ns1:nodata false ;
+                        ns1:value 5 ],
+                    [ ns1:name "Permanent_Crop" ;
+                        ns1:nodata false ;
+                        ns1:title "Permanent Crop" ;
+                        ns1:value 6 ],
+                    [ ns1:name "Annual_Crop" ;
+                        ns1:nodata false ;
+                        ns1:title "Annual Crop" ;
+                        ns1:value 0 ],
+                    [ ns1:name "River" ;
+                        ns1:nodata false ;
+                        ns1:value 8 ],
+                    [ ns1:name "Herbaceous_Vegetation" ;
+                        ns1:nodata false ;
+                        ns1:title "Herbaceous Vegetation" ;
+                        ns1:value 2 ],
+                    [ ns1:name "Highway" ;
+                        ns1:nodata false ;
+                        ns1:value 3 ],
+                    [ ns1:name "SeaLake" ;
+                        ns1:nodata false ;
+                        ns1:value 9 ] ;
                 mlm:io_name "classification" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "float32" ;
@@ -7437,110 +7437,110 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string ;
-    ns4:bands [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B04" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 10 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B07" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B11" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B01" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 60 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B8A" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B03" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 10 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B08" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 10 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B05" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B09" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 60 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B02" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 10 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B12" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B10" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 60 ;
-            ns1:unit "m" ],
-        [ ns1:bits_per_sample 15 ;
-            ns1:data_type "uint16" ;
-            ns1:name "B06" ;
-            ns1:nodata 0 ;
-            ns1:offset 0 ;
-            ns1:scale 1e-04 ;
-            ns1:spatial_resolution 20 ;
-            ns1:unit "m" ] .
+    ns3:bands [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B07" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 20 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B10" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 60 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B08" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 10 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B12" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 20 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B02" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 10 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B04" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 10 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B05" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 20 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B11" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 20 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B06" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 20 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B01" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 60 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B03" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 10 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B8A" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 20 ;
+            ns2:unit "m" ],
+        [ ns2:bits_per_sample 15 ;
+            ns2:data_type "uint16" ;
+            ns2:name "B09" ;
+            ns2:nodata 0 ;
+            ns2:offset 0 ;
+            ns2:scale 1e-04 ;
+            ns2:spatial_resolution 60 ;
+            ns2:unit "m" ] .
 
 
 ```
@@ -8924,12 +8924,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <file:> .
-@prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <vcs:> .
-@prefix ns4: <http://www.iana.org/assignments/> .
-@prefix ns5: <application:> .
-@prefix ns6: <ml-aoi:> .
+@prefix ns1: <ml-aoi:> .
+@prefix ns2: <file:> .
+@prefix ns3: <application:> .
+@prefix ns4: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns5: <vcs:> .
+@prefix ns6: <http://www.iana.org/assignments/> .
 @prefix ns7: <sci:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8939,110 +8939,110 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
 
 <https://example.com/stac/mlm/resoterre-unet/unet_rdps_to_hrdps> a geojson:Feature ;
     dcterms:description "U-Net trained to downscale RDPS meteorological data to HRDPS resolution." ;
-    rdfs:seeAlso [ rdfs:label "HRDPS validate samples" ;
-            dcterms:description "HRDPS validate-split target samples used as labels and predicted downscaling results." ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
-            ns6:role "label" ;
-            ns6:split "validate" ],
-        [ dcterms:type "application/geo+json" ;
-            ns4:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/stac/mlm/resoterre-unet/unet_rdps_to_hrdps.json> ],
-        [ rdfs:label "HRDPS test samples" ;
-            dcterms:description "HRDPS test-split target samples used as labels and predicted downscaling results." ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
-            ns6:role "label" ;
-            ns6:split "test" ],
-        [ rdfs:label "resoterre citation metadata" ;
-            dcterms:type "text/yaml" ;
-            ns4:relation <http://www.iana.org/assignments/relation/cite-as> ;
-            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ],
-        [ rdfs:label "HRDPS train samples" ;
+    rdfs:seeAlso [ rdfs:label "HRDPS train samples" ;
             dcterms:description "HRDPS train-split target samples used as labels and predicted downscaling results." ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
-            ns6:role "label" ;
-            ns6:split "train" ],
+            ns1:role "label" ;
+            ns1:split "train" ],
         [ rdfs:label "U-Net inference CWL tool" ;
-            ns5:languages "Common Workflow Language" ;
-            ns1:checksum "122081999f65ffb1cf3256b1a72a3aed25134b4ba446acea1b781b5a783f6ac6b09f" ;
-            ns1:size 2359 ;
+            ns3:languages "Common Workflow Language" ;
+            ns2:checksum "122081999f65ffb1cf3256b1a72a3aed25134b4ba446acea1b781b5a783f6ac6b09f" ;
+            ns2:size 2359 ;
             dcterms:description "CWL CommandLineTool running the U-Net downscaling inference on the downloaded RDPS data." ;
             dcterms:type "application/cwl+yaml" ;
-            ns4:relation <http://www.iana.org/assignments/relation/application> ;
+            ns6:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_unet.cwl> ;
-            ns3:branch "main" ;
-            ns3:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-            ns3:type "git" ],
-        [ rdfs:label "RDPS validate samples" ;
-            dcterms:description "RDPS validate-split input samples used as machine-learning features." ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
-            ns6:role "feature" ;
-            ns6:split "validate" ],
-        [ rdfs:label "RDPS train samples" ;
-            dcterms:description "RDPS train-split input samples used as machine-learning features." ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
-            ns6:role "feature" ;
-            ns6:split "train" ],
+            ns5:branch "main" ;
+            ns5:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns5:type "git" ],
         [ rdfs:label "RDPS file listing CWL tool" ;
-            ns5:languages "Common Workflow Language" ;
-            ns1:checksum "1220b41206d6ae38ceedfb499c179851d670555a73bfe7a70819ba47b511c1f78f01" ;
-            ns1:size 2284 ;
+            ns3:languages "Common Workflow Language" ;
+            ns2:checksum "1220b41206d6ae38ceedfb499c179851d670555a73bfe7a70819ba47b511c1f78f01" ;
+            ns2:size 2284 ;
             dcterms:description "CWL CommandLineTool listing the RDPS files required for a requested datetime range." ;
             dcterms:type "application/cwl+yaml" ;
-            ns4:relation <http://www.iana.org/assignments/relation/application> ;
+            ns6:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_generate_file_list.cwl> ;
-            ns3:branch "main" ;
-            ns3:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-            ns3:type "git" ],
-        [ rdfs:label "resoterre source repository" ;
-            ns4:relation <http://www.iana.org/assignments/relation/vcs> ;
-            oa:hasTarget <https://github.com/Ouranosinc/resoterre.git> ;
-            ns3:branch "main" ;
-            ns3:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-            ns3:type "git" ],
-        [ rdfs:label "RDPS test samples" ;
-            dcterms:description "RDPS test-split input samples used as machine-learning features." ;
-            ns4:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            ns5:branch "main" ;
+            ns5:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns5:type "git" ],
+        [ rdfs:label "HRDPS test samples" ;
+            dcterms:description "HRDPS test-split target samples used as labels and predicted downscaling results." ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
+            ns1:role "label" ;
+            ns1:split "test" ],
+        [ rdfs:label "RDPS train samples" ;
+            dcterms:description "RDPS train-split input samples used as machine-learning features." ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
-            ns6:role "feature" ;
-            ns6:split "test" ],
+            ns1:role "feature" ;
+            ns1:split "train" ],
         [ rdfs:label "RDPS download CWL tool" ;
-            ns5:languages "Common Workflow Language" ;
-            ns1:checksum "1220cfe6377d576e12763fa6e0f89f1fbc61a587475fbacf29c0d4921cdba758db19" ;
-            ns1:size 1611 ;
+            ns3:languages "Common Workflow Language" ;
+            ns2:checksum "1220cfe6377d576e12763fa6e0f89f1fbc61a587475fbacf29c0d4921cdba758db19" ;
+            ns2:size 1611 ;
             dcterms:description "CWL CommandLineTool downloading the listed RDPS files into a local directory." ;
             dcterms:type "application/cwl+yaml" ;
-            ns4:relation <http://www.iana.org/assignments/relation/application> ;
+            ns6:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_download_files.cwl> ;
-            ns3:branch "main" ;
-            ns3:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-            ns3:type "git" ],
+            ns5:branch "main" ;
+            ns5:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns5:type "git" ],
+        [ dcterms:type "application/geo+json" ;
+            ns6:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/stac/mlm/resoterre-unet/unet_rdps_to_hrdps.json> ],
+        [ rdfs:label "resoterre citation metadata" ;
+            dcterms:type "text/yaml" ;
+            ns6:relation <http://www.iana.org/assignments/relation/cite-as> ;
+            oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ],
+        [ rdfs:label "RDPS validate samples" ;
+            dcterms:description "RDPS validate-split input samples used as machine-learning features." ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
+            ns1:role "feature" ;
+            ns1:split "validate" ],
+        [ rdfs:label "resoterre source repository" ;
+            ns6:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/Ouranosinc/resoterre.git> ;
+            ns5:branch "main" ;
+            ns5:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns5:type "git" ],
         [ rdfs:label "RDPS-to-HRDPS downscaling CWL workflow" ;
-            ns5:languages "Common Workflow Language" ;
-            ns1:checksum "122054639a4072d5fb7e2a0039975ca8446e9fc3e95e91c91f9f4b37bebd3e798937" ;
-            ns1:size 2624 ;
+            ns3:languages "Common Workflow Language" ;
+            ns2:checksum "122054639a4072d5fb7e2a0039975ca8446e9fc3e95e91c91f9f4b37bebd3e798937" ;
+            ns2:size 2624 ;
             dcterms:description "CWL Workflow chaining the file listing, download and U-Net inference steps." ;
             dcterms:type "application/cwl+yaml" ;
-            ns4:relation <http://www.iana.org/assignments/relation/application> ;
+            ns6:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/examples/deploy/downscaling_unet_workflow.cwl> ;
-            ns3:branch "main" ;
-            ns3:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-            ns3:type "git" ] ;
+            ns5:branch "main" ;
+            ns5:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+            ns5:type "git" ],
+        [ rdfs:label "RDPS test samples" ;
+            dcterms:description "RDPS test-split input samples used as machine-learning features." ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/RDPS_CRIM> ;
+            ns1:role "feature" ;
+            ns1:split "test" ],
+        [ rdfs:label "HRDPS validate samples" ;
+            dcterms:description "HRDPS validate-split target samples used as labels and predicted downscaling results." ;
+            ns6:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://hirondelle.crim.ca/stac/collections/HRDPS_CRIM> ;
+            ns1:role "label" ;
+            ns1:split "validate" ] ;
     dcat:license "Apache-2.0" ;
     geojson:bbox ( -8.645e+01 3.752e+01 -6.416e+01 5.325e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -8.645e+01 3.752e+01 ) ( -8.645e+01 5.325e+01 ) ( -6.416e+01 5.325e+01 ) ( -6.416e+01 3.752e+01 ) ( -8.645e+01 3.752e+01 ) ) ) ] ;
     stac:end_datetime "2100-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns2:citation <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ;
-            ns2:configuration <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml> ;
-            ns2:container <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference> ;
-            ns2:model <https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors> ;
-            ns2:runtime <docker://resoterre-inference:0.1.3.dev9> ;
-            ns2:source_code <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk> ] ;
+    stac:hasAsset [ ns4:citation <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ;
+            ns4:configuration <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml> ;
+            ns4:container <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference> ;
+            ns4:model <https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors> ;
+            ns4:runtime <docker://resoterre-inference:0.1.3.dev9> ;
+            ns4:source_code <https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk> ] ;
     stac:hasExtension "https://stac-extensions.github.io/application/v0.1.0/schema.json",
         "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         "https://stac-extensions.github.io/file/v2.1.0/schema.json",
@@ -9073,12 +9073,12 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
             cube:unit "index" ;
             mlm:datacube_dimension_name "rlat" ] ;
     cube:variables [ cube:data_type "float32" ;
-            cube:description "RDPS dew-point temperature, normalized before inference." ;
+            cube:description "RDPS air temperature at 850 hPa, normalized before inference." ;
             cube:dimensions "rlat",
                 "rlon",
                 "time" ;
             cube:type "data" ;
-            mlm:datacube_variable_name "TD" ],
+            mlm:datacube_variable_name "TT850" ],
         [ cube:data_type "float32" ;
             cube:description "RDPS northward wind component at 850 hPa, normalized before inference." ;
             cube:dimensions "rlat",
@@ -9087,129 +9087,11 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
             cube:type "data" ;
             mlm:datacube_variable_name "VV850" ],
         [ cube:data_type "float32" ;
-            cube:description "RDPS precipitation rate at the surface, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "PR" ],
-        [ cube:data_type "float32" ;
-            cube:description "HRDPS precipitation rate at the surface, reconstructed on the target grid." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "HRDPS_P_PR_SFC" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS geopotential height at 850 hPa, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "GZ850" ],
-        [ cube:data_type "float32" ;
-            cube:description "Static HRDPS orography on the target rotated grid, aligned to the output patch." ;
-            cube:dimensions "rlat",
-                "rlon" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "orog" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS northward wind component on model levels, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "VV_model_levels" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS air temperature on model levels, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "TT_model_levels" ],
-        [ cube:data_type "float32" ;
-            cube:description "Geographic latitude auxiliary coordinate for the rotated grid." ;
-            cube:dimensions "rlat",
-                "rlon" ;
-            cube:type "auxiliary" ;
-            cube:unit "degree_north" ;
-            mlm:datacube_variable_name "lat" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS air temperature at 850 hPa, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "TT850" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS relative humidity at 700 hPa, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "HU700" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS geopotential height at 500 hPa, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "GZ500" ],
-        [ cube:data_type "float32" ;
-            cube:description "Geographic longitude auxiliary coordinate for the rotated grid." ;
-            cube:dimensions "rlat",
-                "rlon" ;
-            cube:type "auxiliary" ;
-            cube:unit "degree_east" ;
-            mlm:datacube_variable_name "lon" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS relative humidity at 850 hPa, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "HU850" ],
-        [ cube:data_type "float32" ;
-            cube:description "HRDPS northward wind component at 10 m, reconstructed on the target grid." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "HRDPS_P_VVC_10000" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS eastward wind component at 850 hPa, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "UU850" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS convective precipitation at the surface, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "PC" ],
-        [ cube:data_type "float32" ;
             cube:description "Static HRDPS land-fraction field on the target rotated grid, aligned to the output patch." ;
             cube:dimensions "rlat",
                 "rlon" ;
             cube:type "data" ;
             mlm:datacube_variable_name "sftlf" ],
-        [ cube:data_type "float32" ;
-            cube:description "RDPS pressure at the surface, normalized before inference." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "PN" ],
-        [ cube:data_type "float32" ;
-            cube:description "HRDPS eastward wind component at 10 m, reconstructed on the target grid." ;
-            cube:dimensions "rlat",
-                "rlon",
-                "time" ;
-            cube:type "data" ;
-            mlm:datacube_variable_name "HRDPS_P_UUC_10000" ],
         [ cube:data_type "float32" ;
             cube:description "RDPS eastward wind component on model levels, normalized before inference." ;
             cube:dimensions "rlat",
@@ -9218,12 +9100,130 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
             cube:type "data" ;
             mlm:datacube_variable_name "UU_model_levels" ],
         [ cube:data_type "float32" ;
+            cube:description "RDPS relative humidity at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HU850" ],
+        [ cube:data_type "float32" ;
+            cube:description "Geographic latitude auxiliary coordinate for the rotated grid." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "auxiliary" ;
+            cube:unit "degree_north" ;
+            mlm:datacube_variable_name "lat" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS eastward wind component at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "UU850" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS geopotential height at 850 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "GZ850" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS convective precipitation at the surface, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "PC" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS relative humidity at 700 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HU700" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS eastward wind component at 10 m, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_UUC_10000" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS pressure at the surface, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "PN" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS dew-point temperature, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "TD" ],
+        [ cube:data_type "float32" ;
+            cube:description "Static HRDPS orography on the target rotated grid, aligned to the output patch." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "orog" ],
+        [ cube:data_type "float32" ;
+            cube:description "Geographic longitude auxiliary coordinate for the rotated grid." ;
+            cube:dimensions "rlat",
+                "rlon" ;
+            cube:type "auxiliary" ;
+            cube:unit "degree_east" ;
+            mlm:datacube_variable_name "lon" ],
+        [ cube:data_type "float32" ;
             cube:description "HRDPS air temperature at 10 m, reconstructed on the target grid." ;
             cube:dimensions "rlat",
                 "rlon",
                 "time" ;
             cube:type "data" ;
-            mlm:datacube_variable_name "HRDPS_P_TT_10000" ] ;
+            mlm:datacube_variable_name "HRDPS_P_TT_10000" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS precipitation rate at the surface, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_PR_SFC" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS precipitation rate at the surface, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "PR" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS geopotential height at 500 hPa, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "GZ500" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS air temperature on model levels, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "TT_model_levels" ],
+        [ cube:data_type "float32" ;
+            cube:description "HRDPS northward wind component at 10 m, reconstructed on the target grid." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "HRDPS_P_VVC_10000" ],
+        [ cube:data_type "float32" ;
+            cube:description "RDPS northward wind component on model levels, normalized before inference." ;
+            cube:dimensions "rlat",
+                "rlon",
+                "time" ;
+            cube:type "data" ;
+            mlm:datacube_variable_name "VV_model_levels" ] ;
     mlm:accelerator mlm:cuda ;
     mlm:accelerator_constrained false ;
     mlm:architecture "U-Net"^^xsd:string ;
@@ -9259,9 +9259,9 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     mlm:tasks ( mlm:downscaling mlm:super-resolution ) ;
     mlm:total_parameters "9871888"^^xsd:nonNegativeInteger ;
     ns7:citation "Gauvin St-Denis, B., and Smith, T. J. resoterre (version 0.1.3.dev9). Ouranos." ;
-    ns3:branch "main" ;
-    ns3:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
-    ns3:type "git" .
+    ns5:branch "main" ;
+    ns5:revision "5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8" ;
+    ns5:type "git" .
 
 <docker://resoterre-inference:0.1.3.dev9> dcterms:description "Versioned OCI container that packages PyTorch, Snakemake, the workflow, and model dependencies." ;
     dcterms:format "application/vnd.oci.image.index.v1+json" ;
@@ -9269,9 +9269,9 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
     stac:hasAssetroles "mlm:inference-runtime"^^xsd:string,
         "runtime"^^xsd:string .
 
-<https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors> ns5:entrypoint "resoterre.ml.neural_networks_unet:UNet" ;
-    ns1:checksum "122090e4bbd8583de97cea555072b98479920d1c2c6949daa3254f3c771571cebf6b" ;
-    ns1:size 39526256 ;
+<https://huggingface.co/bstdenis/unet-rdps-to-hrdps-downscaling/blob/main/unet_epoch_mebojo_018.safetensors> ns3:entrypoint "resoterre.ml.neural_networks_unet:UNet" ;
+    ns2:checksum "122090e4bbd8583de97cea555072b98479920d1c2c6949daa3254f3c771571cebf6b" ;
+    ns2:size 39526256 ;
     dcterms:description "SafeTensors weights loaded by the resoterre U-Net implementation." ;
     dcterms:format "application/octet-stream; framework=pytorch" ;
     dcterms:title "Epoch 18 U-Net SafeTensors weights" ;
@@ -9282,26 +9282,26 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
         "weights"^^xsd:string ;
     mlm:artifact_type "safetensors.torch.save_file"^^xsd:string .
 
-<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml> ns1:checksum "1220386fc766bf6ab79ef6a9dd6f0ac3f706669bf09a037be02b87991b159af44136" ;
-    ns1:size 3606 ;
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml> ns2:checksum "1220386fc766bf6ab79ef6a9dd6f0ac3f706669bf09a037be02b87991b159af44136" ;
+    ns2:size 3606 ;
     dcterms:description "Configuration consumed by the Snakemake workflow." ;
     dcterms:format "application/yaml" ;
     dcterms:title "Training and inference configuration" ;
     stac:hasAssetroles "configuration"^^xsd:string,
         "metadata"^^xsd:string .
 
-<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference> ns5:languages "Dockerfile" ;
-    ns1:checksum "12201afe4cb941fb434e8fac2bd83a4ddf3a701993bd050a3bae82584e94b3b0824b" ;
-    ns1:size 1626 ;
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/docker/Dockerfile.inference> ns3:languages "Dockerfile" ;
+    ns2:checksum "12201afe4cb941fb434e8fac2bd83a4ddf3a701993bd050a3bae82584e94b3b0824b" ;
+    ns2:size 1626 ;
     dcterms:description "Generic Dockerfile used to build the inference container image." ;
     dcterms:format "text/x-dockerfile" ;
     dcterms:title "Inference container definition" ;
     stac:hasAssetroles "container"^^xsd:string .
 
-<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk> ns5:entrypoint "scripts/meta_workflows/downscaling/rdps_to_hrdps.smk" ;
-    ns5:languages "Python" ;
-    ns1:checksum "1220fbfe7b7f39796c9e378dc2522a82581ec9024781222327a5d75ba59dc3b32046" ;
-    ns1:size 1700 ;
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/scripts/meta_workflows/downscaling/rdps_to_hrdps.smk> ns3:entrypoint "scripts/meta_workflows/downscaling/rdps_to_hrdps.smk" ;
+    ns3:languages "Python" ;
+    ns2:checksum "1220fbfe7b7f39796c9e378dc2522a82581ec9024781222327a5d75ba59dc3b32046" ;
+    ns2:size 1700 ;
     dcterms:description "Executable Snakemake workflow that preprocesses RDPS data and runs downscaling inference." ;
     dcterms:format "text/x-snakemake" ;
     dcterms:title "RDPS-to-HRDPS Snakemake workflow" ;
@@ -9309,8 +9309,8 @@ uses Datacube and all the complementary extensions above except CF to demonstrat
         "mlm:source_code"^^xsd:string ;
     mlm:entrypoint "snakemake -s scripts/meta_workflows/downscaling/rdps_to_hrdps.smk --config config_yaml=/app/configs/downscaling/downscaling_rdps_to_hrdps_cwl.yaml -j1 --directory=/app"^^xsd:string .
 
-<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ns1:checksum "1220ffe80cd84de27fed65be4cd5289bcf00defe4553f2fc7086465228bec4d28476" ;
-    ns1:size 945 ;
+<https://raw.githubusercontent.com/Ouranosinc/resoterre/5d4d884a775fb84ea9b12404c47aefc5ee8d8fa8/CITATION.cff> ns2:checksum "1220ffe80cd84de27fed65be4cd5289bcf00defe4553f2fc7086465228bec4d28476" ;
+    ns2:size 945 ;
     dcterms:description "Citation File Format metadata for resoterre." ;
     dcterms:format "text/yaml" ;
     dcterms:title "Citation metadata" ;
@@ -9612,7 +9612,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.contrib.stac.extensions.mlm
   register: https://ogcincubator.github.io/bblocks-stac/build/register.json
   version: 1.6.0
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

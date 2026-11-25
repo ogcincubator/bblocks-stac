@@ -10,16 +10,16 @@
 <https://example.com/stac/vcs/item/vcs-example> a geojson:Feature ;
     dcterms:date "2025-01-01T00:00:00+00:00"^^xsd:dateTime ;
     dcterms:title "VCS extension example" ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://stac-extensions.github.io/vcs/v0.1.0/examples/item.json> ],
-        [ rdfs:label "Git source repository" ;
+    rdfs:seeAlso [ rdfs:label "Git source repository" ;
             ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/stac-extensions/vcs.git> ;
             vcs:branch "main"^^xsd:string ;
             vcs:revision "abc1234"^^xsd:string ;
             vcs:tag "v1.0.0"^^xsd:string ;
-            vcs:type "git"^^xsd:string ] ;
+            vcs:type "git"^^xsd:string ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://stac-extensions.github.io/vcs/v0.1.0/examples/item.json> ] ;
     stac:hasAsset [ ] ;
     stac:hasExtension "https://stac-extensions.github.io/vcs/v0.1.0/schema.json" ;
     stac:version "1.1.0" .

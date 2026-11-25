@@ -253,17 +253,17 @@ STAC File Info Extension for Items, Collections, Catalogs and Assets.
 <https://example.com/stac/file/catalog/examples> a <https://example.com/stac/file/catalog/Catalog> ;
     dcterms:description "This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items." ;
     dcterms:title "Example Catalog" ;
-    rdfs:seeAlso [ rdfs:label "Some item" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/file/catalog/catalog.json> ],
+        [ rdfs:label "Some item" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://example.com/stac/file/catalog/some-item.json> ;
             file:size "8675309"^^xsd:nonNegativeInteger ],
         [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/stac/file/catalog/catalog.json> ] ;
+            oa:hasTarget <https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json> ] ;
     stac:hasExtension "https://stac-extensions.github.io/file/v2.1.0/schema.json" ;
     stac:version "1.0.0" .
 
@@ -324,7 +324,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.contrib.stac.extensions.file
   register: https://ogcincubator.github.io/bblocks-stac/build/register.json
   version: 2.1.0
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 
