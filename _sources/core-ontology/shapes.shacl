@@ -23,7 +23,8 @@ stac:CollectionShape a sh:NodeShape ;
     sh:targetClass stac:Collection ;
     sh:property [ sh:path stac:id ;          sh:datatype xsd:string ; sh:maxCount 1 ] ;
     sh:property [ sh:path stac:description ; sh:datatype xsd:string ] ;
-    sh:property [ sh:path stac:license ;     sh:datatype xsd:string ; sh:maxCount 1 ] .
+    sh:property [ sh:path stac:license ;     sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path stac:hasAssetDefinition ; sh:class stac:Asset ] .
 
 stac:AssetShape a sh:NodeShape ;
     rdfs:label "STAC Asset shape" ;

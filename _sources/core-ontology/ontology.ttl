@@ -103,6 +103,13 @@ stac:hasAsset a owl:ObjectProperty ;
     rdfs:domain stac:Item ;
     rdfs:range stac:Asset .
 
+stac:hasAssetDefinition a owl:ObjectProperty ;
+    rdfs:isDefinedBy stac: ;
+    rdfs:label "has asset definition" ;
+    rdfs:comment "Links a Collection to an Asset template (STAC 'item_assets') describing the assets its Items are expected to have; unlike stac:hasAsset it has no href, since it does not point to an actual file." ;
+    rdfs:domain stac:Collection ;
+    rdfs:range stac:Asset .
+
 stac:mediaType a owl:DatatypeProperty ;
     rdfs:isDefinedBy stac: ;
     rdfs:label "media type" ;
