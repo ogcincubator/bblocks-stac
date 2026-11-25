@@ -25,33 +25,33 @@
 <http://cool-sat.com/catalog/datacube-123/data.nc> dcterms:format "application/netcdf" ;
     dcterms:title "netCDF Data cube" ;
     cube:dimensions [ cube:axis "z" ;
-            cube:type "spatial" ;
-            cube:unit "m" ;
-            cube:values ( 0 10 25 50 100 1000 ) ],
-        [ cube:axis "y" ;
-            cube:extent ( 3.748804e+01 3.761354e+01 ) ;
-            cube:reference_system 4326 ;
-            cube:type "spatial" ],
-        [ cube:type "temporal" ;
-            cube:values ( "2016-05-03T13:21:30.040Z" ) ],
-        [ cube:axis "z" ;
             cube:extent ( 0 1000 ) ;
             cube:step 100 ;
             cube:type "spatial" ;
             cube:unit "Pa" ],
+        [ cube:axis "z" ;
+            cube:type "spatial" ;
+            cube:unit "m" ;
+            cube:values ( 0 10 25 50 100 1000 ) ],
+        [ cube:type "temporal" ;
+            cube:values ( "2016-05-03T13:21:30.040Z" ) ],
+        [ cube:axis "y" ;
+            cube:extent ( 3.748804e+01 3.761354e+01 ) ;
+            cube:reference_system 4326 ;
+            cube:type "spatial" ],
         [ cube:axis "x" ;
             cube:extent ( -1.225975e+02 -1.22288e+02 ) ;
             cube:reference_system 4326 ;
             cube:type "spatial" ],
         [ cube:type "bands" ;
             cube:values ( "red" "green" "blue" ) ] ;
-    cube:variables [ cube:dimensions "pressure_levels",
+    cube:variables [ cube:type "auxiliary" ;
+            cube:values ( "red" "green" "blue" ) ],
+        [ cube:dimensions "pressure_levels",
                 "time",
                 "x",
                 "y" ;
-            cube:type "data" ],
-        [ cube:type "auxiliary" ;
-            cube:values ( "red" "green" "blue" ) ] .
+            cube:type "data" ] .
 
 <http://cool-sat.com/catalog/datacube-123/thumbnail.png> dcterms:format "image/png" ;
     dcterms:title "Thumbnail" .

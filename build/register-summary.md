@@ -59,11 +59,29 @@ Provides a framework for documentation and testing of additional extensions.
 
 **Type:** model
 
+### `ogc.contrib.stac.catalog` — STAC Catalog
+
+**Type:** schema
+
+A SpatioTemporal Asset Catalogs (STAC) catalog.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.
+
 ### `ogc.contrib.stac.components.assets` — Assets object
 
 **Type:** schema
 
 Assets sub-schema reused in items and collections
+
+### `ogc.contrib.stac.catalog-v1-0-0` — STAC Catalog (v1.0.0)
+
+**Type:** schema
+
+A SpatioTemporal Asset Catalogs (STAC) catalog, version 1.0.0.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.
+
+### `ogc.contrib.stac.catalog-v1-1-0` — STAC Catalog (v1.1.0)
+
+**Type:** schema
+
+A SpatioTemporal Asset Catalogs (STAC) catalog, version 1.1.0.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.
 
 ### `ogc.contrib.stac.collection` — STAC Collection
 

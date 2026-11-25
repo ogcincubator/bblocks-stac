@@ -1,10 +1,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix mlm: <https://w3id.org/ogc/stac/mlm/> .
-@prefix ns1: <raster:> .
-@prefix ns2: <ml-aoi:> .
-@prefix ns3: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns4: <classification:> .
+@prefix ns1: <https://w3id.org/ogc/stac/assets/> .
+@prefix ns2: <raster:> .
+@prefix ns3: <classification:> .
+@prefix ns4: <ml-aoi:> .
 @prefix ns5: <http://www.iana.org/assignments/> .
 @prefix ns6: <file:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -16,21 +16,21 @@
 <https://example.com/stac/mlm/example-8/model-multi-input> a geojson:Feature ;
     ns6:size 43000000 ;
     dcterms:description "Generic model that employs multiple input sources with different combination of bands, and some inputs without any band at all." ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
-            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
-        [ dcterms:type "application/geo+json" ;
+    rdfs:seeAlso [ dcterms:type "application/geo+json" ;
             ns5:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/stac/mlm/example-8/item_multi_io.json> ],
         [ dcterms:type "application/json" ;
+            ns5:relation <http://www.iana.org/assignments/relation/collection> ;
+            oa:hasTarget <https://example.com/stac/mlm/example-8/collection.json> ],
+        [ dcterms:type "application/json" ;
             ns5:relation <http://www.iana.org/assignments/relation/derived_from> ;
             oa:hasTarget <https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a> ;
-            ns2:split "train" ] ;
+            ns4:split "train" ] ;
     geojson:bbox ( -7.88219e+00 3.713739e+01 2.791165e+01 5.821798e+01 ) ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( -7.88219e+00 3.713739e+01 ) ( -7.88219e+00 5.821798e+01 ) ( 2.791165e+01 5.821798e+01 ) ( 2.791165e+01 3.713739e+01 ) ( -7.88219e+00 3.713739e+01 ) ) ) ] ;
     stac:end_datetime "9999-12-31T23:59:59+00:00"^^xsd:dateTime ;
-    stac:hasAsset [ ns3:weights <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ] ;
+    stac:hasAsset [ ns1:weights <https://huggingface.co/torchgeo/resnet50_sentinel2_rgb_moco/blob/main/resnet50_sentinel2_rgb_moco.pth> ] ;
     stac:hasExtension "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
         "https://stac-extensions.github.io/file/v1.0.0/schema.json",
         "https://stac-extensions.github.io/ml-aoi/v0.2.0/schema.json",
@@ -64,26 +64,26 @@
                 mlm:io_name "DEM" ] ) ;
     mlm:memory_size "1"^^xsd:nonNegativeInteger ;
     mlm:name "Resnet-18 Sentinel-2 ALL MOCO"^^xsd:string ;
-    mlm:output ( [ ns4:classes [ ns4:color_hint "00FF00" ;
-                        ns4:description "pixels where vegetation was detected" ;
-                        ns4:name "VEGETATION" ;
-                        ns4:value 1 ],
-                    [ ns4:description "background pixels" ;
-                        ns4:name "NON_VEGETATION" ;
-                        ns4:value 0 ] ;
+    mlm:output ( [ ns3:classes [ ns3:description "background pixels" ;
+                        ns3:name "NON_VEGETATION" ;
+                        ns3:value 0 ],
+                    [ ns3:color_hint "00FF00" ;
+                        ns3:description "pixels where vegetation was detected" ;
+                        ns3:name "VEGETATION" ;
+                        ns3:value 1 ] ;
                 mlm:io_name "vegetation-segmentation" ;
                 mlm:post_processing_function "null"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "uint8" ;
                         mlm:dim_order ( "batch" "class" ) ;
                         mlm:shape ( -1 1 ) ] ;
-                mlm:tasks ( mlm:semantic-segmentation ) ] [ ns4:classes [ ns4:color_hint "FFFFFF" ;
-                        ns4:description "background pixels" ;
-                        ns4:name "NON_VEGETATION" ;
-                        ns4:value 0 ],
-                    [ ns4:color_hint "000000" ;
-                        ns4:description "pixels where vegetation was detected" ;
-                        ns4:name "VEGETATION" ;
-                        ns4:value 1 ] ;
+                mlm:tasks ( mlm:semantic-segmentation ) ] [ ns3:classes [ ns3:color_hint "FFFFFF" ;
+                        ns3:description "background pixels" ;
+                        ns3:name "NON_VEGETATION" ;
+                        ns3:value 0 ],
+                    [ ns3:color_hint "000000" ;
+                        ns3:description "pixels where vegetation was detected" ;
+                        ns3:name "VEGETATION" ;
+                        ns3:value 1 ] ;
                 mlm:io_name "inverse-mask" ;
                 mlm:post_processing_function "{\"expression\":\"logical_not(A)\",\"format\":\"gdal-calc\"}"^^rdf:JSON ;
                 mlm:result [ mlm:data_type "uint8" ;
@@ -100,40 +100,40 @@
     stac:hasAssetroles "mlm:model"^^xsd:string,
         "mlm:weights"^^xsd:string ;
     mlm:artifact_type "torch.save"^^xsd:string ;
-    ns1:bands [ ns3:bits_per_sample 15 ;
-            ns3:common_name "green" ;
-            ns3:data_type "uint16" ;
-            ns3:name "B03" ;
-            ns3:nodata 0 ;
-            ns3:offset 0 ;
-            ns3:scale 1e-04 ;
-            ns3:spatial_resolution 10 ;
-            ns3:unit "m" ],
-        [ ns3:bits_per_sample 15 ;
-            ns3:common_name "red" ;
-            ns3:data_type "uint16" ;
-            ns3:name "B04" ;
-            ns3:nodata 0 ;
-            ns3:offset 0 ;
-            ns3:scale 1e-04 ;
-            ns3:spatial_resolution 10 ;
-            ns3:unit "m" ],
-        [ ns3:bits_per_sample 15 ;
-            ns3:common_name "blue" ;
-            ns3:data_type "uint16" ;
-            ns3:name "B02" ;
-            ns3:nodata 0 ;
-            ns3:offset 0 ;
-            ns3:scale 1e-04 ;
-            ns3:spatial_resolution 10 ;
-            ns3:unit "m" ],
-        [ ns3:bits_per_sample 15 ;
-            ns3:common_name "nir" ;
-            ns3:data_type "uint16" ;
-            ns3:name "B08" ;
-            ns3:nodata 0 ;
-            ns3:offset 0 ;
-            ns3:scale 1e-04 ;
-            ns3:spatial_resolution 10 ;
-            ns3:unit "m" ] .
+    ns2:bands [ ns1:bits_per_sample 15 ;
+            ns1:common_name "nir" ;
+            ns1:data_type "uint16" ;
+            ns1:name "B08" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:common_name "blue" ;
+            ns1:data_type "uint16" ;
+            ns1:name "B02" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:common_name "green" ;
+            ns1:data_type "uint16" ;
+            ns1:name "B03" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ],
+        [ ns1:bits_per_sample 15 ;
+            ns1:common_name "red" ;
+            ns1:data_type "uint16" ;
+            ns1:name "B04" ;
+            ns1:nodata 0 ;
+            ns1:offset 0 ;
+            ns1:scale 1e-04 ;
+            ns1:spatial_resolution 10 ;
+            ns1:unit "m" ] .
 

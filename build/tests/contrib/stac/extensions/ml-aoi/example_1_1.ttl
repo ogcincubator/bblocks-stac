@@ -2,13 +2,13 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ml-aoi: <https://w3id.org/ogc/stac/ml-aoi/> .
-@prefix ns1: <raster:> .
+@prefix ns1: <eo:> .
 @prefix ns2: <https://w3id.org/ogc/stac/assets/> .
-@prefix ns3: <file:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
 @prefix ns4: <label:> .
-@prefix ns5: <eo:> .
-@prefix ns6: <view:> .
-@prefix ns7: <http://www.iana.org/assignments/> .
+@prefix ns5: <view:> .
+@prefix ns6: <file:> .
+@prefix ns7: <raster:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,7 +16,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/stac/ml-aoi/item/EuroSAT-subset-train-sample-42-class-Residential> a geojson:Feature ;
-    ns5:bands [ ],
+    ns1:bands [ ],
         [ ],
         [ ],
         [ ],
@@ -33,35 +33,35 @@
     dcterms:description "Annotated sample from the EuroSAT-subset-train collection." ;
     dcterms:title "EuroSAT subset train sample 42 class Residential" ;
     rdfs:seeAlso [ dcterms:type "application/geo+json" ;
-            ns7:relation <http://www.iana.org/assignments/relation/self> ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/item-42.json> ],
+        [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
+        [ rdfs:label "Raster Residential_1331 with Residential class" ;
+            dcterms:type "image/tiff; application=geotiff" ;
+            ns3:relation <http://www.iana.org/assignments/relation/derived_from> ;
+            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ;
+            ml-aoi:role "feature"^^xsd:string ],
         [ rdfs:label "Preview of Residential_1331." ;
             dcterms:type "image/png" ;
-            ns7:relation <http://www.iana.org/assignments/relation/thumbnail> ;
+            ns3:relation <http://www.iana.org/assignments/relation/thumbnail> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/png/Residential/Residential_1331.png> ],
         [ rdfs:label "Raster Residential_1331 with Residential class" ;
             dcterms:type "image/tiff; application=geotiff" ;
-            ns7:relation <http://www.iana.org/assignments/relation/source> ;
+            ns3:relation <http://www.iana.org/assignments/relation/source> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ;
             ml-aoi:role "label"^^xsd:string ;
             ns4:assets "labels",
                 "raster" ],
         [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
             dcterms:type "application/json" ;
-            ns7:relation <http://www.iana.org/assignments/relation/collection> ;
+            ns3:relation <http://www.iana.org/assignments/relation/collection> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/collection.json> ;
             ml-aoi:split "train"^^xsd:string ],
-        [ dcterms:type "application/json" ;
-            ns7:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/catalog.json> ],
-        [ rdfs:label "Raster Residential_1331 with Residential class" ;
-            dcterms:type "image/tiff; application=geotiff" ;
-            ns7:relation <http://www.iana.org/assignments/relation/derived_from> ;
-            oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ;
-            ml-aoi:role "feature"^^xsd:string ],
         [ rdfs:label "EuroSAT STAC Collection with samples from 'train' split." ;
             dcterms:type "application/json" ;
-            ns7:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/stac/subset/train/collection.json> ;
             ml-aoi:split "train"^^xsd:string ] ;
     dcat:license "MIT" ;
@@ -87,39 +87,39 @@
     ns4:tasks "classification",
         "segmentation" ;
     ns4:type "vector" ;
-    ns6:off_nadir 0 .
+    ns5:off_nadir 0 .
 
-<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/label/Residential/Residential_1331.geojson> ns3:size 749 ;
+<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/label/Residential/Residential_1331.geojson> ns6:size 749 ;
     dcterms:format "application/geo+json" ;
     dcterms:title "Labels for image Residential_1331 with Residential class" ;
     stac:hasAssetroles "data"^^xsd:string ;
     ml-aoi:role "label"^^xsd:string .
 
-<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/png/Residential/Residential_1331.png> ns5:bands [ ns2:center_wavelength 6.645e-01 ;
+<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/png/Residential/Residential_1331.png> ns1:bands [ ns2:center_wavelength 6.645e-01 ;
             ns2:common_name "red" ;
             ns2:full_width_half_max 3.8e-02 ;
             ns2:name "B04" ],
-        [ ns2:center_wavelength 4.966e-01 ;
-            ns2:common_name "blue" ;
-            ns2:full_width_half_max 9.8e-02 ;
-            ns2:name "B02" ],
         [ ns2:center_wavelength 5.6e-01 ;
             ns2:common_name "green" ;
             ns2:full_width_half_max 4.5e-02 ;
-            ns2:name "B03" ] ;
-    ns3:size 6984 ;
+            ns2:name "B03" ],
+        [ ns2:center_wavelength 4.966e-01 ;
+            ns2:common_name "blue" ;
+            ns2:full_width_half_max 9.8e-02 ;
+            ns2:name "B02" ] ;
+    ns6:size 6984 ;
     dcterms:format "image/png" ;
     dcterms:title "Preview of Residential_1331." ;
     stac:hasAssetroles "thumbnail"^^xsd:string,
         "visual"^^xsd:string .
 
-<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ns3:size 107244 ;
+<https://raw.githubusercontent.com/ai-extensions/stac-data-loader/0.5.0/data/EuroSAT/data/subset/ds/images/remote_sensing/otherDatasets/sentinel_2/tif/Residential/Residential_1331.tif> ns6:size 107244 ;
     dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "Raster Residential_1331 with Residential class" ;
     stac:hasAssetroles "data"^^xsd:string ;
     ml-aoi:reference-grid true ;
     ml-aoi:role "feature"^^xsd:string ;
-    ns1:bands [ ns2:data_type "uint16" ;
+    ns7:bands [ ns2:data_type "uint16" ;
             ns2:nodata 0 ;
             ns2:spatial_resolution 10 ;
             ns2:unit "m" ],

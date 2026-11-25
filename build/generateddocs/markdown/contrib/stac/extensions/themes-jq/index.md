@@ -602,8 +602,8 @@ A knowledge organization system used to classify the resource (controlled vocabu
     stac:hasAsset [ ns2:data <https://example.com/stac/themes/example-2/example.file> ] ;
     stac:hasExtension "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "wiki::Syncline" ],
-                [ thns:id "wiki::Summer" ] ;
+    rec:themes [ thns:concepts [ thns:id "wiki::Summer" ],
+                [ thns:id "wiki::Syncline" ] ;
             thns:scheme "https://en.wikipedia.org" ],
         [ thns:concepts [ thns:id "geonames::3017382" ],
                 [ thns:id "geonames::11071625" ],

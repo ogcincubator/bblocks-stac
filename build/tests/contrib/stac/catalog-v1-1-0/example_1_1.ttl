@@ -1,0 +1,33 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+
+<https://example.com/stac/example1/examples> a stac:Catalog ;
+    dcterms:description "This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items." ;
+    dcterms:title "Example Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Item that does not have a collection (not recommended, but allowed by the spec)" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://example.com/stac/example1/collectionless-item.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/stac/example1/catalog.json> ],
+        [ rdfs:label "Collection Demonstrating STAC Extensions" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/example1/extensions-collection/collection.json> ],
+        [ rdfs:label "Collection with no items (standalone)" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/example1/collection-only/collection.json> ],
+        [ rdfs:label "Collection with no items (standalone with JSON Schemas)" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/stac/example1/collection-only/collection-with-schemas.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://raw.githubusercontent.com/radiantearth/stac-spec/v1.1.0/examples/catalog.json> ] ;
+    stac:version "1.1.0" .
+

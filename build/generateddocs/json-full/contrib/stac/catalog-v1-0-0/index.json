@@ -1,0 +1,82 @@
+
+
+{
+  "itemIdentifier": "ogc.contrib.stac.catalog-v1-0-0",
+  "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/master/ogc/bblocks/metadata-schema.yaml",
+  "name": "STAC Catalog (v1.0.0)",
+  "highlighted": true,
+  "group": "STAC Core",
+  "abstract": "A SpatioTemporal Asset Catalogs (STAC) catalog, version 1.0.0.  This building block implements validation of examples using the canonical schema and a JSON-LD context to a map to a RDF format that can support richer logical constraints and integration with related data.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-22T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-incubator-building-block-register",
+  "version": "1.0.0",
+  "dateOfLastChange": "2026-11-25",
+  "sources": [
+    {
+      "title": "STAC Specification",
+      "link": "https://stacspec.org/en/about/stac-spec/"
+    }
+  ],
+  "scope": "contrib",
+  "tags": [
+    "stac",
+    "catalog"
+  ],
+  "shaclShapes": {
+    "ogc.contrib.stac.catalog": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/catalog/shapes.shacl"
+    ],
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.contrib.stac.catalog"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog-v1-0-0/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog-v1-0-0/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-stac/_sources/catalog-v1-0-0/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog-v1-0-0/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog-v1-0-0/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-stac/_sources/catalog-v1-0-0/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-stac/blob/master/build/tests/contrib/stac/catalog-v1-0-0/",
+  "examples": [
+    {
+      "title": "STAC Catalog v1.0.0",
+      "content": "Ref to STAC example using version (1.0.0)",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json",
+          "base-uri": "https://example.com/stac/example1/",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/catalog-v1-0-0/example_1_1.json",
+          "sizeBytes": 1269,
+          "code": "{\n  \"id\": \"examples\",\n  \"type\": \"Catalog\",\n  \"title\": \"Example Catalog\",\n  \"stac_version\": \"1.0.0\",\n  \"description\": \"This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.\",\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"./catalog.json\",\n      \"type\": \"application/json\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"./extensions-collection/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection Demonstrating STAC Extensions\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"./collection-only/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection with no items (standalone)\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"./collection-only/collection-with-schemas.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection with no items (standalone with JSON Schemas)\"\n    },\n    {\n      \"rel\": \"item\",\n      \"href\": \"./collectionless-item.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection with no items (standalone)\"\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json\",\n      \"type\": \"application/json\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/catalog-v1-0-0/example_1_1.jsonld",
+          "sizeBytes": 1388,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog-v1-0-0/context.jsonld\",\n  \"id\": \"examples\",\n  \"type\": \"Catalog\",\n  \"title\": \"Example Catalog\",\n  \"stac_version\": \"1.0.0\",\n  \"description\": \"This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.\",\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"./catalog.json\",\n      \"type\": \"application/json\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"./extensions-collection/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection Demonstrating STAC Extensions\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"./collection-only/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection with no items (standalone)\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"./collection-only/collection-with-schemas.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection with no items (standalone with JSON Schemas)\"\n    },\n    {\n      \"rel\": \"item\",\n      \"href\": \"./collectionless-item.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Collection with no items (standalone)\"\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json\",\n      \"type\": \"application/json\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-stac/build/tests/contrib/stac/catalog-v1-0-0/example_1_1.ttl",
+          "sizeBytes": 2128,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n\n<https://example.com/stac/example1/examples> a stac:Catalog ;\n    dcterms:description \"This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.\" ;\n    dcterms:title \"Example Catalog\" ;\n    rdfs:seeAlso [ rdfs:label \"Collection with no items (standalone)\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://example.com/stac/example1/collectionless-item.json> ],\n        [ dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://example.com/stac/example1/catalog.json> ],\n        [ rdfs:label \"Collection with no items (standalone)\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/child> ;\n            oa:hasTarget <https://example.com/stac/example1/collection-only/collection.json> ],\n        [ dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://raw.githubusercontent.com/radiantearth/stac-spec/v1.0.0/examples/catalog.json> ],\n        [ rdfs:label \"Collection with no items (standalone with JSON Schemas)\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/child> ;\n            oa:hasTarget <https://example.com/stac/example1/collection-only/collection-with-schemas.json> ],\n        [ rdfs:label \"Collection Demonstrating STAC Extensions\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/child> ;\n            oa:hasTarget <https://example.com/stac/example1/extensions-collection/collection.json> ] ;\n    stac:version \"1.0.0\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: STAC Catalog V1.0.0\nallOf:\n- $ref: https://schemas.stacspec.org/v1.0.0/catalog-spec/json-schema/catalog.json\n- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog/schema.yaml\n- type: object\n  properties:\n    stac_version:\n      title: STAC version\n      type: string\n      const: 1.0.0\n  required:\n  - stac_version\nx-bblocks-metadata:\n  itemIdentifier: ogc.contrib.stac.catalog-v1-0-0\n  register: https://ogcincubator.github.io/bblocks-stac/build/register.json\n  version: 1.0.0\n  dateOfLastChange: '2026-11-25'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
+  "gitPath": "_sources/catalog-v1-0-0"
+}

@@ -1,0 +1,18 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: STAC Catalog V1.1.0
+allOf:
+- $ref: https://schemas.stacspec.org/v1.1.0/catalog-spec/json-schema/catalog.json
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/catalog/schema.yaml
+- type: object
+  properties:
+    stac_version:
+      title: STAC version
+      type: string
+      const: 1.1.0
+  required:
+  - stac_version
+x-bblocks-metadata:
+  itemIdentifier: ogc.contrib.stac.catalog-v1-1-0
+  register: https://ogcincubator.github.io/bblocks-stac/build/register.json
+  version: 1.1.0
+  dateOfLastChange: '2026-11-25'

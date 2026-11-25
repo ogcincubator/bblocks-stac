@@ -1,0 +1,145 @@
+Validation report for ogc.contrib.stac.catalog - STAC Catalog
+Generated 2026-11-25T02:48:58.360694+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using catalog-without-links-fail.json from test resources
+JSON-LD context is present - uplifting
+Output JSON-LD catalog-without-links-fail.jsonld created
+Output Turtle catalog-without-links-fail.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'links' is a required property
+
+Failed validating 'required' in schema['allOf'][0]:
+    {'title': 'STAC Catalog',
+     'description': 'These are the fields specific to a STAC Catalog.',
+     'type': 'object',
+     '$comment': 'title and description are validated through the common '
+                 'metadata. stac_version is required by the '
+                 'version-specific building blocks.',
+     'required': ['type', 'id', 'description', 'links'],
+     'properties': {'stac_extensions': {'title': 'STAC extensions',
+                                        'type': 'array',
+                                        'uniqueItems': True,
+                                        'items': {'title': 'Reference to a '
+                                                           'JSON Schema',
+                                                  'type': 'string',
+                                                  'format': 'iri'},
+                                        'x-jsonld-id': 'https://w3id.org/ogc/stac/core/hasExtension'},
+                    'type': {'title': 'Type of STAC entity',
+                             'const': 'Catalog',
+                             'x-jsonld-id': '@type'},
+                    'id': {'title': 'Identifier',
+                           'type': 'string',
+                           'minLength': 1,
+                           'x-jsonld-id': '@id'},
+                    'links': {'type': 'array',
+                              'items': {'$ref': 'https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml'},
+                              'x-jsonld-id': 'http://www.w3.org/2000/01/rdf-schema#seeAlso'}}}
+
+On instance:
+    {'id': 'examples',
+     'type': 'Catalog',
+     'title': 'Example Catalog',
+     'stac_version': '1.1.0',
+     'description': 'This catalog is a simple demonstration of an example '
+                    'catalog that is used to organize a hierarchy of '
+                    'collections and their items.'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):
+ - /github/workspace/_sources/core-ontology/ontology.ttl
+ - https://www.w3.org/ns/prov-o
+Validation result for _sources/catalog/shapes.shacl: 2 warnings
+
+** Validation warning **
+Warning (sh:QualifiedMinCountConstraintComponent):
+  Source shape: stac:CatalogJsonShape/sh:property (path rdfs:seeAlso)
+  Focus node: <file:///github/workspace/examples>
+  Result path: rdfs:seeAlso
+  Message: A self link is STRONGLY RECOMMENDED for a STAC Catalog.
+
+** Validation warning **
+Warning (sh:QualifiedMinCountConstraintComponent):
+  Source shape: stac:CatalogJsonShape/sh:property (path rdfs:seeAlso)
+  Focus node: <file:///github/workspace/examples>
+  Result path: rdfs:seeAlso
+  Message: A root link is STRONGLY RECOMMENDED for a STAC Catalog.
+Focus nodes for _sources/catalog/shapes.shacl:
+ - Shape stac:CatalogJsonShape: <file:///github/workspace/examples>
+
+Validation result for _sources/core-ontology/shapes.shacl: no results
+Focus nodes for _sources/core-ontology/shapes.shacl:
+ - Shape stac:LinkShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:CatalogShape: <file:///github/workspace/examples>
+ - Shape stac:AssetShape: *none*
+ - Shape stac:CollectionShape: *none*
+
+Validation result for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl: no results
+Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/prov/#prop-invalidated>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadRole>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-alternateOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadPrimarySource>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadUsage>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedUsage>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-activity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Bundle-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasRevisionOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-entity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Collection-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadMember>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#End-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Usage-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-influencer>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadGeneration>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-agent>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasAttributedTo>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadActivity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Plan-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-used>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Start-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-specializationOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasStartedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#EmptyCollection-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedStart>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Invalidation-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Generation-shape>: *none*
+
+=== End SHACL ===
+
