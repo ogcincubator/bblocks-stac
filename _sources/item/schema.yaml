@@ -6,7 +6,7 @@ allOf:
   - $ref: bblocks://ogc.api.records.v1.schemas.recordGeoJSON
   - $ref: "#/definitions/core"
   - $ref: bblocks://ogc.contrib.stac.components.assets
-  - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
+  - "$ref": https://schemas.stacspec.org/v1.1.0/item-spec/json-schema/common.json
 definitions:
   core:
     allOf:
@@ -59,7 +59,7 @@ definitions:
           "$ref": "#/definitions/links"
         properties:
           allOf:
-          - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
+          - "$ref": https://schemas.stacspec.org/v1.1.0/item-spec/json-schema/common.json
           - anyOf:
             - required:
               - datetime
@@ -118,7 +118,7 @@ definitions:
           "$comment": "... otherwise bands are allowed in properties."
           properties:
             properties:
-              "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/bands.json
+              "$ref": https://schemas.stacspec.org/v1.1.0/item-spec/json-schema/bands.json
   links:
     title: Item links
     description: Links to item relations
@@ -175,6 +175,6 @@ definitions:
         properties:
           href:
             format: iri
-    - "$ref": https://raw.githubusercontent.com/radiantearth/stac-spec/master/item-spec/json-schema/common.json
+    - "$ref": https://schemas.stacspec.org/v1.1.0/item-spec/json-schema/common.json
 
 
